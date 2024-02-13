@@ -3,15 +3,15 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class ChessboardController extends AbstractController
 {
-    public function index(): JsonResponse
+    public function index(): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/ChessboardController.php',
+        $fooBar = 'foobar';
+        return $this->render('chessboard/classical.html.twig', [
+            'foo_bar' => $fooBar,
         ]);
     }
 }
