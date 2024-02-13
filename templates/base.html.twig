@@ -15,30 +15,88 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{{ path('chessboard_classical') }}">ChesslaBlab</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Chessboard
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownChessboardLink">
+                <li><a class="dropdown-item" href="#">Classical</a></li>
+                <li><a class="dropdown-item" href="#">Fischer Random</a></li>
+                <li><a class="dropdown-item" href="#">Capablanca</a></li>
+                <li><a class="dropdown-item" href="#">Capablanca-Fischer</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">SAN Movetext</a></li>
+                <li><a class="dropdown-item" href="#">RAV Movetext</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">FEN String</a></li>
+              </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Play
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
+                <li><a class="dropdown-item" href="#">Play Online</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Play Computer</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Play a Friend</a></li>
+                <li><a class="dropdown-item" href="#">Enter Invite Code</a></li>
               </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Database
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownDatabaseLink">
+                <li><a class="dropdown-item" href="#">Search Games</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Top 50 Openings</a></li>
+                <li><a class="dropdown-item" href="#">Players Stats</a></li>
+                <li><a class="dropdown-item" href="#">Events Stats</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Annotated Games</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Openings
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
+                <li><a class="dropdown-item" href="#">ECO Code</a></li>
+                <li><a class="dropdown-item" href="#">SAN Movetext</a></li>
+                <li><a class="dropdown-item" href="#">Name</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Training
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrainingLink">
+                <li><a class="dropdown-item" href="#">Endgame Skills</a></li>
+                <li><a class="dropdown-item" href="#">Checkmate Skills</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInboxLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Inbox
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownInboxLink">
+                <li><a class="dropdown-item" href="#">Create Inbox</a></li>
+                <li><a class="dropdown-item" href="#">Read Inbox</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
             </li>
           </ul>
         </div>
