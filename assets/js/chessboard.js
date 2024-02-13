@@ -1,25 +1,30 @@
-import {Chessboard} from "https://cdn.jsdelivr.net/npm/cm-chessboard@8/src/Chessboard.js"
-import {FEN} from "https://cdn.jsdelivr.net/npm/cm-chessboard@8/src/Chessboard.js"
-import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
+import {INPUT_EVENT_TYPE, Chessboard} from "../cm-chessboard/Chessboard.js";
+import {FEN} from "../cm-chessboard/model/Position.js"
+import {Markers} from "../cm-chessboard/extensions/markers/Markers.js"
 
-const chess = new Chess()
-const board = new Chessboard(document.getElementById("board"), {
+window.board = new Chessboard(document.getElementById("board"), {
+    position: FEN.start,
     assetsUrl: "../cm-chessboard/",
-    position: FEN.start
+    style: {pieces: {file: "pieces/staunty.svg"}},
+    extensions: [{class: Markers}]
 })
-const interval = setInterval(() => {
-    makeRandomMove()
-    board.setPosition(chess.fen(), true)
-}, 500)
-function makeRandomMove() {
-    if(chess.game_over()) {
-        chess.reset()
+
+window.board.enableMoveInput(inputHandler)
+
+function inputHandler(event) {
+    console.log(event)
+    switch (event.type) {
+        case INPUT_EVENT_TYPE.moveInputStarted:
+            return true // false cancels move
+        case INPUT_EVENT_TYPE.validateMoveInput:
+            return true // false cancels move
+        case INPUT_EVENT_TYPE.moveInputCanceled:
+            break
+        case INPUT_EVENT_TYPE.moveInputFinished:
+            break
+        case INPUT_EVENT_TYPE.movingOverSquare:
+            break
     }
-    const possibleMoves = chess.moves()
-    if (possibleMoves.length === 0) {
-        clearInterval(interval)
-        return
-    }
-    const randomIndex = Math.floor(Math.random() * possibleMoves.length)
-    chess.move(possibleMoves[randomIndex])
 }
+
+const output = document.getElementById("output")
