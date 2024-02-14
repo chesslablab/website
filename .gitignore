@@ -14,5 +14,12 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
+### ssl certs
+/docker/nginx/ssl/*.pem
+/docker/nginx/ssl/*.csr
+/docker/nginx/ssl/*.crt
+/docker/nginx/ssl/*.key
+
+### misc
 /composer.lock
 .env
