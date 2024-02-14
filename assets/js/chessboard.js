@@ -4,7 +4,7 @@ import {Markers} from "../vendor/cm-chessboard/src/extensions/markers/Markers.js
 
 window.board = new Chessboard(document.getElementById("board"), {
   position: FEN.start,
-  assetsUrl: "../cm-chessboard/",
+  assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
   style: {pieces: {file: "pieces/staunty.svg"}},
   extensions: [{class: Markers}]
 })
