@@ -25,16 +25,24 @@ Create an `.env` file:
 cp .env.example .env
 ```
 
-Download assets:
+Download the assets:
 
 ```text
 php bin/console importmap:install
 ```
 
-Compile assets:
+Compile the assets:
 
 ```text
 php bin/console asset-map:compile
+```
+
+## Run the MPA on a Docker Container
+
+First things first, make sure to have created the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder. Then run the MPA:
+
+```text
+docker-compose up -d
 ```
 
 ### License
