@@ -7,13 +7,13 @@ A server-side rendered (SSR) multi-page app (MPA) to learn and play chess online
 
 ### Install and Setup
 
-Clone the `chesslablab/chess-mpa` repo into your projects folder as it is described in the following example:
+Clone the `chesslablab/mpablab` repo into your projects folder as it is described in the following example:
 
 ```text
-git clone git@github.com:chesslablab/chess-mpa.git
+git clone git@github.com:chesslablab/mpablab.git
 ```
 
-Then `cd` the `chess-mpa` directory and install the Composer dependencies:
+Then `cd` the `mpablab` directory and install the Composer dependencies:
 
 ```text
 composer install
@@ -47,10 +47,10 @@ docker-compose up -d
 
 ### License
 
-The [MIT License](https://github.com/chesslablab/chess-mpa/blob/master/LICENSE).
+The [MIT License](https://github.com/chesslablab/mpablab/blob/master/LICENSE).
 
 ### Contributions
 
-See the [contributing guidelines](https://github.com/chesslablab/chess-mpa/blob/master/CONTRIBUTING.md).
+See the [contributing guidelines](https://github.com/chesslablab/mpablab/blob/master/CONTRIBUTING.md).
 
 Happy learning and coding!
