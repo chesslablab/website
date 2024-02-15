@@ -42,6 +42,9 @@ return [
     'cm-chessboard/src/extensions/persistence/Persistence' => [
         'version' => '8.5.0',
     ],
+    'cm-chessboard/src/extensions/promotion-dialog/PromotionDialog' => [
+        'version' => '8.5.0',
+    ],
     'cm-chessboard/src/lib/Svg' => [
         'version' => '8.5.0',
     ],
