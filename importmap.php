@@ -18,6 +18,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'js/chessboard/classical' => [
+        'path' => './assets/js/chessboard/classical/index.js',
+        'entrypoint' => true,
+    ],
+    'js/chessboard/fischer_random' => [
+        'path' => './assets/js/chessboard/fischer_random/index.js',
+        'entrypoint' => true,
+    ],
     'cm-chessboard' => [
         'version' => '8.5.0',
     ],
@@ -74,6 +82,9 @@ return [
     ],
     '@popperjs/core' => [
         'version' => '2.11.8',
+    ],
+    'bootstrap/dist/js/bootstrap.bundle.min.js' => [
+        'version' => '5.3.2',
     ],
     'bootstrap/dist/css/bootstrap.min.css' => [
         'version' => '5.3.2',
