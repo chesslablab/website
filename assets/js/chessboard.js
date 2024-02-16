@@ -4,22 +4,6 @@ import {MARKER_TYPE, Markers} from "../vendor/cm-chessboard/src/extensions/marke
 import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js"
 import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
 
-const chess = new Chess()
-
-const board = new Chessboard(document.getElementById("board"), {
-  position: chess.fen(),
-  assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
-  style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
-  orientation: COLOR.white,
-  extensions: [
-    {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
-    {class: PromotionDialog},
-    {class: Accessibility, props: {visuallyHidden: true}}
-  ]
-})
-
-board.enableMoveInput(inputHandler)
-
 function inputHandler(event) {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
     return // ignore this event
@@ -66,3 +50,19 @@ function inputHandler(event) {
     return result
   }
 }
+
+const chess = new Chess()
+
+const board = new Chessboard(document.getElementById("board"), {
+  position: chess.fen(),
+  assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
+  style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
+  orientation: COLOR.white,
+  extensions: [
+    {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
+    {class: PromotionDialog},
+    {class: Accessibility, props: {visuallyHidden: true}}
+  ]
+})
+
+board.enableMoveInput(inputHandler)
