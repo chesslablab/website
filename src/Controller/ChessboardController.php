@@ -14,4 +14,12 @@ class ChessboardController extends AbstractController
             'foo_bar' => $fooBar,
         ]);
     }
+
+    public function fischerRandom(): Response
+    {
+        $fooBar = 'foobar';
+        return $this->render('chessboard/fischer_random.html.twig', [
+            'foo_bar' => $fooBar,
+        ]);
+    }
 }
