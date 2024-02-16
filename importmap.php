@@ -18,6 +18,10 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'js/chessboard/classical' => [
+        'path' => './assets/js/chessboard/classical/index.js',
+        'entrypoint' => true,
+    ],
     'cm-chessboard' => [
         'version' => '8.5.0',
     ],
