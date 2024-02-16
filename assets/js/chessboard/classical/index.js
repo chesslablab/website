@@ -5,7 +5,7 @@ import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../../../vendor/cm-
 import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
 import Ws from './Ws.js';
 
-function inputHandler(event) {
+const inputHandler = async (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
     return // ignore this event
   }
@@ -35,18 +35,20 @@ function inputHandler(event) {
       let possibleMoves = chess.moves({square: event.squareFrom, verbose: true})
       for (const possibleMove of possibleMoves) {
         if (possibleMove.promotion && possibleMove.to === event.squareTo) {
-          event.chessboard.showPromotionDialog(event.squareTo, event.piece.charAt(0), (result) => {
+          event.chessboard.showPromotionDialog(event.squareTo, event.piece.charAt(0), async (result) => {
             if (result.type === PROMOTION_DIALOG_RESULT_TYPE.pieceSelected) {
               chess.move({from: event.squareFrom, to: event.squareTo, promotion: result.piece.charAt(1)})
-              event.chessboard.setPosition(chess.fen(), true)
             } else {
               chess.move({from: event.squareFrom, to: event.squareTo, promotion: 'q'})
-              event.chessboard.setPosition(chess.fen(), true)
             }
+            event.chessboard.setPosition(chess.fen(), true)
+            await ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`)
           })
           return true
         }
       }
+    } else {
+      await ws.send(`/play_lan ${result.color} ${result.from}${result.to}`)
     }
     return result
   }

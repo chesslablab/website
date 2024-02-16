@@ -39,6 +39,7 @@ export default class Ws {
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
               console.log('Played LAN!');
+              console.log(data['/play_lan']);
             }
             break;
 
