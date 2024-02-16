@@ -5,7 +5,9 @@ import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../../../vendor/cm-
 import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
 import Ws from './Ws.js';
 
-const inputHandler = async (event) => {
+const chess = new Chess()
+
+const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
     return // ignore this event
   }
@@ -35,26 +37,25 @@ const inputHandler = async (event) => {
       let possibleMoves = chess.moves({square: event.squareFrom, verbose: true})
       for (const possibleMove of possibleMoves) {
         if (possibleMove.promotion && possibleMove.to === event.squareTo) {
-          event.chessboard.showPromotionDialog(event.squareTo, event.piece.charAt(0), async (result) => {
+          event.chessboard.showPromotionDialog(event.squareTo, event.piece.charAt(0), (result) => {
             if (result.type === PROMOTION_DIALOG_RESULT_TYPE.pieceSelected) {
               chess.move({from: event.squareFrom, to: event.squareTo, promotion: result.piece.charAt(1)})
+              ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}${result.piece.charAt(1)}`)
             } else {
               chess.move({from: event.squareFrom, to: event.squareTo, promotion: 'q'})
+              ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}q`)
             }
             event.chessboard.setPosition(chess.fen(), true)
-            await ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`)
           })
           return true
         }
       }
     } else {
-      await ws.send(`/play_lan ${result.color} ${result.from}${result.to}`)
+      ws.send(`/play_lan ${result.color} ${result.from}${result.to}`)
     }
     return result
   }
 }
-
-const chess = new Chess()
 
 const board = new Chessboard(document.getElementById("board"), {
   position: chess.fen(),
@@ -71,7 +72,5 @@ const board = new Chessboard(document.getElementById("board"), {
 board.enableMoveInput(inputHandler)
 
 const ws = new Ws()
-
-await ws.connect();
-
-await ws.send('/start classical fen');
+await ws.connect()
+await ws.send('/start classical fen')
