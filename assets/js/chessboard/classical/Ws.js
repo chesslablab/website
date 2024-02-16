@@ -1,8 +1,8 @@
-import * as modeConst from '../../../modeConst.js'
+import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
   constructor() {
-    this.socket = null
+    this.socket = null;
   }
 
   connect() {
@@ -68,7 +68,7 @@ export default class Ws {
 
   send(message) {
     if (this.socket) {
-      this.socket.send(message)
+      this.socket.send(message);
     }
   }
 }
