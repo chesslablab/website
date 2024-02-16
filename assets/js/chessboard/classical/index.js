@@ -3,6 +3,7 @@ import {Accessibility} from "../../../vendor/cm-chessboard/src/extensions/access
 import {MARKER_TYPE, Markers} from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js"
 import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../../../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js"
 import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
+import Ws from './Ws.js';
 
 function inputHandler(event) {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -66,3 +67,9 @@ const board = new Chessboard(document.getElementById("board"), {
 })
 
 board.enableMoveInput(inputHandler)
+
+const ws = new Ws()
+
+await ws.connect();
+
+await ws.send('/start classical fen');
