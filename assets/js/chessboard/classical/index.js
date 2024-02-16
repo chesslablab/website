@@ -1,7 +1,7 @@
 import {INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE} from "cm-chessboard"
-import {Accessibility} from "../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js"
-import {MARKER_TYPE, Markers} from "../vendor/cm-chessboard/src/extensions/markers/Markers.js"
-import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js"
+import {Accessibility} from "../../../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js"
+import {MARKER_TYPE, Markers} from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js"
+import {PROMOTION_DIALOG_RESULT_TYPE, PromotionDialog} from "../../../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js"
 import {Chess} from "https://cdn.jsdelivr.net/npm/chess.mjs@1/src/chess.mjs/Chess.js"
 
 function inputHandler(event) {
