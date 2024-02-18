@@ -1,7 +1,9 @@
+import {MARKER_TYPE} from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor() {
+  constructor(chessboard) {
+    this.chessboard = chessboard;
     this.socket = null;
   }
 
@@ -36,10 +38,17 @@ export default class Ws {
             }
             break;
 
+          case '/legal' === msg:
+            if (data['/legal']) {
+              Object.keys(data['/legal'].fen).forEach(key => {
+                this.chessboard.addMarker(MARKER_TYPE.dot, key);
+              });
+            }
+            break;
+
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
-              console.log('Played LAN!');
-              console.log(data['/play_lan']);
+              this.chessboard.setPosition(data['/play_lan'].fen, true);
             }
             break;
 
