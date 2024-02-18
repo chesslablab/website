@@ -20,7 +20,7 @@ const inputHandler = (event) => {
     return true;
   } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
     ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
-    return false;
+    return true;
   }
 }
 
