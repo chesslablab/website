@@ -1,9 +1,10 @@
-import {MARKER_TYPE} from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
+import { MARKER_TYPE } from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor(chessboard) {
+  constructor(chessboard, sanMovesTable) {
     this.chessboard = chessboard;
+    this.sanMovesTable = sanMovesTable;
     this.socket = null;
   }
 
@@ -48,7 +49,16 @@ export default class Ws {
 
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
+              let settings = this.sanMovesTable.getSettings();
+              let fen = settings.fen;
+              fen.push(data['/play_lan'].fen);
               this.chessboard.setPosition(data['/play_lan'].fen, true);
+              this.sanMovesTable.setSettings({
+                ...settings,
+                movetext: data['/play_lan'].movetext,
+                fen: fen
+              })
+              .render();
             }
             break;
 
