@@ -2,9 +2,10 @@ import { MARKER_TYPE } from "../../../vendor/cm-chessboard/src/extensions/marker
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor(chessboard, sanMovesTable) {
+  constructor(chessboard, sanMovesTable, openingTable) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
+    this.openingTable = openingTable;
     this.socket = null;
   }
 
@@ -60,6 +61,7 @@ export default class Ws {
                 };
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
                 this.sanMovesTable.render();
+                this.openingTable.render();
               }
             }
             break;
