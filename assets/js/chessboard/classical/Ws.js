@@ -49,16 +49,16 @@ export default class Ws {
 
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
-              let settings = this.sanMovesTable.getSettings();
-              let fen = settings.fen;
-              fen.push(data['/play_lan'].fen);
               this.chessboard.setPosition(data['/play_lan'].fen, true);
-              this.sanMovesTable.setSettings({
-                ...settings,
+              let fen = this.sanMovesTable.settings.fen;
+              fen.push(data['/play_lan'].fen);
+              this.sanMovesTable.settings = {
+                ...this.sanMovesTable.settings,
                 movetext: data['/play_lan'].movetext,
                 fen: fen
-              })
-              .render();
+              };
+              this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
+              this.sanMovesTable.render();
             }
             break;
 
