@@ -45,7 +45,9 @@ const sanMovesTable = new SanMovesTable(
     chessboard: chessboard,
     inputHandler: inputHandler,
     movetext: '',
-    fen: []
+    fen: [
+      FEN.start
+    ]
   }
 );
 
