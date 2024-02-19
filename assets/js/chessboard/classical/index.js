@@ -1,8 +1,9 @@
-import {INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE} from "cm-chessboard";
-import {Accessibility} from "../../../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";
-import {MARKER_TYPE, Markers} from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
-import {FEN} from "../../../vendor/cm-chessboard/src/model/Position.js";
-import {PromotionDialog} from "../../../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js";
+import { SanMovesTable } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.2/src/index.min.js";
+import { INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE } from "cm-chessboard";
+import { Accessibility } from "../../../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";
+import { MARKER_TYPE, Markers } from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
+import { FEN } from "../../../vendor/cm-chessboard/src/model/Position.js";
+import { PromotionDialog } from "../../../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js";
 import Ws from './Ws.js';
 
 const inputHandler = (event) => {
@@ -24,7 +25,7 @@ const inputHandler = (event) => {
   }
 }
 
-const board = new Chessboard(document.getElementById("board"), {
+const chessboard = new Chessboard(document.getElementById("board"), {
   position: FEN.start,
   assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
   style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
@@ -36,8 +37,20 @@ const board = new Chessboard(document.getElementById("board"), {
   ]
 });
 
-board.enableMoveInput(inputHandler);
+chessboard.enableMoveInput(inputHandler);
 
-const ws = new Ws(board);
+const sanMovesTable = new SanMovesTable(
+  document.querySelector('#sanMovesTable tbody'),
+  {
+    chessboard: chessboard,
+    inputHandler: inputHandler,
+    movetext: '',
+    fen: [
+      FEN.start
+    ]
+  }
+);
+
+const ws = new Ws(chessboard, sanMovesTable);
 await ws.connect();
 await ws.send('/start classical fen');

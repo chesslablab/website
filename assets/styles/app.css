@@ -1,1 +1,9 @@
+.table td {
+  cursor: pointer;
+}
 
+.table td.active-move {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
