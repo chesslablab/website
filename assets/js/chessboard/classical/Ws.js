@@ -50,7 +50,7 @@ export default class Ws {
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
               this.chessboard.setPosition(data['/play_lan'].fen, true);
-              if (data['/play_lan'].fen !== this.sanMovesTable.settings.fen[this.sanMovesTable.settings.fen.length - 1]) {
+              if (!this.sanMovesTable.settings.fen[this.sanMovesTable.settings.fen.length - 1].startsWith(data['/play_lan'].fen)) {
                 let fen = this.sanMovesTable.settings.fen;
                 fen.push(data['/play_lan'].fen);
                 this.sanMovesTable.settings = {
