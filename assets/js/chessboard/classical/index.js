@@ -1,4 +1,9 @@
-import { HistoryButtons, OpeningTable, SanMovesTable } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.6/src/index.min.js";
+import {
+  GameActionsDropdown,
+  HistoryButtons,
+  OpeningTable,
+  SanMovesTable
+} from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.7/src/index.min.js";
 import { INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE } from "cm-chessboard";
 import { Accessibility } from "../../../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";
 import { MARKER_TYPE, Markers } from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
@@ -25,17 +30,20 @@ const inputHandler = (event) => {
   }
 }
 
-const chessboard = new Chessboard(document.getElementById("board"), {
-  position: FEN.start,
-  assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
-  style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
-  orientation: COLOR.white,
-  extensions: [
-    {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
-    {class: PromotionDialog},
-    {class: Accessibility, props: {visuallyHidden: true}}
-  ]
-});
+const chessboard = new Chessboard(
+  document.getElementById("board"),
+  {
+    position: FEN.start,
+    assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
+    style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
+    orientation: COLOR.white,
+    extensions: [
+      {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
+      {class: PromotionDialog},
+      {class: Accessibility, props: {visuallyHidden: true}}
+    ]
+  }
+);
 
 chessboard.enableMoveInput(inputHandler);
 
@@ -67,14 +75,20 @@ const openingTable = new OpeningTable(
 
 const startedButtons = document.getElementById('startedButtons');
 
-const gameActions = document.querySelector('#gameActions ul');
+const gameActionsDropdown = new GameActionsDropdown(
+  document.querySelector('#gameActionsDropdown ul'),
+  {
+    chessboard: chessboard,
+    sanMovesTable: sanMovesTable
+  }
+);
 
 const ws = new Ws(
   chessboard,
   sanMovesTable,
   openingTable,
   startedButtons,
-  gameActions
+  gameActionsDropdown
 );
 await ws.connect();
 await ws.send('/start classical fen');

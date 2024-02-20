@@ -3,19 +3,20 @@ import { MARKER_TYPE } from '../../../vendor/cm-chessboard/src/extensions/marker
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor(chessboard, sanMovesTable, openingTable, startedButtons, gameActions) {
+  constructor(
+    chessboard,
+    sanMovesTable,
+    openingTable,
+    startedButtons,
+    gameActionsDropdown
+  ) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
+    this.gameActionsDropdown = gameActionsDropdown;
     this.startedButtons.addEventListener('click', () => {
       this.send('/undo');
-    });
-    this.gameActions = gameActions;
-
-    this.gameActions.children.item(0).addEventListener('click', (event) => {
-      event.preventDefault();
-      this.chessboard.setOrientation(this.chessboard.getOrientation() === COLOR.white ? COLOR.black : COLOR.white);
     });
 
     this.socket = null;
@@ -72,8 +73,8 @@ export default class Ws {
                   fen: fen
                 };
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
-                this.sanMovesTable.render();
-                this.openingTable.render();
+                this.sanMovesTable.dom();
+                this.openingTable.dom();
               }
             }
             break;
@@ -88,8 +89,8 @@ export default class Ws {
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.render();
-              this.openingTable.render();
+              this.sanMovesTable.dom();
+              this.openingTable.dom();
             }
             break;
 
