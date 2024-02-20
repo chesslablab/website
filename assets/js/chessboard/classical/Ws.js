@@ -2,10 +2,15 @@ import { MARKER_TYPE } from "../../../vendor/cm-chessboard/src/extensions/marker
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor(chessboard, sanMovesTable, openingTable) {
+  constructor(chessboard, sanMovesTable, openingTable, startedButtons) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
+    this.startedButtons = startedButtons;
+    this.startedButtons.addEventListener('click', () => {
+      this.send('/undo');
+    });
+
     this.socket = null;
   }
 
@@ -68,7 +73,7 @@ export default class Ws {
 
           case '/undo' === msg:
             if (data['/undo']) {
-              console.log('Undo move!');
+              this.chessboard.setPosition(data['/undo'].fen, true);
             }
             break;
 

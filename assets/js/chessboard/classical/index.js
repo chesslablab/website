@@ -65,6 +65,8 @@ const openingTable = new OpeningTable(
   }
 );
 
-const ws = new Ws(chessboard, sanMovesTable, openingTable);
+const startedButtons = document.getElementById('startedButtons');
+
+const ws = new Ws(chessboard, sanMovesTable, openingTable, startedButtons);
 await ws.connect();
 await ws.send('/start classical fen');
