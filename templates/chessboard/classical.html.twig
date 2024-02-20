@@ -11,12 +11,12 @@
     <div id="board"></div>
   </div>
   <div class="col-md-6">
-     {% include 'partial/game_actions.html.twig' %}
-    <div id="historyButtons" class="btn-group">
-      <button class="btn btn-light" type="button"><<</button>
-      <button class="btn btn-light" type="button"><</button>
-      <button class="btn btn-light" type="button">></button>
-      <button class="btn btn-light" type="button">>></button>
+    {% include 'partial/game_actions.html.twig' %}
+    <div id="historyButtons" class="btn-group w-100">
+      <button class="btn btn-light" type="button"><i class="bi bi-skip-backward-fill"></i></button>
+      <button class="btn btn-light" type="button"><i class="bi bi-caret-left-fill"></i></button>
+      <button class="btn btn-light" type="button"><i class="bi bi-caret-right-fill"></i></button>
+      <button class="btn btn-light" type="button"><i class="bi bi-skip-forward-fill"></i></button>
     </div>
     <table id="sanMovesTable" class="table">
       <tbody></tbody>
