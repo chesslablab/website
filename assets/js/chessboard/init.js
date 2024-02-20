@@ -31,7 +31,7 @@ const inputHandler = (event) => {
 }
 
 const chessboard = new Chessboard(
-  document.getElementById("board"),
+  document.getElementById("chessboard"),
   {
     position: FEN.start,
     assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
