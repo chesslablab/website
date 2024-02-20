@@ -1,4 +1,4 @@
-import { HistoryButtons, OpeningTable, SanMovesTable } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.5/src/index.min.js";
+import { HistoryButtons, OpeningTable, SanMovesTable } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.6/src/index.min.js";
 import { INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE } from "cm-chessboard";
 import { Accessibility } from "../../../vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";
 import { MARKER_TYPE, Markers } from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
