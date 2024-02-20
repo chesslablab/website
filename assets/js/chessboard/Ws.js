@@ -1,6 +1,6 @@
 import { COLOR } from "cm-chessboard";
-import { MARKER_TYPE } from '../../../vendor/cm-chessboard/src/extensions/markers/Markers.js';
-import * as modeConst from '../../../modeConst.js';
+import { MARKER_TYPE } from '../../vendor/cm-chessboard/src/extensions/markers/Markers.js';
+import * as modeConst from '../../modeConst.js';
 
 export default class Ws {
   constructor(
@@ -46,7 +46,7 @@ export default class Ws {
           case '/start' === msg:
             if (data['/start'].mode === modeConst.FEN) {
               if (data['/start'].fen) {
-                console.log('Started FEN!');
+                this.chessboard.setPosition(data['/start'].fen, true);
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
