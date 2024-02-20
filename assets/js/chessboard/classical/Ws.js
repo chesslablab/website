@@ -1,14 +1,21 @@
-import { MARKER_TYPE } from "../../../vendor/cm-chessboard/src/extensions/markers/Markers.js";
+import { COLOR } from '../../../vendor/cm-chessboard/src/Chessboard.js';
+import { MARKER_TYPE } from '../../../vendor/cm-chessboard/src/extensions/markers/Markers.js';
 import * as modeConst from '../../../modeConst.js';
 
 export default class Ws {
-  constructor(chessboard, sanMovesTable, openingTable, startedButtons) {
+  constructor(chessboard, sanMovesTable, openingTable, startedButtons, gameActions) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
     this.startedButtons.addEventListener('click', () => {
       this.send('/undo');
+    });
+    this.gameActions = gameActions;
+
+    this.gameActions.children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
+      this.chessboard.setOrientation(this.chessboard.getOrientation() === COLOR.white ? COLOR.black : COLOR.white);
     });
 
     this.socket = null;

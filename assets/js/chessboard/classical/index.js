@@ -67,6 +67,14 @@ const openingTable = new OpeningTable(
 
 const startedButtons = document.getElementById('startedButtons');
 
-const ws = new Ws(chessboard, sanMovesTable, openingTable, startedButtons);
+const gameActions = document.querySelector('#gameActions ul');
+
+const ws = new Ws(
+  chessboard,
+  sanMovesTable,
+  openingTable,
+  startedButtons,
+  gameActions
+);
 await ws.connect();
 await ws.send('/start classical fen');
