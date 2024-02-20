@@ -74,6 +74,15 @@ export default class Ws {
           case '/undo' === msg:
             if (data['/undo']) {
               this.chessboard.setPosition(data['/undo'].fen, true);
+              let fen = this.sanMovesTable.settings.fen;
+              fen.pop();
+              this.sanMovesTable.settings = {
+                ...this.sanMovesTable.settings,
+                movetext: data['/undo'].movetext,
+                fen: fen
+              };
+              this.sanMovesTable.render();
+              this.openingTable.render();
             }
             break;
 
