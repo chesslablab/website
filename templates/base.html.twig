@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="view-transition" content="same-origin" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
     <title>ChesslaBlab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/chessboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/extensions/markers/markers.css">
@@ -132,8 +132,8 @@
           <div class="modal-body">
             <form>
               <div class="mb-3">
-                <label for="variantSelect" class="form-label">Variant</label>
-                <select id="variantSelect" class="form-select" aria-label="Select a variant" required>
+                <label class="form-label">Variant</label>
+                <select class="form-select" aria-label="Select a variant" required>
                   <option value="">Select a variant</option>
                   <option value="1">Classical</option>
                   <option value="2">Fischer-Random</option>
@@ -143,8 +143,8 @@
               </div>
               <div class="mb-3">
                 <div class="mb-3">
-                  <label for="fromPositionSelect" class="form-label">From position</label>
-                  <select id="fromPositionSelect" class="form-select" aria-label="From position" required>
+                  <label class="form-label">From position</label>
+                  <select class="form-select" aria-label="From position" required>
                     <option value="">Select a position</option>
                     <option value="1">Start</option>
                     <option value="2">FEN</option>
@@ -172,8 +172,8 @@
           <div class="modal-body">
             <form>
               <div class="mb-3">
-                <label for="variantSelect" class="form-label">Variant</label>
-                <select id="variantSelect" class="form-select" aria-label="Select a variant" required>
+                <label class="form-label">Variant:</label>
+                <select class="form-select" aria-label="Select a variant" required>
                   <option value="">Select a variant</option>
                   <option value="1">Classical</option>
                   <option value="2">Fischer-Random</option>
@@ -183,8 +183,8 @@
               </div>
               <div class="mb-3">
                 <div class="mb-3">
-                  <label for="fromFenPositionInput" class="form-label">From FEN position:</label>
-                  <input type="text" class="form-control" id="fromFenPositionInput" required>
+                  <label class="form-label">From FEN position:</label>
+                  <input type="text" class="form-control" required>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary w-100">Load</button>
