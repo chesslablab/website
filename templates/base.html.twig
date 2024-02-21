@@ -81,7 +81,7 @@
                 <i class="bi bi-search"></i> Openings
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
-                <li><a class="dropdown-item" href="#"><i class="bi bi-bookmark-fill"></i> ECO Code</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#openingsEcoCodeModal"><i class="bi bi-bookmark-fill"></i> ECO Code</a></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
                 <li>
                   <a class="dropdown-item" href="#">
@@ -188,6 +188,31 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-primary w-100">Load</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="openingsEcoCodeModal" tabindex="-1" aria-labelledby="openingsEcoCodeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="openingsEcoCodeModalLabel">ECO Code</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Select a variant" required>
+                  <option value="">Select an ECO code</option>
+                  <option value="1">A: Flank Openings</option>
+                  <option value="2">B: Semi-Open Games other than the French Defense</option>
+                  <option value="3">C: Open Games and the French Defense</option>
+                  <option value="4">D: Closed Games and Semi-Closed Games</option>
+                  <option value="5">E: Indian Defenses</option>
+                </select>
+              </div>
             </form>
           </div>
         </div>
