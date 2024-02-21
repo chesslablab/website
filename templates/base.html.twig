@@ -82,7 +82,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
                 <li><a class="dropdown-item" data-bs-toggle="modal" href="#openingsEcoCodeModal"><i class="bi bi-bookmark-fill"></i> ECO Code</a></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#openingsSanMovetextModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
                 <li>
                   <a class="dropdown-item" href="#">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
@@ -182,10 +182,8 @@
                 </select>
               </div>
               <div class="mb-3">
-                <div class="mb-3">
-                  <label class="form-label">From FEN position</label>
-                  <input type="text" class="form-control" required>
-                </div>
+                <label class="form-label">From FEN position</label>
+                <input type="text" class="form-control" required>
               </div>
               <button type="submit" class="btn btn-primary w-100">Load</button>
             </form>
@@ -213,6 +211,26 @@
                   <option value="5">E: Indian Defenses</option>
                 </select>
               </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="openingsSanMovetextModal" tabindex="-1" aria-labelledby="openingsSanMovetextModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="openingsSanMovetextModalLabel">SAN Movetext</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Movetext</label>
+                <input type="text" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Search</button>
             </form>
           </div>
         </div>
