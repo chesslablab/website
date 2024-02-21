@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="view-transition" content="same-origin" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
     <title>ChesslaBlab</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/chessboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/extensions/markers/markers.css">
@@ -32,10 +32,10 @@
                 <li><a class="dropdown-item" href="/chessboard/classical"><i class="bi bi-arrow-counterclockwise"></i> Classical</a></li>
                 <li><a class="dropdown-item" href="/chessboard/fischer-random"><i class="bi bi-shuffle"></i> Fischer Random</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#exampleModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#chessboardSanMovetextModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-diagram-3-fill"></i> RAV Movetext</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-input-cursor"></i> FEN String</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#chessboardFenStringModal"><i class="bi bi-card-text"></i> FEN String</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -122,18 +122,18 @@
       </div>
     </nav>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="chessboardSanMovetextModal" tabindex="-1" aria-labelledby="chessboardSanMovetextModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">SAN Movetext</h5>
+            <h5 class="modal-title" id="chessboardSanMovetextModalLabel">SAN Movetext</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
               <div class="mb-3">
-                <label for="variantSelect" class="form-label">Variant</label>
-                <select id="variantSelect" class="form-select" aria-label="Select a variant" required>
+                <label class="form-label">Variant</label>
+                <select class="form-select" aria-label="Select a variant" required>
                   <option value="">Select a variant</option>
                   <option value="1">Classical</option>
                   <option value="2">Fischer-Random</option>
@@ -143,8 +143,8 @@
               </div>
               <div class="mb-3">
                 <div class="mb-3">
-                  <label for="fromPositionSelect" class="form-label">From position</label>
-                  <select id="fromPositionSelect" class="form-select" aria-label="From position" required>
+                  <label class="form-label">From position</label>
+                  <select class="form-select" aria-label="From position" required>
                     <option value="">Select a position</option>
                     <option value="1">Start</option>
                     <option value="2">FEN</option>
@@ -154,6 +154,38 @@
               <div class="mb-3">
                 <label for="movetextTextarea" class="form-label">Movetext</label>
                 <textarea class="form-control" id="movetextTextarea" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Load</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="chessboardFenStringModal" tabindex="-1" aria-labelledby="chessboardFenStringModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="chessboardFenStringModalLabel">FEN String</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Variant</label>
+                <select class="form-select" aria-label="Select a variant" required>
+                  <option value="">Select a variant</option>
+                  <option value="1">Classical</option>
+                  <option value="2">Fischer-Random</option>
+                  <option value="3">Capablanca</option>
+                  <option value="4">Capablanca-Fischer</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label class="form-label">From FEN position</label>
+                  <input type="text" class="form-control" required>
+                </div>
               </div>
               <button type="submit" class="btn btn-primary w-100">Load</button>
             </form>
