@@ -32,7 +32,7 @@
                 <li><a class="dropdown-item" href="/chessboard/classical"><i class="bi bi-arrow-counterclockwise"></i> Classical</a></li>
                 <li><a class="dropdown-item" href="/chessboard/fischer-random"><i class="bi bi-shuffle"></i> Fischer Random</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
+                <li><a class="dropdown-item" data-bs-toggle="modal" href="#exampleModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-diagram-3-fill"></i> RAV Movetext</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#"><i class="bi bi-input-cursor"></i> FEN String</a></li>
@@ -121,6 +121,46 @@
         </div>
       </div>
     </nav>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">SAN Movetext</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="variantSelect" class="form-label">Variant</label>
+                <select id="variantSelect" class="form-select" aria-label="Select a variant" required>
+                  <option value="">Select a variant</option>
+                  <option value="1">Classical</option>
+                  <option value="2">Fischer-Random</option>
+                  <option value="3">Capablanca</option>
+                  <option value="4">Capablanca-Fischer</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <div class="mb-3">
+                  <label for="fromPositionSelect" class="form-label">From position</label>
+                  <select id="fromPositionSelect" class="form-select" aria-label="From position" required>
+                    <option value="">Select a position</option>
+                    <option value="1">Start</option>
+                    <option value="2">FEN</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="movetextTextarea" class="form-label">Movetext</label>
+                <textarea class="form-control" id="movetextTextarea" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Load</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
        <div class="row mt-3">
          {% block main %}{% endblock %}
