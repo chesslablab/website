@@ -3,14 +3,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
 import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.8/src/index.min.js";
 
-const openingsSanMovetextModalForm = document.querySelector('#openingsSanMovetextModal form');
-const openingsSanMovetextModalTable = document.querySelector('#openingsSanMovetextModal table tbody');
+const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
 
-openingsSanMovetextModalForm.addEventListener('submit', event => {
+const openingsNameModal = document.getElementById('openingsNameModal');
+
+openingsSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(openingsSanMovetextModalForm);
+  const formData = new FormData(openingsSanMovetextModal.getElementsByTagName('form')[0]);
   const openings = Opening.byMovetext(formData.get('movetext'));
-  openingsSanMovetextModalTable.replaceChildren();
+  openingsSanMovetextModal.getElementsByTagName('tbody')[0].replaceChildren();
   openings.forEach(opening => {
     const tr = document.createElement('tr');
     const ecoTd = document.createElement('td');
@@ -38,18 +39,15 @@ openingsSanMovetextModalForm.addEventListener('submit', event => {
       );
       window.location.href = '/openings';
     });
-    openingsSanMovetextModalTable.appendChild(tr);
+    openingsSanMovetextModal.getElementsByTagName('tbody')[0].appendChild(tr);
   });
 });
 
-const openingsNameModalForm = document.querySelector('#openingsNameModal form');
-const openingsNameModalTable = document.querySelector('#openingsNameModal table tbody');
-
-openingsNameModalForm.addEventListener('submit', event => {
+openingsNameModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(openingsNameModalForm);
+  const formData = new FormData(openingsNameModal.getElementsByTagName('form')[0]);
   const openings = Opening.byName(formData.get('name'));
-  openingsNameModalTable.replaceChildren();
+  openingsNameModal.getElementsByTagName('tbody')[0].replaceChildren();
   openings.forEach(opening => {
     const tr = document.createElement('tr');
     const ecoTd = document.createElement('td');
@@ -77,6 +75,6 @@ openingsNameModalForm.addEventListener('submit', event => {
       );
       window.location.href = '/openings';
     });
-    openingsNameModalTable.appendChild(tr);
+    openingsNameModal.getElementsByTagName('tbody')[0].appendChild(tr);
   });
 });
