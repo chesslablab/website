@@ -7,3 +7,8 @@ chessboard_fischer_random:
     path:       /chessboard/fischer-random
     controller: App\Controller\ChessboardController::fischerRandom
     methods:    GET
+
+openings_index:
+    path:       /openings
+    controller: App\Controller\OpeningsController::index
+    methods:    GET
