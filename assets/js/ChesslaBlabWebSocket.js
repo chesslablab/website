@@ -50,6 +50,20 @@ export default class ChesslaBlabWebSocket {
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
+            } else if (data['/start'].mode === modeConst.SAN) {
+              if (data['/start'].movetext) {
+                this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
+                this.sanMovesTable.current = data['/start'].fen.length - 1;
+                this.sanMovesTable.settings = {
+                  ...this.sanMovesTable.settings,
+                  movetext: data['/start'].movetext,
+                  fen: data['/start'].fen
+                };
+                this.sanMovesTable.dom();
+                this.openingTable.dom();
+              } else {
+                console.log('Invalid SAN movetext, please try again with a different one.');
+              }
             }
             break;
 
