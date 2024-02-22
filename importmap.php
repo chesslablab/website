@@ -26,8 +26,8 @@ return [
         'path' => './assets/js/chessboard/fischer_random/index.js',
         'entrypoint' => true,
     ],
-    'js/openings' => [
-        'path' => './assets/js/openings/index.js',
+    'js/openings/index' => [
+        'path' => './assets/js/openings/index/index.js',
         'entrypoint' => true,
     ],
     'cm-chessboard' => [
