@@ -59,8 +59,8 @@ export default class ChesslaBlabWebSocket {
                   movetext: data['/start'].movetext,
                   fen: data['/start'].fen
                 };
-                this.sanMovesTable.dom();
-                this.openingTable.dom();
+                this.sanMovesTable.domNode();
+                this.openingTable.domNode();
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
               }
@@ -87,8 +87,8 @@ export default class ChesslaBlabWebSocket {
                   fen: fen
                 };
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
-                this.sanMovesTable.dom();
-                this.openingTable.dom();
+                this.sanMovesTable.domNode();
+                this.openingTable.domNode();
               }
             }
             break;
@@ -103,8 +103,8 @@ export default class ChesslaBlabWebSocket {
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.dom();
-              this.openingTable.dom();
+              this.sanMovesTable.domNode();
+              this.openingTable.domNode();
             }
             break;
 

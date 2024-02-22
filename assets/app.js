@@ -1,7 +1,7 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
-import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.8/src/index.min.js";
+import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
 
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
 
