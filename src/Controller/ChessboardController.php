@@ -9,17 +9,11 @@ class ChessboardController extends AbstractController
 {
     public function index(): Response
     {
-        $fooBar = 'foobar';
-        return $this->render('chessboard/classical.html.twig', [
-            'foo_bar' => $fooBar,
-        ]);
+        return $this->render('chessboard/classical.html.twig');
     }
 
     public function fischerRandom(): Response
     {
-        $fooBar = 'foobar';
-        return $this->render('chessboard/fischer_random.html.twig', [
-            'foo_bar' => $fooBar,
-        ]);
+        return $this->render('chessboard/fischer_random.html.twig');
     }
 }
