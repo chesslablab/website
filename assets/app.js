@@ -25,6 +25,19 @@ openingsNameModalForm.addEventListener('submit', event => {
     tr.appendChild(ecoTd);
     tr.appendChild(nameTd);
     tr.appendChild(movetextTd);
+    tr.addEventListener('click', event => {
+      localStorage.setItem(
+        'openings',
+        JSON.stringify({
+          variant: 'classical',
+          mode: 'san',
+          add: {
+            movetext: opening.movetext
+          }
+        })
+      );
+      window.location.href = '/openings';
+    });
     openingsNameModalTable.appendChild(tr);
   });
 });
