@@ -27,7 +27,7 @@ openingsNameModalForm.addEventListener('submit', event => {
     tr.appendChild(movetextTd);
     tr.addEventListener('click', event => {
       localStorage.setItem(
-        'openings',
+        'command',
         JSON.stringify({
           variant: 'classical',
           mode: 'san',
