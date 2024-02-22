@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
 import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
 
+const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
+
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
 
 const openingsNameModal = document.getElementById('openingsNameModal');
@@ -39,6 +41,13 @@ const openingsTableDomNode = (openings, tbody) => {
     tbody.appendChild(tr);
   });
 };
+
+openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
+  event.preventDefault();
+  const openings = Opening.byEco(event.target.value);
+  const tbody = openingsEcoCodeModal.getElementsByTagName('tbody')[0];
+  openingsTableDomNode(openings, tbody);
+});
 
 openingsSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
