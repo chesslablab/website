@@ -26,6 +26,10 @@ return [
         'path' => './assets/js/chessboard/fischer_random/index.js',
         'entrypoint' => true,
     ],
+    'js/openings' => [
+        'path' => './assets/js/openings/index.js',
+        'entrypoint' => true,
+    ],
     'cm-chessboard' => [
         'version' => '8.5.0',
     ],

@@ -1,1 +1,1 @@
-console.log('This is js/openings/index.js');
+console.log('This log comes from assets/js/openings/index.js - welcome to AssetMapper! 🎉');
