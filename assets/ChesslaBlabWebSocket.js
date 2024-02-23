@@ -66,14 +66,14 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/start'].mode === modeConst.STOCKFISH) {
               if (data['/start'].fen) {
-                // dispatch(board.start(data['/start']));
-                if (data['/start'].color === COLOR.BLACK) {
-                  // dispatch(board.flip());
+                // TODO
+                if (data['/start'].color === COLOR.black) {
+                  this.chessboard.setOrientation(COLOR.black);
                 }
               } else {
-                if (data['/start'].color === COLOR.BLACK) {
-                  // dispatch(board.flip());
-                  // dispatch({ type: 'ws/stockfish' });
+                if (data['/start'].color === COLOR.black) {
+                  this.chessboard.setOrientation(COLOR.black);
+                  this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
                 }
               }
             }
