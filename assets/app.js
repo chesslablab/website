@@ -75,10 +75,8 @@ chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submi
 playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playComputerModal.getElementsByTagName('form')[0]);
-  localStorage.setItem(
-    'msg',
-    `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`
-  );
+  localStorage.setItem('mode', mode.STOCKFISH);
+  localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
   window.location.href = '/play/computer';
 });
 

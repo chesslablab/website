@@ -101,6 +101,9 @@ export default class ChesslaBlabWebSocket {
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
                 this.sanMovesTable.domNode();
                 this.openingTable.domNode();
+                if (localStorage.getItem('mode') === modeConst.STOCKFISH) {
+                  this.send(`/stockfish "{\\"Skill Level\\":20}" "{\\"depth\\":12}"`);
+                }
               }
             }
             break;
@@ -115,6 +118,22 @@ export default class ChesslaBlabWebSocket {
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
+              this.sanMovesTable.domNode();
+              this.openingTable.domNode();
+            }
+            break;
+
+          case '/stockfish' === msg:
+            if (data['/stockfish']) {
+              this.chessboard.setPosition(data['/stockfish'].fen, true);
+              let fen = this.sanMovesTable.settings.fen;
+              fen.push(data['/stockfish'].fen);
+              this.sanMovesTable.settings = {
+                ...this.sanMovesTable.settings,
+                movetext: data['/stockfish'].movetext,
+                fen: fen
+              };
+              this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
               this.sanMovesTable.domNode();
               this.openingTable.domNode();
             }
