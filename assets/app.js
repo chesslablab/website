@@ -1,8 +1,9 @@
+import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
 import * as modeConst from './modeConst.js';
-import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
+import * as variantConst from './variantConst.js';
 
 const openingsTableDomNode = (openings, tbody) => {
   tbody.replaceChildren();
@@ -25,7 +26,7 @@ const openingsTableDomNode = (openings, tbody) => {
         JSON.stringify({
           name: '/start',
           payload: {
-            variant: 'classical',
+            variant: variantConst.CLASSICAL,
             mode: modeConst.SAN,
             add: {
               movetext: opening.movetext
