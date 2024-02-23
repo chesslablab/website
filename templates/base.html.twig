@@ -140,8 +140,8 @@
                 </select>
               </div>
               <div class="mb-3">
-                <label class="form-label">From position</label>
-                <input type="text" name="fen" placeholder="Enter a FEN position" class="form-control">
+                <label class="form-label">From FEN</label>
+                <input type="text" name="fen" placeholder="Enter FEN" class="form-control">
               </div>
               <div class="mb-3">
                 <label for="movetextTextarea" class="form-label">Movetext</label>
@@ -165,15 +165,15 @@
             <form>
               <div class="mb-3">
                 <label class="form-label">Variant</label>
-                <select class="form-select" aria-label="Select a variant" required>
+                <select name="variant" class="form-select" aria-label="Select a variant" required>
                   <option value="">Select a variant</option>
-                  <option value="1">Classical</option>
-                  <option value="2">Fischer-Random</option>
+                  <option value="classical">Classical</option>
+                  <option value="960">Fischer-Random</option>
                 </select>
               </div>
               <div class="mb-3">
-                <label class="form-label">From FEN position</label>
-                <input type="text" class="form-control" required>
+                <label class="form-label">From FEN</label>
+                <input type="text" name="fen" placeholder="Enter FEN" class="form-control" required>
               </div>
               <button type="submit" class="btn btn-primary w-100">Load</button>
             </form>

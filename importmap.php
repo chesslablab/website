@@ -30,6 +30,10 @@ return [
         'path' => './assets/js/chessboard/san_movetext/index.js',
         'entrypoint' => true,
     ],
+    'js/chessboard/fen_string' => [
+        'path' => './assets/js/chessboard/fen_string/index.js',
+        'entrypoint' => true,
+    ],
     'js/openings/index' => [
         'path' => './assets/js/openings/index/index.js',
         'entrypoint' => true,

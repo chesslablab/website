@@ -13,6 +13,11 @@ chessboard_san_movetext:
     controller: App\Controller\ChessboardController::sanMovetext
     methods:    GET
 
+chessboard_fen_string:
+    path:       /chessboard/fen-string
+    controller: App\Controller\ChessboardController::fenString
+    methods:    GET
+
 openings_index:
     path:       /openings
     controller: App\Controller\OpeningsController::index
