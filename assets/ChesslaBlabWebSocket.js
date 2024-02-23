@@ -1,6 +1,6 @@
 import { COLOR } from "cm-chessboard";
 import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
-import * as modeConst from './modeConst.js';
+import * as mode from './modeConst.js';
 
 export default class ChesslaBlabWebSocket {
   constructor(
@@ -44,13 +44,13 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === modeConst.FEN) {
+            if (data['/start'].mode === mode.FEN) {
               if (data['/start'].fen) {
                 this.chessboard.setPosition(data['/start'].fen, true);
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
-            } else if (data['/start'].mode === modeConst.SAN) {
+            } else if (data['/start'].mode === mode.SAN) {
               if (data['/start'].movetext) {
                 this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
                 this.sanMovesTable.current = data['/start'].fen.length - 1;
@@ -63,6 +63,18 @@ export default class ChesslaBlabWebSocket {
                 this.openingTable.domNode();
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
+              }
+            } else if (data['/start'].mode === mode.STOCKFISH) {
+              if (data['/start'].fen) {
+                // TODO
+                if (data['/start'].color === COLOR.black) {
+                  this.chessboard.setOrientation(COLOR.black);
+                }
+              } else {
+                if (data['/start'].color === COLOR.black) {
+                  this.chessboard.setOrientation(COLOR.black);
+                  this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+                }
               }
             }
             break;
@@ -89,6 +101,9 @@ export default class ChesslaBlabWebSocket {
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
                 this.sanMovesTable.domNode();
                 this.openingTable.domNode();
+                if (localStorage.getItem('mode') === mode.STOCKFISH) {
+                  this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+                }
               }
             }
             break;
@@ -103,6 +118,22 @@ export default class ChesslaBlabWebSocket {
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
+              this.sanMovesTable.domNode();
+              this.openingTable.domNode();
+            }
+            break;
+
+          case '/stockfish' === msg:
+            if (data['/stockfish']) {
+              this.chessboard.setPosition(data['/stockfish'].fen, true);
+              let fen = this.sanMovesTable.settings.fen;
+              fen.push(data['/stockfish'].fen);
+              this.sanMovesTable.settings = {
+                ...this.sanMovesTable.settings,
+                movetext: data['/stockfish'].movetext,
+                fen: fen
+              };
+              this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
               this.sanMovesTable.domNode();
               this.openingTable.domNode();
             }
@@ -131,13 +162,10 @@ export default class ChesslaBlabWebSocket {
     }
   }
 
-  msg() {
+  sendMsgItem() {
     if (this.socket) {
-      const msg = JSON.parse(localStorage.getItem('msg'))
-      if (msg) {
-        if (msg.name === '/start') {
-          this.socket.send(`${msg.name} ${msg.payload.variant} ${msg.payload.mode} "${JSON.stringify(msg.payload.add).replace(/"/g, '\\"')}"`);
-        }
+      if (localStorage.getItem('msg')) {
+        this.socket.send(localStorage.getItem('msg'));
       } else {
         this.socket.send('/start classical fen');
       }

@@ -18,6 +18,11 @@ chessboard_fen_string:
     controller: App\Controller\ChessboardController::fenString
     methods:    GET
 
+play_computer:
+    path:       /play/computer
+    controller: App\Controller\PlayController::computer
+    methods:    GET
+
 openings_index:
     path:       /openings
     controller: App\Controller\OpeningsController::index

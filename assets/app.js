@@ -2,8 +2,8 @@ import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
-import * as modeConst from './modeConst.js';
-import * as variantConst from './variantConst.js';
+import * as mode from './modeConst.js';
+import * as variant from './variantConst.js';
 
 const openingsTableDomNode = (openings, tbody) => {
   tbody.replaceChildren();
@@ -22,18 +22,11 @@ const openingsTableDomNode = (openings, tbody) => {
     tr.appendChild(nameTd);
     tr.appendChild(movetextTd);
     tr.addEventListener('click', event => {
-      localStorage.setItem('msg',
-        JSON.stringify({
-          name: '/start',
-          payload: {
-            variant: variantConst.CLASSICAL,
-            mode: modeConst.SAN,
-            add: {
-              movetext: opening.movetext
-            }
-          }
-        })
-      );
+      const add = {
+        movetext: opening.movetext
+      };
+      localStorage.clear();
+      localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       window.location.href = '/openings';
     });
     tbody.appendChild(tr);
@@ -54,42 +47,45 @@ const openingsNameModal = document.getElementById('openingsNameModal');
 
 chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  localStorage.setItem('msg',
-    JSON.stringify({
-      name: '/start',
-      payload: {
-        variant: event.target.elements[0].value,
-        mode: modeConst.SAN,
-        add: {
-          ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
-          movetext: event.target.elements[2].value
-        }
-      }
-    })
-  );
+  const add = {
+    ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
+    movetext: event.target.elements[2].value
+  };
+  localStorage.clear();
+  localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   window.location.href = '/chessboard/san-movetext';
 });
 
 chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  localStorage.setItem('msg',
-    JSON.stringify({
-      name: '/start',
-      payload: {
-        variant: event.target.elements[0].value,
-        mode: modeConst.FEN,
-        add: {
-          fen: event.target.elements[1].value
-        }
-      }
-    })
-  );
+  const add = {
+    fen: event.target.elements[1].value
+  };
+  localStorage.clear();
+  localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   window.location.href = '/chessboard/fen-string';
 });
 
 playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  console.log('TODO');
+  const formData = new FormData(playComputerModal.getElementsByTagName('form')[0]);
+  localStorage.clear();
+  if (formData.get('level') == 1) {
+    localStorage.setItem('skillLevel', 11);
+    localStorage.setItem('depth', 4);
+  } else if (formData.get('level') == 2) {
+    localStorage.setItem('skillLevel', 17);
+    localStorage.setItem('depth', 8);
+  } else if (formData.get('level') == 3) {
+    localStorage.setItem('skillLevel', 20);
+    localStorage.setItem('depth', 12);
+  } else {
+    localStorage.setItem('skillLevel', 6);
+    localStorage.setItem('depth', 2);
+  }
+  localStorage.setItem('mode', mode.STOCKFISH);
+  localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
+  window.location.href = '/play/computer';
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
