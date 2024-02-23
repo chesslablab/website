@@ -195,13 +195,19 @@
                 <label class="form-label">Difficulty level</label>
                 <input type="range" class="form-range" name="level" min="0" max="3" step="1" />
               </div>
-              <div class="mb-3">
-                <label class="form-label">Pieces</label>
-                <select name="color" class="form-select" aria-label="Select a variant" required>
-                  <option value="">Select color</option>
-                  <option value="w">White</option>
-                  <option value="b">Black</option>
-                </select>
+              <div class="color row mb-3">
+                <div class="col-md-4">
+                  <input type="radio" id="playComputerModalRadio1" name="color" value="w">
+                  <label for="playComputerModalRadio1"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" /></label>
+                </div>
+                <div class="col-md-4">
+                  <input type="radio" id="playComputerModalRadio2" name="color" value="wb">
+                  <label for="playComputerModalRadio2"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" /></label>
+                </div>
+                <div class="col-md-4">
+                  <input type="radio" id="playComputerModalRadio3" name="color" value="b">
+                  <label for="playComputerModalRadio3"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" /></label>
+                </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">From FEN</label>
