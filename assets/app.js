@@ -5,7 +5,7 @@ import './styles/app.css';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
 
-const openingsTableDomNode = (openings, tbody) => {
+const openingsTableDomNode = (openings, tbody, redirect) => {
   tbody.replaceChildren();
   openings.forEach(opening => {
     const tr = document.createElement('tr');
@@ -27,7 +27,7 @@ const openingsTableDomNode = (openings, tbody) => {
       };
       localStorage.clear();
       localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-      window.location.href = '/openings';
+      window.location.href = redirect;
     });
     tbody.appendChild(tr);
   });
@@ -53,7 +53,8 @@ chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('sub
   };
   localStorage.clear();
   localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  window.location.href = '/chessboard/san-movetext';
+
+  window.location.href = chessboardSanMovetextModal.dataset.redirect;
 });
 
 chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
@@ -63,7 +64,8 @@ chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submi
   };
   localStorage.clear();
   localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  window.location.href = '/chessboard/fen-string';
+
+  window.location.href = chessboardFenStringModal.dataset.redirect;
 });
 
 playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
@@ -85,14 +87,16 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   }
   localStorage.setItem('mode', mode.STOCKFISH);
   localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
-  window.location.href = '/play/computer';
+
+  window.location.href = playComputerModal.dataset.redirect;
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
   const openings = Opening.byEco(event.target.value);
   const tbody = openingsEcoCodeModal.getElementsByTagName('tbody')[0];
-  openingsTableDomNode(openings, tbody);
+
+  openingsTableDomNode(openings, tbody, openingsEcoCodeModal.dataset.redirect);
 });
 
 openingsSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
@@ -100,7 +104,8 @@ openingsSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submi
   const formData = new FormData(openingsSanMovetextModal.getElementsByTagName('form')[0]);
   const openings = Opening.byMovetext(formData.get('movetext'));
   const tbody = openingsSanMovetextModal.getElementsByTagName('tbody')[0];
-  openingsTableDomNode(openings, tbody);
+
+  openingsTableDomNode(openings, tbody, openingsSanMovetextModal.dataset.redirect);
 });
 
 openingsNameModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
@@ -108,5 +113,6 @@ openingsNameModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   const formData = new FormData(openingsNameModal.getElementsByTagName('form')[0]);
   const openings = Opening.byName(formData.get('name'));
   const tbody = openingsNameModal.getElementsByTagName('tbody')[0];
-  openingsTableDomNode(openings, tbody);
+
+  openingsTableDomNode(openings, tbody, openingsNameModal.dataset.redirect);
 });
