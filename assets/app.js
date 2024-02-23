@@ -44,6 +44,8 @@ const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetex
 
 const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
 
+const playComputerModal = document.getElementById('playComputerModal');
+
 const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
@@ -83,6 +85,11 @@ chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submi
     })
   );
   window.location.href = '/chessboard/fen-string';
+});
+
+playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  console.log('TODO');
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
