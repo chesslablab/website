@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ChessboardController extends AbstractController
 {
-    public function index(): Response
+    public function classical(): Response
     {
         return $this->render('chessboard/classical.html.twig');
     }

@@ -1,6 +1,6 @@
 chessboard_classical:
     path:       /chessboard/classical
-    controller: App\Controller\ChessboardController::index
+    controller: App\Controller\ChessboardController::classical
     methods:    GET
 
 chessboard_fischer_random:
