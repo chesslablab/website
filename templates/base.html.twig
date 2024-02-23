@@ -39,7 +39,7 @@
               </ul>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="{{app.request.get('_route') starts with 'play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi bi-laptop-fill"></i> Play
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
@@ -193,7 +193,15 @@
             <form>
               <div class="mb-3">
                 <label class="form-label">Difficulty level</label>
-                <input type="range" class="form-range" name="difficulty" min="0" max="3" step="1" />
+                <input type="range" class="form-range" name="level" min="0" max="3" step="1" />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Pieces</label>
+                <select name="color" class="form-select" aria-label="Select a variant" required>
+                  <option value="">Select color</option>
+                  <option value="w">White</option>
+                  <option value="b">Black</option>
+                </select>
               </div>
               <div class="mb-3">
                 <label class="form-label">From FEN</label>

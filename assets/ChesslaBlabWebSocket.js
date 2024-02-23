@@ -64,6 +64,18 @@ export default class ChesslaBlabWebSocket {
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
               }
+            } else if (data['/start'].mode === modeConst.STOCKFISH) {
+              if (data['/start'].fen) {
+                // dispatch(board.start(data['/start']));
+                if (data['/start'].color === COLOR.BLACK) {
+                  // dispatch(board.flip());
+                }
+              } else {
+                if (data['/start'].color === COLOR.BLACK) {
+                  // dispatch(board.flip());
+                  // dispatch({ type: 'ws/stockfish' });
+                }
+              }
             }
             break;
 
@@ -133,11 +145,8 @@ export default class ChesslaBlabWebSocket {
 
   msg() {
     if (this.socket) {
-      const msg = JSON.parse(localStorage.getItem('msg'))
-      if (msg) {
-        if (msg.name === '/start') {
-          this.socket.send(`${msg.name} ${msg.payload.variant} ${msg.payload.mode} "${JSON.stringify(msg.payload.add).replace(/"/g, '\\"')}"`);
-        }
+      if (localStorage.getItem('msg')) {
+        this.socket.send(localStorage.getItem('msg'));
       } else {
         this.socket.send('/start classical fen');
       }

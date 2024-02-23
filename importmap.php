@@ -38,6 +38,10 @@ return [
         'path' => './assets/js/openings/index/index.js',
         'entrypoint' => true,
     ],
+    'js/play/computer' => [
+        'path' => './assets/js/play/computer/index.js',
+        'entrypoint' => true,
+    ],
     'cm-chessboard' => [
         'version' => '8.5.0',
     ],
