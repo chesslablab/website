@@ -22,4 +22,5 @@
 
 ### misc
 /composer.lock
+/symfony.lock
 .env
