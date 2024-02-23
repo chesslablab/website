@@ -1,11 +1,11 @@
 import { ws } from '../../init.js';
 
-const command = JSON.parse(localStorage.getItem('command'));
+const msg = JSON.parse(localStorage.getItem('msg'));
 
 await ws.connect();
 
-if (command) {
-  await ws.send(`/start classical san "${JSON.stringify(command?.add)?.replace(/"/g, '\\"')}"`);
+if (msg) {
+  await ws.send(`/start classical san "${JSON.stringify(msg.payload.add).replace(/"/g, '\\"')}"`);
 } else {
   await ws.send(`/start classical fen`);
 }

@@ -21,13 +21,15 @@ const openingsTableDomNode = (openings, tbody) => {
     tr.appendChild(nameTd);
     tr.appendChild(movetextTd);
     tr.addEventListener('click', event => {
-      localStorage.setItem(
-        'command',
+      localStorage.setItem('msg',
         JSON.stringify({
-          variant: 'classical',
-          mode: modeConst.SAN,
-          add: {
-            movetext: opening.movetext
+          name: '/start',
+          payload: {
+            variant: 'classical',
+            mode: modeConst.SAN,
+            add: {
+              movetext: opening.movetext
+            }
           }
         })
       );
@@ -47,18 +49,19 @@ const openingsNameModal = document.getElementById('openingsNameModal');
 
 chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
-  localStorage.setItem(
-    'command',
+  localStorage.setItem('msg',
     JSON.stringify({
-      variant: event.target.elements[0].value,
-      mode: modeConst.SAN,
-      add: {
-        ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
-        movetext: event.target.elements[2].value
+      name: '/start',
+      payload: {
+        variant: event.target.elements[0].value,
+        mode: modeConst.SAN,
+        add: {
+          ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
+          movetext: event.target.elements[2].value
+        }
       }
     })
   );
-
   window.location.href = '/chessboard/san-movetext';
 });
 

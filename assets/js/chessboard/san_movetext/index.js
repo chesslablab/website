@@ -1,6 +1,6 @@
 import { ws } from '../../init.js';
 
-const command = JSON.parse(localStorage.getItem('command'));
+const msg = JSON.parse(localStorage.getItem('msg'));
 
 await ws.connect();
-await ws.send(`/start ${command.variant} ${command.mode} "${JSON.stringify(command.add).replace(/"/g, '\\"')}"`);
+await ws.send(`/start ${msg.payload.variant} ${msg.payload.mode} "${JSON.stringify(msg.payload.add).replace(/"/g, '\\"')}"`);
