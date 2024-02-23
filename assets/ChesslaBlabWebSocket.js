@@ -1,6 +1,6 @@
 import { COLOR } from "cm-chessboard";
 import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
-import * as modeConst from './modeConst.js';
+import * as mode from './modeConst.js';
 
 export default class ChesslaBlabWebSocket {
   constructor(
@@ -44,13 +44,13 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === modeConst.FEN) {
+            if (data['/start'].mode === mode.FEN) {
               if (data['/start'].fen) {
                 this.chessboard.setPosition(data['/start'].fen, true);
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
-            } else if (data['/start'].mode === modeConst.SAN) {
+            } else if (data['/start'].mode === mode.SAN) {
               if (data['/start'].movetext) {
                 this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
                 this.sanMovesTable.current = data['/start'].fen.length - 1;
@@ -64,7 +64,7 @@ export default class ChesslaBlabWebSocket {
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
               }
-            } else if (data['/start'].mode === modeConst.STOCKFISH) {
+            } else if (data['/start'].mode === mode.STOCKFISH) {
               if (data['/start'].fen) {
                 // TODO
                 if (data['/start'].color === COLOR.black) {
@@ -101,7 +101,7 @@ export default class ChesslaBlabWebSocket {
                 this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
                 this.sanMovesTable.domNode();
                 this.openingTable.domNode();
-                if (localStorage.getItem('mode') === modeConst.STOCKFISH) {
+                if (localStorage.getItem('mode') === mode.STOCKFISH) {
                   this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
                 }
               }
