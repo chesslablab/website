@@ -125,9 +125,22 @@ export default class ChesslaBlabWebSocket {
     });
   }
 
-  send(message) {
+  send(msg) {
     if (this.socket) {
-      this.socket.send(message);
+      this.socket.send(msg);
+    }
+  }
+
+  msg() {
+    if (this.socket) {
+      const msg = JSON.parse(localStorage.getItem('msg'))
+      if (msg) {
+        if (msg.name === '/start') {
+          this.socket.send(`${msg.name} ${msg.payload.variant} ${msg.payload.mode} "${JSON.stringify(msg.payload.add).replace(/"/g, '\\"')}"`);
+        }
+      } else {
+        this.socket.send('/start classical fen');
+      }
     }
   }
 }
