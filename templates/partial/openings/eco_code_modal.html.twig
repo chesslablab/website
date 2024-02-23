@@ -1,0 +1,27 @@
+<div class="modal fade" id="openingsEcoCodeModal" data-redirect="{{path('openings_index')}}" tabindex="-1" aria-labelledby="openingsEcoCodeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="openingsEcoCodeModalLabel">ECO Code</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <select name="eco" class="form-select" aria-label="Select a variant" required>
+              <option value="">Select an ECO code</option>
+              <option value="A">A: Flank Openings</option>
+              <option value="B">B: Semi-Open Games other than the French Defense</option>
+              <option value="C">C: Open Games and the French Defense</option>
+              <option value="D">D: Closed Games and Semi-Closed Games</option>
+              <option value="E">E: Indian Defenses</option>
+            </select>
+          </div>
+        </form>
+        <table class="table table-light table-hover">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

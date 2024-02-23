@@ -1,0 +1,40 @@
+<div class="modal fade" id="playComputerModal" data-redirect="{{path('play_computer')}}" tabindex="-1" aria-labelledby="playComputerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playComputerModalLabel">Play Computer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Difficulty level</label>
+            <input type="range" class="form-range" name="level" min="0" max="3" step="1" />
+          </div>
+          <div class="color row mb-3">
+            <div class="col-md-4">
+              <input type="radio" id="playComputerModalRadio1" name="color" value="w">
+              <label for="playComputerModalRadio1"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" /></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playComputerModalRadio2" name="color" value="{{ random(['w', 'b']) }}">
+              <label for="playComputerModalRadio2"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" /></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playComputerModalRadio3" name="color" value="b">
+              <label for="playComputerModalRadio3"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" /></label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">From FEN</label>
+            <input type="text" name="fen" placeholder="Enter FEN" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Create Game</button>
+        </form>
+        <table class="table table-light table-hover">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
