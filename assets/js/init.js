@@ -9,7 +9,7 @@ import { Accessibility } from "../vendor/cm-chessboard/src/extensions/accessibil
 import { MARKER_TYPE, Markers } from "../vendor/cm-chessboard/src/extensions/markers/Markers.js";
 import { FEN } from "../vendor/cm-chessboard/src/model/Position.js";
 import { PromotionDialog } from "../vendor/cm-chessboard/src/extensions/promotion-dialog/PromotionDialog.js";
-import ChesslaBlabWebSocket from './ChesslaBlabWebSocket.js';
+import ChesslaBlabWebSocket from '../ChesslaBlabWebSocket.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {

@@ -1,6 +1,6 @@
 import { COLOR } from "cm-chessboard";
-import { MARKER_TYPE } from '../vendor/cm-chessboard/src/extensions/markers/Markers.js';
-import * as modeConst from '../modeConst.js';
+import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
+import * as modeConst from './modeConst.js';
 
 export default class ChesslaBlabWebSocket {
   constructor(
