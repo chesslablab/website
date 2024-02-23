@@ -16,4 +16,9 @@ class ChessboardController extends AbstractController
     {
         return $this->render('chessboard/fischer_random.html.twig');
     }
+
+    public function sanMovetext(): Response
+    {
+        return $this->render('chessboard/san_movetext.html.twig');
+    }
 }

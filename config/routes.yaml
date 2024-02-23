@@ -8,6 +8,11 @@ chessboard_fischer_random:
     controller: App\Controller\ChessboardController::fischerRandom
     methods:    GET
 
+chessboard_san_movetext:
+    path:       /chessboard/san-movetext
+    controller: App\Controller\ChessboardController::sanMovetext
+    methods:    GET
+
 openings_index:
     path:       /openings
     controller: App\Controller\OpeningsController::index

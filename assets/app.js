@@ -1,13 +1,8 @@
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/app.css';
+import * as modeConst from './modeConst.js';
 import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
-
-const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
-
-const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
-
-const openingsNameModal = document.getElementById('openingsNameModal');
 
 const openingsTableDomNode = (openings, tbody) => {
   tbody.replaceChildren();
@@ -30,7 +25,7 @@ const openingsTableDomNode = (openings, tbody) => {
         'command',
         JSON.stringify({
           variant: 'classical',
-          mode: 'san',
+          mode: modeConst.SAN,
           add: {
             movetext: opening.movetext
           }
@@ -41,6 +36,31 @@ const openingsTableDomNode = (openings, tbody) => {
     tbody.appendChild(tr);
   });
 };
+
+const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
+
+const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
+
+const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
+
+const openingsNameModal = document.getElementById('openingsNameModal');
+
+chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  localStorage.setItem(
+    'command',
+    JSON.stringify({
+      variant: event.target.elements[0].value,
+      mode: modeConst.SAN,
+      add: {
+        ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
+        movetext: event.target.elements[2].value
+      }
+    })
+  );
+
+  window.location.href = '/chessboard/san-movetext';
+});
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
