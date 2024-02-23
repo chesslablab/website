@@ -162,7 +162,7 @@ export default class ChesslaBlabWebSocket {
     }
   }
 
-  msg() {
+  sendMsgItem() {
     if (this.socket) {
       if (localStorage.getItem('msg')) {
         this.socket.send(localStorage.getItem('msg'));
