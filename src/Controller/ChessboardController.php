@@ -21,4 +21,9 @@ class ChessboardController extends AbstractController
     {
         return $this->render('chessboard/san_movetext.html.twig');
     }
+
+    public function fenString(): Response
+    {
+        return $this->render('chessboard/fen_string.html.twig');
+    }
 }

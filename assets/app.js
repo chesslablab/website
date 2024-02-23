@@ -42,6 +42,8 @@ const openingsTableDomNode = (openings, tbody) => {
 
 const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
 
+const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
+
 const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
@@ -64,6 +66,23 @@ chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('sub
     })
   );
   window.location.href = '/chessboard/san-movetext';
+});
+
+chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  localStorage.setItem('msg',
+    JSON.stringify({
+      name: '/start',
+      payload: {
+        variant: event.target.elements[0].value,
+        mode: modeConst.FEN,
+        add: {
+          fen: event.target.elements[1].value
+        }
+      }
+    })
+  );
+  window.location.href = '/chessboard/fen-string';
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
