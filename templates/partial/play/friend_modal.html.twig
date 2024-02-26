@@ -16,7 +16,18 @@
             <input type="range" class="form-range" name="increment" min="1" max="60" step="1" value="3">
           </div>
           <div class="color row mb-3">
-            {% include 'partial/color_radio_buttons.html.twig' %}
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioWhite" name="color" value="w">
+              <label for="playFriendModalColorRadioWhite"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" alt="White"></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}">
+              <label for="playFriendModalColorRadioRandom"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" alt="Random"></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioBlack" name="color" value="b">
+              <label for="playFriendModalColorRadioBlack"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" alt="Black"></label>
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Variant</label>
