@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <input type="radio" id="colorRadioWhite" name="color" value="w">
+  <label for="colorRadioWhite"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" /></label>
+</div>
+<div class="col-md-4">
+  <input type="radio" id="colorRadioRandom" name="color" value="{{ random(['w', 'b']) }}">
+  <label for="colorRadioRandom"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" /></label>
+</div>
+<div class="col-md-4">
+  <input type="radio" id="colorRadioBlack" name="color" value="b">
+  <label for="colorRadioBlack"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" /></label>
+</div>
