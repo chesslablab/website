@@ -111,6 +111,14 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });
 
+copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
+  navigator.clipboard.writeText(formData.get('hash'));
+
+  window.location.href = copyInviteCodeModal.dataset.redirect;
+});
+
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
   const openings = Opening.byEco(event.target.value);
