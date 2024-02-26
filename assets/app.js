@@ -40,6 +40,8 @@ const chessboardFenStringModal = document.getElementById('chessboardFenStringMod
 
 const playComputerModal = document.getElementById('playComputerModal');
 
+const playFriendModal = document.getElementById('playFriendModal');
+
 const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
@@ -90,6 +92,26 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
 
   window.location.href = playComputerModal.dataset.redirect;
+});
+
+playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(playFriendModal.getElementsByTagName('form')[0]);
+  const add = {
+    min: formData.get('minutes'),
+    increment: formData.get('increment'),
+    color: formData.get('color'),
+    submode: 'friend',
+    ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
+    ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
+    ...(formData.get('fen') && {fen: formData.get('fen')})
+  };
+  localStorage.clear();
+  localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+
+  // TODO
+
+  window.location.href = playFriendModal.dataset.redirect;
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
