@@ -49,10 +49,13 @@
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                    <a class="dropdown-item" data-bs-toggle="modal" href="#playFriendModal">
-                        <i class="bi bi-person-fill"></i> Play a Friend</a>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#playFriendModal">
+                  <i class="bi bi-person-fill"></i> Play a Friend</a>
                 </li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-keyboard-fill"></i> Enter Invite Code</a></li>
+                <li>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#enterInviteCodeModal">
+                  <i class="bi bi-keyboard-fill"></i> Enter Invite Code</a>
+                </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -114,6 +117,7 @@
     {% include 'partial/chessboard/fen_string_modal.html.twig' %}
     {% include 'partial/play/computer_modal.html.twig' %}
     {% include 'partial/play/friend_modal.html.twig' %}
+    {% include 'partial/play/enter_invite_code.html.twig' %}
     {% include 'partial/openings/eco_code_modal.html.twig' %}
     {% include 'partial/openings/san_movetext_modal.html.twig' %}
     {% include 'partial/openings/name_modal.html.twig' %}
