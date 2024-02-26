@@ -3,7 +3,17 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
-import { ws } from './init.js';
+import {
+  ws,
+  chessboardSanMovetextModal,
+  chessboardFenStringModal,
+  playComputerModal,
+  playFriendModal,
+  copyInviteCodeModal,
+  openingsEcoCodeModal,
+  openingsSanMovetextModal,
+  openingsNameModal
+} from './init.js';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
 
@@ -34,22 +44,6 @@ const openingsTableDomNode = (openings, tbody, redirect) => {
     tbody.appendChild(tr);
   });
 };
-
-const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
-
-const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
-
-const playComputerModal = document.getElementById('playComputerModal');
-
-const playFriendModal = document.getElementById('playFriendModal');
-
-const copyInviteCodeModal = document.getElementById('copyInviteCodeModal');
-
-const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
-
-const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
-
-const openingsNameModal = document.getElementById('openingsNameModal');
 
 chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();

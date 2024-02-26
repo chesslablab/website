@@ -90,3 +90,12 @@ export const ws = new ChesslaBlabWebSocket(
   startedButtons,
   gameActionsDropdown
 );
+
+export const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
+export const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
+export const playComputerModal = document.getElementById('playComputerModal');
+export const playFriendModal = document.getElementById('playFriendModal');
+export const copyInviteCodeModal = document.getElementById('copyInviteCodeModal');
+export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
+export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
+export const openingsNameModal = document.getElementById('openingsNameModal');
