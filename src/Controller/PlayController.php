@@ -11,4 +11,9 @@ class PlayController extends AbstractController
     {
         return $this->render('play/computer.html.twig');
     }
+
+    public function friend(): Response
+    {
+        return $this->render('play/friend.html.twig');
+    }
 }

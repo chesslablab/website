@@ -23,6 +23,11 @@ play_computer:
     controller: App\Controller\PlayController::computer
     methods:    GET
 
+play_friend:
+    path:       /play/friend
+    controller: App\Controller\PlayController::friend
+    methods:    GET
+
 openings_index:
     path:       /openings
     controller: App\Controller\OpeningsController::index
