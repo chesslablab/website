@@ -42,6 +42,8 @@ const playComputerModal = document.getElementById('playComputerModal');
 
 const playFriendModal = document.getElementById('playFriendModal');
 
+const copyInviteCodeModal = document.getElementById('copyInviteCodeModal');
+
 const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 
 const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
@@ -108,10 +110,12 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
   };
   localStorage.clear();
   localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  playFriendModal.classList.remove('show');
+  copyInviteCodeModal.classList.add('show');
 
   // TODO
-
-  window.location.href = playFriendModal.dataset.redirect;
+  // document.querySelector(".modal-backdrop").remove();
+  // window.location.href = playFriendModal.dataset.redirect;
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
