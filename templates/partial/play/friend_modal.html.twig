@@ -1,0 +1,56 @@
+<div class="modal fade" id="playFriendModal" data-redirect="{{path('play_friend')}}" tabindex="-1" aria-labelledby="playFriendModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playFriendModalLabel">Play a Friend</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Minutes per side</label>
+            <input type="range" class="form-range" name="minutes" min="1" max="60" step="1" value="5">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Increment in seconds</label>
+            <input type="range" class="form-range" name="increment" min="1" max="60" step="1" value="3">
+          </div>
+          <div class="color row mb-3">
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioWhite" name="color" value="w">
+              <label for="playFriendModalColorRadioWhite"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" alt="White"></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}">
+              <label for="playFriendModalColorRadioRandom"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" alt="Random"></label>
+            </div>
+            <div class="col-md-4">
+              <input type="radio" id="playFriendModalColorRadioBlack" name="color" value="b">
+              <label for="playFriendModalColorRadioBlack"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" alt="Black"></label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Variant</label>
+            <select name="variant" class="form-select" aria-label="Select a variant" required>
+              <option value="">Select a variant</option>
+              <option value="classical">Classical</option>
+              <option value="960">Fischer-Random</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Start position</label>
+            <input type="text" name="startPos" placeholder="Enter start position" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">From FEN</label>
+            <input type="text" name="fen" placeholder="Enter FEN" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Create Invite Code</button>
+        </form>
+        <table class="table table-light table-hover">
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
