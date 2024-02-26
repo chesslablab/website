@@ -3,10 +3,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
+import { ws } from './init.js';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
-
-import { ws } from './js/init.js';
 
 const openingsTableDomNode = (openings, tbody, redirect) => {
   tbody.replaceChildren();
