@@ -1,5 +1,6 @@
 import { COLOR } from "cm-chessboard";
 import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
+import { copyInviteCodeModal } from './init.js';
 import * as mode from './modeConst.js';
 
 export default class ChesslaBlabWebSocket {
@@ -78,8 +79,7 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/start'].mode === mode.PLAY) {
               if (data['/start'].jwt) {
-                // TODO
-                console.log(data['/start']);
+                copyInviteCodeModal.getElementsByTagName('form')[0].elements['hash'].value = data['/start'].hash;
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
