@@ -3,6 +3,17 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
+import {
+  ws,
+  chessboardSanMovetextModal,
+  chessboardFenStringModal,
+  playComputerModal,
+  playFriendModal,
+  copyInviteCodeModal,
+  openingsEcoCodeModal,
+  openingsSanMovetextModal,
+  openingsNameModal
+} from './init.js';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
 
@@ -33,18 +44,6 @@ const openingsTableDomNode = (openings, tbody, redirect) => {
     tbody.appendChild(tr);
   });
 };
-
-const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
-
-const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
-
-const playComputerModal = document.getElementById('playComputerModal');
-
-const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
-
-const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
-
-const openingsNameModal = document.getElementById('openingsNameModal');
 
 chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
@@ -90,6 +89,34 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
 
   window.location.href = playComputerModal.dataset.redirect;
+});
+
+playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(playFriendModal.getElementsByTagName('form')[0]);
+  const add = {
+    min: formData.get('minutes'),
+    increment: formData.get('increment'),
+    color: formData.get('color'),
+    submode: 'friend',
+    ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
+    ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
+    ...(formData.get('fen') && {fen: formData.get('fen')})
+  };
+  playFriendModal.classList.remove('show');
+  copyInviteCodeModal.classList.add('show');
+  copyInviteCodeModal.classList.add('d-block');
+  localStorage.clear();
+
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+});
+
+copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
+  navigator.clipboard.writeText(formData.get('hash'));
+
+  window.location.href = copyInviteCodeModal.dataset.redirect;
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {

@@ -1,4 +1,4 @@
-import { ws } from '../../init.js';
+import { ws } from '../../../init.js';
 
 await ws.connect();
 ws.sendMsgItem();
