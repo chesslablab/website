@@ -112,6 +112,7 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
   localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriendModal.classList.remove('show');
   copyInviteCodeModal.classList.add('show');
+  copyInviteCodeModal.classList.add('d-block');
 
   // TODO
   // document.querySelector(".modal-backdrop").remove();
