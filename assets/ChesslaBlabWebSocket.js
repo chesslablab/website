@@ -76,6 +76,13 @@ export default class ChesslaBlabWebSocket {
                   this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
                 }
               }
+            } else if (data['/start'].mode === mode.PLAY) {
+              if (data['/start'].jwt) {
+                // TODO
+                console.log(data['/start']);
+              } else {
+                console.log('Invalid FEN, please try again with a different one.');
+              }
             }
             break;
 

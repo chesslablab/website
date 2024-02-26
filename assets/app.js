@@ -6,6 +6,8 @@ import './styles/app.css';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
 
+import { ws } from './js/init.js';
+
 const openingsTableDomNode = (openings, tbody, redirect) => {
   tbody.replaceChildren();
   openings.forEach(opening => {
@@ -108,15 +110,12 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
     ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
-  localStorage.clear();
-  localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriendModal.classList.remove('show');
   copyInviteCodeModal.classList.add('show');
   copyInviteCodeModal.classList.add('d-block');
+  localStorage.clear();
 
-  // TODO
-  // document.querySelector(".modal-backdrop").remove();
-  // window.location.href = playFriendModal.dataset.redirect;
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
