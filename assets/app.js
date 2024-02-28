@@ -6,7 +6,7 @@ import './styles/app.css';
 import {
   ws,
   chessboardSanMovetextModal,
-  chessboardFenStringModal,
+  chessboardFenString,
   playComputer,
   playFriend,
   copyInviteCode,
@@ -59,7 +59,7 @@ chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('sub
   window.location.href = chessboardSanMovetextModal.dataset.redirect;
 });
 
-chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+chessboardFenString.form.addEventListener('submit', event => {
   event.preventDefault();
   const add = {
     fen: event.target.elements[1].value
@@ -67,7 +67,7 @@ chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submi
   localStorage.clear();
   localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  window.location.href = chessboardFenStringModal.dataset.redirect;
+  window.location.href = chessboardFenString.form.dataset.redirect;
 });
 
 playComputer.form.addEventListener('submit', event => {
