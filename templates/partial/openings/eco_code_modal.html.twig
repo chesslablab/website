@@ -1,4 +1,4 @@
-<div class="modal fade" id="openingsEcoCodeModal" data-redirect="{{path('openings_index')}}" tabindex="-1" aria-labelledby="openingsEcoCodeModalLabel" aria-hidden="true">
+<div class="modal fade" id="openingsEcoCodeModal" tabindex="-1" aria-labelledby="openingsEcoCodeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form data-redirect="{{path('openings_index')}}">
           <div class="mb-3">
             <select name="eco" class="form-select" aria-label="Select a variant" required>
               <option value="">Select an ECO code</option>
@@ -17,10 +17,10 @@
               <option value="E">E: Indian Defenses</option>
             </select>
           </div>
+          <table class="table table-light table-hover">
+            <tbody></tbody>
+          </table>
         </form>
-        <table class="table table-light table-hover">
-          <tbody></tbody>
-        </table>
       </div>
     </div>
   </div>

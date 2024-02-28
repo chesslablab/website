@@ -12,9 +12,9 @@ import {
   copyInviteCode,
   waitingForPlayerToJoin,
   enterInviteCode,
-  openingsEcoCodeModal,
-  openingsSanMovetextModal,
-  openingsNameModal
+  openingsEcoCode,
+  openingsSanMovetext,
+  openingsName
 } from './init.js';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
@@ -134,28 +134,28 @@ enterInviteCode.form.addEventListener('submit', event => {
   ws.send(`/accept ${formData.get('hash')}`);
 });
 
-openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
+openingsEcoCode.form.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
   const openings = Opening.byEco(event.target.value);
-  const tbody = openingsEcoCodeModal.getElementsByTagName('tbody')[0];
+  const tbody = openingsEcoCode.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openings, tbody, openingsEcoCodeModal.dataset.redirect);
+  openingsTableDomNode(openings, tbody, openingsEcoCode.form.dataset.redirect);
 });
 
-openingsSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+openingsSanMovetext.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(openingsSanMovetextModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(openingsSanMovetext.form);
   const openings = Opening.byMovetext(formData.get('movetext'));
-  const tbody = openingsSanMovetextModal.getElementsByTagName('tbody')[0];
+  const tbody = openingsSanMovetext.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openings, tbody, openingsSanMovetextModal.dataset.redirect);
+  openingsTableDomNode(openings, tbody, openingsSanMovetext.form.dataset.redirect);
 });
 
-openingsNameModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+openingsName.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(openingsNameModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(openingsName.form);
   const openings = Opening.byName(formData.get('name'));
-  const tbody = openingsNameModal.getElementsByTagName('tbody')[0];
+  const tbody = openingsName.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openings, tbody, openingsNameModal.dataset.redirect);
+  openingsTableDomNode(openings, tbody, openingsName.form.dataset.redirect);
 });

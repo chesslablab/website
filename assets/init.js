@@ -116,6 +116,17 @@ export const enterInviteCode = {
   form: document.querySelector('#enterInviteCodeModal form')
 }
 
-export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
-export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
-export const openingsNameModal = document.getElementById('openingsNameModal');
+export const openingsEcoCode = {
+  modal: new Modal(document.getElementById('openingsEcoCodeModal')),
+  form: document.querySelector('#openingsEcoCodeModal form')
+}
+
+export const openingsSanMovetext = {
+  modal: new Modal(document.getElementById('openingsSanMovetextModal')),
+  form: document.querySelector('#openingsSanMovetextModal form')
+}
+
+export const openingsName = {
+  modal: new Modal(document.getElementById('openingsNameModal')),
+  form: document.querySelector('#openingsNameModal form')
+}
