@@ -1,4 +1,4 @@
-<div class="modal fade" id="chessboardSanMovetextModal" data-redirect="{{path('chessboard_san_movetext')}}" tabindex="-1" aria-labelledby="chessboardSanMovetextModalLabel" aria-hidden="true">
+<div class="modal fade" id="chessboardSanMovetextModal" tabindex="-1" aria-labelledby="chessboardSanMovetextModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form data-redirect="{{path('chessboard_san_movetext')}}">
           <div class="mb-3">
             <label class="form-label">Variant</label>
             <select name="variant" class="form-select" aria-label="Select a variant" required>

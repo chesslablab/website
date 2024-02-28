@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
 import {
   ws,
-  chessboardSanMovetextModal,
+  chessboardSanMovetext,
   chessboardFenString,
   playComputer,
   playFriend,
@@ -47,7 +47,7 @@ const openingsTableDomNode = (openings, tbody, redirect) => {
   });
 };
 
-chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+chessboardSanMovetext.form.addEventListener('submit', event => {
   event.preventDefault();
   const add = {
     ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
@@ -56,7 +56,7 @@ chessboardSanMovetextModal.getElementsByTagName('form')[0].addEventListener('sub
   localStorage.clear();
   localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  window.location.href = chessboardSanMovetextModal.dataset.redirect;
+  window.location.href = chessboardSanMovetext.form.dataset.redirect;
 });
 
 chessboardFenString.form.addEventListener('submit', event => {

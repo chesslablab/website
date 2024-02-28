@@ -92,7 +92,10 @@ export const ws = new ChesslaBlabWebSocket(
   gameActionsDropdown
 );
 
-export const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
+export const chessboardSanMovetext = {
+  modal: new Modal(document.getElementById('chessboardSanMovetextModal')),
+  form: document.querySelector('#chessboardSanMovetextModal form')
+}
 
 export const chessboardFenString = {
   modal: new Modal(document.getElementById('chessboardFenStringModal')),
