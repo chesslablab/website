@@ -53,7 +53,7 @@
                   <i class="bi bi-person-fill"></i> Play a Friend</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" data-bs-toggle="modal" href="#enterInviteCodeModal">
+                  <a class="dropdown-item" href="{{ path('play_friend') }}">
                   <i class="bi bi-keyboard-fill"></i> Enter Invite Code</a>
                 </li>
               </ul>
@@ -118,6 +118,7 @@
     {% include 'partial/play/computer_modal.html.twig' %}
     {% include 'partial/play/friend_modal.html.twig' %}
     {% include 'partial/play/copy_invite_code_modal.html.twig' %}
+    {% include 'partial/play/waiting_for_player_to_join_modal.html.twig' %}
     {% include 'partial/play/enter_invite_code_modal.html.twig' %}
     {% include 'partial/openings/eco_code_modal.html.twig' %}
     {% include 'partial/openings/san_movetext_modal.html.twig' %}

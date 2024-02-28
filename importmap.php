@@ -115,8 +115,14 @@ return [
         'version' => '5.3.2',
         'type' => 'css',
     ],
+    'bootstrap/js/dist/modal.js' => [
+        'version' => '5.3.2',
+    ],
     'bootstrap-icons/font/bootstrap-icons.min.css' => [
         'version' => '1.11.3',
         'type' => 'css',
+    ],
+    'jwt-decode' => [
+        'version' => '4.0.0',
     ],
 ];

@@ -8,8 +8,10 @@ import {
   chessboardSanMovetextModal,
   chessboardFenStringModal,
   playComputerModal,
-  playFriendModal,
-  copyInviteCodeModal,
+  playFriend,
+  copyInviteCode,
+  waitingForPlayerToJoin,
+  enterInviteCode,
   openingsEcoCodeModal,
   openingsSanMovetextModal,
   openingsNameModal
@@ -91,9 +93,9 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   window.location.href = playComputerModal.dataset.redirect;
 });
 
-playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+playFriend.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playFriendModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(playFriend.form);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
@@ -103,20 +105,33 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
     ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
-  playFriendModal.classList.remove('show');
-  copyInviteCodeModal.classList.add('show');
-  copyInviteCodeModal.classList.add('d-block');
   localStorage.clear();
+  localStorage.setItem('inviterColor', formData.get('color'));
+  localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  window.location.href = playFriend.form.dataset.redirect;
 });
 
-copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
-  navigator.clipboard.writeText(formData.get('hash'));
+  const formData = new FormData(copyInviteCode.form);
+  navigator.clipboard.writeText(formData.get('hash')).then(() => {
+    copyInviteCode.modal.hide();
+    waitingForPlayerToJoin.modal.show();
+  }, function(err) {
+    alert('Whoops! Failed to copy');
+  });
+});
 
-  window.location.href = copyInviteCodeModal.dataset.redirect;
+waitingForPlayerToJoin.form.addEventListener('submit', event => {
+  event.preventDefault();
+  window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
+});
+
+enterInviteCode.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(enterInviteCode.form);
+  ws.send(`/accept ${formData.get('hash')}`);
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
