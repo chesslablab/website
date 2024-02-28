@@ -4,7 +4,7 @@ import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Marke
 import {
   copyInviteCode,
   enterInviteCodeModal,
-  waitingForPlayerToJoinModal
+  waitingForPlayerToJoin
 } from './init.js';
 import * as mode from './modeConst.js';
 
@@ -153,7 +153,7 @@ export default class ChesslaBlabWebSocket {
 
           case '/accept' === msg:
             if (data['/accept'].jwt) {
-              waitingForPlayerToJoinModal.hide();
+              waitingForPlayerToJoin.modal.hide();
               enterInviteCodeModal.hide();
             }
             break;

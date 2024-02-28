@@ -10,8 +10,7 @@ import {
   playComputerModal,
   playFriend,
   copyInviteCode,
-  waitingForPlayerToJoinModal,
-  waitingForPlayerToJoinModalForm,
+  waitingForPlayerToJoin,
   openingsEcoCodeModal,
   openingsSanMovetextModal,
   openingsNameModal
@@ -117,15 +116,15 @@ copyInviteCode.form.addEventListener('submit', event => {
   const formData = new FormData(copyInviteCode.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
     copyInviteCode.modal.hide();
-    waitingForPlayerToJoinModal.show();
+    waitingForPlayerToJoin.modal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
 });
 
-waitingForPlayerToJoinModalForm.addEventListener('submit', event => {
+waitingForPlayerToJoin.form.addEventListener('submit', event => {
   event.preventDefault();
-  window.location.href = waitingForPlayerToJoinModalForm.dataset.redirect;
+  window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
 });
 
 enterInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
