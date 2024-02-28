@@ -3,7 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
 import {
   copyInviteCode,
-  enterInviteCodeModal,
+  enterInviteCode,
   waitingForPlayerToJoin
 } from './init.js';
 import * as mode from './modeConst.js';
@@ -154,7 +154,7 @@ export default class ChesslaBlabWebSocket {
           case '/accept' === msg:
             if (data['/accept'].jwt) {
               waitingForPlayerToJoin.modal.hide();
-              enterInviteCodeModal.hide();
+              enterInviteCode.modal.hide();
             }
             break;
 

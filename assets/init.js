@@ -111,8 +111,10 @@ export const waitingForPlayerToJoin = {
   form: document.querySelector('#waitingForPlayerToJoinModal form')
 }
 
-export const enterInviteCodeModal =  new Modal(document.getElementById('enterInviteCodeModal'));
-export const enterInviteCodeModalForm = document.querySelector('#enterInviteCodeModal form');
+export const enterInviteCode = {
+  modal: new Modal(document.getElementById('enterInviteCodeModal')),
+  form: document.querySelector('#enterInviteCodeModal form')
+}
 
 export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');

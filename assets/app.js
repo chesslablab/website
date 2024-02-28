@@ -11,6 +11,7 @@ import {
   playFriend,
   copyInviteCode,
   waitingForPlayerToJoin,
+  enterInviteCode,
   openingsEcoCodeModal,
   openingsSanMovetextModal,
   openingsNameModal
@@ -127,9 +128,9 @@ waitingForPlayerToJoin.form.addEventListener('submit', event => {
   window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
 });
 
-enterInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+enterInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(enterInviteCodeModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(enterInviteCode.form);
   ws.send(`/accept ${formData.get('hash')}`);
 });
 
