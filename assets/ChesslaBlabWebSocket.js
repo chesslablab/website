@@ -1,7 +1,11 @@
 import { COLOR } from "cm-chessboard";
 import { jwtDecode } from 'jwt-decode';
 import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
-import { copyInviteCodeModalForm } from './init.js';
+import {
+  copyInviteCodeModalForm,
+  enterInviteCodeModal,
+  waitingForPlayerToJoinModal
+} from './init.js';
 import * as mode from './modeConst.js';
 
 export default class ChesslaBlabWebSocket {
@@ -149,9 +153,8 @@ export default class ChesslaBlabWebSocket {
 
           case '/accept' === msg:
             if (data['/accept'].jwt) {
-              const jwtDecoded = jwtDecode(data['/accept'].jwt);
-              // TODO
-              console.log(jwtDecoded);
+              waitingForPlayerToJoinModal.hide();
+              enterInviteCodeModal.hide();
             }
             break;
 
