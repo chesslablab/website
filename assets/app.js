@@ -108,6 +108,7 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
   copyInviteCodeModal.classList.add('show');
   copyInviteCodeModal.classList.add('d-block');
   localStorage.clear();
+  localStorage.setItem('inviterColor', formData.get('color'));
 
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });
