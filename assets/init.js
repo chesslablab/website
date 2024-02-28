@@ -96,8 +96,10 @@ export const chessboardSanMovetextModal = document.getElementById('chessboardSan
 export const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
 export const playComputerModal = document.getElementById('playComputerModal');
 
-export const playFriendModal = new Modal(document.getElementById('playFriendModal'));
-export const playFriendModalForm = document.querySelector('#playFriendModal form');
+export const playFriend = {
+  modal: new Modal(document.getElementById('playFriendModal')),
+  form: document.querySelector('#playFriendModal form')
+}
 
 export const copyInviteCodeModal = new Modal(document.getElementById('copyInviteCodeModal'));
 export const copyInviteCodeModalForm = document.querySelector('#copyInviteCodeModal form');

@@ -8,8 +8,7 @@ import {
   chessboardSanMovetextModal,
   chessboardFenStringModal,
   playComputerModal,
-  playFriendModal,
-  playFriendModalForm,
+  playFriend,
   copyInviteCodeModal,
   copyInviteCodeModalForm,
   waitingForPlayerToJoinModal,
@@ -95,9 +94,9 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   window.location.href = playComputerModal.dataset.redirect;
 });
 
-playFriendModalForm.addEventListener('submit', event => {
+playFriend.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playFriendModalForm);
+  const formData = new FormData(playFriend.form);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
@@ -111,7 +110,7 @@ playFriendModalForm.addEventListener('submit', event => {
   localStorage.setItem('inviterColor', formData.get('color'));
   localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  window.location.href = playFriendModalForm.dataset.redirect;
+  window.location.href = playFriend.form.dataset.redirect;
 });
 
 copyInviteCodeModalForm.addEventListener('submit', event => {
