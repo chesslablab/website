@@ -96,6 +96,7 @@ export const chessboardFenStringModal = document.getElementById('chessboardFenSt
 export const playComputerModal = document.getElementById('playComputerModal');
 export const playFriendModal = document.getElementById('playFriendModal');
 export const copyInviteCodeModal = document.getElementById('copyInviteCodeModal');
+export const waitingForPlayerToJoinModal = document.getElementById('waitingForPlayerToJoinModal');
 export const enterInviteCodeModal = document.getElementById('enterInviteCodeModal');
 export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');

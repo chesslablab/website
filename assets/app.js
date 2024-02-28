@@ -10,6 +10,7 @@ import {
   playComputerModal,
   playFriendModal,
   copyInviteCodeModal,
+  waitingForPlayerToJoinModal,
   openingsEcoCodeModal,
   openingsSanMovetextModal,
   openingsNameModal
@@ -117,12 +118,16 @@ copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', e
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
     copyInviteCodeModal.classList.remove('show');
     copyInviteCodeModal.classList.remove('d-block');
-    document.querySelector(".modal-backdrop").remove();
-    // TODO
-    // window.location.href = copyInviteCodeModal.dataset.redirect;
+    waitingForPlayerToJoinModal.classList.add('show');
+    waitingForPlayerToJoinModal.classList.add('d-block');
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
+});
+
+waitingForPlayerToJoinModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  window.location.href = waitingForPlayerToJoinModal.dataset.redirect;
 });
 
 enterInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
