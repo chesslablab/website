@@ -119,4 +119,7 @@ return [
         'version' => '1.11.3',
         'type' => 'css',
     ],
+    'jwt-decode' => [
+        'version' => '4.0.0',
+    ],
 ];
