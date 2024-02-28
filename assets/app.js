@@ -9,8 +9,7 @@ import {
   chessboardFenStringModal,
   playComputerModal,
   playFriend,
-  copyInviteCodeModal,
-  copyInviteCodeModalForm,
+  copyInviteCode,
   waitingForPlayerToJoinModal,
   waitingForPlayerToJoinModalForm,
   openingsEcoCodeModal,
@@ -113,11 +112,11 @@ playFriend.form.addEventListener('submit', event => {
   window.location.href = playFriend.form.dataset.redirect;
 });
 
-copyInviteCodeModalForm.addEventListener('submit', event => {
+copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(copyInviteCodeModalForm);
+  const formData = new FormData(copyInviteCode.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
-    copyInviteCodeModal.hide();
+    copyInviteCode.modal.hide();
     waitingForPlayerToJoinModal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');

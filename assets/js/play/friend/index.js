@@ -1,10 +1,10 @@
-import { ws, copyInviteCodeModal, enterInviteCodeModal } from '../../../init.js';
+import { ws, copyInviteCode, enterInviteCodeModal } from '../../../init.js';
 
 await ws.connect();
 ws.sendMsgItem();
 
 if (localStorage.getItem('inviterColor')) {
-  copyInviteCodeModal.show();
+  copyInviteCode.modal.show();
 } else {
   enterInviteCodeModal.show();
 }

@@ -101,8 +101,10 @@ export const playFriend = {
   form: document.querySelector('#playFriendModal form')
 }
 
-export const copyInviteCodeModal = new Modal(document.getElementById('copyInviteCodeModal'));
-export const copyInviteCodeModalForm = document.querySelector('#copyInviteCodeModal form');
+export const copyInviteCode = {
+  modal: new Modal(document.getElementById('copyInviteCodeModal')),
+  form: document.querySelector('#copyInviteCodeModal form')
+}
 
 export const waitingForPlayerToJoinModal = new Modal(document.getElementById('waitingForPlayerToJoinModal'));
 export const waitingForPlayerToJoinModalForm = document.querySelector('#waitingForPlayerToJoinModal form');
