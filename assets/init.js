@@ -105,7 +105,9 @@ export const copyInviteCodeModalForm = document.querySelector('#copyInviteCodeMo
 export const waitingForPlayerToJoinModal = new Modal(document.getElementById('waitingForPlayerToJoinModal'));
 export const waitingForPlayerToJoinModalForm = document.querySelector('#waitingForPlayerToJoinModal form');
 
-export const enterInviteCodeModal = document.getElementById('enterInviteCodeModal');
+export const enterInviteCodeModal =  new Modal(document.getElementById('enterInviteCodeModal'));
+export const enterInviteCodeModalForm = document.querySelector('#enterInviteCodeModal form');
+
 export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');
 export const openingsNameModal = document.getElementById('openingsNameModal');

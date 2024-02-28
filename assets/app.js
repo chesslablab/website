@@ -108,6 +108,7 @@ playFriendModalForm.addEventListener('submit', event => {
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
   localStorage.clear();
+  localStorage.setItem('inviterColor', formData.get('color'));
   localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
   window.location.href = playFriendModalForm.dataset.redirect;
