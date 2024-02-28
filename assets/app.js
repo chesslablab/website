@@ -121,6 +121,12 @@ copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', e
   });
 });
 
+enterInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(enterInviteCodeModal.getElementsByTagName('form')[0]);
+  ws.send(`/accept ${formData.get('hash')}`);
+});
+
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
   const openings = Opening.byEco(event.target.value);
