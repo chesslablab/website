@@ -114,9 +114,11 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
 copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
-  navigator.clipboard.writeText(formData.get('hash'));
-
-  window.location.href = copyInviteCodeModal.dataset.redirect;
+  navigator.clipboard.writeText(formData.get('hash')).then(() => {
+    window.location.href = copyInviteCodeModal.dataset.redirect;
+  }, function(err) {
+    alert('Whoops! Failed to copy');
+  });
 });
 
 openingsEcoCodeModal.getElementsByTagName('select')[0].addEventListener('change', event => {
