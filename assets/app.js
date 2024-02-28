@@ -7,7 +7,7 @@ import {
   ws,
   chessboardSanMovetextModal,
   chessboardFenStringModal,
-  playComputerModal,
+  playComputer,
   playFriend,
   copyInviteCode,
   waitingForPlayerToJoin,
@@ -70,9 +70,9 @@ chessboardFenStringModal.getElementsByTagName('form')[0].addEventListener('submi
   window.location.href = chessboardFenStringModal.dataset.redirect;
 });
 
-playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+playComputer.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playComputerModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(playComputer.form);
   localStorage.clear();
   if (formData.get('level') == 1) {
     localStorage.setItem('skillLevel', 11);
@@ -90,7 +90,7 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   localStorage.setItem('mode', mode.STOCKFISH);
   localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
 
-  window.location.href = playComputerModal.dataset.redirect;
+  window.location.href = playComputer.form.dataset.redirect;
 });
 
 playFriend.form.addEventListener('submit', event => {

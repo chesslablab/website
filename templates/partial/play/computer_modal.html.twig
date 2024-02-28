@@ -1,4 +1,4 @@
-<div class="modal fade" id="playComputerModal" data-redirect="{{path('play_computer')}}" tabindex="-1" aria-labelledby="playComputerModalLabel" aria-hidden="true">
+<div class="modal fade" id="playComputerModal" tabindex="-1" aria-labelledby="playComputerModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form data-redirect="{{path('play_computer')}}">
           <div class="mb-3">
             <label class="form-label">Difficulty level</label>
             <input type="range" class="form-range" name="level" min="0" max="3" step="1">
