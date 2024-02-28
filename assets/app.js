@@ -115,7 +115,11 @@ copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', e
   event.preventDefault();
   const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
-    window.location.href = copyInviteCodeModal.dataset.redirect;
+    copyInviteCodeModal.classList.remove('show');
+    copyInviteCodeModal.classList.remove('d-block');
+    document.querySelector(".modal-backdrop").remove();
+    // TODO
+    // window.location.href = copyInviteCodeModal.dataset.redirect;
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
