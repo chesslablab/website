@@ -4,6 +4,7 @@ import {
   OpeningTable,
   SanMovesTable
 } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
+import Modal from 'bootstrap/js/dist/modal.js';
 import { INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE } from "cm-chessboard";
 import { Accessibility } from "./vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";
 import { MARKER_TYPE, Markers } from "./vendor/cm-chessboard/src/extensions/markers/Markers.js";
@@ -94,9 +95,16 @@ export const ws = new ChesslaBlabWebSocket(
 export const chessboardSanMovetextModal = document.getElementById('chessboardSanMovetextModal');
 export const chessboardFenStringModal = document.getElementById('chessboardFenStringModal');
 export const playComputerModal = document.getElementById('playComputerModal');
-export const playFriendModal = document.getElementById('playFriendModal');
-export const copyInviteCodeModal = document.getElementById('copyInviteCodeModal');
-export const waitingForPlayerToJoinModal = document.getElementById('waitingForPlayerToJoinModal');
+
+export const playFriendModal = new Modal(document.getElementById('playFriendModal'));
+export const playFriendModalForm = document.querySelector('#playFriendModal form');
+
+export const copyInviteCodeModal = new Modal(document.getElementById('copyInviteCodeModal'));
+export const copyInviteCodeModalForm = document.querySelector('#copyInviteCodeModal form');
+
+export const waitingForPlayerToJoinModal = new Modal(document.getElementById('waitingForPlayerToJoinModal'));
+export const waitingForPlayerToJoinModalForm = document.querySelector('#waitingForPlayerToJoinModal form');
+
 export const enterInviteCodeModal = document.getElementById('enterInviteCodeModal');
 export const openingsEcoCodeModal = document.getElementById('openingsEcoCodeModal');
 export const openingsSanMovetextModal = document.getElementById('openingsSanMovetextModal');

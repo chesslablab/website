@@ -9,8 +9,11 @@ import {
   chessboardFenStringModal,
   playComputerModal,
   playFriendModal,
+  playFriendModalForm,
   copyInviteCodeModal,
+  copyInviteCodeModalForm,
   waitingForPlayerToJoinModal,
+  waitingForPlayerToJoinModalForm,
   openingsEcoCodeModal,
   openingsSanMovetextModal,
   openingsNameModal
@@ -92,9 +95,9 @@ playComputerModal.getElementsByTagName('form')[0].addEventListener('submit', eve
   window.location.href = playComputerModal.dataset.redirect;
 });
 
-playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+playFriendModalForm.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playFriendModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(playFriendModalForm);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
@@ -104,31 +107,26 @@ playFriendModal.getElementsByTagName('form')[0].addEventListener('submit', event
     ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
-  playFriendModal.classList.remove('show');
-  copyInviteCodeModal.classList.add('show');
-  copyInviteCodeModal.classList.add('d-block');
   localStorage.clear();
-  localStorage.setItem('inviterColor', formData.get('color'));
+  localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  window.location.href = playFriendModalForm.dataset.redirect;
 });
 
-copyInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+copyInviteCodeModalForm.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(copyInviteCodeModal.getElementsByTagName('form')[0]);
+  const formData = new FormData(copyInviteCodeModalForm);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
-    copyInviteCodeModal.classList.remove('show');
-    copyInviteCodeModal.classList.remove('d-block');
-    waitingForPlayerToJoinModal.classList.add('show');
-    waitingForPlayerToJoinModal.classList.add('d-block');
+    copyInviteCodeModal.hide();
+    waitingForPlayerToJoinModal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
 });
 
-waitingForPlayerToJoinModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
+waitingForPlayerToJoinModalForm.addEventListener('submit', event => {
   event.preventDefault();
-  window.location.href = waitingForPlayerToJoinModal.dataset.redirect;
+  window.location.href = waitingForPlayerToJoinModalForm.dataset.redirect;
 });
 
 enterInviteCodeModal.getElementsByTagName('form')[0].addEventListener('submit', event => {
