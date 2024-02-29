@@ -1,3 +1,7 @@
+body {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
 label img {
   cursor: pointer;
 }
