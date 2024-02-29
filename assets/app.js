@@ -104,9 +104,10 @@ playFriend.form.addEventListener('submit', event => {
   };
   localStorage.clear();
   localStorage.setItem('inviterColor', formData.get('color'));
-  localStorage.setItem('msg', `/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  playFriend.modal.hide();
 
-  window.location.href = playFriend.form.dataset.redirect;
+  copyInviteCode.modal.show();
 });
 
 copyInviteCode.form.addEventListener('submit', event => {

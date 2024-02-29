@@ -14,6 +14,11 @@ class PlayController extends AbstractController
 
     public function friend(): Response
     {
-        return $this->render('play/friend.html.twig');
+        return $this->render('play/friend/index.html.twig');
+    }
+
+    public function enterInviteCode(): Response
+    {
+        return $this->render('play/friend/enter_invite_code.html.twig');
     }
 }

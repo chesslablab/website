@@ -180,14 +180,4 @@ export default class ChesslaBlabWebSocket {
       this.socket.send(msg);
     }
   }
-
-  sendMsgItem() {
-    if (this.socket) {
-      if (localStorage.getItem('msg')) {
-        this.socket.send(localStorage.getItem('msg'));
-      } else {
-        this.socket.send('/start classical fen');
-      }
-    }
-  }
 }

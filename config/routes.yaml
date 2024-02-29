@@ -28,6 +28,11 @@ play_friend:
     controller: App\Controller\PlayController::friend
     methods:    GET
 
+play_enter_invite_code:
+    path:       /play/friend/enter-invite-code
+    controller: App\Controller\PlayController::enterInviteCode
+    methods:    GET
+
 openings_eco_code:
     path:       /openings/eco-code
     controller: App\Controller\OpeningsController::ecoCode
