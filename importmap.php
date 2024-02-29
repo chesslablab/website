@@ -47,10 +47,6 @@ return [
         'path' => './assets/js/play/computer/index.js',
         'entrypoint' => true,
     ],
-    'js/footer/about' => [
-        'path' => './assets/js/footer/about/index.js',
-        'entrypoint' => true,
-    ],
     'cm-chessboard' => [
         'version' => '8.5.0',
     ],
