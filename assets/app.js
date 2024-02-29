@@ -52,10 +52,9 @@ chessboardSanMovetext.form.addEventListener('submit', event => {
     ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
     movetext: event.target.elements[2].value
   };
-  localStorage.clear();
-  localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  ws.send(`/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  window.location.href = chessboardSanMovetext.form.dataset.redirect;
+  chessboardSanMovetext.modal.hide();
 });
 
 chessboardFenString.form.addEventListener('submit', event => {
@@ -88,7 +87,7 @@ playComputer.form.addEventListener('submit', event => {
     localStorage.setItem('depth', 2);
   }
   ws.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
-  
+
   playComputer.modal.hide();
 });
 

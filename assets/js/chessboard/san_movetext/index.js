@@ -1,4 +1,5 @@
-import { ws } from '../../../init.js';
+import { ws, chessboardSanMovetext } from '../../../init.js';
 
 await ws.connect();
-ws.sendMsgItem();
+
+chessboardSanMovetext.modal.show();
