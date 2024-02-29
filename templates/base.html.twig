@@ -27,12 +27,28 @@
                 <i class="bi bi-box-fill"></i> Chessboard
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownChessboardLink">
-                <li><a class="dropdown-item" href="{{ path('chessboard_classical') }}"><i class="bi bi-arrow-counterclockwise"></i> Classical</a></li>
-                <li><a class="dropdown-item" href="{{ path('chessboard_fischer_random') }}"><i class="bi bi-shuffle"></i> Fischer Random</a></li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_classical') }}">
+                    <i class="bi bi-arrow-counterclockwise"></i> Classical
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_fischer_random') }}">
+                    <i class="bi bi-shuffle"></i> Fischer Random
+                  </a>
+                </li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#chessboardSanMovetextModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
+                <li>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#chessboardSanMovetextModal">
+                    <i class="bi bi-card-text"></i> SAN Movetext
+                  </a>
+                </li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#chessboardFenStringModal"><i class="bi bi-input-cursor"></i> FEN String</a></li>
+                <li>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#chessboardFenStringModal">
+                    <i class="bi bi-input-cursor"></i> FEN String
+                  </a>
+                </li>
               </ul>
             </li>
             <li class="nav-item dropdown">
@@ -42,16 +58,19 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
                 <li>
                   <a class="dropdown-item" data-bs-toggle="modal" href="#playComputerModal">
-                  <i class="bi bi-robot"></i> Play Computer</a>
+                    <i class="bi bi-robot"></i> Play Computer
+                  </a>
                 </li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <a class="dropdown-item" data-bs-toggle="modal" href="#playFriendModal">
-                  <i class="bi bi-person-fill"></i> Play a Friend</a>
+                    <i class="bi bi-person-fill"></i> Play a Friend
+                  </a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="{{ path('play_friend') }}">
-                  <i class="bi bi-keyboard-fill"></i> Enter Invite Code</a>
+                    <i class="bi bi-keyboard-fill"></i> Enter Invite Code
+                  </a>
                 </li>
               </ul>
             </li>
@@ -60,11 +79,20 @@
                 <i class="bi bi-search"></i> Openings
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#openingsEcoCodeModal"><i class="bi bi-bookmark-fill"></i> ECO Code</a></li>
-                <li><a class="dropdown-item" data-bs-toggle="modal" href="#openingsSanMovetextModal"><i class="bi bi-card-text"></i> SAN Movetext</a></li>
+                <li>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#openingsEcoCodeModal">
+                    <i class="bi bi-bookmark-fill"></i> ECO Code
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" data-bs-toggle="modal" href="#openingsSanMovetextModal">
+                    <i class="bi bi-card-text"></i> SAN Movetext
+                  </a>
+                </li>
                 <li>
                   <a class="dropdown-item" data-bs-toggle="modal" href="#openingsNameModal">
-                  <i class="bi bi-alphabet"></i> Name</a>
+                    <i class="bi bi-alphabet"></i> Name
+                  </a>
                 </li>
               </ul>
             </li>
