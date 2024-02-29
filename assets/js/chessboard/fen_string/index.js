@@ -1,4 +1,5 @@
-import { ws } from '../../../init.js';
+import { ws, chessboardFenString } from '../../../init.js';
 
 await ws.connect();
-ws.sendMsgItem();
+
+chessboardFenString.modal.show();

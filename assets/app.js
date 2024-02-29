@@ -62,10 +62,9 @@ chessboardFenString.form.addEventListener('submit', event => {
   const add = {
     fen: event.target.elements[1].value
   };
-  localStorage.clear();
-  localStorage.setItem('msg', `/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  ws.send(`/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
-  window.location.href = chessboardFenString.form.dataset.redirect;
+  chessboardFenString.modal.hide();
 });
 
 playComputer.form.addEventListener('submit', event => {
