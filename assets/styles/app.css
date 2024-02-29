@@ -5,3 +5,21 @@ label img {
 .table td {
   cursor: pointer;
 }
+
+input[type="radio"] {
+  visibility: hidden;
+}
+
+label[for="playComputerModalColorRadioWhite"]:hover,
+label[for="playComputerModalColorRadioRandom"]:hover,
+label[for="playComputerModalColorRadioBlack"]:hover {
+  background-color: #f5f5f5;
+  border-radius: 4rem;
+}
+
+input:checked ~ label[for="playComputerModalColorRadioWhite"],
+input:checked ~ label[for="playComputerModalColorRadioRandom"],
+input:checked ~ label[for="playComputerModalColorRadioBlack"] {
+  background-color: #f0f0f0;
+  border-radius: 4rem;
+}

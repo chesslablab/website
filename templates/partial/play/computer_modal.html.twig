@@ -12,17 +12,19 @@
             <input type="range" class="form-range" name="level" min="0" max="3" step="1">
           </div>
           <div class="color row mb-3">
-            <div class="col-md-4">
-              <input type="radio" id="playComputerModalColorRadioWhite" name="color" value="w">
-              <label for="playComputerModalColorRadioWhite"><img src="{{ asset('img/pieces/png/150/wKing.png') }}" alt="White"></label>
-            </div>
-            <div class="col-md-4">
-              <input type="radio" id="playComputerModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}">
-              <label for="playComputerModalColorRadioRandom"><img src="{{ asset('img/pieces/png/150/wbKing.png') }}" alt="Random"></label>
-            </div>
-            <div class="col-md-4">
-              <input type="radio" id="playComputerModalColorRadioBlack" name="color" value="b">
-              <label for="playComputerModalColorRadioBlack"><img src="{{ asset('img/pieces/png/150/bKing.png') }}" alt="Black"></label>
+            <div class="col-md-12 d-flex justify-content-center">
+              <div>
+                <input type="radio" id="playComputerModalColorRadioWhite" name="color" value="w">
+                <label for="playComputerModalColorRadioWhite"><img src="{{ asset('img/pieces/png/75/wKing.png') }}" alt="White"></label>
+              </div>
+              <div>
+                <input type="radio" id="playComputerModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}">
+                <label for="playComputerModalColorRadioRandom"><img src="{{ asset('img/pieces/png/75/wbKing.png') }}" alt="Random"></label>
+              </div>
+              <div>
+                <input type="radio" id="playComputerModalColorRadioBlack" name="color" value="b">
+                <label for="playComputerModalColorRadioBlack"><img src="{{ asset('img/pieces/png/75/bKing.png') }}" alt="Black"></label>
+              </div>
             </div>
           </div>
           <div class="mb-3">
