@@ -1,4 +1,5 @@
-import { ws } from '../../../init.js';
+import { ws, playComputer } from '../../../init.js';
 
 await ws.connect();
-ws.sendMsgItem();
+
+playComputer.modal.show();

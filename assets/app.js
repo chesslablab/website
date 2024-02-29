@@ -73,6 +73,7 @@ playComputer.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playComputer.form);
   localStorage.clear();
+  localStorage.setItem('mode', mode.STOCKFISH);
   if (formData.get('level') == 1) {
     localStorage.setItem('skillLevel', 11);
     localStorage.setItem('depth', 4);
@@ -86,10 +87,9 @@ playComputer.form.addEventListener('submit', event => {
     localStorage.setItem('skillLevel', 6);
     localStorage.setItem('depth', 2);
   }
-  localStorage.setItem('mode', mode.STOCKFISH);
-  localStorage.setItem('msg', `/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
-
-  window.location.href = playComputer.form.dataset.redirect;
+  ws.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
+  
+  playComputer.modal.hide();
 });
 
 playFriend.form.addEventListener('submit', event => {
