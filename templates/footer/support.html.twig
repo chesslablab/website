@@ -1,23 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-  <h1>Support</h1>
-  <h2>Become a One-Time Supporter</h2>
-  <p class="lead">
-    <a href="https://github.com/chesslablab" target="_blank">ChesslaBlab</a> is
-    a community driven project funded by sponsors and supporters like you. The
-    project relies on the community to sustain itself.
-  </p>
-  <hr class="hr">
-  <p>
-    Help is needed to pay for servers and other technology costs as well as to
-    research and development of new features. Your support is very much appreciated!
-  </p>
+  <div class="container p-4">
+    <h1>Support</h1>
+    <h2>Become a One-Time Supporter</h2>
+    <p class="lead">
+      <a href="https://github.com/chesslablab" target="_blank">ChesslaBlab</a> is
+      a community driven project funded by sponsors and supporters like you. The
+      project relies on the community to sustain itself.
+    </p>
+    <hr class="hr">
+    <p>
+      Help is needed to pay for servers and other technology costs as well as to
+      research and development of new features. Your support is very much appreciated!
+    </p>
 
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_s-xclick" />
-    <input type="hidden" name="hosted_button_id" value="4TSDUA65NXEMU" />
-    <input type="hidden" name="currency_code" value="EUR" />
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
-  </form>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick" />
+      <input type="hidden" name="hosted_button_id" value="4TSDUA65NXEMU" />
+      <input type="hidden" name="currency_code" value="EUR" />
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynow_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" />
+    </form>
+  </div>
 {% endblock %}
