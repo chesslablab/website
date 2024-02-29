@@ -23,3 +23,17 @@ input:checked ~ label[for="playComputerModalColorRadioBlack"] {
   background-color: #f0f0f0;
   border-radius: 4rem;
 }
+
+label[for="playFriendModalColorRadioWhite"]:hover,
+label[for="playFriendModalColorRadioRandom"]:hover,
+label[for="playFriendModalColorRadioBlack"]:hover {
+  background-color: #f5f5f5;
+  border-radius: 4rem;
+}
+
+input:checked ~ label[for="playFriendModalColorRadioWhite"],
+input:checked ~ label[for="playFriendModalColorRadioRandom"],
+input:checked ~ label[for="playFriendModalColorRadioBlack"] {
+  background-color: #f0f0f0;
+  border-radius: 4rem;
+}
