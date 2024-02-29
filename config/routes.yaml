@@ -28,9 +28,19 @@ play_friend:
     controller: App\Controller\PlayController::friend
     methods:    GET
 
-openings_index:
-    path:       /openings
-    controller: App\Controller\OpeningsController::index
+openings_eco_code:
+    path:       /openings/eco-code
+    controller: App\Controller\OpeningsController::ecoCode
+    methods:    GET
+
+openings_san_movetext:
+    path:       /openings/san-movetext
+    controller: App\Controller\OpeningsController::sanMovetext
+    methods:    GET
+
+openings_name:
+    path:       /openings/name
+    controller: App\Controller\OpeningsController::name
     methods:    GET
 
 footer_about:

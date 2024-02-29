@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/game_actions_dropdown.html.twig' %}
+    {% include 'partial/history_buttons.html.twig' %}
+    {% include 'partial/san_moves_table.html.twig' %}
+    {% include 'partial/opening_table.html.twig' %}
+    <div id="startedButtons" class="btn-group">
+      <button class="btn btn-light" type="button">Takeback</button>
+    </div>
+  </div>
+  <script type="module" src="{{ asset('js/openings/san_movetext/index.js') }}"></script>
+{% endblock %}
