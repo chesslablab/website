@@ -32,3 +32,8 @@ openings_index:
     path:       /openings
     controller: App\Controller\OpeningsController::index
     methods:    GET
+
+footer_about:
+    path:       /about
+    controller: App\Controller\FooterController::about
+    methods:    GET
