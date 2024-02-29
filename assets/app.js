@@ -90,6 +90,15 @@ playComputer.form.addEventListener('submit', event => {
   playComputer.modal.hide();
 });
 
+playFriend.form.getElementsByTagName('select')[0].addEventListener('change', event => {
+  event.preventDefault();
+  if (event.target.value === variant.CHESS_960) {
+    playFriend.form.getElementsByClassName('startPos')[0].classList.remove('d-none');
+  } else {
+    playFriend.form.getElementsByClassName('startPos')[0].classList.add('d-none');
+  }
+});
+
 playFriend.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playFriend.form);
