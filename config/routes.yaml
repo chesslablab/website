@@ -52,3 +52,8 @@ footer_about:
     path:       /about
     controller: App\Controller\FooterController::about
     methods:    GET
+
+footer_support:
+    path:       /support
+    controller: App\Controller\FooterController::support
+    methods:    GET

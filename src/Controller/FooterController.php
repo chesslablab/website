@@ -11,4 +11,9 @@ class FooterController extends AbstractController
     {
         return $this->render('footer/about.html.twig');
     }
+
+    public function support(): Response
+    {
+        return $this->render('footer/support.html.twig');
+    }
 }
