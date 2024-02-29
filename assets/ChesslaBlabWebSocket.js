@@ -85,6 +85,8 @@ export default class ChesslaBlabWebSocket {
             } else if (data['/start'].mode === mode.PLAY) {
               if (data['/start'].jwt) {
                 copyInviteCode.form.elements['hash'].value = data['/start'].hash;
+                const jwtDecoded = jwtDecode(data['/start'].jwt);
+                this.chessboard.setOrientation(jwtDecoded.color);
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
@@ -153,6 +155,12 @@ export default class ChesslaBlabWebSocket {
 
           case '/accept' === msg:
             if (data['/accept'].jwt) {
+              const jwtDecoded = jwtDecode(data['/accept'].jwt);
+              if (!localStorage.getItem('inviterColor')) {
+                jwtDecoded.color === COLOR.white
+                  ? this.chessboard.setOrientation(COLOR.black)
+                  : this.chessboard.setOrientation(COLOR.white);
+              }
               waitingForPlayerToJoin.modal.hide();
               enterInviteCode.modal.hide();
             }
