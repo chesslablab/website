@@ -1,5 +1,5 @@
 chessboard_classical:
-    path:       /chessboard/classical
+    path:       /
     controller: App\Controller\ChessboardController::classical
     methods:    GET
 
