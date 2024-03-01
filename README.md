@@ -19,10 +19,10 @@ Then `cd` the `mpablab` directory and install the Composer dependencies:
 composer install
 ```
 
-Create an `.env` file:
+Set up the browser environment variables:
 
 ```text
-cp .env.example .env
+cp assets/env.example.js assets/env.js
 ```
 
 Download the assets:

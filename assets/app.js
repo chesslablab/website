@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './styles/app.css';
+import * as env from './env.js';
 import {
   ws,
   chessboardSanMovetext,
@@ -170,15 +171,15 @@ openingsName.form.addEventListener('submit', event => {
 
 gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
-  await fetch(`https://api.chesslablab.org/v1/download/image`, {
+  await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/image`, {
     method: 'POST',
     headers: {
-      'X-Api-Key': '\$2y\$10\$D7TW0EU7ZOxTpHlN97vceeoJrCQ1pIJeDqsRJj3t.Z\/Dc91gggBXO'
+      'X-Api-Key': `${env.API_KEY}`
     },
     body: JSON.stringify({
       fen: ws.sanMovesTable.settings.fen[ws.sanMovesTable.current],
-      variant: 'classical',
-      flip: 'w'
+      variant: variant.CLASSICAL,
+      flip: ws.chessboard.getOrientation()
     })
   })
   .then(res => res.blob())

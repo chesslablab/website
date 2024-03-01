@@ -21,6 +21,7 @@
 /docker/nginx/ssl/*.key
 
 ### misc
+/assets/env.example.js
 /composer.lock
 /symfony.lock
 .env
