@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  php_fpm:
+      build: .
+      container_name: chess_mpa_php_fpm
+      restart: always
+      volumes:
+          - ./:/usr/share/nginx/mpablab
+          - ./docker/php/8.3/cli/php.ini:/usr/local/etc/php/php.ini
+      working_dir: /usr/share/nginx/mpablab
+  nginx:
+      image: nginx:1.20
+      container_name: chess_mpa_nginx
+      ports:
+          - "9443:9443"
+      restart: always
+      volumes:
+          - ./:/usr/share/nginx/mpablab
+          - ./docker/nginx/conf.d/dev.conf:/etc/nginx/conf.d/dev.conf
+          - ./docker/nginx/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
+          - ./docker/nginx/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
+      working_dir: /usr/share/nginx/mpablab
