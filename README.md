@@ -7,13 +7,7 @@ A multi-page app (MPA) using server-side rendering (SSR) to learn and play chess
 
 ### Install and Setup
 
-Clone the `chesslablab/mpablab` repo into your projects folder as it is described in the following example:
-
-```text
-git clone git@github.com:chesslablab/mpablab.git
-```
-
-Then `cd` the `mpablab` directory and install the Composer dependencies:
+Clone the `chesslablab/mpablab` repo into your projects folder. Then `cd` the `mpablab` directory and install the Composer dependencies:
 
 ```text
 composer install
