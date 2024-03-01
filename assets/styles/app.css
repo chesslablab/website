@@ -6,8 +6,8 @@ label img {
   cursor: pointer;
 }
 
-.table td {
-  cursor: pointer;
+table {
+  margin-bottom: 0 !important;
 }
 
 input[type="radio"] {
@@ -40,4 +40,12 @@ input:checked ~ label[for="playFriendModalColorRadioRandom"],
 input:checked ~ label[for="playFriendModalColorRadioBlack"] {
   background-color: #f0f0f0;
   border-radius: 4rem;
+}
+
+.table td {
+  cursor: pointer;
+}
+
+#startedButtons {
+  margin-top: 1rem;
 }
