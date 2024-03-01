@@ -41,6 +41,18 @@ php bin/console asset-map:compile
 
 First things first, make sure to have created the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder. Then run the MPA:
 
+### Development
+
+Run the app on port `9443`.
+
+```text
+docker compose -f docker-compose.dev.yml up -d
+```
+
+### Production
+
+Run the app on port `443`.
+
 ```text
 docker compose -f docker-compose.prod.yml up -d
 ```
