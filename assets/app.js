@@ -14,7 +14,8 @@ import {
   enterInviteCode,
   openingsEcoCode,
   openingsSanMovetext,
-  openingsName
+  openingsName,
+  gameStudyDropdown
 } from './init.js';
 import * as mode from './modeConst.js';
 import * as variant from './variantConst.js';
@@ -165,4 +166,29 @@ openingsName.form.addEventListener('submit', event => {
   const tbody = openingsName.form.getElementsByTagName('tbody')[0];
 
   openingsTableDomNode(openingsName.modal, openings, tbody);
+});
+
+gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  await fetch(`https://api.chesslablab.org/v1/download/image`, {
+    method: 'POST',
+    headers: {
+      'X-Api-Key': '\$2y\$10\$D7TW0EU7ZOxTpHlN97vceeoJrCQ1pIJeDqsRJj3t.Z\/Dc91gggBXO'
+    },
+    body: JSON.stringify({
+      fen: ws.sanMovesTable.settings.fen[ws.sanMovesTable.current],
+      variant: 'classical',
+      flip: 'w'
+    })
+  })
+  .then(res => res.blob())
+  .then(blob => {
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "chessboard.png";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  });
 });

@@ -141,3 +141,5 @@ export const openingsName = {
   modal: new Modal(document.getElementById('openingsNameModal')),
   form: document.querySelector('#openingsNameModal form')
 }
+
+export const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');
