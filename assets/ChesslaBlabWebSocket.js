@@ -64,8 +64,8 @@ export default class ChesslaBlabWebSocket {
                 this.chessboard.props.variant = data['/start'].variant;
                 this.chessboard.props.startPos = data['/start'].startPos;
                 this.sanMovesTable.current = data['/start'].fen.length - 1;
-                this.sanMovesTable.settings = {
-                  ...this.sanMovesTable.settings,
+                this.sanMovesTable.props = {
+                  ...this.sanMovesTable.props,
                   movetext: data['/start'].movetext,
                   fen: data['/start'].fen
                 };
@@ -110,15 +110,15 @@ export default class ChesslaBlabWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].fen) {
               this.chessboard.setPosition(data['/play_lan'].fen, true);
-              if (!this.sanMovesTable.settings.fen[this.sanMovesTable.settings.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-                let fen = this.sanMovesTable.settings.fen;
+              if (!this.sanMovesTable.props.fen[this.sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
+                let fen = this.sanMovesTable.props.fen;
                 fen.push(data['/play_lan'].fen);
-                this.sanMovesTable.settings = {
-                  ...this.sanMovesTable.settings,
+                this.sanMovesTable.props = {
+                  ...this.sanMovesTable.props,
                   movetext: data['/play_lan'].movetext,
                   fen: fen
                 };
-                this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
+                this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
                 this.sanMovesTable.domNode();
                 this.openingTable.domNode();
                 if (localStorage.getItem('mode') === mode.STOCKFISH) {
@@ -131,10 +131,10 @@ export default class ChesslaBlabWebSocket {
           case '/undo' === msg:
             if (data['/undo']) {
               this.chessboard.setPosition(data['/undo'].fen, true);
-              let fen = this.sanMovesTable.settings.fen;
+              let fen = this.sanMovesTable.props.fen;
               fen.pop();
-              this.sanMovesTable.settings = {
-                ...this.sanMovesTable.settings,
+              this.sanMovesTable.props = {
+                ...this.sanMovesTable.props,
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
@@ -146,14 +146,14 @@ export default class ChesslaBlabWebSocket {
           case '/stockfish' === msg:
             if (data['/stockfish']) {
               this.chessboard.setPosition(data['/stockfish'].fen, true);
-              let fen = this.sanMovesTable.settings.fen;
+              let fen = this.sanMovesTable.props.fen;
               fen.push(data['/stockfish'].fen);
-              this.sanMovesTable.settings = {
-                ...this.sanMovesTable.settings,
+              this.sanMovesTable.props = {
+                ...this.sanMovesTable.props,
                 movetext: data['/stockfish'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.current = this.sanMovesTable.settings.fen.length - 1;
+              this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
               this.sanMovesTable.domNode();
               this.openingTable.domNode();
             }

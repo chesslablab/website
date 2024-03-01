@@ -1,4 +1,4 @@
-import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.0.9/src/index.min.js";
+import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.1.0/src/index.min.js";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
@@ -177,7 +177,7 @@ gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
       'X-Api-Key': `${env.API_KEY}`
     },
     body: JSON.stringify({
-      fen: ws.sanMovesTable.settings.fen[ws.sanMovesTable.current],
+      fen: ws.sanMovesTable.props.fen[ws.sanMovesTable.current],
       variant: variant.CLASSICAL,
       flip: ws.chessboard.getOrientation()
     })
@@ -203,7 +203,7 @@ gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
     },
     body: JSON.stringify({
       variant: ws.chessboard.props.variant,
-      movetext: ws.sanMovesTable.settings.movetext,
+      movetext: ws.sanMovesTable.props.movetext,
       flip: ws.chessboard.getOrientation(),
       ...(ws.chessboard.props.variant === variant.CHESS_960) && {startPos: ws.chessboard.props.startPos},
       ...(ws.chessboard.props.variant === variant.CAPABLANCA_FISCHER) && {startPos: ws.chessboard.props.startPos}
