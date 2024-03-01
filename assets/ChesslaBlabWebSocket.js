@@ -53,12 +53,16 @@ export default class ChesslaBlabWebSocket {
             if (data['/start'].mode === mode.FEN) {
               if (data['/start'].fen) {
                 this.chessboard.setPosition(data['/start'].fen, true);
+                this.chessboard.props.variant = data['/start'].variant;
+                this.chessboard.props.startPos = data['/start'].startPos;
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
             } else if (data['/start'].mode === mode.SAN) {
               if (data['/start'].movetext) {
                 this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
+                this.chessboard.props.variant = data['/start'].variant;
+                this.chessboard.props.startPos = data['/start'].startPos;
                 this.sanMovesTable.current = data['/start'].fen.length - 1;
                 this.sanMovesTable.settings = {
                   ...this.sanMovesTable.settings,
@@ -87,6 +91,8 @@ export default class ChesslaBlabWebSocket {
                 copyInviteCode.form.elements['hash'].value = data['/start'].hash;
                 const jwtDecoded = jwtDecode(data['/start'].jwt);
                 this.chessboard.setOrientation(jwtDecoded.color);
+                this.chessboard.props.variant = data['/start'].variant;
+                this.chessboard.props.startPos = data['/start'].startPos;
               } else {
                 console.log('Invalid FEN, please try again with a different one.');
               }
