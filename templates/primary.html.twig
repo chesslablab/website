@@ -21,13 +21,6 @@
          {% block main %}{% endblock %}
        </div>
     </div>
-    <footer class="my-5 pt-5 text-muted text-center text-small">
-      <p class="mb-1">© 2024 ChesslaBlab</p>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="{{ path('footer_about') }}">About</a></li>
-        <li class="list-inline-item"><a href="{{ path('footer_support') }}">Support</a></li>
-        <li class="list-inline-item"><a href="{{ path('footer_legal_notice') }}">Legal Notice</a></li>
-      </ul>
-    </footer>
+    {% include 'footer.html.twig' %}
   </body>
 </html>
