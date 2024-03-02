@@ -3,7 +3,7 @@ import {
   HistoryButtons,
   OpeningTable,
   SanMovesTable
-} from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.1.0/src/index.min.js";
+} from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { INPUT_EVENT_TYPE, COLOR, Chessboard, BORDER_TYPE } from "cm-chessboard";
 import { Accessibility } from "./vendor/cm-chessboard/src/extensions/accessibility/Accessibility.js";

@@ -1,4 +1,4 @@
-import { Opening } from "https://cdn.jsdelivr.net/npm/@chesslablab/jsblab@0.1.0/src/index.min.js";
+import { Opening } from '@chesslablab/jsblab';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';

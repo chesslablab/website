@@ -69,6 +69,9 @@ return [
     'cm-chessboard/src/view/VisualMoveInput' => [
         'version' => '8.5.0',
     ],
+    '@chesslablab/jsblab' => [
+        'version' => '0.1.0',
+    ],
     'bootstrap' => [
         'version' => '5.3.2',
     ],
