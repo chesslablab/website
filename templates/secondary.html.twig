@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
+    <title>ChesslaBlab</title>
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/font/bootstrap-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ path('chessboard_classical') }}">ChesslaBlab</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="{{app.request.get('_route') starts with 'chessboard_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-box-fill"></i> Chessboard
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownChessboardLink">
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_classical') }}">
+                    <i class="bi bi-arrow-counterclockwise"></i> Classical
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_fischer_random') }}">
+                    <i class="bi bi-shuffle"></i> Fischer Random
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_san_movetext') }}">
+                    <i class="bi bi-card-text"></i> SAN Movetext
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('chessboard_fen_string') }}">
+                    <i class="bi bi-input-cursor"></i> FEN String
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="{{app.request.get('_route') starts with 'play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-laptop-fill"></i> Play
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
+                <li>
+                  <a class="dropdown-item" href="{{ path('play_computer') }}">
+                    <i class="bi bi-robot"></i> Play Computer
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('play_friend') }}">
+                    <i class="bi bi-person-fill"></i> Play a Friend
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('play_enter_invite_code') }}">
+                    <i class="bi bi-keyboard-fill"></i> Enter Invite Code
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="{{app.request.get('_route') starts with 'openings_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-search"></i> Openings
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
+                <li>
+                  <a class="dropdown-item" href="{{ path('openings_eco_code') }}">
+                    <i class="bi bi-bookmark-fill"></i> ECO Code
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('openings_san_movetext') }}">
+                    <i class="bi bi-card-text"></i> SAN Movetext
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{{ path('openings_name') }}">
+                    <i class="bi bi-alphabet"></i> Name
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+       <div class="row mt-3">
+         {% block main %}{% endblock %}
+       </div>
+    </div>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2024 ChesslaBlab</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="{{ path('footer_about') }}">About</a></li>
+        <li class="list-inline-item"><a href="{{ path('footer_support') }}">Support</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
