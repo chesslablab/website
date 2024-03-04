@@ -1,6 +1,8 @@
-import { COLOR } from "cm-chessboard";
 import { jwtDecode } from 'jwt-decode';
-import { MARKER_TYPE } from './vendor/cm-chessboard/src/extensions/markers/Markers.js';
+import {
+  COLOR,
+  MARKER_TYPE
+} from '@chesslablab/cmblab';
 import {
   copyInviteCode,
   enterInviteCode,
