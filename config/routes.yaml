@@ -58,7 +58,7 @@ footer_support:
     controller: App\Controller\FooterController::support
     methods:    GET
 
-footer_legal_notice:
-    path:       /legal-notice
-    controller: App\Controller\FooterController::legalNotice
+footer_legal:
+    path:       /legal
+    controller: App\Controller\FooterController::legal
     methods:    GET

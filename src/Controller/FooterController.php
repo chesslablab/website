@@ -17,8 +17,8 @@ class FooterController extends AbstractController
         return $this->render('footer/support.html.twig');
     }
 
-    public function legalNotice(): Response
+    public function legal(): Response
     {
-        return $this->render('footer/legal_notice.html.twig');
+        return $this->render('footer/legal.html.twig');
     }
 }
