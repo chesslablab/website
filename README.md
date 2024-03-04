@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
-A multi-page app (MPA) using server-side rendering (SSR) to learn and play chess online.
+The ChesslaBlab website allows users to learn and play chess online.
 
 ### Install and Setup
 
