@@ -3,6 +3,7 @@ import {
   COLOR,
   MARKER_TYPE
 } from '@chesslablab/cmblab';
+import * as env from './env.js';
 import {
   copyInviteCode,
   enterInviteCode,
@@ -34,7 +35,7 @@ export default class ChesslaBlabWebSocket {
     console.log('Establishing connection...');
 
     return new Promise((resolve, reject) => {
-      this.socket = new WebSocket('wss://async.chesslablab.org:8443');
+      this.socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
 
       this.socket.onopen = () => {
         console.log('Opened connection!');
