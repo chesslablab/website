@@ -7,7 +7,7 @@ The ChesslaBlab website allows users to learn and play chess online.
 
 ### Install and Setup
 
-Clone the `chesslablab/mpablab` repo into your projects folder. Then `cd` the `mpablab` directory and install the Composer dependencies:
+Clone the `chesslablab/website` repo into your projects folder. Then `cd` the `website` directory and install the Composer dependencies:
 
 ```text
 composer install
@@ -53,10 +53,10 @@ docker compose -f docker-compose.prod.yml up -d
 
 ### License
 
-The [MIT License](https://github.com/chesslablab/mpablab/blob/master/LICENSE).
+The [MIT License](https://github.com/chesslablab/website/blob/master/LICENSE).
 
 ### Contributions
 
-See the [contributing guidelines](https://github.com/chesslablab/mpablab/blob/master/CONTRIBUTING.md).
+See the [contributing guidelines](https://github.com/chesslablab/website/blob/master/CONTRIBUTING.md).
 
 Happy learning and coding!

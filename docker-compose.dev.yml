@@ -6,9 +6,9 @@ services:
       container_name: chess_mpa_php_fpm
       restart: always
       volumes:
-          - ./:/usr/share/nginx/mpablab
+          - ./:/usr/share/nginx/website
           - ./docker/php/8.3/cli/php.ini:/usr/local/etc/php/php.ini
-      working_dir: /usr/share/nginx/mpablab
+      working_dir: /usr/share/nginx/website
   nginx:
       image: nginx:1.20
       container_name: chess_mpa_nginx
@@ -16,8 +16,8 @@ services:
           - "9443:9443"
       restart: always
       volumes:
-          - ./:/usr/share/nginx/mpablab
+          - ./:/usr/share/nginx/website
           - ./docker/nginx/conf.d/dev.conf:/etc/nginx/conf.d/dev.conf
           - ./docker/nginx/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
           - ./docker/nginx/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
-      working_dir: /usr/share/nginx/mpablab
+      working_dir: /usr/share/nginx/website
