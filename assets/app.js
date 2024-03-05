@@ -18,8 +18,8 @@ import {
   gameStudyDropdown
 } from './init.js';
 import * as env from './env.js';
-import * as mode from './modeConst.js';
-import * as variant from './variantConst.js';
+import * as mode from './mode.js';
+import * as variant from './variant.js';
 
 const openingsTableDomNode = (modal, openings, tbody) => {
   tbody.replaceChildren();
