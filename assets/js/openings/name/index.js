@@ -1,4 +1,4 @@
-import { ws, openingsName } from '../../../js/base/san_init.js';
+import { ws, openingsName } from '../../../js/base/san_elements.js';
 
 await ws.connect();
 

@@ -14,7 +14,7 @@ import {
   openingsSanMovetext,
   openingsName,
   gameStudyDropdown
-} from './san_init.js';
+} from './san_elements.js';
 import '../../styles/app.css';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
