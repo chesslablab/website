@@ -1,7 +1,7 @@
 import {
   databaseAnnotatedGames,
   ravMovesTable
-} from '../../../js/base/rav_elements.js';
+} from '../../../js/base/rav/init.js';
 
 databaseAnnotatedGames.modal.show();
 

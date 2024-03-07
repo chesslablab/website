@@ -18,8 +18,8 @@ return [
         'path' => './assets/js/base/san/elems.js',
         'entrypoint' => true,
     ],
-    'js/base/rav.js' => [
-        'path' => './assets/js/base/rav.js',
+    'js/base/rav/elems.js' => [
+        'path' => './assets/js/base/rav/elems.js',
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [
