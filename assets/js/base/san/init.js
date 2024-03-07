@@ -16,7 +16,7 @@ import {
   SanMovesTable
 } from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
-import ChesslaBlabWebSocket from '../../ChesslaBlabWebSocket.js';
+import ChesslaBlabWebSocket from '../../../ChesslaBlabWebSocket.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {

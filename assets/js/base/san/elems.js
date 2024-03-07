@@ -14,11 +14,11 @@ import {
   openingsSanMovetext,
   openingsName,
   gameStudyDropdown
-} from './san_elements.js';
-import '../../styles/app.css';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
-import * as variant from '../../variant.js';
+} from './init.js';
+import '../../../styles/app.css';
+import * as env from '../../../env.js';
+import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 const openingsTableDomNode = (modal, openings, tbody) => {
   tbody.replaceChildren();

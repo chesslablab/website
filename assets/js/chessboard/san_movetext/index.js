@@ -1,4 +1,4 @@
-import { ws, chessboardSanMovetext } from '../../../js/base/san_elements.js';
+import { ws, chessboardSanMovetext } from '../../../js/base/san/init.js';
 
 await ws.connect();
 
