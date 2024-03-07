@@ -26,7 +26,7 @@ return [
         'version' => '0.0.1',
     ],
     '@chesslablab/jsblab' => [
-        'version' => '0.1.2',
+        'version' => '0.1.3',
     ],
     'bootstrap' => [
         'version' => '5.3.2',
