@@ -18,6 +18,10 @@ return [
         'path' => './assets/js/base/san.js',
         'entrypoint' => true,
     ],
+    'js/base/rav.js' => [
+        'path' => './assets/js/base/rav.js',
+        'entrypoint' => true,
+    ],
     '@chesslablab/cmblab' => [
         'version' => '0.0.1',
     ],
