@@ -20,7 +20,7 @@ import * as env from '../../../env.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-const openingsTableDomNode = (modal, openings, tbody) => {
+const openingsTableDomElem = (modal, openings, tbody) => {
   tbody.replaceChildren();
   openings.forEach(opening => {
     const tr = document.createElement('tr');
@@ -147,7 +147,7 @@ openingsEcoCode.form.getElementsByTagName('select')[0].addEventListener('change'
   const openings = Opening.byEco(event.target.value);
   const tbody = openingsEcoCode.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openingsEcoCode.modal, openings, tbody);
+  openingsTableDomElem(openingsEcoCode.modal, openings, tbody);
 });
 
 openingsSanMovetext.form.addEventListener('submit', event => {
@@ -156,7 +156,7 @@ openingsSanMovetext.form.addEventListener('submit', event => {
   const openings = Opening.byMovetext(formData.get('movetext'));
   const tbody = openingsSanMovetext.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openingsSanMovetext.modal, openings, tbody);
+  openingsTableDomElem(openingsSanMovetext.modal, openings, tbody);
 });
 
 openingsName.form.addEventListener('submit', event => {
@@ -165,7 +165,7 @@ openingsName.form.addEventListener('submit', event => {
   const openings = Opening.byName(formData.get('name'));
   const tbody = openingsName.form.getElementsByTagName('tbody')[0];
 
-  openingsTableDomNode(openingsName.modal, openings, tbody);
+  openingsTableDomElem(openingsName.modal, openings, tbody);
 });
 
 gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
