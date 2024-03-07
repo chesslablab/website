@@ -1,0 +1,11 @@
+{% extends 'primary.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/common/rav_panel.html.twig' %}
+  </div>
+  <script type="module" src="{{ asset('js/database/annotated_games/index.js') }}"></script>
+{% endblock %}
