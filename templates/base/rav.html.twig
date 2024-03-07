@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     {% block stylesheets %}{% endblock %}
     {% block javascripts %}
-      {% block importmap %}{{ importmap('app') }}{% endblock %}
+      {% block importmap %}
+        {{ importmap('js/base/rav/elems.js') }}
+      {% endblock %}
     {% endblock %}
   </head>
   <body>

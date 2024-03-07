@@ -48,6 +48,11 @@ openings_name:
     controller: App\Controller\OpeningsController::name
     methods:    GET
 
+database_annotated_games:
+    path:       /openings/annotated-games
+    controller: App\Controller\DatabaseController::annotatedGames
+    methods:    GET
+
 footer_about:
     path:       /about
     controller: App\Controller\FooterController::about

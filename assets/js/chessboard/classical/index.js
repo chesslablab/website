@@ -1,4 +1,4 @@
-import { ws } from '../../../init.js';
+import { ws } from '../../../js/base/san/init.js';
 
 localStorage.clear();
 await ws.connect();

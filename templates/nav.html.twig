@@ -80,6 +80,18 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="{{app.request.get('_route') starts with 'database_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Database
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownDatabaseLink">
+            <li>
+              <a class="dropdown-item" href="{{ path('database_annotated_games') }}">
+                Annotated Games
+              </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>
@@ -94,3 +106,4 @@
 {% include 'partial/openings/eco_code_modal.html.twig' %}
 {% include 'partial/openings/san_movetext_modal.html.twig' %}
 {% include 'partial/openings/name_modal.html.twig' %}
+{% include 'partial/database/annotated_games_modal.html.twig' %}
