@@ -72,8 +72,8 @@ export default class ChesslaBlabWebSocket {
                   movetext: data['/start'].movetext,
                   fen: data['/start'].fen
                 };
-                this.sanMovesTable.domNode();
-                this.openingTable.domNode();
+                this.sanMovesTable.domElem();
+                this.openingTable.domElem();
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
               }
@@ -122,8 +122,8 @@ export default class ChesslaBlabWebSocket {
                   fen: fen
                 };
                 this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-                this.sanMovesTable.domNode();
-                this.openingTable.domNode();
+                this.sanMovesTable.domElem();
+                this.openingTable.domElem();
                 if (localStorage.getItem('mode') === mode.STOCKFISH) {
                   this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
                 }
@@ -141,8 +141,8 @@ export default class ChesslaBlabWebSocket {
                 movetext: data['/undo'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.domNode();
-              this.openingTable.domNode();
+              this.sanMovesTable.domElem();
+              this.openingTable.domElem();
             }
             break;
 
@@ -157,8 +157,8 @@ export default class ChesslaBlabWebSocket {
                 fen: fen
               };
               this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-              this.sanMovesTable.domNode();
-              this.openingTable.domNode();
+              this.sanMovesTable.domElem();
+              this.openingTable.domElem();
             }
             break;
 
