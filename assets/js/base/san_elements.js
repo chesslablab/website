@@ -69,14 +69,14 @@ const sanMovesTable = new SanMovesTable(
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    sanMovesTable: sanMovesTable
+    movesTable: sanMovesTable
   }
 );
 
 const openingTable = new OpeningTable(
   document.querySelector('#openingTable tbody'),
   {
-    sanMovesTable: sanMovesTable
+    movetext: sanMovesTable.props.movetext
   }
 );
 
@@ -85,8 +85,7 @@ const startedButtons = document.getElementById('startedButtons');
 const gameActionsDropdown = new GameActionsDropdown(
   document.querySelector('#gameActionsDropdown ul'),
   {
-    chessboard: chessboard,
-    sanMovesTable: sanMovesTable
+    movesTable: sanMovesTable
   }
 );
 
