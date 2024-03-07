@@ -23,8 +23,10 @@ const handleClick = (game) => {
   })
   .then(res => res.json())
   .then(res => {
+    ravMovesTable.current = res.fen.length - 1;
     ravMovesTable.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
     ravMovesTable.props = {
+      ...ravMovesTable.props,
       filtered: res.filtered,
       breakdown: res.breakdown,
       fen: res.fen
