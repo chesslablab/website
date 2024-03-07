@@ -1,4 +1,4 @@
-import { ws, playComputer } from '../../../init.js';
+import { ws, playComputer } from '../../../js/base/san_init.js';
 
 await ws.connect();
 

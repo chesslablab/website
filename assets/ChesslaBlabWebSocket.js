@@ -3,12 +3,12 @@ import {
   COLOR,
   MARKER_TYPE
 } from '@chesslablab/cmblab';
-import * as env from './env.js';
 import {
   copyInviteCode,
   enterInviteCode,
   waitingForPlayerToJoin
-} from './init.js';
+} from './js/base/san_init.js';
+import * as env from './env.js';
 import * as mode from './mode.js';
 
 export default class ChesslaBlabWebSocket {

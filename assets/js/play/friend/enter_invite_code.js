@@ -1,4 +1,4 @@
-import { ws, enterInviteCode } from '../../../init.js';
+import { ws, enterInviteCode } from '../../../js/base/san_init.js';
 
 await ws.connect();
 
