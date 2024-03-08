@@ -1,0 +1,14 @@
+{% extends 'layout/san.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/common/san_panel.html.twig' %}
+    <div id="startedButtons" class="btn-group">
+      <button class="btn btn-light" type="button">Takeback</button>
+    </div>
+  </div>
+  <script type="module" src="{{ asset('js/play/friend/index.js') }}"></script>
+{% endblock %}

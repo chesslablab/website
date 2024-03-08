@@ -1,69 +1,69 @@
-chessboard_classical:
+pages_chessboard_classical:
     path:       /
-    controller: App\Controller\ChessboardController::classical
+    controller: App\Controller\Pages\Chessboard\ClassicalController::index
     methods:    GET
 
-chessboard_fischer_random:
-    path:       /chessboard/fischer-random
-    controller: App\Controller\ChessboardController::fischerRandom
-    methods:    GET
-
-chessboard_san_movetext:
-    path:       /chessboard/san-movetext
-    controller: App\Controller\ChessboardController::sanMovetext
-    methods:    GET
-
-chessboard_fen_string:
+pages_chessboard_fen_string:
     path:       /chessboard/fen-string
-    controller: App\Controller\ChessboardController::fenString
+    controller: App\Controller\Pages\Chessboard\FenStringController::index
     methods:    GET
 
-play_computer:
-    path:       /play/computer
-    controller: App\Controller\PlayController::computer
+pages_chessboard_fischer_random:
+    path:       /chessboard/fischer-random
+    controller: App\Controller\Pages\Chessboard\FischerRandomController::index
     methods:    GET
 
-play_friend:
-    path:       /play/friend
-    controller: App\Controller\PlayController::friend
+pages_chessboard_san_movetext:
+    path:       /chessboard/san-movetext
+    controller: App\Controller\Pages\Chessboard\SanMovetextController::index
     methods:    GET
 
-play_enter_invite_code:
-    path:       /play/friend/enter-invite-code
-    controller: App\Controller\PlayController::enterInviteCode
+pages_database_annotated_games:
+    path:       /database/annotated-games
+    controller: App\Controller\Pages\Database\AnnotatedGamesController::index
     methods:    GET
 
-openings_eco_code:
+pages_openings_eco_code:
     path:       /openings/eco-code
-    controller: App\Controller\OpeningsController::ecoCode
+    controller: App\Controller\Pages\Openings\EcoCodeController::index
     methods:    GET
 
-openings_san_movetext:
-    path:       /openings/san-movetext
-    controller: App\Controller\OpeningsController::sanMovetext
-    methods:    GET
-
-openings_name:
+pages_openings_name:
     path:       /openings/name
-    controller: App\Controller\OpeningsController::name
+    controller: App\Controller\Pages\Openings\NameController::index
     methods:    GET
 
-database_annotated_games:
-    path:       /openings/annotated-games
-    controller: App\Controller\DatabaseController::annotatedGames
+pages_openings_san_movetext:
+    path:       /openings/san-movetext
+    controller: App\Controller\Pages\Openings\SanMovetextController::index
     methods:    GET
 
-footer_about:
+pages_play_friend_enter_invite_code:
+    path:       /play/friend/enter-invite-code
+    controller: App\Controller\Pages\Play\Friend\EnterInviteCodeController::index
+    methods:    GET
+
+pages_play_friend_index:
+    path:       /play/friend
+    controller: App\Controller\Pages\Play\Friend\IndexController::index
+    methods:    GET
+
+pages_play_computer:
+    path:       /play/computer
+    controller: App\Controller\Pages\Play\ComputerController::index
+    methods:    GET
+
+pages_about:
     path:       /about
-    controller: App\Controller\FooterController::about
+    controller: App\Controller\Pages\AboutController::index
     methods:    GET
 
-footer_support:
-    path:       /support
-    controller: App\Controller\FooterController::support
-    methods:    GET
-
-footer_legal:
+pages_legal:
     path:       /legal
-    controller: App\Controller\FooterController::legal
+    controller: App\Controller\Pages\LegalController::index
+    methods:    GET
+
+pages_support:
+    path:       /support
+    controller: App\Controller\Pages\SupportController::index
     methods:    GET
