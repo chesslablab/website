@@ -9,6 +9,6 @@ class SupportController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('support.html.twig');
+        return $this->render('pages/support.html.twig');
     }
 }

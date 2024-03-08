@@ -4,9 +4,9 @@ import {
 import {
   databaseAnnotatedGames,
   ravMovesTable
-} from '../../../js/layout/rav/init.js';
-import * as env from '../../../env.js';
-import * as variant from '../../../variant.js';
+} from '../../../layout/rav/init.js';
+import * as env from '../../../../env.js';
+import * as variant from '../../../../variant.js';
 
 ravMovesTable.domElem();
 

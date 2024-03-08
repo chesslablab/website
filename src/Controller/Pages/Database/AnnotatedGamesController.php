@@ -9,6 +9,6 @@ class AnnotatedGamesController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('database/annotated_games.html.twig');
+        return $this->render('pages/database/annotated_games.html.twig');
     }
 }

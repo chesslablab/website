@@ -9,6 +9,6 @@ class EcoCodeController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('openings/eco_code.html.twig');
+        return $this->render('pages/openings/eco_code.html.twig');
     }
 }

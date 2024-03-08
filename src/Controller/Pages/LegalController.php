@@ -9,6 +9,6 @@ class LegalController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('legal.html.twig');
+        return $this->render('pages/legal.html.twig');
     }
 }

@@ -9,6 +9,6 @@ class NameController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('openings/name.html.twig');
+        return $this->render('pages/openings/name.html.twig');
     }
 }

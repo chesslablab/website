@@ -9,6 +9,6 @@ class IndexController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('play/friend/index.html.twig');
+        return $this->render('pages/play/friend/index.html.twig');
     }
 }

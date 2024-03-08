@@ -9,6 +9,6 @@ class EnterInviteCodeController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('play/friend/enter_invite_code.html.twig');
+        return $this->render('pages/play/friend/enter_invite_code.html.twig');
     }
 }

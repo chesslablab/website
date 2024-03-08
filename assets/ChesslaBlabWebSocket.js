@@ -7,7 +7,7 @@ import {
   copyInviteCode,
   enterInviteCode,
   waitingForPlayerToJoin
-} from './js/base/san/init.js';
+} from './js/layout/san/init.js';
 import * as env from './env.js';
 import * as mode from './mode.js';
 
