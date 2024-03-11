@@ -80,6 +80,7 @@ playOnline.form.addEventListener('submit', event => {
   };
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playOnline.modal.hide();
+  waitingForPlayerToJoin.modal.show();
 });
 
 playComputer.form.addEventListener('submit', event => {
