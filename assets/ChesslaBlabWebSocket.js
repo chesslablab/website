@@ -4,6 +4,7 @@ import {
   MARKER_TYPE
 } from '@chesslablab/cmblab';
 import {
+  playOnline,
   copyInviteCode,
   enterInviteCode,
   waitingForPlayerToJoin
@@ -172,6 +173,12 @@ export default class ChesslaBlabWebSocket {
               }
               waitingForPlayerToJoin.modal.hide();
               enterInviteCode.modal.hide();
+            }
+            break;
+
+          case '/online_games' === msg:
+            if (data['/online_games']) {
+              playOnline.domElem(data['/online_games']);
             }
             break;
 

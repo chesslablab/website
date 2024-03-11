@@ -109,7 +109,35 @@ export const chessboardFenString = {
 
 export const playOnline = {
   modal: new Modal(document.getElementById('playOnlineModal')),
-  form: document.querySelector('#playOnlineModal form')
+  form: document.querySelector('#playOnlineModal form'),
+  domElem: (games) => {
+    const tbody = document.querySelector('#playOnlineModal table tbody')
+    tbody.replaceChildren();
+    games.forEach(game => {
+      const tr = document.createElement('tr');
+      const usernameTd = document.createElement('td');
+      const usernameText = document.createTextNode('Guest');
+      const minTd = document.createElement('td');
+      const minText = document.createTextNode(game.min);
+      const incrementTd = document.createElement('td');
+      const incrementText = document.createTextNode(game.increment);
+      const colorTd = document.createElement('td');
+      const colorText = document.createTextNode(game.color);
+      const variantTd = document.createElement('td');
+      const variantText = document.createTextNode(game.variant);
+      usernameTd.appendChild(usernameText);
+      minTd.appendChild(minText);
+      incrementTd.appendChild(incrementText);
+      colorTd.appendChild(colorText);
+      variantTd.appendChild(variantText);
+      tr.appendChild(usernameTd);
+      tr.appendChild(minTd);
+      tr.appendChild(incrementTd);
+      tr.appendChild(colorTd);
+      tr.appendChild(variantTd);
+      tbody.appendChild(tr);
+    });
+  }
 }
 
 export const playComputer = {
