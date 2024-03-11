@@ -41,6 +41,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
             <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online') }}">
+                Play Online
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
               <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
                 Play Computer
               </a>
@@ -98,6 +104,7 @@
 </nav>
 {% include 'partial/chessboard/san_movetext_modal.html.twig' %}
 {% include 'partial/chessboard/fen_string_modal.html.twig' %}
+{% include 'partial/play/online_modal.html.twig' %}
 {% include 'partial/play/computer_modal.html.twig' %}
 {% include 'partial/play/friend_modal.html.twig' %}
 {% include 'partial/play/copy_invite_code_modal.html.twig' %}

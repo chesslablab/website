@@ -1,0 +1,37 @@
+<div class="modal fade" id="playOnlineModal" tabindex="-1" aria-labelledby="playOnlineModalLabel" aria-hidden="true">
+  <div class="modal-dialog">Computer
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playOnlineModalLabel">Play Online</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 text-center">
+            <label class="form-label">Difficulty level</label>
+            <input type="range" class="form-range" name="level" min="0" max="3" step="1">
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <div>
+              <input type="radio" id="playOnlineModalColorRadioWhite" name="color" value="w">
+              <label for="playOnlineModalColorRadioWhite"><img src="{{ asset('img/pieces/png/75/wKing.png') }}" alt="White"></label>
+            </div>
+            <div>
+              <input type="radio" id="playOnlineModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}" checked>
+              <label for="playOnlineModalColorRadioRandom"><img src="{{ asset('img/pieces/png/75/wbKing.png') }}" alt="Random"></label>
+            </div>
+            <div>
+              <input type="radio" id="playOnlineModalColorRadioBlack" name="color" value="b">
+              <label for="playOnlineModalColorRadioBlack"><img src="{{ asset('img/pieces/png/75/bKing.png') }}" alt="Black"></label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">FEN</label>
+            <input type="text" name="fen" placeholder="Enter a FEN" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Create Game</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
