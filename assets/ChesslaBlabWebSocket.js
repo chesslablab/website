@@ -125,7 +125,7 @@ export default class ChesslaBlabWebSocket {
                 this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
                 this.sanMovesTable.domElem();
                 this.openingTable.domElem();
-                if (localStorage.getItem('mode') === mode.STOCKFISH) {
+                if (data['/play_lan'].mode === mode.STOCKFISH) {
                   this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
                 }
               }
