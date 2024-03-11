@@ -1,11 +1,8 @@
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   ws,
   chessboardFenString,
   gameStudyDropdown
 } from './init.js';
-import '../../../styles/app.css';
 import * as env from '../../../env.js';
 import * as mode from '../../../mode.js';
 
