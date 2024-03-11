@@ -72,9 +72,13 @@ chessboardFenString.form.addEventListener('submit', event => {
 playOnline.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playOnline.form);
-  // TODO
-  console.log(formData.get('variant'));
-
+  const add = {
+    min: formData.get('minutes'),
+    increment: formData.get('increment'),
+    color: formData.get('color'),
+    submode: 'online'
+  };
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playOnline.modal.hide();
 });
 
