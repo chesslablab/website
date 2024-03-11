@@ -17,7 +17,7 @@ import {
 } from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { gameStudyDropdown } from '../init.js';
-import ChesslaBlabWebSocket from '../../ws/san.js';
+import ChesslaBlabWebSocket from '../../ws/stockfish.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -98,24 +98,9 @@ export const ws = new ChesslaBlabWebSocket(
   gameActionsDropdown
 );
 
-export const chessboardSanMovetext = {
-  modal: new Modal(document.getElementById('chessboardSanMovetextModal')),
-  form: document.querySelector('#chessboardSanMovetextModal form')
-}
-
-export const openingsEcoCode = {
-  modal: new Modal(document.getElementById('openingsEcoCodeModal')),
-  form: document.querySelector('#openingsEcoCodeModal form')
-}
-
-export const openingsSanMovetext = {
-  modal: new Modal(document.getElementById('openingsSanMovetextModal')),
-  form: document.querySelector('#openingsSanMovetextModal form')
-}
-
-export const openingsName = {
-  modal: new Modal(document.getElementById('openingsNameModal')),
-  form: document.querySelector('#openingsNameModal form')
+export const playComputer = {
+  modal: new Modal(document.getElementById('playComputerModal')),
+  form: document.querySelector('#playComputerModal form')
 }
 
 export * from '../init.js';

@@ -1,4 +1,4 @@
-import { ws, playOnline } from '../../../layout/san/init.js';
+import { ws, playOnline } from '../../../layout/play/init.js';
 
 await ws.connect();
 

@@ -17,7 +17,7 @@ import {
 } from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { gameStudyDropdown } from '../init.js';
-import ChesslaBlabWebSocket from '../../ws/san.js';
+import ChesslaBlabWebSocket from '../../ws/play.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -98,24 +98,62 @@ export const ws = new ChesslaBlabWebSocket(
   gameActionsDropdown
 );
 
-export const chessboardSanMovetext = {
-  modal: new Modal(document.getElementById('chessboardSanMovetextModal')),
-  form: document.querySelector('#chessboardSanMovetextModal form')
+export const playOnline = {
+  modal: new Modal(document.getElementById('playOnlineModal')),
+  form: document.querySelector('#playOnlineModal form'),
+  domElem: (games) => {
+    if (games.length > 0) {
+      const tbody = document.querySelector('#playOnlineModal table tbody')
+      tbody.replaceChildren();
+      games.forEach(game => {
+        const tr = document.createElement('tr');
+        const usernameTd = document.createElement('td');
+        const usernameText = document.createTextNode('Guest');
+        const minTd = document.createElement('td');
+        const minText = document.createTextNode(game.min);
+        const incrementTd = document.createElement('td');
+        const incrementText = document.createTextNode(game.increment);
+        const colorTd = document.createElement('td');
+        const colorText = document.createTextNode(game.color);
+        const variantTd = document.createElement('td');
+        const variantText = document.createTextNode(game.variant);
+        usernameTd.appendChild(usernameText);
+        minTd.appendChild(minText);
+        incrementTd.appendChild(incrementText);
+        colorTd.appendChild(colorText);
+        variantTd.appendChild(variantText);
+        tr.appendChild(usernameTd);
+        tr.appendChild(minTd);
+        tr.appendChild(incrementTd);
+        tr.appendChild(colorTd);
+        tr.appendChild(variantTd);
+        tr.addEventListener('click', () => {
+          ws.send(`/accept ${game.hash}`);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+  }
 }
 
-export const openingsEcoCode = {
-  modal: new Modal(document.getElementById('openingsEcoCodeModal')),
-  form: document.querySelector('#openingsEcoCodeModal form')
+export const playFriend = {
+  modal: new Modal(document.getElementById('playFriendModal')),
+  form: document.querySelector('#playFriendModal form')
 }
 
-export const openingsSanMovetext = {
-  modal: new Modal(document.getElementById('openingsSanMovetextModal')),
-  form: document.querySelector('#openingsSanMovetextModal form')
+export const copyInviteCode = {
+  modal: new Modal(document.getElementById('copyInviteCodeModal')),
+  form: document.querySelector('#copyInviteCodeModal form')
 }
 
-export const openingsName = {
-  modal: new Modal(document.getElementById('openingsNameModal')),
-  form: document.querySelector('#openingsNameModal form')
+export const waitingForPlayerToJoin = {
+  modal: new Modal(document.getElementById('waitingForPlayerToJoinModal')),
+  form: document.querySelector('#waitingForPlayerToJoinModal form')
+}
+
+export const enterInviteCode = {
+  modal: new Modal(document.getElementById('enterInviteCodeModal')),
+  form: document.querySelector('#enterInviteCodeModal form')
 }
 
 export * from '../init.js';
