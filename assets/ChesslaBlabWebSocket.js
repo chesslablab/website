@@ -173,6 +173,7 @@ export default class ChesslaBlabWebSocket {
               }
               waitingForPlayerToJoin.modal.hide();
               enterInviteCode.modal.hide();
+              playOnline.modal.hide();
             }
             break;
 

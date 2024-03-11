@@ -136,6 +136,9 @@ export const playOnline = {
         tr.appendChild(incrementTd);
         tr.appendChild(colorTd);
         tr.appendChild(variantTd);
+        tr.addEventListener('click', () => {
+          ws.send(`/accept ${game.hash}`);
+        });
         tbody.appendChild(tr);
       });
     }
