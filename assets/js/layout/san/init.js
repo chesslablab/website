@@ -107,6 +107,11 @@ export const chessboardFenString = {
   form: document.querySelector('#chessboardFenStringModal form')
 }
 
+export const playOnline = {
+  modal: new Modal(document.getElementById('playOnlineModal')),
+  form: document.querySelector('#playOnlineModal form')
+}
+
 export const playComputer = {
   modal: new Modal(document.getElementById('playComputerModal')),
   form: document.querySelector('#playComputerModal form')

@@ -53,6 +53,11 @@ pages_play_computer:
     controller: App\Controller\Pages\Play\ComputerController::index
     methods:    GET
 
+pages_play_online:
+    path:       /play/online
+    controller: App\Controller\Pages\Play\OnlineController::index
+    methods:    GET
+
 pages_about:
     path:       /about
     controller: App\Controller\Pages\AboutController::index

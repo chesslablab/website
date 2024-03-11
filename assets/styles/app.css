@@ -14,6 +14,20 @@ input[type="radio"] {
   visibility: hidden;
 }
 
+label[for="playOnlineModalColorRadioWhite"]:hover,
+label[for="playOnlineModalColorRadioRandom"]:hover,
+label[for="playOnlineModalColorRadioBlack"]:hover {
+  background-color: #f5f5f5;
+  border-radius: 4rem;
+}
+
+input:checked ~ label[for="playOnlineModalColorRadioWhite"],
+input:checked ~ label[for="playOnlineModalColorRadioRandom"],
+input:checked ~ label[for="playOnlineModalColorRadioBlack"] {
+  background-color: #f0f0f0;
+  border-radius: 4rem;
+}
+
 label[for="playComputerModalColorRadioWhite"]:hover,
 label[for="playComputerModalColorRadioRandom"]:hover,
 label[for="playComputerModalColorRadioBlack"]:hover {

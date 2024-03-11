@@ -5,6 +5,7 @@ import {
   ws,
   chessboardSanMovetext,
   chessboardFenString,
+  playOnline,
   playComputer,
   playFriend,
   copyInviteCode,
@@ -66,6 +67,19 @@ chessboardFenString.form.addEventListener('submit', event => {
   ws.send(`/start ${event.target.elements[0].value} ${mode.FEN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 
   chessboardFenString.modal.hide();
+});
+
+playOnline.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(playOnline.form);
+  const add = {
+    min: formData.get('minutes'),
+    increment: formData.get('increment'),
+    color: formData.get('color'),
+    submode: 'online'
+  };
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  playOnline.modal.hide();
 });
 
 playComputer.form.addEventListener('submit', event => {
