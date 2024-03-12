@@ -8,6 +8,7 @@ import enterInviteCode from '../layout/mode/play/enterInviteCode.js';
 import playOnline from '../layout/mode/play/playOnline.js';
 import waitingForPlayerToJoin from '../layout/mode/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/mode/play/waitingForOpponentToAcceptOrDecline.js';
+import takeback from '../layout/mode/play/takeback.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
@@ -132,11 +133,14 @@ export default class ChesslaBlabWebSocket {
 
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
-              console.log(action.PROPOSE);
+              if (localStorage.getItem('draw') !== action.PROPOSE) {
+                takeback.modal.show();
+              }
             } else if (data['/takeback'].action === action.DECLINE) {
               console.log(action.DECLINE);
             } else if (data['/takeback'].action === action.ACCEPT) {
-              console.log(action.ACCEPT);
+              this.send('/undo');
+              localStorage.removeItem('draw');
             }
             break;
 

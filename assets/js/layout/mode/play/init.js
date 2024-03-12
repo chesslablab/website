@@ -5,9 +5,11 @@ import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
 import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
+import takeback from './takeback.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
+import * as action from '../../../../action.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
@@ -79,4 +81,11 @@ waitingForPlayerToJoin.form.addEventListener('submit', event => {
 waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
   event.preventDefault();
   waitingForOpponentToAcceptOrDecline.modal.hide();
+});
+
+takeback.form.addEventListener('submit', event => {
+  event.preventDefault();
+  localStorage.setItem('draw', action.ACCEPT);
+  ws.send('/takeback accept');
+  takeback.modal.hide();
 });
