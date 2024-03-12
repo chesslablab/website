@@ -3,12 +3,10 @@ import {
   COLOR,
   MARKER_TYPE
 } from '@chesslablab/cmblab';
-import {
-  playOnline,
-  copyInviteCode,
-  enterInviteCode,
-  waitingForPlayerToJoin
-} from '../layout/mode/play/init.js';
+import copyInviteCode from '../layout/mode/play/copyInviteCode.js';
+import enterInviteCode from '../layout/mode/play/enterInviteCode.js';
+import playOnline from '../layout/mode/play/playOnline.js';
+import waitingForPlayerToJoin from '../layout/mode/play/waitingForPlayerToJoin.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 

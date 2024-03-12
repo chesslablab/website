@@ -22,8 +22,8 @@ return [
         'path' => './assets/js/layout/mode/rav/elems.js',
         'entrypoint' => true,
     ],
-    'js/layout/mode/play/elems.js' => [
-        'path' => './assets/js/layout/mode/play/elems.js',
+    'js/layout/mode/play/init.js' => [
+        'path' => './assets/js/layout/mode/play/init.js',
         'entrypoint' => true,
     ],
     'js/layout/mode/san/init.js' => [
