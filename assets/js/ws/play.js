@@ -137,7 +137,8 @@ export default class ChesslaBlabWebSocket {
                 takeback.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
-              console.log(action.DECLINE);
+              takeback.modal.hide();
+              localStorage.removeItem('draw');
             } else if (data['/takeback'].action === action.ACCEPT) {
               this.send('/undo');
               localStorage.removeItem('draw');

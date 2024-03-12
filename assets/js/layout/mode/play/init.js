@@ -87,5 +87,9 @@ takeback.form.addEventListener('submit', event => {
   event.preventDefault();
   localStorage.setItem('draw', action.ACCEPT);
   ws.send('/takeback accept');
-  takeback.modal.hide();
+});
+
+takeback.form.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/takeback decline');
 });
