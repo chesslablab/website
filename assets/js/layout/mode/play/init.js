@@ -85,7 +85,6 @@ waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
 
 takeback.form.addEventListener('submit', event => {
   event.preventDefault();
-  localStorage.setItem('draw', action.ACCEPT);
   ws.send('/takeback accept');
 });
 
