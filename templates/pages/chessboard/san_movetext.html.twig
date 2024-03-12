@@ -1,14 +1,11 @@
-{% extends 'layout/san.html.twig' %}
+{% extends 'layout/mode/san.html.twig' %}
 
 {% block main %}
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
   <div class="col-md-6">
-    {% include 'partial/common/san_panel.html.twig' %}
-    <div id="startedButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-light" type="button">Takeback</button>
-    </div>
+    {% include 'partial/common/panel/san.html.twig' %}
   </div>
   <script type="module" src="{{ asset('js/pages/chessboard/san_movetext/index.js') }}"></script>
 {% endblock %}
