@@ -29,7 +29,6 @@ const inputHandler = (event) => {
   }
 }
 
-chessboard.disableMoveInput();
 chessboard.enableMoveInput(inputHandler);
 
 const ws = new ChesslaBlabWebSocket(
