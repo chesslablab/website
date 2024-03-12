@@ -27,8 +27,13 @@ export default class ChesslaBlabWebSocket {
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
     this.startedButtons.children.item(0).addEventListener('click', () => {
-      localStorage.setItem('draw', action.PROPOSE);
+      localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
+      waitingForOpponentToAcceptOrDecline.modal.show();
+    });
+    this.startedButtons.children.item(1).addEventListener('click', () => {
+      localStorage.setItem('draw', action.PROPOSE);
+      this.send('/draw propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
     });
 
@@ -133,15 +138,15 @@ export default class ChesslaBlabWebSocket {
 
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
-              if (localStorage.getItem('draw') !== action.PROPOSE) {
+              if (localStorage.getItem('takeback') !== action.PROPOSE) {
                 takeback.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
-              localStorage.removeItem('draw');
+              localStorage.removeItem('takeback');
             } else if (data['/takeback'].action === action.ACCEPT) {
               this.send('/undo');
-              localStorage.removeItem('draw');
+              localStorage.removeItem('takeback');
             }
             break;
 

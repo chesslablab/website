@@ -6,6 +6,7 @@ import startedButtons from './startedButtons.js';
 import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
 import takeback from './takeback.js';
+import draw from './draw.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
@@ -91,4 +92,14 @@ takeback.form.addEventListener('submit', event => {
 takeback.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/takeback decline');
+});
+
+draw.form.addEventListener('submit', event => {
+  event.preventDefault();
+  ws.send('/draw accept');
+});
+
+draw.form.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/draw decline');
 });
