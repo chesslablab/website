@@ -9,6 +9,7 @@ import playOnline from '../layout/play/playOnline.js';
 import waitingForPlayerToJoin from '../layout/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/play/waitingForOpponentToAcceptOrDecline.js';
 import takeback from '../layout/play/takeback.js';
+import draw from '../layout/play/draw.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
@@ -27,8 +28,13 @@ export default class ChesslaBlabWebSocket {
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
     this.startedButtons.children.item(0).addEventListener('click', () => {
-      localStorage.setItem('draw', action.PROPOSE);
+      localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
+      waitingForOpponentToAcceptOrDecline.modal.show();
+    });
+    this.startedButtons.children.item(1).addEventListener('click', () => {
+      localStorage.setItem('draw', action.PROPOSE);
+      this.send('/draw propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
     });
 
@@ -133,14 +139,27 @@ export default class ChesslaBlabWebSocket {
 
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
-              if (localStorage.getItem('draw') !== action.PROPOSE) {
+              if (localStorage.getItem('takeback') !== action.PROPOSE) {
                 takeback.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
-              localStorage.removeItem('draw');
+              localStorage.removeItem('takeback');
             } else if (data['/takeback'].action === action.ACCEPT) {
               this.send('/undo');
+              localStorage.removeItem('takeback');
+            }
+            break;
+
+          case '/draw' === msg:
+            if (data['/draw'].action === action.PROPOSE) {
+              if (localStorage.getItem('draw') !== action.PROPOSE) {
+                draw.modal.show();
+              }
+            } else if (data['/draw'].action === action.DECLINE) {
+              draw.modal.hide();
+              localStorage.removeItem('draw');
+            } else if (data['/draw'].action === action.ACCEPT) {
               localStorage.removeItem('draw');
             }
             break;
