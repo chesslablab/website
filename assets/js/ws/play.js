@@ -8,6 +8,7 @@ import enterInviteCode from '../layout/mode/play/enterInviteCode.js';
 import playOnline from '../layout/mode/play/playOnline.js';
 import waitingForPlayerToJoin from '../layout/mode/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/mode/play/waitingForOpponentToAcceptOrDecline.js';
+import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 
@@ -25,6 +26,7 @@ export default class ChesslaBlabWebSocket {
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
     this.startedButtons.children.item(0).addEventListener('click', () => {
+      this.send('/takeback propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
     });
 
@@ -124,6 +126,16 @@ export default class ChesslaBlabWebSocket {
           case '/online_games' === msg:
             if (data['/online_games']) {
               playOnline.domElem(data['/online_games']);
+            }
+            break;
+
+          case '/takeback' === msg:
+            if (data['/takeback'].action === action.PROPOSE) {
+              console.log(action.PROPOSE);
+            } else if (data['/takeback'].action === action.DECLINE) {
+              console.log(action.DECLINE);
+            } else if (data['/takeback'].action === action.ACCEPT) {
+              console.log(action.ACCEPT);
             }
             break;
 
