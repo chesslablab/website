@@ -1,4 +1,5 @@
-import { ws, openingsName } from '../../../layout/mode/san/init.js';
+import openingsName from '../../../layout/mode/san/openingsName.js';
+import ws from '../../../layout/mode/san/ws.js';
 
 await ws.connect();
 

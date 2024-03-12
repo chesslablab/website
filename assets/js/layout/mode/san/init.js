@@ -1,119 +1,71 @@
-import {
-  INPUT_EVENT_TYPE,
-  COLOR,
-  Chessboard,
-  BORDER_TYPE,
-  Accessibility,
-  MARKER_TYPE,
-  Markers,
-  FEN,
-  PromotionDialog
-} from '@chesslablab/cmblab';
-import {
-  GameActionsDropdown,
-  HistoryButtons,
-  OpeningTable,
-  SanMovesTable
-} from '@chesslablab/jsblab';
-import Modal from 'bootstrap/js/dist/modal.js';
-import ChesslaBlabWebSocket from '../../../ws/san.js';
+import { Opening } from '@chesslablab/jsblab';
+import chessboardSanMovetext from './chessboardSanMovetext.js';
+import openingsEcoCode from './openingsEcoCode.js';
+import openingsName from './openingsName.js';
+import openingsSanMovetext from './openingsSanMovetext.js';
+import startedButtons from './startedButtons.js';
+import ws from './ws.js';
+import gameStudyDropdown from '../gameStudyDropdown.js';
+import historyButtons from '../historyButtons.js';
+import * as mode from '../../../../mode.js';
+import * as variant from '../../../../variant.js';
 
-const inputHandler = (event) => {
-  if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
-    return;
-  }
+const openingsTableDomElem = (modal, openings, tbody) => {
+  tbody.replaceChildren();
+  openings.forEach(opening => {
+    const tr = document.createElement('tr');
+    const ecoTd = document.createElement('td');
+    const ecoText = document.createTextNode(opening.eco);
+    const nameTd = document.createElement('td');
+    const nameText = document.createTextNode(opening.name);
+    const movetextTd = document.createElement('td');
+    const movetextText = document.createTextNode(opening.movetext);
+    ecoTd.appendChild(ecoText);
+    nameTd.appendChild(nameText);
+    movetextTd.appendChild(movetextText);
+    tr.appendChild(ecoTd);
+    tr.appendChild(nameTd);
+    tr.appendChild(movetextTd);
+    tr.addEventListener('click', event => {
+      const add = {
+        movetext: opening.movetext
+      };
+      ws.send(`/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      modal.hide();
+    });
+    tbody.appendChild(tr);
+  });
+};
 
-  if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
-    event.chessboard.removeMarkers(MARKER_TYPE.dot);
-    event.chessboard.removeMarkers(MARKER_TYPE.bevel);
-  }
+chessboardSanMovetext.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const add = {
+    ...(event.target.elements[1].value && {fen: event.target.elements[1].value}),
+    movetext: event.target.elements[2].value
+  };
+  ws.send(`/start ${event.target.elements[0].value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  chessboardSanMovetext.modal.hide();
+});
 
-  if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
-    ws.send(`/legal ${event.square}`);
-    return true;
-  } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
-    ws.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
-    return true;
-  }
-}
+openingsEcoCode.form.getElementsByTagName('select')[0].addEventListener('change', event => {
+  event.preventDefault();
+  const openings = Opening.byEco(event.target.value);
+  const tbody = openingsEcoCode.form.getElementsByTagName('tbody')[0];
+  openingsTableDomElem(openingsEcoCode.modal, openings, tbody);
+});
 
-const chessboard = new Chessboard(
-  document.getElementById("chessboard"),
-  {
-    position: FEN.start,
-    assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
-    style: {borderType: BORDER_TYPE.none, pieces: {file: "pieces/staunty.svg"}, animationDuration: 300},
-    orientation: COLOR.white,
-    extensions: [
-      {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
-      {class: PromotionDialog},
-      {class: Accessibility, props: {visuallyHidden: true}}
-    ]
-  }
-);
+openingsSanMovetext.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(openingsSanMovetext.form);
+  const openings = Opening.byMovetext(formData.get('movetext'));
+  const tbody = openingsSanMovetext.form.getElementsByTagName('tbody')[0];
+  openingsTableDomElem(openingsSanMovetext.modal, openings, tbody);
+});
 
-chessboard.enableMoveInput(inputHandler);
-
-const sanMovesTable = new SanMovesTable(
-  document.querySelector('#sanMovesTable tbody'),
-  {
-    chessboard: chessboard,
-    movetext: '',
-    fen: [
-      FEN.start
-    ]
-  }
-);
-
-const historyButtons = new HistoryButtons(
-  document.querySelector('#historyButtons'),
-  {
-    movesTable: sanMovesTable
-  }
-);
-
-const openingTable = new OpeningTable(
-  document.querySelector('#openingTable tbody'),
-  {
-    movetext: sanMovesTable.props.movetext
-  }
-);
-
-const startedButtons = document.getElementById('startedButtons');
-
-const gameActionsDropdown = new GameActionsDropdown(
-  document.querySelector('#gameActionsDropdown ul'),
-  {
-    movesTable: sanMovesTable
-  }
-);
-
-export const ws = new ChesslaBlabWebSocket(
-  chessboard,
-  sanMovesTable,
-  openingTable,
-  startedButtons,
-  gameActionsDropdown
-);
-
-export const chessboardSanMovetext = {
-  modal: new Modal(document.getElementById('chessboardSanMovetextModal')),
-  form: document.querySelector('#chessboardSanMovetextModal form')
-}
-
-export const openingsEcoCode = {
-  modal: new Modal(document.getElementById('openingsEcoCodeModal')),
-  form: document.querySelector('#openingsEcoCodeModal form')
-}
-
-export const openingsSanMovetext = {
-  modal: new Modal(document.getElementById('openingsSanMovetextModal')),
-  form: document.querySelector('#openingsSanMovetextModal form')
-}
-
-export const openingsName = {
-  modal: new Modal(document.getElementById('openingsNameModal')),
-  form: document.querySelector('#openingsNameModal form')
-}
-
-export const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');
+openingsName.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(openingsName.form);
+  const openings = Opening.byName(formData.get('name'));
+  const tbody = openingsName.form.getElementsByTagName('tbody')[0];
+  openingsTableDomElem(openingsName.modal, openings, tbody);
+});
