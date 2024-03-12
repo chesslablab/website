@@ -30,8 +30,8 @@ return [
         'path' => './assets/js/layout/mode/san/init.js',
         'entrypoint' => true,
     ],
-    'js/layout/mode/stockfish/elems.js' => [
-        'path' => './assets/js/layout/mode/stockfish/elems.js',
+    'js/layout/mode/stockfish/init.js' => [
+        'path' => './assets/js/layout/mode/stockfish/init.js',
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [

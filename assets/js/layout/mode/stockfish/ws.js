@@ -8,7 +8,7 @@ import chessboard from '../chessboard.js';
 import gameActionsDropdown from '../gameActionsDropdown.js';
 import openingTable from '../openingTable.js';
 import sanMovesTable from '../sanMovesTable.js';
-import ChesslaBlabWebSocket from '../../../ws/fen.js';
+import ChesslaBlabWebSocket from '../../../ws/stockfish.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
