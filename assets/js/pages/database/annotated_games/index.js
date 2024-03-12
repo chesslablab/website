@@ -1,10 +1,5 @@
-import {
-  Chessboard
-} from '@chesslablab/cmblab';
-import {
-  databaseAnnotatedGames,
-  ravMovesTable
-} from '../../../layout/mode/rav/init.js';
+import databaseAnnotatedGames from '../../../layout/mode/rav/databaseAnnotatedGames.js';
+import ravMovesTable from '../../../layout/mode/rav/ravMovesTable.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 

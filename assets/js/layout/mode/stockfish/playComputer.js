@@ -5,5 +5,4 @@ const playComputer = {
   form: document.querySelector('#playComputerModal form')
 }
 
-
 export default playComputer;

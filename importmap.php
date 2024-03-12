@@ -18,8 +18,8 @@ return [
         'path' => './assets/js/layout/mode/fen/init.js',
         'entrypoint' => true,
     ],
-    'js/layout/mode/rav/elems.js' => [
-        'path' => './assets/js/layout/mode/rav/elems.js',
+    'js/layout/mode/rav/init.js' => [
+        'path' => './assets/js/layout/mode/rav/init.js',
         'entrypoint' => true,
     ],
     'js/layout/mode/play/init.js' => [
