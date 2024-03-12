@@ -7,8 +7,8 @@ import startedButtons from './startedButtons.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
-import * as mode from '../../../../mode.js';
-import * as variant from '../../../../variant.js';
+import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 const openingsTableDomElem = (modal, openings, tbody) => {
   tbody.replaceChildren();

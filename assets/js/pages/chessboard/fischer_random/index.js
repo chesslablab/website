@@ -1,4 +1,4 @@
-import ws from '../../../layout/mode/fen/ws.js';
+import ws from '../../../layout/fen/ws.js';
 
 localStorage.clear();
 await ws.connect();

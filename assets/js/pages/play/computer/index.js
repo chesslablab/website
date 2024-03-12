@@ -1,5 +1,5 @@
-import playComputer from '../../../layout/mode/stockfish/playComputer.js';
-import ws from '../../../layout/mode/stockfish/ws.js';
+import playComputer from '../../../layout/stockfish/playComputer.js';
+import ws from '../../../layout/stockfish/ws.js';
 
 await ws.connect();
 

@@ -3,7 +3,7 @@ import startedButtons from './startedButtons.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
-import * as mode from '../../../../mode.js';
+import * as mode from '../../../mode.js';
 
 chessboardFenString.form.addEventListener('submit', event => {
   event.preventDefault();

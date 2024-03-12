@@ -1,7 +1,7 @@
 import chessboard from './chessboard.js';
 import sanMovesTable from './sanMovesTable.js';
-import * as env from '../../../env.js';
-import * as variant from '../../../variant.js';
+import * as env from '../../env.js';
+import * as variant from '../../variant.js';
 
 const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');
 

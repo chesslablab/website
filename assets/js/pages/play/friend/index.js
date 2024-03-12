@@ -1,6 +1,6 @@
-import copyInviteCode from '../../../layout/mode/play/copyInviteCode.js';
-import playFriend from '../../../layout/mode/play/playFriend.js';
-import ws from '../../../layout/mode/play/ws.js';
+import copyInviteCode from '../../../layout/play/copyInviteCode.js';
+import playFriend from '../../../layout/play/playFriend.js';
+import ws from '../../../layout/play/ws.js';
 
 await ws.connect();
 

@@ -9,9 +9,9 @@ import takeback from './takeback.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
-import * as action from '../../../../action.js';
-import * as mode from '../../../../mode.js';
-import * as variant from '../../../../variant.js';
+import * as action from '../../../action.js';
+import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
