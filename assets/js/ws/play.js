@@ -26,6 +26,7 @@ export default class ChesslaBlabWebSocket {
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
     this.startedButtons.children.item(0).addEventListener('click', () => {
+      localStorage.setItem('draw', action.PROPOSE);
       this.send('/takeback propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
     });
