@@ -1,5 +1,7 @@
-import { ws } from './init.js';
 import chessboardFenString from './chessboardFenString.js';
+import startedButtons from './startedButtons.js';
+import ws from './ws.js';
+import historyButtons from '../historyButtons.js';
 import * as mode from '../../../../mode.js';
 
 chessboardFenString.form.addEventListener('submit', event => {
