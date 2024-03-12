@@ -4,9 +4,12 @@ import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
 import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
+import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
+import takeback from './takeback.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
+import * as action from '../../../../action.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
@@ -73,4 +76,19 @@ playOnline.form.addEventListener('submit', event => {
 waitingForPlayerToJoin.form.addEventListener('submit', event => {
   event.preventDefault();
   window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
+});
+
+waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
+  event.preventDefault();
+  waitingForOpponentToAcceptOrDecline.modal.hide();
+});
+
+takeback.form.addEventListener('submit', event => {
+  event.preventDefault();
+  ws.send('/takeback accept');
+});
+
+takeback.form.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/takeback decline');
 });

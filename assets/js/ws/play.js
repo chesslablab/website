@@ -7,6 +7,9 @@ import copyInviteCode from '../layout/mode/play/copyInviteCode.js';
 import enterInviteCode from '../layout/mode/play/enterInviteCode.js';
 import playOnline from '../layout/mode/play/playOnline.js';
 import waitingForPlayerToJoin from '../layout/mode/play/waitingForPlayerToJoin.js';
+import waitingForOpponentToAcceptOrDecline from '../layout/mode/play/waitingForOpponentToAcceptOrDecline.js';
+import takeback from '../layout/mode/play/takeback.js';
+import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 
@@ -23,8 +26,10 @@ export default class ChesslaBlabWebSocket {
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
-    this.startedButtons.addEventListener('click', () => {
-      this.send('/undo');
+    this.startedButtons.children.item(0).addEventListener('click', () => {
+      localStorage.setItem('draw', action.PROPOSE);
+      this.send('/takeback propose');
+      waitingForOpponentToAcceptOrDecline.modal.show();
     });
 
     this.socket = null;
@@ -123,6 +128,20 @@ export default class ChesslaBlabWebSocket {
           case '/online_games' === msg:
             if (data['/online_games']) {
               playOnline.domElem(data['/online_games']);
+            }
+            break;
+
+          case '/takeback' === msg:
+            if (data['/takeback'].action === action.PROPOSE) {
+              if (localStorage.getItem('draw') !== action.PROPOSE) {
+                takeback.modal.show();
+              }
+            } else if (data['/takeback'].action === action.DECLINE) {
+              takeback.modal.hide();
+              localStorage.removeItem('draw');
+            } else if (data['/takeback'].action === action.ACCEPT) {
+              this.send('/undo');
+              localStorage.removeItem('draw');
             }
             break;
 
