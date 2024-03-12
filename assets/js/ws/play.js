@@ -8,7 +8,7 @@ import {
   copyInviteCode,
   enterInviteCode,
   waitingForPlayerToJoin
-} from '../layout/play/init.js';
+} from '../layout/mode/play/init.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 

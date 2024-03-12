@@ -1,4 +1,4 @@
-import { ws, openingsSanMovetext } from '../../../layout/san/init.js';
+import { ws, openingsSanMovetext } from '../../../layout/mode/san/init.js';
 
 await ws.connect();
 

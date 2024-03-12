@@ -4,7 +4,7 @@ import {
 import {
   databaseAnnotatedGames,
   ravMovesTable
-} from '../../../layout/rav/init.js';
+} from '../../../layout/mode/rav/init.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 

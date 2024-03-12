@@ -16,7 +16,7 @@ import {
   SanMovesTable
 } from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
-import ChesslaBlabWebSocket from '../../ws/fen.js';
+import ChesslaBlabWebSocket from '../../../ws/fen.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -101,4 +101,4 @@ export const chessboardFenString = {
   form: document.querySelector('#chessboardFenStringModal form')
 }
 
-export * from '../init.js';
+export const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');

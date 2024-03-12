@@ -1,4 +1,4 @@
-import { ws, copyInviteCode, playFriend } from '../../../layout/play/init.js';
+import { ws, copyInviteCode, playFriend } from '../../../layout/mode/play/init.js';
 
 await ws.connect();
 

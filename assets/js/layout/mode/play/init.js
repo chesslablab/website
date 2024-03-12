@@ -16,8 +16,7 @@ import {
   SanMovesTable
 } from '@chesslablab/jsblab';
 import Modal from 'bootstrap/js/dist/modal.js';
-import { gameStudyDropdown } from '../init.js';
-import ChesslaBlabWebSocket from '../../ws/play.js';
+import ChesslaBlabWebSocket from '../../../ws/play.js';
 
 const inputHandler = (event) => {
   if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -155,4 +154,4 @@ export const enterInviteCode = {
   form: document.querySelector('#enterInviteCodeModal form')
 }
 
-export * from '../init.js';
+export const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');

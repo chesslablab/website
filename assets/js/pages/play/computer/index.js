@@ -1,4 +1,4 @@
-import { ws, playComputer } from '../../../layout/stockfish/init.js';
+import { ws, playComputer } from '../../../layout/mode/stockfish/init.js';
 
 await ws.connect();
 
