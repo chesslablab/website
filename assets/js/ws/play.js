@@ -7,6 +7,7 @@ import copyInviteCode from '../layout/mode/play/copyInviteCode.js';
 import enterInviteCode from '../layout/mode/play/enterInviteCode.js';
 import playOnline from '../layout/mode/play/playOnline.js';
 import waitingForPlayerToJoin from '../layout/mode/play/waitingForPlayerToJoin.js';
+import waitingForOpponentToAcceptOrDecline from '../layout/mode/play/waitingForOpponentToAcceptOrDecline.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 
@@ -23,8 +24,8 @@ export default class ChesslaBlabWebSocket {
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
-    this.startedButtons.addEventListener('click', () => {
-      this.send('/undo');
+    this.startedButtons.children.item(0).addEventListener('click', () => {
+      waitingForOpponentToAcceptOrDecline.modal.show();
     });
 
     this.socket = null;

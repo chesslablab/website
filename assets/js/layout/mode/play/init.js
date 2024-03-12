@@ -4,6 +4,7 @@ import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
 import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
+import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
@@ -73,4 +74,9 @@ playOnline.form.addEventListener('submit', event => {
 waitingForPlayerToJoin.form.addEventListener('submit', event => {
   event.preventDefault();
   window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
+});
+
+waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
+  event.preventDefault();
+  waitingForOpponentToAcceptOrDecline.modal.hide();
 });
