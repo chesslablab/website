@@ -1,4 +1,5 @@
-import { ws, chessboardFenString } from '../../../layout/mode/san/init.js';
+import { ws } from '../../../layout/mode/fen/init.js';
+import chessboardFenString from '../../../layout/mode/fen/chessboardFenString.js';
 
 await ws.connect();
 

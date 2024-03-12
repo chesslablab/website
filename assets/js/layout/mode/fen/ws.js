@@ -34,10 +34,12 @@ const inputHandler = (event) => {
 
 chessboard.enableMoveInput(inputHandler);
 
-export const ws = new ChesslaBlabWebSocket(
+const ws = new ChesslaBlabWebSocket(
   chessboard,
   sanMovesTable,
   openingTable,
   startedButtons,
   gameActionsDropdown
 );
+
+export default ws;
