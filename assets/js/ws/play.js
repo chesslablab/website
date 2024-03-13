@@ -7,7 +7,6 @@ import info from '../layout/info.js';
 import copyInviteCode from '../layout/play/copyInviteCode.js';
 import enterInviteCode from '../layout/play/enterInviteCode.js';
 import playOnline from '../layout/play/playOnline.js';
-import waitingForPlayerToJoin from '../layout/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/play/waitingForOpponentToAcceptOrDecline.js';
 import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
@@ -132,9 +131,10 @@ export default class ChesslaBlabWebSocket {
                   ? this.chessboard.setOrientation(COLOR.black)
                   : this.chessboard.setOrientation(COLOR.white);
               }
-              waitingForPlayerToJoin.modal.hide();
               enterInviteCode.modal.hide();
               playOnline.modal.hide();
+              info.msg('Waiting for player to join...');
+              info.modal.show();
             }
             break;
 

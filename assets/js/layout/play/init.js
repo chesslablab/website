@@ -3,7 +3,6 @@ import enterInviteCode from './enterInviteCode.js';
 import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
-import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
 import takeback from './takeback.js';
 import draw from './draw.js';
@@ -20,7 +19,8 @@ copyInviteCode.form.addEventListener('submit', event => {
   const formData = new FormData(copyInviteCode.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
     copyInviteCode.modal.hide();
-    waitingForPlayerToJoin.modal.show();
+    info.msg('Waiting for player to join...');
+    info.modal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
@@ -72,12 +72,8 @@ playOnline.form.addEventListener('submit', event => {
   };
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playOnline.modal.hide();
-  waitingForPlayerToJoin.modal.show();
-});
-
-waitingForPlayerToJoin.form.addEventListener('submit', event => {
-  event.preventDefault();
-  window.location.href = waitingForPlayerToJoin.form.dataset.redirect;
+  info.msg('Waiting for player to join...');
+  info.modal.show();
 });
 
 waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
