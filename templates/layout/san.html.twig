@@ -23,6 +23,10 @@
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
+    {% include 'partial/chessboard/san_movetext_modal.html.twig' %}
+    {% include 'partial/openings/eco_code_modal.html.twig' %}
+    {% include 'partial/openings/san_movetext_modal.html.twig' %}
+    {% include 'partial/openings/name_modal.html.twig' %}
     <div class="container">
        <div class="row mt-3">
          {% block main %}{% endblock %}
