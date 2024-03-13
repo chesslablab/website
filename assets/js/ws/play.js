@@ -155,7 +155,6 @@ export default class ChesslaBlabWebSocket {
               localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
               info.modal.hide();
-              this.send('/undo');
               localStorage.clear();
             }
             break;

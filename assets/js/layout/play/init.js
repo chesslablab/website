@@ -78,6 +78,7 @@ playOnline.form.addEventListener('submit', event => {
 takeback.form.addEventListener('submit', event => {
   event.preventDefault();
   ws.send('/takeback accept');
+  ws.send('/undo');
 });
 
 takeback.form.children.item(1).addEventListener('click', async (event) => {
