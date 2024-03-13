@@ -9,6 +9,7 @@ import enterInviteCode from '../layout/play/enterInviteCode.js';
 import playOnline from '../layout/play/playOnline.js';
 import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
+import rematch from '../layout/play/rematch.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
@@ -47,10 +48,13 @@ export default class ChesslaBlabWebSocket {
       event.preventDefault();
       this.send('/resign accept');
     });
-    
+
     this.finishedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
-      console.log('TODO');
+      localStorage.setItem('rematch', action.PROPOSE);
+      this.send('/rematch propose');
+      info.msg('Waiting for the opponent to accept or decline.');
+      info.modal.show();
     });
 
     this.socket = null;
@@ -187,6 +191,21 @@ export default class ChesslaBlabWebSocket {
               localStorage.clear();
               info.msg('Chess game resigned.');
               info.modal.show();
+            }
+            break;
+
+          case '/rematch' === msg:
+            if (data['/rematch'].action === action.PROPOSE) {
+              if (localStorage.getItem('rematch') !== action.PROPOSE) {
+                rematch.modal.show();
+              }
+            } else if (data['/rematch'].action === action.DECLINE) {
+              rematch.modal.hide();
+              info.modal.hide();
+              localStorage.clear();
+            } else if (data['/rematch'].action === action.ACCEPT) {
+              info.modal.hide();
+              localStorage.clear();
             }
             break;
 
