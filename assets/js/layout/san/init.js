@@ -5,6 +5,7 @@ import openingsName from './openingsName.js';
 import openingsSanMovetext from './openingsSanMovetext.js';
 import startedButtons from './startedButtons.js';
 import ws from './ws.js';
+import gameActionsDropdown from '../gameActionsDropdown.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
 import * as mode from '../../../mode.js';
