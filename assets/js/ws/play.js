@@ -134,8 +134,7 @@ export default class ChesslaBlabWebSocket {
               }
               enterInviteCode.modal.hide();
               playOnline.modal.hide();
-              info.msg('Waiting for player to join...');
-              info.modal.show();
+              info.modal.hide();
             }
             break;
 
