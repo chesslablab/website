@@ -118,6 +118,7 @@ export default class ChesslaBlabWebSocket {
                   movetext: data['/play_lan'].movetext
                 };
                 this.openingTable.domElem();
+                this._input(data['/play_lan'].turn);
               }
             }
             break;
@@ -143,11 +144,17 @@ export default class ChesslaBlabWebSocket {
           case '/accept' === msg:
             if (data['/accept'].jwt) {
               const jwtDecoded = jwtDecode(data['/accept'].jwt);
+              const turn = jwtDecoded.fen.split(' ')[1];
               if (!localStorage.getItem('color')) {
                 jwtDecoded.color === COLOR.white
                   ? this.chessboard.setOrientation(COLOR.black)
                   : this.chessboard.setOrientation(COLOR.white);
+                localStorage.setItem(
+                  'color',
+                  localStorage.getItem('color') === COLOR.black ? COLOR.white : COLOR.black
+                );
               }
+              this._input(turn);
               enterInviteCode.modal.hide();
               playOnline.modal.hide();
               info.modal.hide();
@@ -256,6 +263,18 @@ export default class ChesslaBlabWebSocket {
   send(msg) {
     if (this.socket) {
       this.socket.send(msg);
+    }
+  }
+
+  _input(turn) {
+    this.chessboard.state.inputWhiteEnabled = false;
+    this.chessboard.state.inputBlackEnabled = false;
+    if (turn === localStorage.getItem('color')) {
+      if (turn === COLOR.white) {
+        this.chessboard.state.inputWhiteEnabled = true;
+      } else {
+        this.chessboard.state.inputBlackEnabled = true;
+      }
     }
   }
 }
