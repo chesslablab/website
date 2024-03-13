@@ -20,15 +20,13 @@ export default class ChesslaBlabWebSocket {
     sanMovesTable,
     openingTable,
     startedButtons,
-    finishedButtons,
-    gameActionsDropdown
+    finishedButtons
   ) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
     this.finishedButtons = finishedButtons;
-    this.gameActionsDropdown = gameActionsDropdown;
 
     this.startedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();

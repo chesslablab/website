@@ -6,7 +6,6 @@ import {
 import finishedButtons from './finishedButtons.js';
 import startedButtons from './startedButtons.js';
 import chessboard from '../chessboard.js';
-import gameActionsDropdown from '../gameActionsDropdown.js';
 import openingTable from '../openingTable.js';
 import sanMovesTable from '../sanMovesTable.js';
 import ChesslaBlabWebSocket from '../../ws/play.js';
@@ -37,8 +36,7 @@ const ws = new ChesslaBlabWebSocket(
   sanMovesTable,
   openingTable,
   startedButtons,
-  finishedButtons,
-  gameActionsDropdown
+  finishedButtons
 );
 
 export default ws;

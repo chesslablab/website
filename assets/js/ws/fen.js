@@ -7,14 +7,13 @@ export default class ChesslaBlabWebSocket {
     chessboard,
     sanMovesTable,
     openingTable,
-    startedButtons,
-    gameActionsDropdown
+    startedButtons
   ) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
-    this.gameActionsDropdown = gameActionsDropdown;
+
     this.startedButtons.addEventListener('click', () => {
       this.send('/undo');
     });

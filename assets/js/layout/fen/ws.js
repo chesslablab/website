@@ -5,7 +5,6 @@ import {
 } from '@chesslablab/cmblab';
 import startedButtons from './startedButtons.js';
 import chessboard from '../chessboard.js';
-import gameActionsDropdown from '../gameActionsDropdown.js';
 import openingTable from '../openingTable.js';
 import sanMovesTable from '../sanMovesTable.js';
 import ChesslaBlabWebSocket from '../../ws/fen.js';
@@ -35,8 +34,7 @@ const ws = new ChesslaBlabWebSocket(
   chessboard,
   sanMovesTable,
   openingTable,
-  startedButtons,
-  gameActionsDropdown
+  startedButtons
 );
 
 export default ws;
