@@ -3,6 +3,7 @@ import {
   INPUT_EVENT_TYPE,
   MARKER_TYPE
 } from '@chesslablab/cmblab';
+import finishedButtons from './finishedButtons.js';
 import startedButtons from './startedButtons.js';
 import chessboard from '../chessboard.js';
 import gameActionsDropdown from '../gameActionsDropdown.js';
@@ -36,6 +37,7 @@ const ws = new ChesslaBlabWebSocket(
   sanMovesTable,
   openingTable,
   startedButtons,
+  finishedButtons,
   gameActionsDropdown
 );
 

@@ -19,13 +19,16 @@ export default class ChesslaBlabWebSocket {
     sanMovesTable,
     openingTable,
     startedButtons,
+    finishedButtons,
     gameActionsDropdown
   ) {
     this.chessboard = chessboard;
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
+    this.finishedButtons = finishedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
+
     this.startedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
@@ -43,6 +46,11 @@ export default class ChesslaBlabWebSocket {
     this.startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
+    });
+    
+    this.finishedButtons.children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('TODO');
     });
 
     this.socket = null;

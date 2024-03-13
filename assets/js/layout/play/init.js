@@ -3,6 +3,7 @@ import enterInviteCode from './enterInviteCode.js';
 import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
+import finishedButtons from './finishedButtons.js';
 import takeback from './takeback.js';
 import draw from './draw.js';
 import info from '../info.js';
