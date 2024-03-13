@@ -3,6 +3,7 @@ import {
   COLOR,
   MARKER_TYPE
 } from '@chesslablab/cmblab';
+import info from '../layout/info.js';
 import copyInviteCode from '../layout/play/copyInviteCode.js';
 import enterInviteCode from '../layout/play/enterInviteCode.js';
 import playOnline from '../layout/play/playOnline.js';
@@ -42,9 +43,7 @@ export default class ChesslaBlabWebSocket {
     });
     this.startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
-      localStorage.setItem('resign', action.PROPOSE);
       this.send('/resign accept');
-      resign.modal.show();
     });
 
     this.socket = null;
@@ -176,7 +175,8 @@ export default class ChesslaBlabWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               localStorage.clear();
-              resign.modal.show();
+              info.msg('Chess game resigned.');
+              info.modal.show();
             }
             break;
 

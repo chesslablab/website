@@ -8,6 +8,7 @@ import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrD
 import takeback from './takeback.js';
 import draw from './draw.js';
 import resign from './resign.js';
+import info from '../info.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
 import historyButtons from '../historyButtons.js';
@@ -103,4 +104,9 @@ draw.form.addEventListener('submit', event => {
 draw.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/draw decline');
+});
+
+info.form.addEventListener('submit', event => {
+  event.preventDefault();
+  info.modal.hide();
 });
