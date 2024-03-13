@@ -151,10 +151,10 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
-              localStorage.removeItem('takeback');
+              localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
               this.send('/undo');
-              localStorage.removeItem('takeback');
+              localStorage.clear();
             }
             break;
 
@@ -165,9 +165,9 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/draw'].action === action.DECLINE) {
               draw.modal.hide();
-              localStorage.removeItem('draw');
+              localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
-              localStorage.removeItem('draw');
+              localStorage.clear();
             }
             break;
 
