@@ -143,7 +143,7 @@ export default class ChesslaBlabWebSocket {
           case '/accept' === msg:
             if (data['/accept'].jwt) {
               const jwtDecoded = jwtDecode(data['/accept'].jwt);
-              if (!localStorage.getItem('inviterColor')) {
+              if (!localStorage.getItem('color')) {
                 jwtDecoded.color === COLOR.white
                   ? this.chessboard.setOrientation(COLOR.black)
                   : this.chessboard.setOrientation(COLOR.white);

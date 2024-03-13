@@ -56,10 +56,9 @@ playFriend.form.addEventListener('submit', event => {
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
   localStorage.clear();
-  localStorage.setItem('inviterColor', formData.get('color'));
+  localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriend.modal.hide();
-
   copyInviteCode.modal.show();
 });
 
@@ -72,6 +71,8 @@ playOnline.form.addEventListener('submit', event => {
     color: formData.get('color'),
     submode: 'online'
   };
+  localStorage.clear();
+  localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playOnline.modal.hide();
   info.msg('Waiting for player to join...');
