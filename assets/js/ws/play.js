@@ -151,8 +151,10 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
+              info.modal.hide();
               localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
+              info.modal.hide();
               this.send('/undo');
               localStorage.clear();
             }
