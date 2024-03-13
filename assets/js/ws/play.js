@@ -10,6 +10,7 @@ import waitingForPlayerToJoin from '../layout/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/play/waitingForOpponentToAcceptOrDecline.js';
 import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
+import resign from '../layout/play/resign.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
@@ -27,15 +28,23 @@ export default class ChesslaBlabWebSocket {
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
     this.gameActionsDropdown = gameActionsDropdown;
-    this.startedButtons.children.item(0).addEventListener('click', () => {
+    this.startedButtons.children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
     });
-    this.startedButtons.children.item(1).addEventListener('click', () => {
+    this.startedButtons.children.item(1).addEventListener('click', (event) => {
+      event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
       waitingForOpponentToAcceptOrDecline.modal.show();
+    });
+    this.startedButtons.children.item(2).addEventListener('click', (event) => {
+      event.preventDefault();
+      localStorage.setItem('resign', action.PROPOSE);
+      this.send('/resign accept');
+      resign.modal.show();
     });
 
     this.socket = null;
@@ -161,6 +170,13 @@ export default class ChesslaBlabWebSocket {
               localStorage.removeItem('draw');
             } else if (data['/draw'].action === action.ACCEPT) {
               localStorage.removeItem('draw');
+            }
+            break;
+
+          case '/resign' === msg:
+            if (data['/resign'].action === action.ACCEPT) {
+              localStorage.clear();
+              resign.modal.show();
             }
             break;
 
