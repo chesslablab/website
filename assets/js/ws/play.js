@@ -151,6 +151,7 @@ export default class ChesslaBlabWebSocket {
               enterInviteCode.modal.hide();
               playOnline.modal.hide();
               info.modal.hide();
+              localStorage.setItem('hash', data['/accept'].hash);
             }
             break;
 
@@ -208,8 +209,30 @@ export default class ChesslaBlabWebSocket {
               info.modal.hide();
               localStorage.clear();
             } else if (data['/rematch'].action === action.ACCEPT) {
+              this.send(`/restart ${localStorage.getItem('hash')}`);
+            }
+            break;
+
+          case '/restart' === msg:
+            if (data['/restart'].jwt) {
               info.modal.hide();
+              const jwtDecoded = jwtDecode(data['/restart'].jwt);
+              this.chessboard.setPosition(jwtDecoded.fen);
+              this.sanMovesTable.current = 0;
+              this.sanMovesTable.props = {
+                ...this.sanMovesTable.props,
+                movetext: '',
+                fen: [
+                  jwtDecoded.fen
+                ]
+              };
+              this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: ''
+              };
+              this.openingTable.domElem();
               localStorage.clear();
+              localStorage.setItem('hash', data['/restart'].hash);
             }
             break;
 
