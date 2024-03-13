@@ -13,7 +13,7 @@ export default class ChesslaBlabWebSocket {
     this.sanMovesTable = sanMovesTable;
     this.openingTable = openingTable;
     this.startedButtons = startedButtons;
-    
+
     this.startedButtons.addEventListener('click', () => {
       this.send('/undo');
     });
@@ -55,6 +55,9 @@ export default class ChesslaBlabWebSocket {
                   fen: data['/start'].fen
                 };
                 this.sanMovesTable.domElem();
+                this.openingTable.props = {
+                  movetext: data['/start'].movetext
+                };
                 this.openingTable.domElem();
               } else {
                 console.log('Invalid SAN movetext, please try again with a different one.');
@@ -83,6 +86,9 @@ export default class ChesslaBlabWebSocket {
                 };
                 this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
                 this.sanMovesTable.domElem();
+                this.openingTable.props = {
+                  movetext: data['/play_lan'].movetext
+                };
                 this.openingTable.domElem();
               }
             }
@@ -99,6 +105,9 @@ export default class ChesslaBlabWebSocket {
                 fen: fen
               };
               this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/undo'].movetext
+              };
               this.openingTable.domElem();
             }
             break;

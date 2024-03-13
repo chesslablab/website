@@ -83,6 +83,9 @@ export default class ChesslaBlabWebSocket {
                 };
                 this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
                 this.sanMovesTable.domElem();
+                this.openingTable.props = {
+                  movetext: data['/play_lan'].movetext
+                };
                 this.openingTable.domElem();
                 this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
@@ -100,6 +103,9 @@ export default class ChesslaBlabWebSocket {
                 fen: fen
               };
               this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/undo'].movetext
+              };
               this.openingTable.domElem();
             }
             break;
@@ -116,6 +122,9 @@ export default class ChesslaBlabWebSocket {
               };
               this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
               this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/stockfish'].movetext
+              };
               this.openingTable.domElem();
             }
             break;

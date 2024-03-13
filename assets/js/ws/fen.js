@@ -75,6 +75,9 @@ export default class ChesslaBlabWebSocket {
                 };
                 this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
                 this.sanMovesTable.domElem();
+                this.openingTable.props = {
+                  movetext: data['/play_lan'].movetext
+                };
                 this.openingTable.domElem();
               }
             }
@@ -91,6 +94,9 @@ export default class ChesslaBlabWebSocket {
                 fen: fen
               };
               this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/undo'].movetext
+              };
               this.openingTable.domElem();
             }
             break;
