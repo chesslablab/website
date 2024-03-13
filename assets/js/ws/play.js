@@ -7,7 +7,6 @@ import info from '../layout/info.js';
 import copyInviteCode from '../layout/play/copyInviteCode.js';
 import enterInviteCode from '../layout/play/enterInviteCode.js';
 import playOnline from '../layout/play/playOnline.js';
-import waitingForOpponentToAcceptOrDecline from '../layout/play/waitingForOpponentToAcceptOrDecline.js';
 import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
 import * as action from '../../action.js';
@@ -31,13 +30,15 @@ export default class ChesslaBlabWebSocket {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
-      waitingForOpponentToAcceptOrDecline.modal.show();
+      info.msg('Waiting for the opponent to accept or decline.');
+      info.modal.show();
     });
     this.startedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
-      waitingForOpponentToAcceptOrDecline.modal.show();
+      info.msg('Waiting for the opponent to accept or decline.');
+      info.modal.show();
     });
     this.startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();

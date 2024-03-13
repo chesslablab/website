@@ -3,7 +3,6 @@ import enterInviteCode from './enterInviteCode.js';
 import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
-import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
 import takeback from './takeback.js';
 import draw from './draw.js';
 import info from '../info.js';
@@ -74,11 +73,6 @@ playOnline.form.addEventListener('submit', event => {
   playOnline.modal.hide();
   info.msg('Waiting for player to join...');
   info.modal.show();
-});
-
-waitingForOpponentToAcceptOrDecline.form.addEventListener('submit', event => {
-  event.preventDefault();
-  waitingForOpponentToAcceptOrDecline.modal.hide();
 });
 
 takeback.form.addEventListener('submit', event => {
