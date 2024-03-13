@@ -7,7 +7,6 @@ import waitingForPlayerToJoin from './waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from './waitingForOpponentToAcceptOrDecline.js';
 import takeback from './takeback.js';
 import draw from './draw.js';
-import resign from './resign.js';
 import info from '../info.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';

@@ -11,7 +11,6 @@ import waitingForPlayerToJoin from '../layout/play/waitingForPlayerToJoin.js';
 import waitingForOpponentToAcceptOrDecline from '../layout/play/waitingForOpponentToAcceptOrDecline.js';
 import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
-import resign from '../layout/play/resign.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
