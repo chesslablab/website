@@ -3,8 +3,10 @@ import enterInviteCode from './enterInviteCode.js';
 import playFriend from './playFriend.js';
 import playOnline from './playOnline.js';
 import startedButtons from './startedButtons.js';
+import finishedButtons from './finishedButtons.js';
 import takeback from './takeback.js';
 import draw from './draw.js';
+import rematch from './rematch.js';
 import info from '../info.js';
 import ws from './ws.js';
 import gameStudyDropdown from '../gameStudyDropdown.js';
@@ -94,6 +96,16 @@ draw.form.addEventListener('submit', event => {
 draw.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/draw decline');
+});
+
+rematch.form.addEventListener('submit', event => {
+  event.preventDefault();
+  ws.send('/rematch accept');
+});
+
+rematch.form.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/rematch decline');
 });
 
 info.form.addEventListener('submit', event => {
