@@ -47,17 +47,15 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === mode.STOCKFISH) {
-              if (data['/start'].fen) {
-                // TODO
-                if (data['/start'].color === COLOR.black) {
-                  this.chessboard.setOrientation(COLOR.black);
-                }
-              } else {
-                if (data['/start'].color === COLOR.black) {
-                  this.chessboard.setOrientation(COLOR.black);
-                  this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
-                }
+            if (data['/start'].fen) {
+              // TODO
+              if (data['/start'].color === COLOR.black) {
+                this.chessboard.setOrientation(COLOR.black);
+              }
+            } else {
+              if (data['/start'].color === COLOR.black) {
+                this.chessboard.setOrientation(COLOR.black);
+                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             }
             break;

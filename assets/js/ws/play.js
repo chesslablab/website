@@ -80,16 +80,14 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === mode.PLAY) {
-              if (data['/start'].jwt) {
-                copyInviteCode.form.elements['hash'].value = data['/start'].hash;
-                const jwtDecoded = jwtDecode(data['/start'].jwt);
-                this.chessboard.setOrientation(jwtDecoded.color);
-                this.chessboard.props.variant = data['/start'].variant;
-                this.chessboard.props.startPos = data['/start'].startPos;
-              } else {
-                console.log('Invalid FEN, please try again with a different one.');
-              }
+            if (data['/start'].jwt) {
+              copyInviteCode.form.elements['hash'].value = data['/start'].hash;
+              const jwtDecoded = jwtDecode(data['/start'].jwt);
+              this.chessboard.setOrientation(jwtDecoded.color);
+              this.chessboard.props.variant = data['/start'].variant;
+              this.chessboard.props.startPos = data['/start'].startPos;
+            } else {
+              console.log('Invalid FEN, please try again with a different one.');
             }
             break;
 

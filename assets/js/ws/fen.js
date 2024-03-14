@@ -43,14 +43,12 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === mode.FEN) {
-              if (data['/start'].fen) {
-                this.chessboard.setPosition(data['/start'].fen, true);
-                this.chessboard.props.variant = data['/start'].variant;
-                this.chessboard.props.startPos = data['/start'].startPos;
-              } else {
-                console.log('Invalid FEN, please try again with a different one.');
-              }
+            if (data['/start'].fen) {
+              this.chessboard.setPosition(data['/start'].fen, true);
+              this.chessboard.props.variant = data['/start'].variant;
+              this.chessboard.props.startPos = data['/start'].startPos;
+            } else {
+              console.log('Invalid FEN, please try again with a different one.');
             }
             break;
 

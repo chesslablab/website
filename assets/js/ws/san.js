@@ -43,25 +43,23 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].mode === mode.SAN) {
-              if (data['/start'].movetext) {
-                this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
-                this.chessboard.props.variant = data['/start'].variant;
-                this.chessboard.props.startPos = data['/start'].startPos;
-                this.sanMovesTable.current = data['/start'].fen.length - 1;
-                this.sanMovesTable.props = {
-                  ...this.sanMovesTable.props,
-                  movetext: data['/start'].movetext,
-                  fen: data['/start'].fen
-                };
-                this.sanMovesTable.domElem();
-                this.openingTable.props = {
-                  movetext: data['/start'].movetext
-                };
-                this.openingTable.domElem();
-              } else {
-                console.log('Invalid SAN movetext, please try again with a different one.');
-              }
+            if (data['/start'].movetext) {
+              this.chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
+              this.chessboard.props.variant = data['/start'].variant;
+              this.chessboard.props.startPos = data['/start'].startPos;
+              this.sanMovesTable.current = data['/start'].fen.length - 1;
+              this.sanMovesTable.props = {
+                ...this.sanMovesTable.props,
+                movetext: data['/start'].movetext,
+                fen: data['/start'].fen
+              };
+              this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/start'].movetext
+              };
+              this.openingTable.domElem();
+            } else {
+              console.log('Invalid SAN movetext, please try again with a different one.');
             }
             break;
 
