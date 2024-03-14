@@ -67,24 +67,22 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/play_lan' === msg:
-            if (data['/play_lan'].fen) {
-              this.chessboard.setPosition(data['/play_lan'].fen, true);
-              if (!this.sanMovesTable.props.fen[this.sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-                let fen = this.sanMovesTable.props.fen;
-                fen.push(data['/play_lan'].fen);
-                this.sanMovesTable.props = {
-                  ...this.sanMovesTable.props,
-                  movetext: data['/play_lan'].movetext,
-                  fen: fen
-                };
-                this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-                this.sanMovesTable.domElem();
-                this.openingTable.props = {
-                  movetext: data['/play_lan'].movetext
-                };
-                this.openingTable.domElem();
-                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
-              }
+            this.chessboard.setPosition(data['/play_lan'].fen, true);
+            if (!this.sanMovesTable.props.fen[this.sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
+              let fen = this.sanMovesTable.props.fen;
+              fen.push(data['/play_lan'].fen);
+              this.sanMovesTable.props = {
+                ...this.sanMovesTable.props,
+                movetext: data['/play_lan'].movetext,
+                fen: fen
+              };
+              this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
+              this.sanMovesTable.domElem();
+              this.openingTable.props = {
+                movetext: data['/play_lan'].movetext
+              };
+              this.openingTable.domElem();
+              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
