@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 
-const info = {
+const infoModal = {
   modal: new Modal(document.getElementById('infoModal')),
   form: document.querySelector('#infoModal form'),
   msg: (txt) => {
@@ -11,4 +11,4 @@ const info = {
   }
 }
 
-export default info;
+export default infoModal;

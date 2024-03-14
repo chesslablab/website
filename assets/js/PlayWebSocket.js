@@ -1,7 +1,7 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './layout/chessboard.js';
-import info from './layout/info.js';
+import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
 import copyInviteCode from './layout/play/copyInviteCode.js';
@@ -40,15 +40,15 @@ export default class ChesslaBlabWebSocket {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
-      info.msg('Waiting for the opponent to accept or decline.');
-      info.modal.show();
+      infoModal.msg('Waiting for the opponent to accept or decline.');
+      infoModal.modal.show();
     });
     startedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
-      info.msg('Waiting for the opponent to accept or decline.');
-      info.modal.show();
+      infoModal.msg('Waiting for the opponent to accept or decline.');
+      infoModal.modal.show();
     });
     startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
@@ -59,8 +59,8 @@ export default class ChesslaBlabWebSocket {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
-      info.msg('Waiting for the opponent to accept or decline.');
-      info.modal.show();
+      infoModal.msg('Waiting for the opponent to accept or decline.');
+      infoModal.modal.show();
     });
 
     this.socket = null;
@@ -157,7 +157,7 @@ export default class ChesslaBlabWebSocket {
               this._input(turn);
               enterInviteCode.modal.hide();
               playOnline.modal.hide();
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
             }
             break;
@@ -175,10 +175,10 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.clear();
             }
             break;
@@ -190,10 +190,10 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/draw'].action === action.DECLINE) {
               draw.modal.hide();
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.clear();
             }
             break;
@@ -201,8 +201,8 @@ export default class ChesslaBlabWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               localStorage.clear();
-              info.msg('Chess game resigned.');
-              info.modal.show();
+              infoModal.msg('Chess game resigned.');
+              infoModal.modal.show();
             }
             break;
 
@@ -213,7 +213,7 @@ export default class ChesslaBlabWebSocket {
               }
             } else if (data['/rematch'].action === action.DECLINE) {
               rematch.modal.hide();
-              info.modal.hide();
+              infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
@@ -222,7 +222,7 @@ export default class ChesslaBlabWebSocket {
 
           case '/restart' === msg:
             if (data['/restart'].jwt) {
-              info.modal.hide();
+              infoModal.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
               chessboard.setPosition(jwtDecoded.fen);
               sanMovesTable.current = 0;

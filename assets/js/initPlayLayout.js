@@ -11,7 +11,7 @@ import ws from './layout/play/ws.js';
 import gameActionsDropdown from './layout/gameActionsDropdown.js';
 import gameStudyDropdown from './layout/gameStudyDropdown.js';
 import historyButtons from './layout/historyButtons.js';
-import info from './layout/info.js';
+import infoModal from './layout/infoModal.js';
 import * as action from '../action.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
@@ -21,8 +21,8 @@ copyInviteCode.form.addEventListener('submit', event => {
   const formData = new FormData(copyInviteCode.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
     copyInviteCode.modal.hide();
-    info.msg('Waiting for player to join...');
-    info.modal.show();
+    infoModal.msg('Waiting for player to join...');
+    infoModal.modal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');
   });
@@ -75,8 +75,8 @@ playOnline.form.addEventListener('submit', event => {
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playOnline.modal.hide();
-  info.msg('Waiting for player to join...');
-  info.modal.show();
+  infoModal.msg('Waiting for player to join...');
+  infoModal.modal.show();
 });
 
 takeback.form.addEventListener('submit', event => {
@@ -110,7 +110,7 @@ rematch.form.children.item(1).addEventListener('click', async (event) => {
   ws.send('/rematch decline');
 });
 
-info.form.addEventListener('submit', event => {
+infoModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  info.modal.hide();
+  infoModal.modal.hide();
 });
