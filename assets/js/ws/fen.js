@@ -53,11 +53,9 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/legal' === msg:
-            if (data['/legal']) {
-              Object.keys(data['/legal'].fen).forEach(key => {
-                this.chessboard.addMarker(MARKER_TYPE.dot, key);
-              });
-            }
+            Object.keys(data['/legal'].fen).forEach(key => {
+              this.chessboard.addMarker(MARKER_TYPE.dot, key);
+            });
             break;
 
           case '/play_lan' === msg:
