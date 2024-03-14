@@ -1,23 +1,14 @@
-import {
-  COLOR,
-  MARKER_TYPE
-} from '@chesslablab/cmblab';
+import { COLOR, MARKER_TYPE } from '@chesslablab/cmblab';
+import chessboard from '../layout/chessboard.js';
+import sanMovesTable from '../layout/sanMovesTable.js';
+import openingTable from '../layout/openingTable.js';
+import startedButtons from '../layout/stockfish/startedButtons.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 
 export default class ChesslaBlabWebSocket {
-  constructor(
-    chessboard,
-    sanMovesTable,
-    openingTable,
-    startedButtons
-  ) {
-    this.chessboard = chessboard;
-    this.sanMovesTable = sanMovesTable;
-    this.openingTable = openingTable;
-    this.startedButtons = startedButtons;
-
-    this.startedButtons.addEventListener('click', () => {
+  constructor() {
+    startedButtons.addEventListener('click', () => {
       this.send('/undo');
       this.send('/undo');
     });
@@ -50,11 +41,11 @@ export default class ChesslaBlabWebSocket {
             if (data['/start'].fen) {
               // TODO
               if (data['/start'].color === COLOR.black) {
-                this.chessboard.setOrientation(COLOR.black);
+                chessboard.setOrientation(COLOR.black);
               }
             } else {
               if (data['/start'].color === COLOR.black) {
-                this.chessboard.setOrientation(COLOR.black);
+                chessboard.setOrientation(COLOR.black);
                 this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             }
@@ -62,62 +53,62 @@ export default class ChesslaBlabWebSocket {
 
           case '/legal' === msg:
             Object.keys(data['/legal'].fen).forEach(key => {
-              this.chessboard.addMarker(MARKER_TYPE.dot, key);
+              chessboard.addMarker(MARKER_TYPE.dot, key);
             });
             break;
 
           case '/play_lan' === msg:
-            this.chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!this.sanMovesTable.props.fen[this.sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = this.sanMovesTable.props.fen;
+            chessboard.setPosition(data['/play_lan'].fen, true);
+            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
+              let fen = sanMovesTable.props.fen;
               fen.push(data['/play_lan'].fen);
-              this.sanMovesTable.props = {
-                ...this.sanMovesTable.props,
+              sanMovesTable.props = {
+                ...sanMovesTable.props,
                 movetext: data['/play_lan'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-              this.sanMovesTable.domElem();
-              this.openingTable.props = {
+              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
+              sanMovesTable.domElem();
+              openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              this.openingTable.domElem();
+              openingTable.domElem();
               this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
           case '/undo' === msg:
-            this.chessboard.setPosition(data['/undo'].fen, true);
-            let fen = this.sanMovesTable.props.fen;
+            chessboard.setPosition(data['/undo'].fen, true);
+            let fen = sanMovesTable.props.fen;
             fen.pop();
-            this.sanMovesTable.props = {
-              ...this.sanMovesTable.props,
+            sanMovesTable.props = {
+              ...sanMovesTable.props,
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            this.sanMovesTable.domElem();
-            this.openingTable.props = {
+            sanMovesTable.domElem();
+            openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            this.openingTable.domElem();
+            openingTable.domElem();
             break;
 
           case '/stockfish' === msg:
             if (data['/stockfish']) {
-              this.chessboard.setPosition(data['/stockfish'].fen, true);
-              let fen = this.sanMovesTable.props.fen;
+              chessboard.setPosition(data['/stockfish'].fen, true);
+              let fen = sanMovesTable.props.fen;
               fen.push(data['/stockfish'].fen);
-              this.sanMovesTable.props = {
-                ...this.sanMovesTable.props,
+              sanMovesTable.props = {
+                ...sanMovesTable.props,
                 movetext: data['/stockfish'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-              this.sanMovesTable.domElem();
-              this.openingTable.props = {
+              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
+              sanMovesTable.domElem();
+              openingTable.props = {
                 movetext: data['/stockfish'].movetext
               };
-              this.openingTable.domElem();
+              openingTable.domElem();
             }
             break;
 

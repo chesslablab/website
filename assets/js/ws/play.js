@@ -1,53 +1,43 @@
 import { jwtDecode } from 'jwt-decode';
-import {
-  COLOR,
-  MARKER_TYPE
-} from '@chesslablab/cmblab';
+import { COLOR, MARKER_TYPE } from '@chesslablab/cmblab';
+import chessboard from '../layout/chessboard.js';
 import info from '../layout/info.js';
+import openingTable from '../layout/openingTable.js';
+import sanMovesTable from '../layout/sanMovesTable.js';
 import copyInviteCode from '../layout/play/copyInviteCode.js';
-import enterInviteCode from '../layout/play/enterInviteCode.js';
-import playOnline from '../layout/play/playOnline.js';
-import takeback from '../layout/play/takeback.js';
 import draw from '../layout/play/draw.js';
+import enterInviteCode from '../layout/play/enterInviteCode.js';
+import finishedButtons from '../layout/play/finishedButtons.js';
+import playOnline from '../layout/play/playOnline.js';
 import rematch from '../layout/play/rematch.js';
+import startedButtons from '../layout/play/startedButtons.js';
+import takeback from '../layout/play/takeback.js';
 import * as action from '../../action.js';
 import * as env from '../../env.js';
 import * as mode from '../../mode.js';
 
 export default class ChesslaBlabWebSocket {
-  constructor(
-    chessboard,
-    sanMovesTable,
-    openingTable,
-    startedButtons,
-    finishedButtons
-  ) {
-    this.chessboard = chessboard;
-    this.sanMovesTable = sanMovesTable;
-    this.openingTable = openingTable;
-    this.startedButtons = startedButtons;
-    this.finishedButtons = finishedButtons;
-
-    this.startedButtons.children.item(0).addEventListener('click', (event) => {
+  constructor() {
+    startedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
       info.msg('Waiting for the opponent to accept or decline.');
       info.modal.show();
     });
-    this.startedButtons.children.item(1).addEventListener('click', (event) => {
+    startedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
       info.msg('Waiting for the opponent to accept or decline.');
       info.modal.show();
     });
-    this.startedButtons.children.item(2).addEventListener('click', (event) => {
+    startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
     });
 
-    this.finishedButtons.children.item(0).addEventListener('click', (event) => {
+    finishedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
@@ -83,9 +73,9 @@ export default class ChesslaBlabWebSocket {
             if (data['/start'].jwt) {
               copyInviteCode.form.elements['hash'].value = data['/start'].hash;
               const jwtDecoded = jwtDecode(data['/start'].jwt);
-              this.chessboard.setOrientation(jwtDecoded.color);
-              this.chessboard.props.variant = data['/start'].variant;
-              this.chessboard.props.startPos = data['/start'].startPos;
+              chessboard.setOrientation(jwtDecoded.color);
+              chessboard.props.variant = data['/start'].variant;
+              chessboard.props.startPos = data['/start'].startPos;
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
@@ -93,44 +83,44 @@ export default class ChesslaBlabWebSocket {
 
           case '/legal' === msg:
             Object.keys(data['/legal'].fen).forEach(key => {
-              this.chessboard.addMarker(MARKER_TYPE.dot, key);
+              chessboard.addMarker(MARKER_TYPE.dot, key);
             });
             break;
 
           case '/play_lan' === msg:
-            this.chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!this.sanMovesTable.props.fen[this.sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = this.sanMovesTable.props.fen;
+            chessboard.setPosition(data['/play_lan'].fen, true);
+            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
+              let fen = sanMovesTable.props.fen;
               fen.push(data['/play_lan'].fen);
-              this.sanMovesTable.props = {
-                ...this.sanMovesTable.props,
+              sanMovesTable.props = {
+                ...sanMovesTable.props,
                 movetext: data['/play_lan'].movetext,
                 fen: fen
               };
-              this.sanMovesTable.current = this.sanMovesTable.props.fen.length - 1;
-              this.sanMovesTable.domElem();
-              this.openingTable.props = {
+              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
+              sanMovesTable.domElem();
+              openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              this.openingTable.domElem();
+              openingTable.domElem();
               this._input(data['/play_lan'].turn);
             }
             break;
 
           case '/undo' === msg:
-            this.chessboard.setPosition(data['/undo'].fen, true);
-            let fen = this.sanMovesTable.props.fen;
+            chessboard.setPosition(data['/undo'].fen, true);
+            let fen = sanMovesTable.props.fen;
             fen.pop();
-            this.sanMovesTable.props = {
-              ...this.sanMovesTable.props,
+            sanMovesTable.props = {
+              ...sanMovesTable.props,
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            this.sanMovesTable.domElem();
-            this.openingTable.props = {
+            sanMovesTable.domElem();
+            openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            this.openingTable.domElem();
+            openingTable.domElem();
             break;
 
           case '/accept' === msg:
@@ -139,8 +129,8 @@ export default class ChesslaBlabWebSocket {
               const turn = jwtDecoded.fen.split(' ')[1];
               if (!localStorage.getItem('color')) {
                 jwtDecoded.color === COLOR.white
-                  ? this.chessboard.setOrientation(COLOR.black)
-                  : this.chessboard.setOrientation(COLOR.white);
+                  ? chessboard.setOrientation(COLOR.black)
+                  : chessboard.setOrientation(COLOR.white);
                 localStorage.setItem(
                   'color',
                   localStorage.getItem('color') === COLOR.black ? COLOR.white : COLOR.black
@@ -216,20 +206,20 @@ export default class ChesslaBlabWebSocket {
             if (data['/restart'].jwt) {
               info.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
-              this.chessboard.setPosition(jwtDecoded.fen);
-              this.sanMovesTable.current = 0;
-              this.sanMovesTable.props = {
-                ...this.sanMovesTable.props,
+              chessboard.setPosition(jwtDecoded.fen);
+              sanMovesTable.current = 0;
+              sanMovesTable.props = {
+                ...sanMovesTable.props,
                 movetext: '',
                 fen: [
                   jwtDecoded.fen
                 ]
               };
-              this.sanMovesTable.domElem();
-              this.openingTable.props = {
+              sanMovesTable.domElem();
+              openingTable.props = {
                 movetext: ''
               };
-              this.openingTable.domElem();
+              openingTable.domElem();
               localStorage.clear();
               localStorage.setItem('hash', data['/restart'].hash);
             }
@@ -259,13 +249,13 @@ export default class ChesslaBlabWebSocket {
   }
 
   _input(turn) {
-    this.chessboard.state.inputWhiteEnabled = false;
-    this.chessboard.state.inputBlackEnabled = false;
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
     if (turn === localStorage.getItem('color')) {
       if (turn === COLOR.white) {
-        this.chessboard.state.inputWhiteEnabled = true;
+        chessboard.state.inputWhiteEnabled = true;
       } else {
-        this.chessboard.state.inputBlackEnabled = true;
+        chessboard.state.inputBlackEnabled = true;
       }
     }
   }

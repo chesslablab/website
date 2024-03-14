@@ -1,12 +1,5 @@
-import {
-  FEN,
-  INPUT_EVENT_TYPE,
-  MARKER_TYPE
-} from '@chesslablab/cmblab';
-import startedButtons from './startedButtons.js';
+import { FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from '../chessboard.js';
-import openingTable from '../openingTable.js';
-import sanMovesTable from '../sanMovesTable.js';
 import ChesslaBlabWebSocket from '../../ws/fen.js';
 
 const inputHandler = (event) => {
@@ -30,11 +23,6 @@ const inputHandler = (event) => {
 
 chessboard.enableMoveInput(inputHandler);
 
-const ws = new ChesslaBlabWebSocket(
-  chessboard,
-  sanMovesTable,
-  openingTable,
-  startedButtons
-);
+const ws = new ChesslaBlabWebSocket();
 
 export default ws;
