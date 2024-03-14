@@ -1,11 +1,11 @@
-import playComputer from './playComputer.js';
-import startedButtons from './startedButtons.js';
-import ws from './ws.js';
-import gameActionsDropdown from '../gameActionsDropdown.js';
-import gameStudyDropdown from '../gameStudyDropdown.js';
-import historyButtons from '../historyButtons.js';
-import * as mode from '../../../mode.js';
-import * as variant from '../../../variant.js';
+import playComputer from './layout/stockfish/playComputer.js';
+import startedButtons from './layout/stockfish/startedButtons.js';
+import ws from './layout/stockfish/ws.js';
+import gameActionsDropdown from './layout/gameActionsDropdown.js';
+import gameStudyDropdown from './layout/gameStudyDropdown.js';
+import historyButtons from './layout/historyButtons.js';
+import * as mode from '../mode.js';
+import * as variant from '../variant.js';
 
 playComputer.form.addEventListener('submit', event => {
   event.preventDefault();

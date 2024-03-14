@@ -1,15 +1,15 @@
 import { Opening } from '@chesslablab/jsblab';
-import chessboardSanMovetext from './chessboardSanMovetext.js';
-import openingsEcoCode from './openingsEcoCode.js';
-import openingsName from './openingsName.js';
-import openingsSanMovetext from './openingsSanMovetext.js';
-import startedButtons from './startedButtons.js';
-import ws from './ws.js';
-import gameActionsDropdown from '../gameActionsDropdown.js';
-import gameStudyDropdown from '../gameStudyDropdown.js';
-import historyButtons from '../historyButtons.js';
-import * as mode from '../../../mode.js';
-import * as variant from '../../../variant.js';
+import chessboardSanMovetext from './layout/san/chessboardSanMovetext.js';
+import openingsEcoCode from './layout/san/openingsEcoCode.js';
+import openingsName from './layout/san/openingsName.js';
+import openingsSanMovetext from './layout/san/openingsSanMovetext.js';
+import startedButtons from './layout/san/startedButtons.js';
+import ws from './layout/san/ws.js';
+import gameActionsDropdown from './layout/gameActionsDropdown.js';
+import gameStudyDropdown from './layout/gameStudyDropdown.js';
+import historyButtons from './layout/historyButtons.js';
+import * as mode from '../mode.js';
+import * as variant from '../variant.js';
 
 const openingsTableDomElem = (modal, openings, tbody) => {
   tbody.replaceChildren();

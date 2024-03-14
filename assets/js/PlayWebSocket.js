@@ -1,23 +1,41 @@
+import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
-import { COLOR, MARKER_TYPE } from '@chesslablab/cmblab';
-import chessboard from '../layout/chessboard.js';
-import info from '../layout/info.js';
-import openingTable from '../layout/openingTable.js';
-import sanMovesTable from '../layout/sanMovesTable.js';
-import copyInviteCode from '../layout/play/copyInviteCode.js';
-import draw from '../layout/play/draw.js';
-import enterInviteCode from '../layout/play/enterInviteCode.js';
-import finishedButtons from '../layout/play/finishedButtons.js';
-import playOnline from '../layout/play/playOnline.js';
-import rematch from '../layout/play/rematch.js';
-import startedButtons from '../layout/play/startedButtons.js';
-import takeback from '../layout/play/takeback.js';
-import * as action from '../../action.js';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
+import chessboard from './layout/chessboard.js';
+import info from './layout/info.js';
+import openingTable from './layout/openingTable.js';
+import sanMovesTable from './layout/sanMovesTable.js';
+import copyInviteCode from './layout/play/copyInviteCode.js';
+import draw from './layout/play/draw.js';
+import enterInviteCode from './layout/play/enterInviteCode.js';
+import finishedButtons from './layout/play/finishedButtons.js';
+import playOnline from './layout/play/playOnline.js';
+import rematch from './layout/play/rematch.js';
+import startedButtons from './layout/play/startedButtons.js';
+import takeback from './layout/play/takeback.js';
+import * as action from '../action.js';
+import * as env from '../env.js';
+import * as mode from '../mode.js';
 
 export default class ChesslaBlabWebSocket {
   constructor() {
+    chessboard.enableMoveInput((event) => {
+      if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
+        return;
+      }
+
+      if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
+        event.chessboard.removeMarkers(MARKER_TYPE.dot);
+        event.chessboard.removeMarkers(MARKER_TYPE.bevel);
+      }
+
+      if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
+        this.send(`/legal ${event.square}`);
+        return true;
+      } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
+        this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
+        return true;
+      }
+    });
     startedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);

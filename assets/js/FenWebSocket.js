@@ -1,4 +1,4 @@
-import { FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './layout/chessboard.js';
 import sanMovesTable from './layout/sanMovesTable.js';
 import openingTable from './layout/openingTable.js';

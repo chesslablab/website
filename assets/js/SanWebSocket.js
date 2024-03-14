@@ -1,15 +1,33 @@
-import { COLOR, MARKER_TYPE } from '@chesslablab/cmblab';
-import chessboard from '../layout/chessboard.js';
-import sanMovesTable from '../layout/sanMovesTable.js';
-import openingTable from '../layout/openingTable.js';
-import startedButtons from '../layout/stockfish/startedButtons.js';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
+import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import chessboard from './layout/chessboard.js';
+import sanMovesTable from './layout/sanMovesTable.js';
+import openingTable from './layout/openingTable.js';
+import startedButtons from './layout/fen/startedButtons.js';
+import * as env from '../env.js';
+import * as mode from '../mode.js';
 
-export default class ChesslaBlabWebSocket {
+export default class SanWebSocket {
   constructor() {
+    chessboard.enableMoveInput((event) => {
+      if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
+        return;
+      }
+
+      if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
+        event.chessboard.removeMarkers(MARKER_TYPE.dot);
+        event.chessboard.removeMarkers(MARKER_TYPE.bevel);
+      }
+
+      if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
+        this.send(`/legal ${event.square}`);
+        return true;
+      } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
+        this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
+        return true;
+      }
+    });
+
     startedButtons.addEventListener('click', () => {
-      this.send('/undo');
       this.send('/undo');
     });
 
@@ -38,16 +56,23 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].fen) {
-              // TODO
-              if (data['/start'].color === COLOR.black) {
-                chessboard.setOrientation(COLOR.black);
-              }
+            if (data['/start'].movetext) {
+              chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
+              chessboard.props.variant = data['/start'].variant;
+              chessboard.props.startPos = data['/start'].startPos;
+              sanMovesTable.current = data['/start'].fen.length - 1;
+              sanMovesTable.props = {
+                ...sanMovesTable.props,
+                movetext: data['/start'].movetext,
+                fen: data['/start'].fen
+              };
+              sanMovesTable.domElem();
+              openingTable.props = {
+                movetext: data['/start'].movetext
+              };
+              openingTable.domElem();
             } else {
-              if (data['/start'].color === COLOR.black) {
-                chessboard.setOrientation(COLOR.black);
-                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
-              }
+              console.log('Invalid SAN movetext, please try again with a different one.');
             }
             break;
 
@@ -73,7 +98,6 @@ export default class ChesslaBlabWebSocket {
                 movetext: data['/play_lan'].movetext
               };
               openingTable.domElem();
-              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
@@ -91,25 +115,6 @@ export default class ChesslaBlabWebSocket {
               movetext: data['/undo'].movetext
             };
             openingTable.domElem();
-            break;
-
-          case '/stockfish' === msg:
-            if (data['/stockfish']) {
-              chessboard.setPosition(data['/stockfish'].fen, true);
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/stockfish'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/stockfish'].movetext,
-                fen: fen
-              };
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
-              openingTable.props = {
-                movetext: data['/stockfish'].movetext
-              };
-              openingTable.domElem();
-            }
             break;
 
           default:

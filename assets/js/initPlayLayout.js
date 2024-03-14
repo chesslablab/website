@@ -1,20 +1,20 @@
-import copyInviteCode from './copyInviteCode.js';
-import enterInviteCode from './enterInviteCode.js';
-import playFriend from './playFriend.js';
-import playOnline from './playOnline.js';
-import startedButtons from './startedButtons.js';
-import finishedButtons from './finishedButtons.js';
-import takeback from './takeback.js';
-import draw from './draw.js';
-import rematch from './rematch.js';
-import ws from './ws.js';
-import gameActionsDropdown from '../gameActionsDropdown.js';
-import gameStudyDropdown from '../gameStudyDropdown.js';
-import historyButtons from '../historyButtons.js';
-import info from '../info.js';
-import * as action from '../../../action.js';
-import * as mode from '../../../mode.js';
-import * as variant from '../../../variant.js';
+import copyInviteCode from './layout/play/copyInviteCode.js';
+import draw from './layout/play/draw.js';
+import enterInviteCode from './layout/play/enterInviteCode.js';
+import finishedButtons from './layout/play/finishedButtons.js';
+import playFriend from './layout/play/playFriend.js';
+import playOnline from './layout/play/playOnline.js';
+import rematch from './layout/play/rematch.js';
+import startedButtons from './layout/play/startedButtons.js';
+import takeback from './layout/play/takeback.js';
+import ws from './layout/play/ws.js';
+import gameActionsDropdown from './layout/gameActionsDropdown.js';
+import gameStudyDropdown from './layout/gameStudyDropdown.js';
+import historyButtons from './layout/historyButtons.js';
+import info from './layout/info.js';
+import * as action from '../action.js';
+import * as mode from '../mode.js';
+import * as variant from '../variant.js';
 
 copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
