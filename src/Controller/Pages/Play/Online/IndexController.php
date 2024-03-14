@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Play;
+namespace App\Controller\Pages\Play\Online;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class OnlineController extends AbstractController
+class IndexController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/play/online.html.twig');
+        return $this->render('pages/play/online/index.html.twig');
     }
 }

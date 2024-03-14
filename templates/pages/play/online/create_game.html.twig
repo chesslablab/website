@@ -1,0 +1,11 @@
+{% extends 'layout/play.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/common/panel/play.html.twig' %}
+  </div>
+  <script type="module" src="{{ asset('js/pages/play/online/create_game.js') }}"></script>
+{% endblock %}
