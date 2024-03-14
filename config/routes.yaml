@@ -1,5 +1,5 @@
 pages_chessboard_classical:
-    path:       /
+    path:       /chessboard/classical
     controller: App\Controller\Pages\Chessboard\ClassicalController::index
     methods:    GET
 
@@ -59,7 +59,7 @@ pages_play_online_create_game:
     methods:    GET
 
 pages_play_online_index:
-    path:       /play/online
+    path:       /
     controller: App\Controller\Pages\Play\Online\IndexController::index
     methods:    GET
 
