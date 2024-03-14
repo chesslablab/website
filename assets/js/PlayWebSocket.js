@@ -16,7 +16,7 @@ import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
-export default class ChesslaBlabWebSocket {
+export default class PlayWebSocket {
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {

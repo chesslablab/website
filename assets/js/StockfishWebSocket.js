@@ -6,7 +6,7 @@ import startedButtons from './layout/fen/startedButtons.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
-export default class ChesslaBlabWebSocket {
+export default class StockfishWebSocket {
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
