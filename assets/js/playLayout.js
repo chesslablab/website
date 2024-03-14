@@ -7,6 +7,7 @@ import playOnline from './layout/play/playOnline.js';
 import rematch from './layout/play/rematch.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
+import timerTable from './layout/play/timerTable.js';
 import ws from './layout/play/ws.js';
 import gameActionsDropdown from './layout/gameActionsDropdown.js';
 import gameStudyDropdown from './layout/gameStudyDropdown.js';

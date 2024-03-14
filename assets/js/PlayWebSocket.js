@@ -12,6 +12,7 @@ import playOnline from './layout/play/playOnline.js';
 import rematch from './layout/play/rematch.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
+import timerTable from './layout/play/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -122,6 +123,11 @@ export default class PlayWebSocket {
               };
               openingTable.domElem();
               this._input(data['/play_lan'].turn);
+              timerTable.props = {
+                turn: data['/play_lan'].turn,
+                w: data['/play_lan'].timer.w,
+                b: data['/play_lan'].timer.b
+              };
             }
             break;
 
@@ -159,6 +165,11 @@ export default class PlayWebSocket {
               playOnline.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
+              timerTable.props = {
+                turn: turn,
+                w: data['/accept'].timer.w,
+                b: data['/accept'].timer.b
+              };
             }
             break;
 
