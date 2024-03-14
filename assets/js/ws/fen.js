@@ -80,21 +80,19 @@ export default class ChesslaBlabWebSocket {
             break;
 
           case '/undo' === msg:
-            if (data['/undo']) {
-              this.chessboard.setPosition(data['/undo'].fen, true);
-              let fen = this.sanMovesTable.props.fen;
-              fen.pop();
-              this.sanMovesTable.props = {
-                ...this.sanMovesTable.props,
-                movetext: data['/undo'].movetext,
-                fen: fen
-              };
-              this.sanMovesTable.domElem();
-              this.openingTable.props = {
-                movetext: data['/undo'].movetext
-              };
-              this.openingTable.domElem();
-            }
+            this.chessboard.setPosition(data['/undo'].fen, true);
+            let fen = this.sanMovesTable.props.fen;
+            fen.pop();
+            this.sanMovesTable.props = {
+              ...this.sanMovesTable.props,
+              movetext: data['/undo'].movetext,
+              fen: fen
+            };
+            this.sanMovesTable.domElem();
+            this.openingTable.props = {
+              movetext: data['/undo'].movetext
+            };
+            this.openingTable.domElem();
             break;
 
           default:
