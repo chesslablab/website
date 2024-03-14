@@ -18,12 +18,12 @@ return [
         'path' => './assets/js/initFenLayout.js',
         'entrypoint' => true,
     ],
-    'js/layout/rav/init.js' => [
-        'path' => './assets/js/layout/rav/init.js',
-        'entrypoint' => true,
-    ],
     'js/initPlayLayout.js' => [
         'path' => './assets/js/initPlayLayout.js',
+        'entrypoint' => true,
+    ],
+    'js/initRavLayout.js' => [
+        'path' => './assets/js/initRavLayout.js',
         'entrypoint' => true,
     ],
     'js/initSanLayout.js' => [
