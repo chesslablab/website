@@ -1,13 +1,32 @@
-import { MARKER_TYPE } from '@chesslablab/cmblab';
-import chessboard from '../layout/chessboard.js';
-import sanMovesTable from '../layout/sanMovesTable.js';
-import openingTable from '../layout/openingTable.js';
-import startedButtons from '../layout/fen/startedButtons.js';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
+import { FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import chessboard from './layout/chessboard.js';
+import sanMovesTable from './layout/sanMovesTable.js';
+import openingTable from './layout/openingTable.js';
+import startedButtons from './layout/fen/startedButtons.js';
+import * as env from '../env.js';
+import * as mode from '../mode.js';
 
-export default class ChesslaBlabWebSocket {
+export default class FenWebSocket {
   constructor() {
+    chessboard.enableMoveInput((event) => {
+      if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
+        return;
+      }
+
+      if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
+        event.chessboard.removeMarkers(MARKER_TYPE.dot);
+        event.chessboard.removeMarkers(MARKER_TYPE.bevel);
+      }
+
+      if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
+        this.send(`/legal ${event.square}`);
+        return true;
+      } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
+        this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
+        return true;
+      }
+    });
+
     startedButtons.addEventListener('click', () => {
       this.send('/undo');
     });
