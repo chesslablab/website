@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 
-const progress = {
+const progressModal = {
   modal: new Modal(document.getElementById('progressModal'))
 }
 
-export default progress;
+export default progressModal;

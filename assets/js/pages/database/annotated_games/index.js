@@ -1,13 +1,13 @@
 import databaseAnnotatedGames from '../../../layout/rav/databaseAnnotatedGames.js';
 import ravMovesTable from '../../../layout/rav/ravMovesTable.js';
-import progress from '../../../layout/progress.js';
+import progressModal from '../../../layout/progressModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
-progress.modal.show();
+progressModal.modal.show();
 
 const handleClick = (game) => {
-  progress.modal.show();
+  progressModal.modal.show();
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
     method: 'POST',
     headers: {
@@ -34,7 +34,7 @@ const handleClick = (game) => {
     // TODO
   })
   .finally(() => {
-    progress.modal.hide();
+    progressModal.modal.hide();
   });
 };
 
@@ -105,5 +105,5 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
   // TODO
 })
 .finally(() => {
-  progress.modal.hide();
+  progressModal.modal.hide();
 });
