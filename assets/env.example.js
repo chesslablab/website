@@ -2,7 +2,7 @@ const API_SCHEME = 'https';
 const API_HOST = 'api.chesslablab.org';
 const API_PORT = '443';
 const API_VERSION = 'v1';
-const API_KEY = '\$2y\$10\$D7TW0EU7ZOxTpHlN97vceeoJrCQ1pIJeDqsRJj3t.Z\/Dc91gggBXO';
+const API_KEY = '\$2y\$06\$3TtLPlyViUQbpOf76guM\/eahrQmVnGxcZ8embmR8t13mMO8T07.DS';
 
 const WEBSOCKET_SCHEME = 'wss';
 const WEBSOCKET_HOST = 'async.chesslablab.org';
