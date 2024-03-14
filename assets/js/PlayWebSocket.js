@@ -4,11 +4,11 @@ import chessboard from './layout/chessboard.js';
 import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
+import createGame from './layout/play/createGame.js';
 import copyInviteCode from './layout/play/copyInviteCode.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import finishedButtons from './layout/play/finishedButtons.js';
-import playOnline from './layout/play/playOnline.js';
 import rematch from './layout/play/rematch.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
@@ -162,7 +162,7 @@ export default class PlayWebSocket {
               }
               this._input(turn);
               enterInviteCode.modal.hide();
-              playOnline.modal.hide();
+              createGame.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
@@ -175,7 +175,7 @@ export default class PlayWebSocket {
 
           case '/online_games' === msg:
             if (data['/online_games']) {
-              playOnline.domElem(data['/online_games']);
+              createGame.domElem(data['/online_games']);
             }
             break;
 

@@ -1,6 +1,6 @@
-import playOnline from '../../../layout/play/playOnline.js';
+import createGame from '../../../layout/play/createGame.js';
 import ws from '../../../layout/play/ws.js';
 
 await ws.connect();
 
-playOnline.modal.show();
+createGame.modal.show();

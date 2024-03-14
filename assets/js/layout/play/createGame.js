@@ -1,12 +1,12 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import ws from './ws.js';
 
-const playOnline = {
-  modal: new Modal(document.getElementById('playOnlineModal')),
-  form: document.querySelector('#playOnlineModal form'),
+const createGame = {
+  modal: new Modal(document.getElementById('createGameModal')),
+  form: document.querySelector('#createGameModal form'),
   domElem: (games) => {
     if (games.length > 0) {
-      const tbody = document.querySelector('#playOnlineModal table tbody')
+      const tbody = document.querySelector('#createGameModal table tbody')
       tbody.replaceChildren();
       games.forEach(game => {
         const tr = document.createElement('tr');
@@ -39,4 +39,4 @@ const playOnline = {
   }
 }
 
-export default playOnline;
+export default createGame;

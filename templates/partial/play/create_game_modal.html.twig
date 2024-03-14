@@ -1,8 +1,8 @@
-<div class="modal fade" id="playOnlineModal" tabindex="-1" aria-labelledby="playOnlineModalLabel" aria-hidden="true">
+<div class="modal fade" id="createGameModal" tabindex="-1" aria-labelledby="createGameModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="playOnlineModalLabel">Create Game</h5>
+        <h5 class="modal-title" id="createGameModalLabel">Create Game</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -17,16 +17,16 @@
           </div>
           <div class="mb-3 d-flex justify-content-center">
             <div>
-              <input type="radio" id="playOnlineModalColorRadioWhite" name="color" value="w">
-              <label for="playOnlineModalColorRadioWhite"><img src="{{ asset('img/pieces/png/75/wKing.png') }}" alt="White"></label>
+              <input type="radio" id="createGameModalColorRadioWhite" name="color" value="w">
+              <label for="createGameModalColorRadioWhite"><img src="{{ asset('img/pieces/png/75/wKing.png') }}" alt="White"></label>
             </div>
             <div>
-              <input type="radio" id="playOnlineModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}" checked>
-              <label for="playOnlineModalColorRadioRandom"><img src="{{ asset('img/pieces/png/75/wbKing.png') }}" alt="Random"></label>
+              <input type="radio" id="createGameModalColorRadioRandom" name="color" value="{{ random(['w', 'b']) }}" checked>
+              <label for="createGameModalColorRadioRandom"><img src="{{ asset('img/pieces/png/75/wbKing.png') }}" alt="Random"></label>
             </div>
             <div>
-              <input type="radio" id="playOnlineModalColorRadioBlack" name="color" value="b">
-              <label for="playOnlineModalColorRadioBlack"><img src="{{ asset('img/pieces/png/75/bKing.png') }}" alt="Black"></label>
+              <input type="radio" id="createGameModalColorRadioBlack" name="color" value="b">
+              <label for="createGameModalColorRadioBlack"><img src="{{ asset('img/pieces/png/75/bKing.png') }}" alt="Black"></label>
             </div>
           </div>
           <div class="mb-3">
