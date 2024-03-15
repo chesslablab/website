@@ -1,16 +1,18 @@
-{% include 'partial/common/board_actions_dropdown.html.twig' %}
-{% include 'partial/common/history_buttons.html.twig' %}
-{% include 'partial/common/san_moves_table.html.twig' %}
-{% include 'partial/common/opening_table.html.twig' %}
-{% include 'partial/common/game_study_dropdown.html.twig' %}
-<table id="timerTable" class="table">
-  <tbody class="h4"></tbody>
-</table>
-<div id="startedButtons" class="btn-group-vertical w-100 mt-2">
-  <button class="btn btn-secondary" type="button" disabled>Propose a takeback</button>
-  <button class="btn btn-secondary" type="button" disabled>Offer draw</button>
-  <button class="btn btn-secondary" type="button" disabled>Resign</button>
-</div>
-<div id="finishedButtons" class="btn-group-vertical mt-2 w-100">
-  <button class="btn btn-secondary" type="button" disabled>Offer rematch</button>
+<div class="p-2 bg-light">
+  {% include 'partial/common/board_actions_dropdown.html.twig' %}
+  {% include 'partial/common/history_buttons.html.twig' %}
+  {% include 'partial/common/san_moves_table.html.twig' %}
+  {% include 'partial/common/opening_table.html.twig' %}
+  {% include 'partial/common/game_study_dropdown.html.twig' %}
+  <table id="timerTable" class="table">
+    <tbody class="h4"></tbody>
+  </table>
+  <div id="startedButtons" class="btn-group-vertical w-100 mt-2">
+    <button class="btn btn-secondary" type="button" disabled>Propose a takeback</button>
+    <button class="btn btn-secondary" type="button" disabled>Offer draw</button>
+    <button class="btn btn-secondary" type="button" disabled>Resign</button>
+  </div>
+  <div id="finishedButtons" class="btn-group-vertical mt-2 w-100">
+    <button class="btn btn-secondary" type="button" disabled>Offer rematch</button>
+  </div>
 </div>
