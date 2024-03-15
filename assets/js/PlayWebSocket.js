@@ -173,12 +173,6 @@ export default class PlayWebSocket {
             }
             break;
 
-          case '/online_games' === msg:
-            if (data['/online_games']) {
-              createGame.domElem(data['/online_games']);
-            }
-            break;
-
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
               if (localStorage.getItem('takeback') !== action.PROPOSE) {

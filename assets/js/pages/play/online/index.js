@@ -1,4 +1,4 @@
-import ws from '../../../layout/play/ws.js';
+import ws from '../../../layout/index/ws.js';
 
 await ws.connect();
 

@@ -18,6 +18,10 @@ return [
         'path' => './assets/js/fenLayout.js',
         'entrypoint' => true,
     ],
+    'js/indexLayout.js' => [
+        'path' => './assets/js/indexLayout.js',
+        'entrypoint' => true,
+    ],
     'js/playLayout.js' => [
         'path' => './assets/js/playLayout.js',
         'entrypoint' => true,
