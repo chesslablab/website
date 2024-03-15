@@ -14,7 +14,7 @@ import rematch from './layout/play/rematch.js';
 import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
-import timerTable from './layout/play/timerTable.js';
+import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -221,6 +221,7 @@ export default class PlayWebSocket {
               startedButtons.children.item(1).disabled = true;
               startedButtons.children.item(2).disabled = true;
               finishedButtons.children.item(0).disabled = false;
+              clearInterval(timerTableInterval);
               localStorage.clear();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
