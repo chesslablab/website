@@ -216,14 +216,7 @@ export default class PlayWebSocket {
 
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
-              startButtons.children.item(0).disabled = false;
-              startedButtons.children.item(0).disabled = true;
-              startedButtons.children.item(1).disabled = true;
-              startedButtons.children.item(2).disabled = true;
-              finishedButtons.children.item(0).disabled = false;
-              chessboard.state.inputWhiteEnabled = false;
-              chessboard.state.inputBlackEnabled = false;
-              clearInterval(timerTableInterval);
+              this._end();
               localStorage.clear();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
@@ -292,6 +285,17 @@ export default class PlayWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
+  }
+
+  _end() {
+    startButtons.children.item(0).disabled = false;
+    startedButtons.children.item(0).disabled = true;
+    startedButtons.children.item(1).disabled = true;
+    startedButtons.children.item(2).disabled = true;
+    finishedButtons.children.item(0).disabled = false;
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
+    clearInterval(timerTableInterval);
   }
 
   _input(turn) {
