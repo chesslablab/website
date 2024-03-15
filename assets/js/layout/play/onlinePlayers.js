@@ -4,9 +4,9 @@ const onlinePlayers = {
   domElem: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody')
     tbody.replaceChildren();
-    const tr = document.createElement('tr');
     if (games.length > 0) {
       games.forEach(game => {
+        const tr = document.createElement('tr');
         const usernameTd = document.createElement('td');
         const usernameText = document.createTextNode('Guest');
         const minTd = document.createElement('td');
@@ -30,14 +30,9 @@ const onlinePlayers = {
         tr.addEventListener('click', () => {
           ws.send(`/accept ${game.hash}`);
         });
+        tbody.appendChild(tr);
       });
-    } else {
-        const td = document.createElement('td');
-        const text = document.createTextNode('There are currently no players.');
-        td.appendChild(text);
-        tr.appendChild(td);
     }
-    tbody.appendChild(tr);
   }
 }
 

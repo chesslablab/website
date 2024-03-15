@@ -1,24 +1,19 @@
 {% extends 'layout/play.html.twig' %}
 
 {% block main %}
+  <div class="col-md-3">
+    <div id="startButtons" class="btn-group-vertical w-100">
+      <button class="btn btn-primary" type="button">Create Game</button>
+    </div>
+    <table id="onlinePlayers" class="table table-hover mt-2">
+      <tbody></tbody>
+    </table>
+  </div>
   <div class="col-md-5">
     <div id="chessboard"></div>
   </div>
   <div class="col-md-4">
     {% include 'partial/common/panel/play.html.twig' %}
-  </div>
-  <div class="col-md-3">
-    <table id="onlinePlayers" class="table table-hover mb-2">
-      <thead class="text-center">
-        <th colspan="5">Online Players</th>
-      </thead>
-      <tbody>
-        <td class="text-center" colspan="5">There are currently no players.</td>
-      </tbody>
-    </table>
-    <div id="startButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-primary" type="button">Create Game</button>
-    </div>
   </div>
   <script type="module" src="{{ asset('js/pages/play/online/index.js') }}"></script>
 {% endblock %}
