@@ -11,6 +11,7 @@ import enterInviteCode from './layout/play/enterInviteCode.js';
 import finishedButtons from './layout/play/finishedButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
+import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
 import timerTable from './layout/play/timerTable.js';
@@ -175,6 +176,7 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
+              startButtons.children.item(0).disabled = true;
               this.send('/online_games');
             }
             break;
