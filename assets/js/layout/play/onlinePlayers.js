@@ -1,6 +1,7 @@
 import ws from './ws.js';
 
 const onlinePlayers = {
+  table: document.querySelector('#onlinePlayers'),
   domElem: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody')
     tbody.replaceChildren();
