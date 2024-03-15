@@ -4,15 +4,17 @@ import chessboard from './layout/chessboard.js';
 import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
+import createGame from './layout/play/createGame.js';
 import copyInviteCode from './layout/play/copyInviteCode.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import finishedButtons from './layout/play/finishedButtons.js';
-import playOnline from './layout/play/playOnline.js';
+import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
+import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
-import timerTable from './layout/play/timerTable.js';
+import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -83,9 +85,11 @@ export default class PlayWebSocket {
         const msg = Object.keys(data)[0];
         switch (true) {
           case 'error' === msg:
-            if (data['error']) {
-              console.log('Whoops! Something went wrong.');
-            }
+            console.log('Whoops! Something went wrong.');
+            break;
+
+          case 'broadcast' === msg:
+            onlinePlayers.domElem(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -95,6 +99,9 @@ export default class PlayWebSocket {
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
+              createGame.modal.hide();
+              this.send('/online_games');
+              localStorage.setItem('hash', data['/start'].hash);
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
@@ -162,7 +169,7 @@ export default class PlayWebSocket {
               }
               this._input(turn);
               enterInviteCode.modal.hide();
-              playOnline.modal.hide();
+              createGame.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
@@ -170,12 +177,11 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
-            }
-            break;
-
-          case '/online_games' === msg:
-            if (data['/online_games']) {
-              playOnline.domElem(data['/online_games']);
+              startButtons.children.item(0).disabled = true;
+              startedButtons.children.item(0).disabled = false;
+              startedButtons.children.item(1).disabled = false;
+              startedButtons.children.item(2).disabled = false;
+              this.send('/online_games');
             }
             break;
 
@@ -204,6 +210,7 @@ export default class PlayWebSocket {
               infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
+              this._end();
               infoModal.modal.hide();
               localStorage.clear();
             }
@@ -211,9 +218,10 @@ export default class PlayWebSocket {
 
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
-              localStorage.clear();
+              this._end();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
+              localStorage.clear();
             }
             break;
 
@@ -254,6 +262,10 @@ export default class PlayWebSocket {
             }
             break;
 
+          case '/online_games' === msg:
+            onlinePlayers.domElem(data['/online_games']);
+            break;
+
           default:
             break;
         }
@@ -275,6 +287,17 @@ export default class PlayWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
+  }
+
+  _end() {
+    startButtons.children.item(0).disabled = false;
+    startedButtons.children.item(0).disabled = true;
+    startedButtons.children.item(1).disabled = true;
+    startedButtons.children.item(2).disabled = true;
+    finishedButtons.children.item(0).disabled = false;
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
+    clearInterval(timerTableInterval);
   }
 
   _input(turn) {

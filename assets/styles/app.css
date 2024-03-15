@@ -1,5 +1,6 @@
 body {
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  background-color: #262421;
 }
 
 label img {
@@ -10,20 +11,24 @@ table {
   margin-bottom: 0 !important;
 }
 
+footer {
+  font-size: 0.85rem;
+}
+
 input[type="radio"] {
   visibility: hidden;
 }
 
-label[for="playOnlineModalColorRadioWhite"]:hover,
-label[for="playOnlineModalColorRadioRandom"]:hover,
-label[for="playOnlineModalColorRadioBlack"]:hover {
+label[for="createGameModalColorRadioWhite"]:hover,
+label[for="createGameModalColorRadioRandom"]:hover,
+label[for="createGameModalColorRadioBlack"]:hover {
   background-color: #f5f5f5;
   border-radius: 4rem;
 }
 
-input:checked ~ label[for="playOnlineModalColorRadioWhite"],
-input:checked ~ label[for="playOnlineModalColorRadioRandom"],
-input:checked ~ label[for="playOnlineModalColorRadioBlack"] {
+input:checked ~ label[for="createGameModalColorRadioWhite"],
+input:checked ~ label[for="createGameModalColorRadioRandom"],
+input:checked ~ label[for="createGameModalColorRadioBlack"] {
   background-color: #f0f0f0;
   border-radius: 4rem;
 }

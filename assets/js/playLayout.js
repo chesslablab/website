@@ -1,13 +1,15 @@
 import copyInviteCode from './layout/play/copyInviteCode.js';
+import createGame from './layout/play/createGame.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import finishedButtons from './layout/play/finishedButtons.js';
+import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
-import playOnline from './layout/play/playOnline.js';
 import rematch from './layout/play/rematch.js';
+import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
-import timerTable from './layout/play/timerTable.js';
+import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
 import ws from './layout/play/ws.js';
 import gameActionsDropdown from './layout/gameActionsDropdown.js';
 import gameStudyDropdown from './layout/gameStudyDropdown.js';
@@ -16,6 +18,8 @@ import infoModal from './layout/infoModal.js';
 import * as action from '../action.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
+
+localStorage.clear();
 
 copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
@@ -56,28 +60,23 @@ playFriend.form.addEventListener('submit', event => {
     ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
-  localStorage.clear();
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriend.modal.hide();
   copyInviteCode.modal.show();
 });
 
-playOnline.form.addEventListener('submit', event => {
+createGame.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playOnline.form);
+  const formData = new FormData(createGame.form);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
     color: formData.get('color'),
     submode: 'online'
   };
-  localStorage.clear();
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  playOnline.modal.hide();
-  infoModal.msg('Waiting for player to join...');
-  infoModal.modal.show();
 });
 
 takeback.form.addEventListener('submit', event => {
@@ -114,4 +113,9 @@ rematch.form.children.item(1).addEventListener('click', async (event) => {
 infoModal.form.addEventListener('submit', event => {
   event.preventDefault();
   infoModal.modal.hide();
+});
+
+startButtons.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  createGame.modal.show();
 });

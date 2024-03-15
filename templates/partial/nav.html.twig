@@ -1,11 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('pages_chessboard_classical') }}">ChesslaBlab</a>
+    <a class="navbar-brand" href="{{ path('pages_play_online_players_index') }}">Chessla<span class="fw-bold">Blab</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Play
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online_players_index') }}">
+                Online Players
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
+                Play Computer
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_friend_index') }}">
+                Play a Friend
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_friend_enter_invite_code') }}">
+                Enter Invite Code
+              </a>
+            </li>
+          </ul>
+        </li>
         <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_chessboard_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Chessboard
@@ -31,35 +60,6 @@
             <li>
               <a class="dropdown-item" href="{{ path('pages_chessboard_fen_string') }}">
                 FEN String
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Play
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online') }}">
-                Play Online
-              </a>
-            </li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
-                Play Computer
-              </a>
-            </li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_friend_index') }}">
-                Play a Friend
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_friend_enter_invite_code') }}">
-                Enter Invite Code
               </a>
             </li>
           </ul>

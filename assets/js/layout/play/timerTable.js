@@ -1,6 +1,6 @@
 import { TimerTable } from '@chesslablab/jsblab';
 
-const timerTable = new TimerTable(
+export const timerTable = new TimerTable(
   document.querySelector('#timerTable tbody'),
   {
     turn: 'w',
@@ -9,8 +9,6 @@ const timerTable = new TimerTable(
   }
 );
 
-setInterval(() => {
+export const timerTableInterval = setInterval(() => {
   timerTable.count().domElem();
 }, 1000);
-
-export default timerTable;

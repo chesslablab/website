@@ -1,13 +1,10 @@
-import Modal from 'bootstrap/js/dist/modal.js';
 import ws from './ws.js';
 
-const playOnline = {
-  modal: new Modal(document.getElementById('playOnlineModal')),
-  form: document.querySelector('#playOnlineModal form'),
+const onlinePlayers = {
   domElem: (games) => {
+    const tbody = document.querySelector('#onlinePlayers tbody')
+    tbody.replaceChildren();
     if (games.length > 0) {
-      const tbody = document.querySelector('#playOnlineModal table tbody')
-      tbody.replaceChildren();
       games.forEach(game => {
         const tr = document.createElement('tr');
         const usernameTd = document.createElement('td');
@@ -30,13 +27,21 @@ const playOnline = {
         tr.appendChild(incrementTd);
         tr.appendChild(colorTd);
         tr.appendChild(variantTd);
-        tr.addEventListener('click', () => {
-          ws.send(`/accept ${game.hash}`);
-        });
+        if (localStorage.getItem('hash') !== game.hash) {
+          tr.addEventListener('click', () => {
+            ws.send(`/accept ${game.hash}`);
+          });
+        } else {
+          usernameTd.style.cursor = 'default';
+          minTd.style.cursor = 'default';
+          incrementTd.style.cursor = 'default';
+          colorTd.style.cursor = 'default';
+          variantTd.style.cursor = 'default';
+        }
         tbody.appendChild(tr);
       });
     }
   }
 }
 
-export default playOnline;
+export default onlinePlayers;

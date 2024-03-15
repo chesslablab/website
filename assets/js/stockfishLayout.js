@@ -7,10 +7,11 @@ import historyButtons from './layout/historyButtons.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
+localStorage.clear();
+
 playComputer.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playComputer.form);
-  localStorage.clear();
   localStorage.setItem('mode', mode.STOCKFISH);
   if (formData.get('level') == 1) {
     localStorage.setItem('skillLevel', 11);

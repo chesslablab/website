@@ -11,6 +11,8 @@ import historyButtons from './layout/historyButtons.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
+localStorage.clear();
+
 const openingsTableDomElem = (modal, openings, tbody) => {
   tbody.replaceChildren();
   openings.forEach(opening => {
