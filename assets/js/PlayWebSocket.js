@@ -9,6 +9,7 @@ import copyInviteCode from './layout/play/copyInviteCode.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import finishedButtons from './layout/play/finishedButtons.js';
+import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
@@ -245,6 +246,12 @@ export default class PlayWebSocket {
               openingTable.domElem();
               localStorage.clear();
               localStorage.setItem('hash', data['/restart'].hash);
+            }
+            break;
+
+          case '/online_games' === msg:
+            if (data['/online_games']) {
+              onlinePlayers.domElem(data['/online_games']);
             }
             break;
 
