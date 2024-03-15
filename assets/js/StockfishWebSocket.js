@@ -51,9 +51,7 @@ export default class StockfishWebSocket {
         const msg = Object.keys(data)[0];
         switch (true) {
           case 'error' === msg:
-            if (data['error']) {
-              console.log('Whoops! Something went wrong.');
-            }
+            console.log('Whoops! Something went wrong.');
             break;
 
           case '/start' === msg:
