@@ -209,6 +209,7 @@ export default class PlayWebSocket {
               infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
+              this._end();
               infoModal.modal.hide();
               localStorage.clear();
             }
@@ -217,9 +218,9 @@ export default class PlayWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               this._end();
-              localStorage.clear();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
+              localStorage.clear();
             }
             break;
 
