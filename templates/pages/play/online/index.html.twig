@@ -1,4 +1,4 @@
-{% extends 'layout/index.html.twig' %}
+{% extends 'layout/play.html.twig' %}
 
 {% block main %}
   <div class="col-md-12">
@@ -10,6 +10,12 @@
         <td class="text-center" colspan="5">There are currently no players.</td>
       </tbody>
     </table>
+  </div>
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/common/panel/play.html.twig' %}
   </div>
   <script type="module" src="{{ asset('js/pages/play/online/index.js') }}"></script>
 {% endblock %}
