@@ -177,6 +177,9 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               startButtons.children.item(0).disabled = true;
+              startedButtons.children.item(0).disabled = false;
+              startedButtons.children.item(1).disabled = false;
+              startedButtons.children.item(2).disabled = false;
               this.send('/online_games');
             }
             break;
