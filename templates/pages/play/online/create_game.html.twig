@@ -1,10 +1,20 @@
 {% extends 'layout/play.html.twig' %}
 
 {% block main %}
-  <div class="col-md-6">
+  <div class="col-md-3">
+    <table id="onlinePlayers" class="table table-hover mb-4">
+      <thead class="text-center">
+        <th colspan="5">Online Players</th>
+      </thead>
+      <tbody>
+        <td class="text-center" colspan="5">There are currently no players.</td>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-5">
     <div id="chessboard"></div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     {% include 'partial/common/panel/play.html.twig' %}
   </div>
   <script type="module" src="{{ asset('js/pages/play/online/create_game.js') }}"></script>
