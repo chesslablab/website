@@ -175,6 +175,7 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
+              this.send('/online_games');
             }
             break;
 
