@@ -19,6 +19,8 @@ import * as action from '../action.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
+localStorage.clear();
+
 copyInviteCode.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(copyInviteCode.form);
@@ -58,7 +60,6 @@ playFriend.form.addEventListener('submit', event => {
     ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
     ...(formData.get('fen') && {fen: formData.get('fen')})
   };
-  localStorage.clear();
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriend.modal.hide();
@@ -74,7 +75,6 @@ createGame.form.addEventListener('submit', event => {
     color: formData.get('color'),
     submode: 'online'
   };
-  localStorage.clear();
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });

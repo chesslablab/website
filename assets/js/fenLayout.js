@@ -6,6 +6,8 @@ import gameStudyDropdown from './layout/gameStudyDropdown.js';
 import historyButtons from './layout/historyButtons.js';
 import * as mode from '../mode.js';
 
+localStorage.clear();
+
 chessboardFenString.form.addEventListener('submit', event => {
   event.preventDefault();
   const add = {
