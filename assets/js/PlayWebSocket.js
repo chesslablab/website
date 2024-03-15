@@ -89,6 +89,10 @@ export default class PlayWebSocket {
             }
             break;
 
+          case 'broadcast' === msg:
+            onlinePlayers.domElem(data['broadcast']['onlineGames']);
+            break;
+
           case '/start' === msg:
             if (data['/start'].jwt) {
               copyInviteCode.form.elements['hash'].value = data['/start'].hash;
@@ -252,9 +256,7 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            if (data['/online_games']) {
-              onlinePlayers.domElem(data['/online_games']);
-            }
+            onlinePlayers.domElem(data['/online_games']);
             break;
 
           default:
