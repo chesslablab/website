@@ -96,6 +96,8 @@ export default class PlayWebSocket {
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
+              createGame.modal.hide();
+              this.send('/online_games');
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }

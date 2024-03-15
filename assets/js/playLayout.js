@@ -77,9 +77,6 @@ createGame.form.addEventListener('submit', event => {
   localStorage.clear();
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  createGame.modal.hide();
-  infoModal.msg('Waiting for player to join...');
-  infoModal.modal.show();
 });
 
 takeback.form.addEventListener('submit', event => {
