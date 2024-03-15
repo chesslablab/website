@@ -53,11 +53,6 @@ pages_play_computer:
     controller: App\Controller\Pages\Play\ComputerController::index
     methods:    GET
 
-pages_play_online_create_game:
-    path:       /play/online/create-game
-    controller: App\Controller\Pages\Play\Online\CreateGameController::index
-    methods:    GET
-
 pages_play_online_players_index:
     path:       /
     controller: App\Controller\Pages\Play\Online\IndexController::index

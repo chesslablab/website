@@ -6,6 +6,7 @@ import finishedButtons from './layout/play/finishedButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
 import rematch from './layout/play/rematch.js';
+import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takeback from './layout/play/takeback.js';
 import timerTable from './layout/play/timerTable.js';
@@ -115,4 +116,9 @@ rematch.form.children.item(1).addEventListener('click', async (event) => {
 infoModal.form.addEventListener('submit', event => {
   event.preventDefault();
   infoModal.modal.hide();
+});
+
+startButtons.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  createGame.modal.show();
 });
