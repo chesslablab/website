@@ -27,9 +27,17 @@ const onlinePlayers = {
         tr.appendChild(incrementTd);
         tr.appendChild(colorTd);
         tr.appendChild(variantTd);
-        tr.addEventListener('click', () => {
-          ws.send(`/accept ${game.hash}`);
-        });
+        if (localStorage.getItem('hash') !== game.hash) {
+          tr.addEventListener('click', () => {
+            ws.send(`/accept ${game.hash}`);
+          });
+        } else {
+          usernameTd.style.cursor = 'default';
+          minTd.style.cursor = 'default';
+          incrementTd.style.cursor = 'default';
+          colorTd.style.cursor = 'default';
+          variantTd.style.cursor = 'default';
+        }
         tbody.appendChild(tr);
       });
     }

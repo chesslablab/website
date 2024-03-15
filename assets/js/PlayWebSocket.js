@@ -101,6 +101,7 @@ export default class PlayWebSocket {
               chessboard.props.startPos = data['/start'].startPos;
               createGame.modal.hide();
               this.send('/online_games');
+              localStorage.setItem('hash', data['/start'].hash);
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
