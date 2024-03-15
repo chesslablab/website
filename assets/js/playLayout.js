@@ -2,7 +2,6 @@ import copyInviteCode from './layout/play/copyInviteCode.js';
 import createGame from './layout/play/createGame.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
-import finishedButtons from './layout/play/finishedButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
 import rematch from './layout/play/rematch.js';

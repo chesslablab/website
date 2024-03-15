@@ -8,7 +8,6 @@ import createGame from './layout/play/createGame.js';
 import copyInviteCode from './layout/play/copyInviteCode.js';
 import draw from './layout/play/draw.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
-import finishedButtons from './layout/play/finishedButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
 import startButtons from './layout/play/startButtons.js';
@@ -57,8 +56,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       this.send('/resign accept');
     });
-
-    finishedButtons.children.item(0).addEventListener('click', (event) => {
+    startedButtons.children.item(3).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
@@ -178,9 +176,10 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               startButtons.children.item(0).disabled = true;
-              startedButtons.children.item(0).disabled = false;
-              startedButtons.children.item(1).disabled = false;
-              startedButtons.children.item(2).disabled = false;
+              startedButtons.parentNode.classList.remove('d-none');
+              startedButtons.children.item(0).classList.remove('d-none');
+              startedButtons.children.item(1).classList.remove('d-none');
+              startedButtons.children.item(2).classList.remove('d-none');
               this.send('/online_games');
             }
             break;
@@ -291,10 +290,11 @@ export default class PlayWebSocket {
 
   _end() {
     startButtons.children.item(0).disabled = false;
-    startedButtons.children.item(0).disabled = true;
-    startedButtons.children.item(1).disabled = true;
-    startedButtons.children.item(2).disabled = true;
-    finishedButtons.children.item(0).disabled = false;
+    startedButtons.parentNode.classList.remove('d-none');
+    startedButtons.children.item(0).classList.add('d-none');
+    startedButtons.children.item(1).classList.add('d-none');
+    startedButtons.children.item(2).classList.add('d-none');
+    startedButtons.children.item(3).classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     clearInterval(timerTableInterval);

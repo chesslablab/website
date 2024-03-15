@@ -1,4 +1,4 @@
-<div class="p-2 bg-light">
+<div class="p-2 bg-light d-none">
   {% include 'partial/common/board_actions_dropdown.html.twig' %}
   {% include 'partial/common/history_buttons.html.twig' %}
   {% include 'partial/common/san_moves_table.html.twig' %}
@@ -8,11 +8,9 @@
     <tbody class="h4"></tbody>
   </table>
   <div id="startedButtons" class="btn-group-vertical w-100 mt-2">
-    <button class="btn btn-secondary btn-sm" type="button" disabled>Propose a takeback</button>
-    <button class="btn btn-secondary btn-sm" type="button" disabled>Offer draw</button>
-    <button class="btn btn-secondary btn-sm" type="button" disabled>Resign</button>
-  </div>
-  <div id="finishedButtons" class="btn-group-vertical mt-2 w-100">
-    <button class="btn btn-secondary btn-sm" type="button" disabled>Offer rematch</button>
+    <button class="btn btn-secondary btn-sm rounded-0" type="button">Propose a takeback</button>
+    <button class="btn btn-secondary btn-sm rounded-0" type="button">Offer draw</button>
+    <button class="btn btn-secondary btn-sm rounded-0" type="button">Resign</button>
+    <button class="btn btn-secondary btn-sm rounded-0 d-none" type="button">Offer rematch</button>
   </div>
 </div>
