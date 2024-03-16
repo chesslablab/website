@@ -179,6 +179,8 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               onlineButtons.children.item(0).disabled = true;
+              friendButtons.children.item(0).disabled = true;
+              friendButtons.children.item(1).disabled = true;
               onlinePlayers.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
@@ -298,6 +300,8 @@ export default class PlayWebSocket {
 
   _end() {
     onlineButtons.children.item(0).disabled = false;
+    friendButtons.children.item(0).disabled = false;
+    friendButtons.children.item(1).disabled = false;
     onlinePlayers.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
