@@ -78,7 +78,7 @@ createGame.form.addEventListener('submit', event => {
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });
 
-takebackModal.form.addEventListener('submit', event => {
+takebackModal.form.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/takeback accept');
   ws.send('/undo');
@@ -89,7 +89,7 @@ takebackModal.form.children.item(1).addEventListener('click', async (event) => {
   ws.send('/takeback decline');
 });
 
-draw.form.addEventListener('submit', event => {
+draw.form.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/draw accept');
 });
