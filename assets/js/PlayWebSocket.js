@@ -133,6 +133,9 @@ export default class PlayWebSocket {
                 w: data['/play_lan'].timer.w,
                 b: data['/play_lan'].timer.b
               };
+              if (data['/play_lan'].isMate) {
+                this._end();
+              }
             }
             break;
 
