@@ -4,7 +4,7 @@ import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
-import playFriend from './layout/play/playFriend.js';
+import playFriendModal from './layout/play/playFriendModal.js';
 import rematch from './layout/play/rematch.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
@@ -38,18 +38,18 @@ enterInviteCodeModal.form.addEventListener('submit', event => {
   ws.send(`/accept ${formData.get('hash')}`);
 });
 
-playFriend.form.getElementsByTagName('select')[0].addEventListener('change', event => {
+playFriendModal.form.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
   if (event.target.value === variant.CHESS_960) {
-    playFriend.form.getElementsByClassName('startPos')[0].classList.remove('d-none');
+    playFriendModal.form.getElementsByClassName('startPos')[0].classList.remove('d-none');
   } else {
-    playFriend.form.getElementsByClassName('startPos')[0].classList.add('d-none');
+    playFriendModal.form.getElementsByClassName('startPos')[0].classList.add('d-none');
   }
 });
 
-playFriend.form.addEventListener('submit', event => {
+playFriendModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playFriend.form);
+  const formData = new FormData(playFriendModal.form);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
@@ -61,7 +61,7 @@ playFriend.form.addEventListener('submit', event => {
   };
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  playFriend.modal.hide();
+  playFriendModal.modal.hide();
   copyInviteCodeModal.modal.show();
 });
 
