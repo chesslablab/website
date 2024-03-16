@@ -195,7 +195,8 @@ export default class PlayWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takeback.modal.hide();
-              infoModal.modal.hide();
+              infoModal.msg('Takeback declined.');
+              infoModal.modal.show();
               localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
               infoModal.msg('Takeback accepted.');
