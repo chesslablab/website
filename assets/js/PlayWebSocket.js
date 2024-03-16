@@ -4,13 +4,13 @@ import chessboard from './layout/chessboard.js';
 import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
-import createGame from './layout/play/createGame.js';
+import createGameModal from './layout/play/createGameModal.js';
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
-import onlinePlayers from './layout/play/onlinePlayers.js';
-import rematch from './layout/play/rematch.js';
-import startButtons from './layout/play/startButtons.js';
+import onlineButtons from './layout/play/onlineButtons.js';
+import onlinePlayersTable from './layout/play/onlinePlayersTable.js';
+import rematchModal from './layout/play/rematchModal.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
@@ -87,7 +87,7 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayers.domElem(data['broadcast']['onlineGames']);
+            onlinePlayersTable.domElem(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -97,7 +97,7 @@ export default class PlayWebSocket {
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
-              createGame.modal.hide();
+              createGameModal.modal.hide();
               this.send('/online_games');
               localStorage.setItem('hash', data['/start'].hash);
             } else {
@@ -170,7 +170,7 @@ export default class PlayWebSocket {
               }
               this._input(turn);
               enterInviteCodeModal.modal.hide();
-              createGame.modal.hide();
+              createGameModal.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
@@ -178,8 +178,10 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
-              startButtons.children.item(0).disabled = true;
-              onlinePlayers.table.classList.add('d-none');
+              onlineButtons.children.item(0).disabled = true;
+              friendButtons.children.item(0).disabled = true;
+              friendButtons.children.item(1).disabled = true;
+              onlinePlayersTable.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
               startedButtons.children.item(1).classList.remove('d-none');
@@ -235,10 +237,10 @@ export default class PlayWebSocket {
           case '/rematch' === msg:
             if (data['/rematch'].action === action.PROPOSE) {
               if (localStorage.getItem('rematch') !== action.PROPOSE) {
-                rematch.modal.show();
+                rematchModal.modal.show();
               }
             } else if (data['/rematch'].action === action.DECLINE) {
-              rematch.modal.hide();
+              rematchModal.modal.hide();
               infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/rematch'].action === action.ACCEPT) {
@@ -270,7 +272,7 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            onlinePlayers.domElem(data['/online_games']);
+            onlinePlayersTable.domElem(data['/online_games']);
             break;
 
           default:
@@ -297,8 +299,10 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    startButtons.children.item(0).disabled = false;
-    onlinePlayers.table.classList.remove('d-none');
+    onlineButtons.children.item(0).disabled = false;
+    friendButtons.children.item(0).disabled = false;
+    friendButtons.children.item(1).disabled = false;
+    onlinePlayersTable.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
     startedButtons.children.item(1).classList.add('d-none');

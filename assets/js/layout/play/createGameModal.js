@@ -1,8 +1,8 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 
-const createGame = {
+const createGameModal = {
   modal: new Modal(document.getElementById('createGameModal')),
   form: document.querySelector('#createGameModal form')
 }
 
-export default createGame;
+export default createGameModal;

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark mb-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('pages_play_online_players_index') }}">Chessla<span class="fw-bold">Blab</span></a>
+    <a class="navbar-brand" href="{{ path('pages_play_online') }}">Chessla<span class="fw-bold">Blab</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,25 +12,14 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
             <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online_players_index') }}">
-                Online Players
+              <a class="dropdown-item" href="{{ path('pages_play_online') }}">
+                Play Online
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
                 Play Computer
-              </a>
-            </li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_friend_index') }}">
-                Play a Friend
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_friend_enter_invite_code') }}">
-                Enter Invite Code
               </a>
             </li>
           </ul>
