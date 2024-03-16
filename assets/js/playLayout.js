@@ -2,6 +2,7 @@ import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import createGame from './layout/play/createGame.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
+import friendButtons from './layout/play/friendButtons.js';
 import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriendModal from './layout/play/playFriendModal.js';
@@ -117,4 +118,14 @@ infoModal.form.addEventListener('submit', event => {
 onlineButtons.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   createGame.modal.show();
+});
+
+friendButtons.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  playFriendModal.modal.show();
+});
+
+friendButtons.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  enterInviteCodeModal.modal.show();
 });
