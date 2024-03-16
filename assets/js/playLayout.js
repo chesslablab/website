@@ -1,7 +1,7 @@
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import createGame from './layout/play/createGame.js';
 import drawModal from './layout/play/drawModal.js';
-import enterInviteCode from './layout/play/enterInviteCode.js';
+import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
 import rematch from './layout/play/rematch.js';
@@ -32,9 +32,9 @@ copyInviteCodeModal.form.addEventListener('submit', event => {
   });
 });
 
-enterInviteCode.form.addEventListener('submit', event => {
+enterInviteCodeModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(enterInviteCode.form);
+  const formData = new FormData(enterInviteCodeModal.form);
   ws.send(`/accept ${formData.get('hash')}`);
 });
 

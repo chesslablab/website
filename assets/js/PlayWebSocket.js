@@ -7,7 +7,7 @@ import sanMovesTable from './layout/sanMovesTable.js';
 import createGame from './layout/play/createGame.js';
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
-import enterInviteCode from './layout/play/enterInviteCode.js';
+import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
 import startButtons from './layout/play/startButtons.js';
@@ -169,7 +169,7 @@ export default class PlayWebSocket {
                 );
               }
               this._input(turn);
-              enterInviteCode.modal.hide();
+              enterInviteCodeModal.modal.hide();
               createGame.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
