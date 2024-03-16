@@ -7,7 +7,7 @@ import playFriend from './layout/play/playFriend.js';
 import rematch from './layout/play/rematch.js';
 import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
-import takeback from './layout/play/takeback.js';
+import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
 import ws from './layout/play/ws.js';
 import gameActionsDropdown from './layout/gameActionsDropdown.js';
@@ -78,13 +78,13 @@ createGame.form.addEventListener('submit', event => {
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
 });
 
-takeback.form.addEventListener('submit', event => {
+takebackModal.form.addEventListener('submit', event => {
   event.preventDefault();
   ws.send('/takeback accept');
   ws.send('/undo');
 });
 
-takeback.form.children.item(1).addEventListener('click', async (event) => {
+takebackModal.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/takeback decline');
 });

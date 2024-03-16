@@ -12,7 +12,7 @@ import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
 import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
-import takeback from './layout/play/takeback.js';
+import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
@@ -191,10 +191,10 @@ export default class PlayWebSocket {
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
               if (localStorage.getItem('takeback') !== action.PROPOSE) {
-                takeback.modal.show();
+                takebackModal.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
-              takeback.modal.hide();
+              takebackModal.modal.hide();
               infoModal.msg('Takeback declined.');
               infoModal.modal.show();
               localStorage.clear();
