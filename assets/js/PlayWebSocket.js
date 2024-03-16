@@ -4,7 +4,7 @@ import chessboard from './layout/chessboard.js';
 import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
-import createGame from './layout/play/createGame.js';
+import createGameModal from './layout/play/createGameModal.js';
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
@@ -97,7 +97,7 @@ export default class PlayWebSocket {
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
-              createGame.modal.hide();
+              createGameModal.modal.hide();
               this.send('/online_games');
               localStorage.setItem('hash', data['/start'].hash);
             } else {
@@ -170,7 +170,7 @@ export default class PlayWebSocket {
               }
               this._input(turn);
               enterInviteCodeModal.modal.hide();
-              createGame.modal.hide();
+              createGameModal.modal.hide();
               infoModal.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {

@@ -1,5 +1,5 @@
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
-import createGame from './layout/play/createGame.js';
+import createGameModal from './layout/play/createGameModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import friendButtons from './layout/play/friendButtons.js';
@@ -66,9 +66,9 @@ playFriendModal.form.addEventListener('submit', event => {
   copyInviteCodeModal.modal.show();
 });
 
-createGame.form.addEventListener('submit', event => {
+createGameModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(createGame.form);
+  const formData = new FormData(createGameModal.form);
   const add = {
     min: formData.get('minutes'),
     increment: formData.get('increment'),
@@ -117,7 +117,7 @@ infoModal.form.addEventListener('submit', event => {
 
 onlineButtons.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
-  createGame.modal.show();
+  createGameModal.modal.show();
 });
 
 friendButtons.children.item(0).addEventListener('click', async (event) => {
