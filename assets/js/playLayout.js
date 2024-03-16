@@ -1,6 +1,6 @@
 import copyInviteCode from './layout/play/copyInviteCode.js';
 import createGame from './layout/play/createGame.js';
-import draw from './layout/play/draw.js';
+import drawModal from './layout/play/drawModal.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
@@ -89,12 +89,12 @@ takebackModal.form.children.item(1).addEventListener('click', async (event) => {
   ws.send('/takeback decline');
 });
 
-draw.form.children.item(0).addEventListener('click', async (event) => {
+drawModal.form.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/draw accept');
 });
 
-draw.form.children.item(1).addEventListener('click', async (event) => {
+drawModal.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/draw decline');
 });

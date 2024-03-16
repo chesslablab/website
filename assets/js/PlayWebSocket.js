@@ -6,7 +6,7 @@ import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
 import createGame from './layout/play/createGame.js';
 import copyInviteCode from './layout/play/copyInviteCode.js';
-import draw from './layout/play/draw.js';
+import drawModal from './layout/play/drawModal.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
@@ -208,10 +208,10 @@ export default class PlayWebSocket {
           case '/draw' === msg:
             if (data['/draw'].action === action.PROPOSE) {
               if (localStorage.getItem('draw') !== action.PROPOSE) {
-                draw.modal.show();
+                drawModal.modal.show();
               }
             } else if (data['/draw'].action === action.DECLINE) {
-              draw.modal.hide();
+              drawModal.modal.hide();
               infoModal.msg('Draw offer declined.');
               infoModal.modal.show();
               localStorage.clear();
