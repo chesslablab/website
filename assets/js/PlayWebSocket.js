@@ -5,7 +5,7 @@ import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
 import createGame from './layout/play/createGame.js';
-import copyInviteCode from './layout/play/copyInviteCode.js';
+import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
@@ -92,7 +92,7 @@ export default class PlayWebSocket {
 
           case '/start' === msg:
             if (data['/start'].jwt) {
-              copyInviteCode.form.elements['hash'].value = data['/start'].hash;
+              copyInviteCodeModal.form.elements['hash'].value = data['/start'].hash;
               const jwtDecoded = jwtDecode(data['/start'].jwt);
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;

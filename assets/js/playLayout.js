@@ -1,4 +1,4 @@
-import copyInviteCode from './layout/play/copyInviteCode.js';
+import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import createGame from './layout/play/createGame.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCode from './layout/play/enterInviteCode.js';
@@ -20,11 +20,11 @@ import * as variant from '../variant.js';
 
 localStorage.clear();
 
-copyInviteCode.form.addEventListener('submit', event => {
+copyInviteCodeModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(copyInviteCode.form);
+  const formData = new FormData(copyInviteCodeModal.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
-    copyInviteCode.modal.hide();
+    copyInviteCodeModal.modal.hide();
     infoModal.msg('Waiting for player to join...');
     infoModal.modal.show();
   }, function(err) {
@@ -62,7 +62,7 @@ playFriend.form.addEventListener('submit', event => {
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriend.modal.hide();
-  copyInviteCode.modal.show();
+  copyInviteCodeModal.modal.show();
 });
 
 createGame.form.addEventListener('submit', event => {
