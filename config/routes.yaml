@@ -43,9 +43,9 @@ pages_play_computer:
     controller: App\Controller\Pages\Play\ComputerController::index
     methods:    GET
 
-pages_play_online_players_index:
+pages_play_online:
     path:       /
-    controller: App\Controller\Pages\Play\Online\IndexController::index
+    controller: App\Controller\Pages\Play\OnlineController::index
     methods:    GET
 
 pages_about:
