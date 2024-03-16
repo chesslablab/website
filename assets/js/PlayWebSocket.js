@@ -8,9 +8,9 @@ import createGame from './layout/play/createGame.js';
 import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
+import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import rematch from './layout/play/rematch.js';
-import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
@@ -178,7 +178,7 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
-              startButtons.children.item(0).disabled = true;
+              onlineButtons.children.item(0).disabled = true;
               onlinePlayers.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
@@ -297,7 +297,7 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    startButtons.children.item(0).disabled = false;
+    onlineButtons.children.item(0).disabled = false;
     onlinePlayers.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');

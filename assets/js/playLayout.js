@@ -2,10 +2,10 @@ import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import createGame from './layout/play/createGame.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
+import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriend from './layout/play/playFriend.js';
 import rematch from './layout/play/rematch.js';
-import startButtons from './layout/play/startButtons.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
@@ -114,7 +114,7 @@ infoModal.form.addEventListener('submit', event => {
   infoModal.modal.hide();
 });
 
-startButtons.children.item(0).addEventListener('click', async (event) => {
+onlineButtons.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   createGame.modal.show();
 });
