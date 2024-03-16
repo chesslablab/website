@@ -210,7 +210,8 @@ export default class PlayWebSocket {
               }
             } else if (data['/draw'].action === action.DECLINE) {
               draw.modal.hide();
-              infoModal.modal.hide();
+              infoModal.msg('Draw offer declined.');
+              infoModal.modal.show();
               localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
