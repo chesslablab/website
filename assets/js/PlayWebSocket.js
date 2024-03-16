@@ -214,7 +214,8 @@ export default class PlayWebSocket {
               localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
-              infoModal.modal.hide();
+              infoModal.msg('Draw offer accepted.');
+              infoModal.modal.show();
               localStorage.clear();
             }
             break;
