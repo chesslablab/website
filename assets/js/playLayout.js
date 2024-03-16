@@ -6,7 +6,7 @@ import friendButtons from './layout/play/friendButtons.js';
 import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
 import playFriendModal from './layout/play/playFriendModal.js';
-import rematch from './layout/play/rematch.js';
+import rematchModal from './layout/play/rematchModal.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
@@ -100,12 +100,12 @@ drawModal.form.children.item(1).addEventListener('click', async (event) => {
   ws.send('/draw decline');
 });
 
-rematch.form.addEventListener('submit', event => {
+rematchModal.form.addEventListener('submit', event => {
   event.preventDefault();
   ws.send('/rematch accept');
 });
 
-rematch.form.children.item(1).addEventListener('click', async (event) => {
+rematchModal.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/rematch decline');
 });

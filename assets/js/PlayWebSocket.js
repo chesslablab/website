@@ -10,7 +10,7 @@ import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import onlineButtons from './layout/play/onlineButtons.js';
 import onlinePlayers from './layout/play/onlinePlayers.js';
-import rematch from './layout/play/rematch.js';
+import rematchModal from './layout/play/rematchModal.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
 import { timerTable, timerTableInterval } from './layout/play/timerTable.js';
@@ -237,10 +237,10 @@ export default class PlayWebSocket {
           case '/rematch' === msg:
             if (data['/rematch'].action === action.PROPOSE) {
               if (localStorage.getItem('rematch') !== action.PROPOSE) {
-                rematch.modal.show();
+                rematchModal.modal.show();
               }
             } else if (data['/rematch'].action === action.DECLINE) {
-              rematch.modal.hide();
+              rematchModal.modal.hide();
               infoModal.modal.hide();
               localStorage.clear();
             } else if (data['/rematch'].action === action.ACCEPT) {
