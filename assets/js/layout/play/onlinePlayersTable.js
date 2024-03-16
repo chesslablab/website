@@ -1,6 +1,6 @@
 import ws from './ws.js';
 
-const onlinePlayers = {
+const onlinePlayersTable = {
   table: document.querySelector('#onlinePlayers'),
   domElem: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody')
@@ -45,4 +45,4 @@ const onlinePlayers = {
   }
 }
 
-export default onlinePlayers;
+export default onlinePlayersTable;

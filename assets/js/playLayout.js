@@ -4,7 +4,7 @@ import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import friendButtons from './layout/play/friendButtons.js';
 import onlineButtons from './layout/play/onlineButtons.js';
-import onlinePlayers from './layout/play/onlinePlayers.js';
+import onlinePlayersTable from './layout/play/onlinePlayersTable.js';
 import playFriendModal from './layout/play/playFriendModal.js';
 import rematchModal from './layout/play/rematchModal.js';
 import startedButtons from './layout/play/startedButtons.js';

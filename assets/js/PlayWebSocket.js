@@ -9,7 +9,7 @@ import copyInviteCodeModal from './layout/play/copyInviteCodeModal.js';
 import drawModal from './layout/play/drawModal.js';
 import enterInviteCodeModal from './layout/play/enterInviteCodeModal.js';
 import onlineButtons from './layout/play/onlineButtons.js';
-import onlinePlayers from './layout/play/onlinePlayers.js';
+import onlinePlayersTable from './layout/play/onlinePlayersTable.js';
 import rematchModal from './layout/play/rematchModal.js';
 import startedButtons from './layout/play/startedButtons.js';
 import takebackModal from './layout/play/takebackModal.js';
@@ -87,7 +87,7 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayers.domElem(data['broadcast']['onlineGames']);
+            onlinePlayersTable.domElem(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -181,7 +181,7 @@ export default class PlayWebSocket {
               onlineButtons.children.item(0).disabled = true;
               friendButtons.children.item(0).disabled = true;
               friendButtons.children.item(1).disabled = true;
-              onlinePlayers.table.classList.add('d-none');
+              onlinePlayersTable.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
               startedButtons.children.item(1).classList.remove('d-none');
@@ -272,7 +272,7 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            onlinePlayers.domElem(data['/online_games']);
+            onlinePlayersTable.domElem(data['/online_games']);
             break;
 
           default:
@@ -302,7 +302,7 @@ export default class PlayWebSocket {
     onlineButtons.children.item(0).disabled = false;
     friendButtons.children.item(0).disabled = false;
     friendButtons.children.item(1).disabled = false;
-    onlinePlayers.table.classList.remove('d-none');
+    onlinePlayersTable.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
     startedButtons.children.item(1).classList.add('d-none');
