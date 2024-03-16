@@ -38,16 +38,6 @@ pages_openings_san_movetext:
     controller: App\Controller\Pages\Openings\SanMovetextController::index
     methods:    GET
 
-pages_play_friend_enter_invite_code:
-    path:       /play/friend/enter-invite-code
-    controller: App\Controller\Pages\Play\Friend\EnterInviteCodeController::index
-    methods:    GET
-
-pages_play_friend_index:
-    path:       /play/friend
-    controller: App\Controller\Pages\Play\Friend\IndexController::index
-    methods:    GET
-
 pages_play_computer:
     path:       /play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
