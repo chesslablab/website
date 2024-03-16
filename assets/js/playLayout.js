@@ -33,10 +33,48 @@ copyInviteCodeModal.form.addEventListener('submit', event => {
   });
 });
 
+createGameModal.form.addEventListener('submit', event => {
+  event.preventDefault();
+  const formData = new FormData(createGameModal.form);
+  const add = {
+    min: formData.get('minutes'),
+    increment: formData.get('increment'),
+    color: formData.get('color'),
+    submode: 'online'
+  };
+  localStorage.setItem('color', formData.get('color'));
+  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+});
+
+drawModal.form.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/draw accept');
+});
+
+drawModal.form.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  ws.send('/draw decline');
+});
+
 enterInviteCodeModal.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(enterInviteCodeModal.form);
   ws.send(`/accept ${formData.get('hash')}`);
+});
+
+friendButtons.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  playFriendModal.modal.show();
+});
+
+friendButtons.children.item(1).addEventListener('click', async (event) => {
+  event.preventDefault();
+  enterInviteCodeModal.modal.show();
+});
+
+onlineButtons.children.item(0).addEventListener('click', async (event) => {
+  event.preventDefault();
+  createGameModal.modal.show();
 });
 
 playFriendModal.form.getElementsByTagName('select')[0].addEventListener('change', event => {
@@ -66,19 +104,6 @@ playFriendModal.form.addEventListener('submit', event => {
   copyInviteCodeModal.modal.show();
 });
 
-createGameModal.form.addEventListener('submit', event => {
-  event.preventDefault();
-  const formData = new FormData(createGameModal.form);
-  const add = {
-    min: formData.get('minutes'),
-    increment: formData.get('increment'),
-    color: formData.get('color'),
-    submode: 'online'
-  };
-  localStorage.setItem('color', formData.get('color'));
-  ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-});
-
 takebackModal.form.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/takeback accept');
@@ -88,16 +113,6 @@ takebackModal.form.children.item(0).addEventListener('click', async (event) => {
 takebackModal.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/takeback decline');
-});
-
-drawModal.form.children.item(0).addEventListener('click', async (event) => {
-  event.preventDefault();
-  ws.send('/draw accept');
-});
-
-drawModal.form.children.item(1).addEventListener('click', async (event) => {
-  event.preventDefault();
-  ws.send('/draw decline');
 });
 
 rematchModal.form.addEventListener('submit', event => {
@@ -113,19 +128,4 @@ rematchModal.form.children.item(1).addEventListener('click', async (event) => {
 infoModal.form.addEventListener('submit', event => {
   event.preventDefault();
   infoModal.modal.hide();
-});
-
-onlineButtons.children.item(0).addEventListener('click', async (event) => {
-  event.preventDefault();
-  createGameModal.modal.show();
-});
-
-friendButtons.children.item(0).addEventListener('click', async (event) => {
-  event.preventDefault();
-  playFriendModal.modal.show();
-});
-
-friendButtons.children.item(1).addEventListener('click', async (event) => {
-  event.preventDefault();
-  enterInviteCodeModal.modal.show();
 });
