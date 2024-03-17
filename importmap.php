@@ -18,6 +18,10 @@ return [
         'path' => './assets/js/pages/chessboard/san_movetext/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/chessboard/fen_string/index.js' => [
+        'path' => './assets/js/pages/chessboard/fen_string/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/openings/eco_code/index.js' => [
         'path' => './assets/js/pages/openings/eco_code/index.js',
         'entrypoint' => true,
@@ -28,10 +32,6 @@ return [
     ],
     'js/pages/openings/san_movetext/index.js' => [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
-        'entrypoint' => true,
-    ],
-    'js/fenLayout.js' => [
-        'path' => './assets/js/fenLayout.js',
         'entrypoint' => true,
     ],
     'js/playLayout.js' => [
