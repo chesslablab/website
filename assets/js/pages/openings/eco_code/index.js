@@ -1,4 +1,4 @@
-import openingsEcoCode from './openingsEcoCode.js';
+import openingsEcoCodeModal from './openingsEcoCodeModal.js';
 import gameActionsDropdown from '../../../pages/gameActionsDropdown.js';
 import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
@@ -8,4 +8,4 @@ await ws.connect();
 
 localStorage.clear();
 
-openingsEcoCode.modal.show();
+openingsEcoCodeModal.modal.show();
