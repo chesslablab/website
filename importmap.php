@@ -42,12 +42,8 @@ return [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
         'entrypoint' => true,
     ],
-    'js/playLayout.js' => [
-        'path' => './assets/js/playLayout.js',
-        'entrypoint' => true,
-    ],
-    'js/ravLayout.js' => [
-        'path' => './assets/js/ravLayout.js',
+    'js/pages/database/annotated_games/index.js' => [
+        'path' => './assets/js/pages/database/annotated_games/index.js',
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [

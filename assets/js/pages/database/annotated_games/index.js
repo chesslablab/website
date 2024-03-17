@@ -1,5 +1,8 @@
-import databaseAnnotatedGames from '../../../layout/rav/databaseAnnotatedGames.js';
-import ravMovesTable from '../../../layout/rav/ravMovesTable.js';
+import chessboard from './chessboard.js';
+import databaseAnnotatedGames from './databaseAnnotatedGames.js';
+import gameActionsDropdown from './gameActionsDropdown.js';
+import historyButtons from './historyButtons.js';
+import ravMovesTable from './ravMovesTable.js';
 import progressModal from '../../../layout/progressModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
