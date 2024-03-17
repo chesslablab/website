@@ -127,7 +127,7 @@ export default class PlayWebSocket {
                 movetext: data['/play_lan'].movetext
               };
               openingTable.domElem();
-              this._input(data['/play_lan'].turn);
+              this._toggleInput(data['/play_lan'].turn);
               timerTable.props = {
                 turn: data['/play_lan'].turn,
                 w: data['/play_lan'].timer.w,
@@ -168,7 +168,7 @@ export default class PlayWebSocket {
                   localStorage.getItem('color') === COLOR.black ? COLOR.white : COLOR.black
                 );
               }
-              this._input(turn);
+              this._toggleInput(turn);
               enterInviteCodeModal.modal.hide();
               createGameModal.modal.hide();
               infoModal.modal.hide();
@@ -313,7 +313,7 @@ export default class PlayWebSocket {
     clearInterval(timerTableInterval);
   }
 
-  _input(turn) {
+  _toggleInput(turn) {
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     if (turn === localStorage.getItem('color')) {
@@ -323,5 +323,6 @@ export default class PlayWebSocket {
         chessboard.state.inputBlackEnabled = true;
       }
     }
+    chessboard.view.visualizeInputState();
   }
 }
