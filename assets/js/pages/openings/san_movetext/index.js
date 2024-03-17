@@ -1,4 +1,4 @@
-import openingsSanMovetext from './openingsSanMovetext.js';
+import openingsSanMovetextModal from './openingsSanMovetextModal.js';
 import gameActionsDropdown from '../../../pages/gameActionsDropdown.js';
 import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
@@ -8,4 +8,4 @@ await ws.connect();
 
 localStorage.clear();
 
-openingsSanMovetext.modal.show();
+openingsSanMovetextModal.modal.show();
