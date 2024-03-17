@@ -1,10 +1,10 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
-import chessboard from './layout/chessboard.js';
-import infoModal from './layout/infoModal.js';
-import openingTable from './layout/openingTable.js';
-import sanMovesTable from './layout/sanMovesTable.js';
-import startedButtons from './layout/startedButtons.js';
+import chessboard from './pages/chessboard.js';
+import infoModal from './pages/infoModal.js';
+import openingTable from './pages/openingTable.js';
+import sanMovesTable from './pages/sanMovesTable.js';
+import startedButtons from './pages/startedButtons.js';
 import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';

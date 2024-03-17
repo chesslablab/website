@@ -10,12 +10,12 @@ import rematchModal from './rematchModal.js';
 import takebackModal from './takebackModal.js';
 import { timerTable, timerTableInterval } from './timerTable.js';
 import ws from '../../../playWs.js';
-import chessboard from '../../../layout/chessboard.js';
-import gameActionsDropdown from '../../../layout/gameActionsDropdown.js';
-import gameStudyDropdown from '../../../layout/gameStudyDropdown.js';
-import historyButtons from '../../../layout/historyButtons.js';
-import infoModal from '../../../layout/infoModal.js';
-import startedButtons from '../../../layout/startedButtons.js';
+import chessboard from '../../../pages/chessboard.js';
+import gameActionsDropdown from '../../../pages/gameActionsDropdown.js';
+import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
+import historyButtons from '../../../pages/historyButtons.js';
+import infoModal from '../../../pages/infoModal.js';
+import startedButtons from '../../../pages/startedButtons.js';
 
 localStorage.clear();
 

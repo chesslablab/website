@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import infoModal from '../../../layout/infoModal.js';
+import infoModal from '../../../pages/infoModal.js';
 import ws from '../../../playWs.js';
 import * as mode from '../../../../mode.js';
 
