@@ -14,12 +14,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/extensions/promotion-dialog/promotion-dialog.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     {% block stylesheets %}{% endblock %}
-    {% block javascripts %}
-      {% block importmap %}
-        {{ importmap('js/stockfishLayout.js') }}
-      {% endblock %}
-    {% endblock %}
-    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
@@ -31,5 +25,6 @@
        </div>
     </div>
     {% include 'partial/footer.html.twig' %}
+    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

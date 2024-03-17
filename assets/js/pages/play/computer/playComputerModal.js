@@ -1,17 +1,16 @@
-import playComputer from './layout/stockfish/playComputer.js';
-import startedButtons from './layout/stockfish/startedButtons.js';
-import ws from './layout/stockfish/ws.js';
-import gameActionsDropdown from './layout/gameActionsDropdown.js';
-import gameStudyDropdown from './layout/gameStudyDropdown.js';
-import historyButtons from './layout/historyButtons.js';
-import * as mode from '../mode.js';
-import * as variant from '../variant.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import ws from '../../../layout/stockfish/ws.js';
+import * as mode from '../../../../mode.js';
+import * as variant from '../../../../variant.js';
 
-localStorage.clear();
+const playComputerModal = {
+  modal: new Modal(document.getElementById('playComputerModal')),
+  form: document.querySelector('#playComputerModal form')
+}
 
-playComputer.form.addEventListener('submit', event => {
+playComputerModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  const formData = new FormData(playComputer.form);
+  const formData = new FormData(playComputerModal.form);
   localStorage.setItem('mode', mode.STOCKFISH);
   if (formData.get('level') == 1) {
     localStorage.setItem('skillLevel', 11);
@@ -27,5 +26,7 @@ playComputer.form.addEventListener('submit', event => {
     localStorage.setItem('depth', 2);
   }
   ws.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
-  playComputer.modal.hide();
+  playComputerModal.modal.hide();
 });
+
+export default playComputerModal;
