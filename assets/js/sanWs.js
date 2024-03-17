@@ -1,4 +1,4 @@
-import SanWebSocket from '../../SanWebSocket.js';
+import SanWebSocket from './SanWebSocket.js';
 
 const ws = new SanWebSocket();
 

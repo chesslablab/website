@@ -1,4 +1,4 @@
-import PlayWebSocket from '../../PlayWebSocket.js';
+import PlayWebSocket from './PlayWebSocket.js';
 
 const ws = new PlayWebSocket();
 

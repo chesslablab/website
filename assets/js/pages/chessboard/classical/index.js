@@ -1,4 +1,4 @@
-import ws from '../../../layout/fen/ws.js';
+import ws from '../../../fenWs.js';
 
 await ws.connect();
 ws.send('/start classical fen');

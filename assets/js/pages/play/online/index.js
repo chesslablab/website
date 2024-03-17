@@ -9,7 +9,7 @@ import playFriendModal from './playFriendModal.js';
 import rematchModal from './rematchModal.js';
 import takebackModal from './takebackModal.js';
 import { timerTable, timerTableInterval } from './timerTable.js';
-import ws from '../../../layout/play/ws.js';
+import ws from '../../../playWs.js';
 import chessboard from '../../../layout/chessboard.js';
 import gameActionsDropdown from '../../../layout/gameActionsDropdown.js';
 import gameStudyDropdown from '../../../layout/gameStudyDropdown.js';

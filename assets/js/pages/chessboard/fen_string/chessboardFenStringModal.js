@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../layout/fen/ws.js';
+import ws from '../../../fenWs.js';
 import * as mode from '../../../../mode.js';
 
 const chessboardFenStringModal = {

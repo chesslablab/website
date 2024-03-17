@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../layout/san/ws.js';
+import ws from '../../../sanWs.js';
 import * as mode from '../../../../mode.js';
 
 const chessboardSanMovetextModal = {

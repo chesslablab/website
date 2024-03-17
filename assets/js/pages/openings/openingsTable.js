@@ -1,4 +1,4 @@
-import ws from '../../layout/san/ws.js';
+import ws from '../../sanWs.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 

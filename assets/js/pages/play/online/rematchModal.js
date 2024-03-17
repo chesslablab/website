@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../layout/play/ws.js';
+import ws from '../../../playWs.js';
 
 const rematchModal = {
   modal: new Modal(document.getElementById('rematchModal')),

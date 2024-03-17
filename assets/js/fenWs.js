@@ -1,4 +1,4 @@
-import FenWebSocket from '../../FenWebSocket.js';
+import FenWebSocket from './FenWebSocket.js';
 
 const ws = new FenWebSocket();
 

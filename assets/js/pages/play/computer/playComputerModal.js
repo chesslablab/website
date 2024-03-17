@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../layout/stockfish/ws.js';
+import ws from '../../../stockfishWs.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 

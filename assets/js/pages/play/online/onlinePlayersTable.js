@@ -1,4 +1,4 @@
-import ws from '../../../layout/play/ws.js';
+import ws from '../../../playWs.js';
 
 const onlinePlayersTable = {
   table: document.querySelector('#onlinePlayers'),

@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import copyInviteCodeModal from './copyInviteCodeModal.js';
-import ws from '../../../layout/play/ws.js';
+import ws from '../../../playWs.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
