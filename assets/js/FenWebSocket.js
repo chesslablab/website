@@ -80,11 +80,11 @@ export default class FenWebSocket {
                 fen: fen
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
             }
             break;
 
@@ -97,11 +97,11 @@ export default class FenWebSocket {
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            sanMovesTable.domElem();
+            sanMovesTable.mount();
             openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            openingTable.domElem();
+            openingTable.mount();
             break;
 
           default:

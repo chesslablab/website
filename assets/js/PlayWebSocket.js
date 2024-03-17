@@ -87,7 +87,7 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayersTable.domElem(data['broadcast']['onlineGames']);
+            onlinePlayersTable.mount(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -122,11 +122,11 @@ export default class PlayWebSocket {
                 fen: fen
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
               this._toggleInput(data['/play_lan'].turn);
               timerTable.props = {
                 turn: data['/play_lan'].turn,
@@ -148,11 +148,11 @@ export default class PlayWebSocket {
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            sanMovesTable.domElem();
+            sanMovesTable.mount();
             openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            openingTable.domElem();
+            openingTable.mount();
             break;
 
           case '/accept' === msg:
@@ -261,18 +261,18 @@ export default class PlayWebSocket {
                   jwtDecoded.fen
                 ]
               };
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: ''
               };
-              openingTable.domElem();
+              openingTable.mount();
               localStorage.clear();
               localStorage.setItem('hash', data['/restart'].hash);
             }
             break;
 
           case '/online_games' === msg:
-            onlinePlayersTable.domElem(data['/online_games']);
+            onlinePlayersTable.mount(data['/online_games']);
             break;
 
           default:

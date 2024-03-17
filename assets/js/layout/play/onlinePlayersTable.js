@@ -2,7 +2,7 @@ import ws from './ws.js';
 
 const onlinePlayersTable = {
   table: document.querySelector('#onlinePlayers'),
-  domElem: (games) => {
+  mount: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody')
     tbody.replaceChildren();
     if (games.length > 0) {

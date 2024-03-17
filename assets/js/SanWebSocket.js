@@ -64,11 +64,11 @@ export default class SanWebSocket {
                 movetext: data['/start'].movetext,
                 fen: data['/start'].fen
               };
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/start'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
             } else {
               console.log('Invalid SAN movetext, please try again with a different one.');
             }
@@ -91,11 +91,11 @@ export default class SanWebSocket {
                 fen: fen
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
             }
             break;
 
@@ -108,11 +108,11 @@ export default class SanWebSocket {
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            sanMovesTable.domElem();
+            sanMovesTable.mount();
             openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            openingTable.domElem();
+            openingTable.mount();
             break;
 
           default:

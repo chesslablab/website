@@ -85,11 +85,11 @@ export default class StockfishWebSocket {
                 fen: fen
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
               this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
@@ -103,11 +103,11 @@ export default class StockfishWebSocket {
               movetext: data['/undo'].movetext,
               fen: fen
             };
-            sanMovesTable.domElem();
+            sanMovesTable.mount();
             openingTable.props = {
               movetext: data['/undo'].movetext
             };
-            openingTable.domElem();
+            openingTable.mount();
             break;
 
           case '/stockfish' === msg:
@@ -121,11 +121,11 @@ export default class StockfishWebSocket {
                 fen: fen
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.domElem();
+              sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/stockfish'].movetext
               };
-              openingTable.domElem();
+              openingTable.mount();
             }
             break;
 

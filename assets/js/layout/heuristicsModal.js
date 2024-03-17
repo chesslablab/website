@@ -8,7 +8,7 @@ const charts = document.getElementById('charts');
 const heuristicsModal = {
   modal: new Modal(document.getElementById('heuristicsModal')),
   form: document.querySelector('#heuristicsModal form'),
-  domElem: (res) => {
+  mount: (res) => {
     while (charts.firstChild) {
       charts.removeChild(charts.firstChild);
     }

@@ -10,5 +10,5 @@ export const timerTable = new TimerTable(
 );
 
 export const timerTableInterval = setInterval(() => {
-  timerTable.count().domElem();
+  timerTable.count().mount();
 }, 1000);

@@ -89,7 +89,7 @@ gameStudyDropdown.children.item(2).addEventListener('click', async (event) => {
   })
   .then(res => res.json())
   .then(res => {
-    heuristicsModal.domElem(res);
+    heuristicsModal.mount(res);
   })
   .catch(error => {
     // TODO

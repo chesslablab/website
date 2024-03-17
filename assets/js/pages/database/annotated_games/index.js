@@ -28,7 +28,7 @@ const handleClick = (game) => {
       breakdown: res.breakdown,
       fen: res.fen
     };
-    ravMovesTable.domElem();
+    ravMovesTable.mount();
   })
   .catch(error => {
     // TODO
