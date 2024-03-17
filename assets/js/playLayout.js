@@ -124,8 +124,3 @@ rematchModal.form.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   ws.send('/rematch decline');
 });
-
-infoModal.form.addEventListener('submit', event => {
-  event.preventDefault();
-  infoModal.modal.hide();
-});

@@ -11,4 +11,9 @@ const infoModal = {
   }
 }
 
+infoModal.form.addEventListener('submit', event => {
+  event.preventDefault();
+  infoModal.modal.hide();
+});
+
 export default infoModal;
