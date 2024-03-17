@@ -13,7 +13,7 @@ import * as variant from '../variant.js';
 
 localStorage.clear();
 
-const openingsTableDomElem = (modal, openings, tbody) => {
+const openingsTable = (modal, openings, tbody) => {
   tbody.replaceChildren();
   openings.forEach(opening => {
     const tr = document.createElement('tr');
@@ -54,7 +54,7 @@ openingsEcoCode.form.getElementsByTagName('select')[0].addEventListener('change'
   event.preventDefault();
   const openings = Opening.byEco(event.target.value);
   const tbody = openingsEcoCode.form.getElementsByTagName('tbody')[0];
-  openingsTableDomElem(openingsEcoCode.modal, openings, tbody);
+  openingsTable(openingsEcoCode.modal, openings, tbody);
 });
 
 openingsSanMovetext.form.addEventListener('submit', event => {
@@ -62,7 +62,7 @@ openingsSanMovetext.form.addEventListener('submit', event => {
   const formData = new FormData(openingsSanMovetext.form);
   const openings = Opening.byMovetext(formData.get('movetext'));
   const tbody = openingsSanMovetext.form.getElementsByTagName('tbody')[0];
-  openingsTableDomElem(openingsSanMovetext.modal, openings, tbody);
+  openingsTable(openingsSanMovetext.modal, openings, tbody);
 });
 
 openingsName.form.addEventListener('submit', event => {
@@ -70,5 +70,5 @@ openingsName.form.addEventListener('submit', event => {
   const formData = new FormData(openingsName.form);
   const openings = Opening.byName(formData.get('name'));
   const tbody = openingsName.form.getElementsByTagName('tbody')[0];
-  openingsTableDomElem(openingsName.modal, openings, tbody);
+  openingsTable(openingsName.modal, openings, tbody);
 });
