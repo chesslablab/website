@@ -7,5 +7,9 @@
   <div class="col-md-6">
     {% include 'partial/common/panel/san.html.twig' %}
   </div>
-  <script type="module" src="{{ asset('js/pages/openings/name/index.js') }}"></script>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/openings/name/index.js') }}
+    {% endblock %}
+  {% endblock %}
 {% endblock %}

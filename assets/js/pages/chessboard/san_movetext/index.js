@@ -1,6 +1,10 @@
+import chessboardSanMovetextModal from './chessboardSanMovetextModal.js';
+import gameActionsDropdown from '../../../layout/gameActionsDropdown.js';
+import gameStudyDropdown from '../../../layout/gameStudyDropdown.js';
 import ws from '../../../layout/san/ws.js';
-import chessboardSanMovetext from '../../../layout/san/chessboardSanMovetext.js';
 
 await ws.connect();
 
-chessboardSanMovetext.modal.show();
+localStorage.clear();
+
+chessboardSanMovetextModal.modal.show();
