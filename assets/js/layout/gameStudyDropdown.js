@@ -1,3 +1,4 @@
+import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './chessboard.js';
 import progressModal from './progressModal.js';
 import sanMovesTable from './sanMovesTable.js';
@@ -63,6 +64,32 @@ gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
     document.body.appendChild(a);
     a.click();
     a.remove();
+  })
+  .catch(error => {
+    // TODO
+  })
+  .finally(() => {
+    progressModal.modal.hide();
+  });
+});
+
+gameStudyDropdown.children.item(2).addEventListener('click', async (event) => {
+  event.preventDefault();
+  progressModal.modal.show();
+  await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristics`, {
+    method: 'POST',
+    headers: {
+      'X-Api-Key': `${env.API_KEY}`
+    },
+    body: JSON.stringify({
+      variant: chessboard.props.variant,
+      movetext: sanMovesTable.props.movetext,
+      ...(chessboard.props.variant === variant.CHESS_960) && {startPos: chessboard.props.startPos}
+    })
+  })
+  .then(res => res.json())
+  .then(res => {
+    // TODO
   })
   .catch(error => {
     // TODO
