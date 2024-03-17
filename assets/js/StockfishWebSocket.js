@@ -2,7 +2,7 @@ import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './layout/chessboard.js';
 import sanMovesTable from './layout/sanMovesTable.js';
 import openingTable from './layout/openingTable.js';
-import startedButtons from './layout/fen/startedButtons.js';
+import startedButtons from './layout/startedButtons.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 

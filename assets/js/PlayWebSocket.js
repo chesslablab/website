@@ -4,7 +4,7 @@ import chessboard from './layout/chessboard.js';
 import infoModal from './layout/infoModal.js';
 import openingTable from './layout/openingTable.js';
 import sanMovesTable from './layout/sanMovesTable.js';
-import startedButtons from './layout/play/startedButtons.js';
+import startedButtons from './layout/startedButtons.js';
 import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
