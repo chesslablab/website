@@ -1,0 +1,31 @@
+<div class="modal fade" id="chessboardRavMovetextModal" tabindex="-1" aria-labelledby="chessboardRavMovetextModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="chessboardRavMovetextModalLabel">RAV Movetext</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Variant</label>
+            <select name="variant" class="form-select" aria-label="Select a variant" required>
+              <option value="">Select a variant</option>
+              <option value="classical">Classical</option>
+              <option value="960">Fischer Random</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">FEN</label>
+            <input type="text" name="fen" placeholder="Enter a FEN" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="movetextTextarea" class="form-label">Movetext</label>
+            <textarea name="san" class="form-control" id="movetextTextarea" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-secondary w-100">Load</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
