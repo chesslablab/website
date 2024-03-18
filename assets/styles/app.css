@@ -68,3 +68,11 @@ input:checked ~ label[for="playFriendModalColorRadioBlack"] {
 #startedButtons {
   margin-top: 1rem;
 }
+
+.the-content {
+  background-color: #282828;
+}
+
+.the-content a.link-light:hover {
+  text-decoration: underline !important;
+}
