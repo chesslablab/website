@@ -94,6 +94,7 @@ export default class PlayWebSocket {
             if (data['/start'].jwt) {
               copyInviteCodeModal.form.elements['hash'].value = data['/start'].hash;
               const jwtDecoded = jwtDecode(data['/start'].jwt);
+              chessboard.setPosition(data['/start'].fen, true);
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
@@ -152,6 +153,7 @@ export default class PlayWebSocket {
           case '/accept' === msg:
             if (data['/accept'].jwt) {
               const jwtDecoded = jwtDecode(data['/accept'].jwt);
+              chessboard.setPosition(jwtDecoded.fen, true);
               const turn = jwtDecoded.fen.split(' ')[1];
               if (!localStorage.getItem('color')) {
                 jwtDecoded.color === COLOR.white
@@ -246,7 +248,7 @@ export default class PlayWebSocket {
             if (data['/restart'].jwt) {
               infoModal.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
-              chessboard.setPosition(jwtDecoded.fen);
+              chessboard.setPosition(jwtDecoded.fen, true);
               sanMovesTable.current = 0;
               sanMovesTable.props = {
                 ...sanMovesTable.props,
