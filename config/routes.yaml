@@ -13,6 +13,11 @@ pages_chessboard_fischer_random:
     controller: App\Controller\Pages\Chessboard\FischerRandomController::index
     methods:    GET
 
+pages_chessboard_rav_movetext:
+    path:       /chessboard/rav-movetext
+    controller: App\Controller\Pages\Chessboard\RavMovetextController::index
+    methods:    GET
+
 pages_chessboard_san_movetext:
     path:       /chessboard/san-movetext
     controller: App\Controller\Pages\Chessboard\SanMovetextController::index

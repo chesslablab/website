@@ -1,0 +1,15 @@
+{% extends 'layout/rav.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard" class="mb-2"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/common/panel/rav.html.twig' %}
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/chessboard/rav_movetext/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}

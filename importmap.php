@@ -30,6 +30,10 @@ return [
         'path' => './assets/js/pages/chessboard/fischer_random/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/chessboard/rav_movetext/index.js' => [
+        'path' => './assets/js/pages/chessboard/rav_movetext/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/chessboard/san_movetext/index.js' => [
         'path' => './assets/js/pages/chessboard/san_movetext/index.js',
         'entrypoint' => true,
