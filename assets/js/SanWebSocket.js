@@ -92,7 +92,6 @@ export default class SanWebSocket {
               };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
               sanMovesTable.mount();
-              sanMovesTable.el.parentNode.parentNode.scrollTop = sanMovesTable.el.parentNode.parentNode.scrollHeight;
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
               };
