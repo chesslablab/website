@@ -15,13 +15,18 @@
               <option value="960">Fischer Random</option>
             </select>
           </div>
+          <div class="mb-3 startPos d-none">
+            <label class="form-label">Start position</label>
+            <input type="text" name="startPos" placeholder="Enter a start position" class="form-control">
+             <small class="form-text text-muted">Example: RNBQKBNR</small>
+          </div>
           <div class="mb-3">
             <label class="form-label">FEN</label>
             <input type="text" name="fen" placeholder="Enter a FEN" class="form-control">
           </div>
           <div class="mb-3">
             <label for="movetextTextarea" class="form-label">Movetext</label>
-            <textarea name="san" class="form-control" id="movetextTextarea" rows="3" required></textarea>
+            <textarea name="rav" class="form-control" id="movetextTextarea" rows="3" required></textarea>
           </div>
           <button type="submit" class="btn btn-secondary w-100">Load</button>
         </form>
