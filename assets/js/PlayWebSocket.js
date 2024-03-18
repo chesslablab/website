@@ -248,7 +248,7 @@ export default class PlayWebSocket {
             if (data['/restart'].jwt) {
               infoModal.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
-              chessboard.setPosition(jwtDecoded.fen);
+              chessboard.setPosition(jwtDecoded.fen, true);
               sanMovesTable.current = 0;
               sanMovesTable.props = {
                 ...sanMovesTable.props,
