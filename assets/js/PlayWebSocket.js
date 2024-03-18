@@ -143,6 +143,7 @@ export default class PlayWebSocket {
             chessboard.setPosition(data['/undo'].fen, true);
             let fen = sanMovesTable.props.fen;
             fen.pop();
+            sanMovesTable.current -= 1;
             sanMovesTable.props = {
               ...sanMovesTable.props,
               movetext: data['/undo'].movetext,
