@@ -65,14 +65,31 @@ input:checked ~ label[for="playFriendModalColorRadioBlack"] {
   cursor: pointer;
 }
 
-#startedButtons {
-  margin-top: 1rem;
-}
-
 .the-content {
   background-color: #282828;
 }
 
 .the-content a.link-light:hover {
   text-decoration: underline !important;
+}
+
+#startedButtons {
+  margin-top: 1rem;
+}
+
+#ravMovesTable td:hover,
+#sanMovesTable td:hover {
+  cursor: pointer;
+}
+
+#ravMovesTable,
+#sanMovesTable {
+  width: 100%;
+  display: table;
+}
+
+div.table-responsive:has(#ravMovesTable),
+div.table-responsive:has(#sanMovesTable) {
+  height: 465px;
+  overflow-y: scroll;
 }
