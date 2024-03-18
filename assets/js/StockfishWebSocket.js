@@ -96,18 +96,11 @@ export default class StockfishWebSocket {
 
           case '/undo' === msg:
             chessboard.setPosition(data['/undo'].fen, true);
-            let fen = sanMovesTable.props.fen;
-            fen.pop();
             sanMovesTable.current -= 1;
-            sanMovesTable.props = {
-              ...sanMovesTable.props,
-              movetext: data['/undo'].movetext,
-              fen: fen
-            };
+            sanMovesTable.props.fen.splice(-1);
+            sanMovesTable.props.movetext = data['/undo'].movetext;
             sanMovesTable.mount();
-            openingTable.props = {
-              movetext: data['/undo'].movetext
-            };
+            openingTable.props.movetext = data['/undo'].movetext;
             openingTable.mount();
             break;
 
