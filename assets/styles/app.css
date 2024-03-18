@@ -88,8 +88,12 @@ input:checked ~ label[for="playFriendModalColorRadioBlack"] {
   display: table;
 }
 
-div.table-responsive:has(#ravMovesTable),
-div.table-responsive:has(#sanMovesTable) {
+div.table-responsive:has(#ravMovesTable) {
   height: 465px;
+  overflow-y: scroll;
+}
+
+div.table-responsive:has(#sanMovesTable) {
+  height: 350px;
   overflow-y: scroll;
 }
