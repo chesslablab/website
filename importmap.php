@@ -54,6 +54,10 @@ return [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/database/search_games/index.js' => [
+        'path' => './assets/js/pages/database/search_games/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/database/annotated_games/index.js' => [
         'path' => './assets/js/pages/database/annotated_games/index.js',
         'entrypoint' => true,
@@ -79,5 +83,8 @@ return [
     ],
     'jwt-decode' => [
         'version' => '4.0.0',
+    ],
+    'fuse.js' => [
+        'version' => '7.0.0',
     ],
 ];
