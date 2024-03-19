@@ -61,7 +61,8 @@ input:checked ~ label[for="playFriendModalColorRadioBlack"] {
   border-radius: 4rem;
 }
 
-ul.suggestions {
+input[name="White"] + ul,
+input[name="Black"] + ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -70,12 +71,14 @@ ul.suggestions {
   border: 1px solid #ccc;
 }
 
-ul.suggestions > li {
+input[name="White"] + ul > li,
+input[name="Black"] + ul > li {
   background-color: #fff;
   padding: 0.35rem;
 }
 
-ul.suggestions > li:hover {
+input[name="White"] + ul > li:hover,
+input[name="Black"] + ul > li:hover {
   background-color: #0d6efd;
   color: #fff;
 }
