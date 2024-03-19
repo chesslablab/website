@@ -61,6 +61,7 @@ input:checked ~ label[for="playFriendModalColorRadioBlack"] {
   border-radius: 4rem;
 }
 
+input[name="Event"] + ul,
 input[name="White"] + ul,
 input[name="Black"] + ul {
   list-style-type: none;
@@ -71,12 +72,14 @@ input[name="Black"] + ul {
   border: 1px solid #ccc;
 }
 
+input[name="Event"] + ul > li,
 input[name="White"] + ul > li,
 input[name="Black"] + ul > li {
   background-color: #fff;
   padding: 0.35rem;
 }
 
+input[name="Event"] + ul > li:hover,
 input[name="White"] + ul > li:hover,
 input[name="Black"] + ul > li:hover {
   background-color: #0d6efd;
