@@ -30,14 +30,14 @@ const whiteAutocomplete = {
   }
 }
 
-const events = await whiteAutocomplete.values();
+const players = await whiteAutocomplete.values();
 
 whiteAutocomplete.input.addEventListener('change', async (event) => {
   whiteAutocomplete.input.value = event.target.value;
 });
 
 whiteAutocomplete.input.addEventListener('keyup', (event) => {
-  const fuse = new Fuse(events);
+  const fuse = new Fuse(players);
   whiteAutocomplete.suggest(fuse.search(event.target.value, { limit: 10 }));
 });
 
