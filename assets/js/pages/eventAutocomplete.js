@@ -14,19 +14,31 @@ const eventAutocomplete = {
     return await response.json();
   },
   suggest: (result) => {
-    console.log(result);
+    const suggestions = document.querySelector('input[name="Event"] + ul');
+    suggestions.classList.remove('d-none');
+    suggestions.replaceChildren();
+    result.forEach(item => {
+      const li = document.createElement('li');
+      const liText = document.createTextNode(item.item);
+      li.appendChild(liText);
+      li.addEventListener('click', () => {
+        document.querySelector('input[name="Event"]').value = item.item;
+        suggestions.classList.add('d-none');
+      });
+      suggestions.append(li);
+    });
   }
 }
 
 const events = await eventAutocomplete.values();
 
 eventAutocomplete.input.addEventListener('change', async (event) => {
-  console.log(event.target.value);
+  eventAutocomplete.input.value = event.target.value;
 });
 
 eventAutocomplete.input.addEventListener('keyup', (event) => {
   const fuse = new Fuse(events);
-  eventAutocomplete.suggest(fuse.search(event.target.value, { limit: 20 }));
+  eventAutocomplete.suggest(fuse.search(event.target.value, { limit: 10 }));
 });
 
 export default eventAutocomplete;
