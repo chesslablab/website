@@ -15,6 +15,7 @@ const heuristicsModal = {
     res.names.forEach((item, i) => {
       const div = document.createElement('div');
       const canvas = document.createElement('canvas');
+      div.classList.add('col-md-4');
       div.appendChild(canvas);
       charts.appendChild(div);
       new Chart(canvas, {
