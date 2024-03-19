@@ -13,73 +13,69 @@ const heuristicsModal = {
       charts.removeChild(charts.firstChild);
     }
     res.names.forEach((item, i) => {
-      const data = res.balance.map((value, index) => value[i]);
-      const allEqual = arr => arr.every(val => val === arr[0]);
-      if (!allEqual(data)) {
-        const div = document.createElement('div');
-        const canvas = document.createElement('canvas');
-        div.appendChild(canvas);
-        charts.appendChild(div);
-        new Chart(canvas, {
-          type: 'line',
-          data: {
-            labels: data,
-            datasets: [{
-              label: item,
-              data: data,
-              borderWidth: 2.25,
-              tension: 0.25,
-              borderColor: '#0a0a0a'
-            }]
+      const div = document.createElement('div');
+      const canvas = document.createElement('canvas');
+      div.appendChild(canvas);
+      charts.appendChild(div);
+      new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: res.balance[i],
+          datasets: [{
+            label: item,
+            data: res.balance[i],
+            borderWidth: 2.25,
+            tension: 0.25,
+            borderColor: '#0a0a0a'
+          }]
+        },
+        options: {
+          animation: false,
+          elements: {
+            point:{
+              radius: 0
+            }
           },
-          options: {
-            animation: false,
-            elements: {
-              point:{
-                radius: 0
-              }
-            },
-            scales: {
-              y: {
-                ticks: {
-                  display: false
-                },
-                grid: {
-                  display: false
-                },
-                border: {
-                  display: false
-                },
-                beginAtZero: true,
-                min: -1.1,
-                max: 1.1
+          scales: {
+            y: {
+              ticks: {
+                display: false
               },
-              x: {
-                ticks: {
-                  display: false
-                },
-                grid: {
-                  display: false
-                },
-                border: {
-                  display: false
-                }
-              }
+              grid: {
+                display: false
+              },
+              border: {
+                display: false
+              },
+              beginAtZero: true,
+              min: -1.1,
+              max: 1.1
             },
-            plugins: {
-              legend: {
-                position: 'bottom',
-                labels: {
-                  boxWidth: 0,
-                  font: {
-                    size: 16
-                  }
+            x: {
+              ticks: {
+                display: false
+              },
+              grid: {
+                display: false
+              },
+              border: {
+                display: false
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 0,
+                font: {
+                  size: 16
                 }
               }
             }
           }
-        });
-      }
+        }
+      });
     });
   }
 }
