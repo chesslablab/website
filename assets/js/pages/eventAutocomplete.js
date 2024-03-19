@@ -1,14 +1,22 @@
 import Fuse from 'fuse.js';
+import progressModal from './progressModal.js';
 import * as env from '../../env.js';
 
 const eventAutocomplete = {
   input: document.querySelector('input[name="Event"]'),
   values: async () => {
+    progressModal.modal.show();
     let response = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
       method: 'GET',
       headers: {
         'X-Api-Key': `${env.API_KEY}`
       }
+    })
+    .catch(error => {
+      // TODO
+    })
+    .finally(() => {
+      progressModal.modal.hide();
     });
 
     return await response.json();
