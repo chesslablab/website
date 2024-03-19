@@ -1,28 +1,25 @@
 import * as env from '../../env.js';
 
-fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
-  method: 'GET',
-  headers: {
-    'X-Api-Key': `${env.API_KEY}`
-  }
-})
-.then(res => res.json())
-.then(res => {
-  console.log(res);
-})
-.catch(error => {
-  // TODO
-})
-.finally(() => {
-  // TODO
-});
+const fetchEvents = async () => {
+  let response = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': `${env.API_KEY}`
+    }
+  });
 
-const eventAutocomplete = {
-  input: document.querySelector('input[name="Event"]')
+  return await response.json();
 }
 
-eventAutocomplete.input.addEventListener('change', (event) => {
+const eventAutocomplete = {
+  input: document.querySelector('input[name="Event"]'),
+  values: fetchEvents()
+}
+
+eventAutocomplete.input.addEventListener('change', async (event) => {
   console.log(event.target.value);
+  const foobar = await eventAutocomplete.values;
+  console.log(foobar);
 });
 
 eventAutocomplete.input.addEventListener('keyup', (event) => {
