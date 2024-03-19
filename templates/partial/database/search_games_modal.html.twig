@@ -1,5 +1,5 @@
 <div class="modal fade" id="searchGamesModal" tabindex="-1" aria-labelledby="searchGamesModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="searchGamesModalLabel">Search Games</h5>
@@ -8,7 +8,7 @@
       <div class="modal-body">
         <div class="alert alert-primary d-flex align-items-center" role="alert">
           <svg class="bi flex-shrink-0 me-2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.4Date12-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
           </svg>
           <div>
             Click on the <b>Search</b> button, and find up to 25 random games
@@ -16,6 +16,39 @@
           </div>
         </div>
         <form>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <input type="text" name="Event" class="form-control" placeholder="Event" data-prefetch="#">
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="number" name="Date" class="form-control" placeholder="Year">
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="text" name="ECO" placeholder="ECO code" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <input type="text" name="White" class="form-control" placeholder="White" data-prefetch="#">
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="text" name="Black" class="form-control" placeholder="Black" data-prefetch="#">
+            </div>
+            <div class="col-md-4 mb-3">
+              <select name="Result" class="form-select" aria-label="Result" required>
+                <option value="">Select a variant</option>
+                <option value="1-0">1-0</option>
+                <option value="1/2-1/2">1/2-1/2</option>
+                <option value="0-1">0-1</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <input type="text" name="movetext" placeholder="SAN Movetext" class="form-control">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-secondary w-100">Search</button>
           <table class="table table-light table-hover">
             <tbody></tbody>
           </table>
