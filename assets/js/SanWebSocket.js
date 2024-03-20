@@ -101,6 +101,10 @@ export default class SanWebSocket {
 
           case '/undo' === msg:
             chessboard.setPosition(data['/undo'].fen, true);
+            if (!data['/undo'].movetext) {
+              chessboard.state.inputWhiteEnabled = true;
+              chessboard.state.inputBlackEnabled = false;
+            }
             sanMovesTable.current -= 1;
             sanMovesTable.props.fen.splice(-1);
             sanMovesTable.props.movetext = data['/undo'].movetext;
