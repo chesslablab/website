@@ -117,26 +117,20 @@ export default class PlayWebSocket {
 
           case '/play_lan' === msg:
             chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/play_lan'].fen);
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.props.movetext = data['/play_lan'].movetext;
-              sanMovesTable.props.fen = fen;
-              sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/play_lan'].movetext
-              };
-              openingTable.mount();
-              this._toggleInput(data['/play_lan'].turn);
-              timerTable.props = {
-                turn: data['/play_lan'].turn,
-                w: data['/play_lan'].timer.w,
-                b: data['/play_lan'].timer.b
-              };
-              if (data['/play_lan'].isMate) {
-                this._end();
-              }
+            sanMovesTable.current = sanMovesTable.props.fen.length;
+            sanMovesTable.props.movetext = data['/play_lan'].movetext;
+            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
+            sanMovesTable.mount();
+            openingTable.props.movetext = data['/play_lan'].movetext;
+            openingTable.mount();
+            this._toggleInput(data['/play_lan'].turn);
+            timerTable.props = {
+              turn: data['/play_lan'].turn,
+              w: data['/play_lan'].timer.w,
+              b: data['/play_lan'].timer.b
+            };
+            if (data['/play_lan'].isMate) {
+              this._end();
             }
             break;
 
