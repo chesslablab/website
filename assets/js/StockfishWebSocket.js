@@ -2,6 +2,7 @@ import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import openingTable from './pages/openingTable.js';
+import progressModal from './pages/progressModal.js';
 import startedButtons from './pages/startedButtons.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -36,13 +37,13 @@ export default class StockfishWebSocket {
   }
 
   connect() {
-    console.log('Establishing connection...');
+    progressModal.modal.show();
 
     return new Promise((resolve, reject) => {
       this.socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
 
       this.socket.onopen = () => {
-        console.log('Opened connection!');
+        progressModal.modal.hide();
         resolve();
       };
 
