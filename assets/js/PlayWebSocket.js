@@ -271,8 +271,10 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
-
-              this._start()
+              startedButtons.children.item(0).classList.remove('d-none');
+              startedButtons.children.item(1).classList.remove('d-none');
+              startedButtons.children.item(2).classList.remove('d-none');
+              startedButtons.children.item(3).classList.add('d-none');
             }
             break;
 
@@ -301,13 +303,6 @@ export default class PlayWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
-  }
-
-  _start() {
-    startedButtons.children.item(0).classList.remove('d-none');
-    startedButtons.children.item(1).classList.remove('d-none');
-    startedButtons.children.item(2).classList.remove('d-none');
-    startedButtons.children.item(3).classList.add('d-none');
   }
 
   _end() {
