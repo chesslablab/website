@@ -217,12 +217,12 @@ export default class PlayWebSocket {
               drawModal.modal.hide();
               infoModal.msg('Draw offer declined.');
               infoModal.modal.show();
-              localStorage.clear();
+              localStorage.removeItem('draw');
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
               infoModal.msg('Draw offer accepted.');
               infoModal.modal.show();
-              localStorage.clear();
+              localStorage.removeItem('draw');
             }
             break;
 
