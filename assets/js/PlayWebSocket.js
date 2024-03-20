@@ -19,6 +19,8 @@ import * as env from '../env.js';
 import * as mode from '../mode.js';
 
 export default class PlayWebSocket {
+  _timerTableInterval;
+
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -174,6 +176,7 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
+              this._timerTableInterval = timerTableInterval();
               onlineButtons.children.item(0).disabled = true;
               friendButtons.children.item(0).disabled = true;
               friendButtons.children.item(1).disabled = true;
@@ -226,7 +229,7 @@ export default class PlayWebSocket {
               this._end();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
-              localStorage.clear();
+              // localStorage.clear();
             }
             break;
 
@@ -248,21 +251,24 @@ export default class PlayWebSocket {
             if (data['/restart'].jwt) {
               infoModal.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
+              const turn = jwtDecoded.fen.split(' ')[1];
               chessboard.setPosition(jwtDecoded.fen, true);
+              this._toggleInput(turn);
+              chessboard.view.visualizeInputState();
               sanMovesTable.current = 0;
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: '',
-                fen: [
-                  jwtDecoded.fen
-                ]
-              };
+              sanMovesTable.props.fen = [
+                jwtDecoded.fen
+              ];
+              sanMovesTable.props.movetext = '';
               sanMovesTable.mount();
-              openingTable.props = {
-                movetext: ''
-              };
+              openingTable.props.movetext = '';
               openingTable.mount();
-              localStorage.clear();
+              timerTable.props = {
+                turn: turn,
+                w: data['/restart'].timer.w,
+                b: data['/restart'].timer.b
+              };
+              this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
             }
             break;
@@ -306,7 +312,7 @@ export default class PlayWebSocket {
     startedButtons.children.item(3).classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
-    clearInterval(timerTableInterval);
+    clearInterval(this._timerTableInterval);
   }
 
   _toggleInput(turn) {
