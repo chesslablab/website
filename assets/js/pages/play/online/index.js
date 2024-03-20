@@ -8,7 +8,6 @@ import onlinePlayersTable from './onlinePlayersTable.js';
 import playFriendModal from './playFriendModal.js';
 import rematchModal from './rematchModal.js';
 import takebackModal from './takebackModal.js';
-import { timerTable, timerTableInterval } from './timerTable.js';
 import ws from '../../../playWs.js';
 import chessboard from '../../../pages/chessboard.js';
 import gameActionsDropdown from '../../../pages/gameActionsDropdown.js';

@@ -11,7 +11,6 @@ const playComputerModal = {
 playComputerModal.form.addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(playComputerModal.form);
-  localStorage.setItem('mode', mode.STOCKFISH);
   if (formData.get('level') == 1) {
     localStorage.setItem('skillLevel', 11);
     localStorage.setItem('depth', 4);

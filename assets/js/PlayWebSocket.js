@@ -5,6 +5,7 @@ import infoModal from './pages/infoModal.js';
 import openingTable from './pages/openingTable.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import startedButtons from './pages/startedButtons.js';
+import computerButtons from './pages/play/online/computerButtons.js';
 import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
@@ -19,6 +20,8 @@ import * as env from '../env.js';
 import * as mode from '../mode.js';
 
 export default class PlayWebSocket {
+  _timerTableInterval;
+
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -114,29 +117,20 @@ export default class PlayWebSocket {
 
           case '/play_lan' === msg:
             chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/play_lan'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/play_lan'].movetext,
-                fen: fen
-              };
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/play_lan'].movetext
-              };
-              openingTable.mount();
-              this._toggleInput(data['/play_lan'].turn);
-              timerTable.props = {
-                turn: data['/play_lan'].turn,
-                w: data['/play_lan'].timer.w,
-                b: data['/play_lan'].timer.b
-              };
-              if (data['/play_lan'].isMate) {
-                this._end();
-              }
+            sanMovesTable.current = sanMovesTable.props.fen.length;
+            sanMovesTable.props.movetext = data['/play_lan'].movetext;
+            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
+            sanMovesTable.mount();
+            openingTable.props.movetext = data['/play_lan'].movetext;
+            openingTable.mount();
+            this._toggleInput(data['/play_lan'].turn);
+            timerTable.props = {
+              turn: data['/play_lan'].turn,
+              w: data['/play_lan'].timer.w,
+              b: data['/play_lan'].timer.b
+            };
+            if (data['/play_lan'].isMate) {
+              this._end();
             }
             break;
 
@@ -174,9 +168,11 @@ export default class PlayWebSocket {
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
-              onlineButtons.children.item(0).disabled = true;
+              this._timerTableInterval = timerTableInterval();
+              computerButtons.children.item(0).classList.add('disabled');
               friendButtons.children.item(0).disabled = true;
               friendButtons.children.item(1).disabled = true;
+              onlineButtons.children.item(0).disabled = true;
               onlinePlayersTable.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
@@ -195,12 +191,11 @@ export default class PlayWebSocket {
               takebackModal.modal.hide();
               infoModal.msg('Takeback declined.');
               infoModal.modal.show();
-              localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
               infoModal.msg('Takeback accepted.');
               infoModal.modal.show();
-              localStorage.clear();
             }
+            localStorage.removeItem('takeback');
             break;
 
           case '/draw' === msg:
@@ -212,13 +207,12 @@ export default class PlayWebSocket {
               drawModal.modal.hide();
               infoModal.msg('Draw offer declined.');
               infoModal.modal.show();
-              localStorage.clear();
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
               infoModal.msg('Draw offer accepted.');
               infoModal.modal.show();
-              localStorage.clear();
             }
+            localStorage.removeItem('draw');
             break;
 
           case '/resign' === msg:
@@ -226,7 +220,6 @@ export default class PlayWebSocket {
               this._end();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
-              localStorage.clear();
             }
             break;
 
@@ -238,32 +231,39 @@ export default class PlayWebSocket {
             } else if (data['/rematch'].action === action.DECLINE) {
               rematchModal.modal.hide();
               infoModal.modal.hide();
-              localStorage.clear();
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
             }
+            localStorage.removeItem('rematch');
             break;
 
           case '/restart' === msg:
             if (data['/restart'].jwt) {
               infoModal.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
+              const turn = jwtDecoded.fen.split(' ')[1];
               chessboard.setPosition(jwtDecoded.fen, true);
+              this._toggleInput(turn);
+              chessboard.view.visualizeInputState();
               sanMovesTable.current = 0;
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: '',
-                fen: [
-                  jwtDecoded.fen
-                ]
-              };
+              sanMovesTable.props.fen = [
+                jwtDecoded.fen
+              ];
+              sanMovesTable.props.movetext = '';
               sanMovesTable.mount();
-              openingTable.props = {
-                movetext: ''
-              };
+              openingTable.props.movetext = '';
               openingTable.mount();
-              localStorage.clear();
+              timerTable.props = {
+                turn: turn,
+                w: data['/restart'].timer.w,
+                b: data['/restart'].timer.b
+              };
+              this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
+              startedButtons.children.item(0).classList.remove('d-none');
+              startedButtons.children.item(1).classList.remove('d-none');
+              startedButtons.children.item(2).classList.remove('d-none');
+              startedButtons.children.item(3).classList.add('d-none');
             }
             break;
 
@@ -295,9 +295,10 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    onlineButtons.children.item(0).disabled = false;
+    computerButtons.children.item(0).classList.remove('disabled');
     friendButtons.children.item(0).disabled = false;
     friendButtons.children.item(1).disabled = false;
+    onlineButtons.children.item(0).disabled = false;
     onlinePlayersTable.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
@@ -306,7 +307,7 @@ export default class PlayWebSocket {
     startedButtons.children.item(3).classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
-    clearInterval(timerTableInterval);
+    clearInterval(this._timerTableInterval);
   }
 
   _toggleInput(turn) {
