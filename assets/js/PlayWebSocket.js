@@ -242,9 +242,10 @@ export default class PlayWebSocket {
             } else if (data['/rematch'].action === action.DECLINE) {
               rematchModal.modal.hide();
               infoModal.modal.hide();
-              localStorage.clear();
+              localStorage.removeItem('rematch');
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
+              localStorage.removeItem('rematch');
             }
             break;
 
