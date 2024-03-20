@@ -120,12 +120,9 @@ export default class PlayWebSocket {
             if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
               let fen = sanMovesTable.props.fen;
               fen.push(data['/play_lan'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/play_lan'].movetext,
-                fen: fen
-              };
               sanMovesTable.current = sanMovesTable.props.fen.length - 1;
+              sanMovesTable.props.movetext = data['/play_lan'].movetext;
+              sanMovesTable.props.fen = fen;
               sanMovesTable.mount();
               openingTable.props = {
                 movetext: data['/play_lan'].movetext
@@ -200,12 +197,11 @@ export default class PlayWebSocket {
               takebackModal.modal.hide();
               infoModal.msg('Takeback declined.');
               infoModal.modal.show();
-              localStorage.clear();
             } else if (data['/takeback'].action === action.ACCEPT) {
               infoModal.msg('Takeback accepted.');
               infoModal.modal.show();
-              localStorage.clear();
             }
+            localStorage.removeItem('takeback');
             break;
 
           case '/draw' === msg:
@@ -217,13 +213,12 @@ export default class PlayWebSocket {
               drawModal.modal.hide();
               infoModal.msg('Draw offer declined.');
               infoModal.modal.show();
-              localStorage.removeItem('draw');
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
               infoModal.msg('Draw offer accepted.');
               infoModal.modal.show();
-              localStorage.removeItem('draw');
             }
+            localStorage.removeItem('draw');
             break;
 
           case '/resign' === msg:
@@ -242,11 +237,10 @@ export default class PlayWebSocket {
             } else if (data['/rematch'].action === action.DECLINE) {
               rematchModal.modal.hide();
               infoModal.modal.hide();
-              localStorage.removeItem('rematch');
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
-              localStorage.removeItem('rematch');
             }
+            localStorage.removeItem('rematch');
             break;
 
           case '/restart' === msg:
