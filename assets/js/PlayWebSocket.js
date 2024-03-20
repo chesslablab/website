@@ -5,6 +5,7 @@ import infoModal from './pages/infoModal.js';
 import openingTable from './pages/openingTable.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import startedButtons from './pages/startedButtons.js';
+import computerButtons from './pages/play/online/computerButtons.js';
 import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
@@ -177,9 +178,10 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              onlineButtons.children.item(0).disabled = true;
+              computerButtons.children.item(0).classList.add('disabled');
               friendButtons.children.item(0).disabled = true;
               friendButtons.children.item(1).disabled = true;
+              onlineButtons.children.item(0).disabled = true;
               onlinePlayersTable.table.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
@@ -229,7 +231,6 @@ export default class PlayWebSocket {
               this._end();
               infoModal.msg('Chess game resigned.');
               infoModal.modal.show();
-              // localStorage.clear();
             }
             break;
 
@@ -270,6 +271,8 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
+
+              this._start()
             }
             break;
 
@@ -300,10 +303,18 @@ export default class PlayWebSocket {
     }
   }
 
+  _start() {
+    startedButtons.children.item(0).classList.remove('d-none');
+    startedButtons.children.item(1).classList.remove('d-none');
+    startedButtons.children.item(2).classList.remove('d-none');
+    startedButtons.children.item(3).classList.add('d-none');
+  }
+
   _end() {
-    onlineButtons.children.item(0).disabled = false;
+    computerButtons.children.item(0).classList.remove('disabled');
     friendButtons.children.item(0).disabled = false;
     friendButtons.children.item(1).disabled = false;
+    onlineButtons.children.item(0).disabled = false;
     onlinePlayersTable.table.classList.remove('d-none');
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
