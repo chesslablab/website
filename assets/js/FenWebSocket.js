@@ -71,25 +71,20 @@ export default class FenWebSocket {
 
           case '/play_lan' === msg:
             chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/play_lan'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/play_lan'].movetext,
-                fen: fen
-              };
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/play_lan'].movetext
-              };
-              openingTable.mount();
-            }
+            sanMovesTable.current = sanMovesTable.props.fen.length;
+            sanMovesTable.props.movetext = data['/play_lan'].movetext;
+            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
+            sanMovesTable.mount();
+            openingTable.props.movetext = data['/play_lan'].movetext;
+            openingTable.mount();
             break;
 
           case '/undo' === msg:
             chessboard.setPosition(data['/undo'].fen, true);
+            if (!data['/undo'].movetext) {
+              chessboard.state.inputWhiteEnabled = true;
+              chessboard.state.inputBlackEnabled = false;
+            }
             sanMovesTable.current -= 1;
             sanMovesTable.props.fen.splice(-1);
             sanMovesTable.props.movetext = data['/undo'].movetext;
