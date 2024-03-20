@@ -3,7 +3,7 @@ body {
   background-color: #262421;
 }
 
-body:after{
+body:after {
   content: "Beta";
   position: fixed;
   width: 80px;
@@ -113,6 +113,10 @@ input[name="Black"] + ul > li:hover {
 
 .the-content a.link-light:hover {
   text-decoration: underline !important;
+}
+
+.container {
+  min-height: 595px;
 }
 
 #startedButtons {
