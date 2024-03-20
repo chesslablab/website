@@ -99,22 +99,13 @@ export default class StockfishWebSocket {
             break;
 
           case '/stockfish' === msg:
-            if (data['/stockfish']) {
-              chessboard.setPosition(data['/stockfish'].fen, true);
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/stockfish'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/stockfish'].movetext,
-                fen: fen
-              };
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/stockfish'].movetext
-              };
-              openingTable.mount();
-            }
+            chessboard.setPosition(data['/stockfish'].fen, true);
+            sanMovesTable.current = sanMovesTable.props.fen.length;
+            sanMovesTable.props.movetext = data['/stockfish'].movetext;
+            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/stockfish'].fen);
+            sanMovesTable.mount();
+            openingTable.props.movetext = data['/stockfish'].movetext;
+            openingTable.mount();
             break;
 
           default:
