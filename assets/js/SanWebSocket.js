@@ -59,15 +59,10 @@ export default class SanWebSocket {
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
               sanMovesTable.current = data['/start'].fen.length - 1;
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/start'].movetext,
-                fen: data['/start'].fen
-              };
+              sanMovesTable.props.movetext = data['/start'].movetext;
+              sanMovesTable.props.fen = data['/start'].fen;
               sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/start'].movetext
-              };
+              openingTable.props.movetext = data['/start'].movetext;
               openingTable.mount();
             } else {
               console.log('Invalid SAN movetext, please try again with a different one.');
@@ -82,21 +77,12 @@ export default class SanWebSocket {
 
           case '/play_lan' === msg:
             chessboard.setPosition(data['/play_lan'].fen, true);
-            if (!sanMovesTable.props.fen[sanMovesTable.props.fen.length - 1].startsWith(data['/play_lan'].fen)) {
-              let fen = sanMovesTable.props.fen;
-              fen.push(data['/play_lan'].fen);
-              sanMovesTable.props = {
-                ...sanMovesTable.props,
-                movetext: data['/play_lan'].movetext,
-                fen: fen
-              };
-              sanMovesTable.current = sanMovesTable.props.fen.length - 1;
-              sanMovesTable.mount();
-              openingTable.props = {
-                movetext: data['/play_lan'].movetext
-              };
-              openingTable.mount();
-            }
+            sanMovesTable.current = sanMovesTable.props.fen.length;
+            sanMovesTable.props.movetext = data['/play_lan'].movetext;
+            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
+            sanMovesTable.mount();
+            openingTable.props.movetext = data['/play_lan'].movetext;
+            openingTable.mount();
             break;
 
           case '/undo' === msg:
