@@ -44,7 +44,7 @@ const onlinePlayersTable = {
     } else {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
-      const tdText = document.createTextNode('Be the first to create a game!');
+      const tdText = document.createTextNode('Be the first online player to create a game!');
       td.appendChild(tdText);
       tr.appendChild(td);
       tbody.appendChild(tr);
