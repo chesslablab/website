@@ -2,7 +2,6 @@ import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
 import infoModal from './pages/infoModal.js';
-import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import startedButtons from './pages/startedButtons.js';
@@ -121,8 +120,6 @@ export default class PlayWebSocket {
             sanMovesTable.props.movetext = data['/play_lan'].movetext;
             sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
             sanMovesTable.mount();
-            openingTable.props.movetext = data['/play_lan'].movetext;
-            openingTable.mount();
             this._toggleInput(data['/play_lan'].turn);
             timerTable.props = {
               turn: data['/play_lan'].turn,
@@ -144,8 +141,6 @@ export default class PlayWebSocket {
             sanMovesTable.props.fen.splice(-1);
             sanMovesTable.props.movetext = data['/undo'].movetext;
             sanMovesTable.mount();
-            openingTable.props.movetext = data['/undo'].movetext;
-            openingTable.mount();
             break;
 
           case '/accept' === msg:
@@ -252,8 +247,6 @@ export default class PlayWebSocket {
               ];
               sanMovesTable.props.movetext = '';
               sanMovesTable.mount();
-              openingTable.props.movetext = '';
-              openingTable.mount();
               timerTable.props = {
                 turn: turn,
                 w: data['/restart'].timer.w,
