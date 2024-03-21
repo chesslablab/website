@@ -11,7 +11,6 @@ import takebackModal from './takebackModal.js';
 import ws from '../../../playWs.js';
 import chessboard from '../../../pages/chessboard.js';
 import gameActionsDropdown from '../../../pages/gameActionsDropdown.js';
-import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
 import infoModal from '../../../pages/infoModal.js';
 import startedButtons from '../../../pages/startedButtons.js';

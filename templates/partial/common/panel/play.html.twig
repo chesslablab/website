@@ -1,9 +1,10 @@
 <div class="p-2 bg-light d-none">
-  {% include 'partial/common/board_actions_dropdown.html.twig' %}
+  <div class="d-flex">
+    {% include 'partial/common/board_actions_dropdown.html.twig' %}
+  </div>
   {% include 'partial/common/history_buttons.html.twig' %}
   {% include 'partial/common/san_moves_table.html.twig' %}
   {% include 'partial/common/opening_table.html.twig' %}
-  {% include 'partial/common/game_study_dropdown.html.twig' %}
   <table id="timerTable" class="table">
     <tbody class="h4"></tbody>
   </table>
