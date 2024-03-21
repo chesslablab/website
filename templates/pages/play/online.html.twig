@@ -1,12 +1,6 @@
 {% extends 'layout/play.html.twig' %}
 
 {% block main %}
-  <div class="col-md-3">
-    <div id="friendButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-secondary" type="button">Play a Friend</button>
-      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
-    </div>
-  </div>
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
@@ -23,6 +17,12 @@
       </div>
     </div>
     {% include 'partial/common/panel/play.html.twig' %}
+  </div>
+  <div class="col-md-3">
+    <div id="friendButtons" class="btn-group-vertical w-100">
+      <button class="btn btn-secondary" type="button">Play a Friend</button>
+      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
+    </div>
   </div>
   {% block javascripts %}
     {% block importmap %}

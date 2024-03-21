@@ -140,6 +140,6 @@ div.table-responsive:has(#ravMovesTable) {
 }
 
 div.table-responsive:has(#sanMovesTable) {
-  height: 320px;
+  height: 250px;
   overflow-y: scroll;
 }
