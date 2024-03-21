@@ -2,10 +2,6 @@
 
 {% block main %}
   <div class="col-md-3">
-    <div id="friendButtons" class="btn-group-vertical mb-2 w-100">
-      <button class="btn btn-secondary" type="button">Play a Friend</button>
-      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
-    </div>
     <div class="table-responsive card">
       <div class="card-header text-center">
         Online Players
@@ -24,6 +20,10 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-3">
+    <div id="friendButtons" class="btn-group-vertical mb-2 w-100">
+      <button class="btn btn-secondary" type="button">Play a Friend</button>
+      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
+    </div>
     {% include 'partial/common/panel/play.html.twig' %}
   </div>
   {% block javascripts %}
