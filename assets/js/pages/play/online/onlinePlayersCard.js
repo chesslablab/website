@@ -47,7 +47,7 @@ const onlinePlayersCard = {
     } else {
       const tr = document.createElement('tr');
       const td = document.createElement('td');
-      const tdText = document.createTextNode('There are no players connected, be the first one to create a game!');
+      const tdText = document.createTextNode('There are no players connected at the moment, be the first one to create a game!');
       td.appendChild(tdText);
       tr.appendChild(td);
       tbody.appendChild(tr);
