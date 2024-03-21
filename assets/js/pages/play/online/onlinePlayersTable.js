@@ -3,6 +3,7 @@ import ws from '../../../playWs.js';
 const onlinePlayersTable = {
   table: document.querySelector('#onlinePlayers'),
   mount: (games) => {
+    const thead = document.querySelector('#onlinePlayers thead')
     const tbody = document.querySelector('#onlinePlayers tbody')
     tbody.replaceChildren();
     if (games.length > 0) {
@@ -41,6 +42,13 @@ const onlinePlayersTable = {
         }
         tbody.appendChild(tr);
       });
+    } else {
+      const tr = document.createElement('tr');
+      const td = document.createElement('td');
+      const tdText = document.createTextNode('Be the first to create a game!');
+      td.appendChild(tdText);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
     }
   }
 }
