@@ -9,6 +9,7 @@ import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
 import enterInviteCodeModal from './pages/play/online/enterInviteCodeModal.js';
+import finishedButtons from './pages/play/online/finishedButtons.js';
 import onlinePlayersCard from './pages/play/online/onlinePlayersCard.js';
 import rematchModal from './pages/play/online/rematchModal.js';
 import takebackModal from './pages/play/online/takebackModal.js';
@@ -57,16 +58,16 @@ export default class PlayWebSocket {
       event.preventDefault();
       this.send('/resign accept');
     });
-    startedButtons.children.item(3).addEventListener('click', (event) => {
+    finishedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
       infoModal.msg('Waiting for the opponent to accept or decline.');
       infoModal.modal.show();
     });
-    startedButtons.children.item(4).addEventListener('click', (event) => {
+    finishedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      window.location.href = startedButtons.children.item(4).dataset.redirect;
+      window.location.href = finishedButtons.children.item(1).dataset.redirect;
     });
 
     this.socket = null;
@@ -175,9 +176,7 @@ export default class PlayWebSocket {
               friendButtons.children.item(1).disabled = true;
               onlinePlayersCard.card.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
-              startedButtons.children.item(0).classList.remove('d-none');
-              startedButtons.children.item(1).classList.remove('d-none');
-              startedButtons.children.item(2).classList.remove('d-none');
+              startedButtons.classList.remove('d-none');
               this.send('/online_games');
             }
             break;
@@ -258,11 +257,8 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
-              startedButtons.children.item(0).classList.remove('d-none');
-              startedButtons.children.item(1).classList.remove('d-none');
-              startedButtons.children.item(2).classList.remove('d-none');
-              startedButtons.children.item(3).classList.add('d-none');
-              startedButtons.children.item(4).classList.add('d-none');
+              startedButtons.classList.remove('d-none');
+              finishedButtons.classList.add('d-none');
             }
             break;
 
@@ -297,11 +293,8 @@ export default class PlayWebSocket {
     friendButtons.children.item(0).disabled = false;
     friendButtons.children.item(1).disabled = false;
     startedButtons.parentNode.classList.remove('d-none');
-    startedButtons.children.item(0).classList.add('d-none');
-    startedButtons.children.item(1).classList.add('d-none');
-    startedButtons.children.item(2).classList.add('d-none');
-    startedButtons.children.item(3).classList.remove('d-none');
-    startedButtons.children.item(4).classList.remove('d-none');
+    startedButtons.classList.add('d-none');
+    finishedButtons.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     clearInterval(this._timerTableInterval);

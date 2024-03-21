@@ -8,10 +8,12 @@
     <tbody class="h4"></tbody>
   </table>
   <div id="startedButtons" class="btn-group-vertical w-100 mt-2">
-    <button class="btn btn-secondary btn-sm rounded-0" type="button">Propose a takeback</button>
-    <button class="btn btn-secondary btn-sm rounded-0" type="button">Offer draw</button>
-    <button class="btn btn-secondary btn-sm rounded-0" type="button">Resign</button>
-    <button class="btn btn-secondary btn-sm rounded-0 d-none" type="button">Offer rematch</button>
-    <button class="btn btn-secondary btn-sm rounded-0 d-none" type="button" data-redirect="{{ path('pages_play_online') }}">Play Online</button>
+    <button class="btn btn-secondary btn-sm" type="button">Propose a takeback</button>
+    <button class="btn btn-secondary btn-sm" type="button">Offer draw</button>
+    <button class="btn btn-secondary btn-sm" type="button">Resign</button>
+  </div>
+  <div id="finishedButtons" class="btn-group-vertical w-100 mt-2 d-none">
+    <button class="btn btn-secondary btn-sm" type="button">Offer rematch</button>
+    <button class="btn btn-secondary btn-sm" type="button" data-redirect="{{ path('pages_play_online') }}">Play Online</button>
   </div>
 </div>
