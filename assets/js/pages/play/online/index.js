@@ -3,7 +3,6 @@ import createGameModal from './createGameModal.js';
 import drawModal from './drawModal.js';
 import enterInviteCodeModal from './enterInviteCodeModal.js';
 import friendButtons from './friendButtons.js';
-import onlineButtons from './onlineButtons.js';
 import onlinePlayersCard from './onlinePlayersCard.js';
 import playFriendModal from './playFriendModal.js';
 import rematchModal from './rematchModal.js';

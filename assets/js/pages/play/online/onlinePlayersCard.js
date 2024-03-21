@@ -1,8 +1,10 @@
+import createGameModal from './createGameModal.js';
 import ws from '../../../playWs.js';
 
 const onlinePlayersCard = {
   card: document.querySelector('#onlinePlayers'),
   table: document.querySelector('#onlinePlayers table'),
+  button: document.querySelector('#onlinePlayers button'),
   mount: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody');
     tbody.replaceChildren();
@@ -50,6 +52,11 @@ const onlinePlayersCard = {
       tr.appendChild(td);
       tbody.appendChild(tr);
     }
+
+    document.querySelector('#onlinePlayers button').addEventListener('click', async (event) => {
+      event.preventDefault();
+      createGameModal.modal.show();
+    });
   }
 }
 
