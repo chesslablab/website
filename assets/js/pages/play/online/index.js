@@ -4,7 +4,7 @@ import drawModal from './drawModal.js';
 import enterInviteCodeModal from './enterInviteCodeModal.js';
 import friendButtons from './friendButtons.js';
 import onlineButtons from './onlineButtons.js';
-import onlinePlayersTable from './onlinePlayersTable.js';
+import onlinePlayersCard from './onlinePlayersCard.js';
 import playFriendModal from './playFriendModal.js';
 import rematchModal from './rematchModal.js';
 import takebackModal from './takebackModal.js';

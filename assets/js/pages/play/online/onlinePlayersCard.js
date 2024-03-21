@@ -1,7 +1,8 @@
 import ws from '../../../playWs.js';
 
-const onlinePlayersTable = {
-  table: document.querySelector('#onlinePlayers'),
+const onlinePlayersCard = {
+  card: document.querySelector('#onlinePlayers'),
+  table: document.querySelector('#onlinePlayers table'),
   mount: (games) => {
     const tbody = document.querySelector('#onlinePlayers tbody');
     tbody.replaceChildren();
@@ -52,4 +53,4 @@ const onlinePlayersTable = {
   }
 }
 
-export default onlinePlayersTable;
+export default onlinePlayersCard;

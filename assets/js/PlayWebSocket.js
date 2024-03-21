@@ -9,8 +9,7 @@ import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
 import enterInviteCodeModal from './pages/play/online/enterInviteCodeModal.js';
-import onlineButtons from './pages/play/online/onlineButtons.js';
-import onlinePlayersTable from './pages/play/online/onlinePlayersTable.js';
+import onlinePlayersCard from './pages/play/online/onlinePlayersCard.js';
 import rematchModal from './pages/play/online/rematchModal.js';
 import takebackModal from './pages/play/online/takebackModal.js';
 import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
@@ -89,7 +88,7 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayersTable.mount(data['broadcast']['onlineGames']);
+            onlinePlayersCard.mount(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -168,8 +167,9 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              friendButtons.classList.add('d-none');
-              onlineButtons.children.item(0).disabled = true;
+              friendButtons.children.item(0).disabled = true;
+              friendButtons.children.item(1).disabled = true;
+              onlinePlayersCard.card.classList.add('d-none');
               startedButtons.parentNode.classList.remove('d-none');
               startedButtons.children.item(0).classList.remove('d-none');
               startedButtons.children.item(1).classList.remove('d-none');
@@ -262,7 +262,7 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            onlinePlayersTable.mount(data['/online_games']);
+            onlinePlayersCard.mount(data['/online_games']);
             break;
 
           default:
@@ -289,8 +289,8 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    friendButtons.classList.remove('d-none');
-    onlineButtons.children.item(0).disabled = false;
+    friendButtons.children.item(0).disabled = false;
+    friendButtons.children.item(1).disabled = false;
     startedButtons.parentNode.classList.remove('d-none');
     startedButtons.children.item(0).classList.add('d-none');
     startedButtons.children.item(1).classList.add('d-none');

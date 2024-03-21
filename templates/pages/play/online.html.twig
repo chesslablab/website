@@ -2,27 +2,27 @@
 
 {% block main %}
   <div class="col-md-3">
-    <div class="table-responsive card">
-      <div class="card-header text-center">
-        Online Players
-      </div>
-      <div class="card-body">
-        <table id="onlinePlayers" class="rounded-3 table table-hover mb-3">
-          <tbody></tbody>
-        </table>
-        <div id="onlineButtons" class="btn-group-vertical w-100">
-          <button class="btn btn-secondary" type="button">Create a Game</button>
-        </div>
-      </div>
+    <div id="friendButtons" class="btn-group-vertical mb-2 w-100">
+      <button class="btn btn-secondary" type="button">Play a Friend</button>
+      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
     </div>
   </div>
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
   <div class="col-md-3">
-    <div id="friendButtons" class="btn-group-vertical mb-2 w-100">
-      <button class="btn btn-secondary" type="button">Play a Friend</button>
-      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
+    <div id="onlinePlayers" class="table-responsive card">
+      <div class="card-header text-center">
+        Online Players
+      </div>
+      <div class="card-body">
+        <table class="rounded-3 table table-hover mb-3">
+          <tbody></tbody>
+        </table>
+        <div id="onlineButtons" class="btn-group-vertical w-100">
+          <button class="btn btn-secondary" type="button">Create a Game</button>
+        </div>
+      </div>
     </div>
     {% include 'partial/common/panel/play.html.twig' %}
   </div>
