@@ -64,6 +64,10 @@ export default class PlayWebSocket {
       infoModal.msg('Waiting for the opponent to accept or decline.');
       infoModal.modal.show();
     });
+    startedButtons.children.item(4).addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = startedButtons.children.item(4).dataset.redirect;
+    });
 
     this.socket = null;
   }
@@ -258,6 +262,7 @@ export default class PlayWebSocket {
               startedButtons.children.item(1).classList.remove('d-none');
               startedButtons.children.item(2).classList.remove('d-none');
               startedButtons.children.item(3).classList.add('d-none');
+              startedButtons.children.item(4).classList.add('d-none');
             }
             break;
 
@@ -296,6 +301,7 @@ export default class PlayWebSocket {
     startedButtons.children.item(1).classList.add('d-none');
     startedButtons.children.item(2).classList.add('d-none');
     startedButtons.children.item(3).classList.remove('d-none');
+    startedButtons.children.item(4).classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     clearInterval(this._timerTableInterval);
