@@ -2,25 +2,22 @@
 
 {% block main %}
   <div class="col-md-3">
-    <div id="computerButtons" class="btn-group-vertical mb-2 w-100">
-      <a class="btn btn-secondary" href="{{ path('pages_play_computer') }}" role="button">Play Computer</a>
-    </div>
     <div id="friendButtons" class="btn-group-vertical mb-2 w-100">
       <button class="btn btn-secondary" type="button">Play a Friend</button>
       <button class="btn btn-secondary" type="button">Enter Invite Code</button>
     </div>
-    <div id="onlineButtons" class="btn-group-vertical mb-2 w-100">
-      <button class="btn btn-secondary" type="button">Play Online</button>
-    </div>
     <div class="table-responsive card">
-      <table id="onlinePlayers" class="rounded-3 table table-hover">
-        <thead>
-          <tr>
-            <th class="text-center" colspan="5">Online Players</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="card-header text-center">
+        Online Players
+      </div>
+      <div class="card-body">
+        <table id="onlinePlayers" class="rounded-3 table table-hover mb-3">
+          <tbody></tbody>
+        </table>
+        <div id="onlineButtons" class="btn-group-vertical w-100">
+          <button class="btn btn-secondary" type="button">Create a Game</button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="col-md-6">

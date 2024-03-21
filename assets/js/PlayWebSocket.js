@@ -6,7 +6,6 @@ import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import startedButtons from './pages/startedButtons.js';
-import computerButtons from './pages/play/online/computerButtons.js';
 import copyInviteCodeModal from './pages/play/online/copyInviteCodeModal.js';
 import createGameModal from './pages/play/online/createGameModal.js';
 import drawModal from './pages/play/online/drawModal.js';
@@ -174,7 +173,6 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              computerButtons.children.item(0).classList.add('disabled');
               friendButtons.children.item(0).disabled = true;
               friendButtons.children.item(1).disabled = true;
               onlineButtons.children.item(0).disabled = true;
@@ -300,7 +298,6 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    computerButtons.children.item(0).classList.remove('disabled');
     friendButtons.children.item(0).disabled = false;
     friendButtons.children.item(1).disabled = false;
     onlineButtons.children.item(0).disabled = false;

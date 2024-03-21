@@ -3,8 +3,7 @@ import ws from '../../../playWs.js';
 const onlinePlayersTable = {
   table: document.querySelector('#onlinePlayers'),
   mount: (games) => {
-    const thead = document.querySelector('#onlinePlayers thead')
-    const tbody = document.querySelector('#onlinePlayers tbody')
+    const tbody = document.querySelector('#onlinePlayers tbody');
     tbody.replaceChildren();
     if (games.length > 0) {
       games.forEach(game => {
