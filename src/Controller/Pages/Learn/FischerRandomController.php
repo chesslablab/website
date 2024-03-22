@@ -9,6 +9,6 @@ class FischerRandomController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/chessboard/fischer_random.html.twig');
+        return $this->render('pages/learn/fischer_random.html.twig');
     }
 }

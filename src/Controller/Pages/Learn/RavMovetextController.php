@@ -9,6 +9,6 @@ class RavMovetextController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/chessboard/rav_movetext.html.twig');
+        return $this->render('pages/learn/rav_movetext.html.twig');
     }
 }
