@@ -42,6 +42,10 @@ return [
         'path' => './assets/js/pages/learn/fen_string/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/learn/annotated_games/index.js' => [
+        'path' => './assets/js/pages/learn/annotated_games/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/openings/eco_code/index.js' => [
         'path' => './assets/js/pages/openings/eco_code/index.js',
         'entrypoint' => true,
@@ -56,10 +60,6 @@ return [
     ],
     'js/pages/database/search_games/index.js' => [
         'path' => './assets/js/pages/database/search_games/index.js',
-        'entrypoint' => true,
-    ],
-    'js/pages/database/annotated_games/index.js' => [
-        'path' => './assets/js/pages/database/annotated_games/index.js',
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [
