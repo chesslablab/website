@@ -143,3 +143,7 @@ div.table-responsive:has(#sanMovesTable) {
   height: 250px;
   overflow-y: scroll;
 }
+
+#movesMetadataTable {
+  margin: 0;
+}
