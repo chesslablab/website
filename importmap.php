@@ -22,24 +22,24 @@ return [
         'path' => './assets/js/pages/play/computer/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/chessboard/classical/index.js' => [
-        'path' => './assets/js/pages/chessboard/classical/index.js',
+    'js/pages/learn/classical/index.js' => [
+        'path' => './assets/js/pages/learn/classical/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/chessboard/fischer_random/index.js' => [
-        'path' => './assets/js/pages/chessboard/fischer_random/index.js',
+    'js/pages/learn/fischer_random/index.js' => [
+        'path' => './assets/js/pages/learn/fischer_random/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/chessboard/rav_movetext/index.js' => [
-        'path' => './assets/js/pages/chessboard/rav_movetext/index.js',
+    'js/pages/learn/rav_movetext/index.js' => [
+        'path' => './assets/js/pages/learn/rav_movetext/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/chessboard/san_movetext/index.js' => [
-        'path' => './assets/js/pages/chessboard/san_movetext/index.js',
+    'js/pages/learn/san_movetext/index.js' => [
+        'path' => './assets/js/pages/learn/san_movetext/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/chessboard/fen_string/index.js' => [
-        'path' => './assets/js/pages/chessboard/fen_string/index.js',
+    'js/pages/learn/fen_string/index.js' => [
+        'path' => './assets/js/pages/learn/fen_string/index.js',
         'entrypoint' => true,
     ],
     'js/pages/openings/eco_code/index.js' => [
