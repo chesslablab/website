@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Pages\Database;
+namespace App\Controller\Pages\Learn;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
