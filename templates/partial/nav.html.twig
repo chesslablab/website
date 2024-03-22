@@ -24,33 +24,33 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_chessboard_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Learn
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownChessboardLink">
             <li>
-              <a class="dropdown-item" href="{{ path('pages_chessboard_classical') }}">
+              <a class="dropdown-item" href="{{ path('pages_learn_classical') }}">
                 Classical Chess
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ path('pages_chessboard_fischer_random') }}">
+              <a class="dropdown-item" href="{{ path('pages_learn_fischer_random') }}">
                 Fischer Random
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
             <li>
-              <a class="dropdown-item" href="{{ path('pages_chessboard_fen_string') }}">
+              <a class="dropdown-item" href="{{ path('pages_learn_fen_string') }}">
                 FEN String
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ path('pages_chessboard_san_movetext') }}">
+              <a class="dropdown-item" href="{{ path('pages_learn_san_movetext') }}">
                 SAN Movetext
               </a>
             </li>
             <li>
-              <a class="dropdown-item" href="{{ path('pages_chessboard_rav_movetext') }}">
+              <a class="dropdown-item" href="{{ path('pages_learn_rav_movetext') }}">
                 RAV Movetext
               </a>
             </li>

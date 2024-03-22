@@ -1,24 +1,24 @@
-pages_chessboard_classical:
+pages_learn_classical:
     path:       /chessboard/classical
     controller: App\Controller\Pages\Chessboard\ClassicalController::index
     methods:    GET
 
-pages_chessboard_fen_string:
+pages_learn_fen_string:
     path:       /chessboard/fen-string
     controller: App\Controller\Pages\Chessboard\FenStringController::index
     methods:    GET
 
-pages_chessboard_fischer_random:
+pages_learn_fischer_random:
     path:       /chessboard/fischer-random
     controller: App\Controller\Pages\Chessboard\FischerRandomController::index
     methods:    GET
 
-pages_chessboard_rav_movetext:
+pages_learn_rav_movetext:
     path:       /chessboard/rav-movetext
     controller: App\Controller\Pages\Chessboard\RavMovetextController::index
     methods:    GET
 
-pages_chessboard_san_movetext:
+pages_learn_san_movetext:
     path:       /chessboard/san-movetext
     controller: App\Controller\Pages\Chessboard\SanMovetextController::index
     methods:    GET
