@@ -23,7 +23,7 @@ pages_learn_san_movetext:
     controller: App\Controller\Pages\Learn\SanMovetextController::index
     methods:    GET
 
-pages_database_annotated_games:
+pages_learn_annotated_games:
     path:       /database/annotated-games
     controller: App\Controller\Pages\Database\AnnotatedGamesController::index
     methods:    GET
