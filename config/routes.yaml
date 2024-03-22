@@ -24,7 +24,7 @@ pages_learn_san_movetext:
     methods:    GET
 
 pages_learn_annotated_games:
-    path:       /database/annotated-games
+    path:       /learn/annotated-games
     controller: App\Controller\Pages\Database\AnnotatedGamesController::index
     methods:    GET
 
