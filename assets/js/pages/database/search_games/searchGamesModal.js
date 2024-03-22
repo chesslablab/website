@@ -78,6 +78,7 @@ searchGamesModal.form.addEventListener('submit', event => {
         };
         ws.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
         searchGamesModal.modal.hide();
+        localStorage.setItem('metadata', JSON.stringify(game));
       });
 
       tbody.appendChild(tr);
