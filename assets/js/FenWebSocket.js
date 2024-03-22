@@ -1,5 +1,6 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
+import explainPositionModal from './pages/explainPositionModal.js';
 import gameStudyDropdown from './pages/gameStudyDropdown.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import openingTable from './pages/openingTable.js';
@@ -99,6 +100,11 @@ export default class FenWebSocket {
             sanMovesTable.mount();
             openingTable.props.movetext = data['/undo'].movetext;
             openingTable.mount();
+            break;
+
+          case '/tutor_fen' === msg:
+            explainPositionModal.mount(data['/tutor_fen']);
+            explainPositionModal.modal.show();
             break;
 
           default:
