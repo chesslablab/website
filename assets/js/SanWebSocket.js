@@ -3,7 +3,6 @@ import chessboard from './pages/chessboard.js';
 import explainPositionModal from './pages/explainPositionModal.js';
 import gameStudyDropdown from './pages/gameStudyDropdown.js';
 import sanMovesTable from './pages/sanMovesTable.js';
-import movesMetadataTable from './pages/movesMetadataTable.js';
 import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
 import startedButtons from './pages/startedButtons.js';
@@ -68,8 +67,6 @@ export default class SanWebSocket {
               chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
-              movesMetadataTable.props = JSON.parse(localStorage.getItem('metadata'));
-              movesMetadataTable.mount();
               sanMovesTable.current = data['/start'].fen.length - 1;
               sanMovesTable.props.movetext = data['/start'].movetext;
               sanMovesTable.props.fen = data['/start'].fen;

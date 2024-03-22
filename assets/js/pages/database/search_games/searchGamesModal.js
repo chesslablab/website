@@ -1,5 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import eventAutocomplete from '../../eventAutocomplete.js';
+import movesMetadataTable from '../../movesMetadataTable.js';
 import playerAutocomplete from '../../playerAutocomplete.js';
 import progressModal from '../../progressModal.js';
 import ws from '../../../sanWs.js';
@@ -77,8 +78,9 @@ searchGamesModal.form.addEventListener('submit', event => {
           movetext: game.movetext
         };
         ws.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        movesMetadataTable.props = game;
+        movesMetadataTable.mount();
         searchGamesModal.modal.hide();
-        localStorage.setItem('metadata', JSON.stringify(game));
       });
 
       tbody.appendChild(tr);
