@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Database;
+namespace App\Controller\Pages\Learn;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class AnnotatedGamesController extends AbstractController
+class FenStringController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/annotated_games.html.twig');
+        return $this->render('pages/learn/fen_string.html.twig');
     }
 }

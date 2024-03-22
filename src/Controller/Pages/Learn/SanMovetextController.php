@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Chessboard;
+namespace App\Controller\Pages\Learn;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class FenStringController extends AbstractController
+class SanMovetextController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/chessboard/fen_string.html.twig');
+        return $this->render('pages/learn/san_movetext.html.twig');
     }
 }

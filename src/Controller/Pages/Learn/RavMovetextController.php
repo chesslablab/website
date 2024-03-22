@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Chessboard;
+namespace App\Controller\Pages\Learn;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ClassicalController extends AbstractController
+class RavMovetextController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/chessboard/classical.html.twig');
+        return $this->render('pages/learn/rav_movetext.html.twig');
     }
 }

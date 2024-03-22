@@ -1,31 +1,31 @@
-pages_chessboard_classical:
-    path:       /chessboard/classical
-    controller: App\Controller\Pages\Chessboard\ClassicalController::index
+pages_learn_classical:
+    path:       /learn/classical
+    controller: App\Controller\Pages\Learn\ClassicalController::index
     methods:    GET
 
-pages_chessboard_fen_string:
-    path:       /chessboard/fen-string
-    controller: App\Controller\Pages\Chessboard\FenStringController::index
+pages_learn_fen_string:
+    path:       /learn/fen-string
+    controller: App\Controller\Pages\Learn\FenStringController::index
     methods:    GET
 
-pages_chessboard_fischer_random:
-    path:       /chessboard/fischer-random
-    controller: App\Controller\Pages\Chessboard\FischerRandomController::index
+pages_learn_fischer_random:
+    path:       /learn/fischer-random
+    controller: App\Controller\Pages\Learn\FischerRandomController::index
     methods:    GET
 
-pages_chessboard_rav_movetext:
-    path:       /chessboard/rav-movetext
-    controller: App\Controller\Pages\Chessboard\RavMovetextController::index
+pages_learn_rav_movetext:
+    path:       /learn/rav-movetext
+    controller: App\Controller\Pages\Learn\RavMovetextController::index
     methods:    GET
 
-pages_chessboard_san_movetext:
-    path:       /chessboard/san-movetext
-    controller: App\Controller\Pages\Chessboard\SanMovetextController::index
+pages_learn_san_movetext:
+    path:       /learn/san-movetext
+    controller: App\Controller\Pages\Learn\SanMovetextController::index
     methods:    GET
 
-pages_database_annotated_games:
-    path:       /database/annotated-games
-    controller: App\Controller\Pages\Database\AnnotatedGamesController::index
+pages_learn_annotated_games:
+    path:       /learn/annotated-games
+    controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
     methods:    GET
 
 pages_database_search_games:
