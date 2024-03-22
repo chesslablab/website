@@ -40,6 +40,7 @@ export default class PlayWebSocket {
         return true;
       }
     });
+
     startedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
@@ -47,6 +48,7 @@ export default class PlayWebSocket {
       infoModal.msg('Waiting for the opponent to accept or decline.');
       infoModal.modal.show();
     });
+
     startedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
@@ -54,10 +56,12 @@ export default class PlayWebSocket {
       infoModal.msg('Waiting for the opponent to accept or decline.');
       infoModal.modal.show();
     });
+
     startedButtons.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
     });
+
     finishedButtons.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
@@ -65,6 +69,7 @@ export default class PlayWebSocket {
       infoModal.msg('Waiting for the opponent to accept or decline.');
       infoModal.modal.show();
     });
+    
     finishedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       window.location.href = finishedButtons.children.item(1).dataset.redirect;
