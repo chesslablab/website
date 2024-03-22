@@ -135,7 +135,7 @@ input[name="Black"] + ul > li:hover {
 }
 
 div.table-responsive:has(#ravMovesTable) {
-  height: 465px;
+  height: 300px;
   overflow-y: scroll;
 }
 
