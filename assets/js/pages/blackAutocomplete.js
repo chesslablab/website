@@ -9,7 +9,12 @@ blackAutocomplete.input.addEventListener('change', (event) => {
 });
 
 blackAutocomplete.input.addEventListener('keyup', (event) => {
-  if (event.target.value.length % 2 === 0) {
+  const submitButton = document.querySelector('#searchGamesModal form button[type="submit"]');
+  const loadingButton = document.querySelector('#searchGamesModal form button[type="button"]');
+  const suggestions = document.querySelector('input[name="Black"] + ul');
+  if (event.target.value.length > 2) {
+    submitButton.classList.add('d-none');
+    loadingButton.classList.remove('d-none');
     fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
       method: 'POST',
       headers: {
@@ -21,7 +26,6 @@ blackAutocomplete.input.addEventListener('keyup', (event) => {
     })
     .then(res => res.json())
     .then(res => {
-      const suggestions = document.querySelector('input[name="Black"] + ul');
       suggestions.classList.remove('d-none');
       suggestions.replaceChildren();
       res.forEach(item => {
@@ -38,7 +42,8 @@ blackAutocomplete.input.addEventListener('keyup', (event) => {
       // TODO
     })
     .finally(() => {
-      // TODO
+      submitButton.classList.remove('d-none');
+      loadingButton.classList.add('d-none');
     });
   }
 });
