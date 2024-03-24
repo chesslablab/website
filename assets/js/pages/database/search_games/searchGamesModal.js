@@ -1,8 +1,9 @@
 import Modal from 'bootstrap/js/dist/modal.js';
+import blackAutocomplete from '../../blackAutocomplete.js';
 import eventAutocomplete from '../../eventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
-import playerAutocomplete from '../../playerAutocomplete.js';
 import progressModal from '../../progressModal.js';
+import whiteAutocomplete from '../../whiteAutocomplete.js';
 import ws from '../../../sanWs.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
