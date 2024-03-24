@@ -12,7 +12,7 @@ whiteAutocomplete.input.addEventListener('keyup', (event) => {
   const submitButton = document.querySelector('#searchGamesModal form button[type="submit"]');
   const loadingButton = document.querySelector('#searchGamesModal form button[type="button"]');
   const suggestions = document.querySelector('input[name="White"] + ul');
-  if (event.target.value.length > 2) {
+  if (event.target.value.length % 3 === 0) {
     submitButton.classList.add('d-none');
     loadingButton.classList.remove('d-none');
     fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
