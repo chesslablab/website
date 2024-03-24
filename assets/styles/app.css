@@ -147,3 +147,7 @@ div.table-responsive:has(#sanMovesTable) {
 #movesMetadataTable {
   margin: 0;
 }
+
+#searchGamesModal ul {
+  z-index: 1050;
+}
