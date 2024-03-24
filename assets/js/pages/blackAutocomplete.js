@@ -1,27 +1,27 @@
 import * as env from '../../env.js';
 
-const eventAutocomplete = {
-  input: document.querySelector('input[name="Event"]')
+const blackAutocomplete = {
+  input: document.querySelector('input[name="Black"]')
 }
 
-eventAutocomplete.input.addEventListener('change', (event) => {
-  eventAutocomplete.input.value = event.target.value;
+blackAutocomplete.input.addEventListener('change', (event) => {
+  blackAutocomplete.input.value = event.target.value;
 });
 
-eventAutocomplete.input.addEventListener('keyup', (event) => {
+blackAutocomplete.input.addEventListener('keyup', (event) => {
   const submitButton = document.querySelector('#searchGamesModal form button[type="submit"]');
   const loadingButton = document.querySelector('#searchGamesModal form button[type="button"]');
-  const suggestions = document.querySelector('input[name="Event"] + ul');
+  const suggestions = document.querySelector('input[name="Black"] + ul');
   if (event.target.value.length % 3 === 0) {
     submitButton.classList.add('d-none');
     loadingButton.classList.remove('d-none');
-    fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
+    fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
       method: 'POST',
       headers: {
         'X-Api-Key': `${env.API_KEY}`
       },
       body: JSON.stringify({
-        Event: event.target.value
+        Black: event.target.value
       })
     })
     .then(res => res.json())
@@ -32,7 +32,7 @@ eventAutocomplete.input.addEventListener('keyup', (event) => {
         const li = document.createElement('li');
         li.appendChild(document.createTextNode(item));
         li.addEventListener('click', () => {
-          document.querySelector('input[name="Event"]').value = item;
+          document.querySelector('input[name="Black"]').value = item;
           suggestions.classList.add('d-none');
         });
         suggestions.append(li);
@@ -48,4 +48,4 @@ eventAutocomplete.input.addEventListener('keyup', (event) => {
   }
 });
 
-export default eventAutocomplete;
+export default blackAutocomplete;
