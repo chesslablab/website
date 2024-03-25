@@ -8,6 +8,7 @@ const topOpeningsModal = {
   form: document.querySelector('#topOpeningsModal form'),
   mount: (res) => {
     const winRateForWhiteChart = document.getElementById('winRateForWhiteChart');
+
     new Chart(winRateForWhiteChart, {
       type: 'bar',
       data: {
@@ -15,6 +16,27 @@ const topOpeningsModal = {
         datasets: [{
           label: 'Win Rate for White',
           data: res.winRateForWhite.map(value => value.total),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const drawRateChart = document.getElementById('drawRateChart');
+
+    new Chart(drawRateChart, {
+      type: 'bar',
+      data: {
+        labels: res.drawRate.map(value => value.ECO),
+        datasets: [{
+          label: 'Draw Rate',
+          data: res.drawRate.map(value => value.total),
           borderWidth: 1
         }]
       },
