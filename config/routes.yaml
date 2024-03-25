@@ -33,6 +33,11 @@ pages_database_search_games:
     controller: App\Controller\Pages\Database\SearchGamesController::index
     methods:    GET
 
+pages_database_top_openings:
+    path:       /database/top-openings
+    controller: App\Controller\Pages\Database\TopOpeningsController::index
+    methods:    GET
+
 pages_openings_eco_code:
     path:       /openings/eco-code
     controller: App\Controller\Pages\Openings\EcoCodeController::index
