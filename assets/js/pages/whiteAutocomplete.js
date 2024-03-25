@@ -9,8 +9,8 @@ whiteAutocomplete.input.addEventListener('change', (event) => {
 });
 
 whiteAutocomplete.input.addEventListener('keyup', (event) => {
-  const submitButton = document.querySelector('#searchGamesModal form button[type="submit"]');
-  const loadingButton = document.querySelector('#searchGamesModal form button[type="button"]');
+  const submitButton = document.querySelector('button.autocomplete[type="submit"]');
+  const loadingButton = document.querySelector('button.autocomplete[type="button"]');
   const suggestions = document.querySelector('input[name="White"] + ul');
   if (event.target.value.length % 3 === 0) {
     submitButton.classList.add('d-none');
