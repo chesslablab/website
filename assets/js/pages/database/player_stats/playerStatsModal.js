@@ -9,16 +9,16 @@ import * as env from '../../../../env.js';
 
 Chart.register(...registerables);
 
-const playersStatsModal = {
-  modal: new Modal(document.getElementById('playersStatsModal')),
-  form: document.querySelector('#playersStatsModal form')
+const playerStatsModal = {
+  modal: new Modal(document.getElementById('playerStatsModal')),
+  form: document.querySelector('#playerStatsModal form')
 }
 
-playersStatsModal.form.addEventListener('submit', event => {
+playerStatsModal.form.addEventListener('submit', event => {
   event.preventDefault();
   progressModal.modal.show();
-  const formData = new FormData(playersStatsModal.form);
-  const playersStatsChart = document.getElementById('playersStatsChart');
+  const formData = new FormData(playerStatsModal.form);
+  const playerStatsChart = document.getElementById('playerStatsChart');
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
     method: 'POST',
     headers: {
@@ -32,11 +32,11 @@ playersStatsModal.form.addEventListener('submit', event => {
   })
   .then(res => res.json())
   .then(res => {
-    while (playersStatsChart.firstChild) {
-      playersStatsChart.removeChild(playersStatsChart.firstChild);
+    while (playerStatsChart.firstChild) {
+      playerStatsChart.removeChild(playerStatsChart.firstChild);
     }
     const canvas = document.createElement('canvas');
-    playersStatsChart.appendChild(canvas);
+    playerStatsChart.appendChild(canvas);
     new Chart(canvas, {
       type: 'bar',
       data: {
@@ -75,4 +75,4 @@ playersStatsModal.form.addEventListener('submit', event => {
   });
 });
 
-export default playersStatsModal;
+export default playerStatsModal;

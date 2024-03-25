@@ -38,9 +38,9 @@ pages_database_top_openings:
     controller: App\Controller\Pages\Database\TopOpeningsController::index
     methods:    GET
 
-pages_database_players_stats:
-    path:       /database/players-stats
-    controller: App\Controller\Pages\Database\PlayersStatsController::index
+pages_database_player_stats:
+    path:       /database/player-stats
+    controller: App\Controller\Pages\Database\PlayerStatsController::index
     methods:    GET
 
 pages_openings_eco_code:

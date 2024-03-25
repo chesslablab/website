@@ -5,12 +5,12 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-6">
-    {% include 'pages/database/players_stats_modal.html.twig' %}
+    {% include 'pages/database/player_stats_modal.html.twig' %}
     {% include 'partial/common/panel/san.html.twig' %}
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/database/players_stats/index.js') }}
+      {{ importmap('js/pages/database/player_stats/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}
