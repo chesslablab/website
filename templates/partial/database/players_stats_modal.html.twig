@@ -1,0 +1,40 @@
+<div class="modal fade" id="playersStatsModal" tabindex="-1" aria-labelledby="playersStatsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playersStatsModalLabel">Players Stats</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <input type="text" name="White" class="form-control" placeholder="White">
+              <ul></ul>
+            </div>
+            <div class="col-md-4 mb-3">
+              <input type="text" name="Black" class="form-control" placeholder="Black">
+              <ul></ul>
+            </div>
+            <div class="col-md-4 mb-3">
+              <select name="Result" class="form-select" aria-label="Result" required>
+                <option value="">Result</option>
+                <option value="1-0">1-0</option>
+                <option value="1/2-1/2">1/2-1/2</option>
+                <option value="0-1">0-1</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-secondary w-100">Search</button>
+          <button type="button" class="btn btn-secondary w-100 d-none" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            <span class="sr-only">Loading...</span>
+          </button>
+          <table class="table table-light table-hover mt-2">
+            <tbody></tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
