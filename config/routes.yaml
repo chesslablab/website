@@ -38,6 +38,11 @@ pages_database_top_openings:
     controller: App\Controller\Pages\Database\TopOpeningsController::index
     methods:    GET
 
+pages_database_players_stats:
+    path:       /database/players-stats
+    controller: App\Controller\Pages\Database\PlayersStatsController::index
+    methods:    GET
+
 pages_openings_eco_code:
     path:       /openings/eco-code
     controller: App\Controller\Pages\Openings\EcoCodeController::index
