@@ -3,33 +3,29 @@ import Modal from 'bootstrap/js/dist/modal.js';
 
 Chart.register(...registerables);
 
-const winRateForWhite = document.getElementById('winRateForWhiteChart');
-
 const topOpeningsModal = {
   modal: new Modal(document.getElementById('topOpeningsModal')),
   form: document.querySelector('#topOpeningsModal form'),
   mount: (res) => {
-
-    const ctx = document.getElementById('winRateForWhiteChart');
-
-     new Chart(ctx, {
-       type: 'bar',
-       data: {
-         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-         datasets: [{
-           label: '# of Votes',
-           data: [12, 19, 3, 5, 2, 3],
-           borderWidth: 1
-         }]
-       },
-       options: {
-         scales: {
-           y: {
-             beginAtZero: true
-           }
-         }
-       }
-     });
+    const winRateForWhiteChart = document.getElementById('winRateForWhiteChart');
+    new Chart(winRateForWhiteChart, {
+      type: 'bar',
+      data: {
+        labels: res.winRateForWhite.map(value => value.ECO),
+        datasets: [{
+          label: 'Win Rate for White',
+          data: res.winRateForWhite.map(value => value.total),
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
   }
 }
 
