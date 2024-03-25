@@ -32,7 +32,12 @@ playersStatsModal.form.addEventListener('submit', event => {
   })
   .then(res => res.json())
   .then(res => {
-    new Chart(playersStatsChart, {
+    while (playersStatsChart.firstChild) {
+      playersStatsChart.removeChild(playersStatsChart.firstChild);
+    }
+    const canvas = document.createElement('canvas');
+    playersStatsChart.appendChild(canvas);
+    new Chart(canvas, {
       type: 'bar',
       data: {
         labels: res.map(value => value.ECO),
@@ -41,7 +46,6 @@ playersStatsModal.form.addEventListener('submit', event => {
         }]
       },
       options: {
-        animation: false,
         plugins: {
           legend: {
             display: false
@@ -67,7 +71,6 @@ playersStatsModal.form.addEventListener('submit', event => {
     // TODO
   })
   .finally(() => {
-    playersStatsChart.classList.remove('d-none');
     progressModal.modal.hide();
   });
 });
