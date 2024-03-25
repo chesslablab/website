@@ -15,13 +15,23 @@ const topOpeningsModal = {
         datasets: [{
           label: 'Win Rate for White',
           data: res.winRateForWhite.map(value => value.total),
-          borderWidth: 1
+          backgroundColor: '#f5f5f5',
+          borderColor: '#404040',
+          borderWidth: 2
         }]
       },
       options: {
         scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            grid: {
+              display: false
+            }
           }
         }
       }
@@ -34,13 +44,21 @@ const topOpeningsModal = {
         datasets: [{
           label: 'Draw Rate',
           data: res.drawRate.map(value => value.total),
-          borderWidth: 1
+          backgroundColor: '#888888'
         }]
       },
       options: {
         scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            grid: {
+              display: false
+            }
           }
         }
       }
@@ -53,13 +71,23 @@ const topOpeningsModal = {
         datasets: [{
           label: 'Win Rate for Black',
           data: res.winRateForBlack.map(value => value.total),
-          borderWidth: 1
+          backgroundColor: '#404040',
+          borderColor: '#202020',
+          borderWidth: 2
         }]
       },
       options: {
         scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            grid: {
+              display: false
+            }
           }
         }
       }
