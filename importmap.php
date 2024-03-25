@@ -66,6 +66,10 @@ return [
         'path' => './assets/js/pages/database/top_openings/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/database/player_stats/index.js' => [
+        'path' => './assets/js/pages/database/player_stats/index.js',
+        'entrypoint' => true,
+    ],
     '@chesslablab/cmblab' => [
         'version' => '0.0.1',
     ],
