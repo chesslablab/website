@@ -10,6 +10,8 @@ import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
+const N_BARS = 25;
+
 const playerStatsModal = {
   modal: new Modal(document.getElementById('playerStatsModal')),
   form: document.querySelector('#playerStatsModal form')
@@ -78,9 +80,9 @@ playerStatsModal.form.addEventListener('submit', event => {
     const chart = new Chart(canvas, {
       type: 'bar',
       data: {
-        labels: res.map(value => value.ECO),
+        labels: res.map(value => value.ECO).slice(0, N_BARS),
         datasets: [{
-          data: res.map(value => value.total)
+          data: res.map(value => value.total).slice(0, N_BARS)
         }]
       },
       options: {

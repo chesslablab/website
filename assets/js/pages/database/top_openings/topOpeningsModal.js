@@ -8,6 +8,8 @@ import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
+const N_BARS = 25;
+
 const handleBarClick = (event, clickedElements) => {
   progressModal.modal.show();
   if (clickedElements.length === 0) {
@@ -68,13 +70,13 @@ const topOpeningsModal = {
   form: document.querySelector('#topOpeningsModal form'),
   mount: (res) => {
     const winRateForWhiteChart = document.getElementById('winRateForWhiteChart');
-    const chart = new Chart(winRateForWhiteChart, {
+    new Chart(winRateForWhiteChart, {
       type: 'bar',
       data: {
-        labels: res.winRateForWhite.map(value => value.ECO),
+        labels: res.winRateForWhite.map(value => value.ECO).slice(0, N_BARS),
         datasets: [{
           label: '1-0',
-          data: res.winRateForWhite.map(value => value.total),
+          data: res.winRateForWhite.map(value => value.total).slice(0, N_BARS),
           backgroundColor: '#f5f5f5',
           borderColor: '#404040',
           borderWidth: 2
@@ -87,10 +89,10 @@ const topOpeningsModal = {
     new Chart(drawRateChart, {
       type: 'bar',
       data: {
-        labels: res.drawRate.map(value => value.ECO),
+        labels: res.drawRate.map(value => value.ECO).slice(0, N_BARS),
         datasets: [{
           label: '1/2-1/2',
-          data: res.drawRate.map(value => value.total),
+          data: res.drawRate.map(value => value.total).slice(0, N_BARS),
           backgroundColor: '#888888'
         }]
       },
@@ -101,10 +103,10 @@ const topOpeningsModal = {
     new Chart(winRateForBlackChart, {
       type: 'bar',
       data: {
-        labels: res.winRateForBlack.map(value => value.ECO),
+        labels: res.winRateForBlack.map(value => value.ECO).slice(0, N_BARS),
         datasets: [{
           label: '0-1',
-          data: res.winRateForBlack.map(value => value.total),
+          data: res.winRateForBlack.map(value => value.total).slice(0, N_BARS),
           backgroundColor: '#404040',
           borderColor: '#202020',
           borderWidth: 2
