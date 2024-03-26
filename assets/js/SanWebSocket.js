@@ -5,7 +5,7 @@ import gameStudyDropdown from './pages/gameStudyDropdown.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
-import startedButtons from './pages/startedButtons.js';
+import sanPanel from './pages/sanPanel.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
@@ -36,7 +36,8 @@ export default class SanWebSocket {
       this.send(`/tutor_fen "${sanMovesTable.props.fen[sanMovesTable.current]}" ${variant.CLASSICAL}`);
     });
 
-    startedButtons.addEventListener('click', () => {
+    sanPanel.querySelector('#gameActionsDropdown ul').children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
       this.send('/undo');
     });
 

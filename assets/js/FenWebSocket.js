@@ -1,11 +1,11 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
 import explainPositionModal from './pages/explainPositionModal.js';
+import fenPanel from './pages/fenPanel.js';
 import gameStudyDropdown from './pages/gameStudyDropdown.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
-import startedButtons from './pages/startedButtons.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
@@ -36,7 +36,8 @@ export default class FenWebSocket {
       this.send(`/tutor_fen "${sanMovesTable.props.fen[sanMovesTable.current]}" ${variant.CLASSICAL}`);
     });
 
-    startedButtons.addEventListener('click', () => {
+    fenPanel.querySelector('#gameActionsDropdown ul').children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
       this.send('/undo');
     });
 
