@@ -42,6 +42,27 @@ const handleBarClick = (event, clickedElements) => {
   });
 }
 
+const options = {
+  animation: false,
+  onHover: function(event, el) {
+    event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
+  },
+  onClick: handleBarClick,
+  scales: {
+    x: {
+      grid: {
+        display: false
+      }
+    },
+    y: {
+      beginAtZero: true,
+      grid: {
+        display: false
+      }
+    }
+  }
+}
+
 const topOpeningsModal = {
   modal: new Modal(document.getElementById('topOpeningsModal')),
   form: document.querySelector('#topOpeningsModal form'),
@@ -59,26 +80,7 @@ const topOpeningsModal = {
           borderWidth: 2
         }]
       },
-      options: {
-        animation: false,
-        onHover: function(event, el) {
-          event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
-        },
-        onClick: handleBarClick,
-        scales: {
-          x: {
-            grid: {
-              display: false
-            }
-          },
-          y: {
-            beginAtZero: true,
-            grid: {
-              display: false
-            }
-          }
-        }
-      }
+      options: options
     });
 
     const drawRateChart = document.getElementById('drawRateChart');
@@ -92,26 +94,7 @@ const topOpeningsModal = {
           backgroundColor: '#888888'
         }]
       },
-      options: {
-        animation: false,
-        onHover: function(event, el) {
-          event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
-        },
-        onClick: handleBarClick,
-        scales: {
-          x: {
-            grid: {
-              display: false
-            }
-          },
-          y: {
-            beginAtZero: true,
-            grid: {
-              display: false
-            }
-          }
-        }
-      }
+      options: options
     });
 
     const winRateForBlackChart = document.getElementById('winRateForBlackChart');
@@ -127,26 +110,7 @@ const topOpeningsModal = {
           borderWidth: 2
         }]
       },
-      options: {
-        animation: false,
-        onHover: function(event, el) {
-          event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
-        },
-        onClick: handleBarClick,
-        scales: {
-          x: {
-            grid: {
-              display: false
-            }
-          },
-          y: {
-            beginAtZero: true,
-            grid: {
-              display: false
-            }
-          }
-        }
-      }
+      options: options
     });
   }
 }
