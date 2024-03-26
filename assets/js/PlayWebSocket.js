@@ -1,6 +1,7 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
+import gameActionsDropdown from './pages/gameActionsDropdown.js';
 import infoModal from './pages/infoModal.js';
 import progressModal from './pages/progressModal.js';
 import sanMovesTable from './pages/sanMovesTable.js';
@@ -14,7 +15,6 @@ import onlinePlayersCard from './pages/play/online/onlinePlayersCard.js';
 import rematchModal from './pages/play/online/rematchModal.js';
 import takebackModal from './pages/play/online/takebackModal.js';
 import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
-import playPanel from './pages/playPanel.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -42,7 +42,7 @@ export default class PlayWebSocket {
       }
     });
 
-    playPanel.querySelector('#gameActionsDropdown ul').children.item(0).addEventListener('click', (event) => {
+    gameActionsDropdown.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
@@ -50,7 +50,7 @@ export default class PlayWebSocket {
       infoModal.modal.show();
     });
 
-    playPanel.querySelector('#gameActionsDropdown ul').children.item(1).addEventListener('click', (event) => {
+    gameActionsDropdown.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
@@ -58,7 +58,7 @@ export default class PlayWebSocket {
       infoModal.modal.show();
     });
 
-    playPanel.querySelector('#gameActionsDropdown ul').children.item(2).addEventListener('click', (event) => {
+    gameActionsDropdown.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
     });
@@ -180,7 +180,7 @@ export default class PlayWebSocket {
               this._timerTableInterval = timerTableInterval();
               friendButtons.childNodes.forEach(child => child.disabled = true);
               onlinePlayersCard.card.classList.add('d-none');
-              playPanel.classList.remove('d-none');
+              gameActionsDropdown.parentNode.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
             }
             break;
@@ -261,7 +261,8 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
-              playPanel.querySelector('#gameActionsDropdown').classList.remove('d-none');
+              friendButtons.childNodes.forEach(child => child.disabled = true);
+              gameActionsDropdown.parentNode.classList.remove('d-none');
               finishedButtons.classList.add('d-none');
             }
             break;
@@ -295,7 +296,7 @@ export default class PlayWebSocket {
 
   _end() {
     friendButtons.childNodes.forEach(child => child.disabled = false);
-    playPanel.querySelector('#gameActionsDropdown').classList.add('d-none');
+    gameActionsDropdown.parentNode.classList.add('d-none');
     finishedButtons.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;

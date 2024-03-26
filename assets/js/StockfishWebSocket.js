@@ -1,9 +1,9 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
+import gameActionsDropdown from './pages/gameActionsDropdown.js';
 import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
 import sanMovesTable from './pages/sanMovesTable.js';
-import stockfishPanel from './pages/stockfishPanel.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
@@ -28,7 +28,7 @@ export default class StockfishWebSocket {
       }
     });
 
-    stockfishPanel.querySelector('#gameActionsDropdown ul').children.item(0).addEventListener('click', (event) => {
+    gameActionsDropdown.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
       this.send('/undo');
