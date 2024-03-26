@@ -3,7 +3,7 @@ import chessboard from './pages/chessboard.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import openingTable from './pages/openingTable.js';
 import progressModal from './pages/progressModal.js';
-import startedButtons from './pages/startedButtons.js';
+import gameActionsDropdown from './pages/play/computer/gameActionsDropdown.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
@@ -28,7 +28,7 @@ export default class StockfishWebSocket {
       }
     });
 
-    startedButtons.addEventListener('click', () => {
+    gameActionsDropdown.children.item(1).addEventListener('click', () => {
       this.send('/undo');
       this.send('/undo');
     });
