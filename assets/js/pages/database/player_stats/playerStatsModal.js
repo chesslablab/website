@@ -82,11 +82,18 @@ playerStatsModal.form.addEventListener('submit', event => {
       data: {
         labels: res.map(value => value.ECO).slice(0, N_BARS),
         datasets: [{
-          data: res.map(value => value.total).slice(0, N_BARS)
+          data: res.map(value => value.total).slice(0, N_BARS),
+          backgroundColor: formData.get('Result') === '1-0'
+            ? '#c0c0c0'
+            : formData.get('Result') === '1/2-1/2'
+            ? '#888888'
+            : '#404040'
         }]
       },
       options: {
         animation: false,
+        categoryPercentage: 1.0,
+        barPercentage: 1.0,
         onHover: function(event, el) {
           event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
         },

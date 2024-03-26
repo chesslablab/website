@@ -46,6 +46,8 @@ const handleBarClick = (event, clickedElements) => {
 
 const options = {
   animation: false,
+  categoryPercentage: 1.0,
+  barPercentage: 1.0,
   onHover: function(event, el) {
     event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
   },
@@ -77,9 +79,7 @@ const topOpeningsModal = {
         datasets: [{
           label: '1-0',
           data: res.winRateForWhite.map(value => value.total).slice(0, N_BARS),
-          backgroundColor: '#f5f5f5',
-          borderColor: '#404040',
-          borderWidth: 2
+          backgroundColor: '#c0c0c0'
         }]
       },
       options: options
@@ -107,9 +107,7 @@ const topOpeningsModal = {
         datasets: [{
           label: '0-1',
           data: res.winRateForBlack.map(value => value.total).slice(0, N_BARS),
-          backgroundColor: '#404040',
-          borderColor: '#202020',
-          borderWidth: 2
+          backgroundColor: '#404040'
         }]
       },
       options: options
