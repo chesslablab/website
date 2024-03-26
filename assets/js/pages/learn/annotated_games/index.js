@@ -1,6 +1,6 @@
 import chessboard from './chessboard.js';
 import databaseAnnotatedGames from './databaseAnnotatedGames.js';
-import gameActionsDropdown from './gameActionsDropdown.js';
+import boardActionsDropdown from './boardActionsDropdown.js';
 import historyButtons from './historyButtons.js';
 import ravMovesTable from './ravMovesTable.js';
 import movesMetadataTable from '../../../pages/movesMetadataTable.js';

@@ -1,11 +1,11 @@
-import { GameActionsDropdown } from '@chesslablab/jsblab';
+import { BoardActionsDropdown } from '@chesslablab/jsblab';
 import ravMovesTable from './ravMovesTable.js';
 
-const gameActionsDropdown = new GameActionsDropdown(
-  document.querySelector('#gameActionsDropdown ul'),
+const boardActionsDropdown = new BoardActionsDropdown(
+  document.querySelector('#boardActionsDropdown ul'),
   {
     movesTable: ravMovesTable
   }
 );
 
-export default gameActionsDropdown;
+export default boardActionsDropdown;
