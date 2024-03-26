@@ -92,7 +92,4 @@ return [
     'jwt-decode' => [
         'version' => '4.0.0',
     ],
-    'fuse.js' => [
-        'version' => '7.0.0',
-    ],
 ];
