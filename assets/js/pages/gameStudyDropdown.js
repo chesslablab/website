@@ -43,6 +43,7 @@ gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
 gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
   progressModal.modal.show();
+  const back = (sanMovesTable.props.fen.length - sanMovesTable.current - 1) * -1;
   await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/mp4`, {
     method: 'POST',
     headers: {
@@ -50,7 +51,7 @@ gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
     },
     body: JSON.stringify({
       variant: chessboard.props.variant,
-      movetext: sanMovesTable.props.movetext,
+      movetext: Movetext.substring(sanMovesTable.props.movetext, back),
       flip: chessboard.getOrientation(),
       ...(chessboard.props.variant === variant.CHESS_960) && {startPos: chessboard.props.startPos},
       ...(chessboard.props.variant === variant.CAPABLANCA_FISCHER) && {startPos: chessboard.props.startPos}
