@@ -1,8 +1,8 @@
 import * as env from '../../env.js';
 
 const eventAutocomplete = {
-  input: document.querySelector('input[name="Event"]'),
-  datalist: document.querySelector('input[name="Event"] + datalist')
+  input: document.querySelector('input[list="eventAutocompleteList"]'),
+  datalist: document.getElementById('eventAutocompleteList')
 }
 
 eventAutocomplete.input.addEventListener('keyup', (event) => {
