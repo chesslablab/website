@@ -1,4 +1,4 @@
-import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
 import gameActionsDropdown from './pages/gameActionsDropdown.js';
 import openingTable from './pages/openingTable.js';
@@ -57,14 +57,18 @@ export default class StockfishWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start'].fen) {
-              chessboard.setPosition(data['/start'].fen, true);
+            chessboard.setPosition(data['/start'].fen, true);
+            if (FEN.start.startsWith(data['/start'].fen)) {
               if (data['/start'].color === COLOR.black) {
                 chessboard.setOrientation(COLOR.black);
+                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             } else {
               if (data['/start'].color === COLOR.black) {
                 chessboard.setOrientation(COLOR.black);
+              }
+              const turn = data['/start'].fen.split(' ')[1];
+              if (turn !== data['/start'].color) {
                 this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             }
