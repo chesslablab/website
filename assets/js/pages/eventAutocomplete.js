@@ -2,28 +2,13 @@ import * as env from '../../env.js';
 
 const eventAutocomplete = {
   input: document.querySelector('input[name="Event"]'),
-  ul: document.querySelector('input[name="Event"] + ul')
+  datalist: document.querySelector('input[name="Event"] + datalist')
 }
-
-eventAutocomplete.input.addEventListener('focusin', (event) => {
-  event.preventDefault();
-  eventAutocomplete.ul.classList.remove('invisible');
-});
-
-eventAutocomplete.ul.addEventListener('focusout', (event) => {
-  event.preventDefault();
-  eventAutocomplete.ul.classList.add('invisible');
-});
-
-eventAutocomplete.input.addEventListener('change', (event) => {
-  event.preventDefault();
-  eventAutocomplete.input.value = event.target.value;
-});
 
 eventAutocomplete.input.addEventListener('keyup', (event) => {
   event.preventDefault();
-  const submitButton = document.querySelector('#searchGamesModal form button[type="submit"]');
-  const loadingButton = document.querySelector('#searchGamesModal form button[type="button"]');
+  const submitButton = document.querySelector('button.autocomplete[type="submit"]');
+  const loadingButton = document.querySelector('button.autocomplete[type="button"]');
   if (event.target.value.length % 3 === 0) {
     submitButton.classList.add('d-none');
     loadingButton.classList.remove('d-none');
@@ -38,17 +23,15 @@ eventAutocomplete.input.addEventListener('keyup', (event) => {
     })
     .then(res => res.json())
     .then(res => {
-      eventAutocomplete.ul.classList.remove('invisible');
-      eventAutocomplete.ul.replaceChildren();
+      eventAutocomplete.datalist.replaceChildren();
       res.forEach(item => {
-        const li = document.createElement('li');
-        li.appendChild(document.createTextNode(item));
-        li.addEventListener('click', (event) => {
+        const option = document.createElement('option');
+        option.appendChild(document.createTextNode(item));
+        option.addEventListener('click', (event) => {
           event.preventDefault();
-          document.querySelector('input[name="Event"]').value = item;
-          eventAutocomplete.ul.classList.add('invisible');
+          eventAutocomplete.input.value = item;
         });
-        eventAutocomplete.ul.append(li);
+        eventAutocomplete.datalist.append(option);
       });
     })
     .catch(error => {
