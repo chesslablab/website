@@ -58,6 +58,7 @@ export default class StockfishWebSocket {
 
           case '/start' === msg:
             if (data['/start'].fen) {
+              chessboard.setPosition(data['/start'].fen, true);
               if (data['/start'].color === COLOR.black) {
                 chessboard.setOrientation(COLOR.black);
               }
