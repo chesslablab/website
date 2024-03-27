@@ -58,19 +58,11 @@ export default class StockfishWebSocket {
 
           case '/start' === msg:
             chessboard.setPosition(data['/start'].fen, true);
-            if (FEN.start.startsWith(data['/start'].fen)) {
-              if (data['/start'].color === COLOR.black) {
-                chessboard.setOrientation(COLOR.black);
-                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
-              }
-            } else {
-              if (data['/start'].color === COLOR.black) {
-                chessboard.setOrientation(COLOR.black);
-              }
-              const turn = data['/start'].fen.split(' ')[1];
-              if (turn !== data['/start'].color) {
-                this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
-              }
+            if (data['/start'].color === COLOR.black) {
+              chessboard.setOrientation(COLOR.black);
+            }
+            if (data['/start'].fen.split(' ')[1] !== data['/start'].color) {
+              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
