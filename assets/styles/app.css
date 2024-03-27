@@ -148,10 +148,6 @@ div.table-responsive:has(#sanMovesTable) {
   margin: 0;
 }
 
-#searchGamesModal ul {
-  z-index: 1050;
-}
-
 #progressModal {
   z-index: 1080;
 }
