@@ -43,6 +43,11 @@ pages_database_player_stats:
     controller: App\Controller\Pages\Database\PlayerStatsController::index
     methods:    GET
 
+pages_database_event_stats:
+    path:       /database/event-stats
+    controller: App\Controller\Pages\Database\EventStatsController::index
+    methods:    GET
+
 pages_openings_eco_code:
     path:       /openings/eco-code
     controller: App\Controller\Pages\Openings\EcoCodeController::index
