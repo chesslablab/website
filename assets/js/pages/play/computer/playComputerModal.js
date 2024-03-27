@@ -24,7 +24,11 @@ playComputerModal.form.addEventListener('submit', event => {
     localStorage.setItem('skillLevel', 6);
     localStorage.setItem('depth', 2);
   }
-  ws.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} ${formData.get('color')}`);
+  const add = {
+    ...(formData.get('color') && {color: formData.get('color')}),
+    ...(formData.get('fen') && {fen: formData.get('fen')})
+  };
+  ws.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playComputerModal.modal.hide();
 });
 
