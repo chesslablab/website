@@ -73,14 +73,18 @@ export default class StockfishWebSocket {
             break;
 
           case '/play_lan' === msg:
-            chessboard.setPosition(data['/play_lan'].fen, true);
-            sanMovesTable.current = sanMovesTable.props.fen.length;
-            sanMovesTable.props.movetext = data['/play_lan'].movetext;
-            sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
-            sanMovesTable.mount();
-            openingTable.props.movetext = data['/play_lan'].movetext;
-            openingTable.mount();
-            this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+            if (data['/play_lan'].fen !== sanMovesTable.props.fen[sanMovesTable.current]) {
+              chessboard.setPosition(data['/play_lan'].fen, true);
+              sanMovesTable.current = sanMovesTable.props.fen.length;
+              sanMovesTable.props.movetext = data['/play_lan'].movetext;
+              sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
+              sanMovesTable.mount();
+              openingTable.props.movetext = data['/play_lan'].movetext;
+              openingTable.mount();
+              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+            } else {
+              chessboard.setPosition(data['/play_lan'].fen, false);
+            }
             break;
 
           case '/undo' === msg:
