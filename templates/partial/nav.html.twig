@@ -5,7 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Play
@@ -113,6 +113,10 @@
           </ul>
         </li>
       </ul>
+      <form class="d-flex flex-row-reverse">
+        <button id="logout" class="btn btn-dark d-none" type="submit">Log Out</button>
+        <button id="login" class="btn btn-dark" type="submit">Log In</button>
+      </form>
     </div>
   </div>
 </nav>

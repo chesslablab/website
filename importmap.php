@@ -96,4 +96,7 @@ return [
     'jwt-decode' => [
         'version' => '4.0.0',
     ],
+    '@auth0/auth0-spa-js' => [
+        'version' => '2.1.3',
+    ],
 ];
