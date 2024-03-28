@@ -80,7 +80,7 @@ export default class FenWebSocket {
             break;
 
           case '/play_lan' === msg:
-            if (data['/play_lan'].fen !== sanMovesTable.props.fen[sanMovesTable.current]) {
+            if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               sanMovesTable.current = sanMovesTable.props.fen.length;
               sanMovesTable.props.movetext = data['/play_lan'].movetext;
