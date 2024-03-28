@@ -1,8 +1,9 @@
 import { createAuth0Client } from '@auth0/auth0-spa-js';
+import * as env from '../env.js';
 
 createAuth0Client({
-  domain: "dev-ufbne4364ruvn4ru.eu.auth0.com",
-  clientId: "Rx7tXv7eJyUj1bfzOYfuR1C6Strr9pm2",
+  domain: env.AUTH0_DOMAIN,
+  clientId: env.AUTH0_CLIENT_ID,
   authorizationParams: {
     redirect_uri: window.location.origin
   }

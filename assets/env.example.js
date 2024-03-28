@@ -4,6 +4,9 @@ const API_PORT = '443';
 const API_VERSION = 'v1';
 const API_KEY = '\$2y\$04\$k31GoY4Zgq\/xAFiQO5H63.C.TrOgjc72CZgOEonWhYhhTvhrHruUm';
 
+const AUTH0_DOMAIN = 'dev-ufbne4364ruvn4ru.eu.auth0.com';
+const AUTH0_CLIENT_ID = 'Rx7tXv7eJyUj1bfzOYfuR1C6Strr9pm2';
+
 const WEBSOCKET_SCHEME = 'wss';
 const WEBSOCKET_HOST = 'async.chesslablab.org';
 const WEBSOCKET_PORT = '8443';
@@ -14,6 +17,8 @@ export {
   API_PORT,
   API_VERSION,
   API_KEY,
+  AUTH0_DOMAIN,
+  AUTH0_CLIENT_ID,
   WEBSOCKET_SCHEME,
   WEBSOCKET_HOST,
   WEBSOCKET_PORT
