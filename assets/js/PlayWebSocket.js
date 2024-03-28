@@ -131,12 +131,12 @@ export default class PlayWebSocket {
               sanMovesTable.props.movetext = data['/play_lan'].movetext;
               sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
               sanMovesTable.mount();
+              this._toggleInput(data['/play_lan'].turn);
               timerTable.props = {
                 turn: data['/play_lan'].turn,
                 w: data['/play_lan'].timer.w,
                 b: data['/play_lan'].timer.b
               };
-              this._toggleInput(data['/play_lan'].turn);
               if (data['/play_lan'].isMate) {
                 this._end();
               }
