@@ -99,4 +99,7 @@ return [
     '@auth0/auth0-spa-js' => [
         'version' => '2.1.3',
     ],
+    'js-cookie' => [
+        'version' => '3.0.5',
+    ],
 ];
