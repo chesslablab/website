@@ -33,10 +33,8 @@ createAuth0Client({
   const isAuthenticated = await auth0Client.isAuthenticated();
 
   if (isAuthenticated) {
-    loginButton.classList.add('d-none');
     logoutButton.classList.remove('d-none');
   } else {
     loginButton.classList.remove('d-none');
-    logoutButton.classList.add('d-none');
   }
 });
