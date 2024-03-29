@@ -1,40 +1,39 @@
 import { createAuth0Client } from '@auth0/auth0-spa-js';
+import Cookies from 'js-cookie';
 import * as env from '../env.js';
 
-createAuth0Client({
-  domain: env.AUTH0_DOMAIN,
-  clientId: env.AUTH0_CLIENT_ID,
-  authorizationParams: {
-    redirect_uri: window.location.origin
-  }
-}).then(async (auth0Client) => {
+const loginButton = document.getElementById("login");
 
-  const loginButton = document.getElementById("login");
+const logoutButton = document.getElementById("logout");
 
-  loginButton.addEventListener("click", (e) => {
+if (Cookies.get(`auth0.${env.AUTH0_CLIENT_ID}.is.authenticated`)) {
+  logoutButton.classList.remove('d-none');
+  logoutButton.addEventListener('click', (e) => {
     e.preventDefault();
-    auth0Client.loginWithRedirect();
+    createAuth0Client({
+      domain: env.AUTH0_DOMAIN,
+      clientId: env.AUTH0_CLIENT_ID,
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }).then(async (auth0Client) => {
+      auth0Client.logout();
+    });
   });
 
-  if (location.search.includes("state=") &&
-      (location.search.includes("code=") ||
-      location.search.includes("error="))) {
-    await auth0Client.handleRedirectCallback();
-    window.history.replaceState({}, document.title, "/");
-  }
-
-  const logoutButton = document.getElementById("logout");
-
-  logoutButton.addEventListener("click", (e) => {
+} else {
+  loginButton.classList.remove('d-none');
+  loginButton.addEventListener('click', (e) => {
     e.preventDefault();
-    auth0Client.logout();
+    createAuth0Client({
+      domain: env.AUTH0_DOMAIN,
+      clientId: env.AUTH0_CLIENT_ID,
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }).then(async (auth0Client) => {
+      await auth0Client.loginWithPopup();
+      window.location.href = window.location.origin;
+    });
   });
-
-  const isAuthenticated = await auth0Client.isAuthenticated();
-
-  if (isAuthenticated) {
-    logoutButton.classList.remove('d-none');
-  } else {
-    loginButton.classList.remove('d-none');
-  }
-});
+}
