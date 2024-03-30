@@ -8,17 +8,15 @@ createAuth0Client({
 }).then(async (auth0Client) => {
   const loginButton = document.getElementById('login');
 
-  loginButton.addEventListener('click', (event) => {
+  loginButton.addEventListener('click', async (event) => {
     event.preventDefault();
-    auth0Client.loginWithPopup().then(() => {
-      auth0Client.getUser().then((user) => {
-        if (user.email_verified === false) {
-          alert("Please verify your email. You're almost there! Just click on the link on the verification email we sent you to complete your signup.");
-        } else {
-          window.location.href = window.location.origin;
-        }
-      });
-    });
+    await auth0Client.loginWithPopup();
+    const user = await auth0Client.getUser();
+    if (user.email_verified === false) {
+      alert("Please verify your email. You're almost there! Just click on the link on the verification email we sent you to complete your signup.");
+    } else {
+      window.location.href = window.location.origin;
+    }
   });
 
   const logoutButton = document.getElementById('logout');
