@@ -1,4 +1,5 @@
 import { createAuth0Client } from '@auth0/auth0-spa-js';
+import settingsModal from './settingsModal.js';
 import * as env from '../../env.js';
 
 const auth0Client = await createAuth0Client({
@@ -37,7 +38,7 @@ myChesslaBlabDropdown.children.item(0).addEventListener('click',  async (event) 
 
 myChesslaBlabDropdown.children.item(1).addEventListener('click', (event) => {
   event.preventDefault();
-  console.log('TODO');
+  settingsModal.modal.show();
 });
 
 myChesslaBlabDropdown.children.item(2).addEventListener('click', (event) => {
