@@ -44,3 +44,5 @@ myChesslaBlabDropdown.children.item(2).addEventListener('click', (event) => {
   event.preventDefault();
   auth0Client.logout();
 });
+
+export default myChesslaBlabDropdown;

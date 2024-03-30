@@ -1,5 +1,5 @@
 import searchGamesModal from './searchGamesModal.js';
-import '../../../my_chesslablab/myChesslaBlabDropdown.js';
+import myChesslaBlabDropdown from '../../../my_chesslablab/myChesslaBlabDropdown.js';
 import boardActionsDropdown from '../../../pages/boardActionsDropdown.js';
 import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
