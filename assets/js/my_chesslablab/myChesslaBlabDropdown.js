@@ -1,5 +1,5 @@
 import { createAuth0Client } from '@auth0/auth0-spa-js';
-import * as env from '../env.js';
+import * as env from '../../env.js';
 
 const auth0Client = await createAuth0Client({
   domain: env.AUTH0_DOMAIN,
@@ -33,6 +33,11 @@ ul.children.item(0).addEventListener('click',  async (event) => {
   } else {
     window.location.href = window.location.origin;
   }
+});
+
+ul.children.item(1).addEventListener('click', (event) => {
+  event.preventDefault();
+  console.log('TODO');
 });
 
 ul.children.item(2).addEventListener('click', (event) => {

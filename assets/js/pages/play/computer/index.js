@@ -1,4 +1,5 @@
 import playComputerModal from './playComputerModal.js';
+import '../../../my_chesslablab/myChesslaBlabDropdown.js';
 import boardActionsDropdown from '../../../pages/boardActionsDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
 import ws from '../../../stockfishWs.js';
