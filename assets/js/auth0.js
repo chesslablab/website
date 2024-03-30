@@ -1,32 +1,30 @@
 import { createAuth0Client } from '@auth0/auth0-spa-js';
-import Cookies from 'js-cookie';
 import * as env from '../env.js';
-
-const loginButton = document.getElementById('login');
-
-const logoutButton = document.getElementById('logout');
 
 const auth0Client = await createAuth0Client({
   domain: env.AUTH0_DOMAIN,
   clientId: env.AUTH0_CLIENT_ID
 });
 
+const ul = document.querySelector('#myChesslaBlabDropdown ul');
+
 if (await auth0Client.isAuthenticated()) {
   const user = await auth0Client.getUser();
   if (user.hasOwnProperty('email_verified')) {
     if (user.email_verified === true) {
-      logoutButton.classList.remove('d-none');
+      ul.children.item(1).classList.remove('d-none');
+      ul.children.item(2).classList.remove('d-none');
     } else {
-      loginButton.classList.remove('d-none');
+      ul.children.item(0).classList.remove('d-none');
     }
   } else {
-    logoutButton.classList.remove('d-none');
+    ul.children.item(0).classList.remove('d-none');
   }
 } else {
-  loginButton.classList.remove('d-none');
+  ul.children.item(0).classList.remove('d-none');
 }
 
-loginButton.addEventListener('click', async (event) => {
+ul.children.item(0).addEventListener('click',  async (event) => {
   event.preventDefault();
   await auth0Client.loginWithPopup();
   const user = await auth0Client.getUser();
@@ -37,7 +35,7 @@ loginButton.addEventListener('click', async (event) => {
   }
 });
 
-logoutButton.addEventListener('click', (event) => {
+ul.children.item(2).addEventListener('click', (event) => {
   event.preventDefault();
   auth0Client.logout();
 });
