@@ -3,7 +3,6 @@ import databaseAnnotatedGames from './databaseAnnotatedGames.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
 import historyButtons from './historyButtons.js';
 import ravMovesTable from './ravMovesTable.js';
-import myChesslaBlabDropdown from '../../../my_chesslablab/myChesslaBlabDropdown.js';
 import movesMetadataTable from '../../../pages/movesMetadataTable.js';
 import progressModal from '../../../pages/progressModal.js';
 import * as env from '../../../../env.js';

@@ -4,7 +4,6 @@ import enterInviteCodeModal from './enterInviteCodeModal.js';
 import friendButtons from './friendButtons.js';
 import onlinePlayersCard from './onlinePlayersCard.js';
 import playFriendModal from './playFriendModal.js';
-import myChesslaBlabDropdown from '../../../my_chesslablab/myChesslaBlabDropdown.js';
 import boardActionsDropdown from '../../../pages/boardActionsDropdown.js';
 import chessboard from '../../../pages/chessboard.js';
 import historyButtons from '../../../pages/historyButtons.js';
