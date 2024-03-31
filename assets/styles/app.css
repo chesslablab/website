@@ -32,6 +32,11 @@ footer {
   font-size: 0.85rem;
 }
 
+h5.card-title {
+  font-weight: bold;
+  font-size: 19.5px;
+}
+
 input[type="radio"] {
   visibility: hidden;
 }
