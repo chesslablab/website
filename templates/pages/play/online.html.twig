@@ -1,10 +1,14 @@
 {% extends 'layout/play.html.twig' %}
 
 {% block main %}
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div id="chessboard"></div>
   </div>
   <div class="col-md-3">
+    <div id="friendButtons" class="btn-group-vertical w-100 mb-3">
+      <button class="btn btn-secondary" type="button">Play a Friend</button>
+      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
+    </div>
     <div id="onlinePlayers" class="table-responsive card">
       <div class="card-header text-center">
         Online Players
@@ -25,11 +29,8 @@
     {% include 'pages/play/rematch.html.twig' %}
     {% include 'partial/panel/play.html.twig' %}
   </div>
-  <div class="col-md-3">
-    <div id="friendButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-secondary" type="button">Play a Friend</button>
-      <button class="btn btn-secondary" type="button">Enter Invite Code</button>
-    </div>
+  <div class="col-md-4">
+    <iframe src="https://web.libera.chat/gamja/#chesslablab" style="border:0; width:100%; height:544px"></iframe>
   </div>
   {% block javascripts %}
     {% block importmap %}
