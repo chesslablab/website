@@ -115,9 +115,4 @@ const topOpeningsModal = {
   }
 }
 
-topOpeningsModal.form.addEventListener('submit', event => {
-  event.preventDefault();
-  topOpeningsModal.modal.hide();
-});
-
 export default topOpeningsModal;
