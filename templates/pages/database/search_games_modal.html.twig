@@ -51,13 +51,15 @@
               <input type="text" name="movetext" placeholder="SAN Movetext" class="form-control">
             </div>
           </div>
-          <button type="submit" class="autocomplete btn btn-primary w-100">Search</button>
-          <button type="button" class="autocomplete btn btn-primary w-100 d-none" disabled>
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            <span class="sr-only">Loading...</span>
-          </button>
+          <div class="modal-footer">
+            <button type="submit" class="autocomplete btn btn-primary">Search</button>
+            <button type="button" class="autocomplete btn btn-primary d-none" disabled>
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              <span class="sr-only">Loading...</span>
+            </button>
+          </div>
           <div class="table-responsive">
-            <table class="table table-light table-hover mt-2">
+            <table class="table table-light table-hover">
               <tbody></tbody>
             </table>
           </div>
