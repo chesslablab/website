@@ -11,16 +11,13 @@ const onlinePlayersCard = {
     if (games.length > 0) {
       games.forEach(game => {
         const tr = document.createElement('tr');
-        const minTd = document.createElement('td');
-        const incrementTd = document.createElement('td');
+        const timeTd = document.createElement('td');
         const colorTd = document.createElement('td');
         const variantTd = document.createElement('td');
-        minTd.appendChild(document.createTextNode(game.min));
-        incrementTd.appendChild(document.createTextNode(game.increment));
+        timeTd.appendChild(document.createTextNode(`${game.min} m + ${game.increment} s`));
         colorTd.appendChild(document.createTextNode(game.color));
         variantTd.appendChild(document.createTextNode(game.variant));
-        tr.appendChild(minTd);
-        tr.appendChild(incrementTd);
+        tr.appendChild(timeTd);
         tr.appendChild(colorTd);
         tr.appendChild(variantTd);
         if (localStorage.getItem('hash') !== game.hash) {
@@ -28,8 +25,7 @@ const onlinePlayersCard = {
             ws.send(`/accept ${game.hash}`);
           });
         } else {
-          minTd.style.cursor = 'default';
-          incrementTd.style.cursor = 'default';
+          timeTd.style.cursor = 'default';
           colorTd.style.cursor = 'default';
           variantTd.style.cursor = 'default';
         }
