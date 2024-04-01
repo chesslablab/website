@@ -160,16 +160,16 @@ export default class PlayWebSocket {
           case '/accept' === msg:
             if (data['/accept'].jwt) {
               const jwtDecoded = jwtDecode(data['/accept'].jwt);
-              chessboard.setPosition(jwtDecoded.fen, true);
               const turn = jwtDecoded.fen.split(' ')[1];
+              chessboard.setPosition(jwtDecoded.fen, true);
               if (!localStorage.getItem('color')) {
-                jwtDecoded.color === COLOR.white
-                  ? chessboard.setOrientation(COLOR.black)
-                  : chessboard.setOrientation(COLOR.white);
-                localStorage.setItem(
-                  'color',
-                  localStorage.getItem('color') === COLOR.black ? COLOR.white : COLOR.black
-                );
+                if (jwtDecoded.color === COLOR.white) {
+                  chessboard.setOrientation(COLOR.black);
+                  localStorage.setItem('color', COLOR.black);
+                } else {
+                  chessboard.setOrientation(COLOR.white);
+                  localStorage.setItem('color', COLOR.white);
+                }
               }
               this._toggleInput(turn);
               enterInviteCodeModal.modal.hide();
