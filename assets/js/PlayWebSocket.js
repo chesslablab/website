@@ -277,6 +277,15 @@ export default class PlayWebSocket {
             }
             break;
 
+          case '/leave' === msg:
+            if (data['/leave'].action === action.ACCEPT) {
+              this._end();
+              finishedButtons.children.item(0).classList.add('d-none');
+              infoModal.msg('Your opponent left the game.');
+              infoModal.modal.show();
+            }
+            break;
+
           case '/online_games' === msg:
             onlinePlayersModal.mount(data['/online_games']);
             break;
