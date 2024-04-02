@@ -1,4 +1,4 @@
-import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
 import gameActionsDropdown from './pages/gameActionsDropdown.js';
@@ -74,7 +74,10 @@ export default class PlayWebSocket {
 
     finishedButtons.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      window.location.href = finishedButtons.children.item(1).dataset.redirect;
+      chessboard.setPosition(FEN.start, true);
+      playerButtons.classList.remove('d-none');
+      friendButtons.classList.remove('d-none');
+      gameActionsDropdown.parentNode.parentNode.parentNode.classList.add('d-none');
     });
 
     this.socket = null;
@@ -302,8 +305,6 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    playerButtons.classList.remove('d-none');
-    friendButtons.classList.remove('d-none');
     gameActionsDropdown.parentNode.classList.add('d-none');
     finishedButtons.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
