@@ -4,10 +4,9 @@ const infoModal = {
   modal: new Modal(document.getElementById('infoModal')),
   form: document.querySelector('#infoModal form'),
   msg: (txt) => {
-    const label = document.querySelector('#infoModal label');
-    const msg = document.createTextNode(txt);
-    label.replaceChildren();
-    label.appendChild(msg);
+    const div = document.querySelector('#infoModal div.message');
+    div.replaceChildren();
+    div.appendChild(document.createTextNode(txt));
   }
 }
 
