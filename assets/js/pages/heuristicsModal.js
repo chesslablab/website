@@ -5,7 +5,7 @@ Chart.register(...registerables);
 
 const charts = document.getElementById('charts');
 
-charts.classList.add('mb-3');
+charts.classList.remove('d-none');
 
 const heuristicsModal = {
   modal: new Modal(document.getElementById('heuristicsModal')),

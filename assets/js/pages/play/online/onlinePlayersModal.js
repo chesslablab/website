@@ -9,7 +9,7 @@ const onlinePlayersModal = {
     tbody.replaceChildren();
     if (games.length > 0) {
       alert.classList.add('d-none');
-      tbody.parentNode.classList.add('mb-3');
+      tbody.parentNode.classList.remove('d-none');
       games.forEach(game => {
         const tr = document.createElement('tr');
         const timeTd = document.createElement('td');
