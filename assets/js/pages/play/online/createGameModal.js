@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import infoModal from '../../../pages/infoModal.js';
+import onlinePlayersModal from './onlinePlayersModal.js';
 import ws from '../../../playWs.js';
 import * as mode from '../../../../mode.js';
 
@@ -19,6 +19,7 @@ createGameModal.form.addEventListener('submit', event => {
   };
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+  onlinePlayersModal.modal.show();
 });
 
 export default createGameModal;

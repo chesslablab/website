@@ -1,14 +1,14 @@
-import createGameModal from './createGameModal.js';
+import Modal from 'bootstrap/js/dist/modal.js';
 import ws from '../../../playWs.js';
 
-const onlinePlayersCard = {
-  card: document.querySelector('#onlinePlayers'),
-  table: document.querySelector('#onlinePlayers table'),
-  button: document.querySelector('#onlinePlayers button'),
+const onlinePlayersModal = {
+  modal: new Modal(document.getElementById('onlinePlayersModal')),
   mount: (games) => {
-    const tbody = document.querySelector('#onlinePlayers tbody');
+    const alert = document.querySelector('#onlinePlayersModal .alert');
+    const tbody = document.querySelector('#onlinePlayersModal tbody');
     tbody.replaceChildren();
     if (games.length > 0) {
+      alert.classList.add('d-none');
       games.forEach(game => {
         const tr = document.createElement('tr');
         const timeTd = document.createElement('td');
@@ -32,20 +32,10 @@ const onlinePlayersCard = {
         tbody.appendChild(tr);
       });
     } else {
-      const tr = document.createElement('tr');
-      const td = document.createElement('td');
-      td.style.fontSize = '13px';
-      const tdText = document.createTextNode('There are no players connected at the moment, be the first one to create a game!');
-      td.appendChild(tdText);
-      tr.appendChild(td);
-      tbody.appendChild(tr);
+      const alert = document.querySelector('#onlinePlayersModal .alert');
+      alert.classList.remove('d-none');
     }
-
-    document.querySelector('#onlinePlayers button').addEventListener('click', async (event) => {
-      event.preventDefault();
-      createGameModal.modal.show();
-    });
   }
 }
 
-export default onlinePlayersCard;
+export default onlinePlayersModal;

@@ -11,7 +11,8 @@ import drawModal from './pages/play/online/drawModal.js';
 import enterInviteCodeModal from './pages/play/online/enterInviteCodeModal.js';
 import finishedButtons from './pages/play/online/finishedButtons.js';
 import friendButtons from './pages/play/online/friendButtons.js';
-import onlinePlayersCard from './pages/play/online/onlinePlayersCard.js';
+import onlinePlayersModal from './pages/play/online/onlinePlayersModal.js';
+import playerButtons from './pages/play/online/playerButtons.js';
 import rematchModal from './pages/play/online/rematchModal.js';
 import takebackModal from './pages/play/online/takebackModal.js';
 import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
@@ -99,7 +100,7 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayersCard.mount(data['broadcast']['onlineGames']);
+            onlinePlayersModal.mount(data['broadcast']['onlineGames']);
             break;
 
           case '/start' === msg:
@@ -182,10 +183,11 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              friendButtons.childNodes.forEach(child => child.disabled = true);
-              onlinePlayersCard.card.classList.add('d-none');
+              playerButtons.classList.add('d-none');
+              friendButtons.classList.add('d-none');
               gameActionsDropdown.parentNode.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
+              onlinePlayersModal.modal.hide();
             }
             break;
 
@@ -265,14 +267,15 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               localStorage.setItem('hash', data['/restart'].hash);
-              friendButtons.childNodes.forEach(child => child.disabled = true);
+              playerButtons.classList.add('d-none');
+              friendButtons.classList.add('d-none');
               gameActionsDropdown.parentNode.classList.remove('d-none');
               finishedButtons.classList.add('d-none');
             }
             break;
 
           case '/online_games' === msg:
-            onlinePlayersCard.mount(data['/online_games']);
+            onlinePlayersModal.mount(data['/online_games']);
             break;
 
           default:
@@ -299,7 +302,8 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    friendButtons.childNodes.forEach(child => child.disabled = false);
+    playerButtons.classList.remove('d-none');
+    friendButtons.classList.remove('d-none');
     gameActionsDropdown.parentNode.classList.add('d-none');
     finishedButtons.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
