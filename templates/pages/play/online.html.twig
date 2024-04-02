@@ -1,10 +1,10 @@
 {% extends 'layout/play.html.twig' %}
 
 {% block main %}
-  <div class="col-md-5 order-md-1">
+  <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
-  <div class="col-md-3 order-md-2">
+  <div class="col-md-6">
     <div id="playerButtons" class="btn-group-vertical w-100 mb-2">
       <button class="btn btn-primary" type="button">Online Players</button>
       <button class="btn btn-primary" type="button">Create a Game</button>
@@ -22,9 +22,6 @@
     {% include 'pages/play/rematch.html.twig' %}
     {% include 'pages/play/takeback_modal.html.twig' %}
     {% include 'partial/panel/play.html.twig' %}
-  </div>
-  <div class="col-md-4 order-md-0">
-    <iframe src="https://web.libera.chat/gamja/##chess" style="border: 0; width: 100%; height: 548px"></iframe>
   </div>
   {% block javascripts %}
     {% block importmap %}
