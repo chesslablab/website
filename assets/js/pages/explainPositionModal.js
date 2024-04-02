@@ -5,6 +5,7 @@ const explainPositionModal = {
   form: document.querySelector('#explainPositionModal form'),
   mount: (txt) => {
     const label = document.querySelector('#explainPositionModal label');
+    label.classList.add('mb-3');
     label.replaceChildren();
     const explanationText = document.createTextNode(txt);
     label.appendChild(explanationText);

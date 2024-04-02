@@ -36,6 +36,7 @@ searchGamesModal.form.addEventListener('submit', event => {
   .then(res => res.json())
   .then(res => {
     const tbody = searchGamesModal.form.getElementsByTagName('tbody')[0];
+    tbody.parentNode.classList.add('mt-3');
     tbody.replaceChildren();
     res.forEach(game => {
       const tr = document.createElement('tr');

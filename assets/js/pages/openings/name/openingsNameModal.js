@@ -12,6 +12,7 @@ openingsNameModal.form.addEventListener('submit', event => {
   const formData = new FormData(openingsNameModal.form);
   const openings = Opening.byName(formData.get('name'));
   const tbody = openingsNameModal.form.getElementsByTagName('tbody')[0];
+  tbody.parentNode.classList.add('mt-3');
   openingsTable(openingsNameModal.modal, openings, tbody);
 });
 

@@ -5,6 +5,8 @@ Chart.register(...registerables);
 
 const charts = document.getElementById('charts');
 
+charts.classList.add('mb-3');
+
 const heuristicsModal = {
   modal: new Modal(document.getElementById('heuristicsModal')),
   form: document.querySelector('#heuristicsModal form'),

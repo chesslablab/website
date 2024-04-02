@@ -12,6 +12,7 @@ openingsSanMovetextModal.form.addEventListener('submit', event => {
   const formData = new FormData(openingsSanMovetextModal.form);
   const openings = Opening.byMovetext(formData.get('movetext'));
   const tbody = openingsSanMovetextModal.form.getElementsByTagName('tbody')[0];
+  tbody.parentNode.classList.add('mt-3');
   openingsTable(openingsSanMovetextModal.modal, openings, tbody);
 });
 
