@@ -147,6 +147,20 @@ input[name="Black"] + ul > li:hover {
   display: table;
 }
 
+#movesMetadataTable,
+#openingTable,
+#searchGamesModal table,
+#databaseAnnotatedGamesModal table,
+#ravMovesTable {
+  font-size: 0.9rem;
+}
+
+#sanMovesTable,
+#ravMovesTable {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+
 div.table-responsive:has(#ravMovesTable) {
   height: 300px;
   overflow-y: scroll;
