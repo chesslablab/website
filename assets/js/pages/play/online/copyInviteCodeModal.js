@@ -11,8 +11,9 @@ copyInviteCodeModal.form.addEventListener('submit', event => {
   const formData = new FormData(copyInviteCodeModal.form);
   navigator.clipboard.writeText(formData.get('hash')).then(() => {
     copyInviteCodeModal.modal.hide();
-    infoModal.msg('Waiting for player to join...');
-    infoModal.modal.show();
+    infoModal.props.msg = 'Waiting for player to join...';
+    infoModal.mount();
+    infoModal.props.modal.show();
   }, function(err) {
     alert('Whoops! Failed to copy');
   });

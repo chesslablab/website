@@ -9,8 +9,9 @@ playerButtons.children.item(0).addEventListener('click', async (event) => {
   if (onlinePlayersModal.props.games.length > 0) {
     onlinePlayersModal.props.modal.show();
   } else {
-    infoModal.msg('There are no players connected at the moment, be the first one to create a game!');
-    infoModal.modal.show();
+    infoModal.props.msg = 'There are no players connected at the moment, be the first one to create a game!';
+    infoModal.mount();
+    infoModal.props.modal.show();
   }
 });
 

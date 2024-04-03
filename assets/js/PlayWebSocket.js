@@ -47,16 +47,18 @@ export default class PlayWebSocket {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
-      infoModal.msg('Waiting for the opponent to accept or decline.');
-      infoModal.modal.show();
+      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.mount();
+      infoModal.props.modal.show();
     });
 
     gameActionsDropdown.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
-      infoModal.msg('Waiting for the opponent to accept or decline.');
-      infoModal.modal.show();
+      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.mount();
+      infoModal.props.modal.show();
     });
 
     gameActionsDropdown.children.item(2).addEventListener('click', (event) => {
@@ -68,8 +70,9 @@ export default class PlayWebSocket {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
-      infoModal.msg('Waiting for the opponent to accept or decline.');
-      infoModal.modal.show();
+      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.mount();
+      infoModal.props.modal.show();
     });
 
     finishedButtons.children.item(1).addEventListener('click', (event) => {
@@ -179,7 +182,7 @@ export default class PlayWebSocket {
               this._toggleInput(turn);
               enterInviteCodeModal.modal.hide();
               createGameModal.modal.hide();
-              infoModal.modal.hide();
+              infoModal.props.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
                 turn: turn,
@@ -202,11 +205,13 @@ export default class PlayWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takebackModal.modal.hide();
-              infoModal.msg('Takeback declined.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Takeback declined.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             } else if (data['/takeback'].action === action.ACCEPT) {
-              infoModal.msg('Takeback accepted.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Takeback accepted.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             localStorage.removeItem('takeback');
             break;
@@ -218,12 +223,14 @@ export default class PlayWebSocket {
               }
             } else if (data['/draw'].action === action.DECLINE) {
               drawModal.modal.hide();
-              infoModal.msg('Draw offer declined.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Draw offer declined.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
-              infoModal.msg('Draw offer accepted.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Draw offer accepted.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             localStorage.removeItem('draw');
             break;
@@ -231,8 +238,9 @@ export default class PlayWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               this._end();
-              infoModal.msg('Chess game resigned.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Chess game resigned.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             break;
 
@@ -243,7 +251,7 @@ export default class PlayWebSocket {
               }
             } else if (data['/rematch'].action === action.DECLINE) {
               rematchModal.modal.hide();
-              infoModal.modal.hide();
+              infoModal.props.modal.hide();
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
             }
@@ -252,7 +260,7 @@ export default class PlayWebSocket {
 
           case '/restart' === msg:
             if (data['/restart'].jwt) {
-              infoModal.modal.hide();
+              infoModal.props.modal.hide();
               const jwtDecoded = jwtDecode(data['/restart'].jwt);
               const turn = jwtDecoded.fen.split(' ')[1];
               chessboard.setPosition(jwtDecoded.fen, true);
@@ -282,8 +290,9 @@ export default class PlayWebSocket {
             if (data['/leave'].action === action.ACCEPT) {
               this._end();
               finishedButtons.children.item(0).classList.add('d-none');
-              infoModal.msg('Your opponent left the game.');
-              infoModal.modal.show();
+              infoModal.props.msg = 'Your opponent left the game.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             break;
 
