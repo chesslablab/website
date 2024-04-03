@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import OnlinePlayersModal from './OnlinePlayersModal.js';
+import OnlinePlayersModal from '../../../components/OnlinePlayersModal.js';
 
 const onlinePlayersModal = new OnlinePlayersModal(
   document.getElementById('onlinePlayersModal'),

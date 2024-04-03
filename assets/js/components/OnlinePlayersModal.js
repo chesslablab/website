@@ -1,5 +1,5 @@
-import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../playWs.js';
+import AbstractComponent from './AbstractComponent.js';
+import ws from '../playWs.js';
 
 class OnlinePlayersModal extends AbstractComponent {
   mount() {

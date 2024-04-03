@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import InfoModal from './InfoModal.js';
+import InfoModal from '../components/InfoModal.js';
 
 const infoModal = new InfoModal(
   document.getElementById('infoModal'),

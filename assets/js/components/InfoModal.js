@@ -1,4 +1,4 @@
-import AbstractComponent from '../AbstractComponent.js';
+import AbstractComponent from './AbstractComponent.js';
 
 class InfoModal extends AbstractComponent {
   mount() {
