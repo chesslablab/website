@@ -103,7 +103,8 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayersModal.mount(data['broadcast']['onlineGames']);
+            onlinePlayersModal.props.games = data['broadcast']['onlineGames'];
+            onlinePlayersModal.mount();
             break;
 
           case '/start' === msg:
@@ -190,7 +191,7 @@ export default class PlayWebSocket {
               friendButtons.classList.add('d-none');
               gameActionsDropdown.parentNode.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
-              onlinePlayersModal.modal.hide();
+              onlinePlayersModal.props.modal.hide();
             }
             break;
 
@@ -287,7 +288,8 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            onlinePlayersModal.mount(data['/online_games']);
+            onlinePlayersModal.props.games = data['/online_games'];
+            onlinePlayersModal.mount();
             break;
 
           default:

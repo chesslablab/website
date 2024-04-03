@@ -19,7 +19,7 @@ createGameModal.form.addEventListener('submit', event => {
   };
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-  onlinePlayersModal.modal.show();
+  onlinePlayersModal.props.modal.show();
 });
 
 export default createGameModal;
