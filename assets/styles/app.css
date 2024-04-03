@@ -179,3 +179,13 @@ div.table-responsive:has(#sanMovesTable) {
 #progressModal {
   z-index: 1080;
 }
+
+#infoModal .modal-header {
+  padding: 0;
+  border: 0;
+  display: block;
+}
+
+#infoModal .alert {
+  margin-bottom: 0;
+}
