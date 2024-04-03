@@ -7,4 +7,5 @@ const openingTable = new OpeningTable(
     movetext: sanMovesTable.props.movetext
   }
 );
+
 export default openingTable;
