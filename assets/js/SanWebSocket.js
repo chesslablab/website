@@ -114,8 +114,9 @@ export default class SanWebSocket {
             break;
 
           case '/tutor_fen' === msg:
-            explainPositionModal.mount(data['/tutor_fen']);
-            explainPositionModal.modal.show();
+            explainPositionModal.props.explanation = data['/tutor_fen'];
+            explainPositionModal.mount();
+            explainPositionModal.props.modal.show();
             break;
 
           default:

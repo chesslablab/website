@@ -1,14 +1,12 @@
 import Modal from 'bootstrap/js/dist/modal.js';
+import ExplainPositionModal from '../components/ExplainPositionModal.js';
 
-const explainPositionModal = {
-  modal: new Modal(document.getElementById('explainPositionModal')),
-  mount: (txt) => {
-    const label = document.querySelector('#explainPositionModal label');
-    label.classList.remove('d-none');
-    label.replaceChildren();
-    const explanationText = document.createTextNode(txt);
-    label.appendChild(explanationText);
+const explainPositionModal = new ExplainPositionModal(
+  document.getElementById('explainPositionModal'),
+  {
+    modal: new Modal(document.getElementById('explainPositionModal')),
+    explanation: ''
   }
-}
+);
 
 export default explainPositionModal;
