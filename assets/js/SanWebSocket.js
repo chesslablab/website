@@ -45,13 +45,13 @@ export default class SanWebSocket {
   }
 
   connect() {
-    progressModal.modal.show();
+    progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
       this.socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
 
       this.socket.onopen = () => {
-        progressModal.modal.hide();
+        progressModal.props.modal.hide();
         resolve();
       };
 

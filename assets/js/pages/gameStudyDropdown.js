@@ -10,7 +10,7 @@ const gameStudyDropdown = document.querySelector('#gameStudyDropdown ul');
 
 gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
   event.preventDefault();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/image`, {
     method: 'POST',
     headers: {
@@ -36,13 +36,13 @@ gameStudyDropdown.children.item(0).addEventListener('click', async (event) => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 });
 
 gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   const back = (sanMovesTable.props.fen.length - sanMovesTable.current - 1) * -1;
   await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/mp4`, {
     method: 'POST',
@@ -71,13 +71,13 @@ gameStudyDropdown.children.item(1).addEventListener('click', async (event) => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 });
 
 gameStudyDropdown.children.item(2).addEventListener('click', async (event) => {
   event.preventDefault();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   const back = (sanMovesTable.props.fen.length - sanMovesTable.current - 1) * -1;
   await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristics`, {
     method: 'POST',
@@ -98,7 +98,7 @@ gameStudyDropdown.children.item(2).addEventListener('click', async (event) => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
     heuristicsModal.modal.show();
   });
 });

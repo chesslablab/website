@@ -19,7 +19,7 @@ const playerStatsModal = {
 
 const handleBarClick = (event, clickedElements) => {
   const formData = new FormData(playerStatsModal.form);
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   if (clickedElements.length === 0) {
     return;
   }
@@ -50,13 +50,13 @@ const handleBarClick = (event, clickedElements) => {
   })
   .finally(() => {
     playerStatsModal.modal.hide();
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 }
 
 playerStatsModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   const formData = new FormData(playerStatsModal.form);
   const playerStatsChart = document.getElementById('playerStatsChart');
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
@@ -123,7 +123,7 @@ playerStatsModal.form.addEventListener('submit', event => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 });
 

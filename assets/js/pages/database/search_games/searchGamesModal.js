@@ -16,7 +16,7 @@ const searchGamesModal = {
 searchGamesModal.form.addEventListener('submit', event => {
   event.preventDefault();
   searchGamesModal.modal.hide();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   const formData = new FormData(searchGamesModal.form);
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
     method: 'POST',
@@ -92,7 +92,7 @@ searchGamesModal.form.addEventListener('submit', event => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
     searchGamesModal.modal.show();
   });
 });

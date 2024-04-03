@@ -11,7 +11,7 @@ Chart.register(...registerables);
 const N_BARS = 25;
 
 const handleBarClick = (event, clickedElements) => {
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   if (clickedElements.length === 0) {
     return;
   }
@@ -40,7 +40,7 @@ const handleBarClick = (event, clickedElements) => {
   })
   .finally(() => {
     topOpeningsModal.modal.hide();
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 }
 

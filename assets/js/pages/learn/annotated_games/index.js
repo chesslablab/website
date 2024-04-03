@@ -8,10 +8,10 @@ import progressModal from '../../../pages/progressModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
-progressModal.modal.show();
+progressModal.props.modal.show();
 
 const handleClick = (game) => {
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
     method: 'POST',
     headers: {
@@ -38,7 +38,7 @@ const handleClick = (game) => {
     // TODO
   })
   .finally(() => {
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 };
 
@@ -111,5 +111,5 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
   // TODO
 })
 .finally(() => {
-  progressModal.modal.hide();
+  progressModal.props.modal.hide();
 });

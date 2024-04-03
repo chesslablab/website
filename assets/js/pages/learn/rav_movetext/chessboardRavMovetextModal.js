@@ -21,7 +21,7 @@ chessboardRavMovetextModal.form.getElementsByTagName('select')[0].addEventListen
 
 chessboardRavMovetextModal.form.addEventListener('submit', event => {
   event.preventDefault();
-  progressModal.modal.show();
+  progressModal.props.modal.show();
   const formData = new FormData(chessboardRavMovetextModal.form);
   fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
     method: 'POST',
@@ -50,7 +50,7 @@ chessboardRavMovetextModal.form.addEventListener('submit', event => {
   })
   .finally(() => {
     chessboardRavMovetextModal.modal.hide();
-    progressModal.modal.hide();
+    progressModal.props.modal.hide();
   });
 });
 

@@ -10,7 +10,7 @@ await ws.connect();
 
 localStorage.clear();
 
-progressModal.modal.show();
+progressModal.props.modal.show();
 
 await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
   method: 'GET',
@@ -27,5 +27,5 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
   // TODO
 })
 .finally(() => {
-  progressModal.modal.hide();
+  progressModal.props.modal.hide();
 });
