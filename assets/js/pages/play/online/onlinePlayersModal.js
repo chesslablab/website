@@ -4,11 +4,14 @@ import ws from '../../../playWs.js';
 const onlinePlayersModal = {
   modal: new Modal(document.getElementById('onlinePlayersModal')),
   mount: (games) => {
-    const alert = document.querySelector('#onlinePlayersModal .alert');
+    const alerts = document.querySelectorAll('#onlinePlayersModal .alert');
     const tbody = document.querySelector('#onlinePlayersModal tbody');
+    alerts[0].classList.add('d-none');
+    alerts[1].classList.add('d-none');
+    tbody.parentNode.classList.add('d-none');
     tbody.replaceChildren();
     if (games.length > 0) {
-      alert.classList.add('d-none');
+      alerts[1].classList.remove('d-none');
       tbody.parentNode.classList.remove('d-none');
       games.forEach(game => {
         const tr = document.createElement('tr');
@@ -33,8 +36,7 @@ const onlinePlayersModal = {
         tbody.appendChild(tr);
       });
     } else {
-      const alert = document.querySelector('#onlinePlayersModal .alert');
-      alert.classList.remove('d-none');
+      alerts[0].classList.remove('d-none');
     }
   }
 }
