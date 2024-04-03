@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             PLAY
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_online') }}">
                 Online
