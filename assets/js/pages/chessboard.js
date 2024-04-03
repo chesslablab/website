@@ -24,4 +24,17 @@ const chessboard = new Chessboard(
   }
 );
 
+chessboard.context.addEventListener('mousedown', (event) => {
+  if (event.button === 2) {
+    const markerType = MARKER_TYPE.circlePrimary;
+    const square = event.target.getAttribute('data-square');
+    const markersOnSquare = chessboard.getMarkers(markerType, square);
+    if (markersOnSquare.length > 0) {
+      chessboard.removeMarkers(markerType, square);
+    } else {
+      chessboard.addMarker(markerType, square);
+    }
+  }
+})
+
 export default chessboard;
