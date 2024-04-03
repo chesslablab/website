@@ -9,7 +9,6 @@ charts.classList.remove('d-none');
 
 const heuristicsModal = {
   modal: new Modal(document.getElementById('heuristicsModal')),
-  form: document.querySelector('#heuristicsModal form'),
   mount: (res) => {
     while (charts.firstChild) {
       charts.removeChild(charts.firstChild);
@@ -82,10 +81,5 @@ const heuristicsModal = {
     });
   }
 }
-
-heuristicsModal.form.addEventListener('submit', event => {
-  event.preventDefault();
-  heuristicsModal.modal.hide();
-});
 
 export default heuristicsModal;
