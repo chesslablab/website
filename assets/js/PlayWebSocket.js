@@ -47,7 +47,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
-      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
       infoModal.props.modal.show();
     });
@@ -56,7 +56,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
-      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
       infoModal.props.modal.show();
     });
@@ -70,7 +70,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
-      infoModal.props.msg = 'Waiting for the opponent to accept or decline.';
+      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
       infoModal.props.modal.show();
     });
