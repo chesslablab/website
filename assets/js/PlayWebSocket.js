@@ -43,7 +43,7 @@ export default class PlayWebSocket {
       }
     });
 
-    gameActionsDropdown.children.item(0).addEventListener('click', (event) => {
+    gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
@@ -52,7 +52,7 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    gameActionsDropdown.children.item(1).addEventListener('click', (event) => {
+    gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
@@ -61,7 +61,7 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    gameActionsDropdown.children.item(2).addEventListener('click', (event) => {
+    gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
     });
@@ -80,7 +80,7 @@ export default class PlayWebSocket {
       chessboard.setPosition(FEN.start, true);
       playerButtons.classList.remove('d-none');
       friendButtons.classList.remove('d-none');
-      gameActionsDropdown.parentNode.parentNode.parentNode.classList.add('d-none');
+      gameActionsDropdown.el.parentNode.parentNode.classList.add('d-none');
     });
 
     this.socket = null;
@@ -192,7 +192,7 @@ export default class PlayWebSocket {
               this._timerTableInterval = timerTableInterval();
               playerButtons.classList.add('d-none');
               friendButtons.classList.add('d-none');
-              gameActionsDropdown.parentNode.parentNode.parentNode.classList.remove('d-none');
+              gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
               onlinePlayersModal.props.modal.hide();
             }
@@ -281,7 +281,7 @@ export default class PlayWebSocket {
               localStorage.setItem('hash', data['/restart'].hash);
               playerButtons.classList.add('d-none');
               friendButtons.classList.add('d-none');
-              gameActionsDropdown.parentNode.classList.remove('d-none');
+              gameActionsDropdown.el.classList.remove('d-none');
               finishedButtons.classList.add('d-none');
             }
             break;
@@ -325,7 +325,7 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    gameActionsDropdown.parentNode.classList.add('d-none');
+    gameActionsDropdown.el.classList.add('d-none');
     finishedButtons.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;

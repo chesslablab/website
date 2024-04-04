@@ -36,7 +36,7 @@ export default class SanWebSocket {
       this.send(`/tutor_fen "${sanMovesTable.props.fen[sanMovesTable.current]}" ${variant.CLASSICAL}`);
     });
 
-    gameActionsDropdown.children.item(0).addEventListener('click', (event) => {
+    gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
     });
