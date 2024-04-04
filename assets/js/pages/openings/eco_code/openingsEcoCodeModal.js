@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Opening } from '@chesslablab/jsblab';
-import openingsTable from '../openingsTable.js';
+import OpeningsTable from '../../../components/OpeningsTable.js';
 
 const openingsEcoCodeModal = {
   modal: new Modal(document.getElementById('openingsEcoCodeModal')),
@@ -9,9 +9,14 @@ const openingsEcoCodeModal = {
 
 openingsEcoCodeModal.form.getElementsByTagName('select')[0].addEventListener('change', event => {
   event.preventDefault();
-  const openings = Opening.byEco(event.target.value);
-  const tbody = openingsEcoCodeModal.form.getElementsByTagName('tbody')[0];
-  openingsTable(openingsEcoCodeModal.modal, openings, tbody);
+  const openingsTable = new OpeningsTable(
+    openingsEcoCodeModal.form.querySelector('table'),
+    {
+      modal: openingsEcoCodeModal.modal,
+      openings: Opening.byEco(event.target.value)
+    }
+  );
+  openingsTable.mount();
 });
 
 export default openingsEcoCodeModal;
