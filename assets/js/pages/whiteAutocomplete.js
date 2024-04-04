@@ -9,4 +9,4 @@ const whiteAutocomplete = new WhiteAutocomplete(
   }
 );
 
-export default WhiteAutocomplete;
+export default whiteAutocomplete;
