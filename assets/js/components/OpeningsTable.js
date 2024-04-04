@@ -5,6 +5,7 @@ import * as variant from '../../variant.js';
 
 class OpeningsTable extends AbstractComponent {
   mount() {
+    this.el.classList.remove('d-none');
     this.el.querySelector('tbody').replaceChildren();
     this.props.openings.forEach(opening => {
       const tr = document.createElement('tr');
