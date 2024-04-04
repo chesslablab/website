@@ -247,10 +247,10 @@ export default class PlayWebSocket {
           case '/rematch' === msg:
             if (data['/rematch'].action === action.PROPOSE) {
               if (localStorage.getItem('rematch') !== action.PROPOSE) {
-                rematchModal.modal.show();
+                rematchModal.props.modal.show();
               }
             } else if (data['/rematch'].action === action.DECLINE) {
-              rematchModal.modal.hide();
+              rematchModal.props.modal.hide();
               infoModal.props.modal.hide();
             } else if (data['/rematch'].action === action.ACCEPT) {
               this.send(`/restart ${localStorage.getItem('hash')}`);
