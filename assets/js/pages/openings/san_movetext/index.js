@@ -8,4 +8,4 @@ await ws.connect();
 
 localStorage.clear();
 
-openingsSanMovetextModal.modal.show();
+openingsSanMovetextModal.props.modal.show();
