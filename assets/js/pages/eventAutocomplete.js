@@ -9,4 +9,4 @@ const eventAutocomplete = new EventAutocomplete(
   }
 );
 
-export default EventAutocomplete;
+export default eventAutocomplete;
