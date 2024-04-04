@@ -9,4 +9,4 @@ const blackAutocomplete = new BlackAutocomplete(
   }
 );
 
-export default BlackAutocomplete;
+export default blackAutocomplete;
