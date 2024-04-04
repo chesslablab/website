@@ -201,10 +201,10 @@ export default class PlayWebSocket {
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
               if (localStorage.getItem('takeback') !== action.PROPOSE) {
-                takebackModal.modal.show();
+                takebackModal.props.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
-              takebackModal.modal.hide();
+              takebackModal.props.modal.hide();
               infoModal.props.msg = 'Takeback declined.';
               infoModal.mount();
               infoModal.props.modal.show();
