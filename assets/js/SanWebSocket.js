@@ -31,7 +31,7 @@ export default class SanWebSocket {
       }
     });
 
-    gameStudyDropdown.children.item(3).addEventListener('click', async (event) => {
+    gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
       this.send(`/tutor_fen "${sanMovesTable.props.fen[sanMovesTable.current]}" ${variant.CLASSICAL}`);
     });
