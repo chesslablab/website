@@ -8,4 +8,4 @@ await ws.connect();
 
 localStorage.clear();
 
-openingsEcoCodeModal.modal.show();
+openingsEcoCodeModal.props.modal.show();
