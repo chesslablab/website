@@ -33,7 +33,7 @@ playFriendModal.form.addEventListener('submit', event => {
   localStorage.setItem('color', formData.get('color'));
   ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   playFriendModal.modal.hide();
-  copyInviteCodeModal.modal.show();
+  copyInviteCodeModal.props.modal.show();
 });
 
 export default playFriendModal;

@@ -112,7 +112,7 @@ export default class PlayWebSocket {
 
           case '/start' === msg:
             if (data['/start'].jwt) {
-              copyInviteCodeModal.form.elements['hash'].value = data['/start'].hash;
+              copyInviteCodeModal.props.form.elements['hash'].value = data['/start'].hash;
               const jwtDecoded = jwtDecode(data['/start'].jwt);
               chessboard.setPosition(data['/start'].fen, true);
               chessboard.setOrientation(jwtDecoded.color);
