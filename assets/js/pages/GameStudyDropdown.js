@@ -1,4 +1,8 @@
 import { Movetext } from '@chesslablab/jsblab';
+import chessboard from './chessboard.js';
+import { heuristicsModal } from './HeuristicsModal.js';
+import { progressModal } from './ProgressModal.js';
+import sanMovesTable from './sanMovesTable.js';
 import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';

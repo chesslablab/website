@@ -1,11 +1,11 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
-import chessboard from './elements/chessboard.js';
-import explainPositionModal from './elements/explainPositionModal.js';
-import gameActionsDropdown from './elements/gameActionsDropdown.js';
-import gameStudyDropdown from './elements/gameStudyDropdown.js';
-import openingTable from './elements/openingTable.js';
-import progressModal from './elements/progressModal.js';
-import sanMovesTable from './elements/sanMovesTable.js';
+import chessboard from './pages/chessboard.js';
+import { explainPositionModal } from './pages/ExplainPositionModal.js';
+import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
+import { gameStudyDropdown } from './pages/GameStudyDropdown.js';
+import openingTable from './pages/openingTable.js';
+import { progressModal } from './pages/ProgressModal.js';
+import sanMovesTable from './pages/sanMovesTable.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
