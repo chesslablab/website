@@ -1,9 +1,9 @@
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import Modal from 'bootstrap/js/dist/modal.js';
-import blackAutocomplete from '../../blackAutocomplete.js';
-import movesMetadataTable from '../../movesMetadataTable.js';
-import progressModal from '../../progressModal.js';
-import whiteAutocomplete from '../../whiteAutocomplete.js';
+import blackAutocomplete from '../../../elements/blackAutocomplete.js';
+import movesMetadataTable from '../../../elements/movesMetadataTable.js';
+import progressModal from '../../../elements/progressModal.js';
+import whiteAutocomplete from '../../../elements/whiteAutocomplete.js';
 import ws from '../../../sanWs.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
