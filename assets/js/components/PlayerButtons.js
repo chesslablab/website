@@ -18,7 +18,7 @@ class PlayerButtons extends AbstractComponent {
 
     this.el.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
-      createGameModal.modal.show();
+      createGameModal.props.modal.show();
     });
   }
 }

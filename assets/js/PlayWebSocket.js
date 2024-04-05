@@ -118,7 +118,7 @@ export default class PlayWebSocket {
               chessboard.setOrientation(jwtDecoded.color);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
-              createGameModal.modal.hide();
+              createGameModal.props.modal.hide();
               this.send('/online_games');
               localStorage.setItem('hash', data['/start'].hash);
             } else {
@@ -181,7 +181,7 @@ export default class PlayWebSocket {
               }
               this._toggleInput(turn);
               enterInviteCodeModal.modal.hide();
-              createGameModal.modal.hide();
+              createGameModal.props.modal.hide();
               infoModal.props.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
