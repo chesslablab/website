@@ -12,7 +12,7 @@ export class EnterInviteCodeModal extends AbstractComponent {
   }
 }
 
-const enterInviteCodeModal = new EnterInviteCodeModal(
+export const enterInviteCodeModal = new EnterInviteCodeModal(
   document.getElementById('enterInviteCodeModal'),
   {
     modal: new Modal(document.getElementById('enterInviteCodeModal')),

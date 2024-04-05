@@ -1,11 +1,11 @@
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import chessboard from '../../../elements/chessboard.js';
-import createGameModal from '../../../elements/createGameModal.js';
-import enterInviteCodeModal from '../../../elements/enterInviteCodeModal.js';
-import friendButtons from '../../../elements/friendButtons.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import playerButtons from '../../../elements/playerButtons.js';
-import playFriendModal from '../../../elements/playFriendModal.js';
+import { createGameModal } from './CreateGameModal.js';
+import { enterInviteCodeModal } from './EnterInviteCodeModal.js';
+import { friendButtons } from './FriendButtons.js';
+import { playerButtons } from './PlayerButtons.js';
+import { playFriendModal } from './PlayFriendModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import chessboard from '../../chessboard.js';
+import historyButtons from '../../historyButtons.js';
 import ws from '../../../playWs.js';
 
 localStorage.clear();

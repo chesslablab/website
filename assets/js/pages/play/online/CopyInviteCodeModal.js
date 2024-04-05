@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import infoModal from '../../../pages/infoModal.js';
+import { infoModal } from '../../InfoModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 
 export class CopyInviteCodeModal extends AbstractComponent {
