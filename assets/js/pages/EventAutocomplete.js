@@ -1,7 +1,7 @@
-import AbstractComponent from './AbstractComponent.js';
+import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 
-class EventAutocomplete extends AbstractComponent {
+export class EventAutocomplete extends AbstractComponent {
   mount() {
     this.el.addEventListener('keyup', (event) => {
       event.preventDefault();
@@ -42,4 +42,11 @@ class EventAutocomplete extends AbstractComponent {
   }
 }
 
-export default EventAutocomplete;
+export const eventAutocomplete = new EventAutocomplete(
+  document.querySelector('input[list="eventAutocompleteList"]'),
+  {
+    datalist: document.getElementById('eventAutocompleteList'),
+    submitButton: document.querySelector('button.autocomplete[type="submit"]'),
+    loadingButton: document.querySelector('button.autocomplete[type="button"]')
+  }
+);
