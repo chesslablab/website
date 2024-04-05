@@ -1,16 +1,5 @@
-import enterInviteCodeModal from './enterInviteCodeModal.js';
-import playFriendModal from './playFriendModal.js';
+import FriendButtons from '../../../components/FriendButtons.js';
 
-const friendButtons = document.getElementById('friendButtons');
-
-friendButtons.children.item(0).addEventListener('click', async (event) => {
-  event.preventDefault();
-  playFriendModal.modal.show();
-});
-
-friendButtons.children.item(1).addEventListener('click', async (event) => {
-  event.preventDefault();
-  enterInviteCodeModal.props.modal.show();
-});
+const friendButtons = new FriendButtons(document.getElementById('friendButtons'));
 
 export default friendButtons;
