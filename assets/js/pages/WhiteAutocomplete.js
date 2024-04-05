@@ -1,7 +1,7 @@
-import AbstractComponent from './AbstractComponent.js';
+import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 
-class WhiteAutocomplete extends AbstractComponent {
+export class WhiteAutocomplete extends AbstractComponent {
   mount() {
     this.el.addEventListener('keyup', (event) => {
       event.preventDefault();
@@ -42,4 +42,11 @@ class WhiteAutocomplete extends AbstractComponent {
   }
 }
 
-export default WhiteAutocomplete;
+export const whiteAutocomplete = new WhiteAutocomplete(
+  document.querySelector('input[list="whiteAutocompleteList"]'),
+  {
+    datalist: document.getElementById('whiteAutocompleteList'),
+    submitButton: document.querySelector('button.autocomplete[type="submit"]'),
+    loadingButton: document.querySelector('button.autocomplete[type="button"]')
+  }
+);
