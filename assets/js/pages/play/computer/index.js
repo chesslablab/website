@@ -1,6 +1,6 @@
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import playComputerModal from '../../../elements/playComputerModal.js';
+import { playComputerModal } from './PlayComputerModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import historyButtons from '../../historyButtons.js';
 import ws from '../../../stockfishWs.js';
 
 await ws.connect();
