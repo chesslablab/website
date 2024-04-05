@@ -1,4 +1,3 @@
-import copyInviteCodeModal from './copyInviteCodeModal.js';
 import createGameModal from './createGameModal.js';
 import enterInviteCodeModal from './enterInviteCodeModal.js';
 import friendButtons from './friendButtons.js';
