@@ -1,10 +1,10 @@
-import databaseAnnotatedGames from './databaseAnnotatedGames.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
+import databaseAnnotatedGames from './databaseAnnotatedGames.js';
 import historyButtons from './historyButtons.js';
 import ravMovesTable from './ravMovesTable.js';
-import chessboard from '../../../pages/chessboard.js';
-import movesMetadataTable from '../../../pages/movesMetadataTable.js';
-import progressModal from '../../../pages/progressModal.js';
+import chessboard from '../../../elements/chessboard.js';
+import movesMetadataTable from '../../../elements/movesMetadataTable.js';
+import progressModal from '../../../elements/progressModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
