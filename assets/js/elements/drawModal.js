@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import DrawModal from '../../../components/DrawModal.js';
+import DrawModal from '../components/DrawModal.js';
 
 const drawModal = new DrawModal(
   document.getElementById('drawModal'),

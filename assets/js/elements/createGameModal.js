@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import CreateGameModal from '../../../components/CreateGameModal.js';
-import onlinePlayersModal from '../../../pages/play/online/onlinePlayersModal.js';
+import CreateGameModal from '../components/CreateGameModal.js';
+import onlinePlayersModal from './onlinePlayersModal.js';
 
 const createGameModal = new CreateGameModal(
   document.getElementById('createGameModal'),

@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import TakebackModal from '../../../components/TakebackModal.js';
+import TakebackModal from '../components/TakebackModal.js';
 
 const takebackModal = new TakebackModal(
   document.getElementById('takebackModal'),

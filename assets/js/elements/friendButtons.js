@@ -1,4 +1,4 @@
-import FriendButtons from '../../../components/FriendButtons.js';
+import FriendButtons from '../components/FriendButtons.js';
 import enterInviteCodeModal from './enterInviteCodeModal.js';
 import playFriendModal from './playFriendModal.js';
 

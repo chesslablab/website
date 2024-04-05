@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import OpeningsEcoCodeModal from '../../../components/OpeningsEcoCodeModal.js';
+import OpeningsEcoCodeModal from '../components/OpeningsEcoCodeModal.js';
 
 const openingsEcoCodeModal = new OpeningsEcoCodeModal(
   document.getElementById('openingsEcoCodeModal'),

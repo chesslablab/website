@@ -1,4 +1,4 @@
-import PlayerButtons from '../../../components/PlayerButtons.js';
+import PlayerButtons from '../components/PlayerButtons.js';
 
 const playerButtons = new PlayerButtons(document.getElementById('playerButtons'));
 

@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import EnterInviteCodeModal from '../../../components/EnterInviteCodeModal.js';
+import EnterInviteCodeModal from '../components/EnterInviteCodeModal.js';
 
 const enterInviteCodeModal = new EnterInviteCodeModal(
   document.getElementById('enterInviteCodeModal'),

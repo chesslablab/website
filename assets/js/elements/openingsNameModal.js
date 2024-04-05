@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import OpeningsNameModal from '../../../components/OpeningsNameModal.js';
+import OpeningsNameModal from '../components/OpeningsNameModal.js';
 
 const openingsNameModal = new OpeningsNameModal(
   document.getElementById('openingsNameModal'),

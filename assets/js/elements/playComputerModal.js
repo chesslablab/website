@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import PlayComputerModal from '../../../components/PlayComputerModal.js';
+import PlayComputerModal from '../components/PlayComputerModal.js';
 
 const playComputerModal = new PlayComputerModal(
   document.getElementById('playComputerModal'),

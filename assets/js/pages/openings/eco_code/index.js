@@ -1,6 +1,6 @@
-import openingsEcoCodeModal from './openingsEcoCodeModal.js';
+import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
+import openingsEcoCodeModal from '../../../elements/openingsEcoCodeModal.js';
 import boardActionsDropdown from '../../../pages/boardActionsDropdown.js';
-import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';
 import ws from '../../../sanWs.js';
 

@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import RematchModal from '../../../components/RematchModal.js';
+import RematchModal from '../components/RematchModal.js';
 
 const rematchModal = new RematchModal(
   document.getElementById('rematchModal'),

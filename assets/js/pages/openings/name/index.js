@@ -1,4 +1,4 @@
-import openingsNameModal from './openingsNameModal.js';
+import openingsNameModal from '../../../elements/openingsNameModal.js';
 import boardActionsDropdown from '../../../pages/boardActionsDropdown.js';
 import gameStudyDropdown from '../../../pages/gameStudyDropdown.js';
 import historyButtons from '../../../pages/historyButtons.js';

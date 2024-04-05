@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import PlayFriendModal from '../../../components/PlayFriendModal.js';
-import copyInviteCodeModal from '../../../pages/play/online/copyInviteCodeModal.js';
+import PlayFriendModal from '../components/PlayFriendModal.js';
+import copyInviteCodeModal from './copyInviteCodeModal.js';
 
 const playFriendModal = new PlayFriendModal(
   document.getElementById('playFriendModal'),

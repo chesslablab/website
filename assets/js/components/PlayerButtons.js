@@ -1,7 +1,7 @@
 import AbstractComponent from './AbstractComponent.js';
-import onlinePlayersModal from '../pages/play/online/onlinePlayersModal.js';
-import createGameModal from '../pages/play/online/createGameModal.js';
-import infoModal from '../pages/infoModal.js';
+import createGameModal from '../elements/createGameModal.js';
+import infoModal from '../elements/infoModal.js';
+import onlinePlayersModal from '../elements/onlinePlayersModal.js';
 
 class PlayerButtons extends AbstractComponent {
   mount() {
