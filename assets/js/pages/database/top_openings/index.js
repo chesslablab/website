@@ -1,8 +1,8 @@
 import topOpeningsModal from './topOpeningsModal.js';
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import progressModal from '../../../elements/progressModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import { gameStudyDropdown } from '../../GameStudyDropdown.js';
+import historyButtons from '../../historyButtons.js';
+import { progressModal } from '../../ProgressModal.js';
 import ws from '../../../sanWs.js';
 import * as env from '../../../../env.js';
 

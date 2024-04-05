@@ -1,8 +1,8 @@
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import eventStatsModal from '../../../elements/eventStatsModal.js';
-import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import { eventAutocomplete } from '../../../pages/EventAutocomplete.js';
+import { eventStatsModal } from './EventStatsModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import { gameStudyDropdown } from '../../GameStudyDropdown.js';
+import historyButtons from '../../historyButtons.js';
+import { eventAutocomplete } from '../../EventAutocomplete.js';
 import ws from '../../../sanWs.js';
 
 await ws.connect();

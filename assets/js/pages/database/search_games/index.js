@@ -1,10 +1,10 @@
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import searchGamesModal from '../../../elements/searchGamesModal.js';
-import { blackAutocomplete } from '../../../pages/BlackAutocomplete.js';
-import { whiteAutocomplete } from '../../../pages/WhiteAutocomplete.js';
-import { eventAutocomplete } from '../../../pages/EventAutocomplete.js';
+import { searchGamesModal } from './SearchGamesModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import { gameStudyDropdown } from '../../GameStudyDropdown.js';
+import historyButtons from '../../historyButtons.js';
+import { blackAutocomplete } from '../../BlackAutocomplete.js';
+import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
+import { eventAutocomplete } from '../../EventAutocomplete.js';
 import ws from '../../../sanWs.js';
 
 await ws.connect();
