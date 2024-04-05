@@ -66,7 +66,7 @@ export default class PlayWebSocket {
       this.send('/resign accept');
     });
 
-    finishedButtons.children.item(0).addEventListener('click', (event) => {
+    finishedButtons.el.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       localStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
@@ -75,7 +75,7 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    finishedButtons.children.item(1).addEventListener('click', (event) => {
+    finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       chessboard.setPosition(FEN.start, true);
       playerButtons.el.classList.remove('d-none');
@@ -282,14 +282,14 @@ export default class PlayWebSocket {
               playerButtons.el.classList.add('d-none');
               friendButtons.classList.add('d-none');
               gameActionsDropdown.el.classList.remove('d-none');
-              finishedButtons.classList.add('d-none');
+              finishedButtons.el.classList.add('d-none');
             }
             break;
 
           case '/leave' === msg:
             if (data['/leave'].action === action.ACCEPT) {
               this._end();
-              finishedButtons.children.item(0).classList.add('d-none');
+              finishedButtons.el.children.item(0).classList.add('d-none');
               infoModal.props.msg = 'Your opponent left the game.';
               infoModal.mount();
               infoModal.props.modal.show();
@@ -326,7 +326,7 @@ export default class PlayWebSocket {
 
   _end() {
     gameActionsDropdown.el.classList.add('d-none');
-    finishedButtons.classList.remove('d-none');
+    finishedButtons.el.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     clearInterval(this._timerTableInterval);
