@@ -219,10 +219,10 @@ export default class PlayWebSocket {
           case '/draw' === msg:
             if (data['/draw'].action === action.PROPOSE) {
               if (localStorage.getItem('draw') !== action.PROPOSE) {
-                drawModal.modal.show();
+                drawModal.props.modal.show();
               }
             } else if (data['/draw'].action === action.DECLINE) {
-              drawModal.modal.hide();
+              drawModal.props.modal.hide();
               infoModal.props.msg = 'Draw offer declined.';
               infoModal.mount();
               infoModal.props.modal.show();

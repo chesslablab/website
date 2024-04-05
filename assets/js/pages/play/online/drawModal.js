@@ -1,19 +1,12 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../playWs.js';
+import DrawModal from '../../../components/DrawModal.js';
 
-const drawModal = {
-  modal: new Modal(document.getElementById('drawModal')),
-  form: document.querySelector('#drawModal form')
-}
-
-drawModal.form.children.item(0).addEventListener('click', async (event) => {
-  event.preventDefault();
-  ws.send('/draw accept');
-});
-
-drawModal.form.children.item(1).addEventListener('click', async (event) => {
-  event.preventDefault();
-  ws.send('/draw decline');
-});
+const drawModal = new DrawModal(
+  document.getElementById('drawModal'),
+  {
+    modal: new Modal(document.getElementById('drawModal')),
+    form: document.querySelector('#drawModal form')
+  }
+);
 
 export default drawModal;
