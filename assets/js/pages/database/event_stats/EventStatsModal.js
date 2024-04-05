@@ -1,12 +1,12 @@
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../sanWs.js';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import ws from '../../../sanWs.js';
+import * as env from '../../../../env.js';
+import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
-class PlayerStatsModal extends AbstractComponent {
+export class EventStatsModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -23,8 +23,7 @@ class PlayerStatsModal extends AbstractComponent {
           'X-Api-Key': `${env.API_KEY}`
         },
         body: JSON.stringify({
-          White: formData.get('White'),
-          Black: formData.get('Black'),
+          Event: formData.get('Event'),
           Result: formData.get('Result'),
           ECO: event.chart.data.labels[dataIndex]
         })
@@ -51,25 +50,24 @@ class PlayerStatsModal extends AbstractComponent {
       event.preventDefault();
       this.props.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
-      const playerStatsChart = document.getElementById('playerStatsChart');
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
+      const eventStatsChart = document.getElementById('eventStatsChart');
+      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/event`, {
         method: 'POST',
         headers: {
           'X-Api-Key': `${env.API_KEY}`
         },
         body: JSON.stringify({
-          White: formData.get('White'),
-          Black: formData.get('Black'),
+          Event: formData.get('Event'),
           Result: formData.get('Result')
         })
       })
       .then(res => res.json())
       .then(res => {
-        while (playerStatsChart.firstChild) {
-          playerStatsChart.removeChild(playerStatsChart.firstChild);
+        while (eventStatsChart.firstChild) {
+          eventStatsChart.removeChild(eventStatsChart.firstChild);
         }
         const canvas = document.createElement('canvas');
-        playerStatsChart.appendChild(canvas);
+        eventStatsChart.appendChild(canvas);
         const chart = new Chart(canvas, {
           type: 'bar',
           data: {
@@ -122,4 +120,12 @@ class PlayerStatsModal extends AbstractComponent {
   }
 }
 
-export default PlayerStatsModal;
+export const eventStatsModal = new EventStatsModal(
+  document.getElementById('eventStatsModal'),
+  {
+    modal: new Modal(document.getElementById('eventStatsModal')),
+    form: document.querySelector('#eventStatsModal form'),
+    movesMetadataTable: movesMetadataTable,
+    progressModal: progressModal
+  }
+);

@@ -1,7 +1,7 @@
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../sanWs.js';
-import * as mode from '../../mode.js';
-import * as variant from '../../variant.js';
+import AbstractComponent from '../../AbstractComponent.js';
+import ws from '../../sanWs.js';
+import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 class OpeningsTable extends AbstractComponent {
   mount() {

@@ -1,8 +1,9 @@
+import Modal from 'bootstrap/js/dist/modal.js';
 import { Opening } from '@chesslablab/jsblab';
-import AbstractComponent from './AbstractComponent.js';
-import OpeningsTable from './OpeningsTable.js';
+import OpeningsTable from '../OpeningsTable.js';
+import AbstractComponent from '../../../AbstractComponent.js';
 
-class OpeningsNameModal extends AbstractComponent {
+export class OpeningsNameModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -19,4 +20,10 @@ class OpeningsNameModal extends AbstractComponent {
   }
 }
 
-export default OpeningsNameModal;
+export const openingsNameModal = new OpeningsNameModal(
+  document.getElementById('openingsNameModal'),
+  {
+    modal: new Modal(document.getElementById('openingsNameModal')),
+    form: document.querySelector('#openingsNameModal form')
+  }
+);

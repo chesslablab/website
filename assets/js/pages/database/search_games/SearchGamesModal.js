@@ -1,12 +1,12 @@
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../sanWs.js';
-import * as env from '../../env.js';
-import * as mode from '../../mode.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import ws from '../../../sanWs.js';
+import * as env from '../../../../env.js';
+import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
-class SearchGamesModal extends AbstractComponent {
+export class SearchGamesModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -94,4 +94,12 @@ class SearchGamesModal extends AbstractComponent {
   }
 }
 
-export default SearchGamesModal;
+export const searchGamesModal = new SearchGamesModal(
+  document.getElementById('searchGamesModal'),
+  {
+    modal: new Modal(document.getElementById('searchGamesModal')),
+    form: document.querySelector('#searchGamesModal form'),
+    movesMetadataTable: movesMetadataTable,
+    progressModal: progressModal
+  }
+);
