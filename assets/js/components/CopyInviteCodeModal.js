@@ -1,5 +1,4 @@
 import AbstractComponent from './AbstractComponent.js';
-import infoModal from '../pages/infoModal.js';
 
 class CopyInviteCodeModal extends AbstractComponent {
   mount() {
@@ -8,9 +7,9 @@ class CopyInviteCodeModal extends AbstractComponent {
       const formData = new FormData(this.props.form);
       navigator.clipboard.writeText(formData.get('hash')).then(() => {
         this.props.modal.hide();
-        infoModal.props.msg = 'Waiting for player to join...';
-        infoModal.mount();
-        infoModal.props.modal.show();
+        this.props.infoModal.props.msg = 'Waiting for player to join...';
+        this.props.infoModal.mount();
+        this.props.infoModal.props.modal.show();
       }, function(err) {
         alert('Whoops! Failed to copy');
       });
