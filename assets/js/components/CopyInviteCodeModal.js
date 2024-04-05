@@ -1,6 +1,5 @@
 import AbstractComponent from './AbstractComponent.js';
 import infoModal from '../pages/infoModal.js';
-import ws from '../playWs.js';
 
 class CopyInviteCodeModal extends AbstractComponent {
   mount() {
