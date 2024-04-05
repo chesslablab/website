@@ -1,5 +1,6 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
+import chessboard from './elements/chessboard.js';
 import copyInviteCodeModal from './elements/copyInviteCodeModal.js';
 import createGameModal from './elements/createGameModal.js';
 import drawModal from './elements/drawModal.js';
@@ -12,9 +13,8 @@ import onlinePlayersModal from './elements/onlinePlayersModal.js';
 import playerButtons from './elements/playerButtons.js';
 import progressModal from './elements/progressModal.js';
 import rematchModal from './elements/rematchModal.js';
+import sanMovesTable from './elements/sanMovesTable.js';
 import takebackModal from './elements/takebackModal.js';
-import chessboard from './pages/chessboard.js';
-import sanMovesTable from './pages/sanMovesTable.js';
 import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';

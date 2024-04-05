@@ -1,9 +1,9 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import chessboard from './elements/chessboard.js';
 import gameActionsDropdown from './elements/gameActionsDropdown.js';
+import openingTable from './elements/openingTable.js';
 import progressModal from './elements/progressModal.js';
-import chessboard from './pages/chessboard.js';
-import openingTable from './pages/openingTable.js';
-import sanMovesTable from './pages/sanMovesTable.js';
+import sanMovesTable from './elements/sanMovesTable.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
