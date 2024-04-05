@@ -24,6 +24,10 @@ const chessboard = new Chessboard(
   }
 );
 
+chessboard.context.addEventListener('contextmenu', (event) => {
+  event.preventDefault();
+});
+
 chessboard.context.addEventListener('mousedown', (event) => {
   if (event.button === 2) {
     const markerType = MARKER_TYPE.circlePrimary;
@@ -35,6 +39,6 @@ chessboard.context.addEventListener('mousedown', (event) => {
       chessboard.addMarker(markerType, square);
     }
   }
-})
+});
 
 export default chessboard;
