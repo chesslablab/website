@@ -1,7 +1,8 @@
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../playWs.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import ws from '../../../playWs.js';
 
-class OnlinePlayersModal extends AbstractComponent {
+export class OnlinePlayersModal extends AbstractComponent {
   mount() {
     const tbody = this.el.querySelector('tbody');
     tbody.replaceChildren();
@@ -32,4 +33,10 @@ class OnlinePlayersModal extends AbstractComponent {
   }
 }
 
-export default OnlinePlayersModal;
+export const onlinePlayersModal = new OnlinePlayersModal(
+  document.getElementById('onlinePlayersModal'),
+  {
+    modal: new Modal(document.getElementById('onlinePlayersModal')),
+    games: []
+  }
+);

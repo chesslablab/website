@@ -1,9 +1,11 @@
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../playWs.js';
-import * as mode from '../../mode.js';
-import * as variant from '../../variant.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import { copyInviteCodeModal } from './CopyInviteCodeModal.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import ws from '../../../playWs.js';
+import * as mode from '../../../../mode.js';
+import * as variant from '../../../../variant.js';
 
-class PlayFriendModal extends AbstractComponent {
+export class PlayFriendModal extends AbstractComponent {
   mount() {
     this.props.form.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
@@ -34,4 +36,11 @@ class PlayFriendModal extends AbstractComponent {
   }
 }
 
-export default PlayFriendModal;
+export const playFriendModal = new PlayFriendModal(
+  document.getElementById('playFriendModal'),
+  {
+    modal: new Modal(document.getElementById('playFriendModal')),
+    form: document.querySelector('#playFriendModal form'),
+    copyInviteCodeModal: copyInviteCodeModal
+  }
+);

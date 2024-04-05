@@ -1,6 +1,8 @@
-import AbstractComponent from './AbstractComponent.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import infoModal from '../../../pages/infoModal.js';
+import AbstractComponent from '../../../AbstractComponent.js';
 
-class CopyInviteCodeModal extends AbstractComponent {
+export class CopyInviteCodeModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -17,4 +19,11 @@ class CopyInviteCodeModal extends AbstractComponent {
   }
 }
 
-export default CopyInviteCodeModal;
+export const copyInviteCodeModal = new CopyInviteCodeModal(
+  document.getElementById('copyInviteCodeModal'),
+  {
+    modal: new Modal(document.getElementById('copyInviteCodeModal')),
+    form: document.querySelector('#copyInviteCodeModal form'),
+    infoModal: infoModal
+  }
+);

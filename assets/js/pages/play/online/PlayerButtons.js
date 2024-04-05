@@ -1,9 +1,9 @@
-import AbstractComponent from './AbstractComponent.js';
-import createGameModal from '../elements/createGameModal.js';
-import infoModal from '../elements/infoModal.js';
-import onlinePlayersModal from '../elements/onlinePlayersModal.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import { createGameModal } from './CreateGameModal.js';
+import { onlinePlayersModal } from './OnlinePlayersModal.js';
+import { infoModal } from '../../InfoModal.js';
 
-class PlayerButtons extends AbstractComponent {
+export class PlayerButtons extends AbstractComponent {
   mount() {
     this.el.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -23,4 +23,4 @@ class PlayerButtons extends AbstractComponent {
   }
 }
 
-export default PlayerButtons;
+export const playerButtons = new PlayerButtons(document.getElementById('playerButtons'));

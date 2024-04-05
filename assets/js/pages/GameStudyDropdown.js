@@ -1,9 +1,9 @@
 import { Movetext } from '@chesslablab/jsblab';
-import AbstractComponent from './AbstractComponent.js';
+import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';
 
-class GameStudyDropdown extends AbstractComponent {
+export class GameStudyDropdown extends AbstractComponent {
   mount() {
     this.props.ul.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -103,4 +103,13 @@ class GameStudyDropdown extends AbstractComponent {
   }
 }
 
-export default GameStudyDropdown;
+export const gameStudyDropdown = new GameStudyDropdown(
+  document.getElementById('gameStudyDropdown'),
+  {
+    ul: document.querySelector('#gameStudyDropdown ul'),
+    chessboard: chessboard,
+    heuristicsModal: heuristicsModal,
+    progressModal: progressModal,
+    sanMovesTable: sanMovesTable
+  }
+);

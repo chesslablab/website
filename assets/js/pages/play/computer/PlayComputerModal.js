@@ -1,9 +1,10 @@
-import AbstractComponent from './AbstractComponent.js';
-import ws from '../stockfishWs.js';
-import * as mode from '../../mode.js';
-import * as variant from '../../variant.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import AbstractComponent from '../../../AbstractComponent.js';
+import ws from '../../../stockfishWs.js';
+import * as mode from '../../../../mode.js';
+import * as variant from '../../../../variant.js';
 
-class PlayComputerModal extends AbstractComponent {
+export class PlayComputerModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -31,4 +32,10 @@ class PlayComputerModal extends AbstractComponent {
   }
 }
 
-export default PlayComputerModal;
+export const playComputerModal = new PlayComputerModal(
+  document.getElementById('playComputerModal'),
+  {
+    modal: new Modal(document.getElementById('playComputerModal')),
+    form: document.querySelector('#playComputerModal form')
+  }
+);
