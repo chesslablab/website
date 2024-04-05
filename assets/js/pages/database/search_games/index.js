@@ -1,4 +1,4 @@
-import blackAutocomplete from '../../../elements/blackAutocomplete.js';
+import { blackAutocomplete } from '../../../pages/BlackAutocomplete.js';
 import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
 import eventAutocomplete from '../../../elements/eventAutocomplete.js';
 import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
