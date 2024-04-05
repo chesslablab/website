@@ -1,6 +1,6 @@
 import { RavMovesTable } from '@chesslablab/jsblab';
 import { FEN } from '@chesslablab/cmblab';
-import chessboard from './chessboard.js';
+import chessboard from '../../../pages/chessboard.js';
 
 const ravMovesTable = new RavMovesTable(
   document.querySelector('#ravMovesTable tbody'),

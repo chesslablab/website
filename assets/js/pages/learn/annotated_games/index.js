@@ -1,8 +1,8 @@
-import chessboard from './chessboard.js';
 import databaseAnnotatedGames from './databaseAnnotatedGames.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
 import historyButtons from './historyButtons.js';
 import ravMovesTable from './ravMovesTable.js';
+import chessboard from '../../../pages/chessboard.js';
 import movesMetadataTable from '../../../pages/movesMetadataTable.js';
 import progressModal from '../../../pages/progressModal.js';
 import * as env from '../../../../env.js';
