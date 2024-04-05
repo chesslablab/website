@@ -7,4 +7,4 @@ await ws.connect();
 
 localStorage.clear();
 
-playComputerModal.modal.show();
+playComputerModal.props.modal.show();
