@@ -1,8 +1,8 @@
 import GameStudyDropdown from '../components/GameStudyDropdown.js';
 import chessboard from './chessboard.js';
-import heuristicsModal from './heuristicsModal.js';
 import progressModal from './progressModal.js';
 import sanMovesTable from './sanMovesTable.js';
+import { heuristicsModal } from '../pages/HeuristicsModal.js';
 
 const gameStudyDropdown = new GameStudyDropdown(
   document.getElementById('gameStudyDropdown'),

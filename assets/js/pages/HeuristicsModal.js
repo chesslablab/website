@@ -1,9 +1,10 @@
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import AbstractComponent from './AbstractComponent.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import AbstractComponent from '../AbstractComponent.js';
 
 Chart.register(...registerables);
 
-class HeuristicsModal extends AbstractComponent {
+export class HeuristicsModal extends AbstractComponent {
   mount() {
     this.props.charts.classList.remove('d-none');
 
@@ -80,4 +81,11 @@ class HeuristicsModal extends AbstractComponent {
   }
 }
 
-export default HeuristicsModal;
+export const heuristicsModal = new HeuristicsModal(
+  document.getElementById('heuristicsModal'),
+  {
+    modal: new Modal(document.getElementById('heuristicsModal')),
+    charts: document.getElementById('charts'),
+    heuristics: []
+  }
+);
