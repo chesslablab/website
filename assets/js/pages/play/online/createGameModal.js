@@ -1,11 +1,13 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import CreateGameModal from '../../../components/CreateGameModal.js';
+import onlinePlayersModal from '../../../pages/play/online/onlinePlayersModal.js';
 
 const createGameModal = new CreateGameModal(
   document.getElementById('createGameModal'),
   {
     modal: new Modal(document.getElementById('createGameModal')),
-    form: document.querySelector('#createGameModal form')
+    form: document.querySelector('#createGameModal form'),
+    onlinePlayersModal: onlinePlayersModal
   }
 );
 

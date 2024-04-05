@@ -1,5 +1,4 @@
 import AbstractComponent from './AbstractComponent.js';
-import onlinePlayersModal from '../pages/play/online/onlinePlayersModal.js';
 import ws from '../playWs.js';
 import * as mode from '../../mode.js';
 
@@ -16,7 +15,7 @@ class CreateGameModal extends AbstractComponent {
       };
       localStorage.setItem('color', formData.get('color'));
       ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-      onlinePlayersModal.props.modal.show();
+      this.props.onlinePlayersModal.props.modal.show();
     });
   }
 }
