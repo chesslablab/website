@@ -1,7 +1,7 @@
-import boardActionsDropdown from '../../../elements/boardActionsDropdown.js';
-import gameStudyDropdown from '../../../elements/gameStudyDropdown.js';
-import historyButtons from '../../../elements/historyButtons.js';
-import openingsNameModal from '../../../elements/openingsNameModal.js';
+import boardActionsDropdown from '../../boardActionsDropdown.js';
+import { gameStudyDropdown } from '../../GameStudyDropdown.js';
+import historyButtons from '../../historyButtons.js';
+import { openingsNameModal } from './OpeningsNameModal.js';
 import ws from '../../../sanWs.js';
 
 await ws.connect();
