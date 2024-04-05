@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import ravMovesTable from './ravMovesTable.js';
-import progressModal from '../../../elements/progressModal.js';
+import { progressModal } from '../../ProgressModal.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
