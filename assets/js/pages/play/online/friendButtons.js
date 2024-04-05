@@ -10,7 +10,7 @@ friendButtons.children.item(0).addEventListener('click', async (event) => {
 
 friendButtons.children.item(1).addEventListener('click', async (event) => {
   event.preventDefault();
-  enterInviteCodeModal.modal.show();
+  enterInviteCodeModal.props.modal.show();
 });
 
 export default friendButtons;

@@ -180,7 +180,7 @@ export default class PlayWebSocket {
                 }
               }
               this._toggleInput(turn);
-              enterInviteCodeModal.modal.hide();
+              enterInviteCodeModal.props.modal.hide();
               createGameModal.props.modal.hide();
               infoModal.props.modal.hide();
               localStorage.setItem('hash', data['/accept'].hash);

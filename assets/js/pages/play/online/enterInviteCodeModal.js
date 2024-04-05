@@ -1,15 +1,12 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ws from '../../../playWs.js';
+import EnterInviteCodeModal from '../../../components/EnterInviteCodeModal.js';
 
-const enterInviteCodeModal = {
-  modal: new Modal(document.getElementById('enterInviteCodeModal')),
-  form: document.querySelector('#enterInviteCodeModal form')
-}
-
-enterInviteCodeModal.form.addEventListener('submit', event => {
-  event.preventDefault();
-  const formData = new FormData(enterInviteCodeModal.form);
-  ws.send(`/accept ${formData.get('hash')}`);
-});
+const enterInviteCodeModal = new EnterInviteCodeModal(
+  document.getElementById('enterInviteCodeModal'),
+  {
+    modal: new Modal(document.getElementById('enterInviteCodeModal')),
+    form: document.querySelector('#enterInviteCodeModal form')
+  }
+);
 
 export default enterInviteCodeModal;
