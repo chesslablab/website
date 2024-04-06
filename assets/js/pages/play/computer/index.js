@@ -1,9 +1,9 @@
 import { playComputerModal } from './PlayComputerModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
-import ws from '../../../stockfishWs.js';
+import { stockfishWebSocket } from '../../../StockfishWebSocket.js';
 
-await ws.connect();
+await stockfishWebSocket.connect();
 
 localStorage.clear();
 

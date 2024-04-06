@@ -7,7 +7,7 @@ import sanMovesTable from './pages/sanMovesTable.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 
-export default class StockfishWebSocket {
+export class StockfishWebSocket {
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -134,3 +134,5 @@ export default class StockfishWebSocket {
     }
   }
 }
+
+export const stockfishWebSocket = new StockfishWebSocket();
