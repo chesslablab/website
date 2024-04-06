@@ -5,9 +5,9 @@ import historyButtons from '../../historyButtons.js';
 import { blackAutocomplete } from '../../BlackAutocomplete.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import { eventAutocomplete } from '../../EventAutocomplete.js';
-import ws from '../../../sanWs.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
 
-await ws.connect();
+await sanWebSocket.connect();
 
 localStorage.clear();
 

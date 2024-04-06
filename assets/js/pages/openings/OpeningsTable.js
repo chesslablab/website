@@ -1,5 +1,5 @@
 import AbstractComponent from '../../AbstractComponent.js';
-import ws from '../../sanWs.js';
+import { sanWebSocket } from '../../SanWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
@@ -22,7 +22,7 @@ class OpeningsTable extends AbstractComponent {
         const add = {
           movetext: opening.movetext
         };
-        ws.send(`/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        sanWebSocket.send(`/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
         this.props.modal.hide();
       });
       this.el.querySelector('tbody').appendChild(tr);

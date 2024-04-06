@@ -10,7 +10,7 @@ import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
-export default class SanWebSocket {
+export class SanWebSocket {
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -142,3 +142,5 @@ export default class SanWebSocket {
     }
   }
 }
+
+export const sanWebSocket = new SanWebSocket();

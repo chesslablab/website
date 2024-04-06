@@ -2,9 +2,9 @@ import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
 import { openingsNameModal } from './OpeningsNameModal.js';
-import ws from '../../../sanWs.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
 
-await ws.connect();
+await sanWebSocket.connect();
 
 localStorage.clear();
 

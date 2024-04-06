@@ -2,7 +2,7 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import Modal from 'bootstrap/js/dist/modal.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
-import ws from '../../../sanWs.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -33,7 +33,7 @@ const handleBarClick = (event, clickedElements) => {
     const add = {
       movetext: res[0].movetext
     };
-    ws.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+    sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
   })
   .catch(error => {
     // TODO

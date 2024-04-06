@@ -3,7 +3,7 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../sanWs.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -77,7 +77,7 @@ export class SearchGamesModal extends AbstractComponent {
             const add = {
               movetext: game.movetext
             };
-            ws.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+            sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
             this.props.movesMetadataTable.props = game;
             this.props.movesMetadataTable.mount();
             this.props.modal.hide();
