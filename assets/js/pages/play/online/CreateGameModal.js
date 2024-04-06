@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { onlinePlayersModal } from './OnlinePlayersModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../playWs.js';
+import { playWebSocket } from '../../../PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 
 export class CreateGameModal extends AbstractComponent {
@@ -16,7 +16,7 @@ export class CreateGameModal extends AbstractComponent {
         submode: 'online'
       };
       localStorage.setItem('color', formData.get('color'));
-      ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       this.props.onlinePlayersModal.props.modal.show();
     });
   }

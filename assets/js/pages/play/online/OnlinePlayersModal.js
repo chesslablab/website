@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../playWs.js';
+import { playWebSocket } from '../../../PlayWebSocket.js';
 
 export class OnlinePlayersModal extends AbstractComponent {
   mount() {
@@ -20,7 +20,7 @@ export class OnlinePlayersModal extends AbstractComponent {
         tr.appendChild(variantTd);
         if (localStorage.getItem('hash') !== game.hash) {
           tr.addEventListener('click', () => {
-            ws.send(`/accept ${game.hash}`);
+            playWebSocket.send(`/accept ${game.hash}`);
           });
         } else {
           timeTd.style.cursor = 'default';

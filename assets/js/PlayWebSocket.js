@@ -345,3 +345,5 @@ export default class PlayWebSocket {
     chessboard.view.visualizeInputState();
   }
 }
+
+export const playWebSocket = new PlayWebSocket();

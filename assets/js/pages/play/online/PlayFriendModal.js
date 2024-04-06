@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { copyInviteCodeModal } from './CopyInviteCodeModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../playWs.js';
+import { playWebSocket } from '../../../PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
@@ -29,7 +29,7 @@ export class PlayFriendModal extends AbstractComponent {
         ...(formData.get('fen') && {fen: formData.get('fen')})
       };
       localStorage.setItem('color', formData.get('color'));
-      ws.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
       this.props.copyInviteCodeModal.props.modal.show();
     });

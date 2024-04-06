@@ -1,17 +1,17 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import ws from '../../../playWs.js';
+import { playWebSocket } from '../../../PlayWebSocket.js';
 
 export class RematchModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      ws.send('/rematch accept');
+      playWebSocket.send('/rematch accept');
     });
 
     this.props.form.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
-      ws.send('/rematch decline');
+      playWebSocket.send('/rematch decline');
     });
   }
 }
