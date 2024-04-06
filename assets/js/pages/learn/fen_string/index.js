@@ -2,9 +2,9 @@ import chessboardFenStringModal from './chessboardFenStringModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
-import ws from '../../../fenWs.js';
+import { fenWebSocket } from '../../../FenWebSocket.js';
 
-await ws.connect();
+await fenWebSocket.connect();
 
 localStorage.clear();
 

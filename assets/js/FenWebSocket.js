@@ -10,7 +10,7 @@ import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
-export default class FenWebSocket {
+export class FenWebSocket {
   constructor() {
     chessboard.enableMoveInput((event) => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
@@ -136,3 +136,5 @@ export default class FenWebSocket {
     }
   }
 }
+
+export const fenWebSocket = new FenWebSocket();

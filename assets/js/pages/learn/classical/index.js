@@ -1,10 +1,10 @@
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
-import ws from '../../../fenWs.js';
+import { fenWebSocket } from '../../../FenWebSocket.js';
 
-await ws.connect();
+await fenWebSocket.connect();
 
 localStorage.clear();
 
-ws.send('/start classical fen');
+fenWebSocket.send('/start classical fen');
