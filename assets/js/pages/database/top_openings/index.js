@@ -1,4 +1,4 @@
-import topOpeningsModal from './topOpeningsModal.js';
+import { topOpeningsModal } from './TopOpeningsModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
@@ -20,8 +20,9 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
 })
 .then(res => res.json())
 .then(res => {
-  topOpeningsModal.mount(res);
-  topOpeningsModal.modal.show();
+  topOpeningsModal.props.stats = res;
+  topOpeningsModal.mount();
+  topOpeningsModal.props.modal.show();
 })
 .catch(error => {
   // TODO
