@@ -1,4 +1,4 @@
-import fenStringModal from './fenStringModal.js';
+import { fenStringModal } from './FenStringModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
@@ -8,4 +8,4 @@ await fenWebSocket.connect();
 
 localStorage.clear();
 
-fenStringModal.modal.show();
+fenStringModal.props.modal.show();
