@@ -1,4 +1,4 @@
-import chessboardSanMovetextModal from './chessboardSanMovetextModal.js';
+import sanMovetextModal from './sanMovetextModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
@@ -8,4 +8,4 @@ await sanWebSocket.connect();
 
 localStorage.clear();
 
-chessboardSanMovetextModal.modal.show();
+sanMovetextModal.modal.show();
