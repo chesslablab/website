@@ -1,5 +1,5 @@
 import boardActionsDropdown from './boardActionsDropdown.js';
-import databaseAnnotatedGames from './databaseAnnotatedGames.js';
+import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
 import historyButtons from './historyButtons.js';
 import ravMovesTable from './ravMovesTable.js';
 import chessboard from '../../chessboard.js';
@@ -50,8 +50,8 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
 })
 .then(res => res.json())
 .then(res => {
-  databaseAnnotatedGames.modal.show();
-  const tbody = databaseAnnotatedGames.form.getElementsByTagName('tbody')[0];
+  databaseAnnotatedGames.props.modal.show();
+  const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();
   res.games.forEach(game => {
     const tr = document.createElement('tr');
@@ -101,7 +101,7 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
       handleClick(game);
       movesMetadataTable.props = game;
       movesMetadataTable.mount();
-      databaseAnnotatedGames.modal.hide();
+      databaseAnnotatedGames.props.modal.hide();
     });
 
     tbody.appendChild(tr);
