@@ -113,6 +113,13 @@ export class StockfishWebSocket {
             break;
 
           case '/randomizer' === msg:
+            chessboard.state.inputWhiteEnabled = false;
+            chessboard.state.inputBlackEnabled = false;
+            if (data['/randomizer'].turn === COLOR.white) {
+              chessboard.state.inputWhiteEnabled = true;
+            } else {
+              chessboard.state.inputBlackEnabled = true;
+            }
             localStorage.setItem('skillLevel', 20);
             localStorage.setItem('depth', 12);
             const add = {
