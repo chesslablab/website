@@ -1,0 +1,16 @@
+{% extends 'layout/san.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'pages/training/checkmate_skills_modal.html.twig' %}
+    {% include 'partial/panel/san.html.twig' %}
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/training/checkmate_skills/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}
