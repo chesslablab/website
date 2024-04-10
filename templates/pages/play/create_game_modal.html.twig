@@ -2,17 +2,17 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="createGameModalLabel">Play Online</h5>
+        <h5 class="modal-title" id="createGameModalLabel">{{ 'Play Online'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3 text-center">
-            <label class="form-label">Minutes per side</label>
+            <label class="form-label">{{ 'Minutes per side'|trans }}</label>
             <input type="range" class="form-range" name="minutes" min="1" max="60" step="1" value="5">
           </div>
           <div class="mb-3 text-center">
-            <label class="form-label">Increment in seconds</label>
+            <label class="form-label">{{ 'Increment in seconds'|trans }}</label>
             <input type="range" class="form-range" name="increment" min="0" max="60" step="1" value="3">
           </div>
           <div class="mb-3 d-flex justify-content-center">
@@ -30,14 +30,14 @@
             </div>
           </div>
           <div class="mb-3">
-            <select name="variant" class="form-select" aria-label="Select a variant" required>
-              <option value="">Select a variant</option>
-              <option value="classical">Classical</option>
-              <option value="960">Fischer Random</option>
+            <select name="variant" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
+              <option value="">{{ 'Select a variant'|trans }}</option>
+              <option value="classical">{{ 'Classical'|trans }}</option>
+              <option value="960">{{ 'Fischer Random'|trans }}</option>
             </select>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Create Game</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Create Game'|trans }}</button>
           </div>
         </form>
       </div>

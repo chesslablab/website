@@ -8,7 +8,7 @@
       <div class="modal-body">
         <form>
           <div class="mb-3 text-center">
-            <select name="items" class="form-select" aria-label="Select a variant" required>
+            <select name="items" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
               <option value="">Select a checkmate</option>
               <option value="rand">Random</option>
               <option value="QR,R">King and queen and rook vs. king and rook</option>
@@ -33,7 +33,7 @@
             </div>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Create Game</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Create Game'|trans }}</button>
           </div>
         </form>
       </div>

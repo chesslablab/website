@@ -8,17 +8,17 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            PLAY
+            {{ 'Play'|trans }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_online') }}">
-                Online
+                {{ 'Online'|trans }}
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
-                Computer
+                {{ 'Computer'|trans }}
               </a>
             </li>
           </ul>

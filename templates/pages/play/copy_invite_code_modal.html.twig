@@ -2,7 +2,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="copyInviteCodeModalLabel">Play a Friend</h5>
+        <h5 class="modal-title" id="copyInviteCodeModalLabel">{{ 'Play a Friend'|trans }}</h5>
       </div>
       <div class="modal-body">
         <form>
@@ -10,13 +10,13 @@
             <div class="alert alert-light d-flex align-items-center" role="alert">
               {% include 'svg/info-circle-fill.svg' %}
               <div class="message">
-                Share this code with a friend.
+                {{ 'Share this code with a friend'|trans }}.
               </div>
             </div>
             <input type="text" name="hash" class="form-control">
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Copy and Play</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Copy and Play'|trans }}</button>
           </div>
         </form>
       </div>

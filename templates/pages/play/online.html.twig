@@ -6,12 +6,12 @@
   </div>
   <div class="col-md-6">
     <div id="playerButtons" class="btn-group-vertical w-100 mb-3">
-      <button class="btn btn-primary" type="button">Online Players</button>
-      <button class="btn btn-primary" type="button">Create a Game</button>
+      <button class="btn btn-primary" type="button">{{ 'Online Players'|trans }}</button>
+      <button class="btn btn-primary" type="button">{{ 'Create a Game'|trans }}</button>
     </div>
     <div id="friendButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-primary" type="button">Play a Friend</button>
-      <button class="btn btn-primary" type="button">Enter Invite Code</button>
+      <button class="btn btn-primary" type="button">{{ 'Play a Friend'|trans }}</button>
+      <button class="btn btn-primary" type="button">{{ 'Enter Invite Code'|trans }}</button>
     </div>
     {% include 'pages/play/copy_invite_code_modal.html.twig' %}
     {% include 'pages/play/create_game_modal.html.twig' %}
