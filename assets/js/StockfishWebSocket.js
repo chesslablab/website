@@ -6,6 +6,7 @@ import { progressModal } from './pages/ProgressModal.js';
 import sanMovesTable from './pages/sanMovesTable.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
+import * as variant from '../variant.js';
 
 export class StockfishWebSocket {
   constructor() {
@@ -109,6 +110,16 @@ export class StockfishWebSocket {
             sanMovesTable.mount();
             openingTable.props.movetext = data['/stockfish'].movetext;
             openingTable.mount();
+            break;
+
+          case '/randomizer' === msg:
+            localStorage.setItem('skillLevel', 20);
+            localStorage.setItem('depth', 12);
+            const add = {
+              color: data['/randomizer'].turn,
+              fen: data['/randomizer'].fen
+            };
+            this.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
             break;
 
           default:
