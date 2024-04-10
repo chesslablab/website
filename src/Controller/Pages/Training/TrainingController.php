@@ -9,6 +9,6 @@ class TrainingController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/play/training.html.twig');
+        return $this->render('pages/training/checkmate_skills.html.twig');
     }
 }
