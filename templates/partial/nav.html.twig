@@ -85,6 +85,18 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
+          <a class="{{app.request.get('_route') starts with 'pages_training_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            TRAINING
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrainingLink">
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_training_checkmate_skills') }}">
+                Checkmate Skills
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_database_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             DATABASE
           </a>

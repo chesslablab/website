@@ -73,7 +73,7 @@ pages_play_online:
     controller: App\Controller\Pages\Play\OnlineController::index
     methods:    GET
 
-pages_training:
+pages_training_checkmate_skills:
     path:       /
     controller: App\Controller\Pages\Play\TrainingController::index
     methods:    GET
