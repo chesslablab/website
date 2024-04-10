@@ -74,8 +74,8 @@ pages_play_online:
     methods:    GET
 
 pages_training_checkmate_skills:
-    path:       /
-    controller: App\Controller\Pages\Play\TrainingController::index
+    path:       /training/checkmate-skills
+    controller: App\Controller\Pages\Training\TrainingController::index
     methods:    GET
 
 pages_about:

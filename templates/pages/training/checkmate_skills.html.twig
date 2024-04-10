@@ -7,4 +7,9 @@
   <div class="col-md-6">
     {% include 'partial/panel/san.html.twig' %}
   </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/training/checkmate_skills/index.js') }}
+    {% endblock %}
+  {% endblock %}
 {% endblock %}

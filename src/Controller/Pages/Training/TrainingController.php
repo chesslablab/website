@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Pages\Play;
+namespace App\Controller\Pages\Training;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
