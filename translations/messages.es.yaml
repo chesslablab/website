@@ -1,7 +1,27 @@
-# Play
+# Main nav bar
 Play: Jugar
 Online: En línea
 Computer: Ordenador
+Learn: Aprender
+Classical Chess: Ajedrez clásico
+Fischer Random: Aleatorio de Fischer
+FEN String: Cadena FEN
+SAN Movetext: Texto SAN
+RAV Movetext: Texto RAV
+Annotated Games: Juegos comentados
+Openings: Aperturas
+ECO Code: Código ECO
+Name: Nombre
+Training: Entrenamiento
+Checkmate Skills: Habilidades de jaque mate
+Database: Base de datos
+Search Games: Buscar juegos
+Top Openings: Aperturas principales
+Player Stats: Estadísticas del jugador
+Event Stats: Estadísticas del evento
+Language: Idioma
+
+# Play
 Online Players: Jugadores en línea
 Create a Game: Crear un juego
 Play a Friend: Jugar con un amigo
@@ -12,7 +32,6 @@ Minutes per side: Minutos por jugador
 Increment in seconds: Incremento en segundos
 Select a variant: Seleccionar variante
 Classical: Clásico
-Fischer Random: Aleatorio de Fischer
 Create Game: Crear juego
 Enter a FEN: Ingresar FEN
 Create Invite Code: Crear código de invitación
