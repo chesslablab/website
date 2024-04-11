@@ -3,7 +3,7 @@ import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { stockfishWebSocket } from '../../../StockfishWebSocket.js';
 
-export class CheckmateSkillsModal extends AbstractComponent {
+export class CheckmateModal extends AbstractComponent {
   _checkmateTypes = ['QR,R', 'Q', 'R', 'BB', 'BN'];
 
   mount() {
@@ -28,10 +28,10 @@ export class CheckmateSkillsModal extends AbstractComponent {
   }
 }
 
-export const checkmateSkillsModal = new CheckmateSkillsModal(
-  document.getElementById('checkmateSkillsModal'),
+export const checkmateModal = new CheckmateModal(
+  document.getElementById('checkmateModal'),
   {
-    modal: new Modal(document.getElementById('checkmateSkillsModal')),
-    form: document.querySelector('#checkmateSkillsModal form')
+    modal: new Modal(document.getElementById('checkmateModal')),
+    form: document.querySelector('#checkmateModal form')
   }
 );

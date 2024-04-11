@@ -103,8 +103,8 @@ pages_play_online:
     requirements:
       _locale:  en|es
 
-pages_training_checkmate_skills:
-    path:       /{_locale}/training/checkmate-skills
+pages_training_checkmate:
+    path:       /{_locale}/training/checkmate
     controller: App\Controller\Pages\Training\TrainingController::index
     methods:    GET
     requirements:
