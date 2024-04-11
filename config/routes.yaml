@@ -111,22 +111,22 @@ pages_training_checkmate_skills:
       _locale:  en|es
 
 pages_about:
-    path:       /about
+    path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en|es
+      _locale:  en
 
 pages_legal:
-    path:       /legal
+    path:       /{_locale}/legal
     controller: App\Controller\Pages\LegalController::index
     methods:    GET
     requirements:
-      _locale:  en|es
+      _locale:  en
 
 pages_support:
-    path:       /support
+    path:       /{_locale}/support
     controller: App\Controller\Pages\SupportController::index
     methods:    GET
     requirements:
-      _locale:  en|es
+      _locale:  en
