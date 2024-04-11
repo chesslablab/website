@@ -41,16 +41,16 @@ input[type="radio"] {
   visibility: hidden;
 }
 
-label[for="colorRadioWhite"]:hover,
-label[for="colorRadioRandom"]:hover,
-label[for="colorRadioBlack"]:hover {
+label[for$="RadioWhite"]:hover,
+label[for$="RadioRandom"]:hover,
+label[for$="RadioBlack"]:hover {
   background-color: #f5f5f5;
   border-radius: 4rem;
 }
 
-input:checked ~ label[for="colorRadioWhite"],
-input:checked ~ label[for="colorRadioRandom"],
-input:checked ~ label[for="colorRadioBlack"] {
+input:checked ~ label[for$="RadioWhite"],
+input:checked ~ label[for$="RadioRandom"],
+input:checked ~ label[for$="RadioBlack"] {
   background-color: #f0f0f0;
   border-radius: 4rem;
 }
