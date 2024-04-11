@@ -13,7 +13,7 @@ Openings: Aperturas
 ECO Code: Código ECO
 Name: Nombre
 Training: Entrenamiento
-Checkmate Skills: Habilidades de jaque mate
+Checkmate Skills: Habilidades de mate
 Database: Base de datos
 Search Games: Buscar juegos
 Top Openings: Aperturas principales
@@ -58,3 +58,12 @@ Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
 Indian Defenses: Defensas indias
 Movetext: Texto con movimientos
 Search: Buscar
+
+# Checkmate skills
+Select a checkmate: Selecciona un mate
+Random: Aleatorio
+King and queen and rook vs. king and rook: Rey, reina y torre contra rey y torre
+King and queen vs. king: Rey y reina contra rey
+King and rook vs. king: Rey y torre contra rey
+King and two bishops vs. king: Rey y dos alfiles contra rey
+King and bishop and knight vs. king: Rey y alfil y caballo contra rey

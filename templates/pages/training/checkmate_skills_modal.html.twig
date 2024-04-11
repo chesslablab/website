@@ -2,20 +2,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="checkmateSkillsModalLabel">Checkmate Skills</h5>
+        <h5 class="modal-title" id="checkmateSkillsModalLabel">{{ 'Checkmate Skills'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3 text-center">
             <select name="items" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
-              <option value="">Select a checkmate</option>
-              <option value="rand">Random</option>
-              <option value="QR,R">King and queen and rook vs. king and rook</option>
-              <option value="Q">King and queen vs. king</option>
-              <option value="R">King and rook vs. king</option>
-              <option value="BB">King and two bishops vs. king</option>
-              <option value="BN">King and bishop and knight vs. king</option>
+              <option value="">{{ 'Select a checkmate'|trans }}</option>
+              <option value="rand">{{ 'Random'|trans }}</option>
+              <option value="QR,R">{{ 'King and queen and rook vs. king and rook'|trans }}</option>
+              <option value="Q">{{ 'King and queen vs. king'|trans }}</option>
+              <option value="R">{{ 'King and rook vs. king'|trans }}</option>
+              <option value="BB">{{ 'King and two bishops vs. king'|trans }}</option>
+              <option value="BN">{{ 'King and bishop and knight vs. king'|trans }}</option>
             </select>
           </div>
           <div class="mb-3 d-flex justify-content-center">
