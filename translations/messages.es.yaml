@@ -6,8 +6,8 @@ Learn: Aprender
 Classical Chess: Ajedrez clásico
 Fischer Random: Aleatorio de Fischer
 FEN String: Cadena FEN
-SAN Movetext: Texto SAN
-RAV Movetext: Texto RAV
+SAN Movetext: Texto SAN con movimientos
+RAV Movetext: Texto RAV con movimientos
 Annotated Games: Juegos comentados
 Openings: Aperturas
 ECO Code: Código ECO
@@ -45,9 +45,9 @@ Accept: Aceptar
 
 # Learn
 Load: Cargar
-Variations and comments will be removed. To keep them, load a RAV Movetext instead: Se eliminarán las variaciones y los comentarios. Para conservarlos, carga un texto RAV
-Enter a movetext: Ingresar un texto
-Variations and comments will be kept. To remove them, load a SAN Movetext instead: Se guardarán las variaciones y los comentarios. Para eliminarlos, carga un texto SAN
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: Se eliminarán las variaciones y los comentarios. Para conservarlos, carga un texto RAV con movimientos
+Enter a movetext: Ingresar un texto con movimientos
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: Se guardarán las variaciones y los comentarios. Para eliminarlos, carga un texto SAN con movimientos
 
 # Openings
 Select an ECO code: Selecciona un código ECO
@@ -56,5 +56,5 @@ Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de 
 Open Games and the French Defense: Juegos abiertos y la defensa francesa
 Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
 Indian Defenses: Defensas indias
-Movetext: Texto
+Movetext: Texto con movimientos
 Search: Buscar
