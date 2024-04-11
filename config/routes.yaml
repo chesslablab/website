@@ -1,3 +1,38 @@
+pages_database_event_stats:
+    path:       /{_locale}/database/event-stats
+    controller: App\Controller\Pages\Database\EventStatsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es
+
+pages_database_player_stats:
+    path:       /{_locale}/database/player-stats
+    controller: App\Controller\Pages\Database\PlayerStatsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es
+
+pages_database_search_games:
+    path:       /{_locale}/database/search-games
+    controller: App\Controller\Pages\Database\SearchGamesController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es
+
+pages_database_top_openings:
+    path:       /{_locale}/database/top-openings
+    controller: App\Controller\Pages\Database\TopOpeningsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es
+
+pages_learn_annotated_games:
+    path:       /{_locale}/learn/annotated-games
+    controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es
+
 pages_learn_classical:
     path:       /{_locale}/learn/classical
     controller: App\Controller\Pages\Learn\ClassicalController::index
@@ -29,41 +64,6 @@ pages_learn_rav_movetext:
 pages_learn_san_movetext:
     path:       /{_locale}/learn/san-movetext
     controller: App\Controller\Pages\Learn\SanMovetextController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es
-
-pages_learn_annotated_games:
-    path:       /{_locale}/learn/annotated-games
-    controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es
-
-pages_database_search_games:
-    path:       /{_locale}/database/search-games
-    controller: App\Controller\Pages\Database\SearchGamesController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es
-
-pages_database_top_openings:
-    path:       /{_locale}/database/top-openings
-    controller: App\Controller\Pages\Database\TopOpeningsController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es
-
-pages_database_player_stats:
-    path:       /{_locale}/database/player-stats
-    controller: App\Controller\Pages\Database\PlayerStatsController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es
-
-pages_database_event_stats:
-    path:       /{_locale}/database/event-stats
-    controller: App\Controller\Pages\Database\EventStatsController::index
     methods:    GET
     requirements:
       _locale:  en|es
