@@ -77,3 +77,20 @@ White: Blancas
 Black: Negras
 Result: Resultado
 Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra un juego aleatorio que coincida con los criterios de búsqueda
+
+# Partial templates
+Board: Tablero
+Flip Board: Girar tablero
+Copy Movetext: Copiar texto con movimientos
+Copy FEN: Copiar cadena FEN
+Game: Juego
+Takeback: Deshacer movimiento
+Propose a takeback: Deshacer movimiento
+Offer draw: Ofrecer tablas
+Resign: Abandonar
+Offer Rematch: Ofrecer revancha
+Study: Estudio
+Download Image: Descargar imagen
+Download Video: Descargar video
+Heuristic Charts: Gráficos heurísticos
+Explain Position: Explicar posición
