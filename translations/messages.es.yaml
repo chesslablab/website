@@ -41,7 +41,11 @@ Copy and Play: Copiar y jugar
 Invite code: Código de invitación
 Play Computer: Jugar con el ordenador
 Difficulty level: Nivel de dificultad
+A draw is being offered: Se ofrece tablas
+A rematch is being offered: Se ofrece revancha
+A takeback is being proposed: Se propone corregir un movimiento
 Accept: Aceptar
+Decline: Declinar
 
 # Learn
 Load: Cargar
@@ -84,8 +88,8 @@ Flip Board: Girar tablero
 Copy Movetext: Copiar texto con movimientos
 Copy FEN: Copiar cadena FEN
 Game: Juego
-Takeback: Deshacer movimiento
-Propose a takeback: Deshacer movimiento
+Takeback: Corregir movimiento
+Propose a takeback: Corregir movimiento
 Offer draw: Ofrecer tablas
 Resign: Abandonar
 Offer Rematch: Ofrecer revancha
