@@ -2,21 +2,21 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="sanMovetextModalLabel">SAN Movetext</h5>
+        <h5 class="modal-title" id="sanMovetextModalLabel">{{ 'SAN Movetext'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="alert alert-light d-flex align-items-center" role="alert">
           {% include 'svg/info-circle-fill.svg' %}
           <div>
-            Variations and comments will be removed. To keep them, load a RAV Movetext instead.
+            {{ 'Variations and comments will be removed. To keep them, load a RAV Movetext instead'|trans }}.
           </div>
         </div>
         <form>
           <div class="mb-3">
             <select name="variant" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
               <option value="">{{ 'Select a variant'|trans }}</option>
-              <option value="classical">{{ 'Classical'|trans }}</option>
+              <option value="classical">{{ 'Classical chess'|trans }}</option>
               <option value="960">{{ 'Fischer Random'|trans }}</option>
             </select>
           </div>
@@ -24,10 +24,10 @@
             <input type="text" name="fen" placeholder="{{ 'Enter a FEN'|trans }}" class="form-control">
           </div>
           <div class="mb-3">
-            <textarea name="san" placeholder="Enter a movetext" class="form-control" rows="3" required></textarea>
+            <textarea name="san" placeholder="{{ 'Enter a movetext'|trans }}" class="form-control" rows="3" required></textarea>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Load</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Load'|trans }}</button>
           </div>
         </form>
       </div>
