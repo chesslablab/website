@@ -2,13 +2,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="playComputerModalLabel">Play Computer</h5>
+        <h5 class="modal-title" id="playComputerModalLabel">{{ 'Play Computer'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3 text-center">
-            <label class="form-label">Difficulty level</label>
+            <label class="form-label">{{ 'Difficulty level'|trans }}</label>
             <input type="range" class="form-range" name="level" min="0" max="3" step="1">
           </div>
           <div class="mb-3 d-flex justify-content-center">
@@ -26,10 +26,10 @@
             </div>
           </div>
           <div class="mb-3">
-            <input type="text" name="fen" placeholder="Enter a FEN" class="form-control">
+            <input type="text" name="fen" placeholder="{{ 'Enter a FEN'|trans }}" class="form-control">
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Accept</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Accept'|trans }}</button>
           </div>
         </form>
       </div>

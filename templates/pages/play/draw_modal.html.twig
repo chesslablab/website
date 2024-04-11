@@ -5,12 +5,12 @@
         <div class="alert alert-light d-flex align-items-center" role="alert">
           {% include 'svg/info-circle-fill.svg' %}
           <div class="message">
-            A draw is being offered.
+            {{ 'A draw is being offered'|trans }}.
           </div>
         </div>
         <form>
-          <button class="btn btn-primary" data-bs-dismiss="modal">Accept</button>
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Decline</button>
+          <button class="btn btn-primary" data-bs-dismiss="modal">{{ 'Accept'|trans }}</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">{{ 'Decline'|trans }}</button>
         </form>
       </div>
     </div>

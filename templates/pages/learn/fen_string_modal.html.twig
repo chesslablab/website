@@ -2,23 +2,23 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="fenStringModalLabel">FEN String</h5>
+        <h5 class="modal-title" id="fenStringModalLabel">{{ 'FEN String'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
           <div class="mb-3">
-            <select name="variant" class="form-select" aria-label="Select a variant" required>
-              <option value="">Select a variant</option>
-              <option value="classical">Classical</option>
-              <option value="960">Fischer Random</option>
+            <select name="variant" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
+              <option value="">{{ 'Select a variant'|trans }}</option>
+              <option value="classical">{{ 'Classical chess'|trans }}</option>
+              <option value="960">{{ 'Fischer Random'|trans }}</option>
             </select>
           </div>
           <div class="mb-3">
-            <input type="text" name="fen" placeholder="Enter a FEN" class="form-control" required>
+            <input type="text" name="fen" placeholder="{{ 'Enter a FEN'|trans }}" class="form-control" required>
           </div>
           <div>
-            <button type="submit" class="btn btn-primary w-100">Load</button>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Load'|trans }}</button>
           </div>
         </form>
       </div>
