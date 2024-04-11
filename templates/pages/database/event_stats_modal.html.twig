@@ -2,26 +2,25 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="eventStatsModalLabel">Event Stats</h5>
+        <h5 class="modal-title" id="eventStatsModalLabel">{{ 'Event Stats'|trans }}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="alert alert-light d-flex align-items-center" role="alert">
           {% include 'svg/info-circle-fill.svg' %}
           <div>
-            Click on an <b>ECO</b> code, and find a random game matching the
-            criteria in a database of thousands of games.
+            {{ 'Click on an ECO code, and find a random game matching the search criteria'|trans }}.
           </div>
         </div>
         <form>
           <div class="row">
             <div class="col-md-8 mb-3">
-              <input list="eventAutocompleteList" name="Event" class="form-control" placeholder="Event">
+              <input list="eventAutocompleteList" name="Event" class="form-control" placeholder="{{ 'Event'|trans }}">
               <datalist id="eventAutocompleteList"></datalist>
             </div>
             <div class="col-md-4 mb-3">
               <select name="Result" class="form-select" aria-label="Result" required>
-                <option value="">Result</option>
+                <option value="">{{ 'Result'|trans }}</option>
                 <option value="1-0">1-0</option>
                 <option value="1/2-1/2">1/2-1/2</option>
                 <option value="0-1">0-1</option>
@@ -29,10 +28,10 @@
             </div>
           </div>
           <div>
-            <button type="submit" class="autocomplete btn btn-primary w-100">Search</button>
+            <button type="submit" class="autocomplete btn btn-primary w-100">{{ 'Search'|trans }}</button>
             <button type="button" class="autocomplete btn btn-primary w-100 d-none" disabled>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              <span class="sr-only">Loading...</span>
+              <span class="sr-only">{{ 'Loading'|trans }}...</span>
             </button>
           </div>
           <div id="eventStatsChart" class="row"></div>

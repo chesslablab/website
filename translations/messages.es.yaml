@@ -67,3 +67,13 @@ King and queen vs. king: Rey y reina contra rey
 King and rook vs. king: Rey y torre contra rey
 King and two bishops vs. king: Rey y dos alfiles contra rey
 King and bishop and knight vs. king: Rey y alfil y caballo contra rey
+
+# Database
+Loading: Cargando
+Click on the Search button, and find up to 25 random games matching the search criteria: Clica en el botón Buscar y encuentra hasta 25 juegos aleatorios que coincidan con los criterios de búsqueda
+Event: Evento
+Year: Año
+White: Blancas
+Black: Negras
+Result: Resultado
+Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra un juego aleatorio que coincida con los criterios de búsqueda
