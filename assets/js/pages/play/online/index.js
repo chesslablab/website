@@ -6,7 +6,6 @@ import { playFriendModal } from './PlayFriendModal.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import chessboard from '../../chessboard.js';
 import historyButtons from '../../historyButtons.js';
-import { settingsModal } from '../../SettingsModal.js';
 import { playWebSocket } from '../../../PlayWebSocket.js';
 
 sessionStorage.clear();

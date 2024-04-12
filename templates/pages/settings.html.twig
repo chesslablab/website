@@ -1,0 +1,21 @@
+{% extends 'layout/content.html.twig' %}
+
+{% block main %}
+  <div class="container p-4 text-light">
+    <h1 class="h3">{{ 'Settings'|trans }}</h1>
+    <p class="lead">
+      {% include 'svg/info-circle-fill.svg' %} {{ 'Soon available! Please be patient'|trans }}.
+    </p>
+    <hr class="hr">
+    <form id="settingsForm">
+      <div>
+        <button type="submit" class="btn btn-primary">{{ 'Save Changes'|trans }}</button>
+      </div>
+    </form>
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/settings/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}

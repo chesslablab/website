@@ -110,6 +110,13 @@ pages_training_checkmate:
     requirements:
       _locale:  en|es|fr
 
+pages_settings:
+    path:       /{_locale}/settings
+    controller: App\Controller\Pages\SettingsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr
+
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index

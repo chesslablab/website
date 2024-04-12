@@ -149,7 +149,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="mainNavSettingsLink" role="button" aria-expanded="false">
+          <a class="nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
             {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
           </a>
         </li>
@@ -159,4 +159,3 @@
 </nav>
 {% include 'partial/info_modal.html.twig' %}
 {% include 'partial/progress_modal.html.twig' %}
-{% include 'partial/settings_modal.html.twig' %}

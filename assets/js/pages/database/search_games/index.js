@@ -4,7 +4,6 @@ import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { eventAutocomplete } from '../../EventAutocomplete.js';
 import { gameStudyDropdown } from '../../GameStudyDropdown.js';
 import historyButtons from '../../historyButtons.js';
-import { settingsModal } from '../../SettingsModal.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import { sanWebSocket } from '../../../SanWebSocket.js';
 

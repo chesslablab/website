@@ -5,7 +5,6 @@ import ravMovesTable from './ravMovesTable.js';
 import chessboard from '../../chessboard.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
-import { settingsModal } from '../../SettingsModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 

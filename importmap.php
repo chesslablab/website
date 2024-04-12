@@ -78,6 +78,10 @@ return [
         'path' => './assets/js/pages/training/checkmate/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/settings/index.js' => [
+        'path' => './assets/js/pages/settings/index.js',
+        'entrypoint' => true,
+    ],
     '@chesslablab/cmblab' => [
         'version' => '0.0.1',
     ],
