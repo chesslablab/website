@@ -24,10 +24,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownChessboardLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownLearnLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Learn'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownChessboardLink">
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLearnLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_learn_classical') }}">
                 {{ 'Classical Chess'|trans }}
@@ -124,9 +124,11 @@
             </li>
           </ul>
         </li>
+      </ul>
+      <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" id="navbarDropdownLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% include 'svg/translate.svg' %}
+            {% include 'svg/translate.svg' %} Language
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguageLink">
             <li>
@@ -147,8 +149,8 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="navbarDropdownLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% include 'svg/gear-fill.svg' %}
+          <a class="nav-link" href="#" id="navbarDropdownSettingsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {% include 'svg/gear-fill.svg' %} Settings
           </a>
         </li>
       </ul>
