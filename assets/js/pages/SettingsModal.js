@@ -21,6 +21,6 @@ export const settingsModal = new SettingsModal(
   {
     modal: new Modal(document.getElementById('settingsModal')),
     form: document.querySelector('#settingsModal form'),
-    a: document.getElementById('navbarSettingsLink')
+    a: document.getElementById('mainNavSettingsLink')
   }
 );

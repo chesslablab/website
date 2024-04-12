@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark mb-2">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('pages_play_online') }}">Chessla<span class="fw-bold">Blab</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Play'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownPlayLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavPlayLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_online') }}">
                 {{ 'Online'|trans }}
@@ -24,10 +24,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownLearnLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavLearnLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Learn'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLearnLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavLearnLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_learn_classical') }}">
                 {{ 'Classical Chess'|trans }}
@@ -63,10 +63,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_openings_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_openings_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Openings'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownOpeningsLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavOpeningsLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_openings_eco_code') }}">
                 {{ 'ECO Code'|trans }}
@@ -85,10 +85,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_training_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_training_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Training'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownTrainingLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavTrainingLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_training_checkmate') }}">
                 {{ 'Checkmate'|trans }}
@@ -97,10 +97,10 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_database_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="{{app.request.get('_route') starts with 'pages_database_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Database'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownDatabaseLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavDatabaseLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_database_search_games') }}">
                 {{ 'Search Games'|trans }}
@@ -127,10 +127,10 @@
       </ul>
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdownLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link" href="#" id="mainNavLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {% include 'svg/translate.svg' %} {{ 'Language'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguageLink">
+          <ul class="dropdown-menu" aria-labelledby="mainNavLanguageLink">
             <li>
               <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'en'}) }}">
                 English
@@ -149,7 +149,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="navbarSettingsLink" role="button" aria-expanded="false">
+          <a class="nav-link" href="#" id="mainNavSettingsLink" role="button" aria-expanded="false">
             {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
           </a>
         </li>
