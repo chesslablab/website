@@ -80,6 +80,10 @@ input[name="Black"] + ul > li:hover {
   color: #fff;
 }
 
+a.navbar-brand {
+  margin-right: 0;
+}
+
 .table td {
   cursor: pointer;
 }
