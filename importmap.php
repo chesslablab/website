@@ -82,7 +82,7 @@ return [
         'version' => '0.0.1',
     ],
     '@chesslablab/jsblab' => [
-        'version' => '0.2.4',
+        'version' => '0.2.5',
     ],
     'bootstrap' => [
         'version' => '5.3.2',
