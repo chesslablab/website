@@ -10,17 +10,17 @@ export class PlayComputerModal extends AbstractComponent {
       event.preventDefault();
       const formData = new FormData(this.props.form);
       if (formData.get('level') == 1) {
-        localStorage.setItem('skillLevel', 11);
-        localStorage.setItem('depth', 4);
+        sessionStorage.setItem('skillLevel', 11);
+        sessionStorage.setItem('depth', 4);
       } else if (formData.get('level') == 2) {
-        localStorage.setItem('skillLevel', 17);
-        localStorage.setItem('depth', 8);
+        sessionStorage.setItem('skillLevel', 17);
+        sessionStorage.setItem('depth', 8);
       } else if (formData.get('level') == 3) {
-        localStorage.setItem('skillLevel', 20);
-        localStorage.setItem('depth', 12);
+        sessionStorage.setItem('skillLevel', 20);
+        sessionStorage.setItem('depth', 12);
       } else {
-        localStorage.setItem('skillLevel', 6);
-        localStorage.setItem('depth', 2);
+        sessionStorage.setItem('skillLevel', 6);
+        sessionStorage.setItem('depth', 2);
       }
       const add = {
         ...(formData.get('color') && {color: formData.get('color')}),

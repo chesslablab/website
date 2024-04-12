@@ -7,6 +7,6 @@ import { sanWebSocket } from '../../../SanWebSocket.js';
 
 await sanWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 eventStatsModal.props.modal.show();

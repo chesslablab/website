@@ -63,7 +63,7 @@ export class StockfishWebSocket {
               chessboard.setOrientation(COLOR.black);
             }
             if (data['/start'].fen.split(' ')[1] !== data['/start'].color) {
-              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+              this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
@@ -82,7 +82,7 @@ export class StockfishWebSocket {
               sanMovesTable.mount();
               openingTable.props.movetext = data['/play_lan'].movetext;
               openingTable.mount();
-              this.send(`/stockfish "{\\"Skill Level\\":${localStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+              this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
             }
@@ -120,8 +120,8 @@ export class StockfishWebSocket {
             } else {
               chessboard.state.inputBlackEnabled = true;
             }
-            localStorage.setItem('skillLevel', 20);
-            localStorage.setItem('depth', 12);
+            sessionStorage.setItem('skillLevel', 20);
+            sessionStorage.setItem('depth', 12);
             const add = {
               color: data['/randomizer'].turn,
               fen: data['/randomizer'].fen

@@ -5,6 +5,6 @@ import { stockfishWebSocket } from '../../../StockfishWebSocket.js';
 
 await stockfishWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 checkmateModal.props.modal.show();

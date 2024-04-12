@@ -8,7 +8,7 @@ import chessboard from '../../chessboard.js';
 import historyButtons from '../../historyButtons.js';
 import { playWebSocket } from '../../../PlayWebSocket.js';
 
-localStorage.clear();
+sessionStorage.clear();
 
 chessboard.state.inputWhiteEnabled = false;
 chessboard.state.inputBlackEnabled = false;

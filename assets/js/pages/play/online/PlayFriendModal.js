@@ -28,7 +28,7 @@ export class PlayFriendModal extends AbstractComponent {
         ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
         ...(formData.get('fen') && {fen: formData.get('fen')})
       };
-      localStorage.setItem('color', formData.get('color'));
+      sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
       this.props.copyInviteCodeModal.props.modal.show();

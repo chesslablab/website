@@ -18,7 +18,7 @@ export class OnlinePlayersModal extends AbstractComponent {
         tr.appendChild(timeTd);
         tr.appendChild(colorTd);
         tr.appendChild(variantTd);
-        if (localStorage.getItem('hash') !== game.hash) {
+        if (sessionStorage.getItem('hash') !== game.hash) {
           tr.addEventListener('click', () => {
             playWebSocket.send(`/accept ${game.hash}`);
           });

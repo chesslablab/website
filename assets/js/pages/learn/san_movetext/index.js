@@ -6,6 +6,6 @@ import { sanWebSocket } from '../../../SanWebSocket.js';
 
 await sanWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 sanMovetextModal.props.modal.show();

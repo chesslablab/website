@@ -8,7 +8,7 @@ import * as env from '../../../../env.js';
 
 await sanWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 progressModal.props.modal.show();
 

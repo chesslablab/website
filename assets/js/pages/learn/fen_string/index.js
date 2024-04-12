@@ -6,6 +6,6 @@ import { fenWebSocket } from '../../../FenWebSocket.js';
 
 await fenWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 fenStringModal.props.modal.show();

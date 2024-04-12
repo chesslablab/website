@@ -5,6 +5,6 @@ import { ravMovetextModal } from './ravMovetextModal.js';
 import chessboard from '../../chessboard.js';
 import { progressModal } from '../../ProgressModal.js';
 
-localStorage.clear();
+sessionStorage.clear();
 
 ravMovetextModal.props.modal.show();

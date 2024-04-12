@@ -5,6 +5,6 @@ import { fenWebSocket } from '../../../FenWebSocket.js';
 
 await fenWebSocket.connect();
 
-localStorage.clear();
+sessionStorage.clear();
 
 fenWebSocket.send('/start 960 fen');

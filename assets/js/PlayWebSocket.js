@@ -45,7 +45,7 @@ export default class PlayWebSocket {
 
     gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
-      localStorage.setItem('takeback', action.PROPOSE);
+      sessionStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
       infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
@@ -54,7 +54,7 @@ export default class PlayWebSocket {
 
     gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      localStorage.setItem('draw', action.PROPOSE);
+      sessionStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
       infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
@@ -68,7 +68,7 @@ export default class PlayWebSocket {
 
     finishedButtons.el.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
-      localStorage.setItem('rematch', action.PROPOSE);
+      sessionStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
       infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
       infoModal.mount();
@@ -120,7 +120,7 @@ export default class PlayWebSocket {
               chessboard.props.startPos = data['/start'].startPos;
               createGameModal.props.modal.hide();
               this.send('/online_games');
-              localStorage.setItem('hash', data['/start'].hash);
+              sessionStorage.setItem('hash', data['/start'].hash);
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
@@ -170,20 +170,20 @@ export default class PlayWebSocket {
               const jwtDecoded = jwtDecode(data['/accept'].jwt);
               const turn = jwtDecoded.fen.split(' ')[1];
               chessboard.setPosition(jwtDecoded.fen, true);
-              if (!localStorage.getItem('color')) {
+              if (!sessionStorage.getItem('color')) {
                 if (jwtDecoded.color === COLOR.white) {
                   chessboard.setOrientation(COLOR.black);
-                  localStorage.setItem('color', COLOR.black);
+                  sessionStorage.setItem('color', COLOR.black);
                 } else {
                   chessboard.setOrientation(COLOR.white);
-                  localStorage.setItem('color', COLOR.white);
+                  sessionStorage.setItem('color', COLOR.white);
                 }
               }
               this._toggleInput(turn);
               enterInviteCodeModal.props.modal.hide();
               createGameModal.props.modal.hide();
               infoModal.props.modal.hide();
-              localStorage.setItem('hash', data['/accept'].hash);
+              sessionStorage.setItem('hash', data['/accept'].hash);
               timerTable.props = {
                 turn: turn,
                 w: data['/accept'].timer.w,
@@ -200,7 +200,7 @@ export default class PlayWebSocket {
 
           case '/takeback' === msg:
             if (data['/takeback'].action === action.PROPOSE) {
-              if (localStorage.getItem('takeback') !== action.PROPOSE) {
+              if (sessionStorage.getItem('takeback') !== action.PROPOSE) {
                 takebackModal.props.modal.show();
               }
             } else if (data['/takeback'].action === action.DECLINE) {
@@ -213,12 +213,12 @@ export default class PlayWebSocket {
               infoModal.mount();
               infoModal.props.modal.show();
             }
-            localStorage.removeItem('takeback');
+            sessionStorage.removeItem('takeback');
             break;
 
           case '/draw' === msg:
             if (data['/draw'].action === action.PROPOSE) {
-              if (localStorage.getItem('draw') !== action.PROPOSE) {
+              if (sessionStorage.getItem('draw') !== action.PROPOSE) {
                 drawModal.props.modal.show();
               }
             } else if (data['/draw'].action === action.DECLINE) {
@@ -232,7 +232,7 @@ export default class PlayWebSocket {
               infoModal.mount();
               infoModal.props.modal.show();
             }
-            localStorage.removeItem('draw');
+            sessionStorage.removeItem('draw');
             break;
 
           case '/resign' === msg:
@@ -246,16 +246,16 @@ export default class PlayWebSocket {
 
           case '/rematch' === msg:
             if (data['/rematch'].action === action.PROPOSE) {
-              if (localStorage.getItem('rematch') !== action.PROPOSE) {
+              if (sessionStorage.getItem('rematch') !== action.PROPOSE) {
                 rematchModal.props.modal.show();
               }
             } else if (data['/rematch'].action === action.DECLINE) {
               rematchModal.props.modal.hide();
               infoModal.props.modal.hide();
             } else if (data['/rematch'].action === action.ACCEPT) {
-              this.send(`/restart ${localStorage.getItem('hash')}`);
+              this.send(`/restart ${sessionStorage.getItem('hash')}`);
             }
-            localStorage.removeItem('rematch');
+            sessionStorage.removeItem('rematch');
             break;
 
           case '/restart' === msg:
@@ -278,7 +278,7 @@ export default class PlayWebSocket {
                 b: data['/restart'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              localStorage.setItem('hash', data['/restart'].hash);
+              sessionStorage.setItem('hash', data['/restart'].hash);
               playerButtons.el.classList.add('d-none');
               friendButtons.el.classList.add('d-none');
               gameActionsDropdown.el.classList.remove('d-none');
@@ -335,7 +335,7 @@ export default class PlayWebSocket {
   _toggleInput(turn) {
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
-    if (turn === localStorage.getItem('color')) {
+    if (turn === sessionStorage.getItem('color')) {
       if (turn === COLOR.white) {
         chessboard.state.inputWhiteEnabled = true;
       } else {

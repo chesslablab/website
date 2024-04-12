@@ -15,7 +15,7 @@ export class CreateGameModal extends AbstractComponent {
         color: formData.get('color'),
         submode: 'online'
       };
-      localStorage.setItem('color', formData.get('color'));
+      sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       this.props.onlinePlayersModal.props.modal.show();
     });
