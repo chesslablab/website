@@ -24,7 +24,7 @@ Language: Langage
 # Play
 Online Players: Joueurs en ligne
 Create a Game: Créer un jeu
-Play a Friend: Joue avec un ami
+Play a Friend: Joue avec un(e) ami(e)
 Classical chess: Échecs classiques
 Enter Invite Code: Entrez le code d'invitation
 Play Online: Jouer en ligne
@@ -36,7 +36,7 @@ Classical: Classique
 Create Game: Créer un jeu
 Enter a FEN: Entrez FEN
 Create Invite Code: Créer un code d'invitation
-Share this code with a friend: Partagez ce code avec un ami
+Share this code with a friend: Partagez ce code avec un(e) ami(e)
 Copy and Play: Copiez et jouez
 Invite code: Code d'invitation
 Play Computer: Jouer à l'ordinateur
@@ -83,18 +83,18 @@ Result: Résultat
 Click on an ECO code, and find a random game matching the search criteria: Cliquez sur un code ECO et trouvez un jeu aléatoire correspondant à vos critères de recherche
 
 # Partial templates
-Board: Tablero
-Flip Board: Girar tablero
-Copy Movetext: Copiar texto con movimientos
-Copy FEN: Copiar cadena FEN
-Game: Juego
-Takeback: Corregir movimiento
-Propose a takeback: Corregir movimiento
-Offer draw: Ofrecer tablas
-Resign: Abandonar
-Offer Rematch: Ofrecer revancha
-Study: Estudio
-Download Image: Descargar imagen
-Download Video: Descargar video
-Heuristic Charts: Gráficos heurísticos
-Explain Position: Explicar posición
+Board: Échiquier
+Flip Board: Retournez l'échiquier
+Copy Movetext: Copier du texte avec des mouvements
+Copy FEN: Copiez la chaîne FEN
+Game: Jeu
+Takeback: Annulation du coup
+Propose a takeback: Proposer l'annulation du coup
+Offer draw: Proposer la nulle
+Resign: Abandonner
+Offer Rematch: Proposer la revanche
+Study: Étude
+Download Image: Télécharger l'image
+Download Video: Télécharger la vidéo
+Heuristic Charts: Graphiques heuristiques
+Explain Position: Expliquez la position
