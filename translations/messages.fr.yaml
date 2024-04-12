@@ -24,20 +24,20 @@ Language: Langage
 # Play
 Online Players: Joueurs en ligne
 Create a Game: Créer un jeu
-Play a Friend: Joue avec un(e) ami(e)
+Play a Friend: Jouer avec un(e) ami(e)
 Classical chess: Échecs classiques
-Enter Invite Code: Entrez le code d'invitation
+Enter Invite Code: Entrer le code d'invitation
 Play Online: Jouer en ligne
 Click an item in the list of games: Cliquez sur un élément dans la liste des jeux
 Minutes per side: Minutes par joueur
 Increment in seconds: Incrément en secondes
-Select a variant: Sélectionnez une variante
+Select a variant: Sélectionner une variante
 Classical: Classique
 Create Game: Créer un jeu
-Enter a FEN: Entrez FEN
+Enter a FEN: Entrer FEN
 Create Invite Code: Créer un code d'invitation
 Share this code with a friend: Partagez ce code avec un(e) ami(e)
-Copy and Play: Copiez et jouez
+Copy and Play: Copier et jouer
 Invite code: Code d'invitation
 Play Computer: Jouer à l'ordinateur
 Difficulty level: Niveau de difficulté
@@ -50,11 +50,11 @@ Decline: Décliner
 # Learn
 Load: Charger
 Variations and comments will be removed. To keep them, load a RAV Movetext instead: Les variations et commentaires seront supprimés. Pour les conserver, chargez un texte RAV avec des mouvements
-Enter a movetext: Entrez un texte avec des mouvements
+Enter a movetext: Entrer un texte avec des mouvements
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: Les variantes et commentaires seront enregistrés. Pour les supprimer, chargez un texte SAN avec les mouvements
 
 # Openings
-Select an ECO code: Sélectionnez un code ECO
+Select an ECO code: Sélectionner un code ECO
 Flank Openings: Ouvertures de flanc
 Semi-Open Games other than the French Defense: Jeux semi-ouverts distincts de la défense française
 Open Games and the French Defense: Jeux ouverts et la défense française
@@ -64,7 +64,7 @@ Movetext: Texte avec mouvements
 Search: Chercher
 
 # Training
-Select a checkmate: Sélectionnez un échec et mat
+Select a checkmate: Sélectionner un échec et mat
 Random: Aléatoire
 King and queen and rook vs. king and rook: Roi, dame et tour contre roi et tour
 King and queen vs. king: Roi et dame contre roi
@@ -84,9 +84,9 @@ Click on an ECO code, and find a random game matching the search criteria: Cliqu
 
 # Partial templates
 Board: Échiquier
-Flip Board: Retournez l'échiquier
+Flip Board: Retourner l'échiquier
 Copy Movetext: Copier du texte avec des mouvements
-Copy FEN: Copiez la chaîne FEN
+Copy FEN: Copier la chaîne FEN
 Game: Jeu
 Takeback: Annulation du coup
 Propose a takeback: Proposer l'annulation du coup
@@ -97,4 +97,4 @@ Study: Étude
 Download Image: Télécharger l'image
 Download Video: Télécharger la vidéo
 Heuristic Charts: Graphiques heuristiques
-Explain Position: Expliquez la position
+Explain Position: Expliquer la position
