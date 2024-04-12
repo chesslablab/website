@@ -24,7 +24,7 @@ Language: Idioma
 # Play
 Online Players: Jugadores en línea
 Create a Game: Crear un juego
-Play a Friend: Jugar con un amigo
+Play a Friend: Jugar con un(a) amigo(a)
 Classical chess: Ajedrez clásico
 Enter Invite Code: Ingresar código de invitación
 Play Online: Jugar en línea
@@ -36,14 +36,14 @@ Classical: Clásico
 Create Game: Crear juego
 Enter a FEN: Ingresar FEN
 Create Invite Code: Crear código de invitación
-Share this code with a friend: Comparte este código con un amigo
+Share this code with a friend: Comparte este código con un(a) amigo(a)
 Copy and Play: Copiar y jugar
 Invite code: Código de invitación
 Play Computer: Jugar con el ordenador
 Difficulty level: Nivel de dificultad
-A draw is being offered: Se ofrece tablas
-A rematch is being offered: Se ofrece revancha
-A takeback is being proposed: Se propone corregir un movimiento
+Would you like a draw?: ¿Quieres tablas?
+Would you like a rematch?: ¿Quieres la revancha?
+Would you like a takeback?: ¿Quieres corregir este movimiento?
 Accept: Aceptar
 Decline: Declinar
 
@@ -88,8 +88,8 @@ Flip Board: Girar tablero
 Copy Movetext: Copiar texto con movimientos
 Copy FEN: Copiar cadena FEN
 Game: Juego
-Takeback: Corregir movimiento
-Propose a takeback: Corregir movimiento
+Takeback: Corregir el movimiento
+Propose a takeback: Corregir el movimiento
 Offer draw: Ofrecer tablas
 Resign: Abandonar
 Offer Rematch: Ofrecer revancha
