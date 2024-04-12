@@ -84,6 +84,10 @@ a.navbar-brand {
   margin-right: 0;
 }
 
+#navbarNavDropdown > ul > li:first-child {
+  margin-right: 1rem;
+}
+
 .table td {
   cursor: pointer;
 }
