@@ -1,0 +1,100 @@
+# Main nav bar
+Play: Jouer
+Online: En ligne
+Computer: Ordinateur
+Learn: Apprendre
+Classical Chess: Échecs classiques
+Fischer Random: Fischer aléatoire
+FEN String: Chaîne FEN
+SAN Movetext: Texte SAN avec mouvements
+RAV Movetext: Texte RAV avec mouvements
+Annotated Games: Jeux annotés
+Openings: Ouvertures
+ECO Code: Code ÉCO
+Name: Nom
+Training: Entraînement
+Checkmate: Échec et mat
+Database: Base de données
+Search Games: Rechercher des jeux
+Top Openings: Ouvertures principales
+Player Stats: Statistiques des joueurs
+Event Stats: Statistiques des événements
+Language: Langage
+
+# Play
+Online Players: Jugadores en línea
+Create a Game: Crear un juego
+Play a Friend: Jugar con un amigo
+Classical chess: Ajedrez clásico
+Enter Invite Code: Ingresar código de invitación
+Play Online: Jugar en línea
+Click an item in the list of games: Haga clic en un elemento de la lista de juegos
+Minutes per side: Minutos por jugador
+Increment in seconds: Incremento en segundos
+Select a variant: Seleccionar variante
+Classical: Clásico
+Create Game: Crear juego
+Enter a FEN: Ingresar FEN
+Create Invite Code: Crear código de invitación
+Share this code with a friend: Comparte este código con un amigo
+Copy and Play: Copiar y jugar
+Invite code: Código de invitación
+Play Computer: Jugar con el ordenador
+Difficulty level: Nivel de dificultad
+A draw is being offered: Se ofrece tablas
+A rematch is being offered: Se ofrece revancha
+A takeback is being proposed: Se propone corregir un movimiento
+Accept: Aceptar
+Decline: Declinar
+
+# Learn
+Load: Cargar
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: Se eliminarán las variaciones y los comentarios. Para conservarlos, carga un texto RAV con movimientos
+Enter a movetext: Ingresar un texto con movimientos
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: Se guardarán las variaciones y los comentarios. Para eliminarlos, carga un texto SAN con movimientos
+
+# Openings
+Select an ECO code: Selecciona un código ECO
+Flank Openings: Aperturas de flanco
+Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
+Open Games and the French Defense: Juegos abiertos y la defensa francesa
+Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
+Indian Defenses: Defensas indias
+Movetext: Texto con movimientos
+Search: Buscar
+
+# Training
+Select a checkmate: Selecciona un jaque y mate
+Random: Aleatorio
+King and queen and rook vs. king and rook: Rey, reina y torre contra rey y torre
+King and queen vs. king: Rey y reina contra rey
+King and rook vs. king: Rey y torre contra rey
+King and two bishops vs. king: Rey y dos alfiles contra rey
+King and bishop and knight vs. king: Rey y alfil y caballo contra rey
+
+# Database
+Loading: Cargando
+Click on the Search button, and find up to 25 random games matching the search criteria: Clica en el botón Buscar y encuentra hasta 25 juegos aleatorios que coincidan con los criterios de búsqueda
+Event: Evento
+Year: Año
+White: Blancas
+Black: Negras
+Result: Resultado
+Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra un juego aleatorio que coincida con los criterios de búsqueda
+
+# Partial templates
+Board: Tablero
+Flip Board: Girar tablero
+Copy Movetext: Copiar texto con movimientos
+Copy FEN: Copiar cadena FEN
+Game: Juego
+Takeback: Corregir movimiento
+Propose a takeback: Corregir movimiento
+Offer draw: Ofrecer tablas
+Resign: Abandonar
+Offer Rematch: Ofrecer revancha
+Study: Estudio
+Download Image: Descargar imagen
+Download Video: Descargar video
+Heuristic Charts: Gráficos heurísticos
+Explain Position: Explicar posición
