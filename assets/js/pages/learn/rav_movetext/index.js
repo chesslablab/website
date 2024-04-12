@@ -4,6 +4,7 @@ import ravMovesTable from './ravMovesTable.js';
 import { ravMovetextModal } from './ravMovetextModal.js';
 import chessboard from '../../chessboard.js';
 import { progressModal } from '../../ProgressModal.js';
+import { settingsModal } from '../../SettingsModal.js';
 
 sessionStorage.clear();
 
