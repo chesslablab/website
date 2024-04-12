@@ -7,28 +7,6 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdownLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% include 'svg/translate.svg' %}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguageLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'en'}) }}">
-                English
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'es'}) }}">
-                Español
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'fr'}) }}">
-                Français
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="navbarDropdownPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Play'|trans }}
           </a>
@@ -142,6 +120,28 @@
             <li>
               <a class="dropdown-item" href="{{ path('pages_database_event_stats') }}">
                 {{ 'Event Stats'|trans }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="#" id="navbarDropdownLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {% include 'svg/translate.svg' %}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLanguageLink">
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'en'}) }}">
+                English
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'es'}) }}">
+                Español
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'fr'}) }}">
+                Français
               </a>
             </li>
           </ul>

@@ -80,10 +80,6 @@ input[name="Black"] + ul > li:hover {
   color: #fff;
 }
 
-a.navbar-brand {
-  margin-right: 0;
-}
-
 #navbarNavDropdown > ul > li:first-child {
   margin-right: 1rem;
 }
