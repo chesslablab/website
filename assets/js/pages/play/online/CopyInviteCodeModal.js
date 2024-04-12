@@ -13,7 +13,10 @@ export class CopyInviteCodeModal extends AbstractComponent {
         this.props.infoModal.mount();
         this.props.infoModal.props.modal.show();
       }, function(err) {
-        alert('Whoops! Failed to copy');
+        this.props.modal.hide();
+        this.props.infoModal.props.msg = 'Whoops! Failed to copy.';
+        this.props.infoModal.mount();
+        this.props.infoModal.props.modal.show();
       });
     });
   }
