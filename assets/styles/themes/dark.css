@@ -1,0 +1,31 @@
+body {
+  background-color: #262421;
+}
+
+.the-content {
+    background-color: #282828;
+}
+
+.the-content {
+  color: #f8f9fa;
+}
+
+.the-content p a {
+  color: #ffffff !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.the-content p a:hover {
+  text-decoration: underline;
+}
+
+footer a {
+  color: #f8f9fa;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
