@@ -14,7 +14,7 @@ const chessboard = new Chessboard(
   {
     position: FEN.start,
     assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
-    style: {borderType: BORDER_TYPE.frame, pieces: {file: "pieces/staunty.svg"}},
+    style: {borderType: BORDER_TYPE.thin, pieces: {file: "pieces/staunty.svg"}},
     orientation: COLOR.white,
     extensions: [
       {class: Markers, props: {autoMarkers: MARKER_TYPE.square}},
