@@ -1,6 +1,5 @@
 body {
   font-family: monospace;
-  background-color: #262421;
 }
 
 body:after {
@@ -94,10 +93,6 @@ input[name="Black"] + ul > li:hover {
 
 .btn-primary:hover {
   background-color: #00007c !important;
-}
-
-.the-content {
-  background-color: #282828;
 }
 
 .the-content a.link-light:hover {
