@@ -87,12 +87,8 @@ input[name="Black"] + ul > li:hover {
   cursor: pointer;
 }
 
-.btn-primary {
-  background-color: #545499 !important;
-}
-
-.btn-primary:hover {
-  background-color: #00007c !important;
+.btn {
+  border-radius: 0;
 }
 
 .the-content a.link-light:hover {

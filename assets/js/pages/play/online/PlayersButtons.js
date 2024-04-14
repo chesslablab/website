@@ -7,7 +7,7 @@ export class PlayersButtons extends AbstractComponent {
     if (this.props.games.length > 0) {
       this.props.games.forEach(game => {
         const button = document.createElement('button');
-        button.classList.add('btn', 'btn-secondary', 'w-100', 'rounded-0');
+        button.classList.add('btn', 'btn-primary', 'w-100', 'rounded-0');
         button.textContent = `${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
         if (sessionStorage.getItem('hash') !== game.hash) {
           button.addEventListener('click', () => {
