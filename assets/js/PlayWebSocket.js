@@ -11,8 +11,8 @@ import { drawModal } from './pages/play/online/DrawModal.js';
 import { enterInviteCodeModal } from './pages/play/online/EnterInviteCodeModal.js';
 import { finishedButtons } from './pages/play/online/FinishedButtons.js';
 import { friendButtons } from './pages/play/online/FriendButtons.js';
-import { onlinePlayersModal } from './pages/play/online/OnlinePlayersModal.js';
 import { playerButtons } from './pages/play/online/PlayerButtons.js';
+import { playersButtons } from './pages/play/online/PlayersButtons.js';
 import { rematchModal } from './pages/play/online/RematchModal.js';
 import { takebackModal } from './pages/play/online/TakebackModal.js';
 import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
@@ -78,8 +78,9 @@ export default class PlayWebSocket {
     finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       chessboard.setPosition(FEN.start, true);
-      playerButtons.el.classList.remove('d-none');
       friendButtons.el.classList.remove('d-none');
+      playerButtons.el.classList.remove('d-none');
+      playersButtons.el.classList.remove('d-none');
       gameActionsDropdown.el.parentNode.parentNode.classList.add('d-none');
     });
 
@@ -106,8 +107,8 @@ export default class PlayWebSocket {
             break;
 
           case 'broadcast' === msg:
-            onlinePlayersModal.props.games = data['broadcast']['onlineGames'];
-            onlinePlayersModal.mount();
+            playersButtons.props.games = data['broadcast']['onlineGames'];
+            playersButtons.mount();
             break;
 
           case '/start' === msg:
@@ -190,11 +191,11 @@ export default class PlayWebSocket {
                 b: data['/accept'].timer.b
               };
               this._timerTableInterval = timerTableInterval();
-              playerButtons.el.classList.add('d-none');
               friendButtons.el.classList.add('d-none');
+              playerButtons.el.classList.add('d-none');
+              playersButtons.el.classList.add('d-none');
               gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
-              onlinePlayersModal.props.modal.hide();
             }
             break;
 
@@ -279,8 +280,9 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = timerTableInterval();
               sessionStorage.setItem('hash', data['/restart'].hash);
-              playerButtons.el.classList.add('d-none');
               friendButtons.el.classList.add('d-none');
+              playerButtons.el.classList.add('d-none');
+              playersButtons.el.classList.add('d-none');
               gameActionsDropdown.el.classList.remove('d-none');
               finishedButtons.el.classList.add('d-none');
             }
@@ -297,8 +299,8 @@ export default class PlayWebSocket {
             break;
 
           case '/online_games' === msg:
-            onlinePlayersModal.props.games = data['/online_games'];
-            onlinePlayersModal.mount();
+            playersButtons.props.games = data['/online_games'];
+            playersButtons.mount();
             break;
 
           default:
