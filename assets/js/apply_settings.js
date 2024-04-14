@@ -7,12 +7,14 @@ const dark = `body {
 .the-content {
   color: #f8f9fa;
 }
-.the-content p a {
+.the-content p a,
+.the-content ul li a {
   color: #ffffff !important;
   font-weight: bold;
   text-decoration: none;
 }
-.the-content p a:hover {
+.the-content p a:hover,
+.the-content ul li a:hover {
   text-decoration: underline;
 }
 footer a {
@@ -49,12 +51,14 @@ button.navbar-toggler {
 .the-content {
   background-color: #f8f9fa;
 }
-.the-content p a {
+.the-content p a,
+.the-content ul li a {
   color: #282828;
   font-weight: bold;
   text-decoration: none;
 }
-.the-content p a:hover {
+.the-content p a:hover,
+.the-content ul li a:hover {
   text-decoration: underline;
 }
 footer a {
