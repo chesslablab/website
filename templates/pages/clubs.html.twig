@@ -1,0 +1,32 @@
+{% extends 'layout/content.html.twig' %}
+
+{% block main %}
+  <div class="container p-4">
+    <h1 class="h3">{{ 'Clubs'|trans }}</h1>
+    <p class="lead">
+      Listed below are the clubs supporting ChesslaBlab with a decentralized space to engage with others.
+    </p>
+    <hr class="hr">
+    <div class="table-responsive">
+      <table id="clubsTable" class="table mb-3">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Room</th>
+            <th scope="col">Description</th>
+            <th scope="col">Room</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Starting Lounge</td>
+            <td>This is the place to be if you want to learn and play chess but don't know how to start.</td>
+            <td><a href="https://view.matrix.org/room/%21eVDkjqnTixkauVrOhq:matrix.org/" target="_blank">#starting-chesslablab:matrix.org</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="btn btn-primary" href="{{ path('pages_support') }}" role="button">Add your club to the list</a>
+  </div>
+{% endblock %}

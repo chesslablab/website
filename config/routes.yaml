@@ -1,3 +1,10 @@
+pages_clubs:
+    path:       /{_locale}/clubs
+    controller: App\Controller\Pages\ClubsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr
+
 pages_database_event_stats:
     path:       /{_locale}/database/event-stats
     controller: App\Controller\Pages\Database\EventStatsController::index
