@@ -4,9 +4,12 @@
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     {% include 'pages/training/checkmate_modal.html.twig' %}
     {% include 'partial/panel/stockfish.html.twig' %}
+  </div>
+  <div class="col-md-2">
+    {% include 'partial/logos.html.twig' %}
   </div>
   {% block javascripts %}
     {% block importmap %}

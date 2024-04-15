@@ -23,6 +23,9 @@
     {% include 'pages/play/takeback_modal.html.twig' %}
     {% include 'partial/panel/play.html.twig' %}
   </div>
+  <div class="col-md-2">
+    {% include 'partial/logos.html.twig' %}
+  </div>
   {% block javascripts %}
     {% block importmap %}
       {{ importmap('js/pages/play/online/index.js') }}
