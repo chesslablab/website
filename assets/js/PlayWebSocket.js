@@ -196,6 +196,11 @@ export default class PlayWebSocket {
               playersButtons.el.classList.add('d-none');
               gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
+            } else {
+              enterInviteCodeModal.props.modal.hide();
+              infoModal.props.msg = 'Invalid invite code, please try again with a different one.';
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             break;
 
