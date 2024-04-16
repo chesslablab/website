@@ -7,6 +7,14 @@
     <form id="settingsForm">
       <div>
         <div class="mb-3">
+          <label class="form-label">{{ 'Language'|trans }}</label>
+          <select name="locale" class="form-select" required>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+        <div class="mb-3">
           <label class="form-label">Theme</label>
           <select name="theme" class="form-select" required>
             <option value="dark">Dark</option>
