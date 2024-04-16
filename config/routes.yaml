@@ -136,18 +136,18 @@ pages_about:
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en
+      _locale:  en|es|fr
 
 pages_legal:
     path:       /{_locale}/legal
     controller: App\Controller\Pages\LegalController::index
     methods:    GET
     requirements:
-      _locale:  en
+      _locale:  en|es|fr
 
 pages_support:
     path:       /{_locale}/support
     controller: App\Controller\Pages\SupportController::index
     methods:    GET
     requirements:
-      _locale:  en
+      _locale:  en|es|fr
