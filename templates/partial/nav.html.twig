@@ -131,28 +131,6 @@
         </li>
       </ul>
       <ul class="navbar-nav me-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="mainNavLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% include 'svg/translate.svg' %} {{ 'Language'|trans }}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="mainNavLanguageLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'en'}) }}">
-                English
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'es'}) }}">
-                Español
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_play_online', {_locale:'fr'}) }}">
-                Français
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
             {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
