@@ -4,16 +4,16 @@
   <div class="container p-4">
     <h1 class="h3">{{ 'Clubs'|trans }}</h1>
     <p class="lead">
-      Find a club and engage with chess players over the Internet.
+      {{ 'Find a club and engage with chess players over the Internet'|trans }}.
     </p>
     <hr class="hr">
     <div class="table-responsive">
       <table id="clubsTable" class="table mb-3">
         <thead>
           <tr>
-            <th scope="col">Platform</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
+            <th scope="col">{{ 'Platform'|trans }}</th>
+            <th scope="col">{{ 'Name'|trans }}</th>
+            <th scope="col">{{ 'Description'|trans }}</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -29,12 +29,12 @@
               Let's play chess with other players in a decentralized way.
             </td>
             <td>
-              <a class="btn btn-primary" href="https://matrix.to/#/#chesslablab-chess-players:matrix.org" target="_blank" role="button">Join</a>
+              <a class="btn btn-primary" href="https://matrix.to/#/#chesslablab-chess-players:matrix.org" target="_blank" role="button">{{ 'Join'|trans }}</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <a class="btn btn-primary" href="{{ path('pages_support', {_locale:'en'}) }}" role="button">Add your room</a>
+    <a class="btn btn-primary" href="{{ path('pages_support', {_locale:'en'}) }}" role="button">{{ 'Add a club'|trans }}</a>
   </div>
 {% endblock %}

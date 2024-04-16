@@ -83,6 +83,13 @@ Black: Noirs
 Result: Résultat
 Click on an ECO code, and find a random game matching the search criteria: Cliquez sur un code ECO et trouvez un jeu aléatoire correspondant à vos critères de recherche
 
+# Clubs
+Find a club and engage with chess players over the Internet: Trouvez un club et jouez avec d'autres joueurs d'échecs sur Internet
+Platform: Plateforme
+Description: Description
+Join: Rejoindre
+Add a club: Ajouter un club
+
 # Partial templates
 Board: Échiquier
 Flip Board: Retourner l'échiquier
@@ -101,3 +108,6 @@ Heuristic Charts: Graphiques heuristiques
 Explain Position: Expliquer la position
 Soon available! Please be patient: Bientôt disponible! S'il vous plaît soyez patient
 Save Changes: Sauvegarder les modifications
+
+# Settings
+Theme: Thème
