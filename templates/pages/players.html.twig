@@ -2,9 +2,9 @@
 
 {% block main %}
   <div class="container p-4">
-    <h1 class="h3">{{ 'Clubs'|trans }}</h1>
+    <h1 class="h3">{{ 'Players'|trans }}</h1>
     <p class="lead">
-      {{ 'Find a club and engage with chess players over the Internet'|trans }}.
+      {{ 'Find chess players all over the Internet and improve your chess skills. Have fun!'|trans }}
     </p>
     <hr class="hr">
     <div class="table-responsive">
@@ -35,6 +35,6 @@
         </tbody>
       </table>
     </div>
-    <a class="btn btn-primary" href="{{ path('pages_support', {_locale:'en'}) }}" role="button">{{ 'Add a club'|trans }}</a>
+    <a class="btn btn-primary" href="{{ path('pages_support', {_locale:'en'}) }}" role="button">{{ 'Add a space'|trans }}</a>
   </div>
 {% endblock %}

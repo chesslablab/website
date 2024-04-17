@@ -5,10 +5,10 @@ namespace App\Controller\Pages;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ClubsController extends AbstractController
+class PlayersController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/clubs.html.twig');
+        return $this->render('pages/players.html.twig');
     }
 }

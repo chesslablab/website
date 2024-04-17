@@ -19,6 +19,7 @@ Search Games: Buscar partidas
 Top Openings: Aperturas principales
 Player Stats: Estadísticas del jugador
 Event Stats: Estadísticas del evento
+Players: Jugadores
 Language: Idioma
 Settings: Ajustes
 
@@ -83,11 +84,11 @@ Result: Resultado
 Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra una partida aleatoria que coincida con los criterios de búsqueda
 
 # Clubs
-Find a club and engage with chess players over the Internet: Encuentra un club y juega con otros jugadores(as) de ajedrez a través de Internet
+Find chess players all over the Internet and improve your chess skills. Have fun!: Encuentra jugadores de ajedrez en Internet y mejora tus habilidades de ajedrez. ¡Diviértete!
 Platform: Plataforma
 Description: Descripción
 Join: Unirse
-Add a club: Añadir un club
+Add a space: Añadir un espacio
 
 # Partial templates
 Board: Tablero

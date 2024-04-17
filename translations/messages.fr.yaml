@@ -19,6 +19,7 @@ Search Games: Rechercher des parties
 Top Openings: Ouvertures principales
 Player Stats: Statistiques des joueurs
 Event Stats: Statistiques des événements
+Players: Joueurs
 Language: Langue
 Settings: Paramètres
 
@@ -83,11 +84,11 @@ Result: Résultat
 Click on an ECO code, and find a random game matching the search criteria: Cliquez sur un code ECO et trouvez une partie aléatoire correspondant à vos critères de recherche
 
 # Clubs
-Find a club and engage with chess players over the Internet: Trouvez un club et jouez avec d'autres joueurs d'échecs sur Internet
+Find chess players all over the Internet and improve your chess skills. Have fun!: Trouvez des joueurs d'échecs partout sur Internet et améliorez vos compétences aux échecs. Amusez-vous!
 Platform: Plateforme
 Description: Description
 Join: Rejoindre
-Add a club: Ajouter un club
+Add a space: Ajouter un espace
 
 # Partial templates
 Board: Échiquier
