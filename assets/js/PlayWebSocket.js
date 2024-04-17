@@ -47,7 +47,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
-      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
+      infoModal.props.msg = "Waiting for your opponent to accept or decline";
       infoModal.mount();
       infoModal.props.modal.show();
     });
@@ -56,7 +56,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       sessionStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
-      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
+      infoModal.props.msg = "Waiting for your opponent to accept or decline";
       infoModal.mount();
       infoModal.props.modal.show();
     });
@@ -70,7 +70,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       sessionStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
-      infoModal.props.msg = 'Waiting for your opponent to accept or decline.';
+      infoModal.props.msg = "Waiting for your opponent to accept or decline";
       infoModal.mount();
       infoModal.props.modal.show();
     });
@@ -198,7 +198,7 @@ export default class PlayWebSocket {
               this.send('/online_games');
             } else {
               enterInviteCodeModal.props.modal.hide();
-              infoModal.props.msg = 'Invalid invite code, please try again with a different one.';
+              infoModal.props.msg = "Invalid invite code, please try again";
               infoModal.mount();
               infoModal.props.modal.show();
             }
@@ -211,11 +211,11 @@ export default class PlayWebSocket {
               }
             } else if (data['/takeback'].action === action.DECLINE) {
               takebackModal.props.modal.hide();
-              infoModal.props.msg = 'Takeback declined.';
+              infoModal.props.msg = "Takeback declined";
               infoModal.mount();
               infoModal.props.modal.show();
             } else if (data['/takeback'].action === action.ACCEPT) {
-              infoModal.props.msg = 'Takeback accepted.';
+              infoModal.props.msg = "Takeback accepted";
               infoModal.mount();
               infoModal.props.modal.show();
             }
@@ -229,12 +229,12 @@ export default class PlayWebSocket {
               }
             } else if (data['/draw'].action === action.DECLINE) {
               drawModal.props.modal.hide();
-              infoModal.props.msg = 'Draw offer declined.';
+              infoModal.props.msg = "Draw offer declined";
               infoModal.mount();
               infoModal.props.modal.show();
             } else if (data['/draw'].action === action.ACCEPT) {
               this._end();
-              infoModal.props.msg = 'Draw offer accepted.';
+              infoModal.props.msg = "Draw offer accepted";
               infoModal.mount();
               infoModal.props.modal.show();
             }
@@ -244,7 +244,7 @@ export default class PlayWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               this._end();
-              infoModal.props.msg = 'Chess game resigned.';
+              infoModal.props.msg = "Your opponent has resigned";
               infoModal.mount();
               infoModal.props.modal.show();
             }
@@ -297,7 +297,7 @@ export default class PlayWebSocket {
             if (data['/leave'].action === action.ACCEPT) {
               this._end();
               finishedButtons.el.children.item(0).classList.add('d-none');
-              infoModal.props.msg = 'Your opponent left the game.';
+              infoModal.props.msg = "Your opponent is gone";
               infoModal.mount();
               infoModal.props.modal.show();
             }
