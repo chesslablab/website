@@ -79,8 +79,9 @@ input[name="Black"] + ul > li:hover {
   color: #fff;
 }
 
-#navbarNavDropdown > ul > li:first-child {
-  margin-right: 1rem;
+.card ul li {
+  list-style-type: '✔';
+  padding-inline-start: 0.4rem;
 }
 
 .table td {
@@ -102,6 +103,10 @@ input[name="Black"] + ul > li:hover {
 
 .container {
   min-height: 595px;
+}
+
+#navbarNavDropdown > ul > li:first-child {
+  margin-right: 1rem;
 }
 
 #startedButtons {
