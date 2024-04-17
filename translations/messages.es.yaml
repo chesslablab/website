@@ -8,14 +8,14 @@ Fischer Random: Aleatorio de Fischer
 FEN String: Cadena FEN
 SAN Movetext: Texto SAN con movimientos
 RAV Movetext: Texto RAV con movimientos
-Annotated Games: Juegos comentados
+Annotated Games: Partidas comentadas
 Openings: Aperturas
 ECO Code: Código ECO
 Name: Nombre
 Training: Entrenamiento
 Checkmate: Jaque y mate
 Database: Base de datos
-Search Games: Buscar juegos
+Search Games: Buscar partidas
 Top Openings: Aperturas principales
 Player Stats: Estadísticas del jugador
 Event Stats: Estadísticas del evento
@@ -24,17 +24,16 @@ Settings: Ajustes
 
 # Play
 Online Players: Jugadores en línea
-Create a Game: Crear un juego
+Create a Game: Crear una partida
 Play a Friend: Jugar con un(a) amigo(a)
 Classical chess: Ajedrez clásico
 Enter Invite Code: Ingresar código de invitación
 Play Online: Jugar en línea
-Click an item in the list of games: Haga clic en un elemento de la lista de juegos
 Minutes per side: Minutos por jugador
 Increment in seconds: Incremento en segundos
 Select a variant: Seleccionar variante
 Classical: Clásico
-Create Game: Crear juego
+Create Game: Crear partida
 Enter a FEN: Ingresar FEN
 Create Invite Code: Crear código de invitación
 Share this code with a friend: Comparte este código con un(a) amigo(a)
@@ -75,13 +74,13 @@ King and bishop and knight vs. king: Rey y alfil y caballo contra rey
 
 # Database
 Loading: Cargando
-Click on the Search button, and find up to 25 random games matching the search criteria: Clica en el botón Buscar y encuentra hasta 25 juegos aleatorios que coincidan con los criterios de búsqueda
+Click on the Search button, and find up to 25 random games matching the search criteria: Clica en el botón Buscar y encuentra hasta 25 partidas aleatorias que coincidan con los criterios de búsqueda
 Event: Evento
 Year: Año
 White: Blancas
 Black: Negras
 Result: Resultado
-Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra un juego aleatorio que coincida con los criterios de búsqueda
+Click on an ECO code, and find a random game matching the search criteria: Clica en un código ECO y encuentra una partida aleatoria que coincida con los criterios de búsqueda
 
 # Clubs
 Find a club and engage with chess players over the Internet: Encuentra un club y juega con otros jugadores(as) de ajedrez a través de Internet
@@ -95,7 +94,7 @@ Board: Tablero
 Flip Board: Girar tablero
 Copy Movetext: Copiar texto con movimientos
 Copy FEN: Copiar cadena FEN
-Game: Juego
+Game: Partida
 Takeback: Corregir el movimiento
 Propose a takeback: Corregir el movimiento
 Offer draw: Ofrecer tablas
