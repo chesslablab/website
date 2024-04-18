@@ -4,7 +4,7 @@ import sanMovesTable from './sanMovesTable.js';
 const boardActionsDropdown = new BoardActionsDropdown(
   document.querySelector('#boardActionsDropdown ul'),
   {
-    movesTable: sanMovesTable
+    moves: sanMovesTable
   }
 );
 

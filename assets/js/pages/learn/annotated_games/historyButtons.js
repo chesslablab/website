@@ -4,7 +4,7 @@ import ravMovesTable from './ravMovesTable.js';
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    movesTable: ravMovesTable
+    moves: ravMovesTable
   }
 );
 

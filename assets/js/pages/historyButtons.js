@@ -4,7 +4,7 @@ import sanMovesTable from './sanMovesTable.js';
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    movesTable: sanMovesTable
+    moves: sanMovesTable
   }
 );
 

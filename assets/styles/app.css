@@ -105,6 +105,11 @@ input[name="Black"] + ul > li:hover {
   min-height: 595px;
 }
 
+.active-move {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
 #navbarNavDropdown > ul > li:first-child {
   margin-right: 1rem;
 }
@@ -116,6 +121,8 @@ input[name="Black"] + ul > li:hover {
 #ravMovesTable td:hover,
 #sanMovesTable td:hover {
   cursor: pointer;
+  background-color: #6c757d !important;
+  color: #fff !important;
 }
 
 #ravMovesTable,
@@ -140,12 +147,12 @@ input[name="Black"] + ul > li:hover {
   font-size: 1rem;
 }
 
-div.table-responsive:has(#ravMovesTable) {
+.table-responsive:has(#ravMovesTable) {
   height: 300px;
   overflow-y: scroll;
 }
 
-div.table-responsive:has(#sanMovesTable) {
+.table-responsive:has(#sanMovesTable) {
   height: 250px;
   overflow-y: scroll;
 }
