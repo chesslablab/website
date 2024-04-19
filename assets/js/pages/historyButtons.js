@@ -4,7 +4,7 @@ import sanMovesBrowser from './sanMovesBrowser.js';
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    moves: sanMovesBrowser
+    movesBrowser: sanMovesBrowser
   }
 );
 

@@ -4,7 +4,7 @@ import sanMovesBrowser from './sanMovesBrowser.js';
 const boardActionsDropdown = new BoardActionsDropdown(
   document.querySelector('#boardActionsDropdown ul'),
   {
-    moves: sanMovesBrowser
+    movesBrowser: sanMovesBrowser
   }
 );
 

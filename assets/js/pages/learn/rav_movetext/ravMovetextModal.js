@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ravMovesBrowser from './ravMovesBrowser.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { progressModal } from '../../ProgressModal.js';
+import ravMovesBrowser from '../../ravMovesBrowser.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';

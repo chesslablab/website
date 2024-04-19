@@ -1,6 +1,6 @@
 import { FEN } from '@chesslablab/cmblab';
 import { RavMovesFactory } from '@chesslablab/jsblab';
-import chessboard from '../../chessboard.js';
+import chessboard from './chessboard.js';
 
 const ravMovesBrowser = RavMovesFactory.create(
   localStorage.getItem('format'),
