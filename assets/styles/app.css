@@ -160,7 +160,7 @@ input[name="Black"] + ul > li:hover {
 }
 
 #movesBrowser.inline {
-  height: 450px;
+  height: 350px;
   overflow-y: scroll;
   margin-bottom: 0;
 }
@@ -181,7 +181,7 @@ input[name="Black"] + ul > li:hover {
 }
 
 #movesBrowser.table {
-  height: 450px;
+  height: 350px;
   overflow-y: scroll;
   margin-bottom: 0;
 }
