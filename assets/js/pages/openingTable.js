@@ -1,10 +1,10 @@
 import { OpeningTable } from '@chesslablab/jsblab';
-import sanMovesTable from './sanMovesTable.js';
+import sanMovesBrowser from './sanMovesBrowser.js';
 
 const openingTable = new OpeningTable(
   document.querySelector('#openingTable tbody'),
   {
-    movetext: sanMovesTable.props.movetext
+    movetext: sanMovesBrowser.props.movetext
   }
 );
 

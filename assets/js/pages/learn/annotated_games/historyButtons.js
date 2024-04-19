@@ -1,10 +1,10 @@
 import { HistoryButtons } from '@chesslablab/jsblab';
-import ravMovesTable from './ravMovesTable.js';
+import ravMovesBrowser from '../../ravMovesBrowser.js';
 
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    moves: ravMovesTable
+    movesBrowser: ravMovesBrowser
   }
 );
 

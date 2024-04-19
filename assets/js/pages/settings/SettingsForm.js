@@ -16,11 +16,18 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="theme"]').value = 'light';
     }
 
+    if (localStorage.getItem('format') === 'table') {
+      this.el.querySelector('select[name="format"]').value = 'table';
+    } else {
+      this.el.querySelector('select[name="format"]').value = 'inline';
+    }
+
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
       localStorage.setItem('locale', formData.get('locale'));
       localStorage.setItem('theme', formData.get('theme'));
+      localStorage.setItem('format', formData.get('format'));
       window.location.reload();
     });
   }

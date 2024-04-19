@@ -1,10 +1,10 @@
 import { BoardActionsDropdown } from '@chesslablab/jsblab';
-import ravMovesTable from './ravMovesTable.js';
+import ravMovesBrowser from '../../ravMovesBrowser.js';
 
 const boardActionsDropdown = new BoardActionsDropdown(
   document.querySelector('#boardActionsDropdown ul'),
   {
-    moves: ravMovesTable
+    movesBrowser: ravMovesBrowser
   }
 );
 

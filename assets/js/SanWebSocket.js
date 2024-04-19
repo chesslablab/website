@@ -3,9 +3,9 @@ import chessboard from './pages/chessboard.js';
 import { explainPositionModal } from './pages/ExplainPositionModal.js';
 import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
 import { gameStudyDropdown } from './pages/GameStudyDropdown.js';
+import sanMovesBrowser from './pages/sanMovesBrowser.js';
 import openingTable from './pages/openingTable.js';
 import { progressModal } from './pages/ProgressModal.js';
-import sanMovesTable from './pages/sanMovesTable.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
 import * as variant from '../variant.js';
@@ -33,7 +33,7 @@ export class SanWebSocket {
 
     gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.send(`/tutor_fen "${sanMovesTable.props.fen[sanMovesTable.current]}" ${variant.CLASSICAL}`);
+      this.send(`/tutor_fen "${sanMovesBrowser.props.fen[sanMovesBrowser.current]}" ${variant.CLASSICAL}`);
     });
 
     gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
@@ -68,10 +68,10 @@ export class SanWebSocket {
               chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
-              sanMovesTable.current = data['/start'].fen.length - 1;
-              sanMovesTable.props.movetext = data['/start'].movetext;
-              sanMovesTable.props.fen = data['/start'].fen;
-              sanMovesTable.mount();
+              sanMovesBrowser.current = data['/start'].fen.length - 1;
+              sanMovesBrowser.props.movetext = data['/start'].movetext;
+              sanMovesBrowser.props.fen = data['/start'].fen;
+              sanMovesBrowser.mount();
               openingTable.props.movetext = data['/start'].movetext;
               openingTable.mount();
             } else {
@@ -88,10 +88,10 @@ export class SanWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
-              sanMovesTable.current = sanMovesTable.props.fen.length;
-              sanMovesTable.props.movetext = data['/play_lan'].movetext;
-              sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
-              sanMovesTable.mount();
+              sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
+              sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              sanMovesBrowser.mount();
               openingTable.props.movetext = data['/play_lan'].movetext;
               openingTable.mount();
             } else {
@@ -105,10 +105,10 @@ export class SanWebSocket {
               chessboard.state.inputWhiteEnabled = true;
               chessboard.state.inputBlackEnabled = false;
             }
-            sanMovesTable.current -= 1;
-            sanMovesTable.props.fen.splice(-1);
-            sanMovesTable.props.movetext = data['/undo'].movetext;
-            sanMovesTable.mount();
+            sanMovesBrowser.current -= 1;
+            sanMovesBrowser.props.fen.splice(-1);
+            sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            sanMovesBrowser.mount();
             openingTable.props.movetext = data['/undo'].movetext;
             openingTable.mount();
             break;

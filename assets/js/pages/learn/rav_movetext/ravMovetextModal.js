@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import ravMovesTable from './ravMovesTable.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { progressModal } from '../../ProgressModal.js';
+import ravMovesBrowser from '../../ravMovesBrowser.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
@@ -33,15 +33,15 @@ export class RavMovetextModal extends AbstractComponent {
       })
       .then(res => res.json())
       .then(res => {
-        ravMovesTable.current = res.fen.length - 1;
-        ravMovesTable.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
-        ravMovesTable.props = {
-          ...ravMovesTable.props,
+        ravMovesBrowser.current = res.fen.length - 1;
+        ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
+        ravMovesBrowser.props = {
+          ...ravMovesBrowser.props,
           filtered: res.filtered,
           breakdown: res.breakdown,
           fen: res.fen
         };
-        ravMovesTable.mount();
+        ravMovesBrowser.mount();
       })
       .catch(error => {
         // TODO

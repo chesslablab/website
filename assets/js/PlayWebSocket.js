@@ -3,8 +3,8 @@ import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
 import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
 import { infoModal } from './pages/InfoModal.js';
+import sanMovesBrowser from './pages/sanMovesBrowser.js';
 import { progressModal } from './pages/ProgressModal.js';
-import sanMovesTable from './pages/sanMovesTable.js';
 import { copyInviteCodeModal } from './pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from './pages/play/online/CreateGameModal.js';
 import { drawModal } from './pages/play/online/DrawModal.js';
@@ -136,10 +136,10 @@ export default class PlayWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
-              sanMovesTable.current = sanMovesTable.props.fen.length;
-              sanMovesTable.props.movetext = data['/play_lan'].movetext;
-              sanMovesTable.props.fen = sanMovesTable.props.fen.concat(data['/play_lan'].fen);
-              sanMovesTable.mount();
+              sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
+              sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              sanMovesBrowser.mount();
               this._toggleInput(data['/play_lan'].turn);
               timerTable.props = {
                 turn: data['/play_lan'].turn,
@@ -160,10 +160,10 @@ export default class PlayWebSocket {
               chessboard.state.inputWhiteEnabled = true;
               chessboard.state.inputBlackEnabled = false;
             }
-            sanMovesTable.current -= 1;
-            sanMovesTable.props.fen.splice(-1);
-            sanMovesTable.props.movetext = data['/undo'].movetext;
-            sanMovesTable.mount();
+            sanMovesBrowser.current -= 1;
+            sanMovesBrowser.props.fen.splice(-1);
+            sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            sanMovesBrowser.mount();
             break;
 
           case '/accept' === msg:
@@ -272,12 +272,12 @@ export default class PlayWebSocket {
               chessboard.setPosition(jwtDecoded.fen, true);
               this._toggleInput(turn);
               chessboard.view.visualizeInputState();
-              sanMovesTable.current = 0;
-              sanMovesTable.props.fen = [
+              sanMovesBrowser.current = 0;
+              sanMovesBrowser.props.fen = [
                 jwtDecoded.fen
               ];
-              sanMovesTable.props.movetext = '';
-              sanMovesTable.mount();
+              sanMovesBrowser.props.movetext = '';
+              sanMovesBrowser.mount();
               timerTable.props = {
                 turn: turn,
                 w: data['/restart'].timer.w,

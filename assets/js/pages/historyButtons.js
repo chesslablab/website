@@ -1,10 +1,10 @@
 import { HistoryButtons } from '@chesslablab/jsblab';
-import sanMovesTable from './sanMovesTable.js';
+import sanMovesBrowser from './sanMovesBrowser.js';
 
 const historyButtons = new HistoryButtons(
   document.querySelector('#historyButtons'),
   {
-    moves: sanMovesTable
+    movesBrowser: sanMovesBrowser
   }
 );
 
