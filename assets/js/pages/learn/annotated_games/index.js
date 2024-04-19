@@ -1,7 +1,7 @@
 import boardActionsDropdown from './boardActionsDropdown.js';
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
 import historyButtons from './historyButtons.js';
-import ravMovesTable from './ravMovesTable.js';
+import ravMovesBrowser from './ravMovesBrowser.js';
 import chessboard from '../../chessboard.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
@@ -24,15 +24,15 @@ const handleClick = (game) => {
   })
   .then(res => res.json())
   .then(res => {
-    ravMovesTable.current = res.fen.length - 1;
-    ravMovesTable.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
-    ravMovesTable.props = {
-      ...ravMovesTable.props,
+    ravMovesBrowser.current = res.fen.length - 1;
+    ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
+    ravMovesBrowser.props = {
+      ...ravMovesBrowser.props,
       filtered: res.filtered,
       breakdown: res.breakdown,
       fen: res.fen
     };
-    ravMovesTable.mount();
+    ravMovesBrowser.mount();
   })
   .catch(error => {
     // TODO

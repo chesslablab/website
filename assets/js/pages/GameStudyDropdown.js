@@ -1,8 +1,8 @@
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './chessboard.js';
 import { heuristicsModal } from './HeuristicsModal.js';
+import sanMovesBrowser from './sanMovesBrowser.js';
 import { progressModal } from './ProgressModal.js';
-import sanMovesTable from './sanMovesTable.js';
 import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';
@@ -18,7 +18,7 @@ export class GameStudyDropdown extends AbstractComponent {
           'X-Api-Key': `${env.API_KEY}`
         },
         body: JSON.stringify({
-          fen: this.props.sanMovesTable.props.fen[this.props.sanMovesTable.current],
+          fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
           variant: variant.CLASSICAL,
           flip: this.props.chessboard.getOrientation()
         })
@@ -44,7 +44,7 @@ export class GameStudyDropdown extends AbstractComponent {
     this.props.ul.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
       this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesTable.props.fen.length - this.props.sanMovesTable.current - 1) * -1;
+      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
       await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/mp4`, {
         method: 'POST',
         headers: {
@@ -52,7 +52,7 @@ export class GameStudyDropdown extends AbstractComponent {
         },
         body: JSON.stringify({
           variant: this.props.chessboard.props.variant,
-          movetext: Movetext.substring(this.props.sanMovesTable.props.movetext, back),
+          movetext: Movetext.substring(this.props.sanMovesBrowser.props.movetext, back),
           flip: this.props.chessboard.getOrientation(),
           ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos},
           ...(this.props.chessboard.props.variant === variant.CAPABLANCA_FISCHER) && {startPos: this.props.chessboard.props.startPos}
@@ -79,7 +79,7 @@ export class GameStudyDropdown extends AbstractComponent {
     this.props.ul.children.item(2).addEventListener('click', async (event) => {
       event.preventDefault();
       this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesTable.props.fen.length - this.props.sanMovesTable.current - 1) * -1;
+      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
       await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristics`, {
         method: 'POST',
         headers: {
@@ -87,7 +87,7 @@ export class GameStudyDropdown extends AbstractComponent {
         },
         body: JSON.stringify({
           variant: variant.CLASSICAL,
-          movetext: Movetext.substring(this.props.sanMovesTable.props.movetext, back),
+          movetext: Movetext.substring(this.props.sanMovesBrowser.props.movetext, back),
           ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
         })
       })
@@ -113,7 +113,7 @@ export const gameStudyDropdown = new GameStudyDropdown(
     ul: document.querySelector('#gameStudyDropdown ul'),
     chessboard: chessboard,
     heuristicsModal: heuristicsModal,
-    progressModal: progressModal,
-    sanMovesTable: sanMovesTable
+    sanMovesBrowser: sanMovesBrowser,
+    progressModal: progressModal
   }
 );

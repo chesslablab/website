@@ -118,43 +118,18 @@ input[name="Black"] + ul > li:hover {
   margin-top: 1rem;
 }
 
-#ravMovesTable td:hover,
-#sanMovesTable td:hover {
-  cursor: pointer;
-  background-color: #6c757d !important;
-  color: #fff !important;
-}
-
-#ravMovesTable,
-#sanMovesTable {
-  width: 100%;
-  display: table;
-}
-
 #clubsTable,
 #movesMetadataTable,
 #openingTable,
 #searchGamesModal table,
-#databaseAnnotatedGamesModal table,
-#ravMovesTable {
+#databaseAnnotatedGamesModal table {
   font-size: 0.9rem;
 }
 
 .alert,
-#sanMovesTable,
-#ravMovesTable {
+#movesBrowser {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-}
-
-.table-responsive:has(#ravMovesTable) {
-  height: 300px;
-  overflow-y: scroll;
-}
-
-.table-responsive:has(#sanMovesTable) {
-  height: 250px;
-  overflow-y: scroll;
 }
 
 #movesMetadataTable {
@@ -173,4 +148,64 @@ input[name="Black"] + ul > li:hover {
 
 #infoModal .alert {
   margin-bottom: 0;
+}
+
+.active-move {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+#movesBrowser .description {
+  padding: 0.5rem;
+}
+
+#movesBrowser.inline {
+  height: 450px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+#movesBrowser.inline span[data-key] {
+  display: inline-block;
+  line-height: 2rem;
+}
+
+#movesBrowser.inline span[data-key] span {
+  padding: 0.4rem;
+}
+
+#movesBrowser.inline span[data-key] span:hover {
+  cursor: pointer;
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+#movesBrowser.table {
+  height: 450px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+#movesBrowser.table div {
+  display: flex;
+}
+
+#movesBrowser.table div span:nth-child(1) {
+  width: 20%;
+}
+
+#movesBrowser.table div span:nth-child(2),
+#movesBrowser.table div span:nth-child(3) {
+  width: 40%;
+}
+
+#movesBrowser.table span {
+  padding: 0.35rem;
+  display: inline-block;
+}
+
+#movesBrowser.table span:hover {
+  cursor: pointer;
+  background-color: #6c757d !important;
+  color: #fff !important;
 }

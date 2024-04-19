@@ -1,9 +1,10 @@
-import { RavMovesTable } from '@chesslablab/jsblab';
 import { FEN } from '@chesslablab/cmblab';
+import { RavMovesFactory } from '@chesslablab/jsblab';
 import chessboard from '../../chessboard.js';
 
-const ravMovesTable = new RavMovesTable(
-  document.querySelector('#ravMovesTable tbody'),
+const ravMovesBrowser = RavMovesFactory.create(
+  localStorage.getItem('format'),
+  document.querySelector('#movesBrowser'),
   {
     chessboard: chessboard,
     filtered: '',
@@ -16,4 +17,4 @@ const ravMovesTable = new RavMovesTable(
   }
 );
 
-export default ravMovesTable;
+export default ravMovesBrowser;
