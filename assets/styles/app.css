@@ -119,11 +119,14 @@ input[name="Black"] + ul > li:hover {
 }
 
 #clubsTable,
-#movesMetadataTable,
-#openingTable,
 #searchGamesModal table,
 #databaseAnnotatedGamesModal table {
   font-size: 0.9rem;
+}
+
+#movesMetadataTable,
+#openingTable {
+  font-size: 0.8rem;
 }
 
 .alert,
