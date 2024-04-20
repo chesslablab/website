@@ -13,7 +13,6 @@ export class SearchGamesModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      this.props.modal.hide();
       this.props.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {

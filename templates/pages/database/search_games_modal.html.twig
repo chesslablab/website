@@ -1,5 +1,5 @@
 <div class="modal fade" id="searchGamesModal" tabindex="-1" aria-labelledby="searchGamesModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="searchGamesModalLabel">{{ 'Search Games'|trans }}</h5>
@@ -49,8 +49,8 @@
             </div>
           </div>
           <div>
-            <button type="submit" class="autocomplete btn btn-primary w-100">{{ 'Search'|trans }}</button>
-            <button type="button" class="autocomplete btn btn-primary w-100 d-none" disabled>
+            <button type="submit" class="autocomplete btn btn-primary">{{ 'Search'|trans }}</button>
+            <button type="button" class="autocomplete btn btn-primary d-none" disabled>
               <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
               <span class="sr-only">{{ 'Loading'|trans }}...</span>
             </button>
