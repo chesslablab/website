@@ -136,6 +136,20 @@ input[name="Black"] + ul > li:hover {
   margin: 0;
 }
 
+#movesMetadataTable tr td:nth-child(1) {
+  width: 33%;
+}
+
+#movesMetadataTable tr td:nth-child(2) {
+  width: 33%;
+  text-align: center;
+}
+
+#movesMetadataTable tr td:nth-child(3) {
+  width: 33%;
+  text-align: right;
+}
+
 #progressModal {
   z-index: 1080;
 }
@@ -153,6 +167,11 @@ input[name="Black"] + ul > li:hover {
 .active-move {
   background-color: #6c757d !important;
   color: #fff !important;
+}
+
+#movesBrowser div,
+#movesBrowser span {
+  background-color: #fff;
 }
 
 #movesBrowser .description {
