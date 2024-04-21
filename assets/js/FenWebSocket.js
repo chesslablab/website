@@ -1,10 +1,6 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
-import { explainPositionModal } from './pages/ExplainPositionModal.js';
-import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
-import { gameStudyDropdown } from './pages/GameStudyDropdown.js';
-import sanMovesBrowser from './pages/sanMovesBrowser.js';
-import openingTable from './pages/openingTable.js';
+import { fenPanel } from './pages/FenPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -31,12 +27,12 @@ export class FenWebSocket {
       }
     });
 
-    gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
+    fenPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.send(`/tutor_fen "${sanMovesBrowser.props.fen[sanMovesBrowser.current]}" ${variant.CLASSICAL}`);
+      this.send(`/tutor_fen "${fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]}" ${variant.CLASSICAL}`);
     });
 
-    gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
+    fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
     });
@@ -82,12 +78,12 @@ export class FenWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
-              sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
-              sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
-              sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
-              sanMovesBrowser.mount();
-              openingTable.props.movetext = data['/play_lan'].movetext;
-              openingTable.mount();
+              fenPanel.props.sanMovesBrowser.current = fenPanel.props.sanMovesBrowser.props.fen.length;
+              fenPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              fenPanel.props.sanMovesBrowser.props.fen = fenPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              fenPanel.props.sanMovesBrowser.mount();
+              fenPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
+              fenPanel.props.openingTable.mount();
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
             }
@@ -99,18 +95,18 @@ export class FenWebSocket {
               chessboard.state.inputWhiteEnabled = true;
               chessboard.state.inputBlackEnabled = false;
             }
-            sanMovesBrowser.current -= 1;
-            sanMovesBrowser.props.fen.splice(-1);
-            sanMovesBrowser.props.movetext = data['/undo'].movetext;
-            sanMovesBrowser.mount();
-            openingTable.props.movetext = data['/undo'].movetext;
-            openingTable.mount();
+            fenPanel.props.sanMovesBrowser.current -= 1;
+            fenPanel.props.sanMovesBrowser.props.fen.splice(-1);
+            fenPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            fenPanel.props.sanMovesBrowser.mount();
+            fenPanel.props.openingTable.props.movetext = data['/undo'].movetext;
+            fenPanel.props.openingTable.mount();
             break;
 
           case '/tutor_fen' === msg:
-            explainPositionModal.props.explanation = data['/tutor_fen'];
-            explainPositionModal.mount();
-            explainPositionModal.props.modal.show();
+            fenPanel.props.explainPositionModal.props.explanation = data['/tutor_fen'];
+            fenPanel.props.explainPositionModal.mount();
+            fenPanel.props.explainPositionModal.props.modal.show();
             break;
 
           default:
