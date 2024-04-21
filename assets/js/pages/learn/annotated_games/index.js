@@ -52,37 +52,28 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
   tbody.replaceChildren();
   res.games.forEach(game => {
     const tr = document.createElement('tr');
+    
     const eventTd = document.createElement('td');
-    const eventText = document.createTextNode(game.Event);
     const roundTd = document.createElement('td');
-    const roundText = document.createTextNode(game.Round);
-
     const yearTd = document.createElement('td');
-    const yearText = document.createTextNode(game.Date);
 
     const ecoTd = document.createElement('td');
-    const ecoText = document.createTextNode(game.ECO);
     const whiteTd = document.createElement('td');
-    const whiteText = document.createTextNode(game.White);
     const whiteEloTd = document.createElement('td');
-    const whiteEloText = document.createTextNode(game.WhiteElo);
     const blackTd = document.createElement('td');
-    const blackText = document.createTextNode(game.Black);
     const blackEloTd = document.createElement('td');
-    const blackEloText = document.createTextNode(game.BlackElo);
     const resultTd = document.createElement('td');
-    const resultText = document.createTextNode(game.Result);
 
-    eventTd.appendChild(eventText);
-    roundTd.appendChild(roundText);
-    yearTd.appendChild(yearText);
+    eventTd.appendChild(document.createTextNode(game.Event));
+    roundTd.appendChild(document.createTextNode(game.Round));
+    yearTd.appendChild(document.createTextNode(game.Date));
 
-    ecoTd.appendChild(ecoText);
-    whiteTd.appendChild(whiteText);
-    whiteEloTd.appendChild(whiteEloText);
-    blackTd.appendChild(blackText);
-    blackEloTd.appendChild(blackEloText);
-    resultTd.appendChild(resultText);
+    ecoTd.appendChild(document.createTextNode(game.ECO));
+    whiteTd.appendChild(document.createTextNode(game.White));
+    whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
+    blackTd.appendChild(document.createTextNode(game.Black));
+    blackEloTd.appendChild(document.createTextNode(game.BlackElo));
+    resultTd.appendChild(document.createTextNode(game.Result));
 
     tr.appendChild(eventTd);
     tr.appendChild(roundTd);
