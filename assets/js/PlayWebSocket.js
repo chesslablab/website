@@ -1,19 +1,16 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
-import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
 import { infoModal } from './pages/InfoModal.js';
-import sanMovesBrowser from './pages/sanMovesBrowser.js';
 import { progressModal } from './pages/ProgressModal.js';
 import { copyInviteCodeModal } from './pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from './pages/play/online/CreateGameModal.js';
 import { drawModal } from './pages/play/online/DrawModal.js';
 import { enterInviteCodeModal } from './pages/play/online/EnterInviteCodeModal.js';
-import { finishedButtons } from './pages/play/online/FinishedButtons.js';
 import { playOnlineButtons } from './pages/play/online/PlayOnlineButtons.js';
+import { playPanel } from './pages/play/online/PlayPanel.js';
 import { rematchModal } from './pages/play/online/RematchModal.js';
 import { takebackModal } from './pages/play/online/TakebackModal.js';
-import { timerTable, timerTableInterval } from './pages/play/online/timerTable.js';
 import * as action from '../action.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -41,7 +38,7 @@ export default class PlayWebSocket {
       }
     });
 
-    gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
+    playPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
       this.send('/takeback propose');
@@ -50,7 +47,7 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
+    playPanel.props.gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('draw', action.PROPOSE);
       this.send('/draw propose');
@@ -59,12 +56,12 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
+    playPanel.props.gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/resign accept');
     });
 
-    finishedButtons.el.children.item(0).addEventListener('click', (event) => {
+    playPanel.props.finishedButtons.el.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('rematch', action.PROPOSE);
       this.send('/rematch propose');
@@ -73,11 +70,11 @@ export default class PlayWebSocket {
       infoModal.props.modal.show();
     });
 
-    finishedButtons.el.children.item(1).addEventListener('click', (event) => {
+    playPanel.props.finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       chessboard.setPosition(FEN.start, true);
       playOnlineButtons.el.classList.remove('d-none');
-      gameActionsDropdown.el.parentNode.parentNode.classList.add('d-none');
+      playPanel.props.gameActionsDropdown.el.parentNode.parentNode.classList.add('d-none');
     });
 
     this.socket = null;
@@ -132,12 +129,12 @@ export default class PlayWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
-              sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
-              sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
-              sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
-              sanMovesBrowser.mount();
+              playPanel.props.sanMovesBrowser.current = playPanel.props.sanMovesBrowser.props.fen.length;
+              playPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              playPanel.props.sanMovesBrowser.props.fen = playPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              playPanel.props.sanMovesBrowser.mount();
               this._toggleInput(data['/play_lan'].turn);
-              timerTable.props = {
+              playPanel.props.timerTable.props = {
                 turn: data['/play_lan'].turn,
                 w: data['/play_lan'].timer.w,
                 b: data['/play_lan'].timer.b
@@ -156,10 +153,10 @@ export default class PlayWebSocket {
               chessboard.state.inputWhiteEnabled = true;
               chessboard.state.inputBlackEnabled = false;
             }
-            sanMovesBrowser.current -= 1;
-            sanMovesBrowser.props.fen.splice(-1);
-            sanMovesBrowser.props.movetext = data['/undo'].movetext;
-            sanMovesBrowser.mount();
+            playPanel.props.sanMovesBrowser.current -= 1;
+            playPanel.props.sanMovesBrowser.props.fen.splice(-1);
+            playPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            playPanel.props.sanMovesBrowser.mount();
             break;
 
           case '/accept' === msg:
@@ -181,14 +178,14 @@ export default class PlayWebSocket {
               createGameModal.props.modal.hide();
               infoModal.props.modal.hide();
               sessionStorage.setItem('hash', data['/accept'].hash);
-              timerTable.props = {
+              playPanel.props.timerTable.props = {
                 turn: turn,
                 w: data['/accept'].timer.w,
                 b: data['/accept'].timer.b
               };
-              this._timerTableInterval = timerTableInterval();
+              this._timerTableInterval = playPanel.props.timerTableInterval();
               playOnlineButtons.el.classList.add('d-none');
-              gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
+              playPanel.props.gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
               this.send('/online_games');
             } else {
               enterInviteCodeModal.props.modal.hide();
@@ -266,29 +263,29 @@ export default class PlayWebSocket {
               chessboard.setPosition(jwtDecoded.fen, true);
               this._toggleInput(turn);
               chessboard.view.visualizeInputState();
-              sanMovesBrowser.current = 0;
-              sanMovesBrowser.props.fen = [
+              playPanel.props.sanMovesBrowser.current = 0;
+              playPanel.props.sanMovesBrowser.props.fen = [
                 jwtDecoded.fen
               ];
-              sanMovesBrowser.props.movetext = '';
-              sanMovesBrowser.mount();
-              timerTable.props = {
+              playPanel.props.sanMovesBrowser.props.movetext = '';
+              playPanel.props.sanMovesBrowser.mount();
+              playPanel.props.timerTable.props = {
                 turn: turn,
                 w: data['/restart'].timer.w,
                 b: data['/restart'].timer.b
               };
-              this._timerTableInterval = timerTableInterval();
+              this._timerTableInterval = playPanel.props.timerTableInterval();
               sessionStorage.setItem('hash', data['/restart'].hash);
               playOnlineButtons.el.classList.add('d-none');
-              gameActionsDropdown.el.classList.remove('d-none');
-              finishedButtons.el.classList.add('d-none');
+              playPanel.props.gameActionsDropdown.el.classList.remove('d-none');
+              playPanel.props.finishedButtons.el.classList.add('d-none');
             }
             break;
 
           case '/leave' === msg:
             if (data['/leave'].action === action.ACCEPT) {
               this._end();
-              finishedButtons.el.children.item(0).classList.add('d-none');
+              playPanel.props.finishedButtons.el.children.item(0).classList.add('d-none');
               infoModal.props.msg = "Your opponent is gone";
               infoModal.mount();
               infoModal.props.modal.show();
@@ -324,8 +321,8 @@ export default class PlayWebSocket {
   }
 
   _end() {
-    gameActionsDropdown.el.classList.add('d-none');
-    finishedButtons.el.classList.remove('d-none');
+    playPanel.props.gameActionsDropdown.el.classList.add('d-none');
+    playPanel.props.finishedButtons.el.classList.remove('d-none');
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
     clearInterval(this._timerTableInterval);
