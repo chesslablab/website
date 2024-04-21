@@ -1,7 +1,4 @@
 import { topOpeningsModal } from './TopOpeningsModal.js';
-import boardActionsDropdown from '../../boardActionsDropdown.js';
-import { gameStudyDropdown } from '../../GameStudyDropdown.js';
-import historyButtons from '../../historyButtons.js';
 import { progressModal } from '../../ProgressModal.js';
 import { sanWebSocket } from '../../../SanWebSocket.js';
 import * as env from '../../../../env.js';
