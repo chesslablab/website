@@ -1,10 +1,7 @@
-import boardActionsDropdown from './boardActionsDropdown.js';
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
-import historyButtons from './historyButtons.js';
+import { ravPanel } from './RavPanel.js';
 import chessboard from '../../chessboard.js';
-import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
-import ravMovesBrowser from '../../ravMovesBrowser.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
@@ -24,15 +21,15 @@ const handleClick = (game) => {
   })
   .then(res => res.json())
   .then(res => {
-    ravMovesBrowser.current = res.fen.length - 1;
-    ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
-    ravMovesBrowser.props = {
-      ...ravMovesBrowser.props,
+    ravPanel.props.ravMovesBrowser.current = res.fen.length - 1;
+    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
+    ravPanel.props.ravMovesBrowser.props = {
+      ...ravPanel.props.ravMovesBrowser.props,
       filtered: res.filtered,
       breakdown: res.breakdown,
       fen: res.fen
     };
-    ravMovesBrowser.mount();
+    ravPanel.props.ravMovesBrowser.mount();
   })
   .catch(error => {
     // TODO
@@ -99,8 +96,8 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
 
     tr.addEventListener('click', event => {
       handleClick(game);
-      movesMetadataTable.props = game;
-      movesMetadataTable.mount();
+      ravPanel.props.movesMetadataTable.props = game;
+      ravPanel.props.movesMetadataTable.mount();
       databaseAnnotatedGames.props.modal.hide();
     });
 
