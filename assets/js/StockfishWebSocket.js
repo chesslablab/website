@@ -1,8 +1,6 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import chessboard from './pages/chessboard.js';
-import { gameActionsDropdown } from './pages/GameActionsDropdown.js';
-import sanMovesBrowser from './pages/sanMovesBrowser.js';
-import openingTable from './pages/openingTable.js';
+import { stockfishPanel } from './pages/StockfishPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -29,7 +27,7 @@ export class StockfishWebSocket {
       }
     });
 
-    gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
+    stockfishPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
       this.send('/undo');
@@ -76,12 +74,12 @@ export class StockfishWebSocket {
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
-              sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
-              sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
-              sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
-              sanMovesBrowser.mount();
-              openingTable.props.movetext = data['/play_lan'].movetext;
-              openingTable.mount();
+              stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
+              stockfishPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              stockfishPanel.props.sanMovesBrowser.mount();
+              stockfishPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
+              stockfishPanel.props.openingTable.mount();
               this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
@@ -94,22 +92,22 @@ export class StockfishWebSocket {
               chessboard.state.inputWhiteEnabled = true;
               chessboard.state.inputBlackEnabled = false;
             }
-            sanMovesBrowser.current -= 1;
-            sanMovesBrowser.props.fen.splice(-1);
-            sanMovesBrowser.props.movetext = data['/undo'].movetext;
-            sanMovesBrowser.mount();
-            openingTable.props.movetext = data['/undo'].movetext;
-            openingTable.mount();
+            stockfishPanel.props.sanMovesBrowser.current -= 1;
+            stockfishPanel.props.sanMovesBrowser.props.fen.splice(-1);
+            stockfishPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            stockfishPanel.props.sanMovesBrowser.mount();
+            stockfishPanel.props.openingTable.props.movetext = data['/undo'].movetext;
+            stockfishPanel.props.openingTable.mount();
             break;
 
           case '/stockfish' === msg:
             chessboard.setPosition(data['/stockfish'].fen, true);
-            sanMovesBrowser.current = sanMovesBrowser.props.fen.length;
-            sanMovesBrowser.props.movetext = data['/stockfish'].movetext;
-            sanMovesBrowser.props.fen = sanMovesBrowser.props.fen.concat(data['/stockfish'].fen);
-            sanMovesBrowser.mount();
-            openingTable.props.movetext = data['/stockfish'].movetext;
-            openingTable.mount();
+            stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
+            stockfishPanel.props.sanMovesBrowser.props.movetext = data['/stockfish'].movetext;
+            stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/stockfish'].fen);
+            stockfishPanel.props.sanMovesBrowser.mount();
+            stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;
+            stockfishPanel.props.openingTable.mount();
             break;
 
           case '/randomizer' === msg:
