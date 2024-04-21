@@ -74,7 +74,7 @@ export default class PlayWebSocket {
       event.preventDefault();
       chessboard.setPosition(FEN.start, true);
       playOnlineButtons.el.classList.remove('d-none');
-      playPanel.props.gameActionsDropdown.el.parentNode.parentNode.classList.add('d-none');
+      playPanel.el.classList.add('d-none');
     });
 
     this.socket = null;
@@ -185,7 +185,7 @@ export default class PlayWebSocket {
               };
               this._timerTableInterval = playPanel.props.timerTableInterval();
               playOnlineButtons.el.classList.add('d-none');
-              playPanel.props.gameActionsDropdown.el.parentNode.parentNode.classList.remove('d-none');
+              playPanel.el.classList.remove('d-none');
               this.send('/online_games');
             } else {
               enterInviteCodeModal.props.modal.hide();

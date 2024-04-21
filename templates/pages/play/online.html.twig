@@ -4,28 +4,30 @@
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
-  <div id="playOnlineButtons" class="col-md-4">
-    <div id="friendButtons" class="btn-group-vertical w-100 mb-3">
-      <button class="btn btn-primary" type="button">{{ 'Play a Friend'|trans }}</button>
-      <button class="btn btn-primary" type="button">{{ 'Enter Invite Code'|trans }}</button>
+  <div class="col-md-4">
+    <div id="playOnlineButtons">
+      <div id="friendButtons" class="btn-group-vertical w-100 mb-3">
+        <button class="btn btn-primary" type="button">{{ 'Play a Friend'|trans }}</button>
+        <button class="btn btn-primary" type="button">{{ 'Enter Invite Code'|trans }}</button>
+      </div>
+      <div id="playerButtons" class="btn-group-vertical w-100">
+        <button class="btn btn-primary" type="button">{{ 'Create a Game'|trans }}</button>
+      </div>
+      <div id="playersButtons" class="btn-group-vertical w-100">
+      </div>
     </div>
-    <div id="playerButtons" class="btn-group-vertical w-100">
-      <button class="btn btn-primary" type="button">{{ 'Create a Game'|trans }}</button>
-    </div>
-    <div id="playersButtons" class="btn-group-vertical w-100">
-    </div>
-    {% include 'pages/play/copy_invite_code_modal.html.twig' %}
-    {% include 'pages/play/create_game_modal.html.twig' %}
-    {% include 'pages/play/draw_modal.html.twig' %}
-    {% include 'pages/play/enter_invite_code_modal.html.twig' %}
-    {% include 'pages/play/friend_modal.html.twig' %}
-    {% include 'pages/play/rematch_modal.html.twig' %}
-    {% include 'pages/play/takeback_modal.html.twig' %}
     {% include 'partial/panel/play.html.twig' %}
   </div>
   <div class="col-md-2">
     {% include 'partial/logos.html.twig' %}
   </div>
+  {% include 'pages/play/copy_invite_code_modal.html.twig' %}
+  {% include 'pages/play/create_game_modal.html.twig' %}
+  {% include 'pages/play/draw_modal.html.twig' %}
+  {% include 'pages/play/enter_invite_code_modal.html.twig' %}
+  {% include 'pages/play/friend_modal.html.twig' %}
+  {% include 'pages/play/rematch_modal.html.twig' %}
+  {% include 'pages/play/takeback_modal.html.twig' %}
   {% block javascripts %}
     {% block importmap %}
       {{ importmap('js/pages/play/online/index.js') }}
