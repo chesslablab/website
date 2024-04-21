@@ -1,7 +1,10 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
+import { blackAutocomplete } from '../../BlackAutocomplete.js';
+import { eventAutocomplete } from '../../EventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
+import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { sanWebSocket } from '../../../SanWebSocket.js';
 import * as env from '../../../../env.js';
