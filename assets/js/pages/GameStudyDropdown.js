@@ -1,4 +1,4 @@
-import { Movetext } from '@chesslablab/jsblab';
+import { Movetext, NOTATION_SAN } from '@chesslablab/jsblab';
 import chessboard from './chessboard.js';
 import { heuristicsModal } from './HeuristicsModal.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
@@ -52,7 +52,7 @@ export class GameStudyDropdown extends AbstractComponent {
         },
         body: JSON.stringify({
           variant: this.props.chessboard.props.variant,
-          movetext: Movetext.substring(this.props.sanMovesBrowser.props.movetext, back),
+          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
           flip: this.props.chessboard.getOrientation(),
           ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos},
           ...(this.props.chessboard.props.variant === variant.CAPABLANCA_FISCHER) && {startPos: this.props.chessboard.props.startPos}
@@ -87,7 +87,7 @@ export class GameStudyDropdown extends AbstractComponent {
         },
         body: JSON.stringify({
           variant: variant.CLASSICAL,
-          movetext: Movetext.substring(this.props.sanMovesBrowser.props.movetext, back),
+          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
           ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
         })
       })
