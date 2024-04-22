@@ -1,3 +1,4 @@
+import { Movetext } from '@chesslablab/jsblab';
 import AbstractComponent from '../../AbstractComponent.js';
 import { sanWebSocket } from '../../SanWebSocket.js';
 import * as mode from '../../../mode.js';
@@ -14,7 +15,7 @@ class OpeningsTable extends AbstractComponent {
       const movetextTd = document.createElement('td');
       ecoTd.appendChild(document.createTextNode(opening.eco));
       nameTd.appendChild(document.createTextNode(opening.name));
-      movetextTd.appendChild(document.createTextNode(opening.movetext));
+      movetextTd.appendChild(document.createTextNode(Movetext.notation(localStorage.getItem('notation'), opening.movetext)));
       tr.appendChild(ecoTd);
       tr.appendChild(nameTd);
       tr.appendChild(movetextTd);

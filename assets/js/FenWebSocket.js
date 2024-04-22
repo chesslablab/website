@@ -1,4 +1,5 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { fenPanel } from './pages/FenPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
@@ -79,7 +80,7 @@ export class FenWebSocket {
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               fenPanel.props.sanMovesBrowser.current = fenPanel.props.sanMovesBrowser.props.fen.length;
-              fenPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              fenPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
               fenPanel.props.sanMovesBrowser.props.fen = fenPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
               fenPanel.props.sanMovesBrowser.mount();
               fenPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
@@ -97,7 +98,7 @@ export class FenWebSocket {
             }
             fenPanel.props.sanMovesBrowser.current -= 1;
             fenPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            fenPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            fenPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
             fenPanel.props.sanMovesBrowser.mount();
             fenPanel.props.openingTable.props.movetext = data['/undo'].movetext;
             fenPanel.props.openingTable.mount();

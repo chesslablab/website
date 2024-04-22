@@ -1,4 +1,5 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { Movetext } from '@chesslablab/jsblab';
 import { jwtDecode } from 'jwt-decode';
 import chessboard from './pages/chessboard.js';
 import { infoModal } from './pages/InfoModal.js';
@@ -130,7 +131,7 @@ export default class PlayWebSocket {
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               playPanel.props.sanMovesBrowser.current = playPanel.props.sanMovesBrowser.props.fen.length;
-              playPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
               playPanel.props.sanMovesBrowser.props.fen = playPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
               playPanel.props.sanMovesBrowser.mount();
               this._toggleInput(data['/play_lan'].turn);
@@ -155,7 +156,7 @@ export default class PlayWebSocket {
             }
             playPanel.props.sanMovesBrowser.current -= 1;
             playPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            playPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
             playPanel.props.sanMovesBrowser.mount();
             break;
 

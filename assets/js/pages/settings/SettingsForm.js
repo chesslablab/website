@@ -22,12 +22,19 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="format"]').value = 'inline';
     }
 
+    if (localStorage.getItem('notation') === 'san') {
+      this.el.querySelector('select[name="notation"]').value = 'san';
+    } else {
+      this.el.querySelector('select[name="notation"]').value = 'fan';
+    }
+
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
       localStorage.setItem('locale', formData.get('locale'));
       localStorage.setItem('theme', formData.get('theme'));
       localStorage.setItem('format', formData.get('format'));
+      localStorage.setItem('notation', formData.get('notation'));
       window.location.reload();
     });
   }

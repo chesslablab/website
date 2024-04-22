@@ -1,4 +1,5 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { stockfishPanel } from './pages/StockfishPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
@@ -75,7 +76,7 @@ export class StockfishWebSocket {
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-              stockfishPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
               stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
               stockfishPanel.props.sanMovesBrowser.mount();
               stockfishPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
@@ -94,7 +95,7 @@ export class StockfishWebSocket {
             }
             stockfishPanel.props.sanMovesBrowser.current -= 1;
             stockfishPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            stockfishPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
             stockfishPanel.props.sanMovesBrowser.mount();
             stockfishPanel.props.openingTable.props.movetext = data['/undo'].movetext;
             stockfishPanel.props.openingTable.mount();
@@ -103,7 +104,7 @@ export class StockfishWebSocket {
           case '/stockfish' === msg:
             chessboard.setPosition(data['/stockfish'].fen, true);
             stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-            stockfishPanel.props.sanMovesBrowser.props.movetext = data['/stockfish'].movetext;
+            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/stockfish'].movetext);
             stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/stockfish'].fen);
             stockfishPanel.props.sanMovesBrowser.mount();
             stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;

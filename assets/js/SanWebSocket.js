@@ -1,4 +1,5 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { sanPanel } from './pages/SanPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
@@ -65,7 +66,7 @@ export class SanWebSocket {
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
               sanPanel.props.sanMovesBrowser.current = data['/start'].fen.length - 1;
-              sanPanel.props.sanMovesBrowser.props.movetext = data['/start'].movetext;
+              sanPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/start'].movetext);
               sanPanel.props.sanMovesBrowser.props.fen = data['/start'].fen;
               sanPanel.props.sanMovesBrowser.mount();
               sanPanel.props.openingTable.props.movetext = data['/start'].movetext;
@@ -85,7 +86,7 @@ export class SanWebSocket {
             if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               sanPanel.props.sanMovesBrowser.current = sanPanel.props.sanMovesBrowser.props.fen.length;
-              sanPanel.props.sanMovesBrowser.props.movetext = data['/play_lan'].movetext;
+              sanPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
               sanPanel.props.sanMovesBrowser.props.fen = sanPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
               sanPanel.props.sanMovesBrowser.mount();
               sanPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
@@ -103,7 +104,7 @@ export class SanWebSocket {
             }
             sanPanel.props.sanMovesBrowser.current -= 1;
             sanPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            sanPanel.props.sanMovesBrowser.props.movetext = data['/undo'].movetext;
+            sanPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
             sanPanel.props.sanMovesBrowser.mount();
             sanPanel.props.openingTable.props.movetext = data['/undo'].movetext;
             sanPanel.props.openingTable.mount();
