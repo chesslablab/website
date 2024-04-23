@@ -5,12 +5,12 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-6">
-    {% include 'pages/learn/rav_movetext_modal.html.twig' %}
+    {% include 'pages/learn/annotated_games/annotated_games_modal.html.twig' %}
     {% include 'partial/panel/rav_panel.html.twig' %}
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/learn/rav_movetext/index.js') }}
+      {{ importmap('js/pages/learn/annotated_games/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}

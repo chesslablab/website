@@ -9,6 +9,6 @@ class ClassicalController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/learn/classical.html.twig');
+        return $this->render('pages/learn/classical/index.html.twig');
     }
 }

@@ -9,6 +9,6 @@ class SanMovetextController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/learn/san_movetext.html.twig');
+        return $this->render('pages/learn/san_movetext/index.html.twig');
     }
 }
