@@ -1,19 +1,19 @@
-{% extends 'layout/stockfish.html.twig' %}
+{% extends 'layout/fen.html.twig' %}
 
 {% block main %}
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
   <div class="col-md-4">
-    {% include 'pages/play/computer_modal.html.twig' %}
-    {% include 'partial/panel/stockfish_panel.html.twig' %}
+    {% include 'pages/learn/fen_string/fen_string_modal.html.twig' %}
+    {% include 'partial/panel/fen_panel.html.twig' %}
   </div>
   <div class="col-md-2">
     {% include 'partial/logos.html.twig' %}
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/play/computer/index.js') }}
+      {{ importmap('js/pages/learn/fen_string/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}

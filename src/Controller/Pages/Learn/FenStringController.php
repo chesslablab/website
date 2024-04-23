@@ -9,6 +9,6 @@ class FenStringController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/learn/fen_string.html.twig');
+        return $this->render('pages/learn/fen_string/index.html.twig');
     }
 }

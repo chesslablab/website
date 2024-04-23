@@ -5,7 +5,7 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-4">
-    {% include 'pages/openings/eco_code_modal.html.twig' %}
+    {% include 'pages/openings/san_movetext/san_movetext_modal.html.twig' %}
     {% include 'partial/panel/san_panel.html.twig' %}
   </div>
   <div class="col-md-2">
@@ -13,7 +13,7 @@
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/openings/eco_code/index.js') }}
+      {{ importmap('js/pages/openings/san_movetext/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}

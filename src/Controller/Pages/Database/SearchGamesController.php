@@ -9,6 +9,6 @@ class SearchGamesController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/search_games.html.twig');
+        return $this->render('pages/database/search_games/index.html.twig');
     }
 }

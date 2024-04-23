@@ -9,6 +9,6 @@ class ComputerController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/play/computer.html.twig');
+        return $this->render('pages/play/computer/index.html.twig');
     }
 }
