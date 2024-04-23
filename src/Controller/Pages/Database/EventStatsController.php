@@ -9,6 +9,6 @@ class EventStatsController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/event_stats.html.twig');
+        return $this->render('pages/database/event_stats/index.html.twig');
     }
 }

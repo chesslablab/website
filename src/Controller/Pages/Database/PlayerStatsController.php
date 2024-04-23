@@ -9,6 +9,6 @@ class PlayerStatsController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/player_stats.html.twig');
+        return $this->render('pages/database/player_stats/index.html.twig');
     }
 }

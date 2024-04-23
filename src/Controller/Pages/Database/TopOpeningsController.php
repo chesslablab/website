@@ -9,6 +9,6 @@ class TopOpeningsController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/top_openings.html.twig');
+        return $this->render('pages/database/top_openings/index.html.twig');
     }
 }
