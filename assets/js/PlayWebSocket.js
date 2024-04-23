@@ -236,7 +236,7 @@ export default class PlayWebSocket {
           case '/resign' === msg:
             if (data['/resign'].action === action.ACCEPT) {
               this._end();
-              infoModal.props.msg = "Your opponent has resigned";
+              infoModal.props.msg = "The game is resigned";
               infoModal.mount();
               infoModal.props.modal.show();
             }

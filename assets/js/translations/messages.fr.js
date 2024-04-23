@@ -8,7 +8,7 @@ const messagesFr = {
   "Takeback accepted": "Annulation du coup acceptée",
   "Draw offer declined": "La nulle est refusée",
   "Draw offer accepted": "La nulle est acceptée",
-  "Your opponent has resigned": "Votre adversaire a abandonné la partie",
+  "The game is resigned": "La partie est abandonné",
   "Your opponent is gone": "Votre adversaire est parti",
   // SanWebSocket
   "Invalid SAN movetext, please try again": "Texte SAN avec mouvements invalide, veuillez réessayer"
