@@ -9,7 +9,9 @@ const messagesFr = {
   "Draw offer declined": "La nulle est refusée",
   "Draw offer accepted": "La nulle est acceptée",
   "Your opponent has resigned": "Votre adversaire a abandonné la partie",
-  "Your opponent is gone": "Votre adversaire est parti"
+  "Your opponent is gone": "Votre adversaire est parti",
+  // SanWebSocket
+  "Invalid SAN movetext, please try again": "Texte SAN avec mouvements invalide, veuillez réessayer"
 };
 
 export default messagesFr;

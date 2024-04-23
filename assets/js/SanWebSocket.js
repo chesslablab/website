@@ -1,6 +1,7 @@
 import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
+import { infoModal } from './pages/InfoModal.js';
 import { sanPanel } from './pages/SanPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
@@ -72,7 +73,9 @@ export class SanWebSocket {
               sanPanel.props.openingTable.props.movetext = data['/start'].movetext;
               sanPanel.props.openingTable.mount();
             } else {
-              console.log('Invalid SAN movetext, please try again with a different one.');
+              infoModal.props.msg = "Invalid SAN movetext, please try again";
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             break;
 
