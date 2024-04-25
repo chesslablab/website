@@ -144,3 +144,10 @@ pages_support:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+
+home_fallback:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+        path: /en
+        permanent: true
