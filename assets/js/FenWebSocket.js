@@ -65,6 +65,9 @@ export class FenWebSocket {
               chessboard.setPosition(data['/start'].fen, true);
               chessboard.props.variant = data['/start'].variant;
               chessboard.props.startPos = data['/start'].startPos;
+              fenPanel.props.sanMovesBrowser.current = 0;
+              fenPanel.props.sanMovesBrowser.props.fen = [data['/start'].fen];
+              fenPanel.props.sanMovesBrowser.mount();
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
