@@ -19,6 +19,12 @@ Set up the browser environment variables:
 cp assets/env.example.js assets/env.js
 ```
 
+Clear the cache:
+
+```text
+php bin/console cache:clear
+```
+
 Download the assets:
 
 ```text
@@ -29,6 +35,13 @@ Compile the assets:
 
 ```text
 php bin/console asset-map:compile
+```
+
+Make sure that the `var/cache` folder can be written to by the web server.
+
+```
+sudo chmod 775 -R var/cache
+sudo chown $USER:www-data -R var/cache
 ```
 
 ## Run the MPA on a Docker Container
