@@ -37,7 +37,7 @@ Compile the assets:
 php bin/console asset-map:compile
 ```
 
-Make sure that the `var/cache` folder can be written to by the web server.
+Set up file permissions for the `var/cache` folder.
 
 ```
 sudo chmod 775 -R var/cache
