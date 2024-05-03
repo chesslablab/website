@@ -102,6 +102,8 @@ pages_play_online:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap: true
 
 pages_players:
     path:       /{_locale}/players
@@ -129,7 +131,9 @@ pages_about:
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en
+    options:
+      sitemap: true
 
 pages_legal:
     path:       /{_locale}/legal
@@ -145,9 +149,14 @@ pages_support:
     requirements:
       _locale:  en|es|fr
 
-home_fallback:
+locale_setup:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
     defaults:
-        path: /en
-        permanent: true
+      path: /en
+      permanent: true
+
+sitemap:
+    path:       /sitemap.xml
+    controller: App\Controller\SitemapController::index
+    methods:    GET
