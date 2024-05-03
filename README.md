@@ -37,11 +37,18 @@ Compile the assets:
 php bin/console asset-map:compile
 ```
 
-Set up file permissions for the `var/cache` folder.
+Set up file permissions for the `var/cache` folder:
 
 ```
 sudo chmod 775 -R var/cache
 sudo chown $USER:www-data -R var/cache
+```
+
+Set up file permissions for the `var/log` folder:
+
+```
+sudo chmod 775 -R var/cache
+sudo chown $USER:www-data -R var/log
 ```
 
 ## Run the MPA on a Docker Container
