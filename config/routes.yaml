@@ -103,8 +103,8 @@ pages_play_online:
     requirements:
       _locale:  en|es|fr
     options:
-      sitemap:  true
-      _locale:  en|es|fr
+      sitemap:
+        _locale: en|es|fr
 
 pages_players:
     path:       /{_locale}/players
@@ -134,8 +134,8 @@ pages_about:
     requirements:
       _locale:  en|es|fr
     options:
-      sitemap:  true
-      _locale:  en
+      sitemap:
+        _locale: en
 
 pages_legal:
     path:       /{_locale}/legal

@@ -15,8 +15,8 @@ class SitemapController extends AbstractController
         $routes = Yaml::parseFile("../config/routes.yaml");
         foreach ($routes as $key => $val) {
             if (isset($val['requirements'])) {
-                if (isset($val['options']['sitemap']) && $val['options']['sitemap']) {
-                    $locale = explode('|', $val['options']['_locale']);
+                if (isset($val['options']['sitemap'])) {
+                    $locale = explode('|', $val['options']['sitemap']['_locale']);
                     foreach ($locale as $item) {
                         $urls[] = [
                             'loc' => $this->generateUrl($key, ['_locale' => $item], UrlGeneratorInterface::ABSOLUTE_URL),
