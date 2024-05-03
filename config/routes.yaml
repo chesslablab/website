@@ -1,3 +1,5 @@
+# Indexable content
+
 pages_database_event_stats:
     path:       /{_locale}/database/event-stats
     controller: App\Controller\Pages\Database\EventStatsController::index
@@ -131,12 +133,16 @@ pages_about:
     requirements:
       _locale:  en|es|fr
 
+# Non-indexable content
+
 pages_legal:
     path:       /{_locale}/legal
     controller: App\Controller\Pages\LegalController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap: false
 
 pages_support:
     path:       /{_locale}/support
@@ -144,10 +150,21 @@ pages_support:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap: false
 
-home_fallback:
+locale_setup:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
     defaults:
-        path: /en
-        permanent: true
+      path: /en
+      permanent: true
+    options:
+      sitemap: false
+
+sitemap:
+    path:       /sitemap.xml
+    controller: App\Controller\SitemapController::index
+    methods:    GET
+    options:
+      sitemap: false
