@@ -103,7 +103,8 @@ pages_play_online:
     requirements:
       _locale:  en|es|fr
     options:
-      sitemap: true
+      sitemap:  true
+      _locale:  en|es|fr
 
 pages_players:
     path:       /{_locale}/players
@@ -131,9 +132,10 @@ pages_about:
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en
+      _locale:  en|es|fr
     options:
-      sitemap: true
+      sitemap:  true
+      _locale:  en
 
 pages_legal:
     path:       /{_locale}/legal
