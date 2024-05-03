@@ -162,3 +162,13 @@ sitemap:
     path:       /sitemap.xml
     controller: App\Controller\SitemapController::index
     methods:    GET
+
+post_hello_world:
+    path:       /{_locale}/hello-world
+    controller: App\Controller\PostController::hello_world
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr
+    options:
+      sitemap:
+        _locale: en
