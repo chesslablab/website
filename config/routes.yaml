@@ -1,5 +1,3 @@
-# Indexable content
-
 pages_database_event_stats:
     path:       /{_locale}/database/event-stats
     controller: App\Controller\Pages\Database\EventStatsController::index
@@ -104,6 +102,8 @@ pages_play_online:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap: true
 
 pages_players:
     path:       /{_locale}/players
@@ -131,9 +131,9 @@ pages_about:
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
-
-# Non-indexable content
+      _locale:  en
+    options:
+      sitemap: true
 
 pages_legal:
     path:       /{_locale}/legal
@@ -141,8 +141,6 @@ pages_legal:
     methods:    GET
     requirements:
       _locale:  en|es|fr
-    options:
-      sitemap: false
 
 pages_support:
     path:       /{_locale}/support
@@ -150,8 +148,6 @@ pages_support:
     methods:    GET
     requirements:
       _locale:  en|es|fr
-    options:
-      sitemap: false
 
 locale_setup:
     path: /
@@ -159,12 +155,8 @@ locale_setup:
     defaults:
       path: /en
       permanent: true
-    options:
-      sitemap: false
 
 sitemap:
     path:       /sitemap.xml
     controller: App\Controller\SitemapController::index
     methods:    GET
-    options:
-      sitemap: false
