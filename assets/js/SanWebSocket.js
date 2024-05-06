@@ -80,8 +80,8 @@ export class SanWebSocket {
             break;
 
           case '/legal' === msg:
-            Object.keys(data['/legal'].fen).forEach(key => {
-              chessboard.addMarker(MARKER_TYPE.dot, key);
+            data['/legal'].forEach(sq => {
+              chessboard.addMarker(MARKER_TYPE.dot, sq);
             });
             break;
 
