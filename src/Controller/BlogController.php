@@ -15,14 +15,14 @@ class BlogController extends AbstractController
     public function index(Request $request): Response
     {
         $routes = Yaml::parseFile("../config/routes.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['metadata'];
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
         $md = '';
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
                 $url = $this->generateUrl($key, ['_locale' => 'en'], UrlGeneratorInterface::ABSOLUTE_URL);
-                $md .= "## [{$val['options']['metadata']['title']}]($url)" . PHP_EOL;
-                $md .= "#### {$val['options']['content']['subtitle']}" . PHP_EOL;
-                $md .= "###### {$val['options']['content']['date']}" . PHP_EOL;
+                $md .= "### [{$val['options']['blog']['metadata']['title']}]($url)" . PHP_EOL;
+                $md .= "#### {$val['options']['blog']['content']['subtitle']}" . PHP_EOL;
+                $md .= "###### {$val['options']['blog']['content']['date']}" . PHP_EOL;
                 $md .= "---" . PHP_EOL;
             }
         }
@@ -37,13 +37,17 @@ class BlogController extends AbstractController
     public function hello_world(Request $request): Response
     {
         $routes = Yaml::parseFile("../config/routes.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['metadata'];
-        $content = file_get_contents(self::DATA_FOLDER . '/hello-world.md');
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
+        $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
+        $md = "### {$metadata['title']}" . PHP_EOL;
+        $md .= "#### {$content['subtitle']}" . PHP_EOL;
+        $md .= "###### {$content['date']}" . PHP_EOL;
+        $md .= file_get_contents(self::DATA_FOLDER . '/hello-world.md');
 
         return $this->render('post.html.twig', [
             'title' => $metadata['title'],
             'description' => $metadata['description'],
-            'content' => $content,
+            'content' => $md,
         ]);
     }
 }

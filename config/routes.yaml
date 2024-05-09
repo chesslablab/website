@@ -172,9 +172,10 @@ blog:
     options:
       sitemap:
         _locale: en
-      metadata:
-        title: ChesslaBlab Blog
-        description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
+      blog:
+        metadata:
+          title: ChesslaBlab Blog
+          description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
 
 blog_hello_world:
     path:       /{_locale}/blog/hello-world
@@ -185,9 +186,10 @@ blog_hello_world:
     options:
       sitemap:
         _locale: en
-      metadata:
-        title: Hello World!
-        description: This is my first post on ChesslaBlab.
-      content:
-        subtitle: The blog has been set up successfully
-        date: 05-09-2024
+      blog:
+        metadata:
+          title: Hello World!
+          description: This is my first post on ChesslaBlab.
+        content:
+          subtitle: Welcome to the ChesslaBlab blog
+          date: 05-09-2024
