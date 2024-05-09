@@ -165,7 +165,7 @@ sitemap:
 
 post_hello_world:
     path:       /{_locale}/blog/hello-world
-    controller: App\Controller\PostController::hello_world
+    controller: App\Controller\BlogController::hello_world
     methods:    GET
     requirements:
       _locale:  en|es|fr

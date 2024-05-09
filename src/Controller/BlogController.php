@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 
-class PostController extends AbstractController
+class BlogController extends AbstractController
 {
     const DATA_FOLDER = __DIR__ . '/../../posts';
 
