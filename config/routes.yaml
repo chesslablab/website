@@ -163,6 +163,19 @@ sitemap:
     controller: App\Controller\SitemapController::index
     methods:    GET
 
+blog:
+    path:       /{_locale}/blog
+    controller: App\Controller\BlogController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr
+    options:
+      sitemap:
+        _locale: en
+      metadata:
+        title: ChesslaBlab Blog
+        description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
+
 blog_hello_world:
     path:       /{_locale}/blog/hello-world
     controller: App\Controller\BlogController::hello_world
@@ -174,4 +187,7 @@ blog_hello_world:
         _locale: en
       metadata:
         title: Hello World!
-        description: This is my first post.
+        description: This is my first post on ChesslaBlab.
+      content:
+        subtitle: The blog has been set up successfully
+        date: 05-09-2024
