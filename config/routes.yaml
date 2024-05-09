@@ -164,7 +164,7 @@ sitemap:
     methods:    GET
 
 post_hello_world:
-    path:       /{_locale}/hello-world
+    path:       /{_locale}/blog/hello-world
     controller: App\Controller\PostController::hello_world
     methods:    GET
     requirements:
