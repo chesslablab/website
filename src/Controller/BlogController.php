@@ -19,7 +19,7 @@ class BlogController extends AbstractController
         $md = '';
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
-                $url = $this->generateUrl($key, ['_locale' => 'en'], UrlGeneratorInterface::ABSOLUTE_URL);
+                $url = $this->generateUrl($key, ['_locale' => $request->getLocale()], UrlGeneratorInterface::ABSOLUTE_URL);
                 $md .= "### [{$val['options']['blog']['metadata']['title']}]($url)" . PHP_EOL;
                 $md .= "#### {$val['options']['blog']['content']['subtitle']}" . PHP_EOL;
                 $md .= "###### {$val['options']['blog']['content']['date']}" . PHP_EOL;
