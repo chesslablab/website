@@ -163,7 +163,7 @@ sitemap:
     controller: App\Controller\SitemapController::index
     methods:    GET
 
-post_hello_world:
+blog_hello_world:
     path:       /{_locale}/blog/hello-world
     controller: App\Controller\BlogController::hello_world
     methods:    GET

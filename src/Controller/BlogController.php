@@ -9,7 +9,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class BlogController extends AbstractController
 {
-    const DATA_FOLDER = __DIR__ . '/../../posts';
+    const DATA_FOLDER = __DIR__ . '/../../blog';
 
     public function hello_world(Request $request): Response
     {
