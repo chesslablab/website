@@ -172,3 +172,6 @@ post_hello_world:
     options:
       sitemap:
         _locale: en
+      metadata:
+        title: Hello World!
+        description: This is my first post.
