@@ -14,6 +14,15 @@ footer {
   font-size: 0.85rem;
 }
 
+h3 a {
+  color: #282828;
+  text-decoration: none;
+}
+
+h3 a:hover {
+  text-decoration: underline;
+}
+
 h5.card-title {
   font-weight: bold;
   font-size: 19.5px;

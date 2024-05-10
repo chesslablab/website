@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    <script src="{{ asset('js/pages/apply_settings.js') }}"></script>
+  </head>
+  <body>
+    {% include 'partial/nav.html.twig' %}
+    <div class="the-content container">
+      <div class="row">
+        <div class="container p-4">
+          {% apply markdown_to_html %}
+            {{ content | raw }}
+          {% endapply %}
+        </div>
+      </div>
+    </div>
+    {% include 'partial/footer.html.twig' %}
+    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  </body>
