@@ -188,7 +188,7 @@ blog_hello_world:
           subtitle: Welcome to the ChesslaBlab blog
           date: 05-09-2024
 
-locale_setup:
+locale:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
     defaults:
