@@ -13,12 +13,14 @@
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
-    <div class="the-content container p-4">
-       <div class="row">
-        {% apply markdown_to_html %}
+    <div class="the-content container">
+      <div class="row">
+        <div class="container p-4">
+          {% apply markdown_to_html %}
             {{ content | raw }}
-        {% endapply %}
-       </div>
+          {% endapply %}
+        </div>
+      </div>
     </div>
     {% include 'partial/footer.html.twig' %}
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
