@@ -27,7 +27,7 @@ class BlogController extends AbstractController
             }
         }
 
-        return $this->render('post.html.twig', [
+        return $this->render('blog.html.twig', [
             'title' => $metadata['title'],
             'description' => $metadata['description'],
             'content' => $md,
@@ -44,7 +44,7 @@ class BlogController extends AbstractController
         $md .= "###### {$content['date']}" . PHP_EOL;
         $md .= file_get_contents(self::DATA_FOLDER . '/hello-world.md');
 
-        return $this->render('post.html.twig', [
+        return $this->render('blog.html.twig', [
             'title' => $metadata['title'],
             'description' => $metadata['description'],
             'content' => $md,
