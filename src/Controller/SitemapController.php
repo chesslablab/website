@@ -16,13 +16,15 @@ class SitemapController extends AbstractController
         foreach ($routes as $key => $val) {
             if (isset($val['requirements'])) {
                 if (isset($val['options']['sitemap'])) {
-                    $locale = explode('|', $val['options']['sitemap']['_locale']);
-                    foreach ($locale as $item) {
-                        $urls[] = [
-                            'loc' => $this->generateUrl($key, ['_locale' => $item], UrlGeneratorInterface::ABSOLUTE_URL),
-                            'changefreq' => 'weekly',
-                            'priority' => '0.5',
-                        ];
+                    if ($val['options']['sitemap']['_locale'] !== false) {
+                        $locale = explode('|', $val['options']['sitemap']['_locale']);
+                        foreach ($locale as $item) {
+                            $urls[] = [
+                                'loc' => $this->generateUrl($key, ['_locale' => $item], UrlGeneratorInterface::ABSOLUTE_URL),
+                                'changefreq' => 'weekly',
+                                'priority' => '0.5',
+                            ];
+                        }
                     }
                 }
             }

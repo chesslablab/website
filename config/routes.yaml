@@ -143,6 +143,9 @@ pages_legal:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap:
+        _locale: false
 
 pages_support:
     path:       /{_locale}/support
@@ -150,6 +153,9 @@ pages_support:
     methods:    GET
     requirements:
       _locale:  en|es|fr
+    options:
+      sitemap:
+        _locale: en
 
 blog:
     path:       /{_locale}/blog
