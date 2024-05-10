@@ -162,3 +162,8 @@ sitemap:
     path:       /sitemap.xml
     controller: App\Controller\SitemapController::index
     methods:    GET
+
+robots:
+    path:       /robots.txt
+    controller: App\Controller\RobotsController::index
+    methods:    GET
