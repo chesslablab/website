@@ -151,18 +151,6 @@ pages_support:
     requirements:
       _locale:  en|es|fr
 
-locale_setup:
-    path: /
-    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
-    defaults:
-      path: /en
-      permanent: true
-
-sitemap:
-    path:       /sitemap.xml
-    controller: App\Controller\SitemapController::index
-    methods:    GET
-
 blog:
     path:       /{_locale}/blog
     controller: App\Controller\BlogController::index
@@ -193,3 +181,20 @@ blog_hello_world:
         content:
           subtitle: Welcome to the ChesslaBlab blog
           date: 05-09-2024
+
+locale_setup:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+      path: /en
+      permanent: true
+
+sitemap:
+    path:       /sitemap.xml
+    controller: App\Controller\SitemapController::index
+    methods:    GET
+
+robots:
+    path:       /robots.txt
+    controller: App\Controller\RobotsController::index
+    methods:    GET
