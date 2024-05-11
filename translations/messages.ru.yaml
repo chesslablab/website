@@ -1,8 +1,8 @@
 # Main nav bar
 Play: Играть
 Online: Онлайн
-Computer: Компьютер
-Learn: Изучить
+Computer: Бот
+Learn: Обучение
 Classical Chess: Классические шахматы
 Fischer Random: Шахматы Фишера
 FEN String: FEN запись
@@ -24,38 +24,38 @@ Language: Язык
 Settings: Настройки
 
 # Play
-Online Players: Jugadores en línea
-Create a Game: Crear una partida
-Play a Friend: Jugar con un(a) amigo(a)
-Classical chess: Ajedrez clásico
-Enter Invite Code: Ingresar código de invitación
-Play Online: Jugar en línea
-Minutes per side: Minutos por jugador(a)
-Increment in seconds: Incremento en segundos
-Select a variant: Seleccionar variante
-Classical: Clásico
-Create Game: Crear partida
-Enter a FEN: Ingresar FEN
-Create Invite Code: Crear código de invitación
-Share this code with a friend: Comparte este código con un(a) amigo(a)
-Copy and Play: Copiar y jugar
-Invite code: Código de invitación
-Play Computer: Jugar con el ordenador
-Difficulty level: Nivel de dificultad
-Would you like a draw?: ¿Quieres tablas?
-Would you like a rematch?: ¿Quieres la revancha?
-Would you like a takeback?: ¿Quieres corregir este movimiento?
-Accept: Aceptar
-Decline: Declinar
+Online Players: Игроки Онлайн
+Create a Game: Создать Игру
+Play a Friend: Играть с Другом
+Classical chess: Классические шахматы
+Enter Invite Code: Введите Код Приглашения
+Play Online: Играть Онлайн
+Minutes per side: Минут на партию
+Increment in seconds: Добавление секунд на ход
+Select a variant: Выберите вид
+Classical: Классические
+Create Game: Создать Игру
+Enter a FEN: Введите FEN
+Create Invite Code: Создайте Код Приглашения
+Share this code with a friend: Поделиться кодом с Другом
+Copy and Play: Скопировать и Играть
+Invite code: Код Приглашения
+Play Computer: Играть против Бота
+Difficulty level: Уровень сложности
+Would you like a draw?: Ничья?
+Would you like a rematch?: Реванш?
+Would you like a takeback?: Отменить ход?
+Accept: Принять
+Decline: Отклонить
 
 # Learn
-Load: Cargar
-Variations and comments will be removed. To keep them, load a RAV Movetext instead: Se eliminarán las variaciones y los comentarios. Para conservarlos, carga un texto RAV con movimientos
-Enter a movetext: Ingresar un texto con movimientos
-Variations and comments will be kept. To remove them, load a SAN Movetext instead: Se guardarán las variaciones y los comentarios. Para eliminarlos, carga un texto SAN con movimientos
+Load: Загрузка
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: 
+Enter a movetext: Введите шахматную нотацию
+Variations and comments will be kept. To remove them, load a SAN Movetext instead:
 
 # Openings
-Select an ECO code: Selecciona un código ECO
+Select an ECO code: Выберите код ECO
 Flank Openings: Aperturas de flanco
 Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
 Open Games and the French Defense: Juegos abiertos y la defensa francesa
@@ -65,8 +65,8 @@ Movetext: Texto con movimientos
 Search: Buscar
 
 # Training
-Select a checkmate: Selecciona un jaque y mate
-Random: Aleatorio
+Select a checkmate: Выберите мат
+Random: Случайный
 King and queen and rook vs. king and rook: Rey, reina y torre contra rey y torre
 King and queen vs. king: Rey y reina contra rey
 King and rook vs. king: Rey y torre contra rey
@@ -74,7 +74,7 @@ King and two bishops vs. king: Rey y dos alfiles contra rey
 King and bishop and knight vs. king: Rey y alfil y caballo contra rey
 
 # Database
-Loading: Cargando
+Loading: Загрузка
 Click on the Search button, and find up to 25 random games matching the search criteria: Clica en el botón Buscar y encuentra hasta 25 partidas aleatorias que coincidan con los criterios de búsqueda
 Event: Evento
 Year: Año
