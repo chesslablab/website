@@ -91,25 +91,25 @@ Join: Присоединиться
 Add a space: Создать пространство
 
 # Partial templates
-Board: Tablero
-Flip Board: Girar tablero
-Copy Movetext: Copiar texto con movimientos
-Copy FEN: Copiar cadena FEN
-Game: Partida
-Takeback: Corregir el movimiento
-Propose a takeback: Corregir el movimiento
-Offer draw: Ofrecer tablas
-Resign: Abandonar
-Offer Rematch: Ofrecer revancha
-Study: Estudio
-Download Image: Descargar imagen
-Download Video: Descargar video
-Heuristic Charts: Gráficos heurísticos
-Explain Position: Explicar posición
-Soon available! Please be patient: ¡Pronto disponible! Por favor ten paciencia
-Save Changes: Guardar cambios
-ChesslaBlab is a community driven project funded by supporters like you: ChesslaBlab es un proyecto impulsado por la comunidad y financiado por seguidores como tú
-Let's do this: Hagamos esto
+Board: Доска
+Flip Board: Перевернуть Доску
+Copy Movetext: Скопировать нотацию
+Copy FEN: Скопировать FEN
+Game: Игра
+Takeback: Отменить ход
+Propose a takeback: Предложить отменить ход
+Offer draw: Предложить ничью
+Resign: Сдаться
+Offer Rematch: Предложить Реванш
+Study: Изучить
+Download Image: Скачать Изображение
+Download Video: Скачать Видео
+Heuristic Charts: Эвристические диаграммы
+Explain Position: Состояние Доски
+Soon available! Please be patient: Доступно в ближайшее время! Будьте терпеливы
+Save Changes: Сохранить изменения
+ChesslaBlab is a community driven project funded by supporters like you: ChesslaBlab - проект, поддерживаемый сообществом и людьми, как вы
+Let's do this: Давайте сделаем это
 
 # Settings
 Theme: Tema
