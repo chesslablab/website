@@ -183,9 +183,9 @@ blog_hello_world:
       blog:
         metadata:
           title: Hello World!
-          description: This is my first post on ChesslaBlab.
+          description: This is the first example post.
         content:
-          subtitle: Welcome to the ChesslaBlab blog
+          subtitle: Welcome to ChesslaBlab's blog
           date: 09-05-2024
 
 blog_getting_started:
@@ -200,9 +200,9 @@ blog_getting_started:
       blog:
         metadata:
           title: Getting Started
-          description: This is my second post on ChesslaBlab.
+          description: This is the second example post.
         content:
-          subtitle: This is my second post on the ChesslaBlab blog
+          subtitle: This is the second example post
           date: 12-05-2024
 
 locale:
