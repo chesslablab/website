@@ -37,6 +37,10 @@ class BlogController extends AbstractController
             }
         }
 
+        usort($posts, function ($a, $b) {
+            return strcmp($b['content']['date'], $a['content']['date']);
+        });
+
         return $this->render('blog.html.twig', [
             'metadata' => [
                 'title' => $metadata['title'],
