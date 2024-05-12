@@ -14,23 +14,35 @@ class BlogController extends AbstractController
 
     public function index(Request $request): Response
     {
+        $posts = [];
         $routes = Yaml::parseFile("../config/routes.yaml");
         $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
-        $md = '';
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
-                $url = $this->generateUrl($key, ['_locale' => $request->getLocale()], UrlGeneratorInterface::ABSOLUTE_URL);
-                $md .= "### [{$val['options']['blog']['metadata']['title']}]($url)" . PHP_EOL;
-                $md .= "#### {$val['options']['blog']['content']['subtitle']}" . PHP_EOL;
-                $md .= "###### {$val['options']['blog']['content']['date']}" . PHP_EOL;
-                $md .= "---" . PHP_EOL;
+                $posts[] = [
+                    'url' => $this->generateUrl(
+                        $key,
+                        ['_locale' => $request->getLocale()],
+                        UrlGeneratorInterface::ABSOLUTE_URL
+                    ),
+                    'metadata' => [
+                        'title' => $val['options']['blog']['metadata']['title'],
+                        'description' => $val['options']['blog']['metadata']['description'],
+                    ],
+                    'content' => [
+                        'subtitle' => $val['options']['blog']['content']['subtitle'],
+                        'date' => $val['options']['blog']['content']['date'],
+                    ],
+                ];
             }
         }
 
         return $this->render('blog.html.twig', [
-            'title' => $metadata['title'],
-            'description' => $metadata['description'],
-            'content' => $md,
+            'metadata' => [
+                'title' => $metadata['title'],
+                'description' => $metadata['description'],
+            ],
+            'posts' => $posts,
         ]);
     }
 
@@ -39,15 +51,17 @@ class BlogController extends AbstractController
         $routes = Yaml::parseFile("../config/routes.yaml");
         $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
         $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
-        $md = "### {$metadata['title']}" . PHP_EOL;
-        $md .= "#### {$content['subtitle']}" . PHP_EOL;
-        $md .= "###### {$content['date']}" . PHP_EOL;
-        $md .= file_get_contents(self::DATA_FOLDER . '/hello-world.md');
 
-        return $this->render('blog.html.twig', [
-            'title' => $metadata['title'],
-            'description' => $metadata['description'],
-            'content' => $md,
+        return $this->render('post.html.twig', [
+            'metadata' => [
+                'title' => $metadata['title'],
+                'description' => $metadata['description'],
+            ],
+            'content' => [
+                'subtitle' => $content['subtitle'],
+                'date' => $content['date'],
+            ],
+            'post' => file_get_contents(self::DATA_FOLDER . '/hello-world.md')
         ]);
     }
 }

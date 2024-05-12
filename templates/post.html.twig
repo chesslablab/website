@@ -16,13 +16,12 @@
     <div class="the-content container">
       <div class="row">
         <div class="container p-4">
-{% apply markdown_to_html %}
-{% for post in posts %}
-### [{{ post.metadata.title }}]({{ post.url }})
-#### {{ post.content.subtitle }}
-###### {{ post.content.date }}
-{% endfor %}
-{% endapply %}
+          {% apply markdown_to_html %}
+            ### {{  metadata.title }}
+            #### {{  content.subtitle }}
+            ###### {{  content.date }}
+            {{ post | raw }}
+          {% endapply %}
         </div>
       </div>
     </div>
