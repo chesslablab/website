@@ -63,7 +63,7 @@ class BlogController extends AbstractController
             ],
             'content' => [
                 'subtitle' => $content['subtitle'],
-                'date' => $content['date'],
+                'date' => date('F, Y', strtotime($content['date'])),
             ],
             'post' => file_get_contents(self::DATA_FOLDER . '/hello-world.md')
         ]);
@@ -82,7 +82,7 @@ class BlogController extends AbstractController
             ],
             'content' => [
                 'subtitle' => $content['subtitle'],
-                'date' => $content['date'],
+                'date' => date('F, Y', strtotime($content['date'])),
             ],
             'post' => file_get_contents(self::DATA_FOLDER . '/getting-started.md')
         ]);
