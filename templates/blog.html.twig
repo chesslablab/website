@@ -16,13 +16,19 @@
     <div class="the-content container">
       <div class="row">
         <div class="container p-4">
-{% apply markdown_to_html %}
-{% for post in posts %}
-### [{{ post.metadata.title }}]({{ post.url }})
-#### {{ post.content.subtitle }}
-###### {{ post.content.date }}
-{% endfor %}
-{% endapply %}
+          <h1 class="h3">ChesslaBlab's Blog</h1>
+          <p class="lead">
+            Discover stories about your favorite topics.
+          </p>
+          {% for post in posts %}
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title"><a href="{{ post.url }}">{{ post.metadata.title }}</a></h5>
+                <p class="card-text">{{ post.content.subtitle }}</p>
+                <p class="card-text"><small>{{ post.content.date }}</small></p>
+              </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
