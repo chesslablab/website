@@ -64,4 +64,23 @@ class BlogController extends AbstractController
             'post' => file_get_contents(self::DATA_FOLDER . '/hello-world.md')
         ]);
     }
+
+    public function getting_started(Request $request): Response
+    {
+        $routes = Yaml::parseFile("../config/routes.yaml");
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
+        $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
+
+        return $this->render('post.html.twig', [
+            'metadata' => [
+                'title' => $metadata['title'],
+                'description' => $metadata['description'],
+            ],
+            'content' => [
+                'subtitle' => $content['subtitle'],
+                'date' => $content['date'],
+            ],
+            'post' => file_get_contents(self::DATA_FOLDER . '/getting-started.md')
+        ]);
+    }
 }

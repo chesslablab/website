@@ -188,6 +188,23 @@ blog_hello_world:
           subtitle: Welcome to the ChesslaBlab blog
           date: 05-09-2024
 
+blog_getting_started:
+    path:       /{_locale}/blog/getting-started
+    controller: App\Controller\BlogController::getting_started
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr
+    options:
+      sitemap:
+        _locale: en
+      blog:
+        metadata:
+          title: Getting Started
+          description: This is my second post on ChesslaBlab.
+        content:
+          subtitle: This is my second post on the ChesslaBlab blog
+          date: 05-12-2024
+
 locale:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
