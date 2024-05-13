@@ -1,0 +1,38 @@
+<div class="modal fade" id="endgameModal" tabindex="-1" aria-labelledby="endgameModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="endgameModalLabel">{{ 'Endgame'|trans }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 text-center">
+            <select name="items" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
+              <option value="">{{ 'Select an endgame'|trans }}</option>
+              <option value="rand">{{ 'Random'|trans }}</option>
+              <option value="P">{{ 'Pawn endgame'|trans }}</option>
+            </select>
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <div>
+              <input type="radio" id="endgameModalRadioWhite" name="color" value="w">
+              <label for="endgameModalRadioWhite"><img src="{{ asset('img/pieces/png/75/wKing.png') }}" alt="White"></label>
+            </div>
+            <div>
+              <input type="radio" id="endgameModalRadioRandom" name="color" value="{{ random(['w', 'b']) }}" checked>
+              <label for="endgameModalRadioRandom"><img src="{{ asset('img/pieces/png/75/wbKing.png') }}" alt="Random"></label>
+            </div>
+            <div>
+              <input type="radio" id="endgameModalRadioBlack" name="color" value="b">
+              <label for="endgameModalRadioBlack"><img src="{{ asset('img/pieces/png/75/bKing.png') }}" alt="Black"></label>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Create Game'|trans }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
