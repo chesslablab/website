@@ -31,6 +31,7 @@ class BlogController extends AbstractController
                     ],
                     'content' => [
                         'subtitle' => $val['options']['blog']['content']['subtitle'],
+                        'image' => $val['options']['blog']['content']['image'],
                         'date' => $val['options']['blog']['content']['date'],
                     ],
                 ];
@@ -63,6 +64,7 @@ class BlogController extends AbstractController
             ],
             'content' => [
                 'subtitle' => $content['subtitle'],
+                'image' => $content['image'],
                 'date' => date('F, Y', strtotime($content['date'])),
             ],
             'post' => file_get_contents(self::DATA_FOLDER . '/hello-world.md')
@@ -82,6 +84,7 @@ class BlogController extends AbstractController
             ],
             'content' => [
                 'subtitle' => $content['subtitle'],
+                'image' => $content['image'],
                 'date' => date('F, Y', strtotime($content['date'])),
             ],
             'post' => file_get_contents(self::DATA_FOLDER . '/getting-started.md')
