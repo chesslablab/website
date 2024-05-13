@@ -186,7 +186,7 @@ blog_hello_world:
           description: This is the first example post.
         content:
           subtitle: Welcome to ChesslaBlab's blog
-          image: hello-world.jpg
+          image: hello-world.webp
           date: 09-05-2024
 
 blog_getting_started:
@@ -204,7 +204,7 @@ blog_getting_started:
           description: This is the second example post.
         content:
           subtitle: This is the second example post
-          image: getting-started.jpg
+          image: getting-started.webp
           date: 12-05-2024
 
 locale:
