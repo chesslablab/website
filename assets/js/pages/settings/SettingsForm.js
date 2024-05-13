@@ -30,6 +30,12 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="notation"]').value = 'fan';
     }
 
+    if (localStorage.getItem('set') === 'staunty') {
+      this.el.querySelector('select[name="set"]').value = 'staunty';
+    } else {
+      this.el.querySelector('select[name="set"]').value = 'classical';
+    }
+
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
@@ -37,6 +43,7 @@ export class SettingsForm extends AbstractComponent {
       localStorage.setItem('theme', formData.get('theme'));
       localStorage.setItem('format', formData.get('format'));
       localStorage.setItem('notation', formData.get('notation'));
+      localStorage.setItem('set', formData.get('set'));
       window.location.reload();
     });
   }
