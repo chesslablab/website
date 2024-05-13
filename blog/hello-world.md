@@ -1,5 +1,3 @@
-![Featured image](/blog/hello-world.jpg)
-
 Photo by [Fili Santillán](https://unsplash.com/@filisantillan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-code-on-it-1HCb2gPk3ik?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
 This is a simple static blog made with Symfony and Twig. The `markdown_to_html` filter is used to convert a block of Markdown to HTML. Everything is working okay although it seems that images cannot be inserted into Markdown documents.
