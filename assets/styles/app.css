@@ -104,6 +104,11 @@ input[name="Black"] + ul > li:hover {
   text-align: center;
 }
 
+.the-post img {
+  width: 100%;
+  height: auto;
+}
+
 .container {
   min-height: 595px;
 }
