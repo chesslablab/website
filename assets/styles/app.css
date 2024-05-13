@@ -71,6 +71,12 @@ input[name="Black"] + ul > li:hover {
   color: #fff;
 }
 
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
 .card ul li {
   list-style-type: '✔';
   padding-inline-start: 0.4rem;
