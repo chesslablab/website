@@ -14,12 +14,14 @@ footer {
   font-size: 0.85rem;
 }
 
-h3 a {
+h3 a,
+h5 a {
   color: #282828;
   text-decoration: none;
 }
 
-h3 a:hover {
+h3 a:hover,
+h5 a:hover {
   text-decoration: underline;
 }
 
