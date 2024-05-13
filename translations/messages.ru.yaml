@@ -1,0 +1,121 @@
+# Main nav bar
+Play: Играть
+Online: Онлайн
+Computer: Бот
+Learn: Обучение
+Classical Chess: Классические шахматы
+Fischer Random: Шахматы Фишера
+FEN String: FEN запись
+SAN Movetext: Алгебраическая нотация
+RAV Movetext: RAV Нотация
+Annotated Games: Аннотированные игры
+Openings: Дебют
+ECO Code: Дебютные ECO коды
+Name: Имя
+Training: Практика
+Checkmate: Мат
+Database: База данных
+Search Games: Искать Игры
+Top Openings: Лучшие Дебюты
+Player Stats: Статистика Игрока
+Event Stats: Статистика Игр
+Players: Игроки
+Language: Язык
+Settings: Настройки
+
+# Play
+Online Players: Игроки Онлайн
+Create a Game: Создать Игру
+Play a Friend: Играть с Другом
+Classical chess: Классические шахматы
+Enter Invite Code: Введите Код Приглашения
+Play Online: Играть Онлайн
+Minutes per side: Минут на партию
+Increment in seconds: Добавление секунд на ход
+Select a variant: Выберите вид
+Classical: Классические
+Create Game: Создать Игру
+Enter a FEN: Введите FEN
+Create Invite Code: Создайте Код Приглашения
+Share this code with a friend: Поделиться кодом с Другом
+Copy and Play: Скопировать и Играть
+Invite code: Код Приглашения
+Play Computer: Играть против Бота
+Difficulty level: Уровень сложности
+Would you like a draw?: Ничья?
+Would you like a rematch?: Реванш?
+Would you like a takeback?: Отменить ход?
+Accept: Принять
+Decline: Отклонить
+
+# Learn
+Load: Загрузка
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: Возможности и комментарии будут удалены. Чтобы сохранить их, загрузите RAV нотацию.
+Enter a movetext: Введите шахматную нотацию
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: Возможности и комментарии будут доступны. Чтобы удалить их, загрузите SAN нотацию.
+
+# Openings
+Select an ECO code: Выберите код ECO
+Flank Openings: Фланговые дебюты
+Semi-Open Games other than the French Defense: Полуоткрытые дебюты, кроме французской защиты
+Open Games and the French Defense: Открытые дебюты и французская защита
+Closed Games and Semi-Closed Games: Закрытые дебюты и Полуоткрытые дебюты
+Indian Defenses: Индийский дебют
+Movetext: Нотация
+Search: Поиск
+
+# Training
+Select a checkmate: Выберите мат
+Random: Случайный
+King and queen and rook vs. king and rook: Король, ферзь и ладья против короля и ладьи
+King and queen vs. king: Король и ферзь против короля
+King and rook vs. king: Король и ладья против короля
+King and two bishops vs. king: Король и два слона против короля
+King and bishop and knight vs. king: Король, слон и конь против короля
+
+# Database
+Loading: Загрузка
+Click on the Search button, and find up to 25 random games matching the search criteria: Нажмите на кнопку поиска и найдите до 25 случайных игр, которые подходят под запрос
+Event: Событие
+Year: Год
+White: Белые
+Black: Черные
+Result: Исход
+Click on an ECO code, and find a random game matching the search criteria: Нажмите на ECO код и найдите случайную игру, прдходящую под запрос
+
+# Clubs
+Find chess players all over the Internet and improve your chess skills. Have fun!: Найдите игроков в шахматы со всего интернета и улучшайте ваши шахматные навыки. Хорошей игры!
+Platform: Платформа
+Description: Описание
+Join: Присоединиться
+Add a space: Создать пространство
+
+# Partial templates
+Board: Доска
+Flip Board: Перевернуть Доску
+Copy Movetext: Скопировать нотацию
+Copy FEN: Скопировать FEN
+Game: Игра
+Takeback: Отменить ход
+Propose a takeback: Предложить отменить ход
+Offer draw: Предложить ничью
+Resign: Сдаться
+Offer Rematch: Предложить Реванш
+Study: Изучить
+Download Image: Скачать Изображение
+Download Video: Скачать Видео
+Heuristic Charts: Эвристические диаграммы
+Explain Position: Состояние Доски
+Soon available! Please be patient: Доступно в ближайшее время! Будьте терпеливы
+Save Changes: Сохранить изменения
+ChesslaBlab is a community driven project funded by supporters like you: ChesslaBlab - проект, поддерживаемый сообществом и людьми, как вы
+Let's do this: Давайте сделаем это
+
+# Settings
+Theme: Тема
+Display moves: Отобразить ходы
+Inline: В строку
+Table: Доска
+Notation: Нотация
+Figurine Algebraic Notation (FAN): Фигурная Алгебраическая Нотация(FAN)
+Standard Algebraic Notation (SAN): Стандартная Алгебраическая Нотация (SAN)
