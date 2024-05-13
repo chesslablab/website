@@ -3,136 +3,136 @@ pages_database_event_stats:
     controller: App\Controller\Pages\Database\EventStatsController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_database_player_stats:
     path:       /{_locale}/database/player-stats
     controller: App\Controller\Pages\Database\PlayerStatsController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_database_search_games:
     path:       /{_locale}/database/search-games
     controller: App\Controller\Pages\Database\SearchGamesController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_database_top_openings:
     path:       /{_locale}/database/top-openings
     controller: App\Controller\Pages\Database\TopOpeningsController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_annotated_games:
     path:       /{_locale}/learn/annotated-games
     controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_classical:
     path:       /{_locale}/learn/classical
     controller: App\Controller\Pages\Learn\ClassicalController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_fen_string:
     path:       /{_locale}/learn/fen-string
     controller: App\Controller\Pages\Learn\FenStringController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_fischer_random:
     path:       /{_locale}/learn/fischer-random
     controller: App\Controller\Pages\Learn\FischerRandomController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_rav_movetext:
     path:       /{_locale}/learn/rav-movetext
     controller: App\Controller\Pages\Learn\RavMovetextController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_learn_san_movetext:
     path:       /{_locale}/learn/san-movetext
     controller: App\Controller\Pages\Learn\SanMovetextController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_openings_eco_code:
     path:       /{_locale}/openings/eco-code
     controller: App\Controller\Pages\Openings\EcoCodeController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_openings_name:
     path:       /{_locale}/openings/name
     controller: App\Controller\Pages\Openings\NameController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_openings_san_movetext:
     path:       /{_locale}/openings/san-movetext
     controller: App\Controller\Pages\Openings\SanMovetextController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_play_computer:
     path:       /{_locale}/play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_play_online:
     path:       /{_locale}/
     controller: App\Controller\Pages\Play\OnlineController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
-        _locale: en|es|fr
+        _locale: en|es|fr|ru
 
 pages_players:
     path:       /{_locale}/players
     controller: App\Controller\Pages\PlayersController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_training_checkmate:
     path:       /{_locale}/training/checkmate
     controller: App\Controller\Pages\Training\TrainingController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_settings:
     path:       /{_locale}/settings
     controller: App\Controller\Pages\Settings\SettingsController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
 
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: en
@@ -142,7 +142,7 @@ pages_legal:
     controller: App\Controller\Pages\LegalController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: false
@@ -152,7 +152,7 @@ pages_support:
     controller: App\Controller\Pages\SupportController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: en
@@ -162,7 +162,7 @@ blog:
     controller: App\Controller\BlogController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: en
@@ -176,7 +176,7 @@ blog_hello_world:
     controller: App\Controller\BlogController::hello_world
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: en
@@ -194,7 +194,7 @@ blog_getting_started:
     controller: App\Controller\BlogController::getting_started
     methods:    GET
     requirements:
-      _locale:  en|es|fr
+      _locale:  en|es|fr|ru
     options:
       sitemap:
         _locale: en

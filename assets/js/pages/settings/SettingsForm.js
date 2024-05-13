@@ -6,6 +6,8 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="locale"]').value = 'es';
     } else if (localStorage.getItem('locale') === 'fr') {
       this.el.querySelector('select[name="locale"]').value = 'fr';
+    } else if (localStorage.getItem('locale') === 'ru') {
+      this.el.querySelector('select[name="locale"]').value = 'ru';
     } else {
       this.el.querySelector('select[name="locale"]').value = 'en';
     }
