@@ -26,6 +26,13 @@ pages_database_top_openings:
     requirements:
       _locale:  en|es|fr|ru
 
+pages_edit:
+    path:       /{_locale}/edit
+    controller: App\Controller\Pages\EditController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru
+
 pages_learn_annotated_games:
     path:       /{_locale}/learn/annotated-games
     controller: App\Controller\Pages\Learn\AnnotatedGamesController::index

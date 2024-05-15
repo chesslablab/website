@@ -130,6 +130,11 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_edit' ? 'active' : ''}} nav-link" href="{{ path('pages_edit') }}" role="button" aria-expanded="false">
+            {{ 'Edit'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_players' ? 'active' : ''}} nav-link" href="{{ path('pages_players') }}" role="button" aria-expanded="false">
             {{ 'Players'|trans }}
           </a>

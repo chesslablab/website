@@ -86,11 +86,15 @@ return [
         'path' => './assets/js/pages/settings/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/edit/index.js' => [
+        'path' => './assets/js/pages/edit/index.js',
+        'entrypoint' => true,
+    ],
     '@chesslablab/cmblab' => [
         'version' => '0.0.1',
     ],
     '@chesslablab/jsblab' => [
-        'version' => '0.3.5',
+        'version' => '0.3.6',
     ],
     'bootstrap' => [
         'version' => '5.3.2',
