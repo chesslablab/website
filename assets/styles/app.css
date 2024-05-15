@@ -241,3 +241,8 @@ input[name="Black"] + ul > li:hover {
   background-color: #6c757d !important;
   color: #fff !important;
 }
+
+#chessboard,
+#chessboardEditorModal svg {
+  cursor: pointer;
+}

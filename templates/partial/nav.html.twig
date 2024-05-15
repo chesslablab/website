@@ -62,6 +62,11 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_edit' ? 'active' : ''}} nav-link" href="{{ path('pages_edit') }}" role="button" aria-expanded="false">
+            {{ 'Edit'|trans }}
+          </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_openings_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Openings'|trans }}
