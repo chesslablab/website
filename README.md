@@ -77,6 +77,10 @@ The [MIT License](https://github.com/chesslablab/website/blob/master/LICENSE).
 
 ### Contributions
 
-See the [contributing guidelines](https://github.com/chesslablab/website/blob/master/CONTRIBUTING.md).
+We encourage you to contribute to the ChesslaBlab website! Please follow the [Contributing Guidelines](https://github.com/chesslablab/website/blob/master/CONTRIBUTING.md).
 
-Happy learning and coding!
+<a href="https://github.com/chesslablab/website/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=chesslablab/website" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
