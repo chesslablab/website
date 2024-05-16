@@ -14,12 +14,15 @@ ECO Code: Code ÉCO
 Name: Nom
 Training: Entraînement
 Checkmate: Échec et mat
+Endgame: Fin du jeu
 Database: Base de données
 Search Games: Rechercher des parties
 Top Openings: Ouvertures principales
 Player Stats: Statistiques des joueurs
 Event Stats: Statistiques des événements
+Edit: Éditer
 Players: Joueurs
+Blog: Blog
 Language: Langue
 Settings: Paramètres
 
@@ -72,6 +75,8 @@ King and queen vs. king: Roi et dame contre roi
 King and rook vs. king: Roi et tour contre roi
 King and two bishops vs. king: Roi et deux fous contre roi
 King and bishop and knight vs. king: Roi, fou et cavalier contre roi
+Select an endgame: Sélectionnez une fin de jeu
+Pawn endgame: Fin de pion
 
 # Database
 Loading: Chargement
@@ -83,12 +88,25 @@ Black: Noirs
 Result: Résultat
 Click on an ECO code, and find a random game matching the search criteria: Cliquez sur un code ECO et trouvez une partie aléatoire correspondant à vos critères de recherche
 
+# Edit
+Player's turn: Tour du joueur
+Select an option: Choisir une option
+White's castling: Roque blanc
+Black's castling: Roque noir
+En passant: En passant
+Starting Position: Position de départ
+Clear Board: Vider le tableau
+
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: Trouvez des joueurs d'échecs partout sur Internet et améliorez vos compétences aux échecs. Amusez-vous!
 Platform: Plateforme
 Description: Description
 Join: Rejoindre
 Add a space: Ajouter un espace
+
+# Blog
+ChesslaBlab's Blog: Le blog de ChesslaBlab
+Discover stories about your favorite topics: Découvrez des histoires sur vos sujets préférés
 
 # Partial templates
 Board: Échiquier
@@ -119,3 +137,4 @@ Table: Dans un tableau
 Notation: Notation
 Figurine Algebraic Notation (FAN): Notation algébrique des figurines (FAN)
 Standard Algebraic Notation (SAN): Notation algébrique standard (SAN)
+Piece set: Ensemble de pièces

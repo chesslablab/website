@@ -14,12 +14,15 @@ ECO Code: Дебютные ECO коды
 Name: Имя
 Training: Практика
 Checkmate: Мат
+Endgame: Эндшпиль
 Database: База данных
 Search Games: Искать Игры
 Top Openings: Лучшие Дебюты
 Player Stats: Статистика Игрока
 Event Stats: Статистика Игр
+Edit: Редактировать
 Players: Игроки
+Blog: Блог
 Language: Язык
 Settings: Настройки
 
@@ -72,6 +75,8 @@ King and queen vs. king: Король и ферзь против короля
 King and rook vs. king: Король и ладья против короля
 King and two bishops vs. king: Король и два слона против короля
 King and bishop and knight vs. king: Король, слон и конь против короля
+Select an endgame: Выберите Эндшпиль
+Pawn endgame: Пешечное окончание
 
 # Database
 Loading: Загрузка
@@ -83,12 +88,25 @@ Black: Черные
 Result: Исход
 Click on an ECO code, and find a random game matching the search criteria: Нажмите на ECO код и найдите случайную игру, прдходящую под запрос
 
+# Edit
+Player's turn: Ход игрока
+Select an option: Выберите вариант
+White's castling: Белая рокировка
+Black's castling: Черная рокировка
+En passant: Взятие на проходе
+Starting Position: Начальная позиция
+Clear Board: Очистить доску
+
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: Найдите игроков в шахматы со всего интернета и улучшайте ваши шахматные навыки. Хорошей игры!
 Platform: Платформа
 Description: Описание
 Join: Присоединиться
 Add a space: Создать пространство
+
+# Blog
+ChesslaBlab's Blog: Блог ChesslaBlab
+Discover stories about your favorite topics: Откройте для себя истории на ваши любимые темы
 
 # Partial templates
 Board: Доска
@@ -119,3 +137,4 @@ Table: Доска
 Notation: Нотация
 Figurine Algebraic Notation (FAN): Фигурная Алгебраическая Нотация(FAN)
 Standard Algebraic Notation (SAN): Стандартная Алгебраическая Нотация (SAN)
+Piece set: Набор фигур
