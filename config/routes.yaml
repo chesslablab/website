@@ -1,3 +1,31 @@
+# Setup routes
+#
+# These routes are intended for general-purpose setup. As a rule of thumb, any
+# route that is not considered to be either a page or a blog post will fall into
+# this category.
+
+locale:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+      path: /en
+      permanent: true
+
+sitemap:
+    path:       /sitemap.xml
+    controller: App\Controller\SitemapController::index
+    methods:    GET
+
+robots:
+    path:       /robots.txt
+    controller: App\Controller\RobotsController::index
+    methods:    GET
+
+# Pages routes
+#
+# A page is intended for static content that is not updated as frequently as a
+# blog post.
+
 pages_database_event_stats:
     path:       /{_locale}/database/event-stats
     controller: App\Controller\Pages\Database\EventStatsController::index
@@ -171,6 +199,11 @@ pages_support:
       sitemap:
         _locale: en
 
+# Blog routes
+#
+# A post is intended for static content that may be updated more frequently as a
+# blog post.
+
 blog:
     path:       /{_locale}/blog
     controller: App\Controller\BlogController::index
@@ -220,20 +253,3 @@ blog_getting_started:
           subtitle: This is the second example post
           image: getting-started.webp
           date: 12-05-2024
-
-locale:
-    path: /
-    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
-    defaults:
-      path: /en
-      permanent: true
-
-sitemap:
-    path:       /sitemap.xml
-    controller: App\Controller\SitemapController::index
-    methods:    GET
-
-robots:
-    path:       /robots.txt
-    controller: App\Controller\RobotsController::index
-    methods:    GET
