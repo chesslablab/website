@@ -38,4 +38,4 @@ The command above will generate two files, `fullchain.pem` and `privkey.pem`, th
 - chesslablab/chess-api
 - chesslablab/chess-server
 
-It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80 for the certificates to be issued. Alternatively, you may want to create a self-signed multi-domain SSL certificate using OpenSSL.
+It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80 for the certificates to be issued. If this sounds too complicated to you, OpenSSL might be an alternate solution. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.
