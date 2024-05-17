@@ -33,8 +33,9 @@ SUM:                            80            311             33           2858
 
 This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) which means that you can finally get rid of libraries and frameworks like React, Vue or Next.js as well as transpilers and bundlers. Say goodbye to the JavaScript fatigue! Create a sound online chess platform today. Believe it or not, the ChesslaBlab website is written using OOP and the DOM.
 
-The following repositories are required to run a ChesslaBlab website:
+The following repositories are required to run an online chess platform with ChesslaBlab:
 
+- [Website](https://github.com/chesslablab/website)
 - [PHP Chess Server](https://github.com/chesslablab/chess-server)
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
