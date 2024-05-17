@@ -179,16 +179,6 @@ pages_about:
       sitemap:
         _locale: en
 
-pages_support:
-    path:       /{_locale}/support
-    controller: App\Controller\Pages\SupportController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru
-    options:
-      sitemap:
-        _locale: en
-
 # Blog routes
 #
 # A post is intended for static content that may be updated more frequently as a
