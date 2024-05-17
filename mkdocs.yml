@@ -4,4 +4,4 @@ theme:
   name: readthedocs
 nav:
   - Home: index.md
-  - SSL Certificates Setup: ssl-certificates-setup.md
+  - SSL Certificate Setup: ssl-certificate-setup.md

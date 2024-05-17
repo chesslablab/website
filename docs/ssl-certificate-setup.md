@@ -1,4 +1,4 @@
-# SSL Certificates Setup
+# SSL Certificate Setup
 
 The first thing you need to understand about setting up a ChesslaBlab website is that you have to create an SSL certificate to secure four different domain names at once.
 
@@ -38,4 +38,4 @@ The command above will generate two files, `fullchain.pem` and `privkey.pem`, th
 - chesslablab/chess-api
 - chesslablab/chess-server
 
-It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80 for the certificates to be issued.
+It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80 for the certificates to be issued. Alternatively, you may want to create a self-signed multi-domain SSL certificate using OpenSSL.
