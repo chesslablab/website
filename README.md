@@ -39,9 +39,11 @@ The following repositories are required to run a ChesslaBlab website:
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
 
-So it is recommended to run the online chess platform using four different servers, one per repository, although in the development environment everything can be run on the same machine. The present README file contains an overview for seasoned developers on how to install and setup a ChesslaBlab website.
+It is recommended to run the online chess platform using four different servers, one per repository, although everything can be run on the same machine in the development environment. The present README file contains an overview for seasoned developers on how to install and setup a ChesslaBlab website.
 
-More detailed documentation will be available soon. Stay tuned!
+More detailed documentation will be available soon.
+
+Stay tuned!
 
 ### Install and Setup
 
