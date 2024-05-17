@@ -1,0 +1,6 @@
+site_name: ChesslaBlab Website
+site_url: https://website.docs.chesslablab.org/
+theme:
+  name: readthedocs
+nav:
+  - Home: index.md
