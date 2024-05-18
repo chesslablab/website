@@ -31,7 +31,7 @@ SUM:                            80            311             33           2858
 -------------------------------------------------------------------------------
 ```
 
-This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) which means that you can finally get rid of libraries and frameworks like React, Vue or Next.js as well as transpilers and bundlers. Say goodbye to JavaScript fatigue! The ChesslaBlab website is written using OOP and the DOM.
+This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Say goodbye to JavaScript fatigue! Get rid of libraries and frameworks like React, Vue or Next.js as well as transpilers and bundlers. The ChesslaBlab website is written using OOP and the DOM.
 
 The following repositories are required to run an online chess platform with ChesslaBlab:
 
