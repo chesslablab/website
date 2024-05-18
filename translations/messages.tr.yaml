@@ -1,0 +1,143 @@
+# Main nav bar
+Play: Oyna
+Online: Çevrim İçi
+Computer: Bilgisayar
+Learn: Öğren
+Classical Chess: Klasik Satranç
+Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
+FEN String: FEN Kodu
+SAN Movetext: SAN Metintaşı
+RAV Movetext: RAV Metintaşı
+Annotated Games: Açıklamalı Oyunlar
+Openings: Açılışlar
+ECO Code: ECO Kodu
+Name: İsim
+Training: Antrenman
+Checkmate: Mat
+Endgame: Oyun Sonu
+Database: Veri Tabanı
+Search Games: Oyun Ara
+Top Openings: En İyi Açıılışlar
+Player Stats: Oyuncu İstatistikleri
+Event Stats: Etkinlik İstatistikleri
+Edit: Düzenle
+Players: Oyuncular
+Blog: Blog
+Language: Dil
+Settings: Ayarlar
+
+# Footer
+About: Hakkında
+
+# Play
+Online Players: Çevrim İçi Oyuncular
+Create a Game: Bir Oyun Oluştur
+Play a Friend: Arkadaşınla Oyna
+Classical chess: Klasik Satranç
+Enter Invite Code: Davet Kodunu Gir
+Play Online: Çevrim İçi Oyna
+Minutes per side: Oyuncu Başına Dakika
+Increment in seconds: Saniye Cinsinden Artış
+Select a variant: Bir oyun türü seç
+Classical: Klasik
+Create Game: Oyun Oluştur
+Enter a FEN: FEN Kodu'nu Gir
+Create Invite Code: Davet Kodu Oluştur
+Share this code with a friend: Bu kodu bir arkadaşınla paylaş
+Copy and Play: Kopyala ve Oyna
+Invite code: Davet Kodu
+Play Computer: Bilgisayara Karşı Oyna
+Difficulty level: Zorluk Düzeyi
+Would you like a draw?: Beraberlik ister misiniz?
+Would you like a rematch?: Rövanş ister misiniz?
+Would you like a takeback?: Hamlenizi geri almak ister misiniz?
+Accept: Kabul Et
+Decline: Reddet
+
+# Learn
+Load: Yükle
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: Varyasyonlar ve yorumlar kaldırılacaktır. Bunları tutmak için yerine bir RAV Metintaşı yükleyin
+Enter a movetext: Bir metintaşı girin
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: Varyasyonlar ve yorumlar saklanacaktır. Bunları kaldırmak için yerine bir SAN Metintaşı yükleyin
+
+# Openings
+Select an ECO code: Bir ECO kodu seçin
+Flank Openings: Flank Açılışları
+Semi-Open Games other than the French Defense: Yarı-Açık Oyunlar (Fransız Defansı harici)
+Open Games and the French Defense: Açık Oyunlar ve Fransız Defansı
+Closed Games and Semi-Closed Games: Kapalı ve Yarı-Kapalı Oyunlar
+Indian Defenses: Hint Defansları
+Movetext: Metintaşı
+Search: Ara
+
+# Training
+Select a checkmate: Bir Şah-Mat seçin
+Random: Rastgele
+King and queen and rook vs. king and rook: Şah, vezir ve kale vs. şah ve kale
+King and queen vs. king: Vezir ve şah vs. vezir
+King and rook vs. king: Vezir ve kale vs. vezir
+King and two bishops vs. king: Vezir ve iki fil vs. vezir
+King and bishop and knight vs. king: Vezir, fil ve at vs. vezir
+Select an endgame: Bir oyun sonu seçin
+Pawn endgame: Piyon oyun sonu
+
+# Database
+Loading: Yükleniyor
+Click on the Search button, and find up to 25 random games matching the search criteria: Ara düğmesine tıklayın ve arama kriterlerine uyan 25 adede kadar rastgele oyun bulun
+Event: Etkinlik
+Year: Yıl
+White: Beyaz
+Black: Siyah
+Result: Sonuç
+Click on an ECO code, and find a random game matching the search criteria: Bir ECO koduna tıklayın ve arama kriterlerine uyan rastgele bir oyun bulun
+
+# Edit
+Player's turn: Oyuncunun sırası
+Select an option: Bir seçenek seçin
+White's castling: Beyaz'ın rok atması
+Black's castling: Siyah'ın rok atması
+En passant: Geçerken Almak
+Starting Position: Başlangıç Pozisyonu
+Clear Board: Tahtayı Temizle
+
+# Clubs
+Find chess players all over the Internet and improve your chess skills. Have fun!: İnternetin her yerinde satranç oyuncularını bulun ve satranç becerilerinizi geliştirin. İyi eğlenceler!
+Platform: Platform
+Description: Açıklama
+Join: Katıl
+Add a space: Boşluk Ekle
+
+# Blog
+ChesslaBlab's Blog: ChesslaBlab'ın Blogu
+Discover stories about your favorite topics: Favori konularınızla ilgili hikayeleri keşfedin
+
+# Partial templates
+Board: Tahta
+Flip Board: Tahtayı Çevir
+Copy Movetext: Metintaşını Kopyala
+Copy FEN: FEN Kodunu Koplaya
+Game: Oyun
+Takeback: Hamleyi Geri Al
+Propose a takeback: Hamleyi Geri Almayı İste
+Offer draw: Beraberlik Teklif Et
+Resign: Çekil
+Offer Rematch: Rövanş Teklif Et
+Study: Çalış
+Download Image: Görüntüyü İndir
+Download Video: Videoyu İndir
+Heuristic Charts: Sezgisel Grafikler
+Explain Position: Konumu Açıkla
+Soon available! Please be patient: Yakında kullanılabilir! Lütfen sabırlı olun
+Save Changes: Değişiklikleri Kaydet
+ChesslaBlab is an open-source community driven project: ChesslaBlab açık kaynak, topluluk odaklı bir projedir
+Let's do this: Hadi yapalım şu işi
+
+# Settings
+Theme: Tema
+Display moves: Hamleleri göster
+Inline: Satır içinde
+Table: Tablo
+Notation: Gösterim
+Figurine Algebraic Notation (FAN): Figürlü Cebirsel Gösterim (FCG)
+Standard Algebraic Notation (SAN): Ölçünlü (Standart) Cebirsel Gösterim (ÖCG)
+Piece set: Taş Takımı
