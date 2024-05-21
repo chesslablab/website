@@ -65,17 +65,3 @@ Run the app on port `443`.
 ```text
 docker compose -f docker-compose.prod.yml up -d
 ```
-
-### License
-
-The [MIT License](https://github.com/chesslablab/website/blob/master/LICENSE).
-
-### Contributions
-
-We encourage you to contribute to the ChesslaBlab website! Please follow the [Contributing Guidelines](https://github.com/chesslablab/website/blob/master/CONTRIBUTING.md).
-
-<a href="https://github.com/chesslablab/website/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=chesslablab/website" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
