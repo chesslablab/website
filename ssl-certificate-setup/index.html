@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://website.docs.chesslablab.org/ssl-certificate-setup/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>SSL Certificate Setup - ChesslaBlab Website</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "SSL Certificate Setup";
+        var mkdocs_page_input_path = "ssl-certificate-setup.md";
+        var mkdocs_page_url = "/ssl-certificate-setup/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ChesslaBlab Website
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">SSL Certificate Setup</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#self-signed-wildcard-ssl-certificate-with-openssl">Self-Signed Wildcard SSL Certificate with OpenSSL</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../website-architecture/">Website Architecture</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ChesslaBlab Website</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">SSL Certificate Setup</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ssl-certificate-setup">SSL Certificate Setup</h1>
+<p>Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.</p>
+<p>The first thing you need to understand about setting up a ChesslaBlab website is that you have to create an SSL certificate to secure four different domain names at once.</p>
+<ul>
+<li><code>chesslablab.org</code></li>
+<li><code>www.chesslablab.org</code></li>
+<li><code>api.chesslablab.org</code></li>
+<li><code>async.chesslablab.org</code></li>
+</ul>
+<p>The first two, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the web server in the <a href="https://github.com/chesslablab/website">chesslablab/website</a> repo. As its name implies, the <code>api.chesslablab.org</code> domain name will point to the REST-like API in the <a href="https://github.com/chesslablab/chess-api">chesslablab/chess-api</a> repo, and <code>async.chesslablab.org</code> to the asynchronous chess server in the <a href="https://github.com/chesslablab/chess-server">chesslablab/chess-server</a> repo.</p>
+<p>Before the Certificate Authority (CA) can issue the SSL certificate, they need to verify that the Certificate Signing Request (CSR) requester can receive the certificate. This is typically achieved through one of the following methods.</p>
+<ul>
+<li>
+<p>Email Validation — a validation email is sent to the certificate requester.</p>
+</li>
+<li>
+<p>HTTP Validation — the certificate requester is asked to upload a validation file at their host.</p>
+</li>
+<li>
+<p>DNS Validation — the certificate requester sets up a CNAME record in the domain's DNS zone for further validation.</p>
+</li>
+</ul>
+<p>In this example, it is assumed that <a href="https://certbot.eff.org/">Certbot</a> is run to automatically get a free HTTPS certificate. The ChesslaBlab website is running on an Ubuntu server and the certificate is validated using DNS validation as it is described next.</p>
+<pre><code class="language-text">sudo certbot certonly --standalone
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): chesslablab.org www.chesslablab.org api.chesslablab.org async.chesslablab.org
+Requesting a certificate for chesslablab.org and 3 more domains
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/chesslablab.org-0001/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/chesslablab.org-0001/privkey.pem
+This certificate expires on 2024-04-23.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre>
+<p>The command above generated two files, <code>fullchain.pem</code> and <code>privkey.pem</code>, that then were installed in the repos mentioned above:</p>
+<ul>
+<li>chesslablab/website</li>
+<li>chesslablab/chess-api</li>
+<li>chesslablab/chess-server</li>
+</ul>
+<p>It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80.</p>
+<h2 id="self-signed-wildcard-ssl-certificate-with-openssl">Self-Signed Wildcard SSL Certificate with OpenSSL</h2>
+<p>If issuing a wildcard certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.</p>
+<pre><code class="language-text">openssl genrsa -aes256 -passout pass:foobar -out chesslablab.org.pem 2048
+openssl req -passin pass:foobar -new -sha256 -key chesslablab.org.pem -subj &quot;/C=US/ST=CA/O=ChesslaBlab, Inc./CN=chesslablab.org&quot; -reqexts SAN -config &lt;(cat /etc/ssl/openssl.cnf &lt;(printf &quot;[SAN]\nsubjectAltName=DNS:*.mydomain.org&quot;)) -out chesslablab.org.csr
+openssl x509 -passin pass:foobar -req -days 365 -in chesslablab.org.csr -signkey chesslablab.org.pem -out chesslablab.org.crt
+openssl rsa -passin pass:foobar -in chesslablab.org.pem -out chesslablab.org.key
+</code></pre>
+<p>The command above will generate four files:</p>
+<ul>
+<li>chesslablab.org.crt</li>
+<li>chesslablab.org.csr</li>
+<li>chesslablab.org.key</li>
+<li>chesslablab.org.pem</li>
+</ul>
+<p>Then, <code>chesslablab.org.crt</code> and <code>chesslablab.org.key</code> must be renamed in order to match both the certificate and the key filename created by Certbot. As noted before, it is assumed that Certbot is used to automatically generate the HTTPS certificate so all repositories are configured to read these two files on startup.</p>
+<pre><code class="language-text">mv chesslablab.org.crt fullchain.pem
+</code></pre>
+<pre><code class="language-text">mv chesslablab.org.key privkey.pem
+</code></pre>
+<p>With the pieces of the puzzle in place, which is to say, the web server, the REST-like API and the asynchronous chess server, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.</p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_01.png" />
+<strong>Figure 1</strong>. Make the browser trust the chess server's self-signed certificate.</p>
+<p>If skipping this step, the web browser won't be able to connect to the chess server. The latter will complain with an SSL handshake error.</p>
+<pre><code class="language-text">SSL handshake error: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
+</code></pre>
+<p>And the web browser will throw an error accordingly.</p>
+<pre><code class="language-text">WebSocket connection to 'wss://async.chesslablab.org:8443/' failed
+</code></pre>
+<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_02.png" />
+<strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
+<p>The exact same thing goes for the REST-like API: Its self-signed certificate needs to be added as trusted to your browser.</p>
+<p><img alt="Figure 3" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_03.png" />
+<strong>Figure 3</strong>. Make the browser trust the API's self-signed certificate.</p>
+<p>If skipping this step, the web browser won't be able to connect to the chess API. The latter will complain with an <code>ERR_CERT_AUTHORITY_INVALID</code> error.</p>
+<pre><code class="language-text">GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID
+</code></pre>
+<p><img alt="Figure 4" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png" />
+<strong>Figure 4</strong>. GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In order to run a ChesslaBlab website, a wildcard SSL certificate needs to be issued and installed in the following repos:</p>
+<ul>
+<li>chesslablab/website</li>
+<li>chesslablab/chess-api</li>
+<li>chesslablab/chess-server</li>
+</ul>
+<p><a href="https://certbot.eff.org/">Certbot</a> is run to automatically get a free HTTPS certificate using DNS validation. If issuing a wildcard certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../website-architecture/" class="btn btn-neutral float-right" title="Website Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../website-architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
