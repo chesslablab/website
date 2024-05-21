@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://website.docs.chesslablab.org/ssl-certificate-setup/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/website/ssl-certificate-setup/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>SSL Certificate Setup - ChesslaBlab Website</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -14,7 +14,7 @@
         // Current page data
         var mkdocs_page_name = "SSL Certificate Setup";
         var mkdocs_page_input_path = "ssl-certificate-setup.md";
-        var mkdocs_page_url = "/ssl-certificate-setup/";
+        var mkdocs_page_url = "/website/ssl-certificate-setup/";
       </script>
     
     <!--[if lt IE 9]>
@@ -151,8 +151,8 @@ openssl rsa -passin pass:foobar -in chesslablab.org.pem -out chesslablab.org.key
 <pre><code class="language-text">mv chesslablab.org.key privkey.pem
 </code></pre>
 <p>With the pieces of the puzzle in place, which is to say, the web server, the REST-like API and the asynchronous chess server, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.</p>
-<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_01.png" />
-<strong>Figure 1</strong>. Make the browser trust the chess server's self-signed certificate.</p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_01.png" /></p>
+<p><strong>Figure 1</strong>. Make the browser trust the chess server's self-signed certificate.</p>
 <p>If skipping this step, the web browser won't be able to connect to the chess server. The latter will complain with an SSL handshake error.</p>
 <pre><code class="language-text">SSL handshake error: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
 error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
@@ -160,16 +160,16 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 <p>And the web browser will throw an error accordingly.</p>
 <pre><code class="language-text">WebSocket connection to 'wss://async.chesslablab.org:8443/' failed
 </code></pre>
-<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_02.png" />
-<strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
+<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_02.png" /></p>
+<p><strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
 <p>The exact same thing goes for the REST-like API: Its self-signed certificate needs to be added as trusted to your browser.</p>
-<p><img alt="Figure 3" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_03.png" />
-<strong>Figure 3</strong>. Make the browser trust the API's self-signed certificate.</p>
+<p><img alt="Figure 3" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_03.png" /></p>
+<p><strong>Figure 3</strong>. Make the browser trust the API's self-signed certificate.</p>
 <p>If skipping this step, the web browser won't be able to connect to the chess API. The latter will complain with an <code>ERR_CERT_AUTHORITY_INVALID</code> error.</p>
 <pre><code class="language-text">GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID
 </code></pre>
-<p><img alt="Figure 4" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png" />
-<strong>Figure 4</strong>. GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID.</p>
+<p><img alt="Figure 4" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png" /></p>
+<p><strong>Figure 4</strong>. The browser doesn't recognize the API's certificate.</p>
 <h3 id="conclusion">Conclusion</h3>
 <p>In order to run a ChesslaBlab website, a wildcard SSL certificate needs to be issued and installed in the following repos:</p>
 <ul>

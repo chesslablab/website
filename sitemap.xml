@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://website.docs.chesslablab.org/</loc>
+         <loc>https://chesslablab.github.io/website/</loc>
          <lastmod>2024-05-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://website.docs.chesslablab.org/ssl-certificate-setup/</loc>
+         <loc>https://chesslablab.github.io/website/ssl-certificate-setup/</loc>
          <lastmod>2024-05-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://website.docs.chesslablab.org/website-architecture/</loc>
+         <loc>https://chesslablab.github.io/website/website-architecture/</loc>
          <lastmod>2024-05-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
