@@ -5,3 +5,4 @@ theme:
 nav:
   - Home: index.md
   - SSL Certificate Setup: ssl-certificate-setup.md
+  - Website Architecture: website-architecture.md
