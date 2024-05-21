@@ -81,6 +81,7 @@ mv chesslablab.org.key privkey.pem
 With the pieces of the puzzle in place, which is to say, the web server, the REST-like API and the asynchronous chess server, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_01.png)
+
 **Figure 1**. Make the browser trust the chess server's self-signed certificate.
 
 If skipping this step, the web browser won't be able to connect to the chess server. The latter will complain with an SSL handshake error.
@@ -97,11 +98,13 @@ WebSocket connection to 'wss://async.chesslablab.org:8443/' failed
 ```
 
 ![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_02.png)
+
 **Figure 2**. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.
 
 The exact same thing goes for the REST-like API: Its self-signed certificate needs to be added as trusted to your browser.
 
 ![Figure 3](https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_03.png)
+
 **Figure 3**. Make the browser trust the API's self-signed certificate.
 
 If skipping this step, the web browser won't be able to connect to the chess API. The latter will complain with an `ERR_CERT_AUTHORITY_INVALID` error.
@@ -111,7 +114,8 @@ GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INV
 ```
 
 ![Figure 4](https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png)
-**Figure 4**. GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID.
+
+**Figure 4**. The browser doesn't recognize the API's certificate.
 
 ### Conclusion
 

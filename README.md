@@ -42,9 +42,9 @@ The following repositories are required to run an online chess platform with Che
 
 It is recommended to run the online chess platform using four different servers, one per repository, although everything can be run on the same machine in the development environment. The present README file contains an overview for seasoned developers on how to install and setup a ChesslaBlab website.
 
-More detailed documentation will be available soon.
+Read the latest docs [here](https://chesslablab.github.io/website/).
 
-Stay tuned!
+More detailed documentation will be available soon. Stay tuned!
 
 ### Install and Setup
 

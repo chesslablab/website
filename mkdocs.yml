@@ -1,5 +1,5 @@
 site_name: ChesslaBlab Website
-site_url: https://website.docs.chesslablab.org/
+site_url: https://chesslablab.github.io/website/
 theme:
   name: readthedocs
 nav:
