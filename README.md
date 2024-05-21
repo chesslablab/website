@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 
+![Featured image](https://raw.githubusercontent.com/chesslablab/website/main/docs/featured-image.png)
+
 The ChesslaBlab website allows to play chess online outside the umbrella of mainstream platforms like Lichess or Chess.com. This means that it enables to play chess online without being tracked.
 
 Manifesto:
