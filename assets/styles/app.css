@@ -99,9 +99,10 @@ input[name="Black"] + ul > li:hover {
 .the-content p,
 .the-content ul {
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
 }
 
-.the-post h3, h4, h6,
+.the-post h1, h2, h6,
 .the-post p:has(img) {
   text-align: center;
 }

@@ -18,4 +18,6 @@ See:
 
 For now, the simplest solution is to simply put the blog images in the public directory as opposed to the assets directory for them to then be referenced in the Markdown documents.
 
+After a few weeks of testing the current blog implementation, it seems that everything is fine. SEO analysis tools are helping to track the website's performance and improve it. Remember, it is recommended to use at least 250 words per page to provide useful information.
+
 Thank you so much for reading, and stay tuned!

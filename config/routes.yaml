@@ -210,7 +210,7 @@ blog_hello_world:
       blog:
         metadata:
           title: Hello World!
-          description: This is the first example post.
+          description: This is a simple static blog made with Symfony and Twig. The markdown_to_html filter is used to convert a block of Markdown to HTML.
         content:
           subtitle: Welcome to ChesslaBlab's blog
           image: hello-world.webp
@@ -228,7 +228,7 @@ blog_getting_started:
       blog:
         metadata:
           title: Getting Started
-          description: This is the second example post.
+          description: This is the second post just to make sure that the index page of the blog is set up properly.
         content:
           subtitle: This is the second example post
           image: getting-started.webp
