@@ -17,8 +17,8 @@
       <div class="row">
         <div class="the-post container p-4">
           {% apply markdown_to_html %}
-            ### {{  metadata.title }}
-            #### {{  content.subtitle }}
+            # {{  metadata.title }}
+            ## {{  content.subtitle }}
             ###### {{  content.date }}
             ![Featured image](/blog/{{ content.image }})
 
