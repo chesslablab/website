@@ -9,7 +9,7 @@ The first thing you need to understand about setting up a ChesslaBlab website is
 - `api.chesslablab.org`
 - `async.chesslablab.org`
 
-The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the web server in the [chesslablab/website](https://github.com/chesslablab/website) repo. As its name implies, the `api.chesslablab.org` domain name will point to the REST-like API in the [chesslablab/chess-api](https://github.com/chesslablab/chess-api) repo, and `async.chesslablab.org` to the asynchronous chess server in the [chesslablab/chess-server](https://github.com/chesslablab/chess-server) repo.
+The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the [website](https://github.com/chesslablab/website). The `api.chesslablab.org` domain name will point to the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
 Before the Certificate Authority (CA) can issue the SSL certificate, they need to verify that the Certificate Signing Request (CSR) requester can receive the certificate. This is typically achieved through one of the following methods.
 
