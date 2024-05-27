@@ -134,6 +134,11 @@
             {{ 'Edit'|trans }}
           </a>
         </li>
+        <li class="nav-item">
+          <a class="{{ app.request.get('_route') starts with 'pages_blog' ? 'active' : '' }} nav-link" href="{{ path('pages_blog') }}" role="button" aria-expanded="false">
+            {{ 'Blog'|trans }}
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
