@@ -2,6 +2,7 @@ import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { fenPanel } from './pages/FenPanel.js';
+import { infoModal } from './pages/InfoModal.js';
 import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
 import * as mode from '../mode.js';
@@ -69,7 +70,9 @@ export class FenWebSocket {
               fenPanel.props.sanMovesBrowser.props.fen = [data['/start'].fen];
               fenPanel.props.sanMovesBrowser.mount();
             } else {
-              console.log('Invalid FEN, please try again with a different one.');
+              infoModal.props.msg = "Invalid FEN string, please try again";
+              infoModal.mount();
+              infoModal.props.modal.show();
             }
             break;
 
