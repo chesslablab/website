@@ -6,7 +6,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div id="charts" class="row d-none"></div>
+        <form>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <select name="heuristic" class="form-select" aria-label="Heuristic" required>
+                <option value="">{{ 'Select an option'|trans }}</option>
+                <option value="Material">Material</option>
+                <option value="Center">Center</option>
+                <option value="Connectivity">Connectivity</option>
+              </select>
+            </div>
+          </div>
+          <div id="chart"></div>
+        </form>
       </div>
     </div>
   </div>
