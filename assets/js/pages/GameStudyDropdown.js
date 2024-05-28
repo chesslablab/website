@@ -1,8 +1,8 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/jsblab';
 import chessboard from './chessboard.js';
 import { heuristicsModal } from './HeuristicsModal.js';
-import sanMovesBrowser from './sanMovesBrowser.js';
 import { progressModal } from './ProgressModal.js';
+import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';
@@ -78,31 +78,11 @@ export class GameStudyDropdown extends AbstractComponent {
 
     this.props.ul.children.item(2).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristics`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          variant: variant.CLASSICAL,
-          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
-          ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        this.props.heuristicsModal.props.heuristics = res;
-        this.props.heuristicsModal.mount();
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
-        this.props.progressModal.props.modal.hide();
-        this.props.heuristicsModal.props.modal.show();
-      });
+      while (this.props.heuristicsModal.props.chart.firstChild) {
+        this.props.heuristicsModal.props.chart.removeChild(this.props.heuristicsModal.props.chart.firstChild);
+      }
+      this.props.heuristicsModal.props.form.getElementsByTagName('select')[0].value = '';
+      this.props.heuristicsModal.props.modal.show();
     });
   }
 }

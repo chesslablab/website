@@ -6,7 +6,43 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div id="charts" class="row d-none"></div>
+        <form>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <select name="heuristic" class="form-select" aria-label="Heuristic" required>
+                <option value="">{{ 'Select an option'|trans }}</option>
+                <option value="Material">Material</option>
+                <option value="Center">Center</option>
+                <option value="Connectivity">Connectivity</option>
+                <option value="Space">Space</option>
+                <option value="Pressure">Pressure</option>
+                <option value="King safety">King safety</option>
+                <option value="Protection">Protection</option>
+                <option value="Discovered check">Discovered check</option>
+                <option value="Doubled pawn">Doubled pawn</option>
+                <option value="Passed pawn">Passed pawn</option>
+                <option value="Advanced pawn">Advanced pawn</option>
+                <option value="Far-advanced pawn">Far-advanced pawn</option>
+                <option value="Isolated pawn">Isolated pawn</option>
+                <option value="Backward pawn">Backward pawn</option>
+                <option value="Defense">Defense</option>
+                <option value="Absolute skewer">Absolute skewer</option>
+                <option value="Absolute pin">Absolute pin</option>
+                <option value="Relative pin">Relative pin</option>
+                <option value="Absolute fork">Absolute fork</option>
+                <option value="Relative fork">Relative fork</option>
+                <option value="Outpost square">Outpost square</option>
+                <option value="Knight outpost">Knight outpost</option>
+                <option value="Bishop outpost">Bishop outpost</option>
+                <option value="Bishop pair">Bishop pair</option>
+                <option value="Bad bishop">Bad bishop</option>
+                <option value="Diagonal opposition">Diagonal opposition</option>
+                <option value="Direct opposition">Direct opposition</option>
+              </select>
+            </div>
+          </div>
+          <div id="chart"></div>
+        </form>
       </div>
     </div>
   </div>

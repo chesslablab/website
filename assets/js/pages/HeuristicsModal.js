@@ -1,81 +1,105 @@
+import { Movetext, NOTATION_SAN } from '@chesslablab/jsblab';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import Modal from 'bootstrap/js/dist/modal.js';
+import chessboard from './chessboard.js';
+import { progressModal } from './ProgressModal.js';
+import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
+import * as env from '../../env.js';
+import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
 export class HeuristicsModal extends AbstractComponent {
   mount() {
-    this.props.charts.classList.remove('d-none');
-
-    while (this.props.charts.firstChild) {
-      this.props.charts.removeChild(this.props.charts.firstChild);
-    }
-
-    this.props.heuristics.names?.forEach((item, i) => {
-      const div = document.createElement('div');
-      const canvas = document.createElement('canvas');
-      div.classList.add('col-md-4');
-      div.appendChild(canvas);
-      this.props.charts.appendChild(div);
-      new Chart(canvas, {
-        type: 'line',
-        data: {
-          labels: this.props.heuristics.balance[i],
-          datasets: [{
-            label: item,
-            data: this.props.heuristics.balance[i],
-            borderWidth: 2.25,
-            tension: 0.25,
-            borderColor: '#0a0a0a'
-          }]
+    this.props.form.getElementsByTagName('select')[0].addEventListener('change', async (event) => {
+      event.preventDefault();
+      this.props.progressModal.props.modal.show();
+      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
+      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristic`, {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': `${env.API_KEY}`
         },
-        options: {
-          animation: false,
-          elements: {
-            point:{
-              radius: 0
-            }
+        body: JSON.stringify({
+          variant: variant.CLASSICAL,
+          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
+          name: event.target.value,
+          ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        while (this.props.chart.firstChild) {
+          this.props.chart.removeChild(this.props.chart.firstChild);
+        }
+        const canvas = document.createElement('canvas');
+        this.props.chart.appendChild(canvas);
+        new Chart(canvas, {
+          type: 'line',
+          data: {
+            labels: res,
+            datasets: [{
+              label: event.target.value,
+              data: res,
+              borderWidth: 2.25,
+              tension: 0.25,
+              borderColor: '#0a0a0a'
+            }]
           },
-          scales: {
-            y: {
-              ticks: {
-                display: false
-              },
-              grid: {
-                display: false
-              },
-              border: {
-                display: false
-              },
-              beginAtZero: true,
-              min: -1.1,
-              max: 1.1
-            },
-            x: {
-              ticks: {
-                display: false
-              },
-              grid: {
-                display: false
-              },
-              border: {
-                display: false
+          options: {
+            animation: false,
+            elements: {
+              point:{
+                radius: 0
               }
-            }
-          },
-          plugins: {
-            legend: {
-              position: 'bottom',
-              labels: {
-                boxWidth: 0,
-                font: {
-                  size: 16
+            },
+            scales: {
+              y: {
+                ticks: {
+                  display: false
+                },
+                grid: {
+                  display: false
+                },
+                border: {
+                  display: false
+                },
+                beginAtZero: true,
+                min: -1.1,
+                max: 1.1
+              },
+              x: {
+                ticks: {
+                  display: false
+                },
+                grid: {
+                  display: false
+                },
+                border: {
+                  display: false
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  boxWidth: 0,
+                  font: {
+                    size: 16
+                  }
                 }
               }
             }
           }
-        }
+        });
+      })
+      .catch(error => {
+        // TODO
+      })
+      .finally(() => {
+        this.props.progressModal.props.modal.hide();
       });
     });
   }
@@ -85,7 +109,10 @@ export const heuristicsModal = new HeuristicsModal(
   document.getElementById('heuristicsModal'),
   {
     modal: new Modal(document.getElementById('heuristicsModal')),
-    charts: document.getElementById('charts'),
-    heuristics: []
+    form: document.querySelector('#heuristicsModal form'),
+    chart: document.getElementById('chart'),
+    chessboard: chessboard,
+    sanMovesBrowser: sanMovesBrowser,
+    progressModal: progressModal
   }
 );
