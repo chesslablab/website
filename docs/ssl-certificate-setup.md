@@ -11,7 +11,7 @@ The first thing you need to understand about setting up a ChesslaBlab website is
 
 The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the [website](https://github.com/chesslablab/website). The `api.chesslablab.org` domain name will point to the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
-Before the Certificate Authority (CA) can issue the SSL certificate, they need to verify that the Certificate Signing Request (CSR) requester can receive the certificate. This is typically achieved through one of the following methods.
+Before the Certificate Authority (CA) can issue the SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester. This is typically achieved through one of the following methods.
 
 - Email Validation — a validation email is sent to the certificate requester.
 
