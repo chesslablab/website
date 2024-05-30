@@ -10,6 +10,8 @@ export default class AbstractWebSocket {
 
   _chessboard;
 
+  _socket;
+
   constructor() {
     this._progressModal = progressModal;
 
@@ -36,12 +38,12 @@ export default class AbstractWebSocket {
       }
     });
 
-    this.socket = null;
+    this._socket = null;
   }
 
   send(msg) {
-    if (this.socket) {
-      this.socket.send(msg);
+    if (this._socket) {
+      this._socket.send(msg);
     }
   }
 

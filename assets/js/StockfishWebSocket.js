@@ -20,14 +20,14 @@ export class StockfishWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this.socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
+      this._socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
 
-      this.socket.onopen = () => {
+      this._socket.onopen = () => {
         this._progressModal.props.modal.hide();
         resolve();
       };
 
-      this.socket.onmessage = (res) => {
+      this._socket.onmessage = (res) => {
         const data = JSON.parse(res.data);
         const msg = Object.keys(data)[0];
         switch (true) {
@@ -115,12 +115,12 @@ export class StockfishWebSocket extends AbstractWebSocket {
         }
       };
 
-      this.socket.onclose = (err) => {
+      this._socket.onclose = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
 
-      this.socket.onerror = (err) => {
+      this._socket.onerror = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
