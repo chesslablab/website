@@ -54,8 +54,7 @@ export class GameStudyDropdown extends AbstractComponent {
           variant: this.props.chessboard.props.variant,
           movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
           flip: this.props.chessboard.getOrientation(),
-          ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos},
-          ...(this.props.chessboard.props.variant === variant.CAPABLANCA_FISCHER) && {startPos: this.props.chessboard.props.startPos}
+          ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
         })
       })
       .then(res => res.blob())

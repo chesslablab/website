@@ -25,7 +25,6 @@ export class PlayFriendModal extends AbstractComponent {
         color: formData.get('color'),
         submode: 'friend',
         ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
-        ...(formData.get('variant') === variant.CAPABLANCA_FISCHER) && {startPos: formData.get('startPos')},
         ...(formData.get('fen') && {fen: formData.get('fen')})
       };
       sessionStorage.setItem('color', formData.get('color'));
