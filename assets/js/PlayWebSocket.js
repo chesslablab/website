@@ -145,6 +145,11 @@ export default class PlayWebSocket {
                 infoModal.mount();
                 infoModal.props.modal.show();
                 this._end();
+              } else if (data['/play_lan'].isFivefoldRepetition) {
+                infoModal.props.msg = "Draw by fivefold repetition";
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
               }
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
