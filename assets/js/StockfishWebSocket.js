@@ -90,17 +90,7 @@ export class StockfishWebSocket extends AbstractWebSocket {
             stockfishPanel.props.sanMovesBrowser.mount();
             stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;
             stockfishPanel.props.openingTable.mount();
-            if (data['/stockfish'].isMate) {
-              this._infoModal.props.msg = data['/stockfish'].turn === COLOR.black ? 'White wins' : 'Black wins';
-              this._infoModal.mount();
-              this._infoModal.props.modal.show();
-              this._end();
-            } else if (data['/stockfish'].isFivefoldRepetition) {
-              this._infoModal.props.msg = "Draw by fivefold repetition";
-              this._infoModal.mount();
-              this._infoModal.props.modal.show();
-              this._end();
-            }
+            this._infoEnd(data['/stockfish']);
             break;
 
           case '/randomizer' === msg:
