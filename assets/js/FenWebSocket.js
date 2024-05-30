@@ -1,4 +1,4 @@
-import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { fenPanel } from './pages/FenPanel.js';
@@ -83,12 +83,7 @@ export class FenWebSocket {
             break;
 
           case '/play_lan' === msg:
-            if (data['/play_lan'].isFivefoldRepetition) {
-              infoModal.props.msg = "Draw by fivefold repetition";
-              infoModal.mount();
-              infoModal.props.modal.show();
-              this._end();
-            } else if (data['/play_lan'].isValid) {
+            if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               fenPanel.props.sanMovesBrowser.current = fenPanel.props.sanMovesBrowser.props.fen.length;
               fenPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
@@ -96,6 +91,17 @@ export class FenWebSocket {
               fenPanel.props.sanMovesBrowser.mount();
               fenPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               fenPanel.props.openingTable.mount();
+              if (data['/play_lan'].isMate) {
+                infoModal.props.msg = data['/play_lan'].turn === COLOR.black ? 'White wins' : 'Black wins';
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              } else if (data['/play_lan'].isFivefoldRepetition) {
+                infoModal.props.msg = "Draw by fivefold repetition";
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              }
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
             }
