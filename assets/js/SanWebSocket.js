@@ -1,4 +1,4 @@
-import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
 import { infoModal } from './pages/InfoModal.js';
@@ -94,6 +94,17 @@ export class SanWebSocket {
               sanPanel.props.sanMovesBrowser.mount();
               sanPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               sanPanel.props.openingTable.mount();
+              if (data['/play_lan'].isMate) {
+                infoModal.props.msg = data['/play_lan'].turn === COLOR.black ? 'White wins' : 'Black wins';
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              } else if (data['/play_lan'].isFivefoldRepetition) {
+                infoModal.props.msg = "Draw by fivefold repetition";
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              }
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
             }
@@ -140,6 +151,11 @@ export class SanWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
+  }
+
+  _end() {
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
   }
 }
 
