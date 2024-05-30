@@ -1,33 +1,13 @@
-import { INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
-import chessboard from './pages/chessboard.js';
+import AbstractWebSocket from './AbstractWebSocket.js';
 import { fenPanel } from './pages/FenPanel.js';
-import { infoModal } from './pages/InfoModal.js';
-import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
-import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
-export class FenWebSocket {
+export class FenWebSocket extends AbstractWebSocket {
   constructor() {
-    chessboard.enableMoveInput((event) => {
-      if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
-        return;
-      }
-
-      if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
-        event.chessboard.removeMarkers(MARKER_TYPE.dot);
-        event.chessboard.removeMarkers(MARKER_TYPE.bevel);
-      }
-
-      if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
-        this.send(`/legal ${event.square}`);
-        return true;
-      } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
-        this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
-        return true;
-      }
-    });
+    super();
 
     fenPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -38,22 +18,20 @@ export class FenWebSocket {
       event.preventDefault();
       this.send('/undo');
     });
-
-    this.socket = null;
   }
 
   connect() {
-    progressModal.props.modal.show();
+    this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this.socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
+      this._socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
 
-      this.socket.onopen = () => {
-        progressModal.props.modal.hide();
+      this._socket.onopen = () => {
+        this._progressModal.props.modal.hide();
         resolve();
       };
 
-      this.socket.onmessage = (res) => {
+      this._socket.onmessage = (res) => {
         const data = JSON.parse(res.data);
         const msg = Object.keys(data)[0];
         switch (true) {
@@ -63,44 +41,45 @@ export class FenWebSocket {
 
           case '/start' === msg:
             if (data['/start'].fen) {
-              chessboard.setPosition(data['/start'].fen, true);
-              chessboard.props.variant = data['/start'].variant;
-              chessboard.props.startPos = data['/start'].startPos;
+              this._chessboard.setPosition(data['/start'].fen, true);
+              this._chessboard.props.variant = data['/start'].variant;
+              this._chessboard.props.startPos = data['/start'].startPos;
               fenPanel.props.sanMovesBrowser.current = 0;
               fenPanel.props.sanMovesBrowser.props.fen = [data['/start'].fen];
               fenPanel.props.sanMovesBrowser.mount();
             } else {
-              infoModal.props.msg = "Invalid FEN string, please try again";
-              infoModal.mount();
-              infoModal.props.modal.show();
+              this._infoModal.props.msg = "Invalid FEN string, please try again";
+              this._infoModal.mount();
+              this._infoModal.props.modal.show();
             }
             break;
 
           case '/legal' === msg:
             data['/legal'].forEach(sq => {
-              chessboard.addMarker(MARKER_TYPE.dot, sq);
+              this._chessboard.addMarker(MARKER_TYPE.dot, sq);
             });
             break;
 
           case '/play_lan' === msg:
             if (data['/play_lan'].isValid) {
-              chessboard.setPosition(data['/play_lan'].fen, true);
+              this._chessboard.setPosition(data['/play_lan'].fen, true);
               fenPanel.props.sanMovesBrowser.current = fenPanel.props.sanMovesBrowser.props.fen.length;
               fenPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
               fenPanel.props.sanMovesBrowser.props.fen = fenPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
               fenPanel.props.sanMovesBrowser.mount();
               fenPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               fenPanel.props.openingTable.mount();
+              this._gameOver(data['/play_lan']);
             } else {
-              chessboard.setPosition(data['/play_lan'].fen, false);
+              this._chessboard.setPosition(data['/play_lan'].fen, false);
             }
             break;
 
           case '/undo' === msg:
-            chessboard.setPosition(data['/undo'].fen, true);
+            this._chessboard.setPosition(data['/undo'].fen, true);
             if (!data['/undo'].movetext) {
-              chessboard.state.inputWhiteEnabled = true;
-              chessboard.state.inputBlackEnabled = false;
+              this._chessboard.state.inputWhiteEnabled = true;
+              this._chessboard.state.inputBlackEnabled = false;
             }
             fenPanel.props.sanMovesBrowser.current -= 1;
             fenPanel.props.sanMovesBrowser.props.fen.splice(-1);
@@ -121,22 +100,16 @@ export class FenWebSocket {
         }
       };
 
-      this.socket.onclose = (err) => {
+      this._socket.onclose = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
 
-      this.socket.onerror = (err) => {
+      this._socket.onerror = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
     });
-  }
-
-  send(msg) {
-    if (this.socket) {
-      this.socket.send(msg);
-    }
   }
 }
 
