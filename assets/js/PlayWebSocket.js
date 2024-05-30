@@ -141,6 +141,9 @@ export default class PlayWebSocket {
                 b: data['/play_lan'].timer.b
               };
               if (data['/play_lan'].isMate) {
+                infoModal.props.msg = data['/play_lan'].turn === COLOR.black ? 'White wins' : 'Black wins';
+                infoModal.mount();
+                infoModal.props.modal.show();
                 this._end();
               }
             } else {
