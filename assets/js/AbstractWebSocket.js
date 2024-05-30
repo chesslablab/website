@@ -59,6 +59,12 @@ export default class AbstractWebSocket {
       this._infoModal.props.modal.show();
       this._end();
       return true;
+  } else if (res.isStalemate) {
+      this._infoModal.props.msg = "Draw by stalemate";
+      this._infoModal.mount();
+      this._infoModal.props.modal.show();
+      this._end();
+      return true;
     } else if (res.isFivefoldRepetition) {
       this._infoModal.props.msg = "Draw by fivefold repetition";
       this._infoModal.mount();
