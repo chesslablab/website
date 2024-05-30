@@ -11,7 +11,28 @@ export class FenWebSocket extends AbstractWebSocket {
 
     fenPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.send(`/tutor_fen "${fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]}" ${variant.CLASSICAL}`);
+      this._progressModal.props.modal.show();
+      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': `${env.API_KEY}`
+        },
+        body: JSON.stringify({
+          fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        fenPanel.props.explainPositionModal.props.explanation = res;
+        fenPanel.props.explainPositionModal.mount();
+        fenPanel.props.explainPositionModal.props.modal.show();
+      })
+      .catch(error => {
+        // TODO
+      })
+      .finally(() => {
+        this._progressModal.props.modal.hide();
+      });
     });
 
     fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
@@ -87,12 +108,6 @@ export class FenWebSocket extends AbstractWebSocket {
             fenPanel.props.sanMovesBrowser.mount();
             fenPanel.props.openingTable.props.movetext = data['/undo'].movetext;
             fenPanel.props.openingTable.mount();
-            break;
-
-          case '/tutor_fen' === msg:
-            fenPanel.props.explainPositionModal.props.explanation = data['/tutor_fen'];
-            fenPanel.props.explainPositionModal.mount();
-            fenPanel.props.explainPositionModal.props.modal.show();
             break;
 
           default:
