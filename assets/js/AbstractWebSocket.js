@@ -50,7 +50,7 @@ export default class AbstractWebSocket {
     chessboard.state.inputBlackEnabled = false;
   }
 
-  _infoEnd(res) {
+  _gameOver(res) {
     if (res.isMate) {
       this._infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
       this._infoModal.mount();

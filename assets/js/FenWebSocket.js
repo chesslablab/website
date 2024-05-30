@@ -69,7 +69,7 @@ export class FenWebSocket extends AbstractWebSocket {
               fenPanel.props.sanMovesBrowser.mount();
               fenPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               fenPanel.props.openingTable.mount();
-              this._infoEnd(data['/play_lan']);
+              this._gameOver(data['/play_lan']);
             } else {
               this._chessboard.setPosition(data['/play_lan'].fen, false);
             }

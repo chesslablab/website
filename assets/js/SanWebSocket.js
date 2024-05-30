@@ -72,7 +72,7 @@ export class SanWebSocket extends AbstractWebSocket {
               sanPanel.props.sanMovesBrowser.mount();
               sanPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               sanPanel.props.openingTable.mount();
-              this._infoEnd(data['/play_lan']);
+              this._gameOver(data['/play_lan']);
             } else {
               this._chessboard.setPosition(data['/play_lan'].fen, false);
             }

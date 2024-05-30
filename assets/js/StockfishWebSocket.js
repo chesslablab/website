@@ -60,7 +60,7 @@ export class StockfishWebSocket extends AbstractWebSocket {
               stockfishPanel.props.sanMovesBrowser.mount();
               stockfishPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               stockfishPanel.props.openingTable.mount();
-              if (!this._infoEnd(data['/play_lan'])) {
+              if (!this._gameOver(data['/play_lan'])) {
                 this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             } else {
@@ -90,7 +90,7 @@ export class StockfishWebSocket extends AbstractWebSocket {
             stockfishPanel.props.sanMovesBrowser.mount();
             stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;
             stockfishPanel.props.openingTable.mount();
-            this._infoEnd(data['/stockfish']);
+            this._gameOver(data['/stockfish']);
             break;
 
           case '/randomizer' === msg:
