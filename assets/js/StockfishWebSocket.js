@@ -1,6 +1,7 @@
 import { COLOR, FEN, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
 import { Movetext } from '@chesslablab/jsblab';
 import chessboard from './pages/chessboard.js';
+import { infoModal } from './pages/InfoModal.js';
 import { stockfishPanel } from './pages/StockfishPanel.js';
 import { progressModal } from './pages/ProgressModal.js';
 import * as env from '../env.js';
@@ -81,7 +82,19 @@ export class StockfishWebSocket {
               stockfishPanel.props.sanMovesBrowser.mount();
               stockfishPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
               stockfishPanel.props.openingTable.mount();
-              this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+              if (data['/play_lan'].isMate) {
+                infoModal.props.msg = data['/play_lan'].turn === COLOR.black ? 'White wins' : 'Black wins';
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              } else if (data['/play_lan'].isFivefoldRepetition) {
+                infoModal.props.msg = "Draw by fivefold repetition";
+                infoModal.mount();
+                infoModal.props.modal.show();
+                this._end();
+              } else {
+                this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
+              }
             } else {
               chessboard.setPosition(data['/play_lan'].fen, false);
             }
@@ -109,6 +122,17 @@ export class StockfishWebSocket {
             stockfishPanel.props.sanMovesBrowser.mount();
             stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;
             stockfishPanel.props.openingTable.mount();
+            if (data['/stockfish'].isMate) {
+              infoModal.props.msg = data['/stockfish'].turn === COLOR.black ? 'White wins' : 'Black wins';
+              infoModal.mount();
+              infoModal.props.modal.show();
+              this._end();
+            } else if (data['/stockfish'].isFivefoldRepetition) {
+              infoModal.props.msg = "Draw by fivefold repetition";
+              infoModal.mount();
+              infoModal.props.modal.show();
+              this._end();
+            }
             break;
 
           case '/randomizer' === msg:
@@ -149,6 +173,11 @@ export class StockfishWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
+  }
+
+  _end() {
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
   }
 }
 
