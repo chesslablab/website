@@ -83,7 +83,12 @@ export class FenWebSocket {
             break;
 
           case '/play_lan' === msg:
-            if (data['/play_lan'].isValid) {
+            if (data['/play_lan'].isFivefoldRepetition) {
+              infoModal.props.msg = "Draw by fivefold repetition";
+              infoModal.mount();
+              infoModal.props.modal.show();
+              this._end();
+            } else if (data['/play_lan'].isValid) {
               chessboard.setPosition(data['/play_lan'].fen, true);
               fenPanel.props.sanMovesBrowser.current = fenPanel.props.sanMovesBrowser.props.fen.length;
               fenPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
@@ -137,6 +142,11 @@ export class FenWebSocket {
     if (this.socket) {
       this.socket.send(msg);
     }
+  }
+
+  _end() {
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
   }
 }
 
