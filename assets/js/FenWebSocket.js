@@ -18,8 +18,6 @@ export class FenWebSocket extends AbstractWebSocket {
       event.preventDefault();
       this.send('/undo');
     });
-
-    this.socket = null;
   }
 
   connect() {

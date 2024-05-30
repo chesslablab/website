@@ -17,7 +17,7 @@ export default class AbstractWebSocket {
 
     this._chessboard = chessboard;
 
-    this._chessboard.enableMoveInput((event) => {
+    this._chessboard.enableMoveInput(event => {
       if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
         return;
       }
