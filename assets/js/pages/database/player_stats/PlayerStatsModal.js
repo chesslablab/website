@@ -43,7 +43,6 @@ export class PlayerStatsModal extends AbstractComponent {
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
-        // TODO
       }
       this.props.modal.hide();
       this.props.progressModal.props.modal.hide();

@@ -30,7 +30,6 @@ export class EventAutocomplete extends AbstractComponent {
             this.props.datalist.append(option);
           });
         } catch (error) {
-          // TODO
         }
         this.props.submitButton.classList.remove('d-none');
         this.props.loadingButton.classList.add('d-none');
