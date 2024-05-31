@@ -13,38 +13,34 @@ export class TopOpeningsModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
-    const handleBarClick = (event, clickedElements) => {
+    const handleBarClick = async (event, clickedElements) => {
       this.props.progressModal.props.modal.show();
       if (clickedElements.length === 0) {
         return;
       }
       const { dataIndex, raw } = clickedElements[0].element.$context;
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          Result: event.chart.data.datasets[0].label,
-          ECO: event.chart.data.labels[dataIndex]
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        this.props.movesMetadataTable.props = res[0];
+      try {
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            Result: event.chart.data.datasets[0].label,
+            ECO: event.chart.data.labels[dataIndex]
+          })
+        });
+        const data = await res.json();
+        this.props.movesMetadataTable.props = data[0];
         this.props.movesMetadataTable.mount();
         const add = {
-          movetext: res[0].movetext
+          movetext: data[0].movetext
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
-        this.props.modal.hide();
-        this.props.progressModal.props.modal.hide();
-      });
+      } catch (error) {
+      }
+      this.props.modal.hide();
+      this.props.progressModal.props.modal.hide();
     }
 
     const options = {
