@@ -27,9 +27,8 @@ export class FenWebSocket extends AbstractWebSocket {
         fenPanel.props.explainPositionModal.props.modal.show();
       } catch (error) {
         // TODO
-      } finally {
-        this._progressModal.props.modal.hide();
       }
+      this._progressModal.props.modal.hide();
     });
 
     fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
