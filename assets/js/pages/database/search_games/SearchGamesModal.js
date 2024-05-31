@@ -34,11 +34,10 @@ export class SearchGamesModal extends AbstractComponent {
             movetext: formData.get('movetext')
           })
         });
-        const data = await res.json();
         const tbody = this.props.form.getElementsByTagName('tbody')[0];
         tbody.parentNode.classList.add('mt-3');
         tbody.replaceChildren();
-        data.forEach(game => {
+        (await res.json()).forEach(game => {
           const tr = document.createElement('tr');
           const eventTd = document.createElement('td');
           const yearTd = document.createElement('td');

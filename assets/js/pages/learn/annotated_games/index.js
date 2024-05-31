@@ -42,11 +42,10 @@ try {
       'X-Api-Key': `${env.API_KEY}`
     }
   });
-  const data = await res.json();
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();
   databaseAnnotatedGames.props.modal.show();
-  data.games.forEach(game => {
+  (await res.json()).games.forEach(game => {
     const tr = document.createElement('tr');
 
     const eventTd = document.createElement('td');

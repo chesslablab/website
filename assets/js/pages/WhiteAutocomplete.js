@@ -19,8 +19,7 @@ export class WhiteAutocomplete extends AbstractComponent {
               White: event.target.value
             })
           });
-          const data = await res.json();
-          data.forEach(item => {
+          (await res.json()).forEach(item => {
             const option = document.createElement('option');
             option.appendChild(document.createTextNode(item));
             option.addEventListener('click', (event) => {
