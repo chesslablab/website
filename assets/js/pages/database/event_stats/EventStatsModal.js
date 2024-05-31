@@ -63,10 +63,8 @@ export class EventStatsModal extends AbstractComponent {
           })
         });
         const data = await res.json();
-        while (eventStatsChart.firstChild) {
-          eventStatsChart.removeChild(eventStatsChart.firstChild);
-        }
         const canvas = document.createElement('canvas');
+        eventStatsChart.replaceChildren();
         eventStatsChart.appendChild(canvas);
         const chart = new Chart(canvas, {
           type: 'bar',
@@ -110,7 +108,6 @@ export class EventStatsModal extends AbstractComponent {
           }
         });
       } catch (error) {
-        // TODO
       }
       this.props.progressModal.props.modal.hide();
     });
