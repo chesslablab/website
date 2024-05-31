@@ -15,7 +15,7 @@ export class PlayerStatsModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
-    const handleBarClick = (event, clickedElements) => {
+    const handleBarClick = async (event, clickedElements) => {
       const formData = new FormData(this.props.form);
       this.props.progressModal.props.modal.show();
       if (clickedElements.length === 0) {
@@ -49,7 +49,7 @@ export class PlayerStatsModal extends AbstractComponent {
       this.props.progressModal.props.modal.hide();
     }
 
-    this.props.form.addEventListener('submit', event => {
+    this.props.form.addEventListener('submit', async (event) => {
       event.preventDefault();
       this.props.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
