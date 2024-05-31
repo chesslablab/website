@@ -5,54 +5,49 @@ import { progressModal } from '../../ProgressModal.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
-progressModal.props.modal.show();
-
-const handleClick = (game) => {
-  progressModal.props.modal.show();
-  fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
-    method: 'POST',
-    headers: {
-      'X-Api-Key': `${env.API_KEY}`
-    },
-    body: JSON.stringify({
-      variant: variant.CLASSICAL,
-      movetext: game.movetext,
-    })
-  })
-  .then(res => res.json())
-  .then(res => {
-    ravPanel.props.ravMovesBrowser.current = res.fen.length - 1;
-    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
+const handleClick = async (game) => {
+  try {
+    progressModal.props.modal.show();
+    const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
+      method: 'POST',
+      headers: {
+        'X-Api-Key': `${env.API_KEY}`
+      },
+      body: JSON.stringify({
+        variant: variant.CLASSICAL,
+        movetext: game.movetext,
+      })
+    });
+    const data = await res.json();
+    ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
     ravPanel.props.ravMovesBrowser.props = {
       ...ravPanel.props.ravMovesBrowser.props,
-      filtered: res.filtered,
-      breakdown: res.breakdown,
-      fen: res.fen
+      filtered: data.filtered,
+      breakdown: data.breakdown,
+      fen: data.fen
     };
     ravPanel.props.ravMovesBrowser.mount();
-  })
-  .catch(error => {
-    // TODO
-  })
-  .finally(() => {
+  } catch (error) {
+  } finally {
     progressModal.props.modal.hide();
-  });
+  }
 };
 
-await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/annotations/games`, {
-  method: 'GET',
-  headers: {
-    'X-Api-Key': `${env.API_KEY}`
-  }
-})
-.then(res => res.json())
-.then(res => {
-  databaseAnnotatedGames.props.modal.show();
+try {
+  progressModal.props.modal.show();
+  const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/annotations/games`, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': `${env.API_KEY}`
+    }
+  });
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();
-  res.games.forEach(game => {
+  databaseAnnotatedGames.props.modal.show();
+  (await res.json()).games.forEach(game => {
     const tr = document.createElement('tr');
-    
+
     const eventTd = document.createElement('td');
     const roundTd = document.createElement('td');
     const yearTd = document.createElement('td');
@@ -85,19 +80,16 @@ await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSI
     tr.appendChild(blackEloTd);
     tr.appendChild(resultTd);
 
-    tr.addEventListener('click', event => {
-      handleClick(game);
+    tr.addEventListener('click', async (event) => {
+      await handleClick(game);
       ravPanel.props.movesMetadataTable.props = game;
       ravPanel.props.movesMetadataTable.mount();
       databaseAnnotatedGames.props.modal.hide();
     });
 
     tbody.appendChild(tr);
-  })
-})
-.catch(error => {
-  // TODO
-})
-.finally(() => {
+  });
+} catch (error) {
+} finally {
   progressModal.props.modal.hide();
-});
+}

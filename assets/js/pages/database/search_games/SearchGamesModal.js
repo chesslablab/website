@@ -14,31 +14,30 @@ Chart.register(...registerables);
 
 export class SearchGamesModal extends AbstractComponent {
   mount() {
-    this.props.form.addEventListener('submit', event => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          Event: formData.get('Event'),
-          Date: formData.get('Date'),
-          White: formData.get('White'),
-          Black: formData.get('Black'),
-          Result: formData.get('Result'),
-          ECO: formData.get('ECO'),
-          movetext: formData.get('movetext')
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
+    this.props.form.addEventListener('submit', async (event) => {
+      try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            Event: formData.get('Event'),
+            Date: formData.get('Date'),
+            White: formData.get('White'),
+            Black: formData.get('Black'),
+            Result: formData.get('Result'),
+            ECO: formData.get('ECO'),
+            movetext: formData.get('movetext')
+          })
+        });
         const tbody = this.props.form.getElementsByTagName('tbody')[0];
         tbody.parentNode.classList.add('mt-3');
         tbody.replaceChildren();
-        res.forEach(game => {
+        (await res.json()).forEach(game => {
           const tr = document.createElement('tr');
           const eventTd = document.createElement('td');
           const yearTd = document.createElement('td');
@@ -79,14 +78,11 @@ export class SearchGamesModal extends AbstractComponent {
 
           tbody.appendChild(tr);
         })
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this.props.progressModal.props.modal.hide();
         this.props.modal.show();
-      });
+      }
     });
   }
 }

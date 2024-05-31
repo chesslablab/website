@@ -13,35 +13,33 @@ Chart.register(...registerables);
 export class HeuristicsModal extends AbstractComponent {
   mount() {
     this.props.form.getElementsByTagName('select')[0].addEventListener('change', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristic`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          variant: variant.CLASSICAL,
-          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
-          name: event.target.value,
-          ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        while (this.props.chart.firstChild) {
-          this.props.chart.removeChild(this.props.chart.firstChild);
-        }
+      try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristic`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            variant: variant.CLASSICAL,
+            movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
+            name: event.target.value,
+            ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
+          })
+        });
+        const data = await res.json();
         const canvas = document.createElement('canvas');
+        this.props.chart.replaceChildren();
         this.props.chart.appendChild(canvas);
         new Chart(canvas, {
           type: 'line',
           data: {
-            labels: res,
+            labels: data,
             datasets: [{
               label: event.target.value,
-              data: res,
+              data: data,
               borderWidth: 2.25,
               tension: 0.25,
               borderColor: '#0a0a0a'
@@ -94,13 +92,10 @@ export class HeuristicsModal extends AbstractComponent {
             }
           }
         });
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this.props.progressModal.props.modal.hide();
-      });
+      }
     });
   }
 }

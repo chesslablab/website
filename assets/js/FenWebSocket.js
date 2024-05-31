@@ -10,29 +10,25 @@ export class FenWebSocket extends AbstractWebSocket {
     super();
 
     fenPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this._progressModal.props.modal.show();
-      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        fenPanel.props.explainPositionModal.props.explanation = res;
+      try {
+        event.preventDefault();
+        this._progressModal.props.modal.show();
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
+          })
+        });
+        fenPanel.props.explainPositionModal.props.explanation = await res.json();
         fenPanel.props.explainPositionModal.mount();
         fenPanel.props.explainPositionModal.props.modal.show();
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this._progressModal.props.modal.hide();
-      });
+      }
     });
 
     fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {

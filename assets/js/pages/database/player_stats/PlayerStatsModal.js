@@ -15,72 +15,66 @@ export class PlayerStatsModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
-    const handleBarClick = (event, clickedElements) => {
-      const formData = new FormData(this.props.form);
-      this.props.progressModal.props.modal.show();
-      if (clickedElements.length === 0) {
-        return;
-      }
-      const { dataIndex, raw } = clickedElements[0].element.$context;
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          White: formData.get('White'),
-          Black: formData.get('Black'),
-          Result: formData.get('Result'),
-          ECO: event.chart.data.labels[dataIndex]
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        this.props.movesMetadataTable.props = res[0];
+    const handleBarClick = async (event, clickedElements) => {
+      try {
+        if (clickedElements.length === 0) {
+          return;
+        }
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
+        const { dataIndex, raw } = clickedElements[0].element.$context;
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            White: formData.get('White'),
+            Black: formData.get('Black'),
+            Result: formData.get('Result'),
+            ECO: event.chart.data.labels[dataIndex]
+          })
+        });
+        this.props.movesMetadataTable.props = (await res.json())[0];
         this.props.movesMetadataTable.mount();
         const add = {
-          movetext: res[0].movetext
+          movetext: this.props.movesMetadataTable.props.movetext
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this.props.modal.hide();
         this.props.progressModal.props.modal.hide();
-      });
+      }
     }
 
-    this.props.form.addEventListener('submit', event => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
-      const playerStatsChart = document.getElementById('playerStatsChart');
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          White: formData.get('White'),
-          Black: formData.get('Black'),
-          Result: formData.get('Result')
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        while (playerStatsChart.firstChild) {
-          playerStatsChart.removeChild(playerStatsChart.firstChild);
-        }
+    this.props.form.addEventListener('submit', async (event) => {
+      try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
+        const playerStatsChart = document.getElementById('playerStatsChart');
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            White: formData.get('White'),
+            Black: formData.get('Black'),
+            Result: formData.get('Result')
+          })
+        });
+        const data = await res.json();
         const canvas = document.createElement('canvas');
+        playerStatsChart.replaceChildren();
         playerStatsChart.appendChild(canvas);
         const chart = new Chart(canvas, {
           type: 'bar',
           data: {
-            labels: res.map(value => value.ECO).slice(0, this._nBars),
+            labels: data.map(value => value.ECO).slice(0, this._nBars),
             datasets: [{
-              data: res.map(value => value.total).slice(0, this._nBars),
+              data: data.map(value => value.total).slice(0, this._nBars),
               backgroundColor: formData.get('Result') === '1-0'
                 ? '#c0c0c0'
                 : formData.get('Result') === '1/2-1/2'
@@ -116,13 +110,10 @@ export class PlayerStatsModal extends AbstractComponent {
             }
           }
         });
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this.props.progressModal.props.modal.hide();
-      });
+      }
     });
   }
 }

@@ -10,29 +10,25 @@ export class SanWebSocket extends AbstractWebSocket {
     super();
 
     sanPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this._progressModal.props.modal.show();
-      await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        sanPanel.props.explainPositionModal.props.explanation = res;
+      try {
+        event.preventDefault();
+        this._progressModal.props.modal.show();
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
+          })
+        });
+        sanPanel.props.explainPositionModal.props.explanation = await res.json();
         sanPanel.props.explainPositionModal.mount();
         sanPanel.props.explainPositionModal.props.modal.show();
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
+      } catch (error) {
+      } finally {
         this._progressModal.props.modal.hide();
-      });
+      }
     });
 
     sanPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {

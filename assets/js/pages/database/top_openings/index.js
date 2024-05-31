@@ -7,23 +7,18 @@ await sanWebSocket.connect();
 
 sessionStorage.clear();
 
-progressModal.props.modal.show();
-
-await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
-  method: 'GET',
-  headers: {
-    'X-Api-Key': `${env.API_KEY}`
-  }
-})
-.then(res => res.json())
-.then(res => {
-  topOpeningsModal.props.stats = res;
+try {
+  progressModal.props.modal.show();
+  const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
+    method: 'GET',
+    headers: {
+      'X-Api-Key': `${env.API_KEY}`
+    }
+  });
+  topOpeningsModal.props.stats = await res.json();
   topOpeningsModal.mount();
   topOpeningsModal.props.modal.show();
-})
-.catch(error => {
-  // TODO
-})
-.finally(() => {
+} catch (error) {
+} finally {
   progressModal.props.modal.hide();
-});
+}

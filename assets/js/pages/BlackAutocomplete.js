@@ -3,24 +3,23 @@ import * as env from '../../env.js';
 
 export class BlackAutocomplete extends AbstractComponent {
   mount() {
-    this.el.addEventListener('keyup', (event) => {
-      event.preventDefault();
-      if (event.target.value.length % 3 === 0) {
-        this.props.submitButton.classList.add('d-none');
-        this.props.loadingButton.classList.remove('d-none');
-        fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
-          method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
-          body: JSON.stringify({
-            Black: event.target.value
-          })
-        })
-        .then(res => res.json())
-        .then(res => {
+    this.el.addEventListener('keyup', async (event) => {
+      try {
+        event.preventDefault();
+        if (event.target.value.length % 3 === 0) {
+          this.props.submitButton.classList.add('d-none');
+          this.props.loadingButton.classList.remove('d-none');
+          const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
+            method: 'POST',
+            headers: {
+              'X-Api-Key': `${env.API_KEY}`
+            },
+            body: JSON.stringify({
+              Black: event.target.value
+            })
+          });
           this.props.datalist.replaceChildren();
-          res.forEach(item => {
+          (await res.json()).forEach(item => {
             const option = document.createElement('option');
             option.appendChild(document.createTextNode(item));
             option.addEventListener('click', (event) => {
@@ -29,14 +28,11 @@ export class BlackAutocomplete extends AbstractComponent {
             });
             this.props.datalist.append(option);
           });
-        })
-        .catch(error => {
-          // TODO
-        })
-        .finally(() => {
-          this.props.submitButton.classList.remove('d-none');
-          this.props.loadingButton.classList.add('d-none');
-        });
+        }
+      } catch (error) {
+      } finally {
+        this.props.submitButton.classList.remove('d-none');
+        this.props.loadingButton.classList.add('d-none');
       }
     });
   }
