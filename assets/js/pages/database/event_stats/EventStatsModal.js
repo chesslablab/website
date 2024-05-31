@@ -33,11 +33,10 @@ export class EventStatsModal extends AbstractComponent {
             ECO: event.chart.data.labels[dataIndex]
           })
         });
-        const data = await res.json();
-        this.props.movesMetadataTable.props = data[0];
+        this.props.movesMetadataTable.props = (await res.json())[0];
         this.props.movesMetadataTable.mount();
         const add = {
-          movetext: data[0].movetext
+          movetext: this.props.movesMetadataTable.props.movetext
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
