@@ -21,35 +21,31 @@ export class RavMovetextModal extends AbstractComponent {
       event.preventDefault();
       progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
-      fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
-        method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
-        body: JSON.stringify({
-          variant: formData.get('variant'),
-          movetext: formData.get('rav'),
-        })
-      })
-      .then(res => res.json())
-      .then(res => {
-        ravPanel.props.ravMovesBrowser.current = res.fen.length - 1;
-        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(res.fen[res.fen.length - 1]);
+      try {
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            variant: formData.get('variant'),
+            movetext: formData.get('rav'),
+          })
+        });
+        const data = await res.json();
+        ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
         ravPanel.props.ravMovesBrowser.props = {
           ...ravPanel.props.ravMovesBrowser.props,
-          filtered: res.filtered,
-          breakdown: res.breakdown,
-          fen: res.fen
+          filtered: data.filtered,
+          breakdown: data.breakdown,
+          fen: data.fen
         };
         ravPanel.props.ravMovesBrowser.mount();
-      })
-      .catch(error => {
-        // TODO
-      })
-      .finally(() => {
-        this.props.modal.hide();
-        progressModal.props.modal.hide();
-      });
+      } catch (error) {
+      }
+      this.props.modal.hide();
+      progressModal.props.modal.hide();
     });
   }
 }
