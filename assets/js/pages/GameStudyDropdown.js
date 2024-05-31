@@ -24,8 +24,7 @@ export class GameStudyDropdown extends AbstractComponent {
             flip: this.props.chessboard.getOrientation()
           })
         });
-        const data = await res.blob();
-        const url = window.URL.createObjectURL(data);
+        const url = window.URL.createObjectURL(await res.blob());
         const a = document.createElement('a');
         a.href = url;
         a.download = "chessboard.png";
@@ -54,8 +53,7 @@ export class GameStudyDropdown extends AbstractComponent {
             ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.startPos}
           })
         });
-        const data = await res.blob();
-        const url = window.URL.createObjectURL(data);
+        const url = window.URL.createObjectURL(await res.blob());
         const a = document.createElement('a');
         a.href = url;
         a.download = "chessgame.mp4";
@@ -69,9 +67,7 @@ export class GameStudyDropdown extends AbstractComponent {
 
     this.props.ul.children.item(2).addEventListener('click', async (event) => {
       event.preventDefault();
-      while (this.props.heuristicsModal.props.chart.firstChild) {
-        this.props.heuristicsModal.props.chart.removeChild(this.props.heuristicsModal.props.chart.firstChild);
-      }
+      this.props.heuristicsModal.props.chart.replaceChildren();
       this.props.heuristicsModal.props.form.getElementsByTagName('select')[0].value = '';
       this.props.heuristicsModal.props.modal.show();
     });
