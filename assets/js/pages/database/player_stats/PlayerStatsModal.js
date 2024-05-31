@@ -66,10 +66,8 @@ export class PlayerStatsModal extends AbstractComponent {
           })
         });
         const data = await res.json();
-        while (playerStatsChart.firstChild) {
-          playerStatsChart.removeChild(playerStatsChart.firstChild);
-        }
         const canvas = document.createElement('canvas');
+        playerStatsChart.replaceChildren();
         playerStatsChart.appendChild(canvas);
         const chart = new Chart(canvas, {
           type: 'bar',
@@ -113,7 +111,6 @@ export class PlayerStatsModal extends AbstractComponent {
           }
         });
       } catch (error) {
-        // TODO
       }
       this.props.progressModal.props.modal.hide();
     });
