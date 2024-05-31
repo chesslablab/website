@@ -4,9 +4,9 @@ import * as env from '../../env.js';
 export class EventAutocomplete extends AbstractComponent {
   mount() {
     this.el.addEventListener('keyup', async (event) => {
-      event.preventDefault();
-      if (event.target.value.length % 3 === 0) {
-        try {
+      try {
+        event.preventDefault();
+        if (event.target.value.length % 3 === 0) {
           this.props.submitButton.classList.add('d-none');
           this.props.loadingButton.classList.remove('d-none');
           const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
@@ -28,11 +28,11 @@ export class EventAutocomplete extends AbstractComponent {
             });
             this.props.datalist.append(option);
           });
-        } catch (error) {
-        } finally {
-          this.props.submitButton.classList.remove('d-none');
-          this.props.loadingButton.classList.add('d-none');
         }
+      } catch (error) {
+      } finally {
+        this.props.submitButton.classList.remove('d-none');
+        this.props.loadingButton.classList.add('d-none');
       }
     });
   }
