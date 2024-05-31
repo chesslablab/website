@@ -7,9 +7,8 @@ await sanWebSocket.connect();
 
 sessionStorage.clear();
 
-progressModal.props.modal.show();
-
 try {
+  progressModal.props.modal.show();
   const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
     method: 'GET',
     headers: {
@@ -20,6 +19,6 @@ try {
   topOpeningsModal.mount();
   topOpeningsModal.props.modal.show();
 } catch (error) {
+} finally {
+  progressModal.props.modal.hide();
 }
-
-progressModal.props.modal.hide();

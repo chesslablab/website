@@ -16,13 +16,13 @@ export class PlayerStatsModal extends AbstractComponent {
 
   mount() {
     const handleBarClick = async (event, clickedElements) => {
-      const formData = new FormData(this.props.form);
-      this.props.progressModal.props.modal.show();
-      if (clickedElements.length === 0) {
-        return;
-      }
-      const { dataIndex, raw } = clickedElements[0].element.$context;
       try {
+        if (clickedElements.length === 0) {
+          return;
+        }
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
+        const { dataIndex, raw } = clickedElements[0].element.$context;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
           headers: {
@@ -42,17 +42,18 @@ export class PlayerStatsModal extends AbstractComponent {
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
+      } finally {
+        this.props.modal.hide();
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.modal.hide();
-      this.props.progressModal.props.modal.hide();
     }
 
     this.props.form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
-      const playerStatsChart = document.getElementById('playerStatsChart');
       try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
+        const playerStatsChart = document.getElementById('playerStatsChart');
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
           method: 'POST',
           headers: {
@@ -110,8 +111,9 @@ export class PlayerStatsModal extends AbstractComponent {
           }
         });
       } catch (error) {
+      } finally {
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.progressModal.props.modal.hide();
     });
   }
 }

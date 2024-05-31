@@ -18,10 +18,10 @@ export class RavMovetextModal extends AbstractComponent {
     });
 
     this.props.form.addEventListener('submit', event => {
-      event.preventDefault();
-      progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
       try {
+        event.preventDefault();
+        progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
           method: 'POST',
           headers: {
@@ -43,9 +43,10 @@ export class RavMovetextModal extends AbstractComponent {
         };
         ravPanel.props.ravMovesBrowser.mount();
       } catch (error) {
+      } finally {
+        this.props.modal.hide();
+        progressModal.props.modal.hide();
       }
-      this.props.modal.hide();
-      progressModal.props.modal.hide();
     });
   }
 }

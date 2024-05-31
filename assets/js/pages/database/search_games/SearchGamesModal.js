@@ -15,10 +15,10 @@ Chart.register(...registerables);
 export class SearchGamesModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
       try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const formData = new FormData(this.props.form);
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
           headers: {
@@ -79,9 +79,10 @@ export class SearchGamesModal extends AbstractComponent {
           tbody.appendChild(tr);
         })
       } catch (error) {
+      } finally {
+        this.props.progressModal.props.modal.hide();
+        this.props.modal.show();
       }
-      this.props.progressModal.props.modal.hide();
-      this.props.modal.show();
     });
   }
 }

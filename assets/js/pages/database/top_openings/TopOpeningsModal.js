@@ -14,12 +14,12 @@ export class TopOpeningsModal extends AbstractComponent {
 
   mount() {
     const handleBarClick = async (event, clickedElements) => {
-      this.props.progressModal.props.modal.show();
-      if (clickedElements.length === 0) {
-        return;
-      }
-      const { dataIndex, raw } = clickedElements[0].element.$context;
       try {
+        if (clickedElements.length === 0) {
+          return;
+        }
+        this.props.progressModal.props.modal.show();
+        const { dataIndex, raw } = clickedElements[0].element.$context;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
           headers: {
@@ -37,9 +37,10 @@ export class TopOpeningsModal extends AbstractComponent {
         };
         sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
+      } finally {
+        this.props.modal.hide();
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.modal.hide();
-      this.props.progressModal.props.modal.hide();
     }
 
     const options = {

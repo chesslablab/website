@@ -10,9 +10,9 @@ export class FenWebSocket extends AbstractWebSocket {
     super();
 
     fenPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this._progressModal.props.modal.show();
       try {
+        event.preventDefault();
+        this._progressModal.props.modal.show();
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
           method: 'POST',
           headers: {
@@ -26,8 +26,9 @@ export class FenWebSocket extends AbstractWebSocket {
         fenPanel.props.explainPositionModal.mount();
         fenPanel.props.explainPositionModal.props.modal.show();
       } catch (error) {
+      } finally {
+        this._progressModal.props.modal.hide();
       }
-      this._progressModal.props.modal.hide();
     });
 
     fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {

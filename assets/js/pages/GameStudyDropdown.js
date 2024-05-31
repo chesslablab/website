@@ -10,9 +10,9 @@ import * as variant from '../../variant.js';
 export class GameStudyDropdown extends AbstractComponent {
   mount() {
     this.props.ul.children.item(0).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
       try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/image`, {
           method: 'POST',
           headers: {
@@ -32,15 +32,16 @@ export class GameStudyDropdown extends AbstractComponent {
         a.click();
         a.remove();
       } catch (error) {
+      } finally {
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.progressModal.props.modal.hide();
     });
 
     this.props.ul.children.item(1).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
       try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/download/mp4`, {
           method: 'POST',
           headers: {
@@ -61,8 +62,9 @@ export class GameStudyDropdown extends AbstractComponent {
         a.click();
         a.remove();
       } catch (error) {
+      } finally {
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.progressModal.props.modal.hide();
     });
 
     this.props.ul.children.item(2).addEventListener('click', async (event) => {

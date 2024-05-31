@@ -6,10 +6,9 @@ export class BlackAutocomplete extends AbstractComponent {
     this.el.addEventListener('keyup', async (event) => {
       event.preventDefault();
       if (event.target.value.length % 3 === 0) {
-        this.props.submitButton.classList.add('d-none');
-        this.props.loadingButton.classList.remove('d-none');
-        this.props.datalist.replaceChildren();
         try {
+          this.props.submitButton.classList.add('d-none');
+          this.props.loadingButton.classList.remove('d-none');
           const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
             method: 'POST',
             headers: {
@@ -19,6 +18,7 @@ export class BlackAutocomplete extends AbstractComponent {
               Black: event.target.value
             })
           });
+          this.props.datalist.replaceChildren();
           (await res.json()).forEach(item => {
             const option = document.createElement('option');
             option.appendChild(document.createTextNode(item));
@@ -29,9 +29,10 @@ export class BlackAutocomplete extends AbstractComponent {
             this.props.datalist.append(option);
           });
         } catch (error) {
+        } finally {
+          this.props.submitButton.classList.remove('d-none');
+          this.props.loadingButton.classList.add('d-none');
         }
-        this.props.submitButton.classList.remove('d-none');
-        this.props.loadingButton.classList.add('d-none');
       }
     });
   }

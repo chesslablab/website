@@ -6,8 +6,8 @@ import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
 const handleClick = async (game) => {
-  progressModal.props.modal.show();
   try {
+    progressModal.props.modal.show();
     const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
       method: 'POST',
       headers: {
@@ -29,13 +29,13 @@ const handleClick = async (game) => {
     };
     ravPanel.props.ravMovesBrowser.mount();
   } catch (error) {
+  } finally {
+    progressModal.props.modal.hide();
   }
-  progressModal.props.modal.hide();
 };
 
-progressModal.props.modal.show();
-
 try {
+  progressModal.props.modal.show();
   const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/annotations/games`, {
     method: 'GET',
     headers: {
@@ -90,6 +90,6 @@ try {
     tbody.appendChild(tr);
   });
 } catch (error) {
+} finally {
+  progressModal.props.modal.hide();
 }
-
-progressModal.props.modal.hide();

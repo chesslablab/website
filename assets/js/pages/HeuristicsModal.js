@@ -13,10 +13,10 @@ Chart.register(...registerables);
 export class HeuristicsModal extends AbstractComponent {
   mount() {
     this.props.form.getElementsByTagName('select')[0].addEventListener('change', async (event) => {
-      event.preventDefault();
-      this.props.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
       try {
+        event.preventDefault();
+        this.props.progressModal.props.modal.show();
+        const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristic`, {
           method: 'POST',
           headers: {
@@ -93,8 +93,9 @@ export class HeuristicsModal extends AbstractComponent {
           }
         });
       } catch (error) {
+      } finally {
+        this.props.progressModal.props.modal.hide();
       }
-      this.props.progressModal.props.modal.hide();
     });
   }
 }
