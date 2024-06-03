@@ -11,7 +11,32 @@ import * as variant from '../../variant.js';
 Chart.register(...registerables);
 
 export class HeuristicsModal extends AbstractComponent {
-  mount() {
+  async mount() {
+    try {
+      this.props.progressModal.props.modal.show();
+      const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/eval/names`, {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': `${env.API_KEY}`
+        },
+        // exclude time-consuming heuristics
+        body: JSON.stringify({
+          function: 'Standard',
+          exclude: 'Attack'
+        })
+      });
+      const select = this.props.form.querySelector('select[name="heuristic"]');
+      Object.values(await res.json()).forEach((item, i) => {
+        const option = document.createElement('option');
+        option.text = item;
+        option.value = item;
+        select.add(option, select[i]);
+      });
+    } catch (error) {
+    } finally {
+      this.props.progressModal.props.modal.hide();
+    }
+
     this.props.form.getElementsByTagName('select')[0].addEventListener('change', async (event) => {
       try {
         event.preventDefault();
