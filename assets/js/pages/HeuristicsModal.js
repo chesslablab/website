@@ -22,7 +22,7 @@ export class HeuristicsModal extends AbstractComponent {
         // exclude time-consuming heuristics
         body: JSON.stringify({
           function: 'Standard',
-          exclude: 'Attack'
+          exclude: "Attack, Checkmate in one"
         })
       });
       const select = this.props.form.querySelector('select[name="heuristic"]');
