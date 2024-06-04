@@ -71,6 +71,12 @@ export default class AbstractWebSocket {
       this._infoModal.props.modal.show();
       this._end();
       return true;
+    } else if (res.isDeadPositionDraw) {
+      this._infoModal.props.msg = "Draw by dead position";
+      this._infoModal.mount();
+      this._infoModal.props.modal.show();
+      this._end();
+      return true;
     }
 
     return false;
