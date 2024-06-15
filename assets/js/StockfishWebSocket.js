@@ -3,6 +3,7 @@ import { Movetext } from '@chesslablab/jsblab';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { stockfishPanel } from './pages/StockfishPanel.js';
 import * as env from '../env.js';
+import * as mode from '../mode.js';
 import * as variant from '../variant.js';
 
 export class StockfishWebSocket extends AbstractWebSocket {
