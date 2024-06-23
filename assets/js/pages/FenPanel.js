@@ -1,5 +1,6 @@
 import AbstractComponent from '../AbstractComponent.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
+import { explainGoodMoveModal } from './ExplainGoodMoveModal.js';
 import { explainPositionModal } from './ExplainPositionModal.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import { gameStudyDropdown } from './GameStudyDropdown.js';
@@ -19,6 +20,7 @@ export const fenPanel = new FenPanel(
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,
     gameStudyDropdown: gameStudyDropdown,
+    explainGoodMoveModal: explainGoodMoveModal,
     explainPositionModal: explainPositionModal,
     historyButtons: historyButtons,
     openingTable: openingTable,
