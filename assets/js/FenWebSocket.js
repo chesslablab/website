@@ -31,6 +31,30 @@ export class FenWebSocket extends AbstractWebSocket {
       }
     });
 
+    fenPanel.props.gameStudyDropdown.props.ul.children.item(4).addEventListener('click', async (event) => {
+      try {
+        event.preventDefault();
+        this._progressModal.props.modal.show();
+        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/good-move`, {
+          method: 'POST',
+          headers: {
+            'X-Api-Key': `${env.API_KEY}`
+          },
+          body: JSON.stringify({
+            fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
+          })
+        });
+        const json = await res.json();
+        fenPanel.props.explainGoodMoveModal.props.pgn = json.pgn;
+        fenPanel.props.explainGoodMoveModal.props.paragraph = json.paragraph;
+        fenPanel.props.explainGoodMoveModal.mount();
+        fenPanel.props.explainGoodMoveModal.props.modal.show();
+      } catch (error) {
+      } finally {
+        this._progressModal.props.modal.hide();
+      }
+    });
+
     fenPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
