@@ -30,13 +30,15 @@ const light = `body {
   background-color: #dbdbdb;
 }
 .navbar-brand,
-.navbar-brand:hover {
+.navbar-brand:hover,
+.navbar-brand:focus {
   color: #282828;
 }
 a.nav-link {
   color: #4d4d4d;
 }
-a.nav-link:hover {
+a.nav-link:hover,
+a.nav-link:focus {
   color: #202020;
 }
 a.nav-link.active {
