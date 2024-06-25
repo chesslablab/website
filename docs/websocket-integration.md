@@ -21,7 +21,8 @@ The WebSocket ESM modules are implemented based on this separation of concerns a
 Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png)
-**Figure 1**. Click on **Openings > ECO Code** and select **D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense**
+
+**Figure 1**. Click on **Openings > ECO Code** and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"
 
 Command:
 
@@ -68,7 +69,7 @@ sessionStorage.clear();
 openingsEcoCodeModal.props.modal.show();
 ```
 
-Remember, the structure of the [App\Controller\Pages](src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder. As a rule of thumb, there is a `.twig.html` file and a `.js` file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.
+Remember, the structure of the [App\Controller\Pages](https://github.com/chesslablab/website/tree/main/src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder. As a rule of thumb, there is a `.twig.html` file and a `.js` file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.
 
 - [src/Controller/Pages/Openings/EcoCodeController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php)
 - [templates/pages/openings/eco_code/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig)

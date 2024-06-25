@@ -23,7 +23,7 @@ class ComputerController extends AbstractController
 }
 ```
 
-As a rule of thumb, there is a `.twig.html` file and a `.js` file associated to each controller action. So the structure of the [App\Controller\Pages](src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder.
+As a rule of thumb, there is a `.twig.html` file and a `.js` file associated to each controller action. So the structure of the [App\Controller\Pages](https://github.com/chesslablab/website/tree/main/src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder.
 
 - [src/Controller/Pages/Play/ComputerController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Play/ComputerController.php)
 - [templates/pages/play/computer/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/play/computer/index.html.twig)
