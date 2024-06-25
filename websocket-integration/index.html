@@ -86,8 +86,6 @@
               
                 <h1 id="websocket-integration">WebSocket Integration</h1>
 <p>The ChesslaBlab website is integrated with <a href="https://chesslablab.github.io/chess-server/">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
-<p>Similar to the <a href="https://chesslablab.github.io/chess-api/">PHP Chess API</a>, it can be hosted on a custom domain. However, while the API endpoints may take few seconds to execute — for example, a file download or a database query — the event-driven, non-blocking architecture of the chess server allows to handle multiple concurrent connections in an efficient way.</p>
-<p>The chess commands are intended to run very quickly almost in real-time.</p>
 <p>As described in <a href="https://chesslablab.github.io/chess-server/start/">the docs</a>, four different game modes are provided.</p>
 <table>
 <thead>
@@ -161,12 +159,35 @@ sessionStorage.clear();
 
 openingsEcoCodeModal.props.modal.show();
 </code></pre>
-<p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
+<p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. There is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
 <ul>
 <li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php">src/Controller/Pages/Openings/EcoCodeController.php</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig">templates/pages/openings/eco_code/index.html.twig</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js">assets/js/pages/openings/eco_code/index.js</a></li>
 </ul>
+<p>Similarly, if you wanted to study a chess position, then a game in FEN mode needs to be started.</p>
+<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_02.png" /></p>
+<p><strong>Figure 2</strong>. Click on <strong>Learn &gt; FEN String</strong> and enter a classical chess position in FEN format.</p>
+<p>Command:</p>
+<pre><code class="language-text">/start classical fen &quot;{\&quot;fen\&quot;:\&quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\&quot;}&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-text">{
+  &quot;variant&quot;: &quot;classical&quot;,
+  &quot;mode&quot;: &quot;fen&quot;,
+  &quot;fen&quot;: &quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -&quot;
+}
+</code></pre>
+<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/fen_string/index.js">assets/js/pages/learn/fen_string/index.js</a> file.</p>
+<pre><code class="language-js">import { fenStringModal } from './FenStringModal.js';
+import { fenWebSocket } from '../../../FenWebSocket.js';
+
+await fenWebSocket.connect();
+
+sessionStorage.clear();
+
+fenStringModal.props.modal.show();
+</code></pre>
               
             </div>
           </div><footer>
