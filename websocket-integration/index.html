@@ -121,8 +121,8 @@
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/StockfishWebSocket.js">assets/js/StockfishWebSocket.js</a></li>
 </ul>
 <p>Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.</p>
-<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png" />
-<strong>Figure 1</strong>. Click on <strong>Openings &gt; ECO Code</strong> and select <strong>D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense</strong></p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png" /></p>
+<p><strong>Figure 1</strong>. Click on <strong>Openings &gt; ECO Code</strong> and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"</p>
 <p>Command:</p>
 <pre><code class="language-text">/start classical san &quot;{\&quot;movetext\&quot;:\&quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\&quot;}&quot;
 </code></pre>
@@ -159,7 +159,7 @@ sessionStorage.clear();
 
 openingsEcoCodeModal.props.modal.show();
 </code></pre>
-<p>Remember, the structure of the <a href="src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
+<p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
 <ul>
 <li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php">src/Controller/Pages/Openings/EcoCodeController.php</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig">templates/pages/openings/eco_code/index.html.twig</a></li>
