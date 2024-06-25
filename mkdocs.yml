@@ -7,3 +7,4 @@ nav:
   - SSL Certificate Setup: ssl-certificate-setup.md
   - Installation: installation.md
   - Website Architecture: website-architecture.md
+  - WebSocket Integration: websocket-integration.md
