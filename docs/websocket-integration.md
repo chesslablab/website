@@ -2,6 +2,10 @@
 
 The ChesslaBlab website is integrated with [PHP Chess Server](https://chesslablab.github.io/chess-server/), an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.
 
+Similar to the [PHP Chess API](https://chesslablab.github.io/chess-api/), it can be hosted on a custom domain. However, while the API endpoints may take few seconds to execute — for example, a file download or a database query — the event-driven, non-blocking architecture of the chess server allows to handle multiple concurrent connections in an efficient way.
+
+The chess commands are intended to run very quickly almost in real-time.
+
 As described in [the docs](https://chesslablab.github.io/chess-server/start/), four different game modes are provided.
 
 | Mode        | Description                                                              |
