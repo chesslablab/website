@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/website/websocket-integration/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>WebSocket Integration - ChesslaBlab Website</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "WebSocket Integration";
+        var mkdocs_page_input_path = "websocket-integration.md";
+        var mkdocs_page_url = "/website/websocket-integration/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> ChesslaBlab Website
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ssl-certificate-setup/">SSL Certificate Setup</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../website-architecture/">Website Architecture</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">WebSocket Integration</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">ChesslaBlab Website</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">WebSocket Integration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="websocket-integration">WebSocket Integration</h1>
+<p>The ChesslaBlab website is integrated with <a href="https://chesslablab.github.io/chess-server/">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
+<p>As described in <a href="https://chesslablab.github.io/chess-server/start/">the docs</a>, four different game modes are provided.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fen</code></td>
+<td>Allows to continue playing a game from a specific position.</td>
+</tr>
+<tr>
+<td><code>san</code></td>
+<td>Allows to continue playing an annotated game from the starting position.</td>
+</tr>
+<tr>
+<td><code>play</code></td>
+<td>Allows to play chess online with other players.</td>
+</tr>
+<tr>
+<td><code>stockfish</code></td>
+<td>Allows to play chess against the computer.</td>
+</tr>
+</tbody>
+</table>
+<p>The WebSocket ESM modules are implemented based on this separation of concerns and abstraction:</p>
+<ul>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/FenWebSocket.js">assets/js/FenWebSocket.js</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/SanWebSocket.js">assets/js/SanWebSocket.js</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/PlayWebSocket.js">assets/js/PlayWebSocket.js</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/StockfishWebSocket.js">assets/js/StockfishWebSocket.js</a></li>
+</ul>
+<p>Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.</p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png" />
+<strong>Figure 1</strong>. Click on <strong>Openings &gt; ECO Code</strong> and select <strong>D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense</strong></p>
+<p>Command:</p>
+<pre><code class="language-text">/start classical san &quot;{\&quot;movetext\&quot;:\&quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\&quot;}&quot;
+</code></pre>
+<p>Response:</p>
+<pre><code class="language-text">{
+  &quot;variant&quot;: &quot;classical&quot;,
+  &quot;mode&quot;: &quot;san&quot;,
+  &quot;turn&quot;: &quot;w&quot;,
+  &quot;movetext&quot;: &quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4&quot;,
+  &quot;fen&quot;: [
+    &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -&quot;,
+    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -&quot;,
+    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R b KQkq -&quot;,
+    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R w KQkq -&quot;,
+    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R b KQkq -&quot;,
+    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R w KQ -&quot;,
+    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQ1RK1 b - -&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/3P4/5NP1/PPP1PPBP/RNBQ1RK1 w - d6&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - c3&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/8/2pP4/5NP1/PP2PPBP/RNBQ1RK1 w - -&quot;
+  ]
+}
+</code></pre>
+<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js">assets/js/pages/openings/eco_code/index.js</a> file.</p>
+<pre><code class="language-js">import { openingsEcoCodeModal } from './OpeningsEcoCodeModal.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
+
+await sanWebSocket.connect();
+
+sessionStorage.clear();
+
+openingsEcoCodeModal.props.modal.show();
+</code></pre>
+<p>Remember, the structure of the <a href="src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
+<ul>
+<li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php">src/Controller/Pages/Openings/EcoCodeController.php</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig">templates/pages/openings/eco_code/index.html.twig</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js">assets/js/pages/openings/eco_code/index.js</a></li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../website-architecture/" class="btn btn-neutral float-left" title="Website Architecture"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../website-architecture/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
