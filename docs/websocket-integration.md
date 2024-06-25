@@ -2,10 +2,6 @@
 
 The ChesslaBlab website is integrated with [PHP Chess Server](https://chesslablab.github.io/chess-server/), an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.
 
-Similar to the [PHP Chess API](https://chesslablab.github.io/chess-api/), it can be hosted on a custom domain. However, while the API endpoints may take few seconds to execute — for example, a file download or a database query — the event-driven, non-blocking architecture of the chess server allows to handle multiple concurrent connections in an efficient way.
-
-The chess commands are intended to run very quickly almost in real-time.
-
 As described in [the docs](https://chesslablab.github.io/chess-server/start/), four different game modes are provided.
 
 | Mode        | Description                                                              |
@@ -78,3 +74,38 @@ Remember, the structure of the [App\Controller\Pages](https://github.com/chessla
 - [src/Controller/Pages/Openings/EcoCodeController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php)
 - [templates/pages/openings/eco_code/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig)
 - [assets/js/pages/openings/eco_code/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js)
+
+Similarly, if you wanted to study a chess position, then a game in FEN mode needs to be started.
+
+![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_02.png)
+
+**Figure 2**. Click on **Learn > FEN String** and enter a classical chess position in FEN format.
+
+Command:
+
+```text
+/start classical fen "{\"fen\":\"r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\"}"
+```
+
+Response:
+
+```text
+{
+  "variant": "classical",
+  "mode": "fen",
+  "fen": "r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -"
+}
+```
+
+The JavaScript code for this example can be found in the [assets/js/pages/learn/fen_string/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/fen_string/index.js) file.
+
+```js
+import { fenStringModal } from './FenStringModal.js';
+import { fenWebSocket } from '../../../FenWebSocket.js';
+
+await fenWebSocket.connect();
+
+sessionStorage.clear();
+
+fenStringModal.props.modal.show();
+```
