@@ -1,4 +1,6 @@
 const messagesEs = {
+  // Abstract
+  "Draw by the fifty-move rule": "Empate según la regla de los cincuenta movimientos",
   // Play
   "Waiting for player to join": "Esperando a que el jugador o jugadora se una",
   // PlayWebSocket
