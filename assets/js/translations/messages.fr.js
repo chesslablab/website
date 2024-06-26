@@ -1,5 +1,7 @@
 const messagesFr = {
-    // Play
+  // Abstract
+  "Draw by the fifty-move rule": "Tirer selon la règle des cinquante coups",
+  // Play
   "Waiting for player to join": "En attente que le joueur rejoigne",
   // PlayWebSocket
   "Waiting for your opponent to accept or decline": "Attendez que votre adversaire accepte ou refuse",
