@@ -69,6 +69,8 @@ sessionStorage.clear();
 openingsEcoCodeModal.props.modal.show();
 ```
 
+The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection. 
+
 Remember, the structure of the [App\Controller\Pages](https://github.com/chesslablab/website/tree/main/src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder. There is a `.twig.html` file and a `.js` file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.
 
 - [src/Controller/Pages/Openings/EcoCodeController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php)
