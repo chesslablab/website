@@ -86,34 +86,14 @@
               
                 <h1 id="websocket-integration">WebSocket Integration</h1>
 <p>The ChesslaBlab website is integrated with <a href="https://chesslablab.github.io/chess-server/">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
-<p>As described in <a href="https://chesslablab.github.io/chess-server/start/">the docs</a>, four different game modes are provided.</p>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>fen</code></td>
-<td>Allows to continue playing a game from a specific position.</td>
-</tr>
-<tr>
-<td><code>san</code></td>
-<td>Allows to continue playing an annotated game from the starting position.</td>
-</tr>
-<tr>
-<td><code>play</code></td>
-<td>Allows to play chess online with other players.</td>
-</tr>
-<tr>
-<td><code>stockfish</code></td>
-<td>Allows to play chess against the computer.</td>
-</tr>
-</tbody>
-</table>
-<p>The WebSocket ESM modules are implemented based on this separation of concerns and abstraction:</p>
+<p>As described in <a href="https://chesslablab.github.io/chess-server/start/">the docs</a>, these are the game modes available:</p>
+<ul>
+<li><code>fen</code> is used to start games from specific chess positions.</li>
+<li><code>san</code> is used to load games from the starting position.</li>
+<li><code>play</code> allows to play chess online with other players.</li>
+<li><code>stockfish</code> allows to play chess against the computer.</li>
+</ul>
+<p>The WebSocket ESM modules are implemented based on this same separation of concerns and abstraction:</p>
 <ul>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/FenWebSocket.js">assets/js/FenWebSocket.js</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/SanWebSocket.js">assets/js/SanWebSocket.js</a></li>
@@ -123,10 +103,9 @@
 <p>Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.</p>
 <p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png" /></p>
 <p><strong>Figure 1</strong>. Click on <strong>Openings &gt; ECO Code</strong> and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"</p>
-<p>Command:</p>
+<p>Data:</p>
 <pre><code class="language-text">/start classical san &quot;{\&quot;movetext\&quot;:\&quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\&quot;}&quot;
 </code></pre>
-<p>Response:</p>
 <pre><code class="language-text">{
   &quot;variant&quot;: &quot;classical&quot;,
   &quot;mode&quot;: &quot;san&quot;,
@@ -159,7 +138,7 @@ sessionStorage.clear();
 
 openingsEcoCodeModal.props.modal.show();
 </code></pre>
-<p>The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection. </p>
+<p>The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection.</p>
 <p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. There is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
 <ul>
 <li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php">src/Controller/Pages/Openings/EcoCodeController.php</a></li>
@@ -169,10 +148,9 @@ openingsEcoCodeModal.props.modal.show();
 <p>Similarly, if you wanted to study a chess position, then a game in FEN mode needs to be started.</p>
 <p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_02.png" /></p>
 <p><strong>Figure 2</strong>. Click on <strong>Learn &gt; FEN String</strong> and enter a classical chess position in FEN format.</p>
-<p>Command:</p>
+<p>Data:</p>
 <pre><code class="language-text">/start classical fen &quot;{\&quot;fen\&quot;:\&quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\&quot;}&quot;
 </code></pre>
-<p>Response:</p>
 <pre><code class="language-text">{
   &quot;variant&quot;: &quot;classical&quot;,
   &quot;mode&quot;: &quot;fen&quot;,
@@ -189,6 +167,7 @@ sessionStorage.clear();
 
 fenStringModal.props.modal.show();
 </code></pre>
+<p>The two examples above will give you a sense of the request-response cycle between the web browser and the chess server.</p>
               
             </div>
           </div><footer>
