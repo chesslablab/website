@@ -11,8 +11,24 @@ class RobotsController extends AbstractController
 {
     public function index(): Response
     {
+        $paths = [
+            ...$this->paths(Yaml::parseFile("../config/routes.yaml")),
+            ...$this->paths(Yaml::parseFile("../config/routing/blog.yaml")),
+        ];
+
+        $response = new Response(
+            $this->renderView('/robots.txt.twig', ['paths' => $paths]),
+            200
+        );
+
+        $response->headers->set('Content-Type', 'text/plain');
+
+        return $response;
+    }
+
+    protected function paths($routes)
+    {
         $paths = [];
-        $routes = Yaml::parseFile("../config/routes.yaml");
         foreach ($routes as $key => $val) {
             if (isset($val['requirements'])) {
                 $requirmentsLocale = explode('|', $val['requirements']['_locale']);
@@ -27,13 +43,6 @@ class RobotsController extends AbstractController
             }
         }
 
-        $response = new Response(
-            $this->renderView('/robots.txt.twig', ['paths' => $paths]),
-            200
-        );
-
-        $response->headers->set('Content-Type', 'text/plain');
-
-        return $response;
+        return $paths;
     }
 }

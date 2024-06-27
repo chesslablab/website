@@ -11,8 +11,24 @@ class SitemapController extends AbstractController
 {
     public function index(): Response
     {
+        $urls = [
+            ...$this->urls(Yaml::parseFile("../config/routes.yaml")),
+            ...$this->urls(Yaml::parseFile("../config/routing/blog.yaml")),
+        ];
+
+        $response = new Response(
+            $this->renderView('/sitemap.xml.twig', ['urls' => $urls]),
+            200
+        );
+
+        $response->headers->set('Content-Type', 'text/xml');
+
+        return $response;
+    }
+
+    protected function urls($routes)
+    {
         $urls = [];
-        $routes = Yaml::parseFile("../config/routes.yaml");
         foreach ($routes as $key => $val) {
             if (isset($val['requirements'])) {
                 if (isset($val['options']['sitemap'])) {
@@ -30,13 +46,6 @@ class SitemapController extends AbstractController
             }
         }
 
-        $response = new Response(
-            $this->renderView('/sitemap.xml.twig', ['urls' => $urls]),
-            200
-        );
-
-        $response->headers->set('Content-Type', 'text/xml');
-
-        return $response;
+        return $urls;
     }
 }
