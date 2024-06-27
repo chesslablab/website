@@ -200,7 +200,7 @@ blog:
 
 blog_hello_world:
     path:       /{_locale}/blog/hello-world
-    controller: App\Controller\BlogController::hello_world
+    controller: App\Controller\BlogController::entry
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de
@@ -218,7 +218,7 @@ blog_hello_world:
 
 blog_getting_started:
     path:       /{_locale}/blog/getting-started
-    controller: App\Controller\BlogController::getting_started
+    controller: App\Controller\BlogController::entry
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de

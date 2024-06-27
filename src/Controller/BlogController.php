@@ -51,13 +51,13 @@ class BlogController extends AbstractController
         ]);
     }
 
-    public function hello_world(Request $request): Response
+    public function entry(Request $request): Response
     {
         $routes = Yaml::parseFile("../config/routes.yaml");
         $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
         $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
 
-        return $this->render('post.html.twig', [
+        return $this->render('entry.html.twig', [
             'metadata' => [
                 'title' => $metadata['title'],
                 'description' => $metadata['description'],
@@ -67,27 +67,9 @@ class BlogController extends AbstractController
                 'image' => $content['image'],
                 'date' => date('F, Y', strtotime($content['date'])),
             ],
-            'post' => file_get_contents(self::DATA_FOLDER . '/hello-world.md')
-        ]);
-    }
-
-    public function getting_started(Request $request): Response
-    {
-        $routes = Yaml::parseFile("../config/routes.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
-        $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
-
-        return $this->render('post.html.twig', [
-            'metadata' => [
-                'title' => $metadata['title'],
-                'description' => $metadata['description'],
-            ],
-            'content' => [
-                'subtitle' => $content['subtitle'],
-                'image' => $content['image'],
-                'date' => date('F, Y', strtotime($content['date'])),
-            ],
-            'post' => file_get_contents(self::DATA_FOLDER . '/getting-started.md')
+            'post' => file_get_contents(
+                self::DATA_FOLDER . '/' . basename($routes[$request->attributes->get('_route')]['path']) . '.md'
+            )
         ]);
     }
 }
