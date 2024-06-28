@@ -57,8 +57,13 @@ class BlogController extends AbstractController
     {
         $locale = $request->attributes->get('_locale');
         $routes = Yaml::parseFile("../config/routing/blog.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
-        $content = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['content'];
+
+        if (isset($routes[$request->attributes->get('_route')]['options']['blog'][$locale])) {
+            $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
+            $content = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['content'];
+        } else {
+            throw $this->createNotFoundException('This post does not exist');
+        }
 
         return $this->render('entry.html.twig', [
             'metadata' => [
