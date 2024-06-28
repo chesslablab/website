@@ -13,7 +13,6 @@ class RobotsController extends AbstractController
     {
         $paths = [
             ...$this->paths(Yaml::parseFile("../config/routes.yaml")),
-            ...$this->paths(Yaml::parseFile("../config/routing/blog.yaml")),
         ];
 
         $response = new Response(
