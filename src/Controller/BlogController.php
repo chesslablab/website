@@ -16,8 +16,13 @@ class BlogController extends AbstractController
     {
         $locale = $request->attributes->get('_locale');
         $routes = Yaml::parseFile('../config/routing/blog.yaml');
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
-        
+
+        if (isset($routes[$request->attributes->get('_route')]['options']['blog'][$locale])) {
+            $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
+        } else {
+            throw $this->createNotFoundException('The blog is not translated into this language.');
+        }
+
         $posts = [];
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
