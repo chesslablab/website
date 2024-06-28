@@ -54,8 +54,8 @@ class BlogController extends AbstractController
     public function entry(Request $request): Response
     {
         $routes = Yaml::parseFile("../config/routing/blog.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
-        $content = $routes[$request->attributes->get('_route')]['options']['blog']['content'];
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['metadata'];
+        $content = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['content'];
 
         return $this->render('entry.html.twig', [
             'metadata' => [
