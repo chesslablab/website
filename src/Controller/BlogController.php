@@ -68,7 +68,9 @@ class BlogController extends AbstractController
                 'date' => date('F, Y', strtotime($content['date'])),
             ],
             'post' => file_get_contents(
-                self::DATA_FOLDER . '/' . basename($routes[$request->attributes->get('_route')]['path']) . '.md'
+                self::DATA_FOLDER . '/' .
+                $request->attributes->get('_locale') . '/' .
+                basename($routes[$request->attributes->get('_route')]['path']) . '.md'
             )
         ]);
     }
