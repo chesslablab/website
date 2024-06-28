@@ -12,6 +12,10 @@ blog:
           metadata:
             title: ChesslaBlab Blog
             description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
+        es:
+          metadata:
+            title: ChesslaBlab Blog
+            description: Aquí encontrarás una colección de tus temas favoritos. ¡Código abierto, ajedrez y más!
 
 blog_hello_world:
     path:       /{_locale}/blog/hello-world
@@ -29,6 +33,14 @@ blog_hello_world:
             description: This is a simple static blog made with Symfony and Twig. The markdown_to_html filter is used to convert a block of Markdown to HTML.
           content:
             subtitle: Welcome to ChesslaBlab's blog
+            image: hello-world.webp
+            date: 09-05-2024
+        es:
+          metadata:
+            title: ¡Hola mundo!
+            description: Este es un blog estático simple hecho con Symfony y Twig. El filtro markdown_to_html se utiliza para convertir un bloque de Markdown a HTML.
+          content:
+            subtitle: Bienvenidos al blog de ChesslaBlab
             image: hello-world.webp
             date: 09-05-2024
 
