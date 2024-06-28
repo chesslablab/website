@@ -16,7 +16,9 @@ class BlogController extends AbstractController
     {
         $posts = [];
         $routes = Yaml::parseFile("../config/routing/blog.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['metadata'];
+        $locale = $request->attributes->get('_locale');
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
+
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
                 $posts[] = [
@@ -26,13 +28,13 @@ class BlogController extends AbstractController
                         UrlGeneratorInterface::ABSOLUTE_URL
                     ),
                     'metadata' => [
-                        'title' => $val['options']['blog'][$request->attributes->get('_locale')]['metadata']['title'],
-                        'description' => $val['options']['blog'][$request->attributes->get('_locale')]['metadata']['description'],
+                        'title' => $val['options']['blog'][$locale]['metadata']['title'],
+                        'description' => $val['options']['blog'][$locale]['metadata']['description'],
                     ],
                     'content' => [
-                        'subtitle' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['subtitle'],
-                        'image' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['image'],
-                        'date' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['date'],
+                        'subtitle' => $val['options']['blog'][$locale]['content']['subtitle'],
+                        'image' => $val['options']['blog'][$locale]['content']['image'],
+                        'date' => $val['options']['blog'][$locale]['content']['date'],
                     ],
                 ];
             }
@@ -53,9 +55,10 @@ class BlogController extends AbstractController
 
     public function entry(Request $request): Response
     {
+        $locale = $request->attributes->get('_locale');
         $routes = Yaml::parseFile("../config/routing/blog.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['metadata'];
-        $content = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['content'];
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
+        $content = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['content'];
 
         return $this->render('entry.html.twig', [
             'metadata' => [
@@ -69,7 +72,7 @@ class BlogController extends AbstractController
             ],
             'post' => file_get_contents(
                 self::DATA_FOLDER . '/' .
-                $request->attributes->get('_locale') . '/' .
+                $locale . '/' .
                 basename($routes[$request->attributes->get('_route')]['path']) . '.md'
             )
         ]);
