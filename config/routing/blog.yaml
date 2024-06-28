@@ -8,9 +8,10 @@ blog:
       sitemap:
         _locale: en
       blog:
-        metadata:
-          title: ChesslaBlab Blog
-          description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
+        en:
+          metadata:
+            title: ChesslaBlab Blog
+            description: Here you will find a collection of your favorite topics. Open-source, chess, and more!
 
 blog_hello_world:
     path:       /{_locale}/blog/hello-world
@@ -22,13 +23,14 @@ blog_hello_world:
       sitemap:
         _locale: en
       blog:
-        metadata:
-          title: Hello World!
-          description: This is a simple static blog made with Symfony and Twig. The markdown_to_html filter is used to convert a block of Markdown to HTML.
-        content:
-          subtitle: Welcome to ChesslaBlab's blog
-          image: hello-world.webp
-          date: 09-05-2024
+        en:
+          metadata:
+            title: Hello World!
+            description: This is a simple static blog made with Symfony and Twig. The markdown_to_html filter is used to convert a block of Markdown to HTML.
+          content:
+            subtitle: Welcome to ChesslaBlab's blog
+            image: hello-world.webp
+            date: 09-05-2024
 
 blog_getting_started:
     path:       /{_locale}/blog/getting-started
@@ -40,10 +42,19 @@ blog_getting_started:
       sitemap:
         _locale: en
       blog:
-        metadata:
-          title: Getting Started
-          description: This is the second post just to make sure that the index page of the blog is set up properly.
-        content:
-          subtitle: This is the second example post
-          image: getting-started.webp
-          date: 12-05-2024
+        en:
+          metadata:
+            title: Getting Started
+            description: This is the second post just to make sure that the index page of the blog is set up properly.
+          content:
+            subtitle: This is the second example post
+            image: getting-started.webp
+            date: 12-05-2024
+        es:
+          metadata:
+            title: Empezando
+            description: Esta es la segunda publicación solo para asegurarnos de que la página de índice del blog esté configurada correctamente.
+          content:
+            subtitle: Esta es la segunda publicación de ejemplo
+            image: getting-started.webp
+            date: 12-05-2024

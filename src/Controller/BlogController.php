@@ -16,7 +16,7 @@ class BlogController extends AbstractController
     {
         $posts = [];
         $routes = Yaml::parseFile("../config/routing/blog.yaml");
-        $metadata = $routes[$request->attributes->get('_route')]['options']['blog']['metadata'];
+        $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$request->attributes->get('_locale')]['metadata'];
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
                 $posts[] = [
@@ -26,13 +26,13 @@ class BlogController extends AbstractController
                         UrlGeneratorInterface::ABSOLUTE_URL
                     ),
                     'metadata' => [
-                        'title' => $val['options']['blog']['metadata']['title'],
-                        'description' => $val['options']['blog']['metadata']['description'],
+                        'title' => $val['options']['blog'][$request->attributes->get('_locale')]['metadata']['title'],
+                        'description' => $val['options']['blog'][$request->attributes->get('_locale')]['metadata']['description'],
                     ],
                     'content' => [
-                        'subtitle' => $val['options']['blog']['content']['subtitle'],
-                        'image' => $val['options']['blog']['content']['image'],
-                        'date' => $val['options']['blog']['content']['date'],
+                        'subtitle' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['subtitle'],
+                        'image' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['image'],
+                        'date' => $val['options']['blog'][$request->attributes->get('_locale')]['content']['date'],
                     ],
                 ];
             }
