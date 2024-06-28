@@ -14,11 +14,11 @@ class BlogController extends AbstractController
 
     public function index(Request $request): Response
     {
-        $posts = [];
-        $routes = Yaml::parseFile("../config/routing/blog.yaml");
         $locale = $request->attributes->get('_locale');
+        $routes = Yaml::parseFile('../config/routing/blog.yaml');
         $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
-
+        
+        $posts = [];
         foreach ($routes as $key => $val) {
             if (str_starts_with($key, 'blog_')) {
                 $posts[] = [
@@ -56,7 +56,7 @@ class BlogController extends AbstractController
     public function entry(Request $request): Response
     {
         $locale = $request->attributes->get('_locale');
-        $routes = Yaml::parseFile("../config/routing/blog.yaml");
+        $routes = Yaml::parseFile('../config/routing/blog.yaml');
 
         if (isset($routes[$request->attributes->get('_route')]['options']['blog'][$locale])) {
             $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
