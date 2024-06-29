@@ -8,3 +8,4 @@ nav:
   - Installation: installation.md
   - Website Architecture: website-architecture.md
   - WebSocket Integration: websocket-integration.md
+  - Blog: blog.md
