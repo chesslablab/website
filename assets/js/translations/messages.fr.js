@@ -1,6 +1,7 @@
 const messagesFr = {
   // Abstract
   "Draw by the fifty-move rule": "Tirer selon la règle des cinquante coups",
+  "Draw by stalemate": "Nulle par pat",
   // Play
   "Waiting for player to join": "En attente que le joueur rejoigne",
   // PlayWebSocket
