@@ -1,1 +1,143 @@
+# Main nav bar
+Play: खेलें
+Online: सम्पर्कयुत
+Computer: संगणक
+Learn: सीखें
+Classical Chess: शास्त्रीय शतरंज
+Fischer Random: फिशर रेंडम 
+FEN String: FEN स्ट्रिंग
+SAN Movetext: SAN गतिमय पाठ
+RAV Movetext: RAV गतिमय पाठ
+Annotated Games: सटीक खेल
+Openings: खुलावद
+ECO Code: ECO कोड
+Name: नाम
+Training: प्रशिक्षण
+Checkmate: शाहमात
+Endgame: अंतखेल
+Database: डेटाबेस
+Search Games: खेल खोजे
+Top Openings: शीर्ष खुलावद
+Player Stats: खिलाड़ी का सांख्यिकी
+Event Stats: घटना का सांख्यिकी
+Edit: संपाद
+Players: खिलाड़ी
+Blog: Blog
+Language: भाषा
+Settings: Settings
 
+# Footer
+About: के विषय में
+
+# Play
+Online Players: ऑनलाइन खिलाड़ी
+Create a Game: एक खेल बनाएं
+Play a Friend: एक दोस्त के साथ खेलें
+Classical chess: शास्त्रीय शतरंज
+Enter Invite Code: आमंत्रण कोड डालें
+Play Online: ऑनलाइन खेले
+Minutes per side: प्रति पक्ष मिनट
+Increment in seconds: सेकंड में बढ़ाव
+Select a variant: एक वैकल्पिकता चुनें
+Classical: शास्त्रीय
+Create Game: खेल बनाएं
+Enter a FEN: FEN डालें
+Create Invite Code: आमंत्रण कोड बनाएं
+Share this code with a friend: इस कोड को दोस्त के साथ साझा करें
+Copy and Play: कॉपी और खेलें
+Invite code: आमंत्रण कोड
+Play Computer: संगणक के साथ खेलें
+Difficulty level: कठिनाई स्तर
+Would you like a draw?: क्या आप ड्रॉ चाहेंगे ?
+Would you like a rematch?: क्या आप पुनः मुकाबला करना चाहोगे ?
+Would you like a takeback?: क्या आप वापसी चाहेंगे?
+Accept: मान्य करें
+Decline: इनकार करें
+
+# Learn
+Load: भार
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: परिवर्तन और टिप्पणियाँ हटा दी जाएंगी। उन्हें बनाए रखने के लिए, इसके बजाय एक RAV Movetext लोड करें।
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: परिवर्तन और टिप्पणियाँ रखी जाएंगी | उन्हें हटाने के लिए, इसके बजाय एक SAN Movetext लोड करें।
+
+# Openings
+Select an ECO code: एक ECO कोड चुनें।
+Flank Openings: फ्लैंक ओपनिंग्स
+Semi-Open Games other than the French Defense: फ्रेंच रक्षा के अलावा अर्ध-खुले खेल।
+Open Games and the French Defense: खुले खेल और फ्रेंच डिफेंस ।
+Closed Games and Semi-Closed Games: बंद खेल और अर्ध-बंद खेल
+Indian Defenses: भारतीय रक्षा
+Movetext: चाल पाठ
+Search: खोजे
+
+# Training
+Select a checkmate: एक शहमात का चयन करें।
+Random: आकस्मिक
+King and queen and rook vs. king and rook: राजा और रानी और रुक बनाम राजा और रुक |
+King and queen vs. king: राजा और रानी बनाम राजा
+King and rook vs. king: राजा और रुक बनाम राजा 
+King and two bishops vs. king: राजा और दो बिशप बनाम राजा
+King and bishop and knight vs. king: राजा और बिशप और नाइट बनाम राजा
+Select an endgame: एक एंडगेम चुनें।
+Pawn endgame: प्यादा का अंतिम खेल
+
+# Database
+Loading: लोडिंग हो रही है
+Click on the Search button, and find up to 25 random games matching the search criteria: खोज बटन को क्लिक करें और खोज मापदंडों के अनुसार लगभग 25 यादृच्छिक खेल ढूंढें।
+Event: घटना
+Year: साल
+White: सफेद
+Black: काला 
+Result: परिणाम
+Click on an ECO code, and find a random game matching the search criteria: ECO code पर क्लिक करें, और खोज मापदंडों के अनुसार एक यादृच्छिक खेल ढूंढें।
+
+# Edit
+Player's turn: खिलाड़ी की बारी
+Select an option: विकल्प चुनें 
+White's castling: सफेद का कास्टलिंग
+Black's castling: काले का कास्टलिंग
+En passant: एन पैसंट
+Starting Position: आरंभिक स्थान
+Clear Board: बोर्ड साफ़ करें
+Delete: मिटाएं
+
+# Clubs
+Find chess players all over the Internet and improve your chess skills. Have fun!: इंटरनेट पर शतरंज खिलाड़ियों को खोजें और अपनी शतरंज कौशल को सुधारें। मज़े करें!
+Platform: मंच
+Description: विवरण
+Join: जुड़ें
+Add a space: एक जगह जोड़ें
+
+# Blog
+ChesslaBlab's Blog: ChesslaBlab का ब्लॉग
+Discover stories about your favorite topics: अपने पसंदीदा विषयों के बारे में कहानियाँ खोजें
+
+# Partial templates
+Board: बोर्ड
+Flip Board: बोर्ड उलटें
+Copy Movetext: मूवटेक्स्ट की प्रतिलिपि बनाएं 
+Copy FEN: FEN को कॉपी करें
+Game: खेल
+Takeback: पुन: चालन करना
+Propose a takeback: एक पहल को वापस लेने की प्रस्तावना करें
+Offer draw: ड्रा का प्रस्ताव दें
+Resign: इस्तीफ़ा देना
+Offer Rematch: रीमैच का प्रस्ताव दें
+Study: अध्ययन
+Download Image: छवि डाउनलोड करें 
+Download Video: वीडियो डाउनलोड करें 
+Heuristic Charts: सन्निवेशक चार्ट
+Explain Position: स्थिति का विवरण दें 
+Soon available! Please be patient: जल्द ही उपलब्ध होगा! कृपया धैर्य रखें
+Save Changes: संशोधन सहेजें 
+ChesslaBlab is an open-source community driven project: ChesslaBlab एक ओपन-सोर्स समुदाय संचालित परियोजना है
+Let's do this: चलिए इसे करते हैं!
+
+# Settings
+Theme: थीम
+Display moves: चालें प्रदर्शित करें
+Inline: संलग्न
+Table: तालिका
+Notation: संकेतन 
+Figurine Algebraic Notation (FAN): मूर्ति बीजगणितीय संकेतन (FAN)
+Standard Algebraic Notation (SAN): मानक बीजगणितीय संकेतन (SAN)
+Piece set: पीस सेट
