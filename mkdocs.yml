@@ -8,4 +8,5 @@ nav:
   - Installation: installation.md
   - Website Architecture: website-architecture.md
   - WebSocket Integration: websocket-integration.md
+  - API Connection: api-connection.md
   - Blog: blog.md
