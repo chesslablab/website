@@ -2,6 +2,8 @@
 
 The ChesslaBlab website is integrated with [PHP Chess Server](https://chesslablab.github.io/chess-server/), an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.
 
+The environment variables required for the chess server can be found in the [assets/env.example.js](https://github.com/chesslablab/website/blob/main/assets/env.example.js) file.
+
 As described in [the docs](https://chesslablab.github.io/chess-server/start/), these are the game modes available:
 
 - `fen` is used to start games from specific chess positions.
