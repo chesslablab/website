@@ -1,4 +1,4 @@
-# WebSocket Integration
+# WebSocket Connection
 
 The ChesslaBlab website is integrated with [PHP Chess Server](https://chesslablab.github.io/chess-server/), an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.
 
@@ -18,7 +18,7 @@ The WebSocket ESM modules are implemented based on this same separation of conce
 
 Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.
 
-![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_01.png)
+![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_01.png)
 
 **Figure 1**. Click on **Openings > ECO Code** and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"
 
@@ -75,7 +75,7 @@ Remember, the structure of the [App\Controller\Pages](https://github.com/chessla
 
 Similarly, if you wanted to study a chess position, then a game in FEN mode needs to be started.
 
-![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-integration_02.png)
+![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_02.png)
 
 **Figure 2**. Click on **Learn > FEN String** and enter a classical chess position in FEN format.
 
