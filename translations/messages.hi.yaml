@@ -4,7 +4,7 @@ Online: सम्पर्कयुत
 Computer: संगणक
 Learn: सीखें
 Classical Chess: शास्त्रीय शतरंज
-Fischer Random: फिशर रेंडम 
+Fischer Random: फिशर रेंडम
 FEN String: FEN स्ट्रिंग
 SAN Movetext: SAN गतिमय पाठ
 RAV Movetext: RAV गतिमय पाठ
@@ -74,7 +74,7 @@ Select a checkmate: एक शहमात का चयन करें।
 Random: आकस्मिक
 King and queen and rook vs. king and rook: राजा और रानी और रुक बनाम राजा और रुक |
 King and queen vs. king: राजा और रानी बनाम राजा
-King and rook vs. king: राजा और रुक बनाम राजा 
+King and rook vs. king: राजा और रुक बनाम राजा
 King and two bishops vs. king: राजा और दो बिशप बनाम राजा
 King and bishop and knight vs. king: राजा और बिशप और नाइट बनाम राजा
 Select an endgame: एक एंडगेम चुनें।
@@ -86,13 +86,13 @@ Click on the Search button, and find up to 25 random games matching the search c
 Event: घटना
 Year: साल
 White: सफेद
-Black: काला 
+Black: काला
 Result: परिणाम
 Click on an ECO code, and find a random game matching the search criteria: ECO code पर क्लिक करें, और खोज मापदंडों के अनुसार एक यादृच्छिक खेल ढूंढें।
 
 # Edit
 Player's turn: खिलाड़ी की बारी
-Select an option: विकल्प चुनें 
+Select an option: विकल्प चुनें
 White's castling: सफेद का कास्टलिंग
 Black's castling: काले का कास्टलिंग
 En passant: एन पैसंट
@@ -114,21 +114,21 @@ Discover stories about your favorite topics: अपने पसंदीदा 
 # Partial templates
 Board: बोर्ड
 Flip Board: बोर्ड उलटें
-Copy Movetext: मूवटेक्स्ट की प्रतिलिपि बनाएं 
+Copy Movetext: मूवटेक्स्ट की प्रतिलिपि बनाएं
 Copy FEN: FEN को कॉपी करें
 Game: खेल
-Takeback: पुन: चालन करना
+Takeback: पुन चालन करना
 Propose a takeback: एक पहल को वापस लेने की प्रस्तावना करें
 Offer draw: ड्रा का प्रस्ताव दें
 Resign: इस्तीफ़ा देना
 Offer Rematch: रीमैच का प्रस्ताव दें
 Study: अध्ययन
-Download Image: छवि डाउनलोड करें 
-Download Video: वीडियो डाउनलोड करें 
+Download Image: छवि डाउनलोड करें
+Download Video: वीडियो डाउनलोड करें
 Heuristic Charts: सन्निवेशक चार्ट
-Explain Position: स्थिति का विवरण दें 
+Explain Position: स्थिति का विवरण दें
 Soon available! Please be patient: जल्द ही उपलब्ध होगा! कृपया धैर्य रखें
-Save Changes: संशोधन सहेजें 
+Save Changes: संशोधन सहेजें
 ChesslaBlab is an open-source community driven project: ChesslaBlab एक ओपन-सोर्स समुदाय संचालित परियोजना है
 Let's do this: चलिए इसे करते हैं!
 
@@ -137,7 +137,7 @@ Theme: थीम
 Display moves: चालें प्रदर्शित करें
 Inline: संलग्न
 Table: तालिका
-Notation: संकेतन 
+Notation: संकेतन
 Figurine Algebraic Notation (FAN): मूर्ति बीजगणितीय संकेतन (FAN)
 Standard Algebraic Notation (SAN): मानक बीजगणितीय संकेतन (SAN)
 Piece set: पीस सेट

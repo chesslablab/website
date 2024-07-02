@@ -3,7 +3,7 @@ blog:
     controller: App\Controller\BlogController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de
+      _locale:  en|es|fr|ru|tr|de|hi
     options:
       sitemap:
         _locale: en|es
@@ -22,7 +22,7 @@ blog_hello_world:
     controller: App\Controller\BlogController::entry
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de
+      _locale:  en|es|fr|ru|tr|de|hi
     options:
       sitemap:
         _locale: en|es
@@ -49,7 +49,7 @@ blog_getting_started:
     controller: App\Controller\BlogController::entry
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de
+      _locale:  en|es|fr|ru|tr|de|hi
     options:
       sitemap:
         _locale: en|es
