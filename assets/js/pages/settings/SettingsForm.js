@@ -2,30 +2,8 @@ import AbstractComponent from "../../AbstractComponent.js";
 
 export class SettingsForm extends AbstractComponent {
 	mount() {
-		const locale = localStorage.getItem("local");
-
-		switch (locale) {
-			case "es":
-				this.el.querySelector('select[name="locale"]').value = "es";
-				break;
-			case "fr":
-				this.el.querySelector('select[name="locale"]').value = "fr";
-				break;
-			case "ru":
-				this.el.querySelector('select[name="locale"]').value = "ru";
-				break;
-			case "tr":
-				this.el.querySelector('select[name="locale"]').value = "tr";
-				break;
-			case "de":
-				this.el.querySelector('select[name="locale"]').value = "de";
-				break;
-			case "hi":
-				this.el.querySelector('select[name="locale"]').value = "hi";
-				break;
-			default:
-				this.el.querySelector('select[name="locale"]').value = "en";
-		}
+		this.el.querySelector('select[name="locale"]').value =
+			localStorage.getItem("local") || "en";
 
 		if (localStorage.getItem("theme") === "dark") {
 			this.el.querySelector('select[name="theme"]').value = "dark";
