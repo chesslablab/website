@@ -2,18 +2,8 @@ import AbstractComponent from '../../AbstractComponent.js';
 
 export class SettingsForm extends AbstractComponent {
   mount() {
-    if (localStorage.getItem('locale') === 'es') {
-      this.el.querySelector('select[name="locale"]').value = 'es';
-    } else if (localStorage.getItem('locale') === 'fr') {
-      this.el.querySelector('select[name="locale"]').value = 'fr';
-    } else if (localStorage.getItem('locale') === 'ru') {
-      this.el.querySelector('select[name="locale"]').value = 'ru';
-    } else if (localStorage.getItem('locale') === 'tr') {
-      this.el.querySelector('select[name="locale"]').value = 'tr';
-    } else if (localStorage.getItem('locale') === 'de') {
-      this.el.querySelector('select[name="locale"]').value = 'de';
-    } else if (localStorage.getItem('locale') === 'hi') {
-      this.el.querySelector('select[name="locale"]').value = 'hi';
+    if (localStorage.getItem('locale') !== 'en') {
+      this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale');
     } else {
       this.el.querySelector('select[name="locale"]').value = 'en';
     }
