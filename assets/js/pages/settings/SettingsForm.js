@@ -8,10 +8,12 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="locale"]').value = 'fr';
     } else if (localStorage.getItem('locale') === 'ru') {
       this.el.querySelector('select[name="locale"]').value = 'ru';
-    }  else if (localStorage.getItem('locale') === 'tr') {
+    } else if (localStorage.getItem('locale') === 'tr') {
       this.el.querySelector('select[name="locale"]').value = 'tr';
-    }  else if (localStorage.getItem('locale') === 'de') {
+    } else if (localStorage.getItem('locale') === 'de') {
       this.el.querySelector('select[name="locale"]').value = 'de';
+    } else if (localStorage.getItem('locale') === 'hi') {
+      this.el.querySelector('select[name="locale"]').value = 'hi';
     } else {
       this.el.querySelector('select[name="locale"]').value = 'en';
     }
