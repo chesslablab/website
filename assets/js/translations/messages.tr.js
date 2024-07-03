@@ -2,6 +2,7 @@ const messagesTr = {
   // Abstract
   "Draw by the fifty-move rule": "Elli hamle kuralına göre çizin",
   "Draw by stalemate": "Beraberlikle pat",
+  "Draw by fivefold repetition": "Beş kat tekrarlayarak çizin",
   // Play
   "Waiting for player to join": "Oyuncunun bağlanması bekleniyor",
   // PlayWebSocket

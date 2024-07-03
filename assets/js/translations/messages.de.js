@@ -2,6 +2,7 @@ const messagesDe = {
   // Abstract
   "Draw by the fifty-move rule": "Remis nach der Fünfzig-Züge-Regel",
   "Draw by stalemate": "Remis durch Patt",
+  "Draw by fivefold repetition": "Remis durch fünffache Wiederholung",
   // Play
   "Waiting for player to join": "Warten auf Spielerbeitritt",
   // PlayWebSocket
