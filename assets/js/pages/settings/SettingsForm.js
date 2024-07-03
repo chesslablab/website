@@ -2,7 +2,7 @@ import AbstractComponent from '../../AbstractComponent.js';
 
 export class SettingsForm extends AbstractComponent {
   mount() {
-    if (localStorage.getItem('locale') !== 'en') {
+    if (localStorage.getItem('locale')) {
       this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale');
     } else {
       this.el.querySelector('select[name="locale"]').value = 'en';
