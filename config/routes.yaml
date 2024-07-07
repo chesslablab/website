@@ -72,6 +72,13 @@ pages_learn_classical:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_learn_dunsany:
+    path:       /{_locale}/learn/dunsany
+    controller: App\Controller\Pages\Learn\DunsanyController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_learn_fen_string:
     path:       /{_locale}/learn/fen-string
     controller: App\Controller\Pages\Learn\FenStringController::index
