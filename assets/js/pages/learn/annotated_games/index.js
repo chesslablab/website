@@ -10,9 +10,6 @@ const handleClick = async (game) => {
     progressModal.props.modal.show();
     const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
       method: 'POST',
-      headers: {
-        'X-Api-Key': `${env.API_KEY}`
-      },
       body: JSON.stringify({
         variant: variant.CLASSICAL,
         movetext: game.movetext,
@@ -37,10 +34,7 @@ const handleClick = async (game) => {
 try {
   progressModal.props.modal.show();
   const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/annotations/games`, {
-    method: 'GET',
-    headers: {
-      'X-Api-Key': `${env.API_KEY}`
-    }
+    method: 'GET'
   });
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();

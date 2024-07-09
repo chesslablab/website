@@ -16,9 +16,6 @@ export class HeuristicsModal extends AbstractComponent {
       this.props.progressModal.props.modal.show();
       const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/eval/names`, {
         method: 'POST',
-        headers: {
-          'X-Api-Key': `${env.API_KEY}`
-        },
         // exclude time-consuming heuristics
         body: JSON.stringify({
           function: 'Standard',
@@ -44,9 +41,6 @@ export class HeuristicsModal extends AbstractComponent {
         const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/heuristic`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             variant: variant.CLASSICAL,
             movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),

@@ -11,9 +11,6 @@ export class EventAutocomplete extends AbstractComponent {
           this.props.loadingButton.classList.remove('d-none');
           const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/event`, {
             method: 'POST',
-            headers: {
-              'X-Api-Key': `${env.API_KEY}`
-            },
             body: JSON.stringify({
               Event: event.target.value
             })
