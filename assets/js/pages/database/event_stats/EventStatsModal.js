@@ -24,9 +24,6 @@ export class EventStatsModal extends AbstractComponent {
         const { dataIndex, raw } = clickedElements[0].element.$context;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             Event: formData.get('Event'),
             Result: formData.get('Result'),
@@ -54,9 +51,6 @@ export class EventStatsModal extends AbstractComponent {
         const eventStatsChart = document.getElementById('eventStatsChart');
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/event`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             Event: formData.get('Event'),
             Result: formData.get('Result')

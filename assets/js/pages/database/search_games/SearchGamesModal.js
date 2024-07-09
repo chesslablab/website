@@ -21,9 +21,6 @@ export class SearchGamesModal extends AbstractComponent {
         const formData = new FormData(this.props.form);
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             Event: formData.get('Event'),
             Date: formData.get('Date'),

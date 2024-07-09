@@ -15,9 +15,6 @@ export class FenWebSocket extends AbstractWebSocket {
         this._progressModal.props.modal.show();
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
           })
@@ -37,9 +34,6 @@ export class FenWebSocket extends AbstractWebSocket {
         this._progressModal.props.modal.show();
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/good-move`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             fen: fenPanel.props.sanMovesBrowser.props.fen[fenPanel.props.sanMovesBrowser.current]
           })

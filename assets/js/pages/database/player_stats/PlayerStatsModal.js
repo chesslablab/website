@@ -25,9 +25,6 @@ export class PlayerStatsModal extends AbstractComponent {
         const { dataIndex, raw } = clickedElements[0].element.$context;
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             White: formData.get('White'),
             Black: formData.get('Black'),
@@ -56,9 +53,6 @@ export class PlayerStatsModal extends AbstractComponent {
         const playerStatsChart = document.getElementById('playerStatsChart');
         const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/player`, {
           method: 'POST',
-          headers: {
-            'X-Api-Key': `${env.API_KEY}`
-          },
           body: JSON.stringify({
             White: formData.get('White'),
             Black: formData.get('Black'),

@@ -11,9 +11,6 @@ export class BlackAutocomplete extends AbstractComponent {
           this.props.loadingButton.classList.remove('d-none');
           const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
             method: 'POST',
-            headers: {
-              'X-Api-Key': `${env.API_KEY}`
-            },
             body: JSON.stringify({
               Black: event.target.value
             })
