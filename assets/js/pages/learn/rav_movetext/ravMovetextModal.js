@@ -17,7 +17,7 @@ export class RavMovetextModal extends AbstractComponent {
       }
     });
 
-    this.props.form.addEventListener('submit', event => {
+    this.props.form.addEventListener('submit', async event => {
       try {
         event.preventDefault();
         progressModal.props.modal.show();
