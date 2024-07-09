@@ -38,6 +38,10 @@ return [
         'path' => './assets/js/pages/learn/rav_movetext/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/learn/racing_kings/index.js' => [
+        'path' => './assets/js/pages/learn/racing_kings/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/learn/san_movetext/index.js' => [
         'path' => './assets/js/pages/learn/san_movetext/index.js',
         'entrypoint' => true,
