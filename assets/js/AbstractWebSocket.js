@@ -53,7 +53,19 @@ export default class AbstractWebSocket {
   }
 
   _gameOver(res) {
-    if (res.isMate) {
+    if (res.doesWin) {
+      this._infoModal.props.msg = "It's a win";
+      this._infoModal.mount();
+      this._infoModal.props.modal.show();
+      this._end();
+      return true;
+    } else if (res.doesDraw) {
+      this._infoModal.props.msg = "It's a draw";
+      this._infoModal.mount();
+      this._infoModal.props.modal.show();
+      this._end();
+      return true;
+    } else if (res.isMate) {
       this._infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
       this._infoModal.mount();
       this._infoModal.props.modal.show();
