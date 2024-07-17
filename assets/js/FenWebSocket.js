@@ -1,4 +1,4 @@
-import { MARKER_TYPE } from '@chesslablab/cmblab';
+import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/jsblab';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { fenPanel } from './pages/FenPanel.js';

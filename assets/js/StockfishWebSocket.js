@@ -1,4 +1,4 @@
-import { COLOR, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/jsblab';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { stockfishPanel } from './pages/StockfishPanel.js';

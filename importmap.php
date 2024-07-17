@@ -102,8 +102,8 @@ return [
         'path' => './assets/js/pages/edit/index.js',
         'entrypoint' => true,
     ],
-    '@chesslablab/cmblab' => [
-        'version' => '0.0.3',
+    '@chesslablab/chessboard' => [
+        'version' => '0.0.4',
     ],
     '@chesslablab/jsblab' => [
         'version' => '0.3.6',

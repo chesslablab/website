@@ -1,4 +1,4 @@
-import { COLOR, FEN, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, FEN, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/jsblab';
 import { jwtDecode } from 'jwt-decode';
 import AbstractWebSocket from './AbstractWebSocket.js';

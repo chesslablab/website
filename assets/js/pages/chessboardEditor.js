@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { Chessboard, BORDER_TYPE, FEN } from '@chesslablab/cmblab';
+import { Chessboard, BORDER_TYPE, FEN } from '@chesslablab/chessboard';
 import { ChessboardEditor } from '@chesslablab/jsblab';
 
 const chessboardEditor = new ChessboardEditor(
@@ -8,7 +8,7 @@ const chessboardEditor = new ChessboardEditor(
     chessboard: new Chessboard(
       document.getElementById('chessboard'),
       {
-        assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/cmblab@0.0.3/assets/",
+        assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/",
         position: FEN.start,
         style: {
           borderType: BORDER_TYPE.thin,

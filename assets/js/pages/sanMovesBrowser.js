@@ -1,4 +1,4 @@
-import { FEN } from '@chesslablab/cmblab';
+import { FEN } from '@chesslablab/chessboard';
 import { SanMovesFactory } from '@chesslablab/jsblab';
 import chessboard from './chessboard.js';
 

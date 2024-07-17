@@ -7,13 +7,13 @@ import {
   Markers,
   FEN,
   PromotionDialog
-} from '@chesslablab/cmblab';
+} from '@chesslablab/chessboard';
 
 const chessboard = new Chessboard(
   document.getElementById("chessboard"),
   {
     position: FEN.start,
-    assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/cmblab@0.0.3/assets/",
+    assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/",
     style: {
       borderType: BORDER_TYPE.thin,
       ...(localStorage.getItem('set') === 'staunty') && {pieces: {file: "pieces/staunty.svg"}},

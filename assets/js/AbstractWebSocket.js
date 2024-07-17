@@ -1,4 +1,4 @@
-import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/cmblab';
+import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
 import chessboard from './pages/chessboard.js';
 import { infoModal } from './pages/InfoModal.js';
 import { progressModal } from './pages/ProgressModal.js';
