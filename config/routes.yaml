@@ -93,6 +93,13 @@ pages_learn_fischer_random:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_learn_losing:
+    path:       /{_locale}/learn/losing
+    controller: App\Controller\Pages\Learn\LosingController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_learn_racing_kings:
     path:       /{_locale}/learn/racing-kings
     controller: App\Controller\Pages\Learn\RacingKingsController::index
