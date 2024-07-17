@@ -13,7 +13,7 @@ const chessboard = new Chessboard(
   document.getElementById("chessboard"),
   {
     position: FEN.start,
-    assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
+    assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/cmblab@0.0.3/assets/",
     style: {
       borderType: BORDER_TYPE.thin,
       ...(localStorage.getItem('set') === 'staunty') && {pieces: {file: "pieces/staunty.svg"}},

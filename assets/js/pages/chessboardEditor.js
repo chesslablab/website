@@ -8,7 +8,7 @@ const chessboardEditor = new ChessboardEditor(
     chessboard: new Chessboard(
       document.getElementById('chessboard'),
       {
-        assetsUrl: "https://cdn.jsdelivr.net/npm/cm-chessboard@8.5.0/assets/",
+        assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/cmblab@0.0.3/assets/",
         position: FEN.start,
         style: {
           borderType: BORDER_TYPE.thin,

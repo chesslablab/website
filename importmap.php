@@ -30,6 +30,10 @@ return [
         'path' => './assets/js/pages/learn/dunsany/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/learn/losing/index.js' => [
+        'path' => './assets/js/pages/learn/losing/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/learn/fischer_random/index.js' => [
         'path' => './assets/js/pages/learn/fischer_random/index.js',
         'entrypoint' => true,
@@ -99,7 +103,7 @@ return [
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [
-        'version' => '0.0.1',
+        'version' => '0.0.3',
     ],
     '@chesslablab/jsblab' => [
         'version' => '0.3.6',
