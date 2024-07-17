@@ -103,7 +103,7 @@ return [
         'entrypoint' => true,
     ],
     '@chesslablab/cmblab' => [
-        'version' => '0.0.1',
+        'version' => '0.0.3',
     ],
     '@chesslablab/jsblab' => [
         'version' => '0.3.6',
