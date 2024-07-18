@@ -72,23 +72,9 @@ pages_learn_annotated_games:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_learn_fen_string:
-    path:       /{_locale}/learn/fen-string
-    controller: App\Controller\Pages\Learn\FenStringController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_learn_rav_movetext:
     path:       /{_locale}/learn/rav-movetext
     controller: App\Controller\Pages\Learn\RavMovetextController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_learn_san_movetext:
-    path:       /{_locale}/learn/san-movetext
-    controller: App\Controller\Pages\Learn\SanMovetextController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi

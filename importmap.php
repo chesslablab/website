@@ -30,14 +30,6 @@ return [
         'path' => './assets/js/pages/learn/rav_movetext/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/learn/san_movetext/index.js' => [
-        'path' => './assets/js/pages/learn/san_movetext/index.js',
-        'entrypoint' => true,
-    ],
-    'js/pages/learn/fen_string/index.js' => [
-        'path' => './assets/js/pages/learn/fen_string/index.js',
-        'entrypoint' => true,
-    ],
     'js/pages/learn/annotated_games/index.js' => [
         'path' => './assets/js/pages/learn/annotated_games/index.js',
         'entrypoint' => true,
