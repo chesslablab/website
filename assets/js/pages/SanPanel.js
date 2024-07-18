@@ -15,7 +15,7 @@ export class SanPanel extends AbstractComponent {
 }
 
 export const sanPanel = new SanPanel(
-  document.getElementById('fenPanel'),
+  document.getElementById('sanPanel'),
   {
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,
