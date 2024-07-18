@@ -22,6 +22,10 @@ return [
         'path' => './assets/js/pages/play/computer/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/learn/analysis_board/index.js' => [
+        'path' => './assets/js/pages/learn/analysis_board/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/learn/classical/index.js' => [
         'path' => './assets/js/pages/learn/classical/index.js',
         'entrypoint' => true,

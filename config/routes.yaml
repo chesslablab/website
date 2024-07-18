@@ -58,6 +58,13 @@ pages_edit:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_learn_analysis_board:
+    path:       /{_locale}/learn/analysis-board
+    controller: App\Controller\Pages\Learn\AnalysisBoardController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_learn_annotated_games:
     path:       /{_locale}/learn/annotated-games
     controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
