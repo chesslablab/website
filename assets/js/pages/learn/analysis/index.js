@@ -1,8 +1,9 @@
+import { FEN } from '@chesslablab/chessboard';
 import { gameForm } from './GameForm.js';
-import { fenWebSocket } from '../../../FenWebSocket.js';
+import { sanWebSocket } from '../../../SanWebSocket.js';
 
-await fenWebSocket.connect();
+await sanWebSocket.connect();
 
 sessionStorage.clear();
 
-fenWebSocket.send('/start classical fen');
+sanWebSocket.send(`/start classical san`);
