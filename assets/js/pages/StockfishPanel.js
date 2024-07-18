@@ -12,7 +12,7 @@ export class StockfishPanel extends AbstractComponent {
 }
 
 export const stockfishPanel = new StockfishPanel(
-  document.getElementById('fenPanel'),
+  document.getElementById('sanPanel'),
   {
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,

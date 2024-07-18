@@ -1,0 +1,20 @@
+<form id="gameForm" class="p-3 bg-light">
+  <div class="mb-3">
+    <select name="variant" class="form-select" aria-label="{{ 'Variant'|trans }}" required>
+      <option value="classical">{{ 'Classical chess'|trans }}</option>
+      <option value="960">{{ 'Fischer Random'|trans }}</option>
+      <option value="dunsany">{{ 'Dunsany'|trans }}</option>
+      <option value="losing">{{ 'Losing Chess'|trans }}</option>
+      <option value="racing-kings">{{ 'Racing Kings'|trans }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <input type="text" name="fen" placeholder="{{ 'Enter a FEN'|trans }}" class="form-control">
+  </div>
+  <div class="mb-3">
+    <textarea name="san" placeholder="{{ 'Enter a movetext'|trans }}" class="form-control" rows="3"></textarea>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary w-100">{{ 'Load'|trans }}</button>
+  </div>
+</form>
