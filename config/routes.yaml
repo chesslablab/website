@@ -72,44 +72,9 @@ pages_learn_annotated_games:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_learn_classical:
-    path:       /{_locale}/learn/classical
-    controller: App\Controller\Pages\Learn\ClassicalController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_learn_dunsany:
-    path:       /{_locale}/learn/dunsany
-    controller: App\Controller\Pages\Learn\DunsanyController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_learn_fen_string:
     path:       /{_locale}/learn/fen-string
     controller: App\Controller\Pages\Learn\FenStringController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_learn_fischer_random:
-    path:       /{_locale}/learn/fischer-random
-    controller: App\Controller\Pages\Learn\FischerRandomController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_learn_losing:
-    path:       /{_locale}/learn/losing
-    controller: App\Controller\Pages\Learn\LosingController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_learn_racing_kings:
-    path:       /{_locale}/learn/racing-kings
-    controller: App\Controller\Pages\Learn\RacingKingsController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
