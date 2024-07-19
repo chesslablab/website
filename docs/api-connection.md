@@ -8,10 +8,7 @@ The environment variables required for the API can be found in the [assets/env.e
 
 try {
   const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
-    method: 'GET',
-    headers: {
-      'X-Api-Key': `${env.API_KEY}`
-    }
+    method: 'GET'
   });
   const json = await res.json();
   // ...
