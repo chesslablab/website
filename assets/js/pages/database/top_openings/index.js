@@ -1,6 +1,6 @@
 import { topOpeningsModal } from './TopOpeningsModal.js';
 import { progressModal } from '../../ProgressModal.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { sanWebSocket } from '../../../AnalysisWebSocket.js';
 import * as env from '../../../../env.js';
 
 await sanWebSocket.connect();

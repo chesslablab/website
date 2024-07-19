@@ -1,5 +1,5 @@
 import { playerStatsModal } from './PlayerStatsModal.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { sanWebSocket } from '../../../AnalysisWebSocket.js';
 
 await sanWebSocket.connect();
 

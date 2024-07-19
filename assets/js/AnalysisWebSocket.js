@@ -5,7 +5,7 @@ import { sanPanel } from './pages/SanPanel.js';
 import * as env from '../env.js';
 import * as variant from '../variant.js';
 
-export class SanWebSocket extends AbstractWebSocket {
+export class AnalysisWebSocket extends AbstractWebSocket {
   constructor() {
     super();
 
@@ -141,4 +141,4 @@ export class SanWebSocket extends AbstractWebSocket {
   }
 }
 
-export const sanWebSocket = new SanWebSocket();
+export const sanWebSocket = new AnalysisWebSocket();

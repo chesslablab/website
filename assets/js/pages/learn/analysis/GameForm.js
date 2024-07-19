@@ -1,5 +1,5 @@
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { sanWebSocket } from '../../../AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
 
 export class GameForm extends AbstractComponent {

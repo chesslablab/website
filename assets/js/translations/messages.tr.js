@@ -14,7 +14,7 @@ const messagesTr = {
   "Draw offer accepted": "Beraberlik isteği kabul edili",
   "The game is resigned": "Oyun sona erdi",
   "Your opponent is gone": "Rakibiniz çekildi",
-  // SanWebSocket
+  // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "Geçersiz SAN metintaşı, lütfen tekrar deneyin"
 };
 

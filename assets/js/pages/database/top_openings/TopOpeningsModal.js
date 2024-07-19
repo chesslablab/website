@@ -3,7 +3,7 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { sanWebSocket } from '../../../AnalysisWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
