@@ -1,7 +1,7 @@
 import { searchGamesModal } from './SearchGamesModal.js';
-import { sanWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 
-await sanWebSocket.connect();
+await analysisWebSocket.connect();
 
 sessionStorage.clear();
 

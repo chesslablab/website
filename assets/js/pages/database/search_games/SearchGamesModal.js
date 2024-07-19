@@ -6,7 +6,7 @@ import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -67,7 +67,7 @@ export class SearchGamesModal extends AbstractComponent {
             const add = {
               movetext: game.movetext
             };
-            sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+            analysisWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
             this.props.movesMetadataTable.props = game;
             this.props.movesMetadataTable.mount();
             this.props.modal.hide();

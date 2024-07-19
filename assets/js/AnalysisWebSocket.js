@@ -141,4 +141,4 @@ export class AnalysisWebSocket extends AbstractWebSocket {
   }
 }
 
-export const sanWebSocket = new AnalysisWebSocket();
+export const analysisWebSocket = new AnalysisWebSocket();

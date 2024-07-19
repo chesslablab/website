@@ -1,12 +1,12 @@
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
 
 export class GameForm extends AbstractComponent {
   mount() {
     this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
-      sanWebSocket.send(`/start ${event.target.value} ${mode.SAN}`);
+      analysisWebSocket.send(`/start ${event.target.value} ${mode.SAN}`);
     });
 
     this.el.addEventListener('submit', event => {
@@ -15,7 +15,7 @@ export class GameForm extends AbstractComponent {
         fen: event.target.fen.value,
         movetext: event.target.san.value
       };
-      sanWebSocket.send(`/start ${event.target.variant.value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      analysisWebSocket.send(`/start ${event.target.variant.value} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
     });
   }
 }

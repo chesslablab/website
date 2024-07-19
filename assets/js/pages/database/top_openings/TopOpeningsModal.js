@@ -3,7 +3,7 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -32,7 +32,7 @@ export class TopOpeningsModal extends AbstractComponent {
         const add = {
           movetext: this.props.movesMetadataTable.props.movetext
         };
-        sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
       } finally {
         this.props.modal.hide();
