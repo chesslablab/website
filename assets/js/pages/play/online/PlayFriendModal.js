@@ -19,7 +19,7 @@ export class PlayFriendModal extends AbstractComponent {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.props.form);
-      const add = {
+      const settings = {
         min: formData.get('minutes'),
         increment: formData.get('increment'),
         color: formData.get('color'),
@@ -28,7 +28,7 @@ export class PlayFriendModal extends AbstractComponent {
         ...(formData.get('fen') && {fen: formData.get('fen')})
       };
       sessionStorage.setItem('color', formData.get('color'));
-      playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
       this.props.copyInviteCodeModal.props.modal.show();
     });

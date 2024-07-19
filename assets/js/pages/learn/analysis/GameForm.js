@@ -12,12 +12,12 @@ export class GameForm extends AbstractComponent {
 
     this.el.addEventListener('submit', event => {
       event.preventDefault();
-      const add = {
+      const settings = {
         fen: event.target.fen.value,
         movetext: event.target.san.value
       };
       sessionStorage.clear();
-      analysisWebSocket.send(`/start ${event.target.variant.value} ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+      analysisWebSocket.send(`/start ${event.target.variant.value} ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
     });
   }
 }

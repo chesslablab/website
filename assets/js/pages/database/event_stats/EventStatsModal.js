@@ -32,10 +32,10 @@ export class EventStatsModal extends AbstractComponent {
         });
         this.props.movesMetadataTable.props = (await res.json())[0];
         this.props.movesMetadataTable.mount();
-        const add = {
+        const settings = {
           movetext: this.props.movesMetadataTable.props.movetext
         };
-        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       } catch (error) {
       } finally {
         this.props.modal.hide();

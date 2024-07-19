@@ -20,10 +20,10 @@ class OpeningsTable extends AbstractComponent {
       tr.appendChild(nameTd);
       tr.appendChild(movetextTd);
       tr.addEventListener('click', event => {
-        const add = {
+        const settings = {
           movetext: opening.movetext
         };
-        analysisWebSocket.send(`/start ${variant.CLASSICAL} ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start ${variant.CLASSICAL} ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
         this.props.modal.hide();
       });
       this.el.querySelector('tbody').appendChild(tr);
