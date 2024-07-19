@@ -1,7 +1,7 @@
 import { playerStatsModal } from './PlayerStatsModal.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 
-await sanWebSocket.connect();
+await analysisWebSocket.connect();
 
 sessionStorage.clear();
 

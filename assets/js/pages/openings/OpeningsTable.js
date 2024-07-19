@@ -1,6 +1,6 @@
 import { Movetext } from '@chesslablab/jsblab';
 import AbstractComponent from '../../AbstractComponent.js';
-import { sanWebSocket } from '../../SanWebSocket.js';
+import { analysisWebSocket } from '../../AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
@@ -23,7 +23,7 @@ class OpeningsTable extends AbstractComponent {
         const add = {
           movetext: opening.movetext
         };
-        sanWebSocket.send(`/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start ${variant.CLASSICAL} ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
         this.props.modal.hide();
       });
       this.el.querySelector('tbody').appendChild(tr);

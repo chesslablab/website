@@ -5,7 +5,7 @@ import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -37,7 +37,7 @@ export class PlayerStatsModal extends AbstractComponent {
         const add = {
           movetext: this.props.movesMetadataTable.props.movetext
         };
-        sanWebSocket.send(`/start classical ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
       } catch (error) {
       } finally {
         this.props.modal.hide();

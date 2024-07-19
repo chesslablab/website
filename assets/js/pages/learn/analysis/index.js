@@ -1,9 +1,10 @@
 import { FEN } from '@chesslablab/chessboard';
 import { gameForm } from './GameForm.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import * as mode from '../../../../mode.js';
 
-await sanWebSocket.connect();
+await analysisWebSocket.connect();
 
 sessionStorage.clear();
 
-sanWebSocket.send(`/start classical san`);
+analysisWebSocket.send(`/start classical ${mode.ANALYSIS}`);
