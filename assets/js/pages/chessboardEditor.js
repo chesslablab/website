@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Chessboard, BORDER_TYPE, FEN } from '@chesslablab/chessboard';
-import { ChessboardEditor } from '@chesslablab/jsblab';
+import { ChessboardEditor } from '@chesslablab/js-utils';
 
 const chessboardEditor = new ChessboardEditor(
   document.querySelector('#chessboardEditor'),

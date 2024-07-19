@@ -81,8 +81,8 @@ return [
     '@chesslablab/chessboard' => [
         'version' => '0.0.4',
     ],
-    '@chesslablab/jsblab' => [
-        'version' => '0.3.6',
+    '@chesslablab/js-utils' => [
+        'version' => '0.3.7',
     ],
     'bootstrap' => [
         'version' => '5.3.2',

@@ -1,5 +1,5 @@
 import { FEN } from '@chesslablab/chessboard';
-import { RavMovesFactory } from '@chesslablab/jsblab';
+import { RavMovesFactory } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
 
 const ravMovesBrowser = RavMovesFactory.create(

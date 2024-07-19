@@ -1,4 +1,4 @@
-import { Movetext, NOTATION_SAN } from '@chesslablab/jsblab';
+import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
 import { heuristicsModal } from './HeuristicsModal.js';
 import { progressModal } from './ProgressModal.js';

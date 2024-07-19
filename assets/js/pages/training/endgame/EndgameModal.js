@@ -1,4 +1,4 @@
-import { Pgn } from '@chesslablab/jsblab';
+import { Pgn } from '@chesslablab/js-utils';
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { stockfishWebSocket } from '../../../StockfishWebSocket.js';

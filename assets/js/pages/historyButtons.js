@@ -1,4 +1,4 @@
-import { HistoryButtons } from '@chesslablab/jsblab';
+import { HistoryButtons } from '@chesslablab/js-utils';
 import sanMovesBrowser from './sanMovesBrowser.js';
 
 const historyButtons = new HistoryButtons(

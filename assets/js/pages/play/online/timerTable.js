@@ -1,4 +1,4 @@
-import { TimerTable } from '@chesslablab/jsblab';
+import { TimerTable } from '@chesslablab/js-utils';
 
 export const timerTable = new TimerTable(
   document.querySelector('#timerTable tbody'),

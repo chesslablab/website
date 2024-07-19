@@ -1,5 +1,5 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
-import { Movetext } from '@chesslablab/jsblab';
+import { Movetext } from '@chesslablab/js-utils';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { sanPanel } from './pages/SanPanel.js';
 import * as env from '../env.js';

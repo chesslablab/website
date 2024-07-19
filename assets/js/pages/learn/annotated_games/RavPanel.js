@@ -1,4 +1,4 @@
-import { BoardActionsDropdown, HistoryButtons } from '@chesslablab/jsblab';
+import { BoardActionsDropdown, HistoryButtons } from '@chesslablab/js-utils';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import ravMovesBrowser from '../../ravMovesBrowser.js';
 import AbstractComponent from '../../../AbstractComponent.js';

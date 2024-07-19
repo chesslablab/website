@@ -1,5 +1,5 @@
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
-import { Movetext } from '@chesslablab/jsblab';
+import { Movetext } from '@chesslablab/js-utils';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { stockfishPanel } from './pages/StockfishPanel.js';
 import * as env from '../env.js';

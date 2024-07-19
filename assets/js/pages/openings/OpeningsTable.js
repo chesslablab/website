@@ -1,4 +1,4 @@
-import { Movetext } from '@chesslablab/jsblab';
+import { Movetext } from '@chesslablab/js-utils';
 import AbstractComponent from '../../AbstractComponent.js';
 import { analysisWebSocket } from '../../AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';

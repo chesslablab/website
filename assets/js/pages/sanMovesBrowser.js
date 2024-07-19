@@ -1,5 +1,5 @@
 import { FEN } from '@chesslablab/chessboard';
-import { SanMovesFactory } from '@chesslablab/jsblab';
+import { SanMovesFactory } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
 
 const sanMovesBrowser = SanMovesFactory.create(

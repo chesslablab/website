@@ -1,5 +1,5 @@
 import { COLOR, FEN, MARKER_TYPE } from '@chesslablab/chessboard';
-import { Movetext } from '@chesslablab/jsblab';
+import { Movetext } from '@chesslablab/js-utils';
 import { jwtDecode } from 'jwt-decode';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { copyInviteCodeModal } from './pages/play/online/CopyInviteCodeModal.js';

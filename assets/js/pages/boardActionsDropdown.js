@@ -1,4 +1,4 @@
-import { BoardActionsDropdown } from '@chesslablab/jsblab';
+import { BoardActionsDropdown } from '@chesslablab/js-utils';
 import sanMovesBrowser from './sanMovesBrowser.js';
 
 const boardActionsDropdown = new BoardActionsDropdown(

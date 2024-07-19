@@ -1,4 +1,4 @@
-import { Movetext, NOTATION_SAN } from '@chesslablab/jsblab';
+import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import Modal from 'bootstrap/js/dist/modal.js';
 import chessboard from './chessboard.js';

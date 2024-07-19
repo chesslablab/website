@@ -1,4 +1,4 @@
-import { OpeningTable } from '@chesslablab/jsblab';
+import { OpeningTable } from '@chesslablab/js-utils';
 import sanMovesBrowser from './sanMovesBrowser.js';
 
 const openingTable = new OpeningTable(

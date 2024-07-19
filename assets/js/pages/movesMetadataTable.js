@@ -1,4 +1,4 @@
-import { MovesMetadataTable } from '@chesslablab/jsblab';
+import { MovesMetadataTable } from '@chesslablab/js-utils';
 
 const movesMetadataTable = new MovesMetadataTable(
   document.querySelector('#movesMetadataTable tbody'),

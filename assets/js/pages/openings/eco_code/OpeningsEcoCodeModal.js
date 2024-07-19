@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { Opening } from '@chesslablab/jsblab';
+import { Opening } from '@chesslablab/js-utils';
 import OpeningsTable from '../OpeningsTable.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 
