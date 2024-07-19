@@ -64,10 +64,10 @@ export class SearchGamesModal extends AbstractComponent {
           tr.appendChild(resultTd);
 
           tr.addEventListener('click', event => {
-            const add = {
+            const settings = {
               movetext: game.movetext
             };
-            analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+            analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
             this.props.movesMetadataTable.props = game;
             this.props.movesMetadataTable.mount();
             this.props.modal.hide();

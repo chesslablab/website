@@ -104,11 +104,11 @@ export class StockfishWebSocket extends AbstractWebSocket {
             }
             sessionStorage.setItem('skillLevel', 20);
             sessionStorage.setItem('depth', 12);
-            const add = {
+            const settings = {
               color: data['/randomizer'].turn,
               fen: data['/randomizer'].fen
             };
-            this.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+            this.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
             break;
 
           default:
