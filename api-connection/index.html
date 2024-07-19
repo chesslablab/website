@@ -98,10 +98,7 @@
 <pre><code class="language-js">
 try {
   const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/stats/opening`, {
-    method: 'GET',
-    headers: {
-      'X-Api-Key': `${env.API_KEY}`
-    }
+    method: 'GET'
   });
   const json = await res.json();
   // ...
