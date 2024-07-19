@@ -6,19 +6,17 @@ The environment variables required for the chess server can be found in the [ass
 
 As described in [the docs](https://chesslablab.github.io/chess-server/start/), these are the game modes available:
 
-- `fen` is used to start games from specific chess positions.
-- `san` is used to load games from the starting position.
+- `analysis` is used to start games for further analysis.
 - `play` allows to play chess online with other players.
 - `stockfish` allows to play chess against the computer.
 
 The WebSocket ESM modules are implemented based on this same separation of concerns and abstraction:
 
-- [assets/js/FenWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/FenWebSocket.js)
-- [assets/js/SanWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/SanWebSocket.js)
+- [assets/js/AnalysisWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/AnalysisWebSocket.js)
 - [assets/js/PlayWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/PlayWebSocket.js)
 - [assets/js/StockfishWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/StockfishWebSocket.js)
 
-Let's say you wanted to study a particular chess opening, then a chess game in SAN mode is to be started.
+Let's say you wanted to study a particular chess opening, then a chess game in `analysis` mode is to be started.
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_01.png)
 
@@ -27,13 +25,13 @@ Let's say you wanted to study a particular chess opening, then a chess game in S
 Data:
 
 ```text
-/start classical san "{\"movetext\":\"1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\"}"
+/start classical analysis "{\"movetext\":\"1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\"}"
 ```
 
 ```text
 {
   "variant": "classical",
-  "mode": "san",
+  "mode": "analysis",
   "turn": "w",
   "movetext": "1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4",
   "fen": [
@@ -75,37 +73,43 @@ Remember, the structure of the [App\Controller\Pages](https://github.com/chessla
 - [templates/pages/openings/eco_code/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig)
 - [assets/js/pages/openings/eco_code/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js)
 
-Similarly, if you wanted to study a chess position, then a game in FEN mode needs to be started.
+Similarly, if you wanted to study a chess position, then a FEN string needs to be started.
 
 ![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_02.png)
 
-**Figure 2**. Click on **Learn > FEN String** and enter a classical chess position in FEN format.
+**Figure 2**. Click on **Learn > Analysis Board** and enter a classical chess position in FEN format.
 
 Data:
 
 ```text
-/start classical fen "{\"fen\":\"r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\"}"
+/start classical analysis "{\"fen\":\"r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\",\"movetext\":\"\"}"
 ```
 
 ```text
 {
   "variant": "classical",
-  "mode": "fen",
-  "fen": "r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -"
+  "mode": "analysis",
+  "turn": "w",
+  "movetext": "",
+  "fen": [
+    "r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -"
+  ]
 }
 ```
 
-The JavaScript code for this example can be found in the [assets/js/pages/learn/fen_string/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/fen_string/index.js) file.
+The JavaScript code for this example can be found in the [assets/js/pages/learn/analysis/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/analysis/index.js) file.
 
 ```js
-import { fenStringModal } from './FenStringModal.js';
-import { fenWebSocket } from '../../../FenWebSocket.js';
+import { FEN } from '@chesslablab/chessboard';
+import { gameForm } from './GameForm.js';
+import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import * as mode from '../../../../mode.js';
 
-await fenWebSocket.connect();
+await analysisWebSocket.connect();
 
 sessionStorage.clear();
 
-fenStringModal.props.modal.show();
+analysisWebSocket.send(`/start classical ${mode.ANALYSIS}`);
 ```
 
 The two examples above will give you a sense of the request-response cycle between the web browser and the chess server.
