@@ -23,7 +23,7 @@ class OpeningsTable extends AbstractComponent {
         const add = {
           movetext: opening.movetext
         };
-        analysisWebSocket.send(`/start ${variant.CLASSICAL} ${mode.SAN} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start ${variant.CLASSICAL} ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
         this.props.modal.hide();
       });
       this.el.querySelector('tbody').appendChild(tr);

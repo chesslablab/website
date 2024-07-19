@@ -1,11 +1,11 @@
+const ANALYSIS = 'analysis';
 const PLAY = 'play';
 const RAV = 'rav';
-const SAN = 'san';
 const STOCKFISH = 'stockfish';
 
 export {
+  ANALYSIS,
   PLAY,
   RAV,
-  SAN,
   STOCKFISH
 };
