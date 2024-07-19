@@ -6,6 +6,7 @@ export class GameForm extends AbstractComponent {
   mount() {
     this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
+      sessionStorage.clear();
       analysisWebSocket.send(`/start ${event.target.value} ${mode.ANALYSIS}`);
     });
 
@@ -15,6 +16,7 @@ export class GameForm extends AbstractComponent {
         fen: event.target.fen.value,
         movetext: event.target.san.value
       };
+      sessionStorage.clear();
       analysisWebSocket.send(`/start ${event.target.variant.value} ${mode.ANALYSIS} "${JSON.stringify(add).replace(/"/g, '\\"')}"`);
     });
   }
