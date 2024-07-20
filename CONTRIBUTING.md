@@ -8,7 +8,7 @@ Chess is a perfect topic for learning full-stack web development as well as for 
 
 - Find a ChesslaBlab repo and make sure to read its `CONTRIBUTING.md` file.
 - Look at the open issues.
-- Leave the following comment on the issue you want to be assigned to: "Hi there, happy learning and coding!"
+- Add the following comment to the issue you want to be assigned to: "Hi there, happy learning and coding!"
 - Be prepared to create a friendly PR once the issue has been assigned to you.
 
 Once you're ready, [fork the repo](https://docs.github.com/es/get-started/quickstart/fork-a-repo) and create a new branch from `main` as per the following convention.
