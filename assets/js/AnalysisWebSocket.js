@@ -75,7 +75,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
             break;
 
           case '/start' === msg:
-            if (data['/start']) {
+            if (data['/start'].fen) {
               this._chessboard.setPosition(data['/start'].fen[data['/start'].fen.length - 1], true);
               this._chessboard.props.variant = data['/start'].variant;
               this._chessboard.props.startPos = data['/start'].startPos;
@@ -85,6 +85,10 @@ export class AnalysisWebSocket extends AbstractWebSocket {
               sanPanel.props.sanMovesBrowser.mount();
               sanPanel.props.openingTable.props.movetext = data['/start'].movetext;
               sanPanel.props.openingTable.mount();
+            } else {
+              this._infoModal.props.msg = "This game could not be started, please try again";
+              this._infoModal.mount();
+              this._infoModal.props.modal.show();
             }
             break;
 
