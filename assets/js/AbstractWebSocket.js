@@ -49,6 +49,10 @@ export default class AbstractWebSocket {
     }
   }
 
+  getLastResponse(msg) {
+    return this._response[msg];
+  }
+
   _end() {
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
