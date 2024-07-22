@@ -12,6 +12,8 @@ export default class AbstractWebSocket {
 
   _socket;
 
+  _response = {};
+
   constructor() {
     this._progressModal = progressModal;
 
