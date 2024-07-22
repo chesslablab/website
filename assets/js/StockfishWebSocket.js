@@ -31,73 +31,74 @@ export class StockfishWebSocket extends AbstractWebSocket {
       this._socket.onmessage = (res) => {
         const data = JSON.parse(res.data);
         const msg = Object.keys(data)[0];
-        switch (true) {
-          case 'error' === msg:
+        this._response[msg] = data[msg];
+        switch (msg) {
+          case 'error':
             console.log('Whoops! Something went wrong.');
             break;
 
-          case '/start' === msg:
-            this._chessboard.setPosition(data['/start'].fen, true);
-            if (data['/start'].color === COLOR.black) {
+          case '/start':
+            this._chessboard.setPosition(data[msg].fen, true);
+            if (data[msg].color === COLOR.black) {
               this._chessboard.setOrientation(COLOR.black);
             }
-            if (data['/start'].fen.split(' ')[1] !== data['/start'].color) {
+            if (data[msg].fen.split(' ')[1] !== data[msg].color) {
               this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
             break;
 
-          case '/legal' === msg:
-            data['/legal'].forEach(sq => {
+          case '/legal':
+            data[msg].forEach(sq => {
               this._chessboard.addMarker(MARKER_TYPE.dot, sq);
             });
             break;
 
-          case '/play_lan' === msg:
-            if (data['/play_lan'].isValid) {
-              this._chessboard.setPosition(data['/play_lan'].fen, true);
+          case '/play_lan':
+            if (data[msg].isValid) {
+              this._chessboard.setPosition(data[msg].fen, true);
               stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-              stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
-              stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
+              stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data[msg].fen);
               stockfishPanel.props.sanMovesBrowser.mount();
-              stockfishPanel.props.openingTable.props.movetext = data['/play_lan'].movetext;
+              stockfishPanel.props.openingTable.props.movetext = data[msg].movetext;
               stockfishPanel.props.openingTable.mount();
-              if (!this._gameOver(data['/play_lan'])) {
+              if (!this._gameOver(data[msg])) {
                 this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
               }
             } else {
-              this._chessboard.setPosition(data['/play_lan'].fen, false);
+              this._chessboard.setPosition(data[msg].fen, false);
             }
             break;
 
-          case '/undo' === msg:
-            this._chessboard.setPosition(data['/undo'].fen, true);
-            if (!data['/undo'].movetext) {
+          case '/undo':
+            this._chessboard.setPosition(data[msg].fen, true);
+            if (!data[msg].movetext) {
               this._chessboard.state.inputWhiteEnabled = true;
               this._chessboard.state.inputBlackEnabled = false;
             }
             stockfishPanel.props.sanMovesBrowser.current -= 1;
             stockfishPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
+            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
             stockfishPanel.props.sanMovesBrowser.mount();
-            stockfishPanel.props.openingTable.props.movetext = data['/undo'].movetext;
+            stockfishPanel.props.openingTable.props.movetext = data[msg].movetext;
             stockfishPanel.props.openingTable.mount();
             break;
 
-          case '/stockfish' === msg:
-            this._chessboard.setPosition(data['/stockfish'].fen, true);
+          case '/stockfish':
+            this._chessboard.setPosition(data[msg].fen, true);
             stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/stockfish'].movetext);
-            stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data['/stockfish'].fen);
+            stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
+            stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data[msg].fen);
             stockfishPanel.props.sanMovesBrowser.mount();
-            stockfishPanel.props.openingTable.props.movetext = data['/stockfish'].movetext;
+            stockfishPanel.props.openingTable.props.movetext = data[msg].movetext;
             stockfishPanel.props.openingTable.mount();
-            this._gameOver(data['/stockfish']);
+            this._gameOver(data[msg]);
             break;
 
-          case '/randomizer' === msg:
+          case '/randomizer':
             this._chessboard.state.inputWhiteEnabled = false;
             this._chessboard.state.inputBlackEnabled = false;
-            if (data['/randomizer'].turn === COLOR.white) {
+            if (data[msg].turn === COLOR.white) {
               this._chessboard.state.inputWhiteEnabled = true;
             } else {
               this._chessboard.state.inputBlackEnabled = true;
@@ -105,8 +106,8 @@ export class StockfishWebSocket extends AbstractWebSocket {
             sessionStorage.setItem('skillLevel', 20);
             sessionStorage.setItem('depth', 12);
             const settings = {
-              color: data['/randomizer'].turn,
-              fen: data['/randomizer'].fen
+              color: data[msg].turn,
+              fen: data[msg].fen
             };
             this.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
             break;
