@@ -12,6 +12,8 @@ export default class AbstractWebSocket {
 
   _socket;
 
+  _response = {};
+
   constructor() {
     this._progressModal = progressModal;
 
@@ -45,6 +47,10 @@ export default class AbstractWebSocket {
     if (this._socket) {
       this._socket.send(msg);
     }
+  }
+
+  getLastResponse(msg) {
+    return this._response[msg];
   }
 
   _end() {

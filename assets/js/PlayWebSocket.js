@@ -73,72 +73,73 @@ export default class PlayWebSocket extends AbstractWebSocket {
       this._socket.onmessage = (res) => {
         const data = JSON.parse(res.data);
         const msg = Object.keys(data)[0];
-        switch (true) {
-          case 'error' === msg:
+        this._response[msg] = data[msg];
+        switch (msg) {
+          case 'error':
             console.log('Whoops! Something went wrong.');
             break;
 
-          case 'broadcast' === msg:
+          case 'broadcast':
             playOnlineButtons.props.playersButtons.props.games = data['broadcast']['onlineGames'];
             playOnlineButtons.props.playersButtons.mount();
             break;
 
-          case '/start' === msg:
-            if (data['/start'].jwt) {
-              copyInviteCodeModal.props.form.elements['hash'].value = data['/start'].hash;
-              const jwtDecoded = jwtDecode(data['/start'].jwt);
-              this._chessboard.setPosition(data['/start'].fen, true);
+          case '/start':
+            if (data[msg].jwt) {
+              copyInviteCodeModal.props.form.elements['hash'].value = data[msg].hash;
+              const jwtDecoded = jwtDecode(data[msg].jwt);
+              this._chessboard.setPosition(data[msg].fen, true);
               this._chessboard.setOrientation(jwtDecoded.color);
-              this._chessboard.props.variant = data['/start'].variant;
-              this._chessboard.props.startPos = data['/start'].startPos;
+              this._chessboard.props.variant = data[msg].variant;
+              this._chessboard.props.startPos = data[msg].startPos;
               createGameModal.props.modal.hide();
               this.send('/online_games');
-              sessionStorage.setItem('hash', data['/start'].hash);
+              sessionStorage.setItem('hash', data[msg].hash);
             } else {
               console.log('Invalid FEN, please try again with a different one.');
             }
             break;
 
-          case '/legal' === msg:
-            data['/legal'].forEach(sq => {
+          case '/legal':
+            data[msg].forEach(sq => {
               this._chessboard.addMarker(MARKER_TYPE.dot, sq);
             });
             break;
 
-          case '/play_lan' === msg:
-            if (data['/play_lan'].isValid) {
-              this._chessboard.setPosition(data['/play_lan'].fen, true);
+          case '/play_lan':
+            if (data[msg].isValid) {
+              this._chessboard.setPosition(data[msg].fen, true);
               playPanel.props.sanMovesBrowser.current = playPanel.props.sanMovesBrowser.props.fen.length;
-              playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/play_lan'].movetext);
-              playPanel.props.sanMovesBrowser.props.fen = playPanel.props.sanMovesBrowser.props.fen.concat(data['/play_lan'].fen);
+              playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
+              playPanel.props.sanMovesBrowser.props.fen = playPanel.props.sanMovesBrowser.props.fen.concat(data[msg].fen);
               playPanel.props.sanMovesBrowser.mount();
-              this._toggleInput(data['/play_lan'].turn);
+              this._toggleInput(data[msg].turn);
               playPanel.props.timerTable.props = {
-                turn: data['/play_lan'].turn,
-                w: data['/play_lan'].timer.w,
-                b: data['/play_lan'].timer.b
+                turn: data[msg].turn,
+                w: data[msg].timer.w,
+                b: data[msg].timer.b
               };
-              this._gameOver(data['/play_lan']);
+              this._gameOver(data[msg]);
             } else {
-              this._chessboard.setPosition(data['/play_lan'].fen, false);
+              this._chessboard.setPosition(data[msg].fen, false);
             }
             break;
 
-          case '/undo' === msg:
-            this._chessboard.setPosition(data['/undo'].fen, true);
-            if (!data['/undo'].movetext) {
+          case '/undo':
+            this._chessboard.setPosition(data[msg].fen, true);
+            if (!data[msg].movetext) {
               this._chessboard.state.inputWhiteEnabled = true;
               this._chessboard.state.inputBlackEnabled = false;
             }
             playPanel.props.sanMovesBrowser.current -= 1;
             playPanel.props.sanMovesBrowser.props.fen.splice(-1);
-            playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data['/undo'].movetext);
+            playPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
             playPanel.props.sanMovesBrowser.mount();
             break;
 
-          case '/accept' === msg:
-            if (data['/accept'].jwt) {
-              const jwtDecoded = jwtDecode(data['/accept'].jwt);
+          case '/accept':
+            if (data[msg].jwt) {
+              const jwtDecoded = jwtDecode(data[msg].jwt);
               const turn = jwtDecoded.fen.split(' ')[1];
               this._chessboard.setPosition(jwtDecoded.fen, true);
               if (!sessionStorage.getItem('color')) {
@@ -154,11 +155,11 @@ export default class PlayWebSocket extends AbstractWebSocket {
               enterInviteCodeModal.props.modal.hide();
               createGameModal.props.modal.hide();
               this._infoModal.props.modal.hide();
-              sessionStorage.setItem('hash', data['/accept'].hash);
+              sessionStorage.setItem('hash', data[msg].hash);
               playPanel.props.timerTable.props = {
                 turn: turn,
-                w: data['/accept'].timer.w,
-                b: data['/accept'].timer.b
+                w: data[msg].timer.w,
+                b: data[msg].timer.b
               };
               this._timerTableInterval = playPanel.props.timerTableInterval();
               playOnlineButtons.el.classList.add('d-none');
@@ -172,17 +173,17 @@ export default class PlayWebSocket extends AbstractWebSocket {
             }
             break;
 
-          case '/takeback' === msg:
-            if (data['/takeback'].action === action.PROPOSE) {
+          case '/takeback':
+            if (data[msg].action === action.PROPOSE) {
               if (sessionStorage.getItem('takeback') !== action.PROPOSE) {
                 takebackModal.props.modal.show();
               }
-            } else if (data['/takeback'].action === action.DECLINE) {
+            } else if (data[msg].action === action.DECLINE) {
               takebackModal.props.modal.hide();
               this._infoModal.props.msg = "Takeback declined";
               this._infoModal.mount();
               this._infoModal.props.modal.show();
-            } else if (data['/takeback'].action === action.ACCEPT) {
+            } else if (data[msg].action === action.ACCEPT) {
               this._infoModal.props.msg = "Takeback accepted";
               this._infoModal.mount();
               this._infoModal.props.modal.show();
@@ -190,17 +191,17 @@ export default class PlayWebSocket extends AbstractWebSocket {
             sessionStorage.removeItem('takeback');
             break;
 
-          case '/draw' === msg:
-            if (data['/draw'].action === action.PROPOSE) {
+          case '/draw':
+            if (data[msg].action === action.PROPOSE) {
               if (sessionStorage.getItem('draw') !== action.PROPOSE) {
                 drawModal.props.modal.show();
               }
-            } else if (data['/draw'].action === action.DECLINE) {
+            } else if (data[msg].action === action.DECLINE) {
               drawModal.props.modal.hide();
               this._infoModal.props.msg = "Draw offer declined";
               this._infoModal.mount();
               this._infoModal.props.modal.show();
-            } else if (data['/draw'].action === action.ACCEPT) {
+            } else if (data[msg].action === action.ACCEPT) {
               this._end();
               this._infoModal.props.msg = "Draw offer accepted";
               this._infoModal.mount();
@@ -209,8 +210,8 @@ export default class PlayWebSocket extends AbstractWebSocket {
             sessionStorage.removeItem('draw');
             break;
 
-          case '/resign' === msg:
-            if (data['/resign'].action === action.ACCEPT) {
+          case '/resign':
+            if (data[msg].action === action.ACCEPT) {
               this._end();
               this._infoModal.props.msg = "The game is resigned";
               this._infoModal.mount();
@@ -218,24 +219,24 @@ export default class PlayWebSocket extends AbstractWebSocket {
             }
             break;
 
-          case '/rematch' === msg:
-            if (data['/rematch'].action === action.PROPOSE) {
+          case '/rematch':
+            if (data[msg].action === action.PROPOSE) {
               if (sessionStorage.getItem('rematch') !== action.PROPOSE) {
                 rematchModal.props.modal.show();
               }
-            } else if (data['/rematch'].action === action.DECLINE) {
+            } else if (data[msg].action === action.DECLINE) {
               rematchModal.props.modal.hide();
               this._infoModal.props.modal.hide();
-            } else if (data['/rematch'].action === action.ACCEPT) {
+            } else if (data[msg].action === action.ACCEPT) {
               this.send(`/restart ${sessionStorage.getItem('hash')}`);
             }
             sessionStorage.removeItem('rematch');
             break;
 
-          case '/restart' === msg:
-            if (data['/restart'].jwt) {
+          case '/restart':
+            if (data[msg].jwt) {
               this._infoModal.props.modal.hide();
-              const jwtDecoded = jwtDecode(data['/restart'].jwt);
+              const jwtDecoded = jwtDecode(data[msg].jwt);
               const turn = jwtDecoded.fen.split(' ')[1];
               this._chessboard.setPosition(jwtDecoded.fen, true);
               this._toggleInput(turn);
@@ -248,19 +249,19 @@ export default class PlayWebSocket extends AbstractWebSocket {
               playPanel.props.sanMovesBrowser.mount();
               playPanel.props.timerTable.props = {
                 turn: turn,
-                w: data['/restart'].timer.w,
-                b: data['/restart'].timer.b
+                w: data[msg].timer.w,
+                b: data[msg].timer.b
               };
               this._timerTableInterval = playPanel.props.timerTableInterval();
-              sessionStorage.setItem('hash', data['/restart'].hash);
+              sessionStorage.setItem('hash', data[msg].hash);
               playOnlineButtons.el.classList.add('d-none');
               playPanel.props.gameActionsDropdown.el.classList.remove('d-none');
               playPanel.props.finishedButtons.el.classList.add('d-none');
             }
             break;
 
-          case '/leave' === msg:
-            if (data['/leave'].action === action.ACCEPT) {
+          case '/leave':
+            if (data[msg].action === action.ACCEPT) {
               this._end();
               playPanel.props.finishedButtons.el.children.item(0).classList.add('d-none');
               this._infoModal.props.msg = "Your opponent is gone";
@@ -269,8 +270,8 @@ export default class PlayWebSocket extends AbstractWebSocket {
             }
             break;
 
-          case '/online_games' === msg:
-            playOnlineButtons.props.playersButtons.props.games = data['/online_games'];
+          case '/online_games':
+            playOnlineButtons.props.playersButtons.props.games = data[msg];
             playOnlineButtons.props.playersButtons.mount();
             break;
 
