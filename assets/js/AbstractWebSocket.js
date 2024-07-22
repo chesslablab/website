@@ -56,18 +56,20 @@ export default class AbstractWebSocket {
   watchLastResponse(propName, callback) {
     let value = this._response[propName];
 
-    Object.defineProperty(this._response, propName, {
-      get() {
-        return value;
-      },
-      set(newValue) {
-        if (newValue !== value) {
-          const oldValue = value;
-          value = newValue;
-          callback(newValue, oldValue);
-        }
-      },
-    });
+    if (!this._response.hasOwnProperty(propName)) {
+      Object.defineProperty(this._response, propName, {
+        get() {
+          return value;
+        },
+        set(newValue) {
+          if (newValue !== value) {
+            const oldValue = value;
+            value = newValue;
+            callback(newValue, oldValue);
+          }
+        },
+      });
+    }
   }
 
   _end() {
