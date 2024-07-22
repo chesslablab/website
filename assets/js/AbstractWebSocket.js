@@ -53,6 +53,23 @@ export default class AbstractWebSocket {
     return this._response[msg];
   }
 
+  watchLastResponse(propName, callback) {
+    let value = this._response[propName];
+
+    Object.defineProperty(this._response, propName, {
+      get() {
+        return value;
+      },
+      set(newValue) {
+        if (newValue !== value) {
+          const oldValue = value;
+          value = newValue;
+          callback(newValue, oldValue);
+        }
+      },
+    });
+  }
+
   _end() {
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;

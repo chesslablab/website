@@ -8,6 +8,9 @@ export class GameForm extends AbstractComponent {
       event.preventDefault();
       sessionStorage.clear();
       analysisWebSocket.send(`/start ${event.target.value} ${mode.ANALYSIS}`);
+      analysisWebSocket.watchLastResponse('/start', (newValue, oldValue) => {
+        this.el.querySelector('input[name="fen"]').value = newValue.fen[0];
+      });
     });
 
     this.el.addEventListener('submit', event => {
