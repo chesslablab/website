@@ -49,10 +49,6 @@ export default class AbstractWebSocket {
     }
   }
 
-  getLastResponse(msg) {
-    return this._response[msg];
-  }
-
   watchLastResponse(propName, callback) {
     let value = this._response[propName];
 
