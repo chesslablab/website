@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+  </head>
+  <body>
+    <div class="the-content container">
+      <div class="row">
+        TODO
+        {{ variant }}
+        {{ fen }}
+        {{ movetext }}
+        {{ startPos }}
+      </div>
+    </div>
+    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  </body>
