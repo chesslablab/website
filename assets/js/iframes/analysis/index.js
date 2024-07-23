@@ -1,14 +1,14 @@
-import '../../../vendor/bootstrap/dist/js/bootstrap.bundle.min.js';
 import { analysisWebSocket } from '../../AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 
 const url = window.location.href.split('/');
 
 const variant = url[6];
-const fen = url[7];
 
 const settings = {
-  fen: decodeURIComponent(fen)
+  fen: decodeURIComponent(url[7]),
+  movetext: url[8],
+  startPos: url[9]
 };
 
 await analysisWebSocket.connect();
