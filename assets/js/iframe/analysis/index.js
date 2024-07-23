@@ -1,11 +1,17 @@
+import { analysisWebSocket } from '../../AnalysisWebSocket.js';
+import * as mode from '../../../mode.js';
+
 const variant = document.getElementById('analysis').dataset.variant;
 const fen = document.getElementById('analysis').dataset.fen;
 const movetext = document.getElementById('analysis').dataset.movetext;
 const startPos = document.getElementById('analysis').dataset.startpos;
 
-console.log(variant);
-console.log(fen);
-console.log(movetext);
-console.log(startPos);
+const settings = {
+  fen: fen
+};
 
-// TODO ...
+await analysisWebSocket.connect();
+
+sessionStorage.clear();
+
+analysisWebSocket.send(`/start ${variant} ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
