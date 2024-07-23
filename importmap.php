@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'js/iframe/analysis/index.js' => [
-        'path' => './assets/js/iframe/analysis/index.js',
+    'js/iframes/analysis/index.js' => [
+        'path' => './assets/js/iframes/analysis/index.js',
         'entrypoint' => true,
     ],
     'js/pages/play/online/index.js' => [

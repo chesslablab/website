@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Iframe;
+namespace App\Controller\Iframes;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +15,7 @@ class AnalysisController extends AbstractController
         $movetext = $request->attributes->get('movetext');
         $startPos = $request->attributes->get('startPos');
 
-        return $this->render('iframe/analysis/index.html.twig', [
+        return $this->render('iframes/analysis/index.html.twig', [
             'variant' => $variant,
             'fen' => $fen,
             'movetext' => $movetext,

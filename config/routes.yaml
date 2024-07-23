@@ -159,7 +159,7 @@ pages_about:
 
 iframe_analysis:
     path:       /{_locale}/iframe/analysis/{variant}/{fen}/{movetext}/{startPos}
-    controller: App\Controller\Iframe\AnalysisController::index
+    controller: App\Controller\Iframes\AnalysisController::index
     methods:    GET
     requirements:
       fen: .+
