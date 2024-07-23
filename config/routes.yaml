@@ -154,3 +154,13 @@ pages_about:
     options:
       sitemap:
         _locale: en
+
+# Iframe routes
+
+iframe_analysis:
+    path:       /{_locale}/iframe/analysis/{variant}/{fen}/{movetext}/{startPos}
+    controller: App\Controller\Iframes\AnalysisController::index
+    methods:    GET
+    requirements:
+      fen: .+
+      _locale:  en|es|fr|ru|tr|de|hi
