@@ -162,4 +162,5 @@ iframe_analysis:
     controller: App\Controller\Iframe\AnalysisController::index
     methods:    GET
     requirements:
+      fen: .+
       _locale:  en|es|fr|ru|tr|de|hi

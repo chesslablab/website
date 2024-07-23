@@ -7,16 +7,15 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/chessboard.css">
   </head>
   <body>
-    <div class="the-content container">
-      <div class="row">
-        TODO
-        {{ variant }}
-        {{ fen }}
-        {{ movetext }}
-        {{ startPos }}
-      </div>
+    <div class="col-md-6">
+      <div id="chessboard"></div>
+    </div>
+    <div class="col-md-3">
+      {% include 'partial/panel/san_panel.html.twig' %}
     </div>
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script id="analysis" type="module" data-variant="{{ variant }}" data-fen="{{ fen }}" data-movetext="{{ movetext }}" data-startpos="{{ startPos }}" src="{{ asset('js/iframe/analysis/index.js') }}"></script>
   </body>
