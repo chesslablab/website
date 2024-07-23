@@ -15,7 +15,15 @@
     </div>
     <div class="col-md-3">
       {% include 'partial/panel/san_panel.html.twig' %}
+      {% include 'partial/panel/explain_good_move_modal.html.twig' %}
+      {% include 'partial/panel/explain_position_modal.html.twig' %}
+      {% include 'partial/panel/heuristics_modal.html.twig' %}
+      {% include 'partial/info_modal.html.twig' %}
+      {% include 'partial/progress_modal.html.twig' %}
     </div>
-    <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script id="analysis" type="module" data-variant="{{ variant }}" data-fen="{{ fen }}" data-movetext="{{ movetext }}" data-startpos="{{ startPos }}" src="{{ asset('js/iframe/analysis/index.js') }}"></script>
+    {% block javascripts %}
+      {% block importmap %}
+        {{ importmap('js/iframe/analysis/index.js') }}
+      {% endblock %}
+    {% endblock %}
   </body>
