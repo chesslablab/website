@@ -1,29 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ app.request.locale }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="view-transition" content="same-origin">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/chessboard.css">
-  </head>
-  <body>
-    <div class="col-md-6">
-      <div id="chessboard"></div>
-    </div>
-    <div class="col-md-3">
-      {% include 'partial/panel/san_panel.html.twig' %}
-      {% include 'partial/panel/explain_good_move_modal.html.twig' %}
-      {% include 'partial/panel/explain_position_modal.html.twig' %}
-      {% include 'partial/panel/heuristics_modal.html.twig' %}
-      {% include 'partial/info_modal.html.twig' %}
-      {% include 'partial/progress_modal.html.twig' %}
-    </div>
-    {% block javascripts %}
-      {% block importmap %}
-        {{ importmap('js/iframes/analysis/index.js') }}
-      {% endblock %}
+{% extends 'layout/iframe.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/panel/san_panel.html.twig' %}
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/iframes/analysis/index.js') }}
     {% endblock %}
-  </body>
+  {% endblock %}
+{% endblock %}
