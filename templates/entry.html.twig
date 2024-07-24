@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     <script src="{{ asset('js/pages/apply_settings.js') }}"></script>
+    <script>
+      function resize(iframe) {
+        iframe.style.height = iframe.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+    </script>
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
