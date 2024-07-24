@@ -7,7 +7,7 @@ const variant = url[6];
 
 const settings = {
   fen: decodeURIComponent(url[7]),
-  movetext: url[8],
+  movetext: decodeURIComponent(url[8]),
   startPos: url[9]
 };
 
