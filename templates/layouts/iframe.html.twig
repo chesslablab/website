@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/chessboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/extensions/markers/markers.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/extensions/promotion-dialog/promotion-dialog.css">
-    {% block stylesheets %}{% endblock %}
+    <style>
+      /* prevent page shake when vertical scrollbar appears */
+      html {
+        width: 100vw;
+        overflow-x: hidden;
+      }
+    </style>
     <script src="{{ asset('js/pages/apply_settings.js') }}"></script>
   </head>
   <body>
@@ -21,10 +27,8 @@
     {% include 'partial/panel/explain_good_move_modal.html.twig' %}
     {% include 'partial/panel/explain_position_modal.html.twig' %}
     {% include 'partial/panel/heuristics_modal.html.twig' %}
-    <div class="container">
-       <div class="row g-3">
-         {% block main %}{% endblock %}
-       </div>
+    <div class="row g-0 m-0">
+      {% block main %}{% endblock %}
     </div>
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </body>
