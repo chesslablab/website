@@ -122,7 +122,14 @@ SUM:                            80            311             33           2858
 <li><a href="https://github.com/chesslablab/chess-api">PHP Chess API</a></li>
 <li><a href="https://github.com/chesslablab/chess-data">Chess Data</a></li>
 </ul>
-<p>It is recommended to run the online chess platform using four different servers, one per repository, although everything can be run on the same machine in the development environment.</p>
+<p>It is recommended to run the online chess platform using four different servers on production, one per repository, although everything can be run on the same machine in a development environment. The documentation examples are run in a development environment using these ports for the repositories, respectively.</p>
+<ul>
+<li>9443</li>
+<li>8443</li>
+<li>443</li>
+<li>3306</li>
+</ul>
+<p>This is because multiple applications can't listen on the same port on the same host.</p>
               
             </div>
           </div><footer>
@@ -171,5 +178,5 @@ SUM:                            80            311             33           2858
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-07-25 09:03:39.651934+00:00
+Build Date UTC : 2024-07-25 15:14:51.795571+00:00
 -->
