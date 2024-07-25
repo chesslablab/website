@@ -11,7 +11,7 @@ The first thing you need to understand about setting up a ChesslaBlab website is
 
 The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the [website](https://github.com/chesslablab/website). The `api.chesslablab.org` domain name will point to the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
-Before the Certificate Authority (CA) can issue the SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester. This is typically achieved through one of the following methods.
+Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using Certbot instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester. This is typically achieved through one of the following methods.
 
 - Email Validation — a validation email is sent to the certificate requester.
 
@@ -19,7 +19,7 @@ Before the Certificate Authority (CA) can issue the SSL certificate, a validatio
 
 - DNS Validation — the certificate requester sets up a CNAME record in the domain's DNS zone for further validation.
 
-In this example, it is assumed that [Certbot](https://certbot.eff.org/) is run to automatically get a free HTTPS certificate. The ChesslaBlab website is running on an Ubuntu server and the certificate is validated using DNS validation as it is described next.
+I used [Certbot](https://certbot.eff.org/) to automatically get a free HTTPS certificate. Since the ChesslaBlab website is running on an Ubuntu server, the certificate was validated through DNS as it is described next.
 
 ```text
 sudo certbot certonly --standalone
@@ -125,4 +125,4 @@ In order to run a ChesslaBlab website, a wildcard SSL certificate needs to be is
 - chesslablab/chess-api
 - chesslablab/chess-server
 
-[Certbot](https://certbot.eff.org/) is run to automatically get a free HTTPS certificate using DNS validation. If issuing a wildcard certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment.
+[Certbot](https://certbot.eff.org/) can be used to automatically get a free HTTPS certificate through DNS validation, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.
