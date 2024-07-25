@@ -112,7 +112,8 @@
 <li><code>async.chesslablab.org</code></li>
 </ul>
 <p>The first two, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the <a href="https://github.com/chesslablab/website">website</a>. The <code>api.chesslablab.org</code> domain name will point to the <a href="https://github.com/chesslablab/chess-api">REST-like API</a> and <code>async.chesslablab.org</code> to the <a href="https://github.com/chesslablab/chess-server">asynchronous chess server</a>.</p>
-<p>Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using Certbot instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester. This is typically achieved through one of the following methods.</p>
+<p>Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using Certbot instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.</p>
+<p>This is typically achieved through one of the following methods.</p>
 <ul>
 <li>
 <p>Email Validation — a validation email is sent to the certificate requester.</p>
@@ -197,7 +198,7 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 <li>chesslablab/chess-api</li>
 <li>chesslablab/chess-server</li>
 </ul>
-<p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate through DNS validation, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p>
+<p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p>
               
             </div>
           </div><footer>
