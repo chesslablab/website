@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/website/installation/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://chesslablab.github.io/website/html-iframes/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Installation - ChesslaBlab Website</title>
+    <title>HTML Iframes - ChesslaBlab Website</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Installation";
-        var mkdocs_page_input_path = "installation.md";
-        var mkdocs_page_url = "/website/installation/";
+        var mkdocs_page_name = "HTML Iframes";
+        var mkdocs_page_input_path = "html-iframes.md";
+        var mkdocs_page_url = "/website/html-iframes/";
       </script>
     
     <!--[if lt IE 9]>
@@ -47,20 +47,8 @@
                 <li class="toctree-l1"><a class="reference internal" href="../ssl-certificate-setup/">SSL Certificate Setup</a>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-on-a-docker-container">Run on a Docker Container</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#development">Development</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#production">Production</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                 </li>
               </ul>
               <ul>
@@ -79,8 +67,26 @@
                 <li class="toctree-l1"><a class="reference internal" href="../blog/">Blog</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../html-iframes/">HTML Iframes</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">HTML Iframes</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#analysis-board">Analysis Board</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#variant">variant</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fen">fen</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#movetext">movetext</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#startpos-optional">startPos (optional)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
                 </li>
               </ul>
       </div>
@@ -97,7 +103,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Installation</li>
+      <li class="breadcrumb-item active">HTML Iframes</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -106,47 +112,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="installation">Installation</h1>
-<h2 id="setup">Setup</h2>
-<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and install the Composer dependencies:</p>
-<pre><code class="language-text">composer install
+                <h1 id="html-iframes">HTML Iframes</h1>
+<p>Chess authors can engage with readers on their ChesslaBlab website by embedding chess functionality into their publications.</p>
+<h2 id="analysis-board">Analysis Board</h2>
+<p>Add the following sample HTML code to your blog post:</p>
+<pre><code class="language-text">&lt;iframe
+  title=&quot;E25 Nimzo-Indian Defense: Sämisch Variation, Keres Variation&quot;
+  width=&quot;100%&quot;
+  onload=&quot;resize(this)&quot;
+  src=&quot;https://chesslablab.org:9443/en/iframe/analysis/classical/rnbqk2r%2Fpppp1ppp%2F4pn2%2F8%2F1bPP4%2F2N5%2FPP2PPPP%2FR1BQKBNR%20w%20KQkq%20-/4.f3%20d5%205.a3%20Bxc3%2B%206.bxc3%20c5%207.cxd5%20Nxd5%208.dxc5&quot;
+&gt;
+&lt;/iframe&gt;
 </code></pre>
-<p>Set up the browser environment variables:</p>
-<pre><code class="language-text">cp assets/env.example.js assets/env.js
-</code></pre>
-<p>Clear the cache:</p>
-<pre><code class="language-text">php bin/console cache:clear
-</code></pre>
-<p>Download the assets:</p>
-<pre><code class="language-text">php bin/console importmap:install
-</code></pre>
-<p>Compile the assets:</p>
-<pre><code class="language-text">php bin/console asset-map:compile
-</code></pre>
-<p>Set up file permissions for the <code>var/cache</code> folder:</p>
-<pre><code>sudo chmod 775 -R var/cache
-sudo chown $USER:www-data -R var/cache
-</code></pre>
-<p>Set up file permissions for the <code>var/log</code> folder:</p>
-<pre><code>sudo chmod 775 -R var/cache
-sudo chown $USER:www-data -R var/log
-</code></pre>
-<h2 id="run-on-a-docker-container">Run on a Docker Container</h2>
-<p>First things first, make sure to have created the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
-<h3 id="development">Development</h3>
-<p>Run the app on port <code>9443</code>.</p>
-<pre><code class="language-text">docker compose -f docker-compose.dev.yml up -d
-</code></pre>
-<h3 id="production">Production</h3>
-<p>Run the app on port <code>443</code>.</p>
-<pre><code class="language-text">docker compose -f docker-compose.prod.yml up -d
-</code></pre>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/html-iframes_01.png" /></p>
+<p><strong>Figure 1</strong>. E25 Nimzo-Indian Defense: Sämisch Variation, Keres Variation.</p>
+<h3 id="parameters">Parameters</h3>
+<h4 id="variant"><code>variant</code></h4>
+<p>The chess variant as per these options.</p>
+<ul>
+<li><code>classical</code> chess, also known as standard or slow chess.</li>
+<li><code>960</code> is the same as classical chess except that the starting position of the pieces is randomized.</li>
+<li><code>dunsany</code> is an asymmetric variant in which Black has the standard chess army and White has 32 pawns.</li>
+<li><code>losing</code> chess, the objective of each player is to lose all of their pieces or be stalemated.</li>
+<li><code>racing-kings</code> consists of being the first player to move their king to the eighth row.</li>
+</ul>
+<h4 id="fen"><code>fen</code></h4>
+<p>An URL-encoded FEN string.</p>
+<h4 id="movetext"><code>movetext</code></h4>
+<p>An URL-encoded movetext.</p>
+<h4 id="startpos-optional"><code>startPos</code> (optional)</h4>
+<p>The start position in a Chess960 game; for example <code>BRNNKBRQ</code>.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../ssl-certificate-setup/" class="btn btn-neutral float-left" title="SSL Certificate Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../website-architecture/" class="btn btn-neutral float-right" title="Website Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../blog/" class="btn btn-neutral float-left" title="Blog"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -169,10 +169,8 @@ sudo chown $USER:www-data -R var/log
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../ssl-certificate-setup/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../blog/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
-    
-      <span><a href="../website-architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
