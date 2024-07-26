@@ -15,10 +15,10 @@ The first two domain names, `chesslablab.org` and `www.chesslablab.org`, will po
 
 Use custom domain names to configure your ChesslaBlab site whether you are a chess club, a school, or a FIDE titled player.
 
-- `gmolga.com`
-- `www.gmolga.com`
-- `api.gmolga.com`
-- `async.gmolga.com`
+- `gmalice.com`
+- `www.gmalice.com`
+- `api.gmalice.com`
+- `async.gmalice.com`
 
 Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
 
