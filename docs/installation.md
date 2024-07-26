@@ -52,7 +52,7 @@ First things first, make sure to have created the `fullchain.pem` and `privkey.p
 
 ### Development
 
-Run the app on port `9443`.
+Run the app on port `443`.
 
 ```text
 docker compose -f docker-compose.dev.yml up -d

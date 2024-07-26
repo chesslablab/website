@@ -32,9 +32,9 @@ The following repositories are required to run an online chess platform with Che
 
 It is recommended to run the entire chess platform using four different servers on production, one per repository, especially if your site is expected to hit a significant amount of visits. However, everything can be run on a humble machine. In fact, the documentation examples are run in a development environment using these ports for each of the repositories, respectively.
 
-- 9443
-- 8443
 - 443
+- 8443
+- 9443
 - 3306
 
 Remember, this is because multiple applications can't listen on the same port on the same host.
