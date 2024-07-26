@@ -21,7 +21,7 @@ SUM:                            80            311             33           2858
 -------------------------------------------------------------------------------
 ```
 
-This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Now you can get rid of libraries and frameworks like React, Vue, Next.js, as well as transpilers, bundlers and so on. Say goodbye to JavaScript fatigue! The ChesslaBlab website is written using OOP and the DOM.
+This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Now you can get rid of libraries and frameworks like React, Vue, Next.js, as well as transpilers, bundlers and so on. The ChesslaBlab website is written using OOP and the DOM.
 
 The following repositories are required to run an online chess platform with ChesslaBlab:
 
@@ -30,11 +30,13 @@ The following repositories are required to run an online chess platform with Che
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
 
-It is recommended to run the online chess platform using four different servers on production, one per repository, although everything can be run on the same machine in a development environment. The documentation examples are run in a development environment using these ports for the repositories, respectively.
+It is recommended to run the entire chess platform using four different servers on production, one per repository, especially if your site is expected to hit a significant amount of visits. However, everything can be run on a humble machine or in a development environment.
+
+In fact, the documentation examples are run in a development environment using these ports for the repositories, respectively.
 
 - 9443
 - 8443
 - 443
 - 3306
 
-This is because multiple applications can't listen on the same port on the same host.
+Remember, this is because multiple applications can't listen on the same port on the same host.
