@@ -9,9 +9,18 @@ The first thing you need to understand about setting up a ChesslaBlab website is
 - `api.chesslablab.org`
 - `async.chesslablab.org`
 
-The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the [website](https://github.com/chesslablab/website). The `api.chesslablab.org` domain name will point to the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the [asynchronous chess server](https://github.com/chesslablab/chess-server).
+This is because nowadays, major browsers want all traffic to be secure, and as a web developer you want the development environment to mimic production as much as possible.
 
-Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
+The first two domain names, `chesslablab.org` and `www.chesslablab.org`, will point to the IP of the [website](https://github.com/chesslablab/website). When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The `api.chesslablab.org` domain name will point to the IP of the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the IP of the [asynchronous chess server](https://github.com/chesslablab/chess-server).
+
+Use custom domain names to configure your ChesslaBlab site whether you are a chess club, a school, or a FIDE titled player.
+
+- `gmolga.com`
+- `www.gmolga.com`
+- `api.gmolga.com`
+- `async.gmolga.com`
+
+Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
 
 This is typically achieved through one of the following methods.
 
