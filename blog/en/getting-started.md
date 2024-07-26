@@ -6,7 +6,7 @@ Whether you are a chess instructor or a chess blogger, now you can keep your rea
   title="E25 Nimzo-Indian Defense: Sämisch Variation, Keres Variation"
   width="100%"
   onload="resize(this)"
-  src="https://chesslablab.org:9443/en/iframe/analysis/classical/rnbqk2r%2Fpppp1ppp%2F4pn2%2F8%2F1bPP4%2F2N5%2FPP2PPPP%2FR1BQKBNR%20w%20KQkq%20-/4.f3%20d5%205.a3%20Bxc3%2B%206.bxc3%20c5%207.cxd5%20Nxd5%208.dxc5"
+  src="https://chesslablab.org/en/iframe/analysis/classical/rnbqk2r%2Fpppp1ppp%2F4pn2%2F8%2F1bPP4%2F2N5%2FPP2PPPP%2FR1BQKBNR%20w%20KQkq%20-/4.f3%20d5%205.a3%20Bxc3%2B%206.bxc3%20c5%207.cxd5%20Nxd5%208.dxc5"
 >
 </iframe>
 
