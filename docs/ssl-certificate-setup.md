@@ -11,7 +11,7 @@ The first thing you need to understand about setting up a ChesslaBlab website is
 
 The first two, `chesslablab.org` and `www.chesslablab.org`, will point to the [website](https://github.com/chesslablab/website). The `api.chesslablab.org` domain name will point to the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
-Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using Certbot instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
+Probably the easiest thing to do is purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
 
 This is typically achieved through one of the following methods.
 
@@ -21,7 +21,7 @@ This is typically achieved through one of the following methods.
 
 - DNS Validation — the certificate requester sets up a CNAME record in the domain's DNS zone for further validation.
 
-I used [Certbot](https://certbot.eff.org/) to automatically get a free HTTPS certificate. Since the ChesslaBlab website is running on an Ubuntu server, the certificate was validated through DNS as it is described next.
+I used Certbot to automatically get a free HTTPS certificate. Since the ChesslaBlab website is running on an Ubuntu server, the certificate was validated through DNS as it is described next.
 
 ```text
 sudo certbot certonly --standalone
