@@ -53,7 +53,7 @@ If you like Certbot, please consider supporting our work by:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 ```
 
-The command above generated two files, `fullchain.pem` and `privkey.pem`, that then were installed in the repos mentioned above:
+The certbot command generated two files, `fullchain.pem` and `privkey.pem`, that then were installed in each of the repos listed above:
 
 - chesslablab/website
 - chesslablab/chess-api
