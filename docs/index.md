@@ -30,9 +30,7 @@ The following repositories are required to run an online chess platform with Che
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
 
-It is recommended to run the entire chess platform using four different servers on production, one per repository, especially if your site is expected to hit a significant amount of visits. However, everything can be run on a humble machine or in a development environment.
-
-In fact, the documentation examples are run in a development environment using these ports for the repositories, respectively.
+It is recommended to run the entire chess platform using four different servers on production, one per repository, especially if your site is expected to hit a significant amount of visits. However, everything can be run on a humble machine. In fact, the documentation examples are run in a development environment using these ports for each of the repositories, respectively.
 
 - 9443
 - 8443
