@@ -1,6 +1,6 @@
 const API_SCHEME = 'https';
 const API_HOST = 'api.chesslablab.org';
-const API_PORT = '443';
+const API_PORT = '9443';
 const API_VERSION = 'v1';
 
 const WEBSOCKET_SCHEME = 'wss';
