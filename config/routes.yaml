@@ -138,16 +138,16 @@ pages_training_endgame:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_settings:
-    path:       /{_locale}/settings
-    controller: App\Controller\Pages\Settings\SettingsController::index
+pages_connect:
+    path:       /{_locale}/connect
+    controller: App\Controller\Pages\Connect\ConnectController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_dechess:
-    path:       /{_locale}/dechess
-    controller: App\Controller\Pages\DeChess\DeChessController::index
+pages_settings:
+    path:       /{_locale}/settings
+    controller: App\Controller\Pages\Settings\SettingsController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi

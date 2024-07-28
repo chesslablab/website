@@ -2,18 +2,18 @@
 
 {% block main %}
   <div class="container p-4">
-    <h1 class="h3">{{ 'DeChess'|trans }}</h1>
+    <h1 class="h3">{{ 'Connect'|trans }}</h1>
     <hr class="hr">
-    <form id="dechessForm">
+    <form id="connectForm">
       <div>
         <div class="mb-3">
-          <label class="form-label">{{ 'Server'|trans }}</label>
+          <label class="form-label">{{ 'ChesslaBlab Server'|trans }}</label>
           <select name="locale" class="form-select" required>
             <option value="">{{ 'Select a host'|trans }}</option>
           </select>
         </div>
         <div class="mb-3">
-          <label class="form-label">{{ 'API'|trans }}</label>
+          <label class="form-label">{{ 'ChesslaBlab API'|trans }}</label>
           <select name="theme" class="form-select" required>
             <option value="">{{ 'Select a host'|trans }}</option>
           </select>
@@ -26,7 +26,7 @@
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/dechess/index.js') }}
+      {{ importmap('js/pages/connect/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}
