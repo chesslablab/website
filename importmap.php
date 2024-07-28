@@ -65,6 +65,10 @@ return [
         'path' => './assets/js/pages/settings/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/dechess/index.js' => [
+        'path' => './assets/js/pages/dechess/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/edit/index.js' => [
         'path' => './assets/js/pages/edit/index.js',
         'entrypoint' => true,

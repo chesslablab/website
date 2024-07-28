@@ -145,6 +145,13 @@ pages_settings:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_dechess:
+    path:       /{_locale}/dechess
+    controller: App\Controller\Pages\DeChess\DeChessController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
