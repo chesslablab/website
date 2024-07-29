@@ -18,7 +18,7 @@ services:
       restart: always
       volumes:
           - ./:/usr/share/nginx/website
-          - ./docker/nginx/conf.d/dev.conf:/etc/nginx/conf.d/dev.conf
+          - ./docker/nginx/conf.d/development.conf:/etc/nginx/conf.d/development.conf
           - ./docker/nginx/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
           - ./docker/nginx/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
       working_dir: /usr/share/nginx/website
