@@ -59,7 +59,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this._socket = new WebSocket(this.host());
+      this._socket = new WebSocket(this.websocketHost());
 
       this._socket.onopen = () => {
         this._progressModal.props.modal.hide();
