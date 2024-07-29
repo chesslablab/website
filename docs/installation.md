@@ -50,18 +50,6 @@ sudo chown $USER:www-data -R var/log
 
 First things first, make sure to have created the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder.
 
-### Development Environment
-
-Run the app on port `443`.
-
 ```text
-docker compose -f docker-compose.development.yml up -d
-```
-
-### Decentralized Environment
-
-Run the app on port `443`.
-
-```text
-docker compose -f docker-compose.decentralized.yml up -d
+docker compose -f docker-compose.default.yml up -d
 ```

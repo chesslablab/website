@@ -32,14 +32,14 @@ The following repositories are required to run a complete chess platform in a lo
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
 
-The documentation examples are run in a development environment using these ports for each of the repositories, respectively.
+The documentation examples are run using these ports for each of the repositories, respectively.
 
 - 443
 - 8443
 - 9443
 - 3306
 
-Remember, this is because multiple applications can't listen on the same port on the same host. Make sure to add your API endpoint as well as your WebSocket host to your `assets/env.js` file.
+Remember, this is because multiple applications can't listen on the same port on the same host. Finally make sure to add your API endpoint as well as your WebSocket host to your `assets/env.js` file.
 
 ## Decentralized Environment
 
