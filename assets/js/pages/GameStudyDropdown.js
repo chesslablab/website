@@ -4,6 +4,7 @@ import { heuristicsModal } from './HeuristicsModal.js';
 import { progressModal } from './ProgressModal.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
+import * as connect from '../../connect.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';
 
@@ -13,7 +14,7 @@ export class GameStudyDropdown extends AbstractComponent {
       try {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
-        const res = await fetch(`${env.apiEndpoint()}/download/image`, {
+        const res = await fetch(`${connect.api()}/download/image`, {
           method: 'POST',
           body: JSON.stringify({
             fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
@@ -39,7 +40,7 @@ export class GameStudyDropdown extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-        const res = await fetch(`${env.apiEndpoint()}/download/mp4`, {
+        const res = await fetch(`${connect.api()}/download/mp4`, {
           method: 'POST',
           body: JSON.stringify({
             variant: this.props.chessboard.props.variant,

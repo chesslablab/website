@@ -4,6 +4,7 @@ import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -20,7 +21,7 @@ export class TopOpeningsModal extends AbstractComponent {
         }
         this.props.progressModal.props.modal.show();
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${env.apiEndpoint()}/search`, {
+        const res = await fetch(`${connect.api()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             Result: event.chart.data.datasets[0].label,

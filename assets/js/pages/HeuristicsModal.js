@@ -5,6 +5,7 @@ import chessboard from './chessboard.js';
 import { progressModal } from './ProgressModal.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
+import * as connect from '../../connect.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';
 
@@ -14,7 +15,7 @@ export class HeuristicsModal extends AbstractComponent {
   async mount() {
     try {
       this.props.progressModal.props.modal.show();
-      const res = await fetch(`${env.apiEndpoint()}/eval/names`, {
+      const res = await fetch(`${connect.api()}/eval/names`, {
         method: 'POST',
         // exclude time-consuming heuristics
         body: JSON.stringify({
@@ -39,7 +40,7 @@ export class HeuristicsModal extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-        const res = await fetch(`${env.apiEndpoint()}/heuristic`, {
+        const res = await fetch(`${connect.api()}/heuristic`, {
           method: 'POST',
           body: JSON.stringify({
             variant: variant.CLASSICAL,

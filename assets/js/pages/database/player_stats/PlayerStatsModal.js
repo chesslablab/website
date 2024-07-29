@@ -6,6 +6,7 @@ import { progressModal } from '../../ProgressModal.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -23,7 +24,7 @@ export class PlayerStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${env.apiEndpoint()}/search`, {
+        const res = await fetch(`${connect.api()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             White: formData.get('White'),
@@ -51,7 +52,7 @@ export class PlayerStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const playerStatsChart = document.getElementById('playerStatsChart');
-        const res = await fetch(`${env.apiEndpoint()}/stats/player`, {
+        const res = await fetch(`${connect.api()}/stats/player`, {
           method: 'POST',
           body: JSON.stringify({
             White: formData.get('White'),

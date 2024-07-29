@@ -2,6 +2,7 @@ import Modal from 'bootstrap/js/dist/modal.js';
 import { ravPanel } from './RavPanel.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
+import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
@@ -22,7 +23,7 @@ export class RavMovetextModal extends AbstractComponent {
         event.preventDefault();
         progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
-        const res = await fetch(`${env.apiEndpoint()}/play/rav`, {
+        const res = await fetch(`${connect.api()}/play/rav`, {
           method: 'POST',
           body: JSON.stringify({
             variant: formData.get('variant'),
