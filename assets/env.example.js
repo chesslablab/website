@@ -7,10 +7,22 @@ const WEBSOCKET_HOSTS = [
 ];
 
 const apiEndpoint = () => {
+  if (localStorage.getItem('api')) {
+    if (localStorage.getItem('api') !== 'random') {
+      return localStorage.getItem('api');
+    }
+  }
+
   return API_ENDPOINTS[Math.floor(Math.random() * API_ENDPOINTS.length)];
 }
 
 const websocketHost = () => {
+  if (localStorage.getItem('ws')) {
+    if (localStorage.getItem('ws') !== 'random') {
+      return localStorage.getItem('ws');
+    }
+  }
+
   return WEBSOCKET_HOSTS[Math.floor(Math.random() * WEBSOCKET_HOSTS.length)];
 }
 
