@@ -9,7 +9,7 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="ws"]').append(option);
     });
 
-    env.API_HOSTS.forEach(item => {
+    env.API_ENDPOINTS.forEach(item => {
       const option = document.createElement('option');
       option.appendChild(document.createTextNode(item));
       this.el.querySelector('select[name="api"]').append(option);
