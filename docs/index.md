@@ -39,7 +39,7 @@ The documentation examples are run in a development environment using these port
 - 9443
 - 3306
 
-Remember, this is because multiple applications can't listen on the same port on the same host.
+Remember, this is because multiple applications can't listen on the same port on the same host. Make sure to add your API endpoint as well as your WebSocket host to your `assets/env.js` file.
 
 ## Decentralized Environment
 
@@ -47,6 +47,6 @@ With decentralized chess (DeChess) a complete chess platform can be run using on
 
 - [Website](https://github.com/chesslablab/website)
 
-Just make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file. The ChesslaBlab node list contains a simple list of domain names hosting the [PHP Chess Server](https://github.com/chesslablab/chess-server) and the [PHP Chess API](https://github.com/chesslablab/chess-api) for public consumption.
+Make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file. The ChesslaBlab node list contains a simple list of domain names hosting the [PHP Chess Server](https://github.com/chesslablab/chess-server) and the [PHP Chess API](https://github.com/chesslablab/chess-api) for public consumption.
 
 > Please note that the ChesslaBlab node list is still to be published. Meanwhile, you may want to set up a development environment.
