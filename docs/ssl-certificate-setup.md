@@ -2,7 +2,7 @@
 
 Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.
 
-The first thing you need to understand about setting up a ChesslaBlab website is that you have to create an SSL certificate to secure four different domain names at once.
+The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure four different domain names at once.
 
 - `chesslablab.org`
 - `www.chesslablab.org`
@@ -13,12 +13,15 @@ This is because nowadays, major browsers want all traffic to be secure, and as a
 
 The first two domain names, `chesslablab.org` and `www.chesslablab.org`, will point to the IP of the [website](https://github.com/chesslablab/website). When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The `api.chesslablab.org` domain name will point to the IP of the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the IP of the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
-Use custom domain names to configure your ChesslaBlab site whether you are a chess club, a school, or a FIDE titled player.
+In a decentralized environment only two domain names need to be secured.
+
+- `chesslablab.org`
+- `www.chesslablab.org`
+
+Use custom domain names to configure yours whether you are a chess club, a school, or a FIDE titled player.
 
 - `gmalice.com`
 - `www.gmalice.com`
-- `api.gmalice.com`
-- `async.gmalice.com`
 
 Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
 
