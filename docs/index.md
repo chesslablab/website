@@ -23,16 +23,6 @@ SUM:                            80            311             33           2858
 
 This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Now you can get rid of libraries and frameworks like React, Vue, Next.js, as well as transpilers, bundlers and so on. The ChesslaBlab website is written using OOP and the DOM.
 
-## Decentralized Environment
-
-With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:
-
-- [Website](https://github.com/chesslablab/website)
-
-Just make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file. The ChesslaBlab node list contains a simple list of domain names hosting the [PHP Chess Server](https://github.com/chesslablab/chess-server) and the [PHP Chess API](https://github.com/chesslablab/chess-api) for public consumption.
-
-> Please note that the ChesslaBlab node list is still to be published. Meanwhile, you may want to set up a development environment.
-
 ## Development Environment
 
 The following repositories are required to run a complete chess platform in a local development environment:
@@ -50,3 +40,13 @@ The documentation examples are run in a development environment using these port
 - 3306
 
 Remember, this is because multiple applications can't listen on the same port on the same host.
+
+## Decentralized Environment
+
+With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:
+
+- [Website](https://github.com/chesslablab/website)
+
+Just make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file. The ChesslaBlab node list contains a simple list of domain names hosting the [PHP Chess Server](https://github.com/chesslablab/chess-server) and the [PHP Chess API](https://github.com/chesslablab/chess-api) for public consumption.
+
+> Please note that the ChesslaBlab node list is still to be published. Meanwhile, you may want to set up a development environment.
