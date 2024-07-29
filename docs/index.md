@@ -47,4 +47,4 @@ Decentralized mode allows to run a complete chess platform using one repository 
 
 - [Website](https://github.com/chesslablab/website)
 
-Make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list in your `assets/env.js` file.
+Make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file.
