@@ -13,7 +13,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
-        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/fen`, {
+        const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/tutor/fen`, {
           method: 'POST',
           body: JSON.stringify({
             fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
@@ -32,7 +32,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
-        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/tutor/good-move`, {
+        const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/tutor/good-move`, {
           method: 'POST',
           body: JSON.stringify({
             fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]

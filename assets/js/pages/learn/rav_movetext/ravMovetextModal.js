@@ -22,7 +22,7 @@ export class RavMovetextModal extends AbstractComponent {
         event.preventDefault();
         progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
-        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
+        const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/play/rav`, {
           method: 'POST',
           body: JSON.stringify({
             variant: formData.get('variant'),
