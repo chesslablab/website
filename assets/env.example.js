@@ -1,5 +1,5 @@
 const API_HOSTS = [
-  'https://api.chesslablab.org:9443/v1'
+  'https://api.chesslablab.org:9443'
 ];
 
 const WEBSOCKET_HOSTS = [
