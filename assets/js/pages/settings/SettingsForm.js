@@ -1,7 +1,22 @@
 import AbstractComponent from '../../AbstractComponent.js';
+import * as env from '../../../env.js';
 
 export class SettingsForm extends AbstractComponent {
   mount() {
+    env.WEBSOCKET_HOSTS.forEach(item => {
+      const option = document.createElement('option');
+      option.appendChild(document.createTextNode(new URL(item).hostname));
+      option.value = item;
+      this.el.querySelector('select[name="ws"]').append(option);
+    });
+
+    env.API_ENDPOINTS.forEach(item => {
+      const option = document.createElement('option');
+      option.appendChild(document.createTextNode(new URL(item).hostname));
+      option.value = item;
+      this.el.querySelector('select[name="api"]').append(option);
+    });
+
     if (localStorage.getItem('locale')) {
       this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale');
     } else {
@@ -32,6 +47,14 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="set"]').value = 'classical';
     }
 
+    if (localStorage.getItem('ws')) {
+      this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws');
+    }
+
+    if (localStorage.getItem('api')) {
+      this.el.querySelector('select[name="api"]').value = localStorage.getItem('api');
+    }
+
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
@@ -40,6 +63,8 @@ export class SettingsForm extends AbstractComponent {
       localStorage.setItem('format', formData.get('format'));
       localStorage.setItem('notation', formData.get('notation'));
       localStorage.setItem('set', formData.get('set'));
+      localStorage.setItem('ws', formData.get('ws'));
+      localStorage.setItem('api', formData.get('api'));
       window.location.reload();
     });
   }

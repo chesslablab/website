@@ -2,13 +2,14 @@ import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
 import { ravPanel } from './RavPanel.js';
 import chessboard from '../../chessboard.js';
 import { progressModal } from '../../ProgressModal.js';
+import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as variant from '../../../../variant.js';
 
 const handleClick = async (game) => {
   try {
     progressModal.props.modal.show();
-    const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/play/rav`, {
+    const res = await fetch(`${connect.api()}/play/rav`, {
       method: 'POST',
       body: JSON.stringify({
         variant: variant.CLASSICAL,
@@ -33,7 +34,7 @@ const handleClick = async (game) => {
 
 try {
   progressModal.props.modal.show();
-  const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/annotations/games`, {
+  const res = await fetch(`${connect.api()}/annotations/games`, {
     method: 'GET'
   });
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];

@@ -138,13 +138,6 @@ pages_training_endgame:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_connect:
-    path:       /{_locale}/connect
-    controller: App\Controller\Pages\Connect\ConnectController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_settings:
     path:       /{_locale}/settings
     controller: App\Controller\Pages\Settings\SettingsController::index

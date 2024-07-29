@@ -125,11 +125,6 @@
       </ul>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="{{app.request.get('_route') starts with 'pages_connect' ? 'active' : ''}} nav-link" href="{{ path('pages_connect') }}" id="mainNavConnectLink" role="button" aria-expanded="false">
-            {% include 'svg/bi-diagram-fill.svg' %} {{ 'Connect'|trans }}
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_settings' ? 'active' : ''}} nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
             {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
           </a>

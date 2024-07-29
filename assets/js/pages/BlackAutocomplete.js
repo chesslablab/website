@@ -1,4 +1,5 @@
 import AbstractComponent from '../AbstractComponent.js';
+import * as connect from '../../connect.js';
 import * as env from '../../env.js';
 
 export class BlackAutocomplete extends AbstractComponent {
@@ -9,7 +10,7 @@ export class BlackAutocomplete extends AbstractComponent {
         if (event.target.value.length % 3 === 0) {
           this.props.submitButton.classList.add('d-none');
           this.props.loadingButton.classList.remove('d-none');
-          const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/autocomplete/player`, {
+          const res = await fetch(`${connect.api()}/autocomplete/player`, {
             method: 'POST',
             body: JSON.stringify({
               Black: event.target.value

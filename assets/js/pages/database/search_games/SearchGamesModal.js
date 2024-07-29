@@ -7,6 +7,7 @@ import { progressModal } from '../../ProgressModal.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
@@ -19,7 +20,7 @@ export class SearchGamesModal extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
-        const res = await fetch(`${env.API_SCHEME}://${env.API_HOST}:${env.API_PORT}/${env.API_VERSION}/search`, {
+        const res = await fetch(`${connect.api()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             Event: formData.get('Event'),

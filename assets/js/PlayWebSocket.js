@@ -11,6 +11,7 @@ import { playPanel } from './pages/play/online/PlayPanel.js';
 import { rematchModal } from './pages/play/online/RematchModal.js';
 import { takebackModal } from './pages/play/online/TakebackModal.js';
 import * as action from '../action.js';
+import * as connect from '../connect.js';
 import * as env from '../env.js';
 
 export default class PlayWebSocket extends AbstractWebSocket {
@@ -63,7 +64,7 @@ export default class PlayWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this._socket = new WebSocket(`${env.WEBSOCKET_SCHEME}://${env.WEBSOCKET_HOST}:${env.WEBSOCKET_PORT}`);
+      this._socket = new WebSocket(connect.ws());
 
       this._socket.onopen = () => {
         this._progressModal.props.modal.hide();
