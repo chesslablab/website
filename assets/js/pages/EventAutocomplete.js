@@ -9,7 +9,7 @@ export class EventAutocomplete extends AbstractComponent {
         if (event.target.value.length % 3 === 0) {
           this.props.submitButton.classList.add('d-none');
           this.props.loadingButton.classList.remove('d-none');
-          const res = await fetch(`${apiEndpoint()}/autocomplete/event`, {
+          const res = await fetch(`${env.apiEndpoint()}/autocomplete/event`, {
             method: 'POST',
             body: JSON.stringify({
               Event: event.target.value

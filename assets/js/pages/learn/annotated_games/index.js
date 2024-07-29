@@ -8,7 +8,7 @@ import * as variant from '../../../../variant.js';
 const handleClick = async (game) => {
   try {
     progressModal.props.modal.show();
-    const res = await fetch(`${apiEndpoint()}/play/rav`, {
+    const res = await fetch(`${env.apiEndpoint()}/play/rav`, {
       method: 'POST',
       body: JSON.stringify({
         variant: variant.CLASSICAL,
@@ -33,7 +33,7 @@ const handleClick = async (game) => {
 
 try {
   progressModal.props.modal.show();
-  const res = await fetch(`${apiEndpoint()}/annotations/games`, {
+  const res = await fetch(`${env.apiEndpoint()}/annotations/games`, {
     method: 'GET'
   });
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];

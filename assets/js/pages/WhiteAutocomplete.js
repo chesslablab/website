@@ -9,7 +9,7 @@ export class WhiteAutocomplete extends AbstractComponent {
         if (event.target.value.length % 3 === 0) {
           this.props.submitButton.classList.add('d-none');
           this.props.loadingButton.classList.remove('d-none');
-          const res = await fetch(`${apiEndpoint()}/autocomplete/player`, {
+          const res = await fetch(`${env.apiEndpoint()}/autocomplete/player`, {
             method: 'POST',
             body: JSON.stringify({
               White: event.target.value

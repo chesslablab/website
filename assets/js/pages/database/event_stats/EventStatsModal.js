@@ -22,7 +22,7 @@ export class EventStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${apiEndpoint()}/search`, {
+        const res = await fetch(`${env.apiEndpoint()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             Event: formData.get('Event'),
@@ -49,7 +49,7 @@ export class EventStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const eventStatsChart = document.getElementById('eventStatsChart');
-        const res = await fetch(`${apiEndpoint()}/stats/event`, {
+        const res = await fetch(`${env.apiEndpoint()}/stats/event`, {
           method: 'POST',
           body: JSON.stringify({
             Event: formData.get('Event'),

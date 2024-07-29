@@ -14,7 +14,7 @@ export class HeuristicsModal extends AbstractComponent {
   async mount() {
     try {
       this.props.progressModal.props.modal.show();
-      const res = await fetch(`${apiEndpoint()}/eval/names`, {
+      const res = await fetch(`${env.apiEndpoint()}/eval/names`, {
         method: 'POST',
         // exclude time-consuming heuristics
         body: JSON.stringify({
@@ -39,7 +39,7 @@ export class HeuristicsModal extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-        const res = await fetch(`${apiEndpoint()}/heuristic`, {
+        const res = await fetch(`${env.apiEndpoint()}/heuristic`, {
           method: 'POST',
           body: JSON.stringify({
             variant: variant.CLASSICAL,

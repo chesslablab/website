@@ -23,7 +23,7 @@ export class PlayerStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${apiEndpoint()}/search`, {
+        const res = await fetch(`${env.apiEndpoint()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             White: formData.get('White'),
@@ -51,7 +51,7 @@ export class PlayerStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const playerStatsChart = document.getElementById('playerStatsChart');
-        const res = await fetch(`${apiEndpoint()}/stats/player`, {
+        const res = await fetch(`${env.apiEndpoint()}/stats/player`, {
           method: 'POST',
           body: JSON.stringify({
             White: formData.get('White'),

@@ -13,7 +13,7 @@ export class GameStudyDropdown extends AbstractComponent {
       try {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
-        const res = await fetch(`${apiEndpoint()}/download/image`, {
+        const res = await fetch(`${env.apiEndpoint()}/download/image`, {
           method: 'POST',
           body: JSON.stringify({
             fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
@@ -39,7 +39,7 @@ export class GameStudyDropdown extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
-        const res = await fetch(`${apiEndpoint()}/download/mp4`, {
+        const res = await fetch(`${env.apiEndpoint()}/download/mp4`, {
           method: 'POST',
           body: JSON.stringify({
             variant: this.props.chessboard.props.variant,

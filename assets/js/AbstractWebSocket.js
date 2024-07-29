@@ -1,10 +1,9 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
-import AbstractHost from './AbstractHost.js';
 import chessboard from './pages/chessboard.js';
 import { infoModal } from './pages/InfoModal.js';
 import { progressModal } from './pages/ProgressModal.js';
 
-export default class AbstractWebSocket extends AbstractHost {
+export default class AbstractWebSocket {
   _progressModal;
 
   _infoModal;
@@ -16,8 +15,6 @@ export default class AbstractWebSocket extends AbstractHost {
   _response = {};
 
   constructor() {
-    super();
-    
     this._progressModal = progressModal;
 
     this._infoModal = infoModal;
