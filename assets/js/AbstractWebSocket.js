@@ -2,6 +2,7 @@ import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
 import chessboard from './pages/chessboard.js';
 import { infoModal } from './pages/InfoModal.js';
 import { progressModal } from './pages/ProgressModal.js';
+import * as env from '../env.js';
 
 export default class AbstractWebSocket {
   _progressModal;
@@ -41,6 +42,10 @@ export default class AbstractWebSocket {
     });
 
     this._socket = null;
+  }
+
+  host() {
+    return env.WEBSOCKET_HOSTS[Math.floor(Math.random() * env.WEBSOCKET_HOSTS.length)];
   }
 
   send(msg) {
