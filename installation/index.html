@@ -53,12 +53,6 @@
     <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#run-on-a-docker-container">Run on a Docker Container</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#development-environment">Development Environment</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#decentralized-environment">Decentralized Environment</a>
-    </li>
-        </ul>
     </li>
     </ul>
                 </li>
@@ -133,13 +127,7 @@ sudo chown $USER:www-data -R var/log
 </code></pre>
 <h2 id="run-on-a-docker-container">Run on a Docker Container</h2>
 <p>First things first, make sure to have created the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
-<h3 id="development-environment">Development Environment</h3>
-<p>Run the app on port <code>443</code>.</p>
-<pre><code class="language-text">docker compose -f docker-compose.development.yml up -d
-</code></pre>
-<h3 id="decentralized-environment">Decentralized Environment</h3>
-<p>Run the app on port <code>443</code>.</p>
-<pre><code class="language-text">docker compose -f docker-compose.decentralized.yml up -d
+<pre><code class="language-text">docker compose -f docker-compose.default.yml up -d
 </code></pre>
               
             </div>
