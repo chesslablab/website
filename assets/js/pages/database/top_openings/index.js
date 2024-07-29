@@ -9,7 +9,7 @@ sessionStorage.clear();
 
 try {
   progressModal.props.modal.show();
-  const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/stats/opening`, {
+  const res = await fetch(`${apiEndpoint()}/stats/opening`, {
     method: 'GET'
   });
   topOpeningsModal.props.stats = await res.json();

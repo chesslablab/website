@@ -20,7 +20,7 @@ export class TopOpeningsModal extends AbstractComponent {
         }
         this.props.progressModal.props.modal.show();
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/search`, {
+        const res = await fetch(`${apiEndpoint()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             Result: event.chart.data.datasets[0].label,

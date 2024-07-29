@@ -19,7 +19,7 @@ export class SearchGamesModal extends AbstractComponent {
         event.preventDefault();
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
-        const res = await fetch(`${this.apiHost()}/${env.API_VERSION}/search`, {
+        const res = await fetch(`${apiEndpoint()}/search`, {
           method: 'POST',
           body: JSON.stringify({
             Event: formData.get('Event'),
