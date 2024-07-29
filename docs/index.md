@@ -23,16 +23,26 @@ SUM:                            80            311             33           2858
 
 This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Now you can get rid of libraries and frameworks like React, Vue, Next.js, as well as transpilers, bundlers and so on. The ChesslaBlab website is written using OOP and the DOM.
 
-## Standard Mode
+## Decentralized Environment
 
-The following repositories are required to run a complete chess platform using your own resources in standard mode:
+With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:
+
+- [Website](https://github.com/chesslablab/website)
+
+Just make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file. The ChesslaBlab node list contains a simple list of domain names hosting the [PHP Chess Server](https://github.com/chesslablab/chess-server) and the [PHP Chess API](https://github.com/chesslablab/chess-api) for public consumption.
+
+> Please note that the ChesslaBlab node list is still to be published. Meanwhile, you may want to set up a development environment.
+
+## Development Environment
+
+The following repositories are required to run a complete chess platform in a local development environment:
 
 - [Website](https://github.com/chesslablab/website)
 - [PHP Chess Server](https://github.com/chesslablab/chess-server)
 - [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [Chess Data](https://github.com/chesslablab/chess-data)
 
-It is recommended to run the platform using four different servers on production, one per repository, especially if your site is expected to hit a significant amount of visits. However, everything can be run on a humble machine. In fact, the documentation examples are run in a development environment using these ports for each of the repositories, respectively.
+The documentation examples are run in a development environment using these ports for each of the repositories, respectively.
 
 - 443
 - 8443
@@ -40,11 +50,3 @@ It is recommended to run the platform using four different servers on production
 - 3306
 
 Remember, this is because multiple applications can't listen on the same port on the same host.
-
-## Decentralized Mode
-
-Decentralized mode allows to run a complete chess platform using one repository only:
-
-- [Website](https://github.com/chesslablab/website)
-
-Make sure to add at least one API endpoint as well as a WebSocket host from the ChesslaBlab node list to your `assets/env.js` file.
