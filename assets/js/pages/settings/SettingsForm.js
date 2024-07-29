@@ -5,13 +5,15 @@ export class SettingsForm extends AbstractComponent {
   mount() {
     env.WEBSOCKET_HOSTS.forEach(item => {
       const option = document.createElement('option');
-      option.appendChild(document.createTextNode(item));
+      option.appendChild(document.createTextNode(new URL(item).hostname));
+      option.value = item;
       this.el.querySelector('select[name="ws"]').append(option);
     });
 
     env.API_ENDPOINTS.forEach(item => {
       const option = document.createElement('option');
-      option.appendChild(document.createTextNode(item));
+      option.appendChild(document.createTextNode(new URL(item).hostname));
+      option.value = item;
       this.el.querySelector('select[name="api"]').append(option);
     });
 
