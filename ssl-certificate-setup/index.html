@@ -46,11 +46,15 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">SSL Certificate Setup</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#self-signed-wildcard-ssl-certificate-with-openssl">Self-Signed Wildcard SSL Certificate with OpenSSL</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+    <li class="toctree-l2"><a class="reference internal" href="#development-environment">Development Environment</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#decentralized-environment">Decentralized Environment</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#free-ssl-certificate-with-certbot">Free SSL Certificate with Certbot</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#self-signed-ssl-certificate-with-openssl">Self-Signed SSL Certificate with OpenSSL</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
     </li>
     </ul>
                 </li>
@@ -104,6 +108,7 @@
               
                 <h1 id="ssl-certificate-setup">SSL Certificate Setup</h1>
 <p>Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.</p>
+<h2 id="development-environment">Development Environment</h2>
 <p>The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure four different domain names at once.</p>
 <ul>
 <li><code>chesslablab.org</code></li>
@@ -113,6 +118,7 @@
 </ul>
 <p>This is because nowadays, major browsers want all traffic to be secure, and as a web developer you want the development environment to mimic production as much as possible.</p>
 <p>The first two domain names, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the IP of the <a href="https://github.com/chesslablab/website">website</a>. When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The <code>api.chesslablab.org</code> domain name will point to the IP of the <a href="https://github.com/chesslablab/chess-api">REST-like API</a> and <code>async.chesslablab.org</code> to the IP of the <a href="https://github.com/chesslablab/chess-server">asynchronous chess server</a>.</p>
+<h2 id="decentralized-environment">Decentralized Environment</h2>
 <p>In a decentralized environment only two domain names need to be secured.</p>
 <ul>
 <li><code>chesslablab.org</code></li>
@@ -123,7 +129,8 @@
 <li><code>gmalice.com</code></li>
 <li><code>www.gmalice.com</code></li>
 </ul>
-<p>Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using <a href="https://certbot.eff.org/">Certbot</a> instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.</p>
+<h2 id="free-ssl-certificate-with-certbot">Free SSL Certificate with Certbot</h2>
+<p>Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificate using <a href="https://certbot.eff.org/">Certbot</a> instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.</p>
 <p>This is typically achieved through one of the following methods.</p>
 <ul>
 <li>
@@ -163,8 +170,8 @@ If you like Certbot, please consider supporting our work by:
 <li>chesslablab/chess-server</li>
 </ul>
 <p>It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80.</p>
-<h2 id="self-signed-wildcard-ssl-certificate-with-openssl">Self-Signed Wildcard SSL Certificate with OpenSSL</h2>
-<p>If issuing a wildcard certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.</p>
+<h2 id="self-signed-ssl-certificate-with-openssl">Self-Signed SSL Certificate with OpenSSL</h2>
+<p>If issuing a certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.</p>
 <pre><code class="language-text">openssl genrsa -aes256 -passout pass:foobar -out chesslablab.org.pem 2048
 openssl req -passin pass:foobar -new -sha256 -key chesslablab.org.pem -subj &quot;/C=US/ST=CA/O=ChesslaBlab, Inc./CN=chesslablab.org&quot; -reqexts SAN -config &lt;(cat /etc/ssl/openssl.cnf &lt;(printf &quot;[SAN]\nsubjectAltName=DNS:*.mydomain.org&quot;)) -out chesslablab.org.csr
 openssl x509 -passin pass:foobar -req -days 365 -in chesslablab.org.csr -signkey chesslablab.org.pem -out chesslablab.org.crt
@@ -202,12 +209,16 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 </code></pre>
 <p><img alt="Figure 4" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png" /></p>
 <p><strong>Figure 4</strong>. The browser doesn't recognize the API's certificate.</p>
-<h3 id="conclusion">Conclusion</h3>
-<p>In order to run a ChesslaBlab website, a wildcard SSL certificate needs to be issued and installed in the following repos:</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In order to set up a local development environment, four different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.</p>
 <ul>
 <li>chesslablab/website</li>
 <li>chesslablab/chess-api</li>
 <li>chesslablab/chess-server</li>
+</ul>
+<p>In a decentralized environment only two domain names need to be secured. The SSL certificate is to be installed in the following repository.</p>
+<ul>
+<li>chesslablab/website</li>
 </ul>
 <p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p>
               

@@ -122,25 +122,18 @@ SUM:                            80            311             33           2858
 <h2 id="development-environment">Development Environment</h2>
 <p>The following repositories are required to run a complete chess platform in a local development environment:</p>
 <ul>
-<li><a href="https://github.com/chesslablab/website">Website</a></li>
-<li><a href="https://github.com/chesslablab/chess-server">PHP Chess Server</a></li>
-<li><a href="https://github.com/chesslablab/chess-api">PHP Chess API</a></li>
-<li><a href="https://github.com/chesslablab/chess-data">Chess Data</a></li>
+<li><a href="https://github.com/chesslablab/website">Website</a> on port 443.</li>
+<li><a href="https://github.com/chesslablab/chess-server">PHP Chess Server</a> on port 8443.</li>
+<li><a href="https://github.com/chesslablab/chess-api">PHP Chess API</a> on port 9443.</li>
+<li><a href="https://github.com/chesslablab/chess-data">Chess Data</a> on port 3306.</li>
 </ul>
-<p>The documentation examples are run using these ports for each of the repositories, respectively.</p>
-<ul>
-<li>443</li>
-<li>8443</li>
-<li>9443</li>
-<li>3306</li>
-</ul>
-<p>Remember, this is because multiple applications can't listen on the same port on the same host. Finally make sure to add your API endpoint as well as your WebSocket host to your <code>assets/env.js</code> file.</p>
+<p>This is because multiple applications can't listen on the same port on the same host. Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the <code>assets/env.js</code> file of your website.</p>
 <h2 id="decentralized-environment">Decentralized Environment</h2>
 <p>With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:</p>
 <ul>
-<li><a href="https://github.com/chesslablab/website">Website</a></li>
+<li><a href="https://github.com/chesslablab/website">Website</a> on port 443.</li>
 </ul>
-<p>Make sure to add at least one API endpoint as well as a WebSocket host from the <a href="https://github.com/chesslablab#chesslablab-node-list">ChesslaBlab Node List</a> to your <code>assets/env.js</code> file.</p>
+<p>Make sure to add at least a PHP Chess API endpoint and a PHP Chess Server host name from the <a href="https://github.com/chesslablab#chesslablab-node-list">ChesslaBlab Node List</a> to the <code>assets/env.js</code> file of your website.</p>
               
             </div>
           </div><footer>
@@ -189,5 +182,5 @@ SUM:                            80            311             33           2858
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-07-29 21:51:04.742250+00:00
+Build Date UTC : 2024-07-30 09:03:25.148507+00:00
 -->
