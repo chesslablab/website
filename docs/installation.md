@@ -42,7 +42,7 @@ sudo chown $USER:www-data -R var/cache
 Set up file permissions for the `var/log` folder:
 
 ```
-sudo chmod 775 -R var/cache
+sudo chmod 775 -R var/log
 sudo chown $USER:www-data -R var/log
 ```
 
