@@ -27,24 +27,17 @@ This is made possible with object-oriented programming (OOP) using [JavaScript m
 
 The following repositories are required to run a complete chess platform in a local development environment:
 
-- [Website](https://github.com/chesslablab/website)
-- [PHP Chess Server](https://github.com/chesslablab/chess-server)
-- [PHP Chess API](https://github.com/chesslablab/chess-api)
-- [Chess Data](https://github.com/chesslablab/chess-data)
+- [Website](https://github.com/chesslablab/website) on port 443.
+- [PHP Chess Server](https://github.com/chesslablab/chess-server) on port 8443.
+- [PHP Chess API](https://github.com/chesslablab/chess-api) on port 9443.
+- [Chess Data](https://github.com/chesslablab/chess-data) on port 3306.
 
-The documentation examples are run using these ports for each of the repositories, respectively.
-
-- 443
-- 8443
-- 9443
-- 3306
-
-Remember, this is because multiple applications can't listen on the same port on the same host. Finally make sure to add your API endpoint as well as your WebSocket host to your `assets/env.js` file.
+This is because multiple applications can't listen on the same port on the same host. Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the `assets/env.js` file of your website.
 
 ## Decentralized Environment
 
 With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:
 
-- [Website](https://github.com/chesslablab/website)
+- [Website](https://github.com/chesslablab/website) on port 443.
 
-Make sure to add at least one API endpoint as well as a WebSocket host from the [ChesslaBlab Node List](https://github.com/chesslablab#chesslablab-node-list) to your `assets/env.js` file.
+Make sure to add at least a PHP Chess API endpoint and a PHP Chess Server host name from the [ChesslaBlab Node List](https://github.com/chesslablab#chesslablab-node-list) to the `assets/env.js` file of your website.
