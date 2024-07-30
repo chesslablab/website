@@ -7,7 +7,7 @@ const api = () => {
     }
   }
 
-  return env.API_ENDPOINTS[Math.floor(Math.random() * env.API_ENDPOINTS.length)];
+  return env.API[Math.floor(Math.random() * env.API.length)];
 }
 
 const ws = () => {
@@ -17,7 +17,7 @@ const ws = () => {
     }
   }
 
-  return env.WEBSOCKET_HOSTS[Math.floor(Math.random() * env.WEBSOCKET_HOSTS.length)];
+  return env.WEBSOCKET[Math.floor(Math.random() * env.WEBSOCKET.length)];
 }
 
 export {
