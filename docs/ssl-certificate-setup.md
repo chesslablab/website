@@ -2,6 +2,8 @@
 
 Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.
 
+## Development Environment
+
 The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure four different domain names at once.
 
 - `chesslablab.org`
@@ -13,6 +15,8 @@ This is because nowadays, major browsers want all traffic to be secure, and as a
 
 The first two domain names, `chesslablab.org` and `www.chesslablab.org`, will point to the IP of the [website](https://github.com/chesslablab/website). When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The `api.chesslablab.org` domain name will point to the IP of the [REST-like API](https://github.com/chesslablab/chess-api) and `async.chesslablab.org` to the IP of the [asynchronous chess server](https://github.com/chesslablab/chess-server).
 
+## Decentralized Environment
+
 In a decentralized environment only two domain names need to be secured.
 
 - `chesslablab.org`
@@ -23,7 +27,9 @@ Use custom domain names to configure yours whether you are a chess club, a schoo
 - `gmalice.com`
 - `www.gmalice.com`
 
-Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificates using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
+## Free SSL Certificate with Certbot
+
+Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificate using [Certbot](https://certbot.eff.org/) instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.
 
 This is typically achieved through one of the following methods.
 
@@ -64,9 +70,9 @@ The certbot command generated two files, `fullchain.pem` and `privkey.pem`, that
 
 It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80.
 
-## Self-Signed Wildcard SSL Certificate with OpenSSL
+## Self-Signed SSL Certificate with OpenSSL
 
-If issuing a wildcard certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.
+If issuing a certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.
 
 ```text
 openssl genrsa -aes256 -passout pass:foobar -out chesslablab.org.pem 2048
@@ -131,12 +137,16 @@ GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INV
 
 **Figure 4**. The browser doesn't recognize the API's certificate.
 
-### Conclusion
+## Conclusion
 
-In order to run a ChesslaBlab website, a wildcard SSL certificate needs to be issued and installed in the following repos:
+In order to set up a local development environment, four different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.
 
 - chesslablab/website
 - chesslablab/chess-api
 - chesslablab/chess-server
+
+In a decentralized environment only two domain names need to be secured. The SSL certificate is to be installed in the following repository.
+
+- chesslablab/website
 
 [Certbot](https://certbot.eff.org/) can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.
