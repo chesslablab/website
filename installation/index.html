@@ -50,10 +50,6 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#run-on-a-docker-container">Run on a Docker Container</a>
-    </li>
     </ul>
                 </li>
               </ul>
@@ -101,33 +97,23 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<h2 id="setup">Setup</h2>
-<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and install the Composer dependencies:</p>
-<pre><code class="language-text">composer install
-</code></pre>
-<p>Set up the browser environment variables:</p>
+<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and set up the browser environment variables:</p>
 <pre><code class="language-text">cp assets/env.example.js assets/env.js
 </code></pre>
+<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder, and run the Docker containers in detached mode in the background:</p>
+<pre><code class="language-txt">docker compose -f docker-compose.default.yml up -d
+</code></pre>
 <p>Clear the cache:</p>
-<pre><code class="language-text">php bin/console cache:clear
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console cache:clear
 </code></pre>
 <p>Download the assets:</p>
-<pre><code class="language-text">php bin/console importmap:install
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console importmap:install
 </code></pre>
 <p>Compile the assets:</p>
-<pre><code class="language-text">php bin/console asset-map:compile
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console asset-map:compile
 </code></pre>
-<p>Set up file permissions for the <code>var/cache</code> folder:</p>
-<pre><code>sudo chmod 775 -R var/cache
-sudo chown $USER:www-data -R var/cache
-</code></pre>
-<p>Set up file permissions for the <code>var/log</code> folder:</p>
-<pre><code>sudo chmod 775 -R var/log
-sudo chown $USER:www-data -R var/log
-</code></pre>
-<h2 id="run-on-a-docker-container">Run on a Docker Container</h2>
-<p>First things first, make sure to have created the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder.</p>
-<pre><code class="language-text">docker compose -f docker-compose.default.yml up -d
+<p>Finally, if you are running the website in a local development environment, you may want to add a domain name entry to your <code>/etc/hosts</code> file.</p>
+<pre><code class="language-txt">127.0.0.1       chesslablab.org
 </code></pre>
               
             </div>
