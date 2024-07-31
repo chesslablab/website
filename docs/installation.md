@@ -6,7 +6,7 @@ Clone the `chesslablab/website` repo into your projects folder. Then `cd` the `w
 cp assets/env.example.js assets/env.js
 ```
 
-Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
+Update the `env.js` file to your specific needs. Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
 
 ```txt
 docker compose -f docker-compose.default.yml up -d

@@ -27,10 +27,10 @@ This is made possible with object-oriented programming (OOP) using [JavaScript m
 
 The following repositories are required to run a complete chess platform in a local development environment:
 
-- [Website](https://github.com/chesslablab/website) on port 443.
-- [PHP Chess Server](https://github.com/chesslablab/chess-server) on port 8443.
-- [PHP Chess API](https://github.com/chesslablab/chess-api) on port 9443.
 - [Chess Data](https://github.com/chesslablab/chess-data) on port 3306.
+- [PHP Chess API](https://github.com/chesslablab/chess-api) on port 9443.
+- [PHP Chess Server](https://github.com/chesslablab/chess-server) on port 8443.
+- [Website](https://github.com/chesslablab/website) on port 443.
 
 This is because multiple applications can't listen on the same port on the same host. Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the `assets/env.js` file of your website.
 
