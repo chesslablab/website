@@ -6,5 +6,23 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip
 
-RUN curl --silent --show-error https://getcomposer.org/installer | php && \
-    mv composer.phar /usr/local/bin/composer
+COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /usr/share/nginx/website
+
+COPY composer.json composer.json
+
+COPY composer.lock composer.lock
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+RUN composer install \
+    --no-interaction \
+    --no-scripts
+
+# By default, Composer runs as root inside the container.
+# This can lead to permission issues on your host filesystem.
+
+RUN chown -R 1000:1000 vendor
+
+RUN chmod -R 775 vendor
