@@ -32,7 +32,7 @@ The following repositories are required to run a complete chess platform in a lo
 - [PHP Chess Server](https://github.com/chesslablab/chess-server) on port 8443.
 - [Website](https://github.com/chesslablab/website) on port 443.
 
-This is because multiple applications can't listen on the same port on the same host. Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the `assets/env.js` file of your website.
+Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the `assets/env.js` file of your website.
 
 ## Decentralized Environment
 
