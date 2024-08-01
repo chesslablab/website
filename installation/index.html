@@ -97,10 +97,15 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="installation">Installation</h1>
-<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and set up the browser environment variables:</p>
+<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and create an <code>.env</code> file:</p>
+<pre><code class="language-text">cp .env.example .env
+</code></pre>
+<p>Update the <code>.env</code> file to your specific needs.</p>
+<p>Set up the browser environment variables:</p>
 <pre><code class="language-text">cp assets/env.example.js assets/env.js
 </code></pre>
-<p>Update the <code>env.js</code> file to your specific needs. Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder, and run the Docker containers in detached mode in the background:</p>
+<p>Update the <code>env.js</code> file to your specific needs.</p>
+<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder, and run the Docker containers in detached mode in the background:</p>
 <pre><code class="language-txt">docker compose -f docker-compose.default.yml up -d
 </code></pre>
 <p>Clear the cache:</p>
