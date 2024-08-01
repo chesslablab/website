@@ -40,4 +40,4 @@ With decentralized chess (DeChess) a complete chess platform can be run using on
 
 - [Website](https://github.com/chesslablab/website) on port 443.
 
-Make sure to add at least a PHP Chess API endpoint and a PHP Chess Server host name from the [ChesslaBlab Node List](https://github.com/chesslablab#chesslablab-node-list) to the `assets/env.js` file of your website.
+Make sure to add at least a PHP Chess API endpoint and a PHP Chess Server host name from the [ChesslaBlab Node List](https://github.com/chesslablab#node-list) to the `assets/env.js` file of your website.
