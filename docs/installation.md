@@ -1,12 +1,22 @@
 # Installation
 
-Clone the `chesslablab/website` repo into your projects folder. Then `cd` the `website` directory and set up the browser environment variables:
+Clone the `chesslablab/website` repo into your projects folder. Then `cd` the `website` directory and create an `.env` file:
+
+```text
+cp .env.example .env
+```
+
+Update the `.env` file to your specific needs.
+
+Set up the browser environment variables:
 
 ```text
 cp assets/env.example.js assets/env.js
 ```
 
-Update the `env.js` file to your specific needs. Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
+Update the `env.js` file to your specific needs.
+
+Make sure to have installed the `fullchain.pem` and `privkey.pem` files into the `docker/nginx/ssl` folder, and run the Docker containers in detached mode in the background:
 
 ```txt
 docker compose -f docker-compose.default.yml up -d
