@@ -24,8 +24,8 @@ In a decentralized environment only two domain names need to be secured.
 
 Use custom domain names to configure yours whether you are a chess club, a school, or a FIDE titled player.
 
-- `gmalice.com`
-- `www.gmalice.com`
+- `foochessclub.com`
+- `www.foochessclub.com`
 
 ## Free SSL Certificate with Certbot
 
