@@ -1,5 +1,9 @@
 const messagesTr = {
   // Abstract
+  "It's a win": "Bu bir galibiyet",
+  "It's a draw": "Berabere",
+  "White wins": "Beyaz kazanır",
+  "Black wins": "Siyah kazanır",
   "Draw by stalemate": "Beraberlikle pat",
   "Draw by fivefold repetition": "Beş kat tekrarlayarak çizin",
   "Draw by the fifty-move rule": "Elli hamle kuralına göre çizin",

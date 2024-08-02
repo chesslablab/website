@@ -1,5 +1,9 @@
 const messagesFr = {
   // Abstract
+  "It's a win": "C'est une victoire",
+  "It's a draw": "C'est un match nul",
+  "White wins": "Les blancs gagnent",
+  "Black wins": "Les noirs gagnent",
   "Draw by stalemate": "Nulle par pat",
   "Draw by fivefold repetition": "Nulle par répétition quintuple",
   "Draw by the fifty-move rule": "Nulle par la règle des cinquante coups",
