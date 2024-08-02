@@ -70,6 +70,14 @@ class BlogController extends AbstractController
             throw $this->createNotFoundException('This post does not exist');
         }
 
+        if(!file_exists(
+            self::DATA_FOLDER . '/' .
+            $locale . '/' .
+            basename($routes[$equrest->attributes->get('_route')]['path']) . '.md'
+        )) {
+            throw $this->createNotFoundException('This post does not exist');
+        }
+
         return $this->render('entry.html.twig', [
             'metadata' => [
                 'title' => $metadata['title'],
