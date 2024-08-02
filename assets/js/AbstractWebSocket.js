@@ -21,26 +21,26 @@ export default class AbstractWebSocket {
 
     this._chessboard = chessboard;
 
-    this._chessboard.enableMoveInput(event => {
-      if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
-        return;
-      }
-
-      if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
-        event.chessboard.removeMarkers(MARKER_TYPE.dot);
-        event.chessboard.removeMarkers(MARKER_TYPE.bevel);
-      }
-
-      if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
-        this.send(`/legal ${event.square}`);
-        return true;
-      } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
-        this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
-        return true;
-      }
-    });
-
     this._socket = null;
+  }
+
+  inputHandler(event) {
+    if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
+      return;
+    }
+
+    if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
+      event.chessboard.removeMarkers(MARKER_TYPE.dot);
+      event.chessboard.removeMarkers(MARKER_TYPE.bevel);
+    }
+
+    if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
+      this.send(`/legal ${event.square}`);
+      return true;
+    } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
+      this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
+      return true;
+    }
   }
 
   send(msg) {

@@ -142,6 +142,8 @@ export default class PlayWebSocket extends AbstractWebSocket {
             if (data[msg].jwt) {
               const jwtDecoded = jwtDecode(data[msg].jwt);
               const turn = jwtDecoded.fen.split(' ')[1];
+              this._chessboard.disableMoveInput();
+              this._chessboard.enableMoveInput(event => this.inputHandler(event));
               this._chessboard.setPosition(jwtDecoded.fen, true);
               if (!sessionStorage.getItem('color')) {
                 if (jwtDecoded.color === COLOR.white) {

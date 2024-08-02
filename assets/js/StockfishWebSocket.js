@@ -39,6 +39,8 @@ export class StockfishWebSocket extends AbstractWebSocket {
             break;
 
           case '/start':
+            this._chessboard.disableMoveInput();
+            this._chessboard.enableMoveInput(event => this.inputHandler(event));
             this._chessboard.setPosition(data[msg].fen, true);
             if (data[msg].color === COLOR.black) {
               this._chessboard.setOrientation(COLOR.black);
