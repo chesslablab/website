@@ -1,8 +1,9 @@
 const messagesHi = {
   // Abstract
-  "Draw by the fifty-move rule": "पचास चालों के नियम द्वारा ड्रॉ",
   "Draw by stalemate": "स्टेलमेट द्वारा ड्रॉ",
   "Draw by fivefold repetition": "पाँच गुना पुनरावृत्ति द्वारा ड्रॉ",
+  "Draw by the fifty-move rule": "पचास चालों के नियम द्वारा ड्रॉ",
+  "Draw by dead position": "खेल मृत स्थिति से ड्रा हुआ",
   // Play
   "Waiting for player to join": "खिलाड़ी के जुड़ने की प्रतीक्षा हो रही है",
   // PlayWebSocket
