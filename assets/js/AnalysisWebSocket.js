@@ -78,6 +78,8 @@ export class AnalysisWebSocket extends AbstractWebSocket {
 
           case '/start':
             if (this._response[msg].fen) {
+              this._chessboard.disableMoveInput();
+              this._chessboard.enableMoveInput(event => this.inputHandler(event));
               this._chessboard.setPosition(this._response[msg].fen[this._response[msg].fen.length - 1], true);
               this._chessboard.props.variant = this._response[msg].variant;
               this._chessboard.props.startPos = this._response[msg].startPos;
