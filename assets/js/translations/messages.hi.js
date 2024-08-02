@@ -1,5 +1,9 @@
 const messagesHi = {
   // Abstract
+  "It's a win": "यह एक जीत है",
+  "It's a draw": "यह ड्रॉ है",
+  "White wins": "सफ़ेद जीतता है",
+  "Black wins": "काला जीतता है",
   "Draw by stalemate": "स्टेलमेट द्वारा ड्रॉ",
   "Draw by fivefold repetition": "पाँच गुना पुनरावृत्ति द्वारा ड्रॉ",
   "Draw by the fifty-move rule": "पचास चालों के नियम द्वारा ड्रॉ",

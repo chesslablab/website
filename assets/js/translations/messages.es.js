@@ -1,5 +1,9 @@
 const messagesEs = {
   // Abstract
+  "It's a win": "Es una victoria",
+  "It's a draw": "Son tablas",
+  "White wins": "Las blancas ganan",
+  "Black wins": "Las negras ganan",
   "Draw by stalemate": "Tablas por ahogado",
   "Draw by fivefold repetition": "Tablas por quíntuple repetición",
   "Draw by the fifty-move rule": "Tablas según la regla de los cincuenta movimientos",

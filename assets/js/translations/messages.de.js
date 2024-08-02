@@ -1,5 +1,9 @@
 const messagesDe = {
   // Abstract
+  "It's a win": "Es ist ein Sieg",
+  "It's a draw": "Es ist eine Zeichnung",
+  "White wins": "Weiß gewinnt",
+  "Black wins": "Schwarz gewinnt",
   "Draw by stalemate": "Remis durch Patt",
   "Draw by fivefold repetition": "Remis durch fünffache Wiederholung",
   "Draw by the fifty-move rule": "Remis nach der Fünfzig-Züge-Regel",
