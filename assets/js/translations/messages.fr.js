@@ -1,8 +1,9 @@
 const messagesFr = {
   // Abstract
-  "Draw by the fifty-move rule": "Tirer selon la règle des cinquante coups",
   "Draw by stalemate": "Nulle par pat",
-  "Draw by fivefold repetition": "Nulle par la règle des cinquante coups",
+  "Draw by fivefold repetition": "Nulle par répétition quintuple",
+  "Draw by the fifty-move rule": "Nulle par la règle des cinquante coups",
+  "Draw by dead position": "Nulle par position morte",
   // Play
   "Waiting for player to join": "En attente que le joueur rejoigne",
   // PlayWebSocket

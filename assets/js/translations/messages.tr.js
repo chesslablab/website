@@ -1,8 +1,9 @@
 const messagesTr = {
   // Abstract
-  "Draw by the fifty-move rule": "Elli hamle kuralına göre çizin",
   "Draw by stalemate": "Beraberlikle pat",
   "Draw by fivefold repetition": "Beş kat tekrarlayarak çizin",
+  "Draw by the fifty-move rule": "Elli hamle kuralına göre çizin",
+  "Draw by dead position": "Ölü pozisyonla berabere kalan oyun",
   // Play
   "Waiting for player to join": "Oyuncunun bağlanması bekleniyor",
   // PlayWebSocket
