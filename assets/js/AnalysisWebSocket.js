@@ -10,7 +10,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
   constructor() {
     super();
 
-    sanPanel.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
+    sanPanel.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
@@ -29,7 +29,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       }
     });
 
-    sanPanel.props.gameStudyDropdown.props.ul.children.item(4).addEventListener('click', async (event) => {
+    sanPanel.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
