@@ -1,4 +1,4 @@
-import { ravMovetextModal } from './ravMovetextModal.js';
+import { ravMovetextModal } from './RavMovetextModal.js';
 import chessboard from '../../chessboard.js';
 
 sessionStorage.clear();
