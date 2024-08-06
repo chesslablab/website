@@ -17,7 +17,7 @@ const ws = () => {
     }
   }
 
-  return env.WEBSOCKET[Math.floor(Math.random() * env.WEBSOCKET.length)];
+  return env.WEBSOCKET_GAME[Math.floor(Math.random() * env.WEBSOCKET_GAME.length)];
 }
 
 export {
