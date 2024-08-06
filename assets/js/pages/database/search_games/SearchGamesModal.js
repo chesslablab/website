@@ -32,7 +32,7 @@ export class SearchGamesModal extends AbstractComponent {
         };
         await dataWebSocket.connect();
         dataWebSocket.send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watchResponse('/search', (newValue, oldValue) => {
+        dataWebSocket.watch('/search', (newValue, oldValue) => {
           const tbody = this.props.form.getElementsByTagName('tbody')[0];
           tbody.parentNode.classList.add('mt-3');
           tbody.replaceChildren();

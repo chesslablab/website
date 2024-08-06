@@ -26,7 +26,7 @@ export class TopOpeningsModal extends AbstractComponent {
         };
         await dataWebSocket.connect();
         dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watchResponse('/search', (newValue, oldValue) => {
+        dataWebSocket.watch('/search', (newValue, oldValue) => {
           this.props.movesMetadataTable.props = newValue[0];
           this.props.movesMetadataTable.mount();
           const startSettings = {
