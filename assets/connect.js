@@ -10,6 +10,12 @@ const api = () => {
   return env.API[Math.floor(Math.random() * env.API.length)];
 }
 
+const wsData = () => {
+  // TODO
+
+  return 'wss://async.chesslablab.org:9443';
+}
+
 const wsGame = () => {
   if (localStorage.getItem('ws')) {
     if (localStorage.getItem('ws') !== 'random') {
@@ -22,5 +28,6 @@ const wsGame = () => {
 
 export {
   api,
-  wsGame
+  wsGame,
+  wsData
 };

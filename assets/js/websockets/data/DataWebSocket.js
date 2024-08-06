@@ -7,7 +7,7 @@ export class DataWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this._socket = new WebSocket('wss://async.chesslablab.org:9443');
+      this._socket = new WebSocket(connect.wsData());
 
       this._socket.onopen = () => {
         this._progressModal.props.modal.hide();
