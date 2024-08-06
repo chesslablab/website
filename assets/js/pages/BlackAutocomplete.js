@@ -11,10 +11,10 @@ export class BlackAutocomplete extends AbstractComponent {
         if (event.target.value.length % 3 === 0) {
           this.props.submitButton.classList.add('d-none');
           this.props.loadingButton.classList.remove('d-none');
-          await dataWebSocket.connect();
           const settings = {
             Black: event.target.value
           };
+          await dataWebSocket.connect();
           dataWebSocket.send(`/autocomplete_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
           dataWebSocket.watchResponse('/autocomplete_player', (newValue, oldValue) => {
             this.props.datalist.replaceChildren();
@@ -27,12 +27,12 @@ export class BlackAutocomplete extends AbstractComponent {
               });
               this.props.datalist.append(option);
             });
-            this.props.submitButton.classList.remove('d-none');
-            this.props.loadingButton.classList.add('d-none');
           });
         }
       } catch (error) {
       } finally {
+        this.props.submitButton.classList.remove('d-none');
+        this.props.loadingButton.classList.add('d-none');
       }
     });
   }
