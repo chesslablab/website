@@ -1,5 +1,5 @@
 import AbstractComponent from '../../../AbstractComponent.js';
-import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 

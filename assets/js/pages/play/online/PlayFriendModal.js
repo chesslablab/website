@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { copyInviteCodeModal } from './CopyInviteCodeModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { playWebSocket } from '../../../PlayWebSocket.js';
+import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 

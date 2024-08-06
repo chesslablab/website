@@ -1,5 +1,5 @@
 import { playComputerModal } from './PlayComputerModal.js';
-import { stockfishWebSocket } from '../../../StockfishWebSocket.js';
+import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 
 await stockfishWebSocket.connect();
 

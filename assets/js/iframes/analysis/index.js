@@ -1,4 +1,4 @@
-import { analysisWebSocket } from '../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 
 const url = window.location.href.split('/');

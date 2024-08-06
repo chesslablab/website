@@ -4,7 +4,7 @@ import { eventAutocomplete } from '../../EventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
