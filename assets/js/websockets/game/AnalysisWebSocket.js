@@ -1,10 +1,10 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import AbstractWebSocket from './AbstractWebSocket.js';
-import { sanPanel } from './pages/SanPanel.js';
-import * as connect from '../connect.js';
-import * as env from '../env.js';
-import * as variant from '../variant.js';
+import { sanPanel } from '../../pages/SanPanel.js';
+import * as connect from '../../../connect.js';
+import * as env from '../../../env.js';
+import * as variant from '../../../variant.js';
 
 export class AnalysisWebSocket extends AbstractWebSocket {
   constructor() {
@@ -60,7 +60,7 @@ export class AnalysisWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this._socket = new WebSocket(connect.ws());
+      this._socket = new WebSocket(connect.wsGame());
 
       this._socket.onopen = () => {
         this._progressModal.props.modal.hide();

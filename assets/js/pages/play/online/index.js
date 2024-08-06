@@ -1,7 +1,7 @@
 import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 import chessboard from '../../chessboard.js';
-import { playWebSocket } from '../../../PlayWebSocket.js';
+import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
 sessionStorage.clear();
 

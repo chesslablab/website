@@ -1,5 +1,5 @@
 import { playerStatsModal } from './PlayerStatsModal.js';
-import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
 await analysisWebSocket.connect();
 

@@ -1,5 +1,5 @@
 import { openingsSanMovetextModal } from './OpeningsSanMovetextModal.js';
-import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
 await analysisWebSocket.connect();
 

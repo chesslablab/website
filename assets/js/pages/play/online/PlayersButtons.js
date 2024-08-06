@@ -1,5 +1,5 @@
 import AbstractComponent from '../../../AbstractComponent.js';
-import { playWebSocket } from '../../../PlayWebSocket.js';
+import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
 export class PlayersButtons extends AbstractComponent {
   mount() {

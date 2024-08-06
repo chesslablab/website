@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { playWebSocket } from '../../../PlayWebSocket.js';
+import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 
 export class CreateGameModal extends AbstractComponent {
