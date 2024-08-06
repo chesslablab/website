@@ -22,7 +22,7 @@ export class StockfishWebSocket extends AbstractWebSocket {
     this._progressModal.props.modal.show();
 
     return new Promise((resolve, reject) => {
-      this._socket = new WebSocket(connect.ws());
+      this._socket = new WebSocket(connect.wsGame());
 
       this._socket.onopen = () => {
         this._progressModal.props.modal.hide();

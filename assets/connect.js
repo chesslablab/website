@@ -10,7 +10,7 @@ const api = () => {
   return env.API[Math.floor(Math.random() * env.API.length)];
 }
 
-const ws = () => {
+const wsGame = () => {
   if (localStorage.getItem('ws')) {
     if (localStorage.getItem('ws') !== 'random') {
       return localStorage.getItem('ws');
@@ -22,5 +22,5 @@ const ws = () => {
 
 export {
   api,
-  ws
+  wsGame
 };
