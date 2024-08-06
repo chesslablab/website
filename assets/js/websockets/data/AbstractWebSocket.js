@@ -1,20 +1,9 @@
-import { infoModal } from '../../pages/InfoModal.js';
-import { progressModal } from '../../pages/ProgressModal.js';
-
 export default class AbstractWebSocket {
-  _progressModal;
-
-  _infoModal;
-
   _socket;
 
   _response = {};
 
   constructor() {
-    this._progressModal = progressModal;
-
-    this._infoModal = infoModal;
-
     this._socket = null;
   }
 

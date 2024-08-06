@@ -24,12 +24,12 @@ export class BlackAutocomplete extends AbstractComponent {
               });
               this.props.datalist.append(option);
             });
+            this.props.submitButton.classList.remove('d-none');
+            this.props.loadingButton.classList.add('d-none');
           });
         }
       } catch (error) {
       } finally {
-        this.props.submitButton.classList.remove('d-none');
-        this.props.loadingButton.classList.add('d-none');
       }
     });
   }
