@@ -28,26 +28,6 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       }
     });
 
-    sanPanel.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
-      try {
-        event.preventDefault();
-        this._progressModal.props.modal.show();
-        const settings = {
-          fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
-        };
-        this.send(`/tutor_good_move "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        this.watch('/tutor_good_move', (newValue, oldValue) => {
-          sanPanel.props.explainGoodMoveModal.props.pgn = newValue.pgn;
-          sanPanel.props.explainGoodMoveModal.props.paragraph = newValue.paragraph;
-          sanPanel.props.explainGoodMoveModal.mount();
-          sanPanel.props.explainGoodMoveModal.props.modal.show();
-        });
-      } catch (error) {
-      } finally {
-        this._progressModal.props.modal.hide();
-      }
-    });
-
     sanPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       this.send('/undo');
