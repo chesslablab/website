@@ -3,7 +3,6 @@ import { Movetext } from '@chesslablab/js-utils';
 import AbstractWebSocket from './AbstractWebSocket.js';
 import { sanPanel } from '../../pages/SanPanel.js';
 import * as connect from '../../../connect.js';
-import * as env from '../../../env.js';
 import * as variant from '../../../variant.js';
 
 export class AnalysisWebSocket extends AbstractWebSocket {
@@ -14,15 +13,15 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
-        const res = await fetch(`${connect.api()}/tutor/fen`, {
-          method: 'POST',
-          body: JSON.stringify({
-            fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
-          })
+        const settings = {
+          fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
+        };
+        this.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        this.watch('/tutor_fen', (newValue, oldValue) => {
+          sanPanel.props.explainPositionModal.props.explanation = newValue;
+          sanPanel.props.explainPositionModal.mount();
+          sanPanel.props.explainPositionModal.props.modal.show();
         });
-        sanPanel.props.explainPositionModal.props.explanation = await res.json();
-        sanPanel.props.explainPositionModal.mount();
-        sanPanel.props.explainPositionModal.props.modal.show();
       } catch (error) {
       } finally {
         this._progressModal.props.modal.hide();
@@ -33,17 +32,16 @@ export class AnalysisWebSocket extends AbstractWebSocket {
       try {
         event.preventDefault();
         this._progressModal.props.modal.show();
-        const res = await fetch(`${connect.api()}/tutor/good-move`, {
-          method: 'POST',
-          body: JSON.stringify({
-            fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
-          })
+        const settings = {
+          fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
+        };
+        this.send(`/tutor_good_move "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        this.watch('/tutor_good_move', (newValue, oldValue) => {
+          sanPanel.props.explainGoodMoveModal.props.pgn = newValue.pgn;
+          sanPanel.props.explainGoodMoveModal.props.paragraph = newValue.paragraph;
+          sanPanel.props.explainGoodMoveModal.mount();
+          sanPanel.props.explainGoodMoveModal.props.modal.show();
         });
-        const json = await res.json();
-        sanPanel.props.explainGoodMoveModal.props.pgn = json.pgn;
-        sanPanel.props.explainGoodMoveModal.props.paragraph = json.paragraph;
-        sanPanel.props.explainGoodMoveModal.mount();
-        sanPanel.props.explainGoodMoveModal.props.modal.show();
       } catch (error) {
       } finally {
         this._progressModal.props.modal.hide();
