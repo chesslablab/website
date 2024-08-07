@@ -2,9 +2,7 @@ import Modal from 'bootstrap/js/dist/modal.js';
 import { ravPanel } from './RavPanel.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import * as connect from '../../../../connect.js';
-import * as env from '../../../../env.js';
-import * as mode from '../../../../mode.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../../../variant.js';
 
 export class RavMovetextModal extends AbstractComponent {
@@ -23,23 +21,23 @@ export class RavMovetextModal extends AbstractComponent {
         event.preventDefault();
         progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
-        const res = await fetch(`${connect.api()}/play/rav`, {
-          method: 'POST',
-          body: JSON.stringify({
-            variant: formData.get('variant'),
-            movetext: formData.get('rav'),
-          })
-        });
-        const data = await res.json();
-        ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
-        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
-        ravPanel.props.ravMovesBrowser.props = {
-          ...ravPanel.props.ravMovesBrowser.props,
-          filtered: data.filtered,
-          breakdown: data.breakdown,
-          fen: data.fen
+        const settings = {
+          variant: formData.get('variant'),
+          movetext: formData.get('rav'),
         };
-        ravPanel.props.ravMovesBrowser.mount();
+        await analysisWebSocket.connect();
+        analysisWebSocket.send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.watch('/play_rav', (newValue, oldValue) => {
+          ravPanel.props.ravMovesBrowser.current = newValue.fen.length - 1;
+          ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(newValue.fen[newValue.fen.length - 1]);
+          ravPanel.props.ravMovesBrowser.props = {
+            ...ravPanel.props.ravMovesBrowser.props,
+            filtered: newValue.filtered,
+            breakdown: newValue.breakdown,
+            fen: newValue.fen
+          };
+          ravPanel.props.ravMovesBrowser.mount();
+        });
       } catch (error) {
       } finally {
         this.props.modal.hide();
