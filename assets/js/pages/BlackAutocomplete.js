@@ -1,7 +1,5 @@
 import AbstractComponent from '../AbstractComponent.js';
 import { dataWebSocket } from '../websockets/data/DataWebSocket.js';
-import * as connect from '../../connect.js';
-import * as env from '../../env.js';
 
 export class BlackAutocomplete extends AbstractComponent {
   mount() {
