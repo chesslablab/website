@@ -11,7 +11,6 @@ export class EventAutocomplete extends AbstractComponent {
         const settings = {
           Event: event.target.value
         };
-        await dataWebSocket.connect();
         dataWebSocket.send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
         dataWebSocket.watch('/autocomplete_event', (data) => {
           this.props.datalist.replaceChildren();

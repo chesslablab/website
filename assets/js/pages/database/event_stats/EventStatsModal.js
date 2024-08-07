@@ -26,7 +26,6 @@ export class EventStatsModal extends AbstractComponent {
         Result: formData.get('Result'),
         ECO: event.chart.data.labels[dataIndex]
       };
-      await dataWebSocket.connect();
       dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
       dataWebSocket.watch('/search', (data) => {
         this.props.movesMetadataTable.props = data[0];
@@ -49,7 +48,6 @@ export class EventStatsModal extends AbstractComponent {
         Event: formData.get('Event'),
         Result: formData.get('Result')
       };
-      await dataWebSocket.connect();
       dataWebSocket.send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       dataWebSocket.watch('/stats_event', (data) => {
         const canvas = document.createElement('canvas');
