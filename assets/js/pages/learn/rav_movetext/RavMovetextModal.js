@@ -17,32 +17,28 @@ export class RavMovetextModal extends AbstractComponent {
     });
 
     this.props.form.addEventListener('submit', async event => {
-      try {
-        event.preventDefault();
-        progressModal.props.modal.show();
-        const formData = new FormData(this.props.form);
-        const settings = {
-          variant: formData.get('variant'),
-          movetext: formData.get('rav'),
+      event.preventDefault();
+      progressModal.props.modal.show();
+      const formData = new FormData(this.props.form);
+      const settings = {
+        variant: formData.get('variant'),
+        movetext: formData.get('rav'),
+      };
+      await analysisWebSocket.connect();
+      analysisWebSocket.send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
+      analysisWebSocket.watch('/play_rav', (newValue, oldValue) => {
+        ravPanel.props.ravMovesBrowser.current = newValue.fen.length - 1;
+        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(newValue.fen[newValue.fen.length - 1]);
+        ravPanel.props.ravMovesBrowser.props = {
+          ...ravPanel.props.ravMovesBrowser.props,
+          filtered: newValue.filtered,
+          breakdown: newValue.breakdown,
+          fen: newValue.fen
         };
-        await analysisWebSocket.connect();
-        analysisWebSocket.send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-        analysisWebSocket.watch('/play_rav', (newValue, oldValue) => {
-          ravPanel.props.ravMovesBrowser.current = newValue.fen.length - 1;
-          ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(newValue.fen[newValue.fen.length - 1]);
-          ravPanel.props.ravMovesBrowser.props = {
-            ...ravPanel.props.ravMovesBrowser.props,
-            filtered: newValue.filtered,
-            breakdown: newValue.breakdown,
-            fen: newValue.fen
-          };
-          ravPanel.props.ravMovesBrowser.mount();
-        });
-      } catch (error) {
-      } finally {
-        this.props.modal.hide();
-        progressModal.props.modal.hide();
-      }
+        ravPanel.props.ravMovesBrowser.mount();
+      });
+      this.props.modal.hide();
+      progressModal.props.modal.hide();
     });
   }
 }

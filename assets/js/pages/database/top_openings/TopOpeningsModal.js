@@ -14,31 +14,27 @@ export class TopOpeningsModal extends AbstractComponent {
 
   mount() {
     const handleBarClick = async (event, clickedElements) => {
-      try {
-        if (clickedElements.length === 0) {
-          return;
-        }
-        this.props.progressModal.props.modal.show();
-        const { dataIndex, raw } = clickedElements[0].element.$context;
-        const searchSettings = {
-          Result: event.chart.data.datasets[0].label,
-          ECO: event.chart.data.labels[dataIndex]
-        };
-        await dataWebSocket.connect();
-        dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watch('/search', (newValue, oldValue) => {
-          this.props.movesMetadataTable.props = newValue[0];
-          this.props.movesMetadataTable.mount();
-          const startSettings = {
-            movetext: this.props.movesMetadataTable.props.movetext
-          };
-          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
-        });
-      } catch (error) {
-      } finally {
-        this.props.modal.hide();
-        this.props.progressModal.props.modal.hide();
+      if (clickedElements.length === 0) {
+        return;
       }
+      this.props.progressModal.props.modal.show();
+      const { dataIndex, raw } = clickedElements[0].element.$context;
+      const searchSettings = {
+        Result: event.chart.data.datasets[0].label,
+        ECO: event.chart.data.labels[dataIndex]
+      };
+      await dataWebSocket.connect();
+      dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
+      dataWebSocket.watch('/search', (newValue, oldValue) => {
+        this.props.movesMetadataTable.props = newValue[0];
+        this.props.movesMetadataTable.mount();
+        const startSettings = {
+          movetext: this.props.movesMetadataTable.props.movetext
+        };
+        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+      });
+      this.props.modal.hide();
+      this.props.progressModal.props.modal.hide();
     }
 
     const options = {
