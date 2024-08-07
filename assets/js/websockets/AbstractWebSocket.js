@@ -23,7 +23,6 @@ export default class AbstractWebSocket {
         },
         set(newValue) {
           if (newValue !== value) {
-            const oldValue = value;
             value = newValue;
             callback(newValue);
           }
