@@ -5,6 +5,7 @@ import movesMetadataTable from '../../movesMetadataTable.js';
 import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
+import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
@@ -23,20 +24,21 @@ export class EventStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const { dataIndex, raw } = clickedElements[0].element.$context;
-        const res = await fetch(`${connect.api()}/search`, {
-          method: 'POST',
-          body: JSON.stringify({
-            Event: formData.get('Event'),
-            Result: formData.get('Result'),
-            ECO: event.chart.data.labels[dataIndex]
-          })
-        });
-        this.props.movesMetadataTable.props = (await res.json())[0];
-        this.props.movesMetadataTable.mount();
-        const settings = {
-          movetext: this.props.movesMetadataTable.props.movetext
+        const searchSettings = {
+          Event: formData.get('Event'),
+          Result: formData.get('Result'),
+          ECO: event.chart.data.labels[dataIndex]
         };
-        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        await dataWebSocket.connect();
+        dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
+        dataWebSocket.watch('/search', (newValue, oldValue) => {
+          this.props.movesMetadataTable.props = newValue[0];
+          this.props.movesMetadataTable.mount();
+          const startSettings = {
+            movetext: this.props.movesMetadataTable.props.movetext
+          };
+          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+        });
       } catch (error) {
       } finally {
         this.props.modal.hide();
