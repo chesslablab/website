@@ -11,7 +11,6 @@ export class BlackAutocomplete extends AbstractComponent {
         const settings = {
           Black: event.target.value
         };
-        await dataWebSocket.connect();
         dataWebSocket
           .send(`/autocomplete_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
           .watch('/autocomplete_player', data => {
