@@ -1,8 +1,8 @@
 import { openingsSanMovetextModal } from './OpeningsSanMovetextModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
-await analysisWebSocket.connect();
-
 sessionStorage.clear();
+
+await analysisWebSocket.connect();
 
 openingsSanMovetextModal.props.modal.show();

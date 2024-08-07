@@ -1,8 +1,8 @@
 import { playComputerModal } from './PlayComputerModal.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 
-await stockfishWebSocket.connect();
-
 sessionStorage.clear();
+
+await stockfishWebSocket.connect();
 
 playComputerModal.props.modal.show();

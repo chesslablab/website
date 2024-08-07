@@ -1,8 +1,8 @@
 import { openingsNameModal } from './OpeningsNameModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
-await analysisWebSocket.connect();
-
 sessionStorage.clear();
+
+await analysisWebSocket.connect();
 
 openingsNameModal.props.modal.show();

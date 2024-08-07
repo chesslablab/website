@@ -28,8 +28,11 @@ const handleClick = async (game) => {
   progressModal.props.modal.hide();
 };
 
-await dataWebSocket.connect();
+sessionStorage.clear();
+
 progressModal.props.modal.show();
+
+await dataWebSocket.connect();
 dataWebSocket.send(`/annotations_game`);
 dataWebSocket.watch('/annotations_game', (data) => {
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];

@@ -1,8 +1,8 @@
 import { endgameModal } from './EndgameModal.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 
-await stockfishWebSocket.connect();
-
 sessionStorage.clear();
+
+await stockfishWebSocket.connect();
 
 endgameModal.props.modal.show();
