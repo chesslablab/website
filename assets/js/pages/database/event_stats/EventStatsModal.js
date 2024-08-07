@@ -6,8 +6,6 @@ import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
-import * as connect from '../../../../connect.js';
-import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
@@ -52,57 +50,57 @@ export class EventStatsModal extends AbstractComponent {
         this.props.progressModal.props.modal.show();
         const formData = new FormData(this.props.form);
         const eventStatsChart = document.getElementById('eventStatsChart');
-        const res = await fetch(`${connect.api()}/stats/event`, {
-          method: 'POST',
-          body: JSON.stringify({
-            Event: formData.get('Event'),
-            Result: formData.get('Result')
-          })
-        });
-        const data = await res.json();
-        const canvas = document.createElement('canvas');
-        eventStatsChart.replaceChildren();
-        eventStatsChart.appendChild(canvas);
-        const chart = new Chart(canvas, {
-          type: 'bar',
-          data: {
-            labels: data.map(value => value.ECO).slice(0, this._nBars),
-            datasets: [{
-              data: data.map(value => value.total).slice(0, this._nBars),
-              backgroundColor: formData.get('Result') === '1-0'
-                ? '#c0c0c0'
-                : formData.get('Result') === '1/2-1/2'
-                ? '#888888'
-                : '#404040'
-            }]
-          },
-          options: {
-            animation: false,
-            categoryPercentage: 1.0,
-            barPercentage: 1.0,
-            onHover: function(event, el) {
-              event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
+        const settings = {
+          Event: formData.get('Event'),
+          Result: formData.get('Result')
+        };
+        await dataWebSocket.connect();
+        dataWebSocket.send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        dataWebSocket.watch('/stats_event', (newValue, oldValue) => {
+          const canvas = document.createElement('canvas');
+          eventStatsChart.replaceChildren();
+          eventStatsChart.appendChild(canvas);
+          const chart = new Chart(canvas, {
+            type: 'bar',
+            data: {
+              labels: newValue.map(value => value.ECO).slice(0, this._nBars),
+              datasets: [{
+                data: newValue.map(value => value.total).slice(0, this._nBars),
+                backgroundColor: formData.get('Result') === '1-0'
+                  ? '#c0c0c0'
+                  : formData.get('Result') === '1/2-1/2'
+                  ? '#888888'
+                  : '#404040'
+              }]
             },
-            onClick: handleBarClick,
-            plugins: {
-              legend: {
-                display: false
-              }
-            },
-            scales: {
-              x: {
-                grid: {
+            options: {
+              animation: false,
+              categoryPercentage: 1.0,
+              barPercentage: 1.0,
+              onHover: function(event, el) {
+                event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
+              },
+              onClick: handleBarClick,
+              plugins: {
+                legend: {
                   display: false
                 }
               },
-              y: {
-                beginAtZero: true,
-                grid: {
-                  display: false
+              scales: {
+                x: {
+                  grid: {
+                    display: false
+                  }
+                },
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  }
                 }
               }
             }
-          }
+          });
         });
       } catch (error) {
       } finally {
