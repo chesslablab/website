@@ -1,8 +1,8 @@
 import { playerStatsModal } from './PlayerStatsModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
-await analysisWebSocket.connect();
-
 sessionStorage.clear();
+
+await analysisWebSocket.connect();
 
 playerStatsModal.props.modal.show();
