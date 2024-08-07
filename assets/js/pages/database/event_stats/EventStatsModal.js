@@ -26,15 +26,16 @@ export class EventStatsModal extends AbstractComponent {
         Result: formData.get('Result'),
         ECO: event.chart.data.labels[dataIndex]
       };
-      dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/search', (data) => {
-        this.props.movesMetadataTable.props = data[0];
-        this.props.movesMetadataTable.mount();
-        const startSettings = {
-          movetext: this.props.movesMetadataTable.props.movetext
-        };
-        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
-      });
+      dataWebSocket
+        .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
+        .watch('/search', data => {
+          this.props.movesMetadataTable.props = data[0];
+          this.props.movesMetadataTable.mount();
+          const startSettings = {
+            movetext: this.props.movesMetadataTable.props.movetext
+          };
+          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+        });
       this.props.modal.hide();
       this.props.progressModal.props.modal.hide();
     }
@@ -48,53 +49,54 @@ export class EventStatsModal extends AbstractComponent {
         Event: formData.get('Event'),
         Result: formData.get('Result')
       };
-      dataWebSocket.send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/stats_event', (data) => {
-        const canvas = document.createElement('canvas');
-        eventStatsChart.replaceChildren();
-        eventStatsChart.appendChild(canvas);
-        const chart = new Chart(canvas, {
-          type: 'bar',
-          data: {
-            labels: data.map(value => value.ECO).slice(0, this._nBars),
-            datasets: [{
-              data: data.map(value => value.total).slice(0, this._nBars),
-              backgroundColor: formData.get('Result') === '1-0'
-                ? '#c0c0c0'
-                : formData.get('Result') === '1/2-1/2'
-                ? '#888888'
-                : '#404040'
-            }]
-          },
-          options: {
-            animation: false,
-            categoryPercentage: 1.0,
-            barPercentage: 1.0,
-            onHover: function(event, el) {
-              event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
+      dataWebSocket
+        .send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .watch('/stats_event', data => {
+          const canvas = document.createElement('canvas');
+          eventStatsChart.replaceChildren();
+          eventStatsChart.appendChild(canvas);
+          const chart = new Chart(canvas, {
+            type: 'bar',
+            data: {
+              labels: data.map(value => value.ECO).slice(0, this._nBars),
+              datasets: [{
+                data: data.map(value => value.total).slice(0, this._nBars),
+                backgroundColor: formData.get('Result') === '1-0'
+                  ? '#c0c0c0'
+                  : formData.get('Result') === '1/2-1/2'
+                  ? '#888888'
+                  : '#404040'
+              }]
             },
-            onClick: handleBarClick,
-            plugins: {
-              legend: {
-                display: false
-              }
-            },
-            scales: {
-              x: {
-                grid: {
+            options: {
+              animation: false,
+              categoryPercentage: 1.0,
+              barPercentage: 1.0,
+              onHover: function(event, el) {
+                event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
+              },
+              onClick: handleBarClick,
+              plugins: {
+                legend: {
                   display: false
                 }
               },
-              y: {
-                beginAtZero: true,
-                grid: {
-                  display: false
+              scales: {
+                x: {
+                  grid: {
+                    display: false
+                  }
+                },
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  }
                 }
               }
             }
-          }
+          });
         });
-      });
       this.props.progressModal.props.modal.hide();
     });
   }

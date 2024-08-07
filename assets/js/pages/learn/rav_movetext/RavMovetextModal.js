@@ -25,18 +25,19 @@ export class RavMovetextModal extends AbstractComponent {
         movetext: formData.get('rav'),
       };
       await analysisWebSocket.connect();
-      analysisWebSocket.send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-      analysisWebSocket.watch('/play_rav', (data) => {
-        ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
-        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
-        ravPanel.props.ravMovesBrowser.props = {
-          ...ravPanel.props.ravMovesBrowser.props,
-          filtered: data.filtered,
-          breakdown: data.breakdown,
-          fen: data.fen
-        };
-        ravPanel.props.ravMovesBrowser.mount();
-      });
+      analysisWebSocket
+        .send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
+        .watch('/play_rav', data => {
+          ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+          ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
+          ravPanel.props.ravMovesBrowser.props = {
+            ...ravPanel.props.ravMovesBrowser.props,
+            filtered: data.filtered,
+            breakdown: data.breakdown,
+            fen: data.fen
+          };
+          ravPanel.props.ravMovesBrowser.mount();
+        });
       this.props.modal.hide();
       progressModal.props.modal.hide();
     });

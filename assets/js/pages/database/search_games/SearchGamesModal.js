@@ -30,53 +30,54 @@ export class SearchGamesModal extends AbstractComponent {
         movetext: formData.get('movetext')
       };
       await dataWebSocket.connect();
-      dataWebSocket.send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/search', (data) => {
-        const tbody = this.props.form.getElementsByTagName('tbody')[0];
-        tbody.parentNode.classList.add('mt-3');
-        tbody.replaceChildren();
-        data.forEach(game => {
-          const tr = document.createElement('tr');
-          const eventTd = document.createElement('td');
-          const yearTd = document.createElement('td');
-          const ecoTd = document.createElement('td');
-          const whiteTd = document.createElement('td');
-          const whiteEloTd = document.createElement('td');
-          const blackTd = document.createElement('td');
-          const blackEloTd = document.createElement('td');
-          const resultTd = document.createElement('td');
+      dataWebSocket
+        .send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .watch('/search', data => {
+          const tbody = this.props.form.getElementsByTagName('tbody')[0];
+          tbody.parentNode.classList.add('mt-3');
+          tbody.replaceChildren();
+          data.forEach(game => {
+            const tr = document.createElement('tr');
+            const eventTd = document.createElement('td');
+            const yearTd = document.createElement('td');
+            const ecoTd = document.createElement('td');
+            const whiteTd = document.createElement('td');
+            const whiteEloTd = document.createElement('td');
+            const blackTd = document.createElement('td');
+            const blackEloTd = document.createElement('td');
+            const resultTd = document.createElement('td');
 
-          eventTd.appendChild(document.createTextNode(game.Event));
-          yearTd.appendChild(document.createTextNode(parseInt(game.Date)));
-          ecoTd.appendChild(document.createTextNode(game.ECO));
-          whiteTd.appendChild(document.createTextNode(game.White));
-          whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
-          blackTd.appendChild(document.createTextNode(game.Black));
-          blackEloTd.appendChild(document.createTextNode(game.BlackElo));
-          resultTd.appendChild(document.createTextNode(game.Result));
+            eventTd.appendChild(document.createTextNode(game.Event));
+            yearTd.appendChild(document.createTextNode(parseInt(game.Date)));
+            ecoTd.appendChild(document.createTextNode(game.ECO));
+            whiteTd.appendChild(document.createTextNode(game.White));
+            whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
+            blackTd.appendChild(document.createTextNode(game.Black));
+            blackEloTd.appendChild(document.createTextNode(game.BlackElo));
+            resultTd.appendChild(document.createTextNode(game.Result));
 
-          tr.appendChild(eventTd);
-          tr.appendChild(yearTd);
-          tr.appendChild(ecoTd);
-          tr.appendChild(whiteTd);
-          tr.appendChild(whiteEloTd);
-          tr.appendChild(blackTd);
-          tr.appendChild(blackEloTd);
-          tr.appendChild(resultTd);
+            tr.appendChild(eventTd);
+            tr.appendChild(yearTd);
+            tr.appendChild(ecoTd);
+            tr.appendChild(whiteTd);
+            tr.appendChild(whiteEloTd);
+            tr.appendChild(blackTd);
+            tr.appendChild(blackEloTd);
+            tr.appendChild(resultTd);
 
-          tr.addEventListener('click', event => {
-            const settings = {
-              movetext: game.movetext
-            };
-            analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-            this.props.movesMetadataTable.props = game;
-            this.props.movesMetadataTable.mount();
-            this.props.modal.hide();
+            tr.addEventListener('click', event => {
+              const settings = {
+                movetext: game.movetext
+              };
+              analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+              this.props.movesMetadataTable.props = game;
+              this.props.movesMetadataTable.mount();
+              this.props.modal.hide();
+            });
+
+            tbody.appendChild(tr);
           });
-
-          tbody.appendChild(tr);
         });
-      });
       this.props.progressModal.props.modal.hide();
       this.props.modal.show();
     });

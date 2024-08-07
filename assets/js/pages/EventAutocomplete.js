@@ -11,19 +11,20 @@ export class EventAutocomplete extends AbstractComponent {
         const settings = {
           Event: event.target.value
         };
-        dataWebSocket.send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watch('/autocomplete_event', (data) => {
-          this.props.datalist.replaceChildren();
-          data.forEach(item => {
-            const option = document.createElement('option');
-            option.appendChild(document.createTextNode(item));
-            option.addEventListener('click', (event) => {
-              event.preventDefault();
-              this.el.value = item;
+        dataWebSocket
+          .send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .watch('/autocomplete_event', data => {
+            this.props.datalist.replaceChildren();
+            data.forEach(item => {
+              const option = document.createElement('option');
+              option.appendChild(document.createTextNode(item));
+              option.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.el.value = item;
+              });
+              this.props.datalist.append(option);
             });
-            this.props.datalist.append(option);
           });
-        });
       }
       this.props.submitButton.classList.remove('d-none');
       this.props.loadingButton.classList.add('d-none');

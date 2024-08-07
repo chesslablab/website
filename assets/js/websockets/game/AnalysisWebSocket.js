@@ -16,12 +16,12 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
         const settings = {
           fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
         };
-        this.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        this.watch('/tutor_fen', (data) => {
-          sanPanel.props.explainPositionModal.props.explanation = data;
-          sanPanel.props.explainPositionModal.mount();
-          sanPanel.props.explainPositionModal.props.modal.show();
-        });
+        this.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .watch('/tutor_fen', data => {
+            sanPanel.props.explainPositionModal.props.explanation = data;
+            sanPanel.props.explainPositionModal.mount();
+            sanPanel.props.explainPositionModal.props.modal.show();
+          });
       } catch (error) {
       } finally {
         this._progressModal.props.modal.hide();

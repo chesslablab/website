@@ -24,15 +24,16 @@ export class TopOpeningsModal extends AbstractComponent {
         ECO: event.chart.data.labels[dataIndex]
       };
       await dataWebSocket.connect();
-      dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/search', (data) => {
-        this.props.movesMetadataTable.props = data[0];
-        this.props.movesMetadataTable.mount();
-        const startSettings = {
-          movetext: this.props.movesMetadataTable.props.movetext
-        };
-        analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
-      });
+      dataWebSocket
+        .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
+        .watch('/search', data => {
+          this.props.movesMetadataTable.props = data[0];
+          this.props.movesMetadataTable.mount();
+          const startSettings = {
+            movetext: this.props.movesMetadataTable.props.movetext
+          };
+          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+        });
       this.props.modal.hide();
       this.props.progressModal.props.modal.hide();
     }

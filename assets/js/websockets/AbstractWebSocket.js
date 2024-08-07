@@ -11,6 +11,8 @@ export default class AbstractWebSocket {
     if (this._socket) {
       this._socket.send(msg);
     }
+
+    return this;
   }
 
   watch(propName, callback) {

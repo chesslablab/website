@@ -13,18 +13,19 @@ const handleClick = async (game) => {
     movetext: game.movetext
   };
   await analysisWebSocket.connect();
-  analysisWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-  analysisWebSocket.watch('/play_rav', (data) => {
-    ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
-    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
-    ravPanel.props.ravMovesBrowser.props = {
-      ...ravPanel.props.ravMovesBrowser.props,
-      filtered: data.filtered,
-      breakdown: data.breakdown,
-      fen: data.fen
-    };
-    ravPanel.props.ravMovesBrowser.mount();
-  });
+  analysisWebSocket
+    .send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+    .watch('/play_rav', data => {
+      ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+      ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
+      ravPanel.props.ravMovesBrowser.props = {
+        ...ravPanel.props.ravMovesBrowser.props,
+        filtered: data.filtered,
+        breakdown: data.breakdown,
+        fen: data.fen
+      };
+      ravPanel.props.ravMovesBrowser.mount();
+    });
   progressModal.props.modal.hide();
 };
 
@@ -34,7 +35,7 @@ progressModal.props.modal.show();
 
 await dataWebSocket.connect();
 dataWebSocket.send(`/annotations_game`);
-dataWebSocket.watch('/annotations_game', (data) => {
+dataWebSocket.watch('/annotations_game', data => {
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();
   databaseAnnotatedGames.props.modal.show();
