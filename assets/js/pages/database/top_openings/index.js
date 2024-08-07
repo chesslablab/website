@@ -1,21 +1,20 @@
 import { topOpeningsModal } from './TopOpeningsModal.js';
 import { progressModal } from '../../ProgressModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-import * as connect from '../../../../connect.js';
-import * as env from '../../../../env.js';
+import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 
 await analysisWebSocket.connect();
 
 sessionStorage.clear();
 
 try {
-  progressModal.props.modal.show();
-  const res = await fetch(`${connect.api()}/stats/opening`, {
-    method: 'GET'
+  await dataWebSocket.connect();
+  dataWebSocket.send(`/stats_opening`);
+  dataWebSocket.watch('/stats_opening', (newValue, oldValue) => {
+    topOpeningsModal.props.stats = newValue['/stats_opening'];
+    topOpeningsModal.mount();
+    topOpeningsModal.props.modal.show();
   });
-  topOpeningsModal.props.stats = await res.json();
-  topOpeningsModal.mount();
-  topOpeningsModal.props.modal.show();
 } catch (error) {
 } finally {
   progressModal.props.modal.hide();
