@@ -1,11 +1,11 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
-import AbstractWebSocket from './AbstractWebSocket.js';
+import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { sanPanel } from '../../pages/SanPanel.js';
 import * as connect from '../../../connect.js';
 import * as variant from '../../../variant.js';
 
-export class AnalysisWebSocket extends AbstractWebSocket {
+export class AnalysisWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
 

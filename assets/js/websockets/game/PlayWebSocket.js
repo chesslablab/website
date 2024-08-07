@@ -1,7 +1,7 @@
 import { COLOR, FEN, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import { jwtDecode } from 'jwt-decode';
-import AbstractWebSocket from './AbstractWebSocket.js';
+import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { copyInviteCodeModal } from '../../pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { drawModal } from '../../pages/play/online/DrawModal.js';
@@ -14,7 +14,7 @@ import * as action from '../../../action.js';
 import * as connect from '../../../connect.js';
 import * as env from '../../../env.js';
 
-export default class PlayWebSocket extends AbstractWebSocket {
+export default class PlayWebSocket extends AbstractGameWebSocket {
   _timerTableInterval;
 
   constructor() {

@@ -1,13 +1,13 @@
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
-import AbstractWebSocket from './AbstractWebSocket.js';
+import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { stockfishPanel } from '../../pages/StockfishPanel.js';
 import * as connect from '../../../connect.js';
 import * as env from '../../../env.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-export class StockfishWebSocket extends AbstractWebSocket {
+export class StockfishWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
 

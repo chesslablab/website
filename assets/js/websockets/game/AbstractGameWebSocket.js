@@ -1,27 +1,21 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
+import AbstractWebSocket from '../AbstractWebSocket.js';
 import chessboard from '../../pages/chessboard.js';
 import { infoModal } from '../../pages/InfoModal.js';
 import { progressModal } from '../../pages/ProgressModal.js';
 
-export default class AbstractWebSocket {
+export default class AbstractGameWebSocket extends AbstractWebSocket {
   _progressModal;
 
   _infoModal;
 
   _chessboard;
 
-  _socket;
-
-  _response = {};
-
   constructor() {
+    super();
     this._progressModal = progressModal;
-
     this._infoModal = infoModal;
-
     this._chessboard = chessboard;
-
-    this._socket = null;
   }
 
   inputHandler(event) {
@@ -40,31 +34,6 @@ export default class AbstractWebSocket {
     } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
       this.send(`/play_lan ${event.piece.charAt(0)} ${event.squareFrom}${event.squareTo}`);
       return true;
-    }
-  }
-
-  send(msg) {
-    if (this._socket) {
-      this._socket.send(msg);
-    }
-  }
-
-  watch(propName, callback) {
-    let value = this._response[propName];
-
-    if (!this._response.hasOwnProperty(propName)) {
-      Object.defineProperty(this._response, propName, {
-        get() {
-          return value;
-        },
-        set(newValue) {
-          if (newValue !== value) {
-            const oldValue = value;
-            value = newValue;
-            callback(newValue);
-          }
-        },
-      });
     }
   }
 
