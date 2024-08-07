@@ -31,11 +31,11 @@ export class SearchGamesModal extends AbstractComponent {
       };
       await dataWebSocket.connect();
       dataWebSocket.send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/search', (newValue, oldValue) => {
+      dataWebSocket.watch('/search', (data) => {
         const tbody = this.props.form.getElementsByTagName('tbody')[0];
         tbody.parentNode.classList.add('mt-3');
         tbody.replaceChildren();
-        newValue.forEach(game => {
+        data.forEach(game => {
           const tr = document.createElement('tr');
           const eventTd = document.createElement('td');
           const yearTd = document.createElement('td');

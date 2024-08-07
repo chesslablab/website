@@ -13,9 +13,9 @@ export class BlackAutocomplete extends AbstractComponent {
         };
         await dataWebSocket.connect();
         dataWebSocket.send(`/autocomplete_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watch('/autocomplete_player', (newValue, oldValue) => {
+        dataWebSocket.watch('/autocomplete_player', (data) => {
           this.props.datalist.replaceChildren();
-          newValue.forEach(item => {
+          data.forEach(item => {
             const option = document.createElement('option');
             option.appendChild(document.createTextNode(item));
             option.addEventListener('click', (event) => {

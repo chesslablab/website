@@ -26,14 +26,14 @@ export class RavMovetextModal extends AbstractComponent {
       };
       await analysisWebSocket.connect();
       analysisWebSocket.send(`/play_rav "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-      analysisWebSocket.watch('/play_rav', (newValue, oldValue) => {
-        ravPanel.props.ravMovesBrowser.current = newValue.fen.length - 1;
-        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(newValue.fen[newValue.fen.length - 1]);
+      analysisWebSocket.watch('/play_rav', (data) => {
+        ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+        ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
         ravPanel.props.ravMovesBrowser.props = {
           ...ravPanel.props.ravMovesBrowser.props,
-          filtered: newValue.filtered,
-          breakdown: newValue.breakdown,
-          fen: newValue.fen
+          filtered: data.filtered,
+          breakdown: data.breakdown,
+          fen: data.fen
         };
         ravPanel.props.ravMovesBrowser.mount();
       });

@@ -17,8 +17,8 @@ export class AnalysisWebSocket extends AbstractWebSocket {
           fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
         };
         this.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        this.watch('/tutor_fen', (newValue, oldValue) => {
-          sanPanel.props.explainPositionModal.props.explanation = newValue;
+        this.watch('/tutor_fen', (data) => {
+          sanPanel.props.explainPositionModal.props.explanation = data;
           sanPanel.props.explainPositionModal.mount();
           sanPanel.props.explainPositionModal.props.modal.show();
         });

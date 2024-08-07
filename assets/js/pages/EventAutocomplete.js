@@ -13,9 +13,9 @@ export class EventAutocomplete extends AbstractComponent {
         };
         await dataWebSocket.connect();
         dataWebSocket.send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-        dataWebSocket.watch('/autocomplete_event', (newValue, oldValue) => {
+        dataWebSocket.watch('/autocomplete_event', (data) => {
           this.props.datalist.replaceChildren();
-          newValue.forEach(item => {
+          data.forEach(item => {
             const option = document.createElement('option');
             option.appendChild(document.createTextNode(item));
             option.addEventListener('click', (event) => {

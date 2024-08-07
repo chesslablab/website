@@ -30,8 +30,8 @@ export class PlayerStatsModal extends AbstractComponent {
       };
       await dataWebSocket.connect();
       dataWebSocket.send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/search', (newValue, oldValue) => {
-        this.props.movesMetadataTable.props = newValue[0];
+      dataWebSocket.watch('/search', (data) => {
+        this.props.movesMetadataTable.props = data[0];
         this.props.movesMetadataTable.mount();
         const startSettings = {
           movetext: this.props.movesMetadataTable.props.movetext
@@ -54,16 +54,16 @@ export class PlayerStatsModal extends AbstractComponent {
       };
       await dataWebSocket.connect();
       dataWebSocket.send(`/stats_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      dataWebSocket.watch('/stats_player', (newValue, oldValue) => {
+      dataWebSocket.watch('/stats_player', (data) => {
         const canvas = document.createElement('canvas');
         playerStatsChart.replaceChildren();
         playerStatsChart.appendChild(canvas);
         const chart = new Chart(canvas, {
           type: 'bar',
           data: {
-            labels: newValue.map(value => value.ECO).slice(0, this._nBars),
+            labels: data.map(value => value.ECO).slice(0, this._nBars),
             datasets: [{
-              data: newValue.map(value => value.total).slice(0, this._nBars),
+              data: data.map(value => value.total).slice(0, this._nBars),
               backgroundColor: formData.get('Result') === '1-0'
                 ? '#c0c0c0'
                 : formData.get('Result') === '1/2-1/2'

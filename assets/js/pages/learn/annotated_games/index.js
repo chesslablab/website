@@ -14,14 +14,14 @@ const handleClick = async (game) => {
   };
   await analysisWebSocket.connect();
   analysisWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-  analysisWebSocket.watch('/play_rav', (newValue, oldValue) => {
-    ravPanel.props.ravMovesBrowser.current = newValue.fen.length - 1;
-    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(newValue.fen[newValue.fen.length - 1]);
+  analysisWebSocket.watch('/play_rav', (data) => {
+    ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
     ravPanel.props.ravMovesBrowser.props = {
       ...ravPanel.props.ravMovesBrowser.props,
-      filtered: newValue.filtered,
-      breakdown: newValue.breakdown,
-      fen: newValue.fen
+      filtered: data.filtered,
+      breakdown: data.breakdown,
+      fen: data.fen
     };
     ravPanel.props.ravMovesBrowser.mount();
   });
@@ -31,11 +31,11 @@ const handleClick = async (game) => {
 await dataWebSocket.connect();
 progressModal.props.modal.show();
 dataWebSocket.send(`/annotations_game`);
-dataWebSocket.watch('/annotations_game', (newValue, oldValue) => {
+dataWebSocket.watch('/annotations_game', (data) => {
   const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
   tbody.replaceChildren();
   databaseAnnotatedGames.props.modal.show();
-  newValue.games.forEach(game => {
+  data.games.forEach(game => {
     const tr = document.createElement('tr');
 
     const eventTd = document.createElement('td');

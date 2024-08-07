@@ -9,8 +9,8 @@ await analysisWebSocket.connect();
 
 await dataWebSocket.connect();
 dataWebSocket.send(`/stats_opening`);
-dataWebSocket.watch('/stats_opening', (newValue, oldValue) => {
-  topOpeningsModal.props.stats = newValue['/stats_opening'];
+dataWebSocket.watch('/stats_opening', (data) => {
+  topOpeningsModal.props.stats = data['/stats_opening'];
   topOpeningsModal.mount();
   topOpeningsModal.props.modal.show();
 });

@@ -5,12 +5,12 @@ import * as variant from '../../../../variant.js';
 
 export class GameForm extends AbstractComponent {
   mount() {
-    analysisWebSocket.watch('/start', (newValue, oldValue) => {
-      if (newValue.fen) {
-        this.el.querySelector('input[name="fen"]').value = newValue.fen[0];
+    analysisWebSocket.watch('/start', (data) => {
+      if (data.fen) {
+        this.el.querySelector('input[name="fen"]').value = data.fen[0];
       }
-      if (newValue.startPos) {
-        this.el.querySelector('input[name="startPos"]').value = newValue.startPos;
+      if (data.startPos) {
+        this.el.querySelector('input[name="startPos"]').value = data.startPos;
       }
     });
 
