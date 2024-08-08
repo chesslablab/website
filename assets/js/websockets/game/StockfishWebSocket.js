@@ -3,7 +3,6 @@ import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import chessboard from '../../pages/chessboard.js';
 import { stockfishPanel } from '../../pages/StockfishPanel.js';
-import * as connect from '../../../connect.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
