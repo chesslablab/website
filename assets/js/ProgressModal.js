@@ -2,7 +2,6 @@ import Modal from 'bootstrap/js/dist/modal.js';
 
 export class ProgressModal {
   el;
-
   props;
 
   constructor(el, props) {

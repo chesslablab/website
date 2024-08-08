@@ -1,16 +1,17 @@
+import { infoModal } from './InfoModal.js';
 import { progressModal } from './ProgressModal.js';
 import * as connect from '../connect.js';
 
 export default class AbstractWebSocket {
   socket;
-
   response;
-
+  infoModal;
   progressModal;
 
   constructor() {
     this.socket = null;
     this.response = {};
+    this.infoModal = infoModal;
     this.progressModal = progressModal;
   }
 

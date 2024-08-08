@@ -1,17 +1,13 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
 import AbstractWebSocket from '../../AbstractWebSocket.js';
-import { infoModal } from '../../InfoModal.js';
 import chessboard from '../../pages/chessboard.js';
 import * as connect from '../../../connect.js';
 
 export default class GameWebSocket extends AbstractWebSocket {
-  infoModal;
-
   chessboard;
 
   constructor() {
     super();
-    this.infoModal = infoModal;
     this.chessboard = chessboard;
   }
 
