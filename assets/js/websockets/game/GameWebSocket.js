@@ -4,7 +4,7 @@ import chessboard from '../../pages/chessboard.js';
 import { infoModal } from '../../pages/InfoModal.js';
 import * as connect from '../../../connect.js';
 
-export default class AbstractGameWebSocket extends AbstractWebSocket {
+export default class GameWebSocket extends AbstractWebSocket {
   infoModal;
 
   chessboard;

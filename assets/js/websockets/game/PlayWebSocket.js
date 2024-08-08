@@ -1,7 +1,7 @@
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import { jwtDecode } from 'jwt-decode';
-import AbstractGameWebSocket from './AbstractGameWebSocket.js';
+import GameWebSocket from './GameWebSocket.js';
 import { copyInviteCodeModal } from '../../pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { drawModal } from '../../pages/play/online/DrawModal.js';
@@ -13,7 +13,7 @@ import { takebackModal } from '../../pages/play/online/TakebackModal.js';
 import * as action from '../../../action.js';
 import * as connect from '../../../connect.js';
 
-export default class PlayWebSocket extends AbstractGameWebSocket {
+export default class PlayWebSocket extends GameWebSocket {
   _timerTableInterval;
 
   async connect() {

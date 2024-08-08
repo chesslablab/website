@@ -1,13 +1,10 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
-import AbstractGameWebSocket from './AbstractGameWebSocket.js';
+import GameWebSocket from './GameWebSocket.js';
 import chessboard from '../../pages/chessboard.js';
 import { sanPanel } from '../../pages/SanPanel.js';
 
-export class AnalysisWebSocket extends AbstractGameWebSocket {
-}
-
-export const analysisWebSocket = new AnalysisWebSocket()
+export const analysisWebSocket = new GameWebSocket()
   .watch('/start', data => {
     if (data.fen) {
       chessboard.disableMoveInput();

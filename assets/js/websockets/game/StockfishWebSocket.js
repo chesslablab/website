@@ -1,15 +1,12 @@
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
-import AbstractGameWebSocket from './AbstractGameWebSocket.js';
+import GameWebSocket from './GameWebSocket.js';
 import chessboard from '../../pages/chessboard.js';
 import { stockfishPanel } from '../../pages/StockfishPanel.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-export class StockfishWebSocket extends AbstractGameWebSocket {
-}
-
-export const stockfishWebSocket = new StockfishWebSocket()
+export const stockfishWebSocket = new GameWebSocket()
   .watch('/start', data => {
     chessboard.disableMoveInput();
     chessboard.enableMoveInput(event => stockfishWebSocket.inputHandler(event));

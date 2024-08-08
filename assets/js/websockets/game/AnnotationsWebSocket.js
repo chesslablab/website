@@ -1,6 +1,3 @@
-import AbstractGameWebSocket from './AbstractGameWebSocket.js';
+import GameWebSocket from './GameWebSocket.js';
 
-export class AnnotationsWebSocket extends AbstractGameWebSocket {
-}
-
-export const annotationsWebSocket = new AnnotationsWebSocket();
+export const annotationsWebSocket = new GameWebSocket();
