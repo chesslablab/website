@@ -19,9 +19,9 @@ export const analysisWebSocket = new GameWebSocket()
       sanPanel.props.openingTable.props.movetext = data.movetext;
       sanPanel.props.openingTable.mount();
     } else {
-      this.infoModal.props.msg = "This game could not be started, please try again";
-      this.infoModal.mount();
-      this.infoModal.props.modal.show();
+      analysisWebSocket.infoModal.props.msg = "This game could not be started, please try again";
+      analysisWebSocket.infoModal.mount();
+      analysisWebSocket.infoModal.props.modal.show();
     }
   })
   .watch('/legal', data => {
