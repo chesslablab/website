@@ -49,43 +49,43 @@ export default class GameWebSocket extends AbstractWebSocket {
       this.infoModal.props.msg = "It's a win";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.doesDraw) {
       this.infoModal.props.msg = "It's a draw";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isMate) {
       this.infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
   } else if (res.isStalemate) {
       this.infoModal.props.msg = "Draw by stalemate";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isFivefoldRepetition) {
       this.infoModal.props.msg = "Draw by fivefold repetition";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isFiftyMoveDraw) {
       this.infoModal.props.msg = "Draw by the fifty-move rule";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isDeadPositionDraw) {
       this.infoModal.props.msg = "Draw by dead position";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     }
 
