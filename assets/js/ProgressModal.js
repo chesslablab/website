@@ -1,9 +1,13 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import AbstractComponent from './AbstractComponent.js';
 
-export class ProgressModal extends AbstractComponent {
-  mount() {
-    // do nothing
+export class ProgressModal {
+  el;
+
+  props;
+
+  constructor(el, props) {
+    this.el = el;
+    this.props = props;
   }
 }
 

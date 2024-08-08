@@ -1,11 +1,16 @@
+import { progressModal } from './ProgressModal.js';
+
 export default class AbstractComponent {
   el;
-  
+
   props;
+
+  progressModal;
 
   constructor(el, props) {
     this.el = el;
     this.props = props;
+    this.progressModal = progressModal;
 
     this.mount();
   }

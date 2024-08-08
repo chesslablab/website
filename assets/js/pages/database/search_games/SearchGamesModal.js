@@ -5,7 +5,6 @@ import { eventAutocomplete } from '../../EventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import * as connect from '../../../../connect.js';
@@ -18,7 +17,7 @@ export class SearchGamesModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      this.props.progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const settings = {
         Event: formData.get('Event'),
@@ -78,7 +77,7 @@ export class SearchGamesModal extends AbstractComponent {
             tbody.appendChild(tr);
           });
 
-          this.props.progressModal.props.modal.hide();
+          this.progressModal.props.modal.hide();
           this.props.modal.show();
         });
     });
@@ -90,7 +89,6 @@ export const searchGamesModal = new SearchGamesModal(
   {
     modal: new Modal(document.getElementById('searchGamesModal')),
     form: document.querySelector('#searchGamesModal form'),
-    movesMetadataTable: movesMetadataTable,
-    progressModal: progressModal
+    movesMetadataTable: movesMetadataTable
   }
 );

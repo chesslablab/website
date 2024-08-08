@@ -6,7 +6,6 @@ import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
-import { progressModal } from '../ProgressModal.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 
 export class SanPanel extends AbstractComponent {
@@ -18,12 +17,12 @@ export class SanPanel extends AbstractComponent {
 
     this.props.gameStudyDropdown.props.ul.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.props.progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const settings = {
         fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current]
       };
       analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      this.props.progressModal.props.modal.hide();
+      this.progressModal.props.modal.hide();
     });
   }
 }
@@ -37,7 +36,6 @@ export const sanPanel = new SanPanel(
     explainPositionModal: explainPositionModal,
     historyButtons: historyButtons,
     openingTable: openingTable,
-    sanMovesBrowser: sanMovesBrowser,
-    progressModal: progressModal
+    sanMovesBrowser: sanMovesBrowser
   }
 );

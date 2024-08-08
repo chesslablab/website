@@ -3,7 +3,6 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import { eventAutocomplete } from '../../EventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import * as mode from '../../../../mode.js';
@@ -18,7 +17,7 @@ export class EventStatsModal extends AbstractComponent {
       if (clickedElements.length === 0) {
         return;
       }
-      this.props.progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const { dataIndex, raw } = clickedElements[0].element.$context;
       const searchSettings = {
@@ -36,13 +35,13 @@ export class EventStatsModal extends AbstractComponent {
           };
           analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
           this.props.modal.hide();
-          this.props.progressModal.props.modal.hide();
+          this.progressModal.props.modal.hide();
         });
     }
 
     this.props.form.addEventListener('submit', async (event) => {
       event.preventDefault();
-      this.props.progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const eventStatsChart = document.getElementById('eventStatsChart');
       const settings = {
@@ -96,7 +95,7 @@ export class EventStatsModal extends AbstractComponent {
               }
             }
           });
-          this.props.progressModal.props.modal.hide();
+          this.progressModal.props.modal.hide();
         });
     });
   }
@@ -107,7 +106,6 @@ export const eventStatsModal = new EventStatsModal(
   {
     modal: new Modal(document.getElementById('eventStatsModal')),
     form: document.querySelector('#eventStatsModal form'),
-    movesMetadataTable: movesMetadataTable,
-    progressModal: progressModal
+    movesMetadataTable: movesMetadataTable
   }
 );

@@ -8,6 +8,7 @@ sessionStorage.clear();
 await analysisWebSocket.connect();
 
 await dataWebSocket.connect();
+
 dataWebSocket
   .send(`/stats_opening`)
   .watch('/stats_opening', data => {

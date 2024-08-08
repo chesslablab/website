@@ -3,7 +3,6 @@ import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
 
@@ -17,7 +16,7 @@ export class TopOpeningsModal extends AbstractComponent {
       if (clickedElements.length === 0) {
         return;
       }
-      this.props.progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const { dataIndex, raw } = clickedElements[0].element.$context;
       const searchSettings = {
         Result: event.chart.data.datasets[0].label,
@@ -35,7 +34,7 @@ export class TopOpeningsModal extends AbstractComponent {
           analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
         });
       this.props.modal.hide();
-      this.props.progressModal.props.modal.hide();
+      this.progressModal.props.modal.hide();
     }
 
     const options = {
@@ -114,7 +113,6 @@ export const topOpeningsModal = new TopOpeningsModal(
     modal: new Modal(document.getElementById('topOpeningsModal')),
     form: document.querySelector('#topOpeningsModal form'),
     movesMetadataTable: movesMetadataTable,
-    progressModal: progressModal,
     stats: {}
   }
 );

@@ -1,6 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../../variant.js';
 
@@ -17,7 +16,7 @@ export class RavMovetextModal extends AbstractComponent {
 
     this.props.form.addEventListener('submit', async event => {
       event.preventDefault();
-      progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const settings = {
         variant: formData.get('variant'),
@@ -26,7 +25,7 @@ export class RavMovetextModal extends AbstractComponent {
       await annotationsWebSocket.connect();
       annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
-      progressModal.props.modal.hide();
+      this.progressModal.props.modal.hide();
     });
   }
 }
