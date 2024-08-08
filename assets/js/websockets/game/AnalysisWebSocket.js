@@ -18,11 +18,11 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
 
         case '/start':
           if (this._response[msg].fen) {
-            this._chessboard.disableMoveInput();
-            this._chessboard.enableMoveInput(event => this.inputHandler(event));
-            this._chessboard.setPosition(this._response[msg].fen[this._response[msg].fen.length - 1], true);
-            this._chessboard.props.variant = this._response[msg].variant;
-            this._chessboard.props.startPos = this._response[msg].startPos;
+            this.chessboard.disableMoveInput();
+            this.chessboard.enableMoveInput(event => this.inputHandler(event));
+            this.chessboard.setPosition(this._response[msg].fen[this._response[msg].fen.length - 1], true);
+            this.chessboard.props.variant = this._response[msg].variant;
+            this.chessboard.props.startPos = this._response[msg].startPos;
             sanPanel.props.sanMovesBrowser.current = this._response[msg].fen.length - 1;
             sanPanel.props.sanMovesBrowser.props.movetext
               = Movetext.notation(localStorage.getItem('notation'), this._response[msg].movetext);
@@ -31,21 +31,21 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
             sanPanel.props.openingTable.props.movetext = this._response[msg].movetext;
             sanPanel.props.openingTable.mount();
           } else {
-            this._infoModal.props.msg = "This game could not be started, please try again";
-            this._infoModal.mount();
-            this._infoModal.props.modal.show();
+            this.infoModal.props.msg = "This game could not be started, please try again";
+            this.infoModal.mount();
+            this.infoModal.props.modal.show();
           }
           break;
 
         case '/legal':
           this._response[msg].forEach(sq => {
-            this._chessboard.addMarker(MARKER_TYPE.dot, sq);
+            this.chessboard.addMarker(MARKER_TYPE.dot, sq);
           });
           break;
 
         case '/play_lan':
           if (this._response[msg].isValid) {
-            this._chessboard.setPosition(this._response[msg].fen, true);
+            this.chessboard.setPosition(this._response[msg].fen, true);
             sanPanel.props.sanMovesBrowser.current = sanPanel.props.sanMovesBrowser.props.fen.length;
             sanPanel.props.sanMovesBrowser.props.movetext
               = Movetext.notation(localStorage.getItem('notation'), this._response[msg].movetext);
@@ -56,15 +56,15 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
             sanPanel.props.openingTable.mount();
             this._gameOver(this._response[msg]);
           } else {
-            this._chessboard.setPosition(this._response[msg].fen, false);
+            this.chessboard.setPosition(this._response[msg].fen, false);
           }
           break;
 
         case '/undo':
-          this._chessboard.setPosition(this._response[msg].fen, true);
+          this.chessboard.setPosition(this._response[msg].fen, true);
           if (!this._response[msg].movetext) {
-            this._chessboard.state.inputWhiteEnabled = true;
-            this._chessboard.state.inputBlackEnabled = false;
+            this.chessboard.state.inputWhiteEnabled = true;
+            this.chessboard.state.inputBlackEnabled = false;
           }
           sanPanel.props.sanMovesBrowser.current -= 1;
           sanPanel.props.sanMovesBrowser.props.fen.splice(-1);

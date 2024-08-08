@@ -5,17 +5,15 @@ import { infoModal } from '../../pages/InfoModal.js';
 import { progressModal } from '../../pages/ProgressModal.js';
 
 export default class AbstractGameWebSocket extends AbstractWebSocket {
-  _progressModal;
+  infoModal;
 
-  _infoModal;
-
-  _chessboard;
+  chessboard;
 
   constructor() {
     super();
-    this._progressModal = progressModal;
-    this._infoModal = infoModal;
-    this._chessboard = chessboard;
+    this.progressModal = progressModal;
+    this.infoModal = infoModal;
+    this.chessboard = chessboard;
   }
 
   inputHandler(event) {
@@ -44,45 +42,45 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
 
   _gameOver(res) {
     if (res.doesWin) {
-      this._infoModal.props.msg = "It's a win";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "It's a win";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     } else if (res.doesDraw) {
-      this._infoModal.props.msg = "It's a draw";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "It's a draw";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     } else if (res.isMate) {
-      this._infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
   } else if (res.isStalemate) {
-      this._infoModal.props.msg = "Draw by stalemate";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "Draw by stalemate";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     } else if (res.isFivefoldRepetition) {
-      this._infoModal.props.msg = "Draw by fivefold repetition";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "Draw by fivefold repetition";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     } else if (res.isFiftyMoveDraw) {
-      this._infoModal.props.msg = "Draw by the fifty-move rule";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "Draw by the fifty-move rule";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     } else if (res.isDeadPositionDraw) {
-      this._infoModal.props.msg = "Draw by dead position";
-      this._infoModal.mount();
-      this._infoModal.props.modal.show();
+      this.infoModal.props.msg = "Draw by dead position";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
       this._end();
       return true;
     }

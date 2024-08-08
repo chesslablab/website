@@ -14,18 +14,18 @@ export class PlayPanel extends AbstractComponent {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
       playWebSocket.send('/takeback propose');
-      playWebSocket._infoModal.props.msg = "Waiting for your opponent to accept or decline";
-      playWebSocket._infoModal.mount();
-      playWebSocket._infoModal.props.modal.show();
+      playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
+      playWebSocket.infoModal.mount();
+      playWebSocket.infoModal.props.modal.show();
     });
 
     this.props.gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('draw', action.PROPOSE);
       playWebSocket.send('/draw propose');
-      playWebSocket._infoModal.props.msg = "Waiting for your opponent to accept or decline";
-      playWebSocket._infoModal.mount();
-      playWebSocket._infoModal.props.modal.show();
+      playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
+      playWebSocket.infoModal.mount();
+      playWebSocket.infoModal.props.modal.show();
     });
 
     this.props.gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
@@ -37,14 +37,14 @@ export class PlayPanel extends AbstractComponent {
       event.preventDefault();
       sessionStorage.setItem('rematch', action.PROPOSE);
       playWebSocket.send('/rematch propose');
-      playWebSocket._infoModal.props.msg = "Waiting for your opponent to accept or decline";
-      playWebSocket._infoModal.mount();
-      playWebSocket._infoModal.props.modal.show();
+      playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
+      playWebSocket.infoModal.mount();
+      playWebSocket.infoModal.props.modal.show();
     });
 
     this.props.finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      playWebSocket._chessboard.setPosition(FEN.start, true);
+      playWebSocket.chessboard.setPosition(FEN.start, true);
       playOnlineButtons.el.classList.remove('d-none');
       playWebSocket.el.classList.add('d-none');
     });

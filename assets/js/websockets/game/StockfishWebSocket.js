@@ -19,11 +19,11 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
           break;
 
         case '/start':
-          this._chessboard.disableMoveInput();
-          this._chessboard.enableMoveInput(event => this.inputHandler(event));
-          this._chessboard.setPosition(data[msg].fen, true);
+          this.chessboard.disableMoveInput();
+          this.chessboard.enableMoveInput(event => this.inputHandler(event));
+          this.chessboard.setPosition(data[msg].fen, true);
           if (data[msg].color === COLOR.black) {
-            this._chessboard.setOrientation(COLOR.black);
+            this.chessboard.setOrientation(COLOR.black);
           }
           if (data[msg].fen.split(' ')[1] !== data[msg].color) {
             this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
@@ -32,13 +32,13 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
 
         case '/legal':
           data[msg].forEach(sq => {
-            this._chessboard.addMarker(MARKER_TYPE.dot, sq);
+            this.chessboard.addMarker(MARKER_TYPE.dot, sq);
           });
           break;
 
         case '/play_lan':
           if (data[msg].isValid) {
-            this._chessboard.setPosition(data[msg].fen, true);
+            this.chessboard.setPosition(data[msg].fen, true);
             stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
             stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
             stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data[msg].fen);
@@ -49,15 +49,15 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
               this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
             }
           } else {
-            this._chessboard.setPosition(data[msg].fen, false);
+            this.chessboard.setPosition(data[msg].fen, false);
           }
           break;
 
         case '/undo':
-          this._chessboard.setPosition(data[msg].fen, true);
+          this.chessboard.setPosition(data[msg].fen, true);
           if (!data[msg].movetext) {
-            this._chessboard.state.inputWhiteEnabled = true;
-            this._chessboard.state.inputBlackEnabled = false;
+            this.chessboard.state.inputWhiteEnabled = true;
+            this.chessboard.state.inputBlackEnabled = false;
           }
           stockfishPanel.props.sanMovesBrowser.current -= 1;
           stockfishPanel.props.sanMovesBrowser.props.fen.splice(-1);
@@ -68,7 +68,7 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
           break;
 
         case '/stockfish':
-          this._chessboard.setPosition(data[msg].fen, true);
+          this.chessboard.setPosition(data[msg].fen, true);
           stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
           stockfishPanel.props.sanMovesBrowser.props.movetext = Movetext.notation(localStorage.getItem('notation'), data[msg].movetext);
           stockfishPanel.props.sanMovesBrowser.props.fen = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data[msg].fen);
@@ -79,12 +79,12 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
           break;
 
         case '/randomizer':
-          this._chessboard.state.inputWhiteEnabled = false;
-          this._chessboard.state.inputBlackEnabled = false;
+          this.chessboard.state.inputWhiteEnabled = false;
+          this.chessboard.state.inputBlackEnabled = false;
           if (data[msg].turn === COLOR.white) {
-            this._chessboard.state.inputWhiteEnabled = true;
+            this.chessboard.state.inputWhiteEnabled = true;
           } else {
-            this._chessboard.state.inputBlackEnabled = true;
+            this.chessboard.state.inputBlackEnabled = true;
           }
           sessionStorage.setItem('skillLevel', 20);
           sessionStorage.setItem('depth', 12);

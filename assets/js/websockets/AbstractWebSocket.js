@@ -5,14 +5,16 @@ export default class AbstractWebSocket {
 
   _response = {};
 
+  progressModal;
+
   connect() {
     return new Promise((resolve, reject) => {
-      this._progressModal.props.modal.show();
+      this.progressModal.props.modal.show();
 
       this._socket = new WebSocket(connect.wsGame());
 
       this._socket.onopen = () => {
-        this._progressModal.props.modal.hide();
+        this.progressModal.props.modal.hide();
         resolve();
       };
 
