@@ -6,34 +6,6 @@ import * as connect from '../../../connect.js';
 import * as variant from '../../../variant.js';
 
 export class AnalysisWebSocket extends AbstractGameWebSocket {
-  constructor() {
-    super();
-
-    sanPanel.props.gameStudyDropdown.props.ul.children.item(0).addEventListener('click', async (event) => {
-      try {
-        event.preventDefault();
-        this._progressModal.props.modal.show();
-        const settings = {
-          fen: sanPanel.props.sanMovesBrowser.props.fen[sanPanel.props.sanMovesBrowser.current]
-        };
-        this.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-          .watch('/tutor_fen', data => {
-            sanPanel.props.explainPositionModal.props.explanation = data;
-            sanPanel.props.explainPositionModal.mount();
-            sanPanel.props.explainPositionModal.props.modal.show();
-          });
-      } catch (error) {
-      } finally {
-        this._progressModal.props.modal.hide();
-      }
-    });
-
-    sanPanel.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
-      event.preventDefault();
-      this.send('/undo');
-    });
-  }
-
   connect() {
     this._progressModal.props.modal.show();
 
