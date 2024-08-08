@@ -1,7 +1,7 @@
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
-import { ravPanel } from './RavPanel.js';
 import chessboard from '../../chessboard.js';
 import { progressModal } from '../../ProgressModal.js';
+import { ravPanel } from '../../RavPanel.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import * as variant from '../../../../variant.js';
