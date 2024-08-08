@@ -1,6 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { progressModal } from '../../ProgressModal.js';
-import { ravPanel } from '../../RavPanel.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../../variant.js';
@@ -25,19 +24,7 @@ export class RavMovetextModal extends AbstractComponent {
         movetext: formData.get('rav'),
       };
       await annotationsWebSocket.connect();
-      annotationsWebSocket
-        .send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .watch('/play_rav', data => {
-          ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
-          ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
-          ravPanel.props.ravMovesBrowser.props = {
-            ...ravPanel.props.ravMovesBrowser.props,
-            filtered: data.filtered,
-            breakdown: data.breakdown,
-            fen: data.fen
-          };
-          ravPanel.props.ravMovesBrowser.mount();
-        });
+      annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
       progressModal.props.modal.hide();
     });
