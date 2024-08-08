@@ -1,6 +1,4 @@
 import { progressModal } from './ProgressModal.js';
-import AbstractComponent from '../AbstractComponent.js';
-import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
 import { explainPositionModal } from './ExplainPositionModal.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
@@ -8,6 +6,8 @@ import { gameStudyDropdown } from './GameStudyDropdown.js';
 import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
+import AbstractComponent from '../AbstractComponent.js';
+import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 
 export class SanPanel extends AbstractComponent {
   mount() {

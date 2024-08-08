@@ -1,13 +1,18 @@
-import AbstractComponent from '../AbstractComponent.js';
 import boardActionsDropdown from './boardActionsDropdown.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
+import AbstractComponent from '../AbstractComponent.js';
+import { stockfishWebSocket } from '../websockets/game/StockfishWebSocket.js';
 
 export class StockfishPanel extends AbstractComponent {
   mount() {
-    // do nothing
+    this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
+      event.preventDefault();
+      analysisWebSocket.send('/undo');
+      analysisWebSocket.send('/undo');
+    });
   }
 }
 
