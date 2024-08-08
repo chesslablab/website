@@ -1,5 +1,5 @@
 import { topOpeningsModal } from './TopOpeningsModal.js';
-import { progressModal } from '../../ProgressModal.js';
+import { progressModal } from '../../../ProgressModal.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 

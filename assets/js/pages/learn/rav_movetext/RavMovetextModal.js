@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { progressModal } from '../../ProgressModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
+import { progressModal } from '../../../ProgressModal.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../../variant.js';
 

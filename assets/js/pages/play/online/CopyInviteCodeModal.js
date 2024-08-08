@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { infoModal } from '../../InfoModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
+import { infoModal } from '../../../InfoModal.js';
 import { trans } from '../../../i18n.js';
 
 export class CopyInviteCodeModal extends AbstractComponent {

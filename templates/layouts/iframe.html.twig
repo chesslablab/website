@@ -22,12 +22,12 @@
     <script src="{{ asset('js/settings.js') }}"></script>
   </head>
   <body>
-    {% include 'partial/info_modal.html.twig' %}
-    {% include 'partial/progress_modal.html.twig' %}
-    {% include 'partial/panel/explain_position_modal.html.twig' %}
     <div class="row g-0 m-0">
       {% block main %}{% endblock %}
     </div>
+    {% include 'partial/info_modal.html.twig' %}
+    {% include 'partial/progress_modal.html.twig' %}
+    {% include 'partial/panel/explain_position_modal.html.twig' %}
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

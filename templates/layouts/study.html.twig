@@ -17,13 +17,15 @@
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
-    {% include 'partial/panel/explain_position_modal.html.twig' %}
     <div class="container">
        <div class="row g-3">
          {% block main %}{% endblock %}
        </div>
     </div>
     {% include 'partial/footer.html.twig' %}
+    {% include 'partial/info_modal.html.twig' %}
+    {% include 'partial/progress_modal.html.twig' %}
+    {% include 'partial/panel/explain_position_modal.html.twig' %}
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

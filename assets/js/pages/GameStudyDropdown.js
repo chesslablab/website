@@ -1,8 +1,8 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
-import { progressModal } from './ProgressModal.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
+import { progressModal } from '../ProgressModal.js';
 import * as connect from '../../connect.js';
 import * as env from '../../env.js';
 import * as variant from '../../variant.js';

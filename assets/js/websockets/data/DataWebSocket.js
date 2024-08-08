@@ -1,4 +1,4 @@
-import AbstractWebSocket from '../AbstractWebSocket.js';
+import AbstractWebSocket from '../../AbstractWebSocket.js';
 import * as connect from '../../../connect.js';
 
 export class DataWebSocket extends AbstractWebSocket {
