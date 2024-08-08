@@ -28,11 +28,11 @@ export class PlayWebSocket extends GameWebSocket {
     this.chessboard.view.visualizeInputState();
   }
 
-  _end() {
-    super._end();
+  end() {
+    super.end();
     playPanel.props.gameActionsDropdown.el.classList.add('d-none');
     playPanel.props.finishedButtons.el.classList.remove('d-none');
-    clearInterval(this._timerTableInterval);
+    clearInterval(this.timerTableInterval);
   }
 }
 
