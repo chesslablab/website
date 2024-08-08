@@ -1,17 +1,16 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import GameWebSocket from './GameWebSocket.js';
-import chessboard from '../../pages/chessboard.js';
 import { sanPanel } from '../../pages/SanPanel.js';
 
 export const analysisWebSocket = new GameWebSocket()
   .watch('/start', data => {
     if (data.fen) {
-      chessboard.disableMoveInput();
-      chessboard.enableMoveInput(event => analysisWebSocket.inputHandler(event));
-      chessboard.setPosition(data.fen[data.fen.length - 1], true);
-      chessboard.props.variant = data.variant;
-      chessboard.props.startPos = data.startPos;
+      analysisWebSocket.chessboard.disableMoveInput();
+      analysisWebSocket.chessboard.enableMoveInput(event => analysisWebSocket.inputHandler(event));
+      analysisWebSocket.chessboard.setPosition(data.fen[data.fen.length - 1], true);
+      analysisWebSocket.chessboard.props.variant = data.variant;
+      analysisWebSocket.chessboard.props.startPos = data.startPos;
       sanPanel.props.sanMovesBrowser.current = data.fen.length - 1;
       sanPanel.props.sanMovesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
@@ -27,12 +26,12 @@ export const analysisWebSocket = new GameWebSocket()
   })
   .watch('/legal', data => {
     data.forEach(sq => {
-      chessboard.addMarker(MARKER_TYPE.dot, sq);
+      analysisWebSocket.chessboard.addMarker(MARKER_TYPE.dot, sq);
     });
   })
   .watch('/play_lan', data => {
     if (data.isValid) {
-      chessboard.setPosition(data.fen, true);
+      analysisWebSocket.chessboard.setPosition(data.fen, true);
       sanPanel.props.sanMovesBrowser.current = sanPanel.props.sanMovesBrowser.props.fen.length;
       sanPanel.props.sanMovesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
@@ -43,14 +42,14 @@ export const analysisWebSocket = new GameWebSocket()
       sanPanel.props.openingTable.mount();
       analysisWebSocket.gameOver(data);
     } else {
-      chessboard.setPosition(data.fen, false);
+      analysisWebSocket.chessboard.setPosition(data.fen, false);
     }
   })
   .watch('/undo', data => {
-    chessboard.setPosition(data.fen, true);
+    analysisWebSocket.chessboard.setPosition(data.fen, true);
     if (!data.movetext) {
-      chessboard.state.inputWhiteEnabled = true;
-      chessboard.state.inputBlackEnabled = false;
+      analysisWebSocket.chessboard.state.inputWhiteEnabled = true;
+      analysisWebSocket.chessboard.state.inputBlackEnabled = false;
     }
     sanPanel.props.sanMovesBrowser.current -= 1;
     sanPanel.props.sanMovesBrowser.props.fen.splice(-1);
