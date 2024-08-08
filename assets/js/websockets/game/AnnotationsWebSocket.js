@@ -1,24 +1,15 @@
-import AbstractGameWebSocket from './AbstractGameWebSocket.js';
-import * as connect from '../../../connect.js';
+import GameWebSocket from './GameWebSocket.js';
+import { ravPanel } from '../../pages/RavPanel.js';
 
-export class AnnotationsWebSocket extends AbstractGameWebSocket {
-  async connect() {
-    await super.connect(connect.wsGame());
-
-    this._socket.onmessage = (res) => {
-      const data = JSON.parse(res.data);
-      const msg = Object.keys(data)[0];
-      this._response[msg] = data[msg];
-      switch (msg) {
-        case 'error':
-          console.log('Whoops! Something went wrong.');
-          break;
-
-        default:
-          break;
-      }
+export const annotationsWebSocket = new GameWebSocket()
+  .watch('/play_rav', data => {
+    ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
+    ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
+    ravPanel.props.ravMovesBrowser.props = {
+      ...ravPanel.props.ravMovesBrowser.props,
+      filtered: data.filtered,
+      breakdown: data.breakdown,
+      fen: data.fen
     };
-  }
-}
-
-export const annotationsWebSocket = new AnnotationsWebSocket();
+    ravPanel.props.ravMovesBrowser.mount();
+  });

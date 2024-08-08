@@ -4,7 +4,7 @@ import chessboard from '../../pages/chessboard.js';
 import { infoModal } from '../../pages/InfoModal.js';
 import * as connect from '../../../connect.js';
 
-export default class AbstractGameWebSocket extends AbstractWebSocket {
+export default class GameWebSocket extends AbstractWebSocket {
   infoModal;
 
   chessboard;
@@ -15,8 +15,14 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     this.chessboard = chessboard;
   }
 
-  async connect(host) {
-    await super.connect(host);
+  async connect() {
+    await super.connect(connect.wsGame());
+
+    this._socket.onmessage = (res) => {
+      const data = JSON.parse(res.data);
+      const msg = Object.keys(data)[0];
+      this._response[msg] = data[msg];
+    };
   }
 
   inputHandler(event) {
@@ -38,56 +44,56 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     }
   }
 
-  _end() {
-    chessboard.state.inputWhiteEnabled = false;
-    chessboard.state.inputBlackEnabled = false;
-  }
-
-  _gameOver(res) {
+  gameOver(res) {
     if (res.doesWin) {
       this.infoModal.props.msg = "It's a win";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.doesDraw) {
       this.infoModal.props.msg = "It's a draw";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isMate) {
       this.infoModal.props.msg = res.turn === COLOR.black ? 'White wins' : 'Black wins';
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
   } else if (res.isStalemate) {
       this.infoModal.props.msg = "Draw by stalemate";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isFivefoldRepetition) {
       this.infoModal.props.msg = "Draw by fivefold repetition";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isFiftyMoveDraw) {
       this.infoModal.props.msg = "Draw by the fifty-move rule";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     } else if (res.isDeadPositionDraw) {
       this.infoModal.props.msg = "Draw by dead position";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      this._end();
+      this.end();
       return true;
     }
 
     return false;
+  }
+
+  end() {
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
   }
 }

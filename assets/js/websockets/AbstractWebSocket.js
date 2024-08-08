@@ -59,5 +59,7 @@ export default class AbstractWebSocket {
         },
       });
     }
+
+    return this;
   }
 }
