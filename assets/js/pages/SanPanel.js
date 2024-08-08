@@ -22,12 +22,7 @@ export class SanPanel extends AbstractComponent {
       const settings = {
         fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current]
       };
-      analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .watch('/tutor_fen', data => {
-          this.props.explainPositionModal.props.explanation = data;
-          this.props.explainPositionModal.mount();
-          this.props.explainPositionModal.props.modal.show();
-        });
+      analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.props.progressModal.props.modal.hide();
     });
   }

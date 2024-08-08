@@ -58,4 +58,9 @@ export const analysisWebSocket = new GameWebSocket()
     sanPanel.props.sanMovesBrowser.mount();
     sanPanel.props.openingTable.props.movetext = data.movetext;
     sanPanel.props.openingTable.mount();
+  })
+  .watch('/tutor_fen', data => {
+    sanPanel.props.explainPositionModal.props.explanation = data;
+    sanPanel.props.explainPositionModal.mount();
+    sanPanel.props.explainPositionModal.props.modal.show();
   });
