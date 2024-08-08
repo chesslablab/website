@@ -2,13 +2,15 @@ import { progressModal } from './ProgressModal.js';
 import * as connect from '../connect.js';
 
 export default class AbstractWebSocket {
-  socket = null;
+  socket;
 
-  response = {};
+  response;
 
   progressModal;
 
   constructor() {
+    this.socket = null;
+    this.response = {};
     this.progressModal = progressModal;
   }
 
