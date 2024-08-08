@@ -4,7 +4,6 @@ import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
-import { stockfishWebSocket } from '../websockets/game/StockfishWebSocket.js';
 
 export class StockfishPanel extends AbstractComponent {
   mount() {

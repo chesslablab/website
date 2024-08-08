@@ -15,8 +15,14 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     this.chessboard = chessboard;
   }
 
-  async connect(host) {
-    await super.connect(host);
+  async connect() {
+    await super.connect(connect.wsGame());
+
+    this._socket.onmessage = (res) => {
+      const data = JSON.parse(res.data);
+      const msg = Object.keys(data)[0];
+      this._response[msg] = data[msg];
+    };
   }
 
   inputHandler(event) {
@@ -38,12 +44,7 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     }
   }
 
-  _end() {
-    chessboard.state.inputWhiteEnabled = false;
-    chessboard.state.inputBlackEnabled = false;
-  }
-
-  _gameOver(res) {
+  gameOver(res) {
     if (res.doesWin) {
       this.infoModal.props.msg = "It's a win";
       this.infoModal.mount();
@@ -89,5 +90,10 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     }
 
     return false;
+  }
+
+  _end() {
+    chessboard.state.inputWhiteEnabled = false;
+    chessboard.state.inputBlackEnabled = false;
   }
 }
