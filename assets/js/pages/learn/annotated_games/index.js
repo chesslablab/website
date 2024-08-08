@@ -73,6 +73,6 @@ dataWebSocket
 
       tbody.appendChild(tr);
     });
-  });
 
-progressModal.props.modal.hide();
+    progressModal.props.modal.hide();
+  });

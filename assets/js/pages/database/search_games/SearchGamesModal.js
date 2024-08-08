@@ -77,9 +77,10 @@ export class SearchGamesModal extends AbstractComponent {
 
             tbody.appendChild(tr);
           });
+
+          this.props.progressModal.props.modal.hide();
+          this.props.modal.show();
         });
-      this.props.progressModal.props.modal.hide();
-      this.props.modal.show();
     });
   }
 }

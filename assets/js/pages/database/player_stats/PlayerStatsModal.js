@@ -38,9 +38,9 @@ export class PlayerStatsModal extends AbstractComponent {
             movetext: this.props.movesMetadataTable.props.movetext
           };
           analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+          this.props.modal.hide();
+          this.props.progressModal.props.modal.hide();
         });
-      this.props.modal.hide();
-      this.props.progressModal.props.modal.hide();
     }
 
     this.props.form.addEventListener('submit', async (event) => {
@@ -101,8 +101,8 @@ export class PlayerStatsModal extends AbstractComponent {
               }
             }
           });
+          this.props.progressModal.props.modal.hide();
         });
-      this.props.progressModal.props.modal.hide();
     });
   }
 }

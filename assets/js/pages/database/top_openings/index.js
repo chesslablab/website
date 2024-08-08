@@ -14,6 +14,5 @@ dataWebSocket
     topOpeningsModal.props.stats = data['/stats_opening'];
     topOpeningsModal.mount();
     topOpeningsModal.props.modal.show();
+    progressModal.props.modal.hide();
   });
-
-progressModal.props.modal.hide();
