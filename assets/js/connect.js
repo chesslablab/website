@@ -1,15 +1,5 @@
 import * as env from '../env.js';
 
-const api = () => {
-  if (localStorage.getItem('api')) {
-    if (localStorage.getItem('api') !== 'random') {
-      return localStorage.getItem('api');
-    }
-  }
-
-  return env.API[Math.floor(Math.random() * env.API.length)];
-}
-
 const wsData = () => {
   // TODO
 
@@ -27,7 +17,6 @@ const wsGame = () => {
 }
 
 export {
-  api,
   wsGame,
   wsData
 };

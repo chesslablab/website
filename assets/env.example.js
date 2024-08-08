@@ -1,7 +1,3 @@
-const API = [
-  'https://api.chesslablab.org:9443/v1'
-];
-
 const WEBSOCKET_DATA = [
   'wss://async.chesslablab.org:9443'
 ];
@@ -11,6 +7,6 @@ const WEBSOCKET_GAME = [
 ];
 
 export {
-  API,
+  WEBSOCKET_DATA,
   WEBSOCKET_GAME
 };
