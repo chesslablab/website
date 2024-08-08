@@ -2,6 +2,7 @@ import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
 import AbstractWebSocket from '../AbstractWebSocket.js';
 import chessboard from '../../pages/chessboard.js';
 import { infoModal } from '../../pages/InfoModal.js';
+import * as connect from '../../../connect.js';
 
 export default class AbstractGameWebSocket extends AbstractWebSocket {
   infoModal;
@@ -12,6 +13,10 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     super();
     this.infoModal = infoModal;
     this.chessboard = chessboard;
+  }
+
+  async connect(host) {
+    await super.connect(host);
   }
 
   inputHandler(event) {

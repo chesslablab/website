@@ -1,9 +1,9 @@
-import AbstractWebSocket from '../AbstractWebSocket.js';
+import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import * as connect from '../../../connect.js';
 
-export class DataWebSocket extends AbstractWebSocket {
+export class AnnotationsWebSocket extends AbstractGameWebSocket {
   async connect() {
-    await super.connect(connect.wsData());
+    await super.connect(connect.wsGame());
 
     this._socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
@@ -21,4 +21,4 @@ export class DataWebSocket extends AbstractWebSocket {
   }
 }
 
-export const dataWebSocket = new DataWebSocket();
+export const annotationsWebSocket = new AnnotationsWebSocket();

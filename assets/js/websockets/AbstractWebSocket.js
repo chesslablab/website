@@ -1,5 +1,4 @@
 import { progressModal } from '../pages/ProgressModal.js';
-
 import * as connect from '../../connect.js';
 
 export default class AbstractWebSocket {
@@ -13,11 +12,11 @@ export default class AbstractWebSocket {
     this.progressModal = progressModal;
   }
 
-  connect() {
+  connect(host) {
     return new Promise((resolve, reject) => {
       this.progressModal.props.modal.show();
 
-      this._socket = new WebSocket(connect.wsGame());
+      this._socket = new WebSocket(host);
 
       this._socket.onopen = () => {
         this.progressModal.props.modal.hide();

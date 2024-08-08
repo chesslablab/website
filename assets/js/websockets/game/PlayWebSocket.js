@@ -11,12 +11,13 @@ import { playPanel } from '../../pages/play/online/PlayPanel.js';
 import { rematchModal } from '../../pages/play/online/RematchModal.js';
 import { takebackModal } from '../../pages/play/online/TakebackModal.js';
 import * as action from '../../../action.js';
+import * as connect from '../../../connect.js';
 
 export default class PlayWebSocket extends AbstractGameWebSocket {
   _timerTableInterval;
 
   async connect() {
-    await super.connect();
+    await super.connect(connect.wsGame());
 
     this._socket.onmessage = (res) => {
       const data = JSON.parse(res.data);

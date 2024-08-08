@@ -2,10 +2,11 @@ import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { sanPanel } from '../../pages/SanPanel.js';
+import * as connect from '../../../connect.js';
 
 export class AnalysisWebSocket extends AbstractGameWebSocket {
   async connect() {
-    await super.connect();
+    await super.connect(connect.wsGame());
 
     this._socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
