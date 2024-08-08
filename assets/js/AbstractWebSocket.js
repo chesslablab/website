@@ -1,6 +1,5 @@
 import { infoModal } from './InfoModal.js';
 import { progressModal } from './ProgressModal.js';
-import * as connect from '../connect.js';
 
 export default class AbstractWebSocket {
   socket;

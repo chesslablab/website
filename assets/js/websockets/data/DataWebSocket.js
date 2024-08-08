@@ -1,5 +1,5 @@
+import * as connect from '../../connect.js';
 import AbstractWebSocket from '../../AbstractWebSocket.js';
-import * as connect from '../../../connect.js';
 
 export class DataWebSocket extends AbstractWebSocket {
   async connect() {

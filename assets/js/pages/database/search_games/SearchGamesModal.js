@@ -7,7 +7,6 @@ import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
-import * as connect from '../../../../connect.js';
 import * as env from '../../../../env.js';
 import * as mode from '../../../../mode.js';
 
