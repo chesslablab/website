@@ -18,10 +18,10 @@ export default class GameWebSocket extends AbstractWebSocket {
   async connect() {
     await super.connect(connect.wsGame());
 
-    this._socket.onmessage = (res) => {
+    this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
-      this._response[msg] = data[msg];
+      this.response[msg] = data[msg];
     };
   }
 

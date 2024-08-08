@@ -2,9 +2,9 @@ import { progressModal } from './ProgressModal.js';
 import * as connect from '../connect.js';
 
 export default class AbstractWebSocket {
-  _socket = null;
+  socket = null;
 
-  _response = {};
+  response = {};
 
   progressModal;
 
@@ -16,19 +16,19 @@ export default class AbstractWebSocket {
     return new Promise((resolve, reject) => {
       this.progressModal.props.modal.show();
 
-      this._socket = new WebSocket(host);
+      this.socket = new WebSocket(host);
 
-      this._socket.onopen = () => {
+      this.socket.onopen = () => {
         this.progressModal.props.modal.hide();
         resolve();
       };
 
-      this._socket.onclose = (err) => {
+      this.socket.onclose = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
 
-      this._socket.onerror = (err) => {
+      this.socket.onerror = (err) => {
         console.log('The connection has been lost, please reload the page.');
         reject(err);
       };
@@ -36,18 +36,18 @@ export default class AbstractWebSocket {
   }
 
   send(msg) {
-    if (this._socket) {
-      this._socket.send(msg);
+    if (this.socket) {
+      this.socket.send(msg);
     }
 
     return this;
   }
 
   watch(propName, callback) {
-    let value = this._response[propName];
+    let value = this.response[propName];
 
-    if (!this._response.hasOwnProperty(propName)) {
-      Object.defineProperty(this._response, propName, {
+    if (!this.response.hasOwnProperty(propName)) {
+      Object.defineProperty(this.response, propName, {
         get() {
           return value;
         },
