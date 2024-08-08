@@ -92,7 +92,7 @@ export default class GameWebSocket extends AbstractWebSocket {
     return false;
   }
 
-  _end() {
+  end() {
     chessboard.state.inputWhiteEnabled = false;
     chessboard.state.inputBlackEnabled = false;
   }
