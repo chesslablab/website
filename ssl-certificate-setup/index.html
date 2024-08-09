@@ -72,10 +72,6 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../api-connection/">API Connection</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../blog/">Blog</a>
                 </li>
               </ul>
@@ -109,15 +105,14 @@
                 <h1 id="ssl-certificate-setup">SSL Certificate Setup</h1>
 <p>Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.</p>
 <h2 id="development-environment">Development Environment</h2>
-<p>The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure four different domain names at once.</p>
+<p>The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure three different domain names at once.</p>
 <ul>
 <li><code>chesslablab.org</code></li>
 <li><code>www.chesslablab.org</code></li>
-<li><code>api.chesslablab.org</code></li>
 <li><code>async.chesslablab.org</code></li>
 </ul>
 <p>This is because nowadays, major browsers want all traffic to be secure, and as a web developer you want the development environment to mimic production as much as possible.</p>
-<p>The first two domain names, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the IP of the <a href="https://github.com/chesslablab/website">website</a>. When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The <code>api.chesslablab.org</code> domain name will point to the IP of the <a href="https://github.com/chesslablab/chess-api">REST-like API</a> and <code>async.chesslablab.org</code> to the IP of the <a href="https://github.com/chesslablab/chess-server">asynchronous chess server</a>.</p>
+<p>The first two domain names, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the IP of the <a href="https://github.com/chesslablab/website">website</a>. When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The <code>async.chesslablab.org</code> to the IP of the <a href="https://github.com/chesslablab/chess-server">asynchronous chess server</a>.</p>
 <h2 id="decentralized-environment">Decentralized Environment</h2>
 <p>In a decentralized environment only two domain names need to be secured.</p>
 <ul>
@@ -147,8 +142,8 @@
 <pre><code class="language-text">sudo certbot certonly --standalone
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Please enter the domain name(s) you would like on your certificate (comma and/or
-space separated) (Enter 'c' to cancel): chesslablab.org www.chesslablab.org api.chesslablab.org async.chesslablab.org
-Requesting a certificate for chesslablab.org and 3 more domains
+space separated) (Enter 'c' to cancel): chesslablab.org www.chesslablab.org async.chesslablab.org
+Requesting a certificate for chesslablab.org and 2 more domains
 
 Successfully received certificate.
 Certificate is saved at: /etc/letsencrypt/live/chesslablab.org-0001/fullchain.pem
@@ -166,7 +161,6 @@ If you like Certbot, please consider supporting our work by:
 <p>The certbot command generated two files, <code>fullchain.pem</code> and <code>privkey.pem</code>, that then were installed in each of the repos listed above:</p>
 <ul>
 <li>chesslablab/website</li>
-<li>chesslablab/chess-api</li>
 <li>chesslablab/chess-server</li>
 </ul>
 <p>It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80.</p>
@@ -189,7 +183,7 @@ openssl rsa -passin pass:foobar -in chesslablab.org.pem -out chesslablab.org.key
 </code></pre>
 <pre><code class="language-text">mv chesslablab.org.key privkey.pem
 </code></pre>
-<p>With the pieces of the puzzle in place, which is to say, the web server, the REST-like API and the asynchronous chess server, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.</p>
+<p>At this point, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.</p>
 <p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_01.png" /></p>
 <p><strong>Figure 1</strong>. Make the browser trust the chess server's self-signed certificate.</p>
 <p>If skipping this step, the web browser won't be able to connect to the chess server. The latter will complain with an SSL handshake error.</p>
@@ -201,19 +195,10 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 </code></pre>
 <p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_02.png" /></p>
 <p><strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
-<p>The exact same thing goes for the REST-like API: Its self-signed certificate needs to be added as trusted to your browser.</p>
-<p><img alt="Figure 3" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_03.png" /></p>
-<p><strong>Figure 3</strong>. Make the browser trust the API's self-signed certificate.</p>
-<p>If skipping this step, the web browser won't be able to connect to the chess API. The latter will complain with an <code>ERR_CERT_AUTHORITY_INVALID</code> error.</p>
-<pre><code class="language-text">GET https://api.chesslablab.org/v1/annotations/games net::ERR_CERT_AUTHORITY_INVALID
-</code></pre>
-<p><img alt="Figure 4" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/ssl-certificate-setup_04.png" /></p>
-<p><strong>Figure 4</strong>. The browser doesn't recognize the API's certificate.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>In order to set up a local development environment, four different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.</p>
+<p>In order to set up a local development environment, three different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.</p>
 <ul>
 <li>chesslablab/website</li>
-<li>chesslablab/chess-api</li>
 <li>chesslablab/chess-server</li>
 </ul>
 <p>In a decentralized environment only two domain names need to be secured. The SSL certificate is to be installed in the following repository.</p>

@@ -2,42 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://chesslablab.github.io/website/</loc>
-         <lastmod>2024-08-01</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chesslablab.github.io/website/api-connection/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/blog/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/html-iframes/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/installation/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/ssl-certificate-setup/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/website-architecture/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chesslablab.github.io/website/websocket-connection/</loc>
-         <lastmod>2024-08-01</lastmod>
+         <lastmod>2024-08-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
