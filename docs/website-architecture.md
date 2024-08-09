@@ -2,7 +2,7 @@
 
 Some familiarity with [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) as well as with Symfony's [Asset Mapper](https://symfony.com/doc/current/frontend/asset_mapper.html) component is recommended in order to follow this section.
 
-The ChesslaBlab website is a multi-page application (MPA) that is not adhering to the MVC architectural pattern. The controller actions are basically sending an HTML document to the browser on each request with the business logic being split between the chess server and the chess API.
+The ChesslaBlab website is a multi-page application (MPA) that is not adhering to the MVC architectural pattern. The controller actions are basically sending an HTML document to the browser on each request. The business logic is implemented in the chess server.
 
 In this website architecture in particular, there is no model layer (M) and as a result the Controller layer (C) remains quite basic as in the following example. The main reason behind a multi-page architecture like this one as opposed to a single-page architecture is that we want the pages to be indexed by web crawlers.
 

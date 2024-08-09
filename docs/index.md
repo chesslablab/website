@@ -27,17 +27,16 @@ This is made possible with object-oriented programming (OOP) using [JavaScript m
 
 The following repositories are required to run a complete chess platform in a local development environment:
 
-- [Chess Data](https://github.com/chesslablab/chess-data) on port 3306.
-- [PHP Chess API](https://github.com/chesslablab/chess-api) on port 9443.
-- [PHP Chess Server](https://github.com/chesslablab/chess-server) on port 8443.
-- [Website](https://github.com/chesslablab/website) on port 443.
+- [Chess Data](https://github.com/chesslablab/chess-data)
+- [PHP Chess Server](https://github.com/chesslablab/chess-server)
+- [Website](https://github.com/chesslablab/website)
 
-Remember to add your PHP Chess API endpoint and your PHP Chess Server host name to the `assets/env.js` file of your website.
+Remember to add your PHP Chess Server host name to the `assets/env.js` file of your website.
 
 ## Decentralized Environment
 
 With decentralized chess (DeChess) a complete chess platform can be run using one ChesslaBlab repository only:
 
-- [Website](https://github.com/chesslablab/website) on port 443.
+- [Website](https://github.com/chesslablab/website)
 
-Make sure to add at least a PHP Chess API endpoint and a PHP Chess Server host name from the [ChesslaBlab Node List](https://github.com/chesslablab#node-list) to the `assets/env.js` file of your website.
+Make sure to add at least a PHP Chess Server host name from the [ChesslaBlab Node List](https://github.com/chesslablab#node-list) to the `assets/env.js` file of your website.
