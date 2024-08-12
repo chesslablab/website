@@ -12,4 +12,5 @@ export const annotationsWebSocket = new GameWebSocket()
       fen: data.fen
     };
     ravPanel.props.ravMovesBrowser.mount();
+    ravPanel.progressModal.props.modal.hide();
   });

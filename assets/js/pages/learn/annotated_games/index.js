@@ -1,34 +1,22 @@
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
 import chessboard from '../../chessboard.js';
 import { ravPanel } from '../../RavPanel.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import * as variant from '../../../../variant.js';
 
-const handleClick = async (game) => {
-  progressModal.props.modal.show();
-  const settings = {
-    variant: variant.CLASSICAL,
-    movetext: game.movetext
-  };
-  await annotationsWebSocket.connect();
-  annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-  progressModal.props.modal.hide();
-};
-
 sessionStorage.clear();
 
-progressModal.props.modal.show();
+databaseAnnotatedGames.progressModal.props.modal.show();
 
 await dataWebSocket.connect();
+await annotationsWebSocket.connect();
 
 dataWebSocket
   .send(`/annotations_game`)
   .watch('/annotations_game', data => {
     const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
     tbody.replaceChildren();
-    databaseAnnotatedGames.props.modal.show();
     data.forEach(game => {
       const tr = document.createElement('tr');
 
@@ -65,14 +53,18 @@ dataWebSocket
       tr.appendChild(resultTd);
 
       tr.addEventListener('click', async (event) => {
-        await handleClick(game);
-        ravPanel.props.movesMetadataTable.props = game;
-        ravPanel.props.movesMetadataTable.mount();
         databaseAnnotatedGames.props.modal.hide();
+        ravPanel.progressModal.props.modal.show();
+        const settings = {
+          variant: variant.CLASSICAL,
+          movetext: game.movetext
+        };
+        annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       });
 
       tbody.appendChild(tr);
-    });
 
-    progressModal.props.modal.hide();
+      databaseAnnotatedGames.progressModal.props.modal.hide();
+      databaseAnnotatedGames.props.modal.show();
+    });
   });
