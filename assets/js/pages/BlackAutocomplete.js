@@ -12,8 +12,8 @@ export class BlackAutocomplete extends AbstractComponent {
           Black: event.target.value
         };
         dataWebSocket
-          .send(`/autocomplete_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-          .watch('/autocomplete_player', data => {
+          .send(`/autocomplete_black "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .watch('/autocomplete_black', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {
               const option = document.createElement('option');

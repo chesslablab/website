@@ -12,8 +12,8 @@ export class WhiteAutocomplete extends AbstractComponent {
           White: event.target.value
         };
         dataWebSocket
-          .send(`/autocomplete_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-          .watch('/autocomplete_player', data => {
+          .send(`/autocomplete_white "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .watch('/autocomplete_white', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {
               const option = document.createElement('option');
