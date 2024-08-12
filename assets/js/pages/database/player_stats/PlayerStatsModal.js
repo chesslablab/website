@@ -27,7 +27,6 @@ export class PlayerStatsModal extends AbstractComponent {
         Result: formData.get('Result'),
         ECO: event.chart.data.labels[dataIndex]
       };
-      await dataWebSocket.connect();
       dataWebSocket
         .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
         .watch('/search', data => {
@@ -52,7 +51,6 @@ export class PlayerStatsModal extends AbstractComponent {
         Black: formData.get('Black'),
         Result: formData.get('Result')
       };
-      await dataWebSocket.connect();
       dataWebSocket
         .send(`/stats_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .watch('/stats_player', data => {

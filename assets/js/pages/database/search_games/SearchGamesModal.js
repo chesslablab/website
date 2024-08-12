@@ -27,7 +27,6 @@ export class SearchGamesModal extends AbstractComponent {
         ECO: formData.get('ECO'),
         movetext: formData.get('movetext')
       };
-      await dataWebSocket.connect();
       dataWebSocket
         .send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .watch('/search', data => {
