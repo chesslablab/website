@@ -1,5 +1,4 @@
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
-import chessboard from '../../chessboard.js';
 import { ravPanel } from '../../RavPanel.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
@@ -7,10 +6,10 @@ import * as variant from '../../../../variant.js';
 
 sessionStorage.clear();
 
-databaseAnnotatedGames.progressModal.props.modal.show();
-
 await dataWebSocket.connect();
 await annotationsWebSocket.connect();
+
+databaseAnnotatedGames.progressModal.props.modal.show();
 
 dataWebSocket
   .send(`/annotations_game`)

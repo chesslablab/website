@@ -22,10 +22,8 @@ export class RavMovetextModal extends AbstractComponent {
         variant: formData.get('variant'),
         movetext: formData.get('rav'),
       };
-      await annotationsWebSocket.connect();
       annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
-      this.progressModal.props.modal.hide();
     });
   }
 }
