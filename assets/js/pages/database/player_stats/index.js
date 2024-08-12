@@ -5,7 +5,6 @@ import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js
 sessionStorage.clear();
 
 await dataWebSocket.connect();
-
 await analysisWebSocket.connect();
 
 playerStatsModal.props.modal.show();
