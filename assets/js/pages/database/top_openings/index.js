@@ -1,5 +1,4 @@
 import { topOpeningsModal } from './TopOpeningsModal.js';
-import { progressModal } from '../../../ProgressModal.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
@@ -15,5 +14,4 @@ dataWebSocket
     topOpeningsModal.props.stats = data['/stats_opening'];
     topOpeningsModal.mount();
     topOpeningsModal.props.modal.show();
-    progressModal.props.modal.hide();
   });
