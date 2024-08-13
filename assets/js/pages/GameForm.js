@@ -1,20 +1,11 @@
-import AbstractComponent from '../../../AbstractComponent.js';
-import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-import * as mode from '../../../../mode.js';
-import * as variant from '../../../../variant.js';
+import AbstractComponent from '../AbstractComponent.js';
+import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
+import * as mode from '../../mode.js';
+import * as variant from '../../variant.js';
 
 export class GameForm extends AbstractComponent {
   mount() {
-    analysisWebSocket.onChange('/start', data => {
-      if (data.fen) {
-        this.el.querySelector('input[name="fen"]').value = data.fen[0];
-      }
-      if (data.startPos) {
-        this.el.querySelector('input[name="startPos"]').value = data.startPos;
-      }
-    });
-
-    this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
+    this.el?.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
       sessionStorage.clear();
       if (event.target.value === variant.CHESS_960) {
@@ -25,7 +16,7 @@ export class GameForm extends AbstractComponent {
       analysisWebSocket.send(`/start ${event.target.value} ${mode.ANALYSIS}`);
     });
 
-    this.el.addEventListener('submit', event => {
+    this.el?.addEventListener('submit', event => {
       event.preventDefault();
       const settings = {
         fen: event.target.fen.value,

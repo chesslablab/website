@@ -1,6 +1,7 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import GameWebSocket from './GameWebSocket.js';
+import { gameForm } from '../../pages/GameForm.js';
 import { sanPanel } from '../../pages/SanPanel.js';
 
 export class AnalysisWebSocket extends GameWebSocket {
@@ -21,6 +22,10 @@ export class AnalysisWebSocket extends GameWebSocket {
         sanPanel.props.sanMovesBrowser.mount();
         sanPanel.props.openingTable.props.movetext = data.movetext;
         sanPanel.props.openingTable.mount();
+        if (gameForm.el) {
+          gameForm.el.querySelector('input[name="fen"]').value = data.fen[0];
+          gameForm.el.querySelector('input[name="startPos"]').value = data?.startPos ?? '';
+        }
       } else {
         this.infoModal.props.msg = "This game could not be started, please try again";
         this.infoModal.mount();
