@@ -51,10 +51,16 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="mainNavOpeningsLink">
             <li>
+              <a class="dropdown-item" href="{{ path('pages_openings_top_openings') }}">
+                {{ 'Top Openings'|trans }}
+              </a>
+            </li>
+            <li>
               <a class="dropdown-item" href="{{ path('pages_openings_eco_code') }}">
                 {{ 'ECO Code'|trans }}
               </a>
             </li>
+            <li><hr class="dropdown-divider"></li>
             <li>
               <a class="dropdown-item" href="{{ path('pages_openings_san_movetext') }}">
                 {{ 'SAN Movetext'|trans }}
@@ -95,11 +101,6 @@
               </a>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_database_top_openings') }}">
-                {{ 'Top Openings'|trans }}
-              </a>
-            </li>
             <li>
               <a class="dropdown-item" href="{{ path('pages_database_player_stats') }}">
                 {{ 'Player Stats'|trans }}

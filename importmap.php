@@ -37,12 +37,12 @@ return [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/database/search_games/index.js' => [
-        'path' => './assets/js/pages/database/search_games/index.js',
+    'js/pages/openings/top_openings/index.js' => [
+        'path' => './assets/js/pages/openings/top_openings/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/database/top_openings/index.js' => [
-        'path' => './assets/js/pages/database/top_openings/index.js',
+    'js/pages/database/search_games/index.js' => [
+        'path' => './assets/js/pages/database/search_games/index.js',
         'entrypoint' => true,
     ],
     'js/pages/database/player_stats/index.js' => [

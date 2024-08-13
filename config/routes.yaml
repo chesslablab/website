@@ -44,13 +44,6 @@ pages_database_search_games:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_database_top_openings:
-    path:       /{_locale}/database/top-openings
-    controller: App\Controller\Pages\Database\TopOpeningsController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_edit:
     path:       /{_locale}/edit
     controller: App\Controller\Pages\EditController::index
@@ -96,6 +89,13 @@ pages_openings_name:
 pages_openings_san_movetext:
     path:       /{_locale}/openings/san-movetext
     controller: App\Controller\Pages\Openings\SanMovetextController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+pages_openings_top_openings:
+    path:       /{_locale}/openings/top-openings
+    controller: App\Controller\Pages\Openings\TopOpeningsController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
