@@ -1,4 +1,4 @@
-import { topOpeningsModal } from './TopOpeningsModal.js';
+import { openingsTopModal } from './OpeningsTopModal.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
@@ -10,7 +10,7 @@ await dataWebSocket.connect();
 dataWebSocket
   .send(`/stats_opening`)
   .onChange('/stats_opening', data => {
-    topOpeningsModal.props.stats = data['/stats_opening'];
-    topOpeningsModal.mount();
-    topOpeningsModal.props.modal.show();
+    openingsTopModal.props.stats = data['/stats_opening'];
+    openingsTopModal.mount();
+    openingsTopModal.props.modal.show();
   });

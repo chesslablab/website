@@ -5,10 +5,10 @@ namespace App\Controller\Pages\Openings;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class TopOpeningsController extends AbstractController
+class TopController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/openings/top_openings/index.html.twig');
+        return $this->render('pages/openings/top/index.html.twig');
     }
 }
