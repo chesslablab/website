@@ -13,7 +13,7 @@ export class BlackAutocomplete extends AbstractComponent {
         };
         dataWebSocket
           .send(`/autocomplete_black "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-          .watch('/autocomplete_black', data => {
+          .onChange('/autocomplete_black', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {
               const option = document.createElement('option');

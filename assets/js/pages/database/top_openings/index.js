@@ -9,7 +9,7 @@ await dataWebSocket.connect();
 
 dataWebSocket
   .send(`/stats_opening`)
-  .watch('/stats_opening', data => {
+  .onChange('/stats_opening', data => {
     topOpeningsModal.props.stats = data['/stats_opening'];
     topOpeningsModal.mount();
     topOpeningsModal.props.modal.show();

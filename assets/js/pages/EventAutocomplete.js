@@ -13,7 +13,7 @@ export class EventAutocomplete extends AbstractComponent {
         };
         dataWebSocket
           .send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-          .watch('/autocomplete_event', data => {
+          .onChange('/autocomplete_event', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {
               const option = document.createElement('option');

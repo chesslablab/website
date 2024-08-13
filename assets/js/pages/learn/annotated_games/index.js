@@ -13,7 +13,7 @@ databaseAnnotatedGames.progressModal.props.modal.show();
 
 dataWebSocket
   .send(`/annotations_game`)
-  .watch('/annotations_game', data => {
+  .onChange('/annotations_game', data => {
     const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
     tbody.replaceChildren();
     data.forEach(game => {
