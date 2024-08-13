@@ -27,7 +27,7 @@ export class EventStatsModal extends AbstractComponent {
       };
       dataWebSocket
         .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
-        .watch('/search', data => {
+        .onChange('/search', data => {
           this.props.movesMetadataTable.props = data[0];
           this.props.movesMetadataTable.mount();
           const startSettings = {
@@ -50,7 +50,7 @@ export class EventStatsModal extends AbstractComponent {
       };
       dataWebSocket
         .send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .watch('/stats_event', data => {
+        .onChange('/stats_event', data => {
           const canvas = document.createElement('canvas');
           eventStatsChart.replaceChildren();
           eventStatsChart.appendChild(canvas);

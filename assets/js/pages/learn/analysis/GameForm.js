@@ -5,7 +5,7 @@ import * as variant from '../../../../variant.js';
 
 export class GameForm extends AbstractComponent {
   mount() {
-    analysisWebSocket.watch('/start', data => {
+    analysisWebSocket.onChange('/start', data => {
       if (data.fen) {
         this.el.querySelector('input[name="fen"]').value = data.fen[0];
       }

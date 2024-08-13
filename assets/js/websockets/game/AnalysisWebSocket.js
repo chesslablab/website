@@ -7,7 +7,7 @@ export class AnalysisWebSocket extends GameWebSocket {
   constructor() {
     super();
 
-    this.watch('/start', data => {
+    this.onChange('/start', data => {
       if (data.fen) {
         this.chessboard.disableMoveInput();
         this.chessboard.enableMoveInput(event => this.inputHandler(event));
@@ -27,12 +27,12 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.infoModal.props.modal.show();
       }
     })
-    .watch('/legal', data => {
+    .onChange('/legal', data => {
       data.forEach(sq => {
         this.chessboard.addMarker(MARKER_TYPE.dot, sq);
       });
     })
-    .watch('/play_lan', data => {
+    .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
         sanPanel.props.sanMovesBrowser.current = sanPanel.props.sanMovesBrowser.props.fen.length;
@@ -48,7 +48,7 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.chessboard.setPosition(data.fen, false);
       }
     })
-    .watch('/undo', data => {
+    .onChange('/undo', data => {
       this.chessboard.setPosition(data.fen, true);
       if (!data.movetext) {
         this.chessboard.state.inputWhiteEnabled = true;
@@ -62,7 +62,7 @@ export class AnalysisWebSocket extends GameWebSocket {
       sanPanel.props.openingTable.props.movetext = data.movetext;
       sanPanel.props.openingTable.mount();
     })
-    .watch('/tutor_fen', data => {
+    .onChange('/tutor_fen', data => {
       sanPanel.props.explainPositionModal.props.explanation = data;
       sanPanel.props.explainPositionModal.mount();
       sanPanel.props.explainPositionModal.props.modal.show();

@@ -29,7 +29,7 @@ export class PlayerStatsModal extends AbstractComponent {
       };
       dataWebSocket
         .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
-        .watch('/search', data => {
+        .onChange('/search', data => {
           this.props.movesMetadataTable.props = data[0];
           this.props.movesMetadataTable.mount();
           const startSettings = {
@@ -53,7 +53,7 @@ export class PlayerStatsModal extends AbstractComponent {
       };
       dataWebSocket
         .send(`/stats_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .watch('/stats_player', data => {
+        .onChange('/stats_player', data => {
           const canvas = document.createElement('canvas');
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);

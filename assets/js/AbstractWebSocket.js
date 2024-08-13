@@ -45,7 +45,7 @@ export default class AbstractWebSocket {
     return this;
   }
 
-  watch(propName, callback) {
+  onChange(propName, callback) {
     let value = this.response[propName];
 
     if (!this.response.hasOwnProperty(propName)) {

@@ -18,11 +18,11 @@ export class PlayWebSocket extends GameWebSocket {
   constructor() {
     super();
 
-    this.watch('broadcast', data => {
+    this.onChange('broadcast', data => {
       playOnlineButtons.props.playersButtons.props.games = data.onlineGames;
       playOnlineButtons.props.playersButtons.mount();
     })
-    .watch('/start', data => {
+    .onChange('/start', data => {
       if (data.jwt) {
         copyInviteCodeModal.props.form.elements['hash'].value = data.hash;
         const jwtDecoded = jwtDecode(data.jwt);
@@ -37,12 +37,12 @@ export class PlayWebSocket extends GameWebSocket {
         console.log('Invalid FEN, please try again with a different one.');
       }
     })
-    .watch('/legal', data => {
+    .onChange('/legal', data => {
       data.forEach(sq => {
         this.chessboard.addMarker(MARKER_TYPE.dot, sq);
       });
     })
-    .watch('/play_lan', data => {
+    .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
         playPanel.props.sanMovesBrowser.current = playPanel.props.sanMovesBrowser.props.fen.length;
@@ -62,7 +62,7 @@ export class PlayWebSocket extends GameWebSocket {
         this.chessboard.setPosition(data.fen, false);
       }
     })
-    .watch('/undo', data => {
+    .onChange('/undo', data => {
       this.chessboard.setPosition(data.fen, true);
       if (!data.movetext) {
         this.chessboard.state.inputWhiteEnabled = true;
@@ -74,7 +74,7 @@ export class PlayWebSocket extends GameWebSocket {
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
       playPanel.props.sanMovesBrowser.mount();
     })
-    .watch('/accept', data => {
+    .onChange('/accept', data => {
       if (data.jwt) {
         const jwtDecoded = jwtDecode(data.jwt);
         const turn = jwtDecoded.fen.split(' ')[1];
@@ -111,7 +111,7 @@ export class PlayWebSocket extends GameWebSocket {
         this.infoModal.props.modal.show();
       }
     })
-    .watch('/takeback', data => {
+    .onChange('/takeback', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('takeback') !== action.PROPOSE) {
           takebackModal.props.modal.show();
@@ -128,7 +128,7 @@ export class PlayWebSocket extends GameWebSocket {
       }
       sessionStorage.removeItem('takeback');
     })
-    .watch('/draw', data => {
+    .onChange('/draw', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('draw') !== action.PROPOSE) {
           drawModal.props.modal.show();
@@ -146,7 +146,7 @@ export class PlayWebSocket extends GameWebSocket {
       }
       sessionStorage.removeItem('draw');
     })
-    .watch('/resign', data => {
+    .onChange('/resign', data => {
       if (data.action === action.ACCEPT) {
         this.end();
         this.infoModal.props.msg = "The game is resigned";
@@ -154,7 +154,7 @@ export class PlayWebSocket extends GameWebSocket {
         this.infoModal.props.modal.show();
       }
     })
-    .watch('/rematch', data => {
+    .onChange('/rematch', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('rematch') !== action.PROPOSE) {
           rematchModal.props.modal.show();
@@ -167,7 +167,7 @@ export class PlayWebSocket extends GameWebSocket {
       }
       sessionStorage.removeItem('rematch');
     })
-    .watch('/restart', data => {
+    .onChange('/restart', data => {
       if (data.jwt) {
         this.infoModal.props.modal.hide();
         const jwtDecoded = jwtDecode(data.jwt);
@@ -193,7 +193,7 @@ export class PlayWebSocket extends GameWebSocket {
         playPanel.props.finishedButtons.el.classList.add('d-none');
       }
     })
-    .watch('/leave', data => {
+    .onChange('/leave', data => {
       if (data.action === action.ACCEPT) {
         this.end();
         playPanel.props.finishedButtons.el.children.item(0).classList.add('d-none');
@@ -202,7 +202,7 @@ export class PlayWebSocket extends GameWebSocket {
         this.infoModal.props.modal.show();
       }
     })
-    .watch('/online_games', data => {
+    .onChange('/online_games', data => {
       playOnlineButtons.props.playersButtons.props.games = data;
       playOnlineButtons.props.playersButtons.mount();
     });

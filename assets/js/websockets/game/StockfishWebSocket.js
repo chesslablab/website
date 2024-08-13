@@ -9,7 +9,7 @@ export class StockfishWebSocket extends GameWebSocket {
   constructor() {
     super();
 
-    this.watch('/start', data => {
+    this.onChange('/start', data => {
       this.chessboard.disableMoveInput();
       this.chessboard.enableMoveInput(event => this.inputHandler(event));
       this.chessboard.setPosition(data.fen, true);
@@ -20,12 +20,12 @@ export class StockfishWebSocket extends GameWebSocket {
         this.send(`/stockfish "{\\"Skill Level\\":${sessionStorage.getItem('skillLevel')}}" "{\\"depth\\":12}"`);
       }
     })
-    .watch('/legal', data => {
+    .onChange('/legal', data => {
       data.forEach(sq => {
         this.chessboard.addMarker(MARKER_TYPE.dot, sq);
       });
     })
-    .watch('/play_lan', data => {
+    .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
         stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
@@ -43,7 +43,7 @@ export class StockfishWebSocket extends GameWebSocket {
         this.chessboard.setPosition(data.fen, false);
       }
     })
-    .watch('/undo', data => {
+    .onChange('/undo', data => {
       this.chessboard.setPosition(data.fen, true);
       if (!data.movetext) {
         this.chessboard.state.inputWhiteEnabled = true;
@@ -57,7 +57,7 @@ export class StockfishWebSocket extends GameWebSocket {
       stockfishPanel.props.openingTable.props.movetext = data.movetext;
       stockfishPanel.props.openingTable.mount();
     })
-    .watch('/stockfish', data => {
+    .onChange('/stockfish', data => {
       this.chessboard.setPosition(data.fen, true);
       stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
       stockfishPanel.props.sanMovesBrowser.props.movetext
@@ -69,7 +69,7 @@ export class StockfishWebSocket extends GameWebSocket {
       stockfishPanel.props.openingTable.mount();
       this.gameOver(data);
     })
-    .watch('/randomizer', data => {
+    .onChange('/randomizer', data => {
       this.chessboard.state.inputWhiteEnabled = false;
       this.chessboard.state.inputBlackEnabled = false;
       if (data.turn === COLOR.white) {

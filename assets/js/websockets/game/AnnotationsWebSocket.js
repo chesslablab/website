@@ -5,7 +5,7 @@ export class AnnotationsWebSocket extends GameWebSocket {
   constructor() {
     super();
 
-    this.watch('/play_rav', data => {
+    this.onChange('/play_rav', data => {
       ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
       ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
       ravPanel.props.ravMovesBrowser.props = {

@@ -29,7 +29,7 @@ export class SearchGamesModal extends AbstractComponent {
       };
       dataWebSocket
         .send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .watch('/search', data => {
+        .onChange('/search', data => {
           const tbody = this.props.form.getElementsByTagName('tbody')[0];
           tbody.parentNode.classList.add('mt-3');
           tbody.replaceChildren();
