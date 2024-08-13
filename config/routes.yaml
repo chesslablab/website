@@ -79,13 +79,6 @@ pages_openings_eco_code:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_openings_name:
-    path:       /{_locale}/openings/name
-    controller: App\Controller\Pages\Openings\NameController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_openings_san_movetext:
     path:       /{_locale}/openings/san-movetext
     controller: App\Controller\Pages\Openings\SanMovetextController::index

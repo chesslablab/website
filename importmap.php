@@ -29,10 +29,6 @@ return [
         'path' => './assets/js/pages/openings/eco_code/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/openings/name/index.js' => [
-        'path' => './assets/js/pages/openings/name/index.js',
-        'entrypoint' => true,
-    ],
     'js/pages/openings/san_movetext/index.js' => [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
         'entrypoint' => true,
