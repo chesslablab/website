@@ -6,14 +6,12 @@ import * as variant from '../../variant.js';
 export class SanForm extends AbstractComponent {
   mount() {
     if (this.el) {
-      this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
+      this.props.variantSelect.addEventListener('change', event => {
         event.preventDefault();
+        event.target.value === variant.CHESS_960
+          ? this.props.startPosInput.classList.remove('d-none')
+          : this.props.startPosInput.classList.add('d-none');
         sessionStorage.clear();
-        if (event.target.value === variant.CHESS_960) {
-          this.el.getElementsByClassName('startPos')[0].classList.remove('d-none');
-        } else {
-          this.el.getElementsByClassName('startPos')[0].classList.add('d-none');
-        }
         analysisWebSocket.send(`/start ${event.target.value} ${mode.ANALYSIS}`);
       });
 
@@ -34,7 +32,8 @@ export class SanForm extends AbstractComponent {
 export const sanForm = new SanForm(
   document.getElementById('sanForm'),
   {
-    fen: document.querySelector('#sanForm input[name="fen"]'),
-    startPos: document.querySelector('#sanForm input[name="startPos"]')
+    variantSelect: document.querySelector('#sanForm select[name="variant"]'),
+    fenInput: document.querySelector('#sanForm input[name="fen"]'),
+    startPosInput: document.querySelector('#sanForm input[name="startPos"]')
   }
 );

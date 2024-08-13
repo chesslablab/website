@@ -23,8 +23,8 @@ export class AnalysisWebSocket extends GameWebSocket {
         sanPanel.props.openingTable.props.movetext = data.movetext;
         sanPanel.props.openingTable.mount();
         if (sanForm.el) {
-          sanForm.props.fen.value = data.fen[0];
-          sanForm.props.startPos.value = data?.startPos ?? '';
+          sanForm.props.fenInput.value = data.fen[0];
+          sanForm.props.startPosInput.value = data?.startPos ?? '';
         }
       } else {
         this.infoModal.props.msg = "This game could not be started, please try again";
