@@ -3,7 +3,7 @@ import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
 import * as variant from '../../variant.js';
 
-export class GameForm extends AbstractComponent {
+export class SanForm extends AbstractComponent {
   mount() {
     this.el?.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
@@ -29,4 +29,4 @@ export class GameForm extends AbstractComponent {
   }
 }
 
-export const gameForm = new GameForm(document.getElementById('gameForm'));
+export const gameForm = new SanForm(document.getElementById('gameForm'));
