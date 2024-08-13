@@ -4,16 +4,16 @@
   <div class="col-md-6">
     <div id="chessboard"></div>
   </div>
-  <div class="col-md-4">
-    {% include 'pages/openings/san_movetext/san_movetext_modal.html.twig' %}
+  <div class="col-md-3">
     {% include 'partial/panel/san_panel.html.twig' %}
   </div>
-  <div class="col-md-2">
-    {% include 'partial/logos.html.twig' %}
+  <div class="col-md-3">
+    {% include 'pages/learn/analysis/san_form.html.twig' %}
   </div>
   {% block javascripts %}
     {% block importmap %}
       {{ importmap('js/pages/openings/san_movetext/index.js') }}
     {% endblock %}
   {% endblock %}
+  {% include 'pages/openings/san_movetext/san_movetext_modal.html.twig' %}
 {% endblock %}
