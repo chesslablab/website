@@ -1,0 +1,19 @@
+{% extends 'layouts/study.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-3">
+    {% include 'partial/panel/san_panel.html.twig' %}
+  </div>
+  <div class="col-md-3">
+    {% include 'pages/learn/analysis/san_form.html.twig' %}
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/openings/search/index.js') }}
+    {% endblock %}
+  {% endblock %}
+  {% include 'pages/openings/search/search_modal.html.twig' %}
+{% endblock %}

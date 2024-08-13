@@ -93,6 +93,13 @@ pages_openings_san_movetext:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_openings_search:
+    path:       /{_locale}/openings/search
+    controller: App\Controller\Pages\Openings\SearchController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_openings_top_openings:
     path:       /{_locale}/openings/top-openings
     controller: App\Controller\Pages\Openings\TopOpeningsController::index

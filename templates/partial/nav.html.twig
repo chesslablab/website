@@ -51,6 +51,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="mainNavOpeningsLink">
             <li>
+              <a class="dropdown-item" href="{{ path('pages_openings_search') }}">
+                {{ 'Search Openings'|trans }}
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
               <a class="dropdown-item" href="{{ path('pages_openings_top_openings') }}">
                 {{ 'Top Openings'|trans }}
               </a>

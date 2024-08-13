@@ -37,6 +37,10 @@ return [
         'path' => './assets/js/pages/openings/san_movetext/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/openings/search/index.js' => [
+        'path' => './assets/js/pages/openings/search/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/openings/top_openings/index.js' => [
         'path' => './assets/js/pages/openings/top_openings/index.js',
         'entrypoint' => true,
