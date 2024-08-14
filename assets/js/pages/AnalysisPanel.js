@@ -136,7 +136,7 @@ export class AnalysisPanel extends AbstractComponent {
   }
 }
 
-export const sanPanel = new AnalysisPanel(
+export const analysisPanel = new AnalysisPanel(
   document.getElementById('sanPanel'),
   {
     chessboard: chessboard,

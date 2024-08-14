@@ -1,7 +1,7 @@
 import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import GameWebSocket from './GameWebSocket.js';
-import { sanPanel } from '../../pages/AnalysisPanel.js';
+import { analysisPanel } from '../../pages/AnalysisPanel.js';
 import { sanForm } from '../../pages/SanForm.js';
 
 export class AnalysisWebSocket extends GameWebSocket {
@@ -15,13 +15,13 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.chessboard.setPosition(data.fen[data.fen.length - 1], true);
         this.chessboard.props.variant = data.variant;
         this.chessboard.props.startPos = data.startPos;
-        sanPanel.props.sanMovesBrowser.current = data.fen.length - 1;
-        sanPanel.props.sanMovesBrowser.props.movetext
+        analysisPanel.props.sanMovesBrowser.current = data.fen.length - 1;
+        analysisPanel.props.sanMovesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        sanPanel.props.sanMovesBrowser.props.fen = data.fen;
-        sanPanel.props.sanMovesBrowser.mount();
-        sanPanel.props.openingTable.props.movetext = data.movetext;
-        sanPanel.props.openingTable.mount();
+        analysisPanel.props.sanMovesBrowser.props.fen = data.fen;
+        analysisPanel.props.sanMovesBrowser.mount();
+        analysisPanel.props.openingTable.props.movetext = data.movetext;
+        analysisPanel.props.openingTable.mount();
         if (sanForm.el) {
           sanForm.props.fenInput.value = data.fen[0];
           sanForm.props.startPosInput.value = data?.startPos ?? '';
@@ -40,14 +40,14 @@ export class AnalysisWebSocket extends GameWebSocket {
     .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
-        sanPanel.props.sanMovesBrowser.current = sanPanel.props.sanMovesBrowser.props.fen.length;
-        sanPanel.props.sanMovesBrowser.props.movetext
+        analysisPanel.props.sanMovesBrowser.current = analysisPanel.props.sanMovesBrowser.props.fen.length;
+        analysisPanel.props.sanMovesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        sanPanel.props.sanMovesBrowser.props.fen
-          = sanPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
-        sanPanel.props.sanMovesBrowser.mount();
-        sanPanel.props.openingTable.props.movetext = data.movetext;
-        sanPanel.props.openingTable.mount();
+        analysisPanel.props.sanMovesBrowser.props.fen
+          = analysisPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
+        analysisPanel.props.sanMovesBrowser.mount();
+        analysisPanel.props.openingTable.props.movetext = data.movetext;
+        analysisPanel.props.openingTable.mount();
         this.gameOver(data);
       } else {
         this.chessboard.setPosition(data.fen, false);
@@ -59,18 +59,18 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.chessboard.state.inputWhiteEnabled = true;
         this.chessboard.state.inputBlackEnabled = false;
       }
-      sanPanel.props.sanMovesBrowser.current -= 1;
-      sanPanel.props.sanMovesBrowser.props.fen.splice(-1);
-      sanPanel.props.sanMovesBrowser.props.movetext
+      analysisPanel.props.sanMovesBrowser.current -= 1;
+      analysisPanel.props.sanMovesBrowser.props.fen.splice(-1);
+      analysisPanel.props.sanMovesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-      sanPanel.props.sanMovesBrowser.mount();
-      sanPanel.props.openingTable.props.movetext = data.movetext;
-      sanPanel.props.openingTable.mount();
+      analysisPanel.props.sanMovesBrowser.mount();
+      analysisPanel.props.openingTable.props.movetext = data.movetext;
+      analysisPanel.props.openingTable.mount();
     })
     .onChange('/tutor_fen', data => {
-      sanPanel.props.explainPositionModal.props.explanation = data;
-      sanPanel.props.explainPositionModal.mount();
-      sanPanel.props.explainPositionModal.props.modal.show();
+      analysisPanel.props.explainPositionModal.props.explanation = data;
+      analysisPanel.props.explainPositionModal.mount();
+      analysisPanel.props.explainPositionModal.props.modal.show();
     });
   }
 }
