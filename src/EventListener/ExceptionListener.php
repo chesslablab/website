@@ -25,7 +25,7 @@ class ExceptionListener
 
         if ($exception instanceof NotTranslatedException) {
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
-            $html = $this->twig->render('error/404/notTranslated.html.twig');
+            $html = $this->twig->render('error/404/notTranslated.html.twig', ['message' => $exception->getMessage()]);
             $response->setContent($html);
         } else {
             $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
