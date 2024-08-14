@@ -21,7 +21,7 @@ class BlogController extends AbstractController
         if (isset($routes[$request->attributes->get('_route')]['options']['blog'][$locale])) {
             $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
         } else {
-            throw new NotTranslatedException('The content of this page has not been translated.');
+            throw new NotTranslatedException('This publication has not been translated into the current selected language');
         }
 
         $posts = [];
