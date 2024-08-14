@@ -15,7 +15,7 @@ import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
-export class SanPanel extends AbstractComponent {
+export class AnalysisPanel extends AbstractComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -136,7 +136,7 @@ export class SanPanel extends AbstractComponent {
   }
 }
 
-export const sanPanel = new SanPanel(
+export const sanPanel = new AnalysisPanel(
   document.getElementById('sanPanel'),
   {
     chessboard: chessboard,
