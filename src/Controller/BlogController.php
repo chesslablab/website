@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Exception\NotTranslatedException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +21,7 @@ class BlogController extends AbstractController
         if (isset($routes[$request->attributes->get('_route')]['options']['blog'][$locale])) {
             $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
         } else {
-            throw $this->createNotFoundException('The blog is not translated into this language.');
+            throw new NotTranslatedException('This publication has not been translated into the current selected language');
         }
 
         $posts = [];
