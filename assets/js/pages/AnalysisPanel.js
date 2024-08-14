@@ -1,11 +1,8 @@
+import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import boardActionsDropdown from './boardActionsDropdown.js';
-import chessboard from './chessboard.js';
-import { explainPositionModal } from './ExplainPositionModal.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
-import { gameStudyDropdown } from './GameStudyDropdown.js';
-import { heuristicsModal } from './HeuristicsModal.js';
 import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
@@ -14,6 +11,26 @@ import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
+
+export class GameStudyDropdown extends AbstractComponent {
+  mount() {
+    // ...
+  }
+}
+
+export class ExplainPositionModal extends AbstractComponent {
+  mount() {
+    const p = this.el.querySelector('p');
+    p.replaceChildren();
+    p.appendChild(document.createTextNode(this.props.explanation));
+  }
+}
+
+export class HeuristicsModal extends AbstractComponent {
+  mount() {
+    // ...
+  }
+}
 
 export class AnalysisPanel extends AbstractComponent {
   mount() {
@@ -62,8 +79,7 @@ export class AnalysisPanel extends AbstractComponent {
       const settings = {
         variant: variant.CLASSICAL,
         movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
-        name: event.target.value,
-        ...(this.props.chessboard.props.variant === variant.CHESS_960) && {startPos: this.props.chessboard.props.variant}
+        name: event.target.value
       };
       analysisWebSocket
         .send(`/heuristic "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
@@ -139,12 +155,29 @@ export class AnalysisPanel extends AbstractComponent {
 export const analysisPanel = new AnalysisPanel(
   document.getElementById('sanPanel'),
   {
-    chessboard: chessboard,
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,
-    gameStudyDropdown: gameStudyDropdown,
-    explainPositionModal: explainPositionModal,
-    heuristicsModal: heuristicsModal,
+    gameStudyDropdown: new GameStudyDropdown(
+      document.getElementById('gameStudyDropdown'),
+      {
+        ul: document.querySelector('#gameStudyDropdown ul')
+      }
+    ),
+    explainPositionModal: new ExplainPositionModal(
+      document.getElementById('explainPositionModal'),
+      {
+        modal: new Modal(document.getElementById('explainPositionModal')),
+        explanation: ''
+      }
+    ),
+    heuristicsModal: new HeuristicsModal(
+      document.getElementById('heuristicsModal'),
+      {
+        modal: new Modal(document.getElementById('heuristicsModal')),
+        form: document.querySelector('#heuristicsModal form'),
+        chart: document.getElementById('chart')
+      }
+    ),
     historyButtons: historyButtons,
     openingTable: openingTable,
     sanMovesBrowser: sanMovesBrowser
