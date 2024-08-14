@@ -1,0 +1,16 @@
+import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
+import * as mode from '../../../mode.js';
+
+sessionStorage.clear();
+
+await annotationsWebSocket.connect();
+
+const url = window.location.href.split('/');
+const variant = url[6];
+const settings = {
+  fen: decodeURIComponent(url[7]),
+  movetext: decodeURIComponent(url[8]),
+  startPos: url[9]
+};
+
+annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
