@@ -150,3 +150,11 @@ iframe_analysis:
     requirements:
       fen: .+
       _locale:  en|es|fr|ru|tr|de|hi
+
+iframe_annotations:
+    path:       /{_locale}/iframe/annotations/{variant}/{fen}/{movetext}/{startPos}
+    controller: App\Controller\Iframes\AnnotationsController::index
+    methods:    GET
+    requirements:
+      fen: .+
+      _locale:  en|es|fr|ru|tr|de|hi

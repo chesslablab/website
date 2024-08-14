@@ -5,6 +5,10 @@ return [
         'path' => './assets/js/iframes/analysis/index.js',
         'entrypoint' => true,
     ],
+    'js/iframes/annotations/index.js' => [
+        'path' => './assets/js/iframes/annotations/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/play/online/index.js' => [
         'path' => './assets/js/pages/play/online/index.js',
         'entrypoint' => true,

@@ -1,0 +1,15 @@
+{% extends 'layouts/iframe.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/panel/rav_panel.html.twig' %}
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/iframes/annotations/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}
