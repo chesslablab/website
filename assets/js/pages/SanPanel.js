@@ -36,8 +36,7 @@ export class SanPanel extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const settings = {
-        function: 'Standard',
-        exclude: "Attack, Checkmate in one"
+        exclude: "Attack"
       };
       analysisWebSocket
         .send(`/eval_names "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
