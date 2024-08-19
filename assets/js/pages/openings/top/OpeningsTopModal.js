@@ -59,14 +59,14 @@ export class OpeningsTopModal extends AbstractComponent {
       }
     }
 
-    if (this.props.stats?.winRateForWhite) {
+    if (this.props.result?.winRateForWhite) {
       new Chart(document.getElementById('winRateForWhiteChart'), {
         type: 'bar',
         data: {
-          labels: this.props.stats.winRateForWhite.map(value => value.ECO).slice(0, this._nBars),
+          labels: this.props.result.winRateForWhite.map(value => value.ECO).slice(0, this._nBars),
           datasets: [{
             label: '1-0',
-            data: this.props.stats.winRateForWhite.map(value => value.total).slice(0, this._nBars),
+            data: this.props.result.winRateForWhite.map(value => value.total).slice(0, this._nBars),
             backgroundColor: '#c0c0c0'
           }]
         },
@@ -74,14 +74,14 @@ export class OpeningsTopModal extends AbstractComponent {
       });
     }
 
-    if (this.props.stats?.drawRate) {
+    if (this.props.result?.drawRate) {
       new Chart(document.getElementById('drawRateChart'), {
         type: 'bar',
         data: {
-          labels: this.props.stats.drawRate.map(value => value.ECO).slice(0, this._nBars),
+          labels: this.props.result.drawRate.map(value => value.ECO).slice(0, this._nBars),
           datasets: [{
             label: '1/2-1/2',
-            data: this.props.stats.drawRate.map(value => value.total).slice(0, this._nBars),
+            data: this.props.result.drawRate.map(value => value.total).slice(0, this._nBars),
             backgroundColor: '#888888'
           }]
         },
@@ -89,14 +89,14 @@ export class OpeningsTopModal extends AbstractComponent {
       });
     }
 
-    if (this.props.stats?.winRateForBlack) {
+    if (this.props.result?.winRateForBlack) {
       new Chart(document.getElementById('winRateForBlackChart'), {
         type: 'bar',
         data: {
-          labels: this.props.stats.winRateForBlack.map(value => value.ECO).slice(0, this._nBars),
+          labels: this.props.result.winRateForBlack.map(value => value.ECO).slice(0, this._nBars),
           datasets: [{
             label: '0-1',
-            data: this.props.stats.winRateForBlack.map(value => value.total).slice(0, this._nBars),
+            data: this.props.result.winRateForBlack.map(value => value.total).slice(0, this._nBars),
             backgroundColor: '#404040'
           }]
         },
@@ -112,6 +112,6 @@ export const openingsTopModal = new OpeningsTopModal(
     modal: new Modal(document.getElementById('openingsTopModal')),
     form: document.querySelector('#openingsTopModal form'),
     movesMetadataTable: movesMetadataTable,
-    stats: {}
+    result: {}
   }
 );
