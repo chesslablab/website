@@ -5,6 +5,7 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-3">
+    {% include 'pages/openings/search/search_modal.html.twig' %}
     {% include 'partial/panel/san_panel.html.twig' %}
   </div>
   <div class="col-md-3">
@@ -15,5 +16,4 @@
       {{ importmap('js/pages/openings/search/index.js') }}
     {% endblock %}
   {% endblock %}
-  {% include 'pages/openings/search/search_modal.html.twig' %}
 {% endblock %}
