@@ -6,19 +6,13 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="alert alert-light d-flex align-items-center" role="alert">
-          {% include 'svg/info-circle-fill.svg' %}
-          <div>
-            {{ 'Click on an ECO code, and find a random game matching the search criteria'|trans }}.
-          </div>
-        </div>
         <form>
           <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
               <input list="whiteAutocompleteList" name="White" class="form-control" placeholder="{{ 'White'|trans }}">
               <datalist id="whiteAutocompleteList"></datalist>
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
               <input list="blackAutocompleteList" name="Black" class="form-control" placeholder="{{ 'Black'|trans }}">
               <datalist id="blackAutocompleteList"></datalist>
             </div>
@@ -30,13 +24,13 @@
                 <option value="0-1">0-1</option>
               </select>
             </div>
-          </div>
-          <div>
-            <button type="submit" class="autocomplete btn btn-primary w-100">{{ 'Search'|trans }}</button>
-            <button type="button" class="autocomplete btn btn-primary w-100 d-none" disabled>
-              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-              <span class="sr-only">{{ 'Loading'|trans }}...</span>
-            </button>
+            <div class="col-md-2 mb-3">
+              <button type="submit" class="autocomplete btn btn-primary w-100">{{ 'Search'|trans }}</button>
+              <button type="button" class="autocomplete btn btn-primary w-100 d-none" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span class="sr-only">{{ 'Loading'|trans }}...</span>
+              </button>
+            </div>
           </div>
           <div id="playerStatsChart" class="row"></div>
         </form>
