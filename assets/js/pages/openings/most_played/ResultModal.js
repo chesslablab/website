@@ -8,7 +8,7 @@ import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
-export class OpeningsTopModal extends AbstractComponent {
+export class ResultModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -106,11 +106,11 @@ export class OpeningsTopModal extends AbstractComponent {
   }
 }
 
-export const openingsTopModal = new OpeningsTopModal(
-  document.getElementById('openingsTopModal'),
+export const resultModal = new ResultModal(
+  document.getElementById('resultModal'),
   {
-    modal: new Modal(document.getElementById('openingsTopModal')),
-    form: document.querySelector('#openingsTopModal form'),
+    modal: new Modal(document.getElementById('resultModal')),
+    form: document.querySelector('#resultModal form'),
     movesMetadataTable: movesMetadataTable,
     result: {}
   }
