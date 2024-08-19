@@ -49,8 +49,8 @@ export class EventStatsModal extends AbstractComponent {
         Result: formData.get('Result')
       };
       dataWebSocket
-        .send(`/stats_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .onChange('/stats_event', data => {
+        .send(`/result_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .onChange('/result_event', data => {
           const canvas = document.createElement('canvas');
           eventStatsChart.replaceChildren();
           eventStatsChart.appendChild(canvas);

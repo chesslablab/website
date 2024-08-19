@@ -52,8 +52,8 @@ export class PlayerStatsModal extends AbstractComponent {
         Result: formData.get('Result')
       };
       dataWebSocket
-        .send(`/stats_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .onChange('/stats_player', data => {
+        .send(`/result_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .onChange('/result_player', data => {
           const canvas = document.createElement('canvas');
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);
