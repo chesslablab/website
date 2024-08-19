@@ -10,7 +10,7 @@ await dataWebSocket.connect();
 dataWebSocket
   .send(`/result`)
   .onChange('/result', data => {
-    openingsTopModal.props.result = data['/result'];
+    openingsTopModal.props.result = data;
     openingsTopModal.mount();
     openingsTopModal.props.modal.show();
   });
