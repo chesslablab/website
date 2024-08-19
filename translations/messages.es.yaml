@@ -65,6 +65,7 @@ Enter a movetext: Ingresar un texto con movimientos
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: Se guardarán las variaciones y los comentarios. Para eliminarlos, carga un texto SAN con movimientos
 
 # Openings
+Search Openings: Buscar aperturas de ajedrez
 Select an ECO code: Selecciona un código ECO
 Flank Openings: Aperturas de flanco
 Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
@@ -73,6 +74,9 @@ Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
 Indian Defenses: Defensas indias
 Movetext: Texto con movimientos
 Search: Buscar
+Most Played Openings: Aperturas de ajedrez más jugadas
+Openings By Player: Aperturas de ajedrez por jugador(a)
+Openings By Event: Aperturas de ajedrez por evento
 
 # Training
 Select a checkmate: Selecciona un jaque y mate

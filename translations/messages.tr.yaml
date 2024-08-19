@@ -65,6 +65,7 @@ Enter a movetext: Bir metintaşı girin
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: Varyasyonlar ve yorumlar saklanacaktır. Bunları kaldırmak için yerine bir SAN Metintaşı yükleyin
 
 # Openings
+Search Openings: Satranç Açılışlarını Ara
 Select an ECO code: Bir ECO kodu seçin
 Flank Openings: Flank Açılışları
 Semi-Open Games other than the French Defense: Yarı-Açık Oyunlar (Fransız Defansı harici)
@@ -73,6 +74,9 @@ Closed Games and Semi-Closed Games: Kapalı ve Yarı-Kapalı Oyunlar
 Indian Defenses: Hint Defansları
 Movetext: Metintaşı
 Search: Ara
+Most Played Openings: En Çok Oynanan Satranç Açılışları
+Openings By Player: Oyuncuya Göre Satranç Açılışları
+Openings By Event: Etkinliğe Göre Satranç Açılışları
 
 # Training
 Select a checkmate: Bir Şah-Mat seçin
