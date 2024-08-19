@@ -10,7 +10,7 @@ import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
-export class PlayerStatsModal extends AbstractComponent {
+export class ResultPlayerModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -104,11 +104,11 @@ export class PlayerStatsModal extends AbstractComponent {
   }
 }
 
-export const playerStatsModal = new PlayerStatsModal(
-  document.getElementById('playerStatsModal'),
+export const resultPlayerModal = new ResultPlayerModal(
+  document.getElementById('resultPlayerModal'),
   {
-    modal: new Modal(document.getElementById('playerStatsModal')),
-    form: document.querySelector('#playerStatsModal form'),
+    modal: new Modal(document.getElementById('resultPlayerModal')),
+    form: document.querySelector('#resultPlayerModal form'),
     movesMetadataTable: movesMetadataTable
   }
 );

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Database;
+namespace App\Controller\Pages\Openings;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class PlayerStatsController extends AbstractController
+class ByPlayerController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/player_stats/index.html.twig');
+        return $this->render('pages/openings/by_player/index.html.twig');
     }
 }

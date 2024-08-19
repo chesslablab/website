@@ -60,6 +60,16 @@
                 {{ 'Top List'|trans }}
               </a>
             </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_openings_by_player') }}">
+                {{ 'By Player'|trans }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_openings_by_event') }}">
+                {{ 'By Event'|trans }}
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -87,16 +97,6 @@
             <li>
               <a class="dropdown-item" href="{{ path('pages_database_search_games') }}">
                 {{ 'Search Games'|trans }}
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_database_player_stats') }}">
-                {{ 'Player Stats'|trans }}
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_database_event_stats') }}">
-                {{ 'Event Stats'|trans }}
               </a>
             </li>
           </ul>

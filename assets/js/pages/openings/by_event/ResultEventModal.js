@@ -9,7 +9,7 @@ import * as mode from '../../../../mode.js';
 
 Chart.register(...registerables);
 
-export class EventStatsModal extends AbstractComponent {
+export class ResultEventModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -101,11 +101,11 @@ export class EventStatsModal extends AbstractComponent {
   }
 }
 
-export const eventStatsModal = new EventStatsModal(
-  document.getElementById('eventStatsModal'),
+export const resultEventModal = new ResultEventModal(
+  document.getElementById('resultEventModal'),
   {
-    modal: new Modal(document.getElementById('eventStatsModal')),
-    form: document.querySelector('#eventStatsModal form'),
+    modal: new Modal(document.getElementById('resultEventModal')),
+    form: document.querySelector('#resultEventModal form'),
     movesMetadataTable: movesMetadataTable
   }
 );

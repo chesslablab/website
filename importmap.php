@@ -37,16 +37,16 @@ return [
         'path' => './assets/js/pages/openings/top/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/openings/by_player/index.js' => [
+        'path' => './assets/js/pages/openings/by_player/index.js',
+        'entrypoint' => true,
+    ],
+    'js/pages/openings/by_event/index.js' => [
+        'path' => './assets/js/pages/openings/by_event/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/database/search_games/index.js' => [
         'path' => './assets/js/pages/database/search_games/index.js',
-        'entrypoint' => true,
-    ],
-    'js/pages/database/player_stats/index.js' => [
-        'path' => './assets/js/pages/database/player_stats/index.js',
-        'entrypoint' => true,
-    ],
-    'js/pages/database/event_stats/index.js' => [
-        'path' => './assets/js/pages/database/event_stats/index.js',
         'entrypoint' => true,
     ],
     'js/pages/training/checkmate/index.js' => [

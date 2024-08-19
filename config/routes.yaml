@@ -23,20 +23,6 @@ robots:
 
 # Pages routes
 
-pages_database_event_stats:
-    path:       /{_locale}/database/event-stats
-    controller: App\Controller\Pages\Database\EventStatsController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_database_player_stats:
-    path:       /{_locale}/database/player-stats
-    controller: App\Controller\Pages\Database\PlayerStatsController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
 pages_database_search_games:
     path:       /{_locale}/database/search-games
     controller: App\Controller\Pages\Database\SearchGamesController::index
@@ -82,6 +68,20 @@ pages_openings_search:
 pages_openings_top:
     path:       /{_locale}/openings/top
     controller: App\Controller\Pages\Openings\TopController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+pages_openings_by_player:
+    path:       /{_locale}/openings/by-player
+    controller: App\Controller\Pages\Openings\ByPlayerController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+pages_openings_by_event:
+    path:       /{_locale}/openings/by-event
+    controller: App\Controller\Pages\Openings\ByEventController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
