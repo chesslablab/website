@@ -1,5 +1,7 @@
-import { finishedButtons } from './FinishedButtons.js';
-import { timerTable, timerTableInterval } from './timerTable.js';
+import Modal from 'bootstrap/js/dist/modal.js';
+import { FEN } from '@chesslablab/chessboard';
+import { TimerTable } from '@chesslablab/js-utils';
+import { playOnlineButtons } from './PlayOnlineButtons.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
@@ -8,6 +10,70 @@ import AbstractComponent from '../../../AbstractComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
+
+export const timerTable = new TimerTable(
+  document.querySelector('#timerTable tbody'),
+  {
+    turn: 'w',
+    w: 0,
+    b: 0
+  }
+);
+
+export const timerTableInterval = () => {
+  return setInterval(() => {
+    timerTable.count().mount();
+  }, 1000);
+}
+
+export class TakebackModal extends AbstractComponent {
+  mount() {
+    this.props.form.children.item(0).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/takeback accept');
+      playWebSocket.send('/undo');
+    });
+
+    this.props.form.children.item(1).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/takeback decline');
+    });
+  }
+}
+
+export class DrawModal extends AbstractComponent {
+  mount() {
+    this.props.form.children.item(0).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/draw accept');
+    });
+
+    this.props.form.children.item(1).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/draw decline');
+    });
+  }
+}
+
+export class FinishedButtons extends AbstractComponent {
+  mount() {
+    // ...
+  }
+}
+
+export class RematchModal extends AbstractComponent {
+  mount() {
+    this.props.form.addEventListener('submit', event => {
+      event.preventDefault();
+      playWebSocket.send('/rematch accept');
+    });
+
+    this.props.form.children.item(1).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/rematch decline');
+    });
+  }
+}
 
 export class PlayPanel extends AbstractComponent {
   mount() {
@@ -19,7 +85,7 @@ export class PlayPanel extends AbstractComponent {
       };
       binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
     });
-    
+
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
@@ -54,9 +120,7 @@ export class PlayPanel extends AbstractComponent {
 
     this.props.finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      playWebSocket.chessboard.setPosition(FEN.start, true);
-      playOnlineButtons.el.classList.remove('d-none');
-      playWebSocket.el.classList.add('d-none');
+      location.reload();
     });
   }
 }
@@ -66,9 +130,30 @@ export const playPanel = new PlayPanel(
   {
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,
+    takebackModal: new TakebackModal(
+      document.getElementById('takebackModal'),
+      {
+        modal: new Modal(document.getElementById('takebackModal')),
+        form: document.querySelector('#takebackModal form')
+      }
+    ),
+    drawModal: new DrawModal(
+      document.getElementById('drawModal'),
+      {
+        modal: new Modal(document.getElementById('drawModal')),
+        form: document.querySelector('#drawModal form')
+      }
+    ),
+    rematchModal: new RematchModal(
+      document.getElementById('rematchModal'),
+      {
+        modal: new Modal(document.getElementById('rematchModal')),
+        form: document.querySelector('#rematchModal form')
+      }
+    ),
     historyButtons: historyButtons,
     sanMovesBrowser: sanMovesBrowser,
-    finishedButtons: finishedButtons,
+    finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval
   }
