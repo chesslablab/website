@@ -1,4 +1,3 @@
-import { finishedButtons } from './FinishedButtons.js';
 import { timerTable, timerTableInterval } from './timerTable.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
@@ -8,6 +7,12 @@ import AbstractComponent from '../../../AbstractComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
+
+export class FinishedButtons extends AbstractComponent {
+  mount() {
+    // ...
+  }
+}
 
 export class PlayPanel extends AbstractComponent {
   mount() {
@@ -19,7 +24,7 @@ export class PlayPanel extends AbstractComponent {
       };
       binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
     });
-    
+
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
@@ -68,7 +73,7 @@ export const playPanel = new PlayPanel(
     gameActionsDropdown: gameActionsDropdown,
     historyButtons: historyButtons,
     sanMovesBrowser: sanMovesBrowser,
-    finishedButtons: finishedButtons,
+    finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval
   }
