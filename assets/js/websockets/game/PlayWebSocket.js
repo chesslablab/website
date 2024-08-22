@@ -4,7 +4,6 @@ import { jwtDecode } from 'jwt-decode';
 import GameWebSocket from './GameWebSocket.js';
 import { copyInviteCodeModal } from '../../pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
-import { drawModal } from '../../pages/play/online/DrawModal.js';
 import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeModal.js';
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
@@ -130,10 +129,10 @@ export class PlayWebSocket extends GameWebSocket {
     .onChange('/draw', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('draw') !== action.PROPOSE) {
-          drawModal.props.modal.show();
+          playPanel.props.drawModal.props.modal.show();
         }
       } else if (data.action === action.DECLINE) {
-        drawModal.props.modal.hide();
+        playPanel.props.drawModal.props.modal.hide();
         this.infoModal.props.msg = "Draw offer declined";
         this.infoModal.mount();
         this.infoModal.props.modal.show();
