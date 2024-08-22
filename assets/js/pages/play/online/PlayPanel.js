@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { FEN } from '@chesslablab/chessboard';
+import { TimerTable } from '@chesslablab/js-utils';
 import { playOnlineButtons } from './PlayOnlineButtons.js';
-import { timerTable, timerTableInterval } from './timerTable.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
@@ -10,6 +10,21 @@ import AbstractComponent from '../../../AbstractComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
+
+export const timerTable = new TimerTable(
+  document.querySelector('#timerTable tbody'),
+  {
+    turn: 'w',
+    w: 0,
+    b: 0
+  }
+);
+
+export const timerTableInterval = () => {
+  return setInterval(() => {
+    timerTable.count().mount();
+  }, 1000);
+}
 
 export class TakebackModal extends AbstractComponent {
   mount() {
