@@ -9,7 +9,6 @@ import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeMod
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
 import { rematchModal } from '../../pages/play/online/RematchModal.js';
-import { takebackModal } from '../../pages/play/online/TakebackModal.js';
 import * as action from '../../../action.js';
 
 export class PlayWebSocket extends GameWebSocket {
@@ -114,10 +113,10 @@ export class PlayWebSocket extends GameWebSocket {
     .onChange('/takeback', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('takeback') !== action.PROPOSE) {
-          takebackModal.props.modal.show();
+          playPanel.props.takebackModal.props.modal.show();
         }
       } else if (data.action === action.DECLINE) {
-        takebackModal.props.modal.hide();
+        playPanel.props.takebackModal.props.modal.hide();
         this.infoModal.props.msg = "Takeback declined";
         this.infoModal.mount();
         this.infoModal.props.modal.show();

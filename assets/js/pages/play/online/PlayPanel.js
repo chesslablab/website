@@ -1,3 +1,4 @@
+import Modal from 'bootstrap/js/dist/modal.js';
 import { timerTable, timerTableInterval } from './timerTable.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
@@ -7,6 +8,21 @@ import AbstractComponent from '../../../AbstractComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
+
+export class TakebackModal extends AbstractComponent {
+  mount() {
+    this.props.form.children.item(0).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/takeback accept');
+      playWebSocket.send('/undo');
+    });
+
+    this.props.form.children.item(1).addEventListener('click', async (event) => {
+      event.preventDefault();
+      playWebSocket.send('/takeback decline');
+    });
+  }
+}
 
 export class FinishedButtons extends AbstractComponent {
   mount() {
@@ -71,6 +87,13 @@ export const playPanel = new PlayPanel(
   {
     boardActionsDropdown: boardActionsDropdown,
     gameActionsDropdown: gameActionsDropdown,
+    takebackModal: new TakebackModal(
+      document.getElementById('takebackModal'),
+      {
+        modal: new Modal(document.getElementById('takebackModal')),
+        form: document.querySelector('#takebackModal form')
+      }
+    ),
     historyButtons: historyButtons,
     sanMovesBrowser: sanMovesBrowser,
     finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
