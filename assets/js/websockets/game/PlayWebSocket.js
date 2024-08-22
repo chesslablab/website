@@ -7,7 +7,6 @@ import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeModal.js';
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
-import { rematchModal } from '../../pages/play/online/RematchModal.js';
 import * as action from '../../../action.js';
 
 export class PlayWebSocket extends GameWebSocket {
@@ -155,10 +154,10 @@ export class PlayWebSocket extends GameWebSocket {
     .onChange('/rematch', data => {
       if (data.action === action.PROPOSE) {
         if (sessionStorage.getItem('rematch') !== action.PROPOSE) {
-          rematchModal.props.modal.show();
+          playPanel.props.rematchModal.props.modal.show();
         }
       } else if (data.action === action.DECLINE) {
-        rematchModal.props.modal.hide();
+        playPanel.props.rematchModal.props.modal.hide();
         this.infoModal.props.modal.hide();
       } else if (data.action === action.ACCEPT) {
         this.send(`/restart ${sessionStorage.getItem('hash')}`);
