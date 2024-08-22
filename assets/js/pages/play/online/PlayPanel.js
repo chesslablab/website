@@ -148,7 +148,7 @@ export const playPanel = new PlayPanel(
       }
     ),
     historyButtons: historyButtons,
-    sanMovesBrowser: sanMovesBrowser,
+    movesBrowser: sanMovesBrowser,
     finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval

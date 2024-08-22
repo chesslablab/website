@@ -42,12 +42,12 @@ export class PlayWebSocket extends GameWebSocket {
     .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
-        playPanel.props.sanMovesBrowser.current = playPanel.props.sanMovesBrowser.props.fen.length;
-        playPanel.props.sanMovesBrowser.props.movetext
+        playPanel.props.movesBrowser.current = playPanel.props.movesBrowser.props.fen.length;
+        playPanel.props.movesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        playPanel.props.sanMovesBrowser.props.fen
-          = playPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
-        playPanel.props.sanMovesBrowser.mount();
+        playPanel.props.movesBrowser.props.fen
+          = playPanel.props.movesBrowser.props.fen.concat(data.fen);
+        playPanel.props.movesBrowser.mount();
         this.toggleInput(data.turn);
         playPanel.props.timerTable.props = {
           turn: data.turn,
@@ -65,11 +65,11 @@ export class PlayWebSocket extends GameWebSocket {
         this.chessboard.state.inputWhiteEnabled = true;
         this.chessboard.state.inputBlackEnabled = false;
       }
-      playPanel.props.sanMovesBrowser.current -= 1;
-      playPanel.props.sanMovesBrowser.props.fen.splice(-1);
-      playPanel.props.sanMovesBrowser.props.movetext
+      playPanel.props.movesBrowser.current -= 1;
+      playPanel.props.movesBrowser.props.fen.splice(-1);
+      playPanel.props.movesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-      playPanel.props.sanMovesBrowser.mount();
+      playPanel.props.movesBrowser.mount();
     })
     .onChange('/accept', data => {
       if (data.jwt) {
@@ -172,12 +172,12 @@ export class PlayWebSocket extends GameWebSocket {
         this.chessboard.setPosition(jwtDecoded.fen, true);
         this.toggleInput(turn);
         this.chessboard.view.visualizeInputState();
-        playPanel.props.sanMovesBrowser.current = 0;
-        playPanel.props.sanMovesBrowser.props.fen = [
+        playPanel.props.movesBrowser.current = 0;
+        playPanel.props.movesBrowser.props.fen = [
           jwtDecoded.fen
         ];
-        playPanel.props.sanMovesBrowser.props.movetext = '';
-        playPanel.props.sanMovesBrowser.mount();
+        playPanel.props.movesBrowser.props.movetext = '';
+        playPanel.props.movesBrowser.mount();
         playPanel.props.timerTable.props = {
           turn: turn,
           w: data.timer.w,
