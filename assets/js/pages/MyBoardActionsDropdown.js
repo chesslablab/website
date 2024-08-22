@@ -3,6 +3,8 @@ import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
 
 export default class MyBoardActionsDropdown extends BoardActionsDropdown {
   mount() {
+    super.mount();
+    
     this.el.children.item(3).addEventListener('click', (event) => {
       event.preventDefault();
       const settings = {
