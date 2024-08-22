@@ -28,6 +28,6 @@ export const stockfishPanel = new StockfishPanel(
     gameActionsDropdown: gameActionsDropdown,
     historyButtons: historyButtons,
     openingTable: openingTable,
-    sanMovesBrowser: sanMovesBrowser
+    movesBrowser: sanMovesBrowser
   }
 );

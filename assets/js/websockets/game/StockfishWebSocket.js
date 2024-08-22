@@ -28,12 +28,12 @@ export class StockfishWebSocket extends GameWebSocket {
     .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
-        stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-        stockfishPanel.props.sanMovesBrowser.props.movetext
+        stockfishPanel.props.movesBrowser.current = stockfishPanel.props.movesBrowser.props.fen.length;
+        stockfishPanel.props.movesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        stockfishPanel.props.sanMovesBrowser.props.fen
-          = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
-        stockfishPanel.props.sanMovesBrowser.mount();
+        stockfishPanel.props.movesBrowser.props.fen
+          = stockfishPanel.props.movesBrowser.props.fen.concat(data.fen);
+        stockfishPanel.props.movesBrowser.mount();
         stockfishPanel.props.openingTable.props.movetext = data.movetext;
         stockfishPanel.props.openingTable.mount();
         if (!this.gameOver(data, this.chessboard)) {
@@ -49,22 +49,22 @@ export class StockfishWebSocket extends GameWebSocket {
         this.chessboard.state.inputWhiteEnabled = true;
         this.chessboard.state.inputBlackEnabled = false;
       }
-      stockfishPanel.props.sanMovesBrowser.current -= 1;
-      stockfishPanel.props.sanMovesBrowser.props.fen.splice(-1);
-      stockfishPanel.props.sanMovesBrowser.props.movetext
+      stockfishPanel.props.movesBrowser.current -= 1;
+      stockfishPanel.props.movesBrowser.props.fen.splice(-1);
+      stockfishPanel.props.movesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-      stockfishPanel.props.sanMovesBrowser.mount();
+      stockfishPanel.props.movesBrowser.mount();
       stockfishPanel.props.openingTable.props.movetext = data.movetext;
       stockfishPanel.props.openingTable.mount();
     })
     .onChange('/stockfish', data => {
       this.chessboard.setPosition(data.fen, true);
-      stockfishPanel.props.sanMovesBrowser.current = stockfishPanel.props.sanMovesBrowser.props.fen.length;
-      stockfishPanel.props.sanMovesBrowser.props.movetext
+      stockfishPanel.props.movesBrowser.current = stockfishPanel.props.movesBrowser.props.fen.length;
+      stockfishPanel.props.movesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-      stockfishPanel.props.sanMovesBrowser.props.fen
-        = stockfishPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
-      stockfishPanel.props.sanMovesBrowser.mount();
+      stockfishPanel.props.movesBrowser.props.fen
+        = stockfishPanel.props.movesBrowser.props.fen.concat(data.fen);
+      stockfishPanel.props.movesBrowser.mount();
       stockfishPanel.props.openingTable.props.movetext = data.movetext;
       stockfishPanel.props.openingTable.mount();
       this.gameOver(data);
