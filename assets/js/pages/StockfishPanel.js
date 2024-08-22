@@ -1,6 +1,6 @@
-import boardActionsDropdown from './boardActionsDropdown.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import historyButtons from './historyButtons.js';
+import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
@@ -19,7 +19,12 @@ export class StockfishPanel extends AbstractComponent {
 export const stockfishPanel = new StockfishPanel(
   document.getElementById('sanPanel'),
   {
-    boardActionsDropdown: boardActionsDropdown,
+    boardActionsDropdown: new MyBoardActionsDropdown(
+      document.querySelector('#boardActionsDropdown ul'),
+      {
+        movesBrowser: sanMovesBrowser
+      }
+    ),
     gameActionsDropdown: gameActionsDropdown,
     historyButtons: historyButtons,
     openingTable: openingTable,

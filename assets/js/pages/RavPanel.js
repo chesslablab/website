@@ -1,5 +1,6 @@
-import { BoardActionsDropdown, HistoryButtons } from '@chesslablab/js-utils';
+import { HistoryButtons } from '@chesslablab/js-utils';
 import movesMetadataTable from './movesMetadataTable.js';
+import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import ravMovesBrowser from './ravMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
 import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
@@ -20,7 +21,7 @@ export class RavPanel extends AbstractComponent {
 export const ravPanel = new RavPanel(
   document.getElementById('ravPanel'),
   {
-    boardActionsDropdown: new BoardActionsDropdown(
+    boardActionsDropdown: new MyBoardActionsDropdown(
       document.querySelector('#boardActionsDropdown ul'),
       {
         movesBrowser: ravMovesBrowser
