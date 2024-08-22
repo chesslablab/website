@@ -7,8 +7,8 @@ import historyButtons from './historyButtons.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
-import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
+import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
 Chart.register(...registerables);

@@ -5,11 +5,21 @@ import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
 import AbstractComponent from '../../../AbstractComponent.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
 
 export class PlayPanel extends AbstractComponent {
   mount() {
+    this.props.boardActionsDropdown.el.children.item(3).addEventListener('click', (event) => {
+      event.preventDefault();
+      const settings = {
+        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
+        flip: this.props.sanMovesBrowser.props.chessboard.getOrientation()
+      };
+      binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+    });
+    
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);

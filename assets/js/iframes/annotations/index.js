@@ -1,8 +1,10 @@
+import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
 import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
 import * as mode from '../../../mode.js';
 
 sessionStorage.clear();
 
+await binaryWebSocket.connect();
 await annotationsWebSocket.connect();
 
 const url = window.location.href.split('/');

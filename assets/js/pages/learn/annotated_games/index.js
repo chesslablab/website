@@ -1,11 +1,13 @@
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
 import { ravPanel } from '../../RavPanel.js';
-import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
+import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../../variant.js';
 
 sessionStorage.clear();
 
+await binaryWebSocket.connect();
 await dataWebSocket.connect();
 await annotationsWebSocket.connect();
 
