@@ -1,13 +1,12 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import boardActionsDropdown from './boardActionsDropdown.js';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import historyButtons from './historyButtons.js';
+import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import AbstractComponent from '../AbstractComponent.js';
-import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
@@ -35,15 +34,6 @@ export class HeuristicsModal extends AbstractComponent {
 
 export class AnalysisPanel extends AbstractComponent {
   mount() {
-    this.props.boardActionsDropdown.el.children.item(3).addEventListener('click', (event) => {
-      event.preventDefault();
-      const settings = {
-        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
-        flip: this.props.sanMovesBrowser.props.chessboard.getOrientation()
-      };
-      binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-    });
-
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       analysisWebSocket.send('/undo');
@@ -53,7 +43,7 @@ export class AnalysisPanel extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const settings = {
-        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current]
+        fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
       };
       analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.progressModal.props.modal.hide();
@@ -85,10 +75,10 @@ export class AnalysisPanel extends AbstractComponent {
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
+      const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
       const settings = {
         variant: variant.CLASSICAL,
-        movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
+        movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
         name: event.target.value
       };
       analysisWebSocket
@@ -165,7 +155,12 @@ export class AnalysisPanel extends AbstractComponent {
 export const analysisPanel = new AnalysisPanel(
   document.getElementById('sanPanel'),
   {
-    boardActionsDropdown: boardActionsDropdown,
+    boardActionsDropdown: new MyBoardActionsDropdown(
+      document.querySelector('#boardActionsDropdown ul'),
+      {
+        movesBrowser: sanMovesBrowser
+      }
+    ),
     gameActionsDropdown: gameActionsDropdown,
     gameStudyDropdown: new GameStudyDropdown(
       document.getElementById('gameStudyDropdown'),
@@ -190,6 +185,6 @@ export const analysisPanel = new AnalysisPanel(
     ),
     historyButtons: historyButtons,
     openingTable: openingTable,
-    sanMovesBrowser: sanMovesBrowser
+    movesBrowser: sanMovesBrowser
   }
 );

@@ -7,15 +7,15 @@ export class AnnotationsWebSocket extends GameWebSocket {
     super();
 
     this.onChange('/play_rav', data => {
-      ravPanel.props.ravMovesBrowser.current = data.fen.length - 1;
-      ravPanel.props.ravMovesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
-      ravPanel.props.ravMovesBrowser.props = {
-        ...ravPanel.props.ravMovesBrowser.props,
+      ravPanel.props.movesBrowser.current = data.fen.length - 1;
+      ravPanel.props.movesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
+      ravPanel.props.movesBrowser.props = {
+        ...ravPanel.props.movesBrowser.props,
         filtered: Movetext.notation(localStorage.getItem('notation'), data.filtered),
         breakdown: data.breakdown.map(value => Movetext.notation(localStorage.getItem('notation'), value)),
         fen: data.fen
       };
-      ravPanel.props.ravMovesBrowser.mount();
+      ravPanel.props.movesBrowser.mount();
       ravPanel.progressModal.props.modal.hide();
     });
   }

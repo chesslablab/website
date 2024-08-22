@@ -2,9 +2,9 @@ import Modal from 'bootstrap/js/dist/modal.js';
 import { FEN } from '@chesslablab/chessboard';
 import { TimerTable } from '@chesslablab/js-utils';
 import { playOnlineButtons } from './PlayOnlineButtons.js';
-import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
+import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
@@ -77,15 +77,6 @@ export class RematchModal extends AbstractComponent {
 
 export class PlayPanel extends AbstractComponent {
   mount() {
-    this.props.boardActionsDropdown.el.children.item(3).addEventListener('click', (event) => {
-      event.preventDefault();
-      const settings = {
-        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
-        flip: this.props.sanMovesBrowser.props.chessboard.getOrientation()
-      };
-      binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-    });
-
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
@@ -128,7 +119,12 @@ export class PlayPanel extends AbstractComponent {
 export const playPanel = new PlayPanel(
   document.getElementById('playPanel'),
   {
-    boardActionsDropdown: boardActionsDropdown,
+    boardActionsDropdown: new MyBoardActionsDropdown(
+      document.querySelector('#boardActionsDropdown ul'),
+      {
+        movesBrowser: sanMovesBrowser
+      }
+    ),
     gameActionsDropdown: gameActionsDropdown,
     takebackModal: new TakebackModal(
       document.getElementById('takebackModal'),
@@ -152,7 +148,7 @@ export const playPanel = new PlayPanel(
       }
     ),
     historyButtons: historyButtons,
-    sanMovesBrowser: sanMovesBrowser,
+    movesBrowser: sanMovesBrowser,
     finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval

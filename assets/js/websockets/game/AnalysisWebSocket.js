@@ -15,11 +15,11 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.chessboard.setPosition(data.fen[data.fen.length - 1], true);
         this.chessboard.props.variant = data.variant;
         this.chessboard.props.startPos = data.startPos;
-        analysisPanel.props.sanMovesBrowser.current = data.fen.length - 1;
-        analysisPanel.props.sanMovesBrowser.props.movetext
+        analysisPanel.props.movesBrowser.current = data.fen.length - 1;
+        analysisPanel.props.movesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        analysisPanel.props.sanMovesBrowser.props.fen = data.fen;
-        analysisPanel.props.sanMovesBrowser.mount();
+        analysisPanel.props.movesBrowser.props.fen = data.fen;
+        analysisPanel.props.movesBrowser.mount();
         analysisPanel.props.openingTable.props.movetext = data.movetext;
         analysisPanel.props.openingTable.mount();
         if (sanForm.el) {
@@ -40,12 +40,12 @@ export class AnalysisWebSocket extends GameWebSocket {
     .onChange('/play_lan', data => {
       if (data.isValid) {
         this.chessboard.setPosition(data.fen, true);
-        analysisPanel.props.sanMovesBrowser.current = analysisPanel.props.sanMovesBrowser.props.fen.length;
-        analysisPanel.props.sanMovesBrowser.props.movetext
+        analysisPanel.props.movesBrowser.current = analysisPanel.props.movesBrowser.props.fen.length;
+        analysisPanel.props.movesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-        analysisPanel.props.sanMovesBrowser.props.fen
-          = analysisPanel.props.sanMovesBrowser.props.fen.concat(data.fen);
-        analysisPanel.props.sanMovesBrowser.mount();
+        analysisPanel.props.movesBrowser.props.fen
+          = analysisPanel.props.movesBrowser.props.fen.concat(data.fen);
+        analysisPanel.props.movesBrowser.mount();
         analysisPanel.props.openingTable.props.movetext = data.movetext;
         analysisPanel.props.openingTable.mount();
         this.gameOver(data);
@@ -59,11 +59,11 @@ export class AnalysisWebSocket extends GameWebSocket {
         this.chessboard.state.inputWhiteEnabled = true;
         this.chessboard.state.inputBlackEnabled = false;
       }
-      analysisPanel.props.sanMovesBrowser.current -= 1;
-      analysisPanel.props.sanMovesBrowser.props.fen.splice(-1);
-      analysisPanel.props.sanMovesBrowser.props.movetext
+      analysisPanel.props.movesBrowser.current -= 1;
+      analysisPanel.props.movesBrowser.props.fen.splice(-1);
+      analysisPanel.props.movesBrowser.props.movetext
         = Movetext.notation(localStorage.getItem('notation'), data.movetext);
-      analysisPanel.props.sanMovesBrowser.mount();
+      analysisPanel.props.movesBrowser.mount();
       analysisPanel.props.openingTable.props.movetext = data.movetext;
       analysisPanel.props.openingTable.mount();
     })
