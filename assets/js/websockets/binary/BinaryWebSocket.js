@@ -2,8 +2,10 @@ import * as connect from '../../connect.js';
 import AbstractWebSocket from '../../AbstractWebSocket.js';
 
 export class BinaryWebSocket extends AbstractWebSocket {
+  static PORT = 7443;
+
   async connect() {
-    await super.connect(connect.wsBinary());
+    await super.connect(`${connect.ws()}:${BinaryWebSocket.PORT}`);
 
     this.binaryType = "arraybuffer";
 

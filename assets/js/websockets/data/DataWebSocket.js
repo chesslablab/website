@@ -2,8 +2,10 @@ import * as connect from '../../connect.js';
 import AbstractWebSocket from '../../AbstractWebSocket.js';
 
 export class DataWebSocket extends AbstractWebSocket {
+  static PORT = 9443;
+
   async connect() {
-    await super.connect(connect.wsData());
+    await super.connect(`${connect.ws()}:${DataWebSocket.PORT}`);
 
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
