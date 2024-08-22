@@ -1,5 +1,4 @@
 import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
-import { ravPanel } from '../../RavPanel.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
@@ -55,7 +54,7 @@ dataWebSocket
 
       tr.addEventListener('click', async (event) => {
         databaseAnnotatedGames.props.modal.hide();
-        ravPanel.progressModal.props.modal.show();
+        databaseAnnotatedGames.progressModal.props.modal.show();
         const settings = {
           variant: variant.CLASSICAL,
           movetext: game.movetext
