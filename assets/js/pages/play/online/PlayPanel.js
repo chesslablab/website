@@ -1,5 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { FEN } from '@chesslablab/chessboard';
+import { playOnlineButtons } from './PlayOnlineButtons.js';
 import { timerTable, timerTableInterval } from './timerTable.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
@@ -104,9 +105,7 @@ export class PlayPanel extends AbstractComponent {
 
     this.props.finishedButtons.el.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      playWebSocket.chessboard.setPosition(FEN.start, true);
-      playOnlineButtons.el.classList.remove('d-none');
-      playWebSocket.el.classList.add('d-none');
+      location.reload();
     });
   }
 }
