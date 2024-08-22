@@ -77,15 +77,6 @@ export class RematchModal extends AbstractComponent {
 
 export class PlayPanel extends AbstractComponent {
   mount() {
-    this.props.boardActionsDropdown.el.children.item(3).addEventListener('click', (event) => {
-      event.preventDefault();
-      const settings = {
-        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current],
-        flip: this.props.sanMovesBrowser.props.chessboard.getOrientation()
-      };
-      binaryWebSocket.send(`/image "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-    });
-
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
       sessionStorage.setItem('takeback', action.PROPOSE);
