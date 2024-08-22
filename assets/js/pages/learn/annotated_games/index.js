@@ -1,4 +1,4 @@
-import { databaseAnnotatedGames } from './DatabaseAnnotatedGames.js';
+import { annotatedGames } from './AnnotatedGames.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
@@ -10,12 +10,12 @@ await binaryWebSocket.connect();
 await dataWebSocket.connect();
 await annotationsWebSocket.connect();
 
-databaseAnnotatedGames.progressModal.props.modal.show();
+annotatedGames.progressModal.props.modal.show();
 
 dataWebSocket
   .send(`/annotations_game`)
   .onChange('/annotations_game', data => {
-    const tbody = databaseAnnotatedGames.props.form.getElementsByTagName('tbody')[0];
+    const tbody = annotatedGames.props.form.getElementsByTagName('tbody')[0];
     tbody.replaceChildren();
     data.forEach(game => {
       const tr = document.createElement('tr');
@@ -53,8 +53,8 @@ dataWebSocket
       tr.appendChild(resultTd);
 
       tr.addEventListener('click', async (event) => {
-        databaseAnnotatedGames.props.modal.hide();
-        databaseAnnotatedGames.progressModal.props.modal.show();
+        annotatedGames.props.modal.hide();
+        annotatedGames.progressModal.props.modal.show();
         const settings = {
           variant: variant.CLASSICAL,
           movetext: game.movetext
@@ -64,7 +64,7 @@ dataWebSocket
 
       tbody.appendChild(tr);
 
-      databaseAnnotatedGames.progressModal.props.modal.hide();
-      databaseAnnotatedGames.props.modal.show();
+      annotatedGames.progressModal.props.modal.hide();
+      annotatedGames.props.modal.show();
     });
   });

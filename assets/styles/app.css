@@ -131,7 +131,7 @@ input[name="Black"] + ul > li:hover {
 
 #clubsTable,
 #searchGamesModal table,
-#databaseAnnotatedGamesModal table {
+#annotatedGamesModal table {
   font-size: 0.9rem;
 }
 
