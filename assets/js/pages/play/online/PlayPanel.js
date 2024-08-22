@@ -1,4 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
+import { FEN } from '@chesslablab/chessboard';
 import { timerTable, timerTableInterval } from './timerTable.js';
 import boardActionsDropdown from '../../boardActionsDropdown.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
