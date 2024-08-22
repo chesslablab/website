@@ -43,7 +43,7 @@ export class AnalysisPanel extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const settings = {
-        fen: this.props.sanMovesBrowser.props.fen[this.props.sanMovesBrowser.current]
+        fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
       };
       analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       this.progressModal.props.modal.hide();
@@ -75,10 +75,10 @@ export class AnalysisPanel extends AbstractComponent {
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const back = (this.props.sanMovesBrowser.props.fen.length - this.props.sanMovesBrowser.current - 1) * -1;
+      const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
       const settings = {
         variant: variant.CLASSICAL,
-        movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.sanMovesBrowser.props.movetext, back)),
+        movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
         name: event.target.value
       };
       analysisWebSocket
@@ -185,6 +185,6 @@ export const analysisPanel = new AnalysisPanel(
     ),
     historyButtons: historyButtons,
     openingTable: openingTable,
-    sanMovesBrowser: sanMovesBrowser
+    movesBrowser: sanMovesBrowser
   }
 );
