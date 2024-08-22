@@ -1,5 +1,11 @@
 import * as env from '../env.js';
 
+const wsBinary = () => {
+  // TODO
+
+  return 'wss://async.chesslablab.org:7443';
+}
+
 const wsData = () => {
   // TODO
 
@@ -17,6 +23,7 @@ const wsGame = () => {
 }
 
 export {
-  wsGame,
-  wsData
+  wsBinary,
+  wsData,
+  wsGame
 };
