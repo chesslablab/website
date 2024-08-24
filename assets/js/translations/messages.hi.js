@@ -1,6 +1,6 @@
 const messagesHi = {
   // AbstractWebSocket
-  "Whoops! We are experiencing technical issues": "Whoops! We are experiencing technical issues",
+  "Whoops! We are experiencing some technical issues": "ओह! हम कुछ तकनीकी समस्याओं का सामना कर रहे हैं",
   // GameWebSocket
   "It's a win": "यह एक जीत है",
   "It's a draw": "यह ड्रॉ है",
