@@ -9,7 +9,12 @@ sessionStorage.clear();
 chessboard.state.inputWhiteEnabled = false;
 chessboard.state.inputBlackEnabled = false;
 
-await binaryWebSocket.connect();
-await playWebSocket.connect();
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await playWebSocket.connect();
+} catch {}
 
 playWebSocket.send('/online_games');

@@ -1,5 +1,7 @@
 const messagesTr = {
-  // Abstract
+  // AbstractWebSocket
+  "Whoops! We are experiencing technical issues": "Whoops! We are experiencing technical issues",
+  // GameWebSocket
   "It's a win": "Bu bir galibiyet",
   "It's a draw": "Berabere",
   "White wins": "Beyaz kazanır",
