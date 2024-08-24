@@ -1,3 +1,4 @@
+import { trans } from './i18n.js';
 import { infoModal } from './InfoModal.js';
 import { progressModal } from './ProgressModal.js';
 
@@ -26,12 +27,9 @@ export default class AbstractWebSocket {
       };
 
       this.socket.onclose = (err) => {
-        console.log('The connection has been lost, please reload the page.');
-        reject(err);
-      };
-
-      this.socket.onerror = (err) => {
-        console.log('The connection has been lost, please reload the page.');
+        this.infoModal.props.msg = "Whoops! We are experiencing some technical issues";
+        this.infoModal.mount();
+        this.infoModal.props.modal.show();
         reject(err);
       };
     });

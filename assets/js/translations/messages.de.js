@@ -1,5 +1,7 @@
 const messagesDe = {
-  // Abstract
+  // AbstractWebSocket
+  "Whoops! We are experiencing some technical issues": "Hoppla! Wir haben technische Probleme",
+  // GameWebSocket
   "It's a win": "Es ist ein Sieg",
   "It's a draw": "Es ist eine Zeichnung",
   "White wins": "Weiß gewinnt",
