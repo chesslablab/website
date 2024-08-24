@@ -3,6 +3,8 @@ import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSoc
 
 sessionStorage.clear();
 
-await annotationsWebSocket.connect();
+try {
+  await annotationsWebSocket.connect();
+} catch {}
 
 ravMovetextModal.props.modal.show();

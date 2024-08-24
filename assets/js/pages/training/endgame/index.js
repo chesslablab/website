@@ -4,7 +4,12 @@ import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.
 
 sessionStorage.clear();
 
-await binaryWebSocket.connect();
-await stockfishWebSocket.connect();
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await stockfishWebSocket.connect();
+} catch {}
 
 endgameModal.props.modal.show();

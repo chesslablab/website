@@ -4,8 +4,13 @@ import * as mode from '../../../mode.js';
 
 sessionStorage.clear();
 
-await binaryWebSocket.connect();
-await annotationsWebSocket.connect();
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await annotationsWebSocket.connect();
+} catch {}
 
 const url = window.location.href.split('/');
 const variant = url[6];

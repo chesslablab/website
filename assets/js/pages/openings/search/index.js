@@ -4,7 +4,12 @@ import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js
 
 sessionStorage.clear();
 
-await binaryWebSocket.connect();
-await analysisWebSocket.connect();
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await analysisWebSocket.connect();
+} catch {}
 
 openingsSearchModal.props.modal.show();
