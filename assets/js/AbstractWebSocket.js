@@ -27,7 +27,7 @@ export default class AbstractWebSocket {
       };
 
       this.socket.onclose = (err) => {
-        this.infoModal.props.msg = trans("Whoops! We are experiencing technical issues");
+        this.infoModal.props.msg = "Whoops! We are experiencing some technical issues";
         this.infoModal.mount();
         this.infoModal.props.modal.show();
         reject(err);
