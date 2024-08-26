@@ -69,7 +69,7 @@ return [
         'version' => '0.0.4',
     ],
     '@chesslablab/js-utils' => [
-        'version' => '0.3.8',
+        'version' => '0.3.9',
     ],
     'bootstrap' => [
         'version' => '5.3.2',
