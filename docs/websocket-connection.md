@@ -12,15 +12,15 @@ As described in [the docs](https://chesslablab.github.io/chess-server/start/), t
 
 The WebSocket ESM modules are implemented based on this same separation of concerns and abstraction:
 
-- [assets/js/AnalysisWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/AnalysisWebSocket.js)
-- [assets/js/PlayWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/PlayWebSocket.js)
-- [assets/js/StockfishWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/StockfishWebSocket.js)
+- [assets/js/websockets/game/AnalysisWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/AnalysisWebSocket.js)
+- [assets/js/websockets/game/PlayWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/PlayWebSocket.js)
+- [assets/js/websockets/game/StockfishWebSocket.js](https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/StockfishWebSocket.js)
 
 Let's say you wanted to study a particular chess opening, then a chess game in `analysis` mode is to be started.
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_01.png)
 
-**Figure 1**. Click on **Openings > ECO Code** and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"
+**Figure 1**. Click on **Openings > Search** and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"
 
 Data:
 
@@ -52,32 +52,39 @@ Data:
 }
 ```
 
-The JavaScript code for this example can be found in the [assets/js/pages/openings/eco_code/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js) file.
+The JavaScript code for this example can be found in the [assets/js/pages/openings/search/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js) file.
 
 ```js
-import { openingsEcoCodeModal } from './OpeningsEcoCodeModal.js';
-import { sanWebSocket } from '../../../SanWebSocket.js';
-
-await sanWebSocket.connect();
+import { openingsSearchModal } from './OpeningsSearchModal.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 
 sessionStorage.clear();
 
-openingsEcoCodeModal.props.modal.show();
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await analysisWebSocket.connect();
+} catch {}
+
+openingsSearchModal.props.modal.show();
 ```
 
 The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection.
 
 Remember, the structure of the [App\Controller\Pages](https://github.com/chesslablab/website/tree/main/src/Controller/Pages) namespace is mirroring the structure of both the [templates/pages](https://github.com/chesslablab/website/tree/main/templates/pages) folder and the [assets/js/pages](https://github.com/chesslablab/website/tree/main/assets/js/pages) folder. There is a `.twig.html` file and a `.js` file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.
 
-- [src/Controller/Pages/Openings/EcoCodeController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/EcoCodeController.php)
-- [templates/pages/openings/eco_code/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/openings/eco_code/index.html.twig)
-- [assets/js/pages/openings/eco_code/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/eco_code/index.js)
+- [src/Controller/Pages/Openings/SearchController.php](https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/SearchController.php)
+- [templates/pages/openings/search/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/openings/search/index.html.twig)
+- [assets/js/pages/openings/search/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js)
 
 Similarly, if you wanted to study a chess position, then a FEN string needs to be started.
 
 ![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/websocket-connection_02.png)
 
-**Figure 2**. Click on **Learn > Analysis Board** and enter a classical chess position in FEN format.
+**Figure 2**. Click on **Learn > Analysis Chessboard** and enter a classical chess position in FEN format.
 
 Data:
 
@@ -100,14 +107,19 @@ Data:
 The JavaScript code for this example can be found in the [assets/js/pages/learn/analysis/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/analysis/index.js) file.
 
 ```js
-import { FEN } from '@chesslablab/chessboard';
-import { gameForm } from './GameForm.js';
-import { analysisWebSocket } from '../../../AnalysisWebSocket.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
 
-await analysisWebSocket.connect();
-
 sessionStorage.clear();
+
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await analysisWebSocket.connect();
+} catch {}
 
 analysisWebSocket.send(`/start classical ${mode.ANALYSIS}`);
 ```
