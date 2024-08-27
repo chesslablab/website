@@ -51,6 +51,7 @@ export class ResultEventModal extends AbstractComponent {
       dataWebSocket
         .send(`/result_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/result_event', data => {
+          const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');
           eventStatsChart.replaceChildren();
           eventStatsChart.appendChild(canvas);

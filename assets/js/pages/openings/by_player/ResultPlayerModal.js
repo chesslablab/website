@@ -54,6 +54,7 @@ export class ResultPlayerModal extends AbstractComponent {
       dataWebSocket
         .send(`/result_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/result_player', data => {
+          const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);
