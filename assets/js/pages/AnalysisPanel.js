@@ -52,11 +52,8 @@ export class AnalysisPanel extends AbstractComponent {
     this.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const settings = {
-        exclude: "Attack"
-      };
       analysisWebSocket
-        .send(`/eval_names "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .send('/eval_names')
         .onChange('/eval_names', data => {
           const select = this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]');
           Object.values(data).forEach((item, i) => {
@@ -74,80 +71,82 @@ export class AnalysisPanel extends AbstractComponent {
 
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
       event.preventDefault();
-      this.progressModal.props.modal.show();
-      const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
-      const settings = {
-        variant: variant.CLASSICAL,
-        movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
-        name: event.target.value
-      };
-      analysisWebSocket
-        .send(`/heuristic "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
-        .onChange('/heuristic', data => {
-          const canvas = document.createElement('canvas');
-          this.props.heuristicsModal.props.chart.replaceChildren();
-          this.props.heuristicsModal.props.chart.appendChild(canvas);
-          new Chart(canvas, {
-            type: 'line',
-            data: {
-              labels: data,
-              datasets: [{
-                label: event.target.value,
-                data: data,
-                borderWidth: 2.25,
-                tension: 0.25,
-                borderColor: '#0a0a0a'
-              }]
-            },
-            options: {
-              animation: false,
-              elements: {
-                point:{
-                  radius: 0
-                }
+      if (event.target.value) {
+        this.progressModal.props.modal.show();
+        const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
+        const settings = {
+          variant: variant.CLASSICAL,
+          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
+          name: event.target.value
+        };
+        analysisWebSocket
+          .send(`/heuristic "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .onChange('/heuristic', data => {
+            const canvas = document.createElement('canvas');
+            this.props.heuristicsModal.props.chart.replaceChildren();
+            this.props.heuristicsModal.props.chart.appendChild(canvas);
+            new Chart(canvas, {
+              type: 'line',
+              data: {
+                labels: data,
+                datasets: [{
+                  label: event.target.value,
+                  data: data,
+                  borderWidth: 2.25,
+                  tension: 0.25,
+                  borderColor: '#0a0a0a'
+                }]
               },
-              scales: {
-                y: {
-                  ticks: {
-                    display: false
-                  },
-                  grid: {
-                    display: false
-                  },
-                  border: {
-                    display: false
-                  },
-                  beginAtZero: true,
-                  min: -1.1,
-                  max: 1.1
-                },
-                x: {
-                  ticks: {
-                    display: false
-                  },
-                  grid: {
-                    display: false
-                  },
-                  border: {
-                    display: false
+              options: {
+                animation: false,
+                elements: {
+                  point:{
+                    radius: 0
                   }
-                }
-              },
-              plugins: {
-                legend: {
-                  position: 'bottom',
-                  labels: {
-                    boxWidth: 0,
-                    font: {
-                      size: 16
+                },
+                scales: {
+                  y: {
+                    ticks: {
+                      display: false
+                    },
+                    grid: {
+                      display: false
+                    },
+                    border: {
+                      display: false
+                    },
+                    beginAtZero: true,
+                    min: -1.1,
+                    max: 1.1
+                  },
+                  x: {
+                    ticks: {
+                      display: false
+                    },
+                    grid: {
+                      display: false
+                    },
+                    border: {
+                      display: false
+                    }
+                  }
+                },
+                plugins: {
+                  legend: {
+                    position: 'bottom',
+                    labels: {
+                      boxWidth: 0,
+                      font: {
+                        size: 16
+                      }
                     }
                   }
                 }
               }
-            }
+            });
+            this.progressModal.props.modal.hide();
           });
-          this.progressModal.props.modal.hide();
-        });
+      }
     });
   }
 }
