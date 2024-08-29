@@ -12,30 +12,6 @@ export class ResultModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
-    const handleBarClick = async (event, clickedElements) => {
-      if (clickedElements.length === 0) {
-        return;
-      }
-      this.progressModal.props.modal.show();
-      const { dataIndex, raw } = clickedElements[0].element.$context;
-      const searchSettings = {
-        Result: event.chart.data.datasets[0].label,
-        ECO: event.chart.data.labels[dataIndex]
-      };
-      dataWebSocket
-        .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
-        .onChange('/search', data => {
-          this.props.movesMetadataTable.props = data[0];
-          this.props.movesMetadataTable.mount();
-          const startSettings = {
-            movetext: this.props.movesMetadataTable.props.movetext
-          };
-          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
-          this.props.modal.hide();
-          this.progressModal.props.modal.hide();
-        });
-    }
-
     const options = {
       animation: false,
       categoryPercentage: 1.0,
@@ -43,7 +19,29 @@ export class ResultModal extends AbstractComponent {
       onHover: function(event, el) {
         event.native.target.style.cursor = el[0] ? 'pointer' : 'default';
       },
-      onClick: handleBarClick,
+      onClick: async (event, clickedElements) => {
+        if (clickedElements.length === 0) {
+          return;
+        }
+        this.progressModal.props.modal.show();
+        const { dataIndex, raw } = clickedElements[0].element.$context;
+        const searchSettings = {
+          Result: event.chart.data.datasets[0].label,
+          ECO: event.chart.data.labels[dataIndex]
+        };
+        dataWebSocket
+          .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
+          .onChange('/search', data => {
+            this.props.movesMetadataTable.props = data[0];
+            this.props.movesMetadataTable.mount();
+            const startSettings = {
+              movetext: this.props.movesMetadataTable.props.movetext
+            };
+            analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+            this.props.modal.hide();
+            this.progressModal.props.modal.hide();
+          });
+      },
       scales: {
         x: {
           grid: {
