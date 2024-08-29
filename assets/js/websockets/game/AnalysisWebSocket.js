@@ -66,11 +66,6 @@ export class AnalysisWebSocket extends GameWebSocket {
       analysisPanel.props.movesBrowser.mount();
       analysisPanel.props.openingTable.props.movetext = data.movetext;
       analysisPanel.props.openingTable.mount();
-    })
-    .onChange('/tutor_fen', data => {
-      analysisPanel.props.explainPositionModal.props.explanation = data;
-      analysisPanel.props.explainPositionModal.mount();
-      analysisPanel.props.explainPositionModal.props.modal.show();
     });
   }
 }

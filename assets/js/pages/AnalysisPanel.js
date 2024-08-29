@@ -45,8 +45,14 @@ export class AnalysisPanel extends AbstractComponent {
       const settings = {
         fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
       };
-      analysisWebSocket.send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
-      this.progressModal.props.modal.hide();
+      analysisWebSocket
+        .send(`/tutor_fen "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .onChange('/tutor_fen', data => {
+          this.props.explainPositionModal.props.explanation = data;
+          this.props.explainPositionModal.mount();
+          this.props.explainPositionModal.props.modal.show();
+          this.progressModal.props.modal.hide();
+        });
     });
 
     this.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
