@@ -54,8 +54,8 @@ export default class AbstractWebSocket {
         set(newValue) {
           if (newValue !== value) {
             value = newValue;
-            callback(newValue);
           }
+          callback(value);
         },
       });
     }
