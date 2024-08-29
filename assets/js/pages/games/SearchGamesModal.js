@@ -1,14 +1,14 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import { blackAutocomplete } from '../../BlackAutocomplete.js';
-import { eventAutocomplete } from '../../EventAutocomplete.js';
-import movesMetadataTable from '../../movesMetadataTable.js';
-import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
-import AbstractComponent from '../../../AbstractComponent.js';
-import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
-import * as env from '../../../../env.js';
-import * as mode from '../../../../mode.js';
+import { blackAutocomplete } from '../BlackAutocomplete.js';
+import { eventAutocomplete } from '../EventAutocomplete.js';
+import movesMetadataTable from '../movesMetadataTable.js';
+import { whiteAutocomplete } from '../WhiteAutocomplete.js';
+import AbstractComponent from '../../AbstractComponent.js';
+import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
+import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import * as env from '../../../env.js';
+import * as mode from '../../../mode.js';
 
 Chart.register(...registerables);
 

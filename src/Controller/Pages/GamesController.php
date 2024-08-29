@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Database;
+namespace App\Controller\Pages;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class SearchGamesController extends AbstractController
+class GamesController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/database/search_games/index.html.twig');
+        return $this->render('pages/games/index.html.twig');
     }
 }

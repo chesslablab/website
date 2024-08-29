@@ -89,17 +89,10 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_database_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavDatabaseLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ 'Database'|trans }}
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_games' ? 'active' : ''}} nav-link" href="{{ path('pages_games') }}" role="button" aria-expanded="false">
+            {{ 'Games'|trans }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="mainNavDatabaseLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_database_search_games') }}">
-                {{ 'Search Games'|trans }}
-              </a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_edit' ? 'active' : ''}} nav-link" href="{{ path('pages_edit') }}" role="button" aria-expanded="false">

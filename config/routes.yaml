@@ -23,9 +23,9 @@ robots:
 
 # Pages routes
 
-pages_database_search_games:
-    path:       /{_locale}/database/search-games
-    controller: App\Controller\Pages\Database\SearchGamesController::index
+pages_games:
+    path:       /{_locale}/games
+    controller: App\Controller\Pages\GamesController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi

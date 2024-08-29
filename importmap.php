@@ -45,8 +45,8 @@ return [
         'path' => './assets/js/pages/openings/by_event/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/database/search_games/index.js' => [
-        'path' => './assets/js/pages/database/search_games/index.js',
+    'js/pages/games/index.js' => [
+        'path' => './assets/js/pages/games/index.js',
         'entrypoint' => true,
     ],
     'js/pages/training/checkmate/index.js' => [
