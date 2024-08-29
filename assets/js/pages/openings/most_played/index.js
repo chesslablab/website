@@ -17,10 +17,13 @@ try {
   await analysisWebSocket.connect();
 } catch {}
 
+resultModal.progressModal.props.modal.show();
+
 dataWebSocket
   .send(`/result`)
   .onChange('/result', data => {
     resultModal.props.result = data;
     resultModal.mount();
     resultModal.props.modal.show();
+    resultModal.progressModal.props.modal.hide();
   });
