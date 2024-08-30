@@ -1,3 +1,4 @@
+import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import AbstractComponent from '../AbstractComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
@@ -19,7 +20,7 @@ export class SanForm extends AbstractComponent {
         event.preventDefault();
         const settings = {
           fen: event.target.fen.value,
-          movetext: event.target.san.value,
+          movetext: Movetext.notation(NOTATION_SAN, event.target.san.value),
           ...(event.target.startPos.value && {startPos: event.target.startPos.value})
         };
         sessionStorage.clear();
