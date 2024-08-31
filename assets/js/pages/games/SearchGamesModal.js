@@ -1,3 +1,4 @@
+import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { blackAutocomplete } from '../BlackAutocomplete.js';
@@ -25,7 +26,7 @@ export class SearchGamesModal extends AbstractComponent {
         Black: formData.get('Black'),
         Result: formData.get('Result'),
         ECO: formData.get('ECO'),
-        movetext: formData.get('movetext')
+        movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
       };
       dataWebSocket
         .send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
