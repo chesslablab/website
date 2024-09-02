@@ -2,6 +2,8 @@
 
 namespace App\Controller\Pages\SignIn;
 
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use OTPHP\InternalClock;
 use OTPHP\TOTP;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,9 +20,13 @@ class AuthenticateController extends AbstractController
         $otp->setDigits(9);
 
         if ($otp->verify($request->request->get('password'), null, 5)) {
-            $cookie = Cookie::create('username', $request->request->get('username'));
+            $payload = [
+                'iss' => 'https://chesslablab.org',
+                'username' => $request->request->get('username'),
+            ];
             $response = new RedirectResponse($this->generateUrl('pages_play_online'));
-            $response->headers->setCookie($cookie);
+            $response->headers->setCookie(Cookie::create('token', JWT::encode($payload, $_ENV['JWT_KEY'], 'HS256')));
+            $response->headers->setCookie(Cookie::create('username', $request->request->get('username')));
             return $response;
         }
 
