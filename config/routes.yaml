@@ -145,6 +145,13 @@ pages_sign_in_register:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_sign_in_authenticate:
+    path:       /{_locale}/sign-in/authenticate
+    controller: App\Controller\Pages\SignIn\AuthenticateController::index
+    methods:    POST
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index

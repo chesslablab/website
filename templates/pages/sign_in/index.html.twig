@@ -4,22 +4,21 @@
   <div class="container p-4">
     <h1 class="h3">{{ 'Sign In'|trans }}</h1>
     <hr class="hr">
-    <form id="signInForm">
+    <form id="signInForm" action="{{ path('pages_sign_in_authenticate') }}" method="post">
       <div>
         <div class="mb-3">
           <label class="form-label">Username</label>
-          <input type="text" name="username" class="form-control">
+          <input type="text" name="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" name="password" minlength="9" maxlength="9" class="form-control" required>
         </div>
         <div class="mt-4">
           <button class="btn btn-primary">{{ 'Sign In'|trans }}</button>
-          <button class="btn btn-secondary" data-href="{{ path('pages_sign_in_register') }}">{{ 'Register Now'|trans }}</button>
+          <a class="btn btn-secondary" href="{{ path('pages_sign_in_register') }}">{{ 'Register Now'|trans }}</a>
         </div>
       </div>
     </form>
   </div>
-  {% block javascripts %}
-    {% block importmap %}
-      {{ importmap('js/pages/sign_in/index.js') }}
-    {% endblock %}
-  {% endblock %}
 {% endblock %}
