@@ -1,1 +1,3 @@
-console.log('TODO');
+import { signInForm } from './SignInForm.js';
+
+sessionStorage.clear();
