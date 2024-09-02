@@ -141,6 +141,13 @@ pages_about:
       sitemap:
         _locale: en
 
+pages_sign_in:
+    path:       /{_locale}/sign-in
+    controller: App\Controller\Pages\SignInController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 # Iframe routes
 
 iframe_analysis:
