@@ -9,7 +9,7 @@ export class SignInForm extends AbstractComponent {
 
     this.el.querySelector('.btn-secondary').addEventListener('click', (event) => {
       event.preventDefault();
-      // TODO ...
+      window.location.href = event.target.dataset.href;
     });
   }
 }

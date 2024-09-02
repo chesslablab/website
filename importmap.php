@@ -65,6 +65,10 @@ return [
         'path' => './assets/js/pages/sign_in/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/sign_in/register/index.js' => [
+        'path' => './assets/js/pages/sign_in/register/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/edit/index.js' => [
         'path' => './assets/js/pages/edit/index.js',
         'entrypoint' => true,

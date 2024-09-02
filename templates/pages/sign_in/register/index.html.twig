@@ -2,7 +2,7 @@
 
 {% block main %}
   <div class="container p-4">
-    <h1 class="h3">{{ 'Sign In'|trans }}</h1>
+    <h1 class="h3">{{ 'Register'|trans }}</h1>
     <hr class="hr">
     <form id="signInForm">
       <div>
@@ -11,15 +11,14 @@
           <input type="text" name="username" class="form-control">
         </div>
         <div class="mt-4">
-          <button class="btn btn-primary">{{ 'Sign In'|trans }}</button>
-          <button class="btn btn-secondary" data-href="{{ path('pages_sign_in_register') }}">{{ 'Register Now'|trans }}</button>
+          <button class="btn btn-primary">{{ 'Register'|trans }}</button>
         </div>
       </div>
     </form>
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/sign_in/index.js') }}
+      {{ importmap('js/pages/sign_in/register/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}

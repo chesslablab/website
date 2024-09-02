@@ -138,6 +138,13 @@ pages_sign_in:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_sign_in_register:
+    path:       /{_locale}/sign-in/register
+    controller: App\Controller\Pages\SignIn\RegisterController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
