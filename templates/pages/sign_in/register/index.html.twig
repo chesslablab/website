@@ -6,12 +6,13 @@
     <hr class="hr">
     <div class="row">
       <div class="col-md-7">
-        <p>
-          Scan the QR code with a TOTP authenticator app supporting 9-digit length passwords like <a href="https://freeotp.github.io/" target="_blank">FreeOTP</a>.
-        </p>
+        <ol>
+          <li class="mb-2">Scan the QR code with a TOTP authenticator app supporting 9-digit length passwords like <a href="https://freeotp.github.io/" target="_blank">FreeOTP</a>.</li>
+          <li><a href="{{ path('pages_sign_in') }}">Sign In</a> to your account to complete the registration.</li>
+        </ol>
       </div>
       <div class="col-md-5">
-        <img src={{ grCodeUri }}>
+        <img alt="QR code" src={{ grCodeUri }}>
       </div>
     </div>
   </div>
