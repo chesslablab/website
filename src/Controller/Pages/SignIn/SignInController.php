@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Pages;
+namespace App\Controller\Pages\SignIn;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,6 +9,6 @@ class SignInController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/sign_in.html.twig');
+        return $this->render('pages/sign_in/index.html.twig');
     }
 }

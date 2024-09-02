@@ -11,10 +11,15 @@
           <input type="text" name="username" class="form-control">
         </div>
         <div class="mt-4">
-          <button type="submit" class="btn btn-primary">{{ 'Sign In'|trans }}</button>
-          <button type="submit" class="btn btn-primary">{{ 'Register Now'|trans }}</button>
+          <button class="btn btn-primary">{{ 'Sign In'|trans }}</button>
+          <button class="btn btn-secondary">{{ 'Register Now'|trans }}</button>
         </div>
       </div>
     </form>
   </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/sign_in/index.js') }}
+    {% endblock %}
+  {% endblock %}
 {% endblock %}
