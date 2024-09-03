@@ -107,14 +107,20 @@
       </ul>
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="{{app.request.get('_route') starts with 'pages_sign_in' ? 'active' : ''}} nav-link" href="{{ path('pages_sign_in') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
-            {% include 'svg/bi-person-fill.svg' %} {{ 'Sign In'|trans }}
-          </a>
-        </li>
-        <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_settings' ? 'active' : ''}} nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
             {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
           </a>
+        </li>
+        <li class="nav-item">
+          {% if app.session.get('username') %}
+            <a class="{{app.request.get('_route') starts with 'pages_sign_in' ? 'active' : ''}} nav-link" href="{{ path('pages_sign_out') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
+              {% include 'svg/bi-box-arrow-right.svg' %} {{ 'Sign Out'|trans }}
+            </a>
+          {% else %}
+            <a class="{{app.request.get('_route') starts with 'pages_sign_in' ? 'active' : ''}} nav-link" href="{{ path('pages_sign_in') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
+              {% include 'svg/bi-person-fill.svg' %} {{ 'Sign In'|trans }}
+            </a>
+          {% endif %}
         </li>
       </ul>
     </div>

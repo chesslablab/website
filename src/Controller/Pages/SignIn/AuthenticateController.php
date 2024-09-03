@@ -20,6 +20,7 @@ class AuthenticateController extends AbstractController
         $otp->setDigits(9);
 
         if ($otp->verify($request->request->get('password'), null, 5)) {
+            $request->getSession()->set('username', $request->request->get('username'));
             $payload = [
                 'iss' => 'https://chesslablab.org',
                 'username' => $request->request->get('username'),

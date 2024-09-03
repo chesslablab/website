@@ -152,6 +152,13 @@ pages_sign_in_authenticate:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
+pages_sign_out:
+    path:       /{_locale}/sign-out
+    controller: App\Controller\Pages\SignOut\SignOutController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
