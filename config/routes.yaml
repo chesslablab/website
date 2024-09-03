@@ -7,7 +7,7 @@ routing_directory:
 auth_signin:
     path:       /{_locale}/auth/sign-in
     controller: App\Controller\AuthController::signin
-    methods:    POST
+    methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
