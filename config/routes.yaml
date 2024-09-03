@@ -2,18 +2,18 @@ routing_directory:
     resource: 'routing'
     type:     directory
 
-# Auth routes
+# TOTP auth routes
 
-auth_signin:
+totp_auth_signin:
     path:       /{_locale}/auth/signin
-    controller: App\Controller\AuthController::signin
+    controller: App\Controller\TotpAuthController::signin
     methods:    POST
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-auth_signout:
+totp_auth_signout:
     path:       /{_locale}/auth/signout
-    controller: App\Controller\AuthController::signout
+    controller: App\Controller\TotpAuthController::signout
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi

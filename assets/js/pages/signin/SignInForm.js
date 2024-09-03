@@ -14,16 +14,16 @@ export class SignInForm extends AbstractComponent {
         .send(`/totp_signin "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/totp_signin', data => {
           if (data?.username) {
-            fetch(this.el.dataset.signin, {
+            fetch(this.el.dataset.totp_auth_signin, {
               method: 'POST',
               body: JSON.stringify({
                 username: data.username
               })
             }).then(() => {
-              window.location.href = this.el.dataset.redirect;
+              window.location.href = this.el.dataset.pages_play_online;
             });
           } else {
-            window.location.href = this.el.dataset.signout;
+            window.location.href = this.el.dataset.totp_auth_signout;
           }
         });
     });

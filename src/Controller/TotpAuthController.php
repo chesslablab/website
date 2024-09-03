@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthController extends AbstractController
+class TotpAuthController extends AbstractController
 {
     public function signin(Request $request): Response
     {
