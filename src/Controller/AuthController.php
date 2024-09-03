@@ -12,14 +12,15 @@ class AuthController extends AbstractController
 {
     public function signin(Request $request): Response
     {
-        $request->getSession()->set('username', $request->request->get('username'));
-        $response = new RedirectResponse($this->generateUrl('pages_play_online'));
+        $params = json_decode($request->getContent(), true);
+        $request->getSession()->set('username', $params['username']);
         $cookie = Cookie::create(
             'ui',
             json_encode([
-                'username' => $request->request->get('username'),
+                'username' => $params['username'],
             ])
         );
+        $response = new Response('', Response::HTTP_NO_CONTENT);
         $response->headers->setCookie($cookie);
 
         return $response;

@@ -14,7 +14,14 @@ export class SignInForm extends AbstractComponent {
         .send(`/totp_signin "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/totp_signin', data => {
           if (data?.username) {
-            window.location.href = this.el.dataset.signin;
+            fetch(this.el.dataset.signin, {
+              method: 'POST',
+              body: JSON.stringify({
+                username: data.username
+              })
+            }).then(() => {
+              window.location.href = this.el.dataset.redirect;
+            });
           } else {
             window.location.href = this.el.dataset.signout;
           }

@@ -4,7 +4,12 @@
   <div class="container p-4">
     <h1 class="h3">{{ 'Sign In'|trans }}</h1>
     <hr class="hr">
-    <form id="signInForm" data-signin="{{ path('auth_signin') }}" data-signout="{{ path('auth_signout') }}">
+    <form
+      id="signInForm"
+      data-signin="{{ path('auth_signin') }}"
+      data-signout="{{ path('auth_signout') }}"
+      data-redirect="{{ path('pages_play_online') }}"
+    >
       <div>
         <div class="mb-3">
           <label class="form-label">Username</label>
