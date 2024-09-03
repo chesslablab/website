@@ -28,7 +28,7 @@ class AuthController extends AbstractController
     public function signout(Request $request): Response
     {
         $request->getSession()->clear();
-        $response = new RedirectResponse($this->generateUrl('pages_sign_in'));
+        $response = new RedirectResponse($this->generateUrl('pages_signin'));
         $response->headers->clearCookie('ui');
 
         return $response;

@@ -113,11 +113,11 @@
         </li>
         <li class="nav-item">
           {% if app.session.get('username') %}
-            <a class="{{app.request.get('_route') starts with 'pages_sign_in' ? 'active' : ''}} nav-link" href="{{ path('auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
+            <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
               {% include 'svg/bi-box-arrow-right.svg' %} {{ 'Sign Out'|trans }}
             </a>
           {% else %}
-            <a class="{{app.request.get('_route') starts with 'pages_sign_in' ? 'active' : ''}} nav-link" href="{{ path('pages_sign_in') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
+            <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('pages_signin') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
               {% include 'svg/bi-person-fill.svg' %} {{ 'Sign In'|trans }}
             </a>
           {% endif %}

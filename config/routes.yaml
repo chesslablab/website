@@ -5,14 +5,14 @@ routing_directory:
 # Auth routes
 
 auth_signin:
-    path:       /{_locale}/auth/sign-in
+    path:       /{_locale}/auth/signin
     controller: App\Controller\AuthController::signin
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
 auth_signout:
-    path:       /{_locale}/auth/sign-out
+    path:       /{_locale}/auth/signout
     controller: App\Controller\AuthController::signout
     methods:    GET
     requirements:
@@ -147,15 +147,15 @@ pages_settings:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_sign_in:
-    path:       /{_locale}/sign-in
+pages_signin:
+    path:       /{_locale}/signin
     controller: App\Controller\Pages\SignIn\SignInController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_sign_in_register:
-    path:       /{_locale}/sign-in/register
+pages_signin_register:
+    path:       /{_locale}/signin/register
     controller: App\Controller\Pages\SignIn\RegisterController::index
     methods:    GET
     requirements:

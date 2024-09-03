@@ -16,14 +16,14 @@
         </div>
         <div class="mt-4">
           <button type="submit" class="btn btn-primary">{{ 'Sign In'|trans }}</button>
-          <a class="btn btn-secondary" href="{{ path('pages_sign_in_register') }}">{{ 'Register Now'|trans }}</a>
+          <a class="btn btn-secondary" href="{{ path('pages_signin_register') }}">{{ 'Register Now'|trans }}</a>
         </div>
       </div>
     </form>
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/sign_in/index.js') }}
+      {{ importmap('js/pages/signin/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}

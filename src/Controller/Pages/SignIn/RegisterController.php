@@ -9,6 +9,6 @@ class RegisterController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/sign_in/register/index.html.twig');
+        return $this->render('pages/signin/register/index.html.twig');
     }
 }

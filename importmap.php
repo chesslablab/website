@@ -65,12 +65,12 @@ return [
         'path' => './assets/js/pages/edit/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/sign_in/index.js' => [
-        'path' => './assets/js/pages/sign_in/index.js',
+    'js/pages/signin/index.js' => [
+        'path' => './assets/js/pages/signin/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/sign_in/register/index.js' => [
-        'path' => './assets/js/pages/sign_in/register/index.js',
+    'js/pages/signin/register/index.js' => [
+        'path' => './assets/js/pages/signin/register/index.js',
         'entrypoint' => true,
     ],
     '@chesslablab/chessboard' => [
