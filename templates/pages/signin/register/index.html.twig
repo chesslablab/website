@@ -1,0 +1,23 @@
+{% extends 'layouts/content.html.twig' %}
+
+{% block main %}
+  <div class="container p-4">
+    <h1 class="h3">{{ 'Register'|trans }}</h1>
+    <hr class="hr">
+    <div class="row">
+      <div class="col-md-7">
+        <ol>
+          <li class="mb-2">Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like <a href="https://freeotp.github.io/" target="_blank">FreeOTP</a>. You'll be assigned an automatic username.</li>
+          <li>Then <a href="{{ path('pages_signin') }}">Sign In</a> to your account to complete the registration.</li>
+        </ol>
+      </div>
+      <div id="qrCodeUri" class="col-md-5">
+      </div>
+    </div>
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/signin/register/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}

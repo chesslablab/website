@@ -2,6 +2,22 @@ routing_directory:
     resource: 'routing'
     type:     directory
 
+# TOTP auth routes
+
+totp_auth_signin:
+    path:       /{_locale}/totp-auth/signin
+    controller: App\Controller\TotpAuthController::signin
+    methods:    POST
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+totp_auth_signout:
+    path:       /{_locale}/totp-auth/signout
+    controller: App\Controller\TotpAuthController::signout
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 # Setup routes
 
 locale:
@@ -131,9 +147,16 @@ pages_settings:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
 
-pages_sign_in:
-    path:       /{_locale}/sign-in
+pages_signin:
+    path:       /{_locale}/signin
     controller: App\Controller\Pages\SignIn\SignInController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+pages_signin_register:
+    path:       /{_locale}/signin/register
+    controller: App\Controller\Pages\SignIn\RegisterController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi
