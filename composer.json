@@ -8,7 +8,6 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "fakerphp/faker": "^1.23",
-        "firebase/php-jwt": "^6.10",
         "league/commonmark": "^2.4",
         "spomky-labs/otphp": "^11.3",
         "symfony/asset": "7.0.*",

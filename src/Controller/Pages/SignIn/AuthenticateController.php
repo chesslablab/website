@@ -2,8 +2,6 @@
 
 namespace App\Controller\Pages\SignIn;
 
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
 use OTPHP\InternalClock;
 use OTPHP\TOTP;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +24,6 @@ class AuthenticateController extends AbstractController
                 'username' => $request->request->get('username'),
             ];
             $response = new RedirectResponse($this->generateUrl('pages_play_online'));
-            $response->headers->setCookie(Cookie::create('token', JWT::encode($payload, $_ENV['JWT_KEY'], 'HS256')));
             $response->headers->setCookie(Cookie::create('username', $request->request->get('username')));
             return $response;
         }

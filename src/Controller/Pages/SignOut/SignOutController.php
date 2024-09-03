@@ -14,9 +14,8 @@ class SignOutController extends AbstractController
     {
         $request->getSession()->clear();
         $response = new RedirectResponse($this->generateUrl('pages_sign_in'));
-        $response->headers->clearCookie('token');
         $response->headers->clearCookie('username');
-        
+
         return $response;
     }
 }
