@@ -2,6 +2,22 @@ routing_directory:
     resource: 'routing'
     type:     directory
 
+# Auth routes
+
+auth_signin:
+    path:       /{_locale}/auth/sign-in
+    controller: App\Controller\AuthController::signin
+    methods:    POST
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
+auth_signout:
+    path:       /{_locale}/auth/sign-out
+    controller: App\Controller\AuthController::signout
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi
+
 # Setup routes
 
 locale:
@@ -141,20 +157,6 @@ pages_sign_in:
 pages_sign_in_register:
     path:       /{_locale}/sign-in/register
     controller: App\Controller\Pages\SignIn\RegisterController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_sign_in_authenticate:
-    path:       /{_locale}/sign-in/authenticate
-    controller: App\Controller\Pages\SignIn\AuthenticateController::index
-    methods:    POST
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
-
-pages_sign_out:
-    path:       /{_locale}/sign-out
-    controller: App\Controller\Pages\SignOut\SignOutController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi

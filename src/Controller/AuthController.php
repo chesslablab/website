@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Pages\SignIn;
+namespace App\Controller;
 
 use OTPHP\InternalClock;
 use OTPHP\TOTP;
@@ -10,9 +10,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AuthenticateController extends AbstractController
+class AuthController extends AbstractController
 {
-    public function index(Request $request): Response
+    public function signin(Request $request): Response
     {
         $otp = TOTP::createFromSecret($_ENV['TOTP_SECRET'], new InternalClock());
         $otp->setDigits(9);
@@ -32,6 +32,15 @@ class AuthenticateController extends AbstractController
             $response = new RedirectResponse($this->generateUrl('pages_sign_in'));
             $response->headers->clearCookie('ui');
         }
+
+        return $response;
+    }
+
+    public function signout(Request $request): Response
+    {
+        $request->getSession()->clear();
+        $response = new RedirectResponse($this->generateUrl('pages_sign_in'));
+        $response->headers->clearCookie('ui');
 
         return $response;
     }
