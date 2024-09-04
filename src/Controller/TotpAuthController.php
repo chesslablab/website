@@ -18,7 +18,12 @@ class TotpAuthController extends AbstractController
             'ui',
             json_encode([
                 'username' => $params['username'],
-            ])
+            ]),
+            time() + (2 * 365 * 24 * 60 * 60), // expires in 2 years
+            '/', // path
+            null, // domain
+            true, // secure
+            false // http only
         );
         $response = new Response('', Response::HTTP_NO_CONTENT);
         $response->headers->setCookie($cookie);
