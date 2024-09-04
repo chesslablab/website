@@ -16,10 +16,10 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="locale"]').value = 'en';
     }
 
-    if (localStorage.getItem('theme') === 'dark') {
-      this.el.querySelector('select[name="theme"]').value = 'dark';
-    } else {
+    if (localStorage.getItem('theme') === 'light') {
       this.el.querySelector('select[name="theme"]').value = 'light';
+    } else {
+      this.el.querySelector('select[name="theme"]').value = 'dark';
     }
 
     if (localStorage.getItem('format') === 'table') {

@@ -85,10 +85,10 @@ const theme = () => {
   const el = document.createElement('style');
   el.setAttribute('id', 'theme');
   el.type = 'text/css';
-  if (localStorage.getItem('theme') === 'dark') {
-    el.innerText = dark;
-  } else {
+  if (localStorage.getItem('theme') === 'light') {
     el.innerText = light;
+  } else {
+    el.innerText = dark;
   }
   document.head.appendChild(el);
 }
