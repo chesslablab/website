@@ -8,6 +8,7 @@ const dark = `body {
   color: #f8f9fa;
 }
 .the-content p a,
+.the-content ol li a,
 .the-content ul li a {
   color: #ffffff !important;
   font-weight: bold;
