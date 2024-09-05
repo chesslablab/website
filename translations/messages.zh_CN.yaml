@@ -1,0 +1,157 @@
+# Main nav bar
+Play: 游戏
+Online: 在线
+Computer: 电脑
+Learn: 学习
+Classical Chess: 经典国际象棋
+Fischer Random: 费舍尔随机棋
+FEN String: FEN 记录
+SAN Movetext: 标准代数记谱法
+Analysis Chessboard: 分析棋盘
+RAV Movetext: RAV 记谱法
+Annotated Games: 注释游戏
+Openings: 开局
+Most Played: 最常玩
+By Player: 按玩家
+By Event: 按事件
+ECO Code: 开局 ECO 代码
+Name: 名称
+Training: 训练
+Checkmate: 将死
+Endgame: 残局
+Database: 数据库
+Games: 游戏
+Top Openings: 顶级开局
+Player Stats: 玩家统计
+Event Stats: 事件统计
+Edit: 编辑
+Players: 玩家
+Blog: 博客
+Language: 语言
+Settings: 设置
+
+# Footer
+About: 关于我们
+
+# Play
+Online Players: 在线玩家
+Create a Game: 创建游戏
+Play a Friend: 与朋友对战
+Classical chess: 经典国际象棋
+Enter Invite Code: 输入邀请码
+Play Online: 在线游戏
+Minutes per side: 每方分钟数
+Increment in seconds: 每秒增加时间
+Select a variant: 选择变体
+Classical: 经典
+Create Game: 创建游戏
+Enter a FEN: 输入 FEN
+Create Invite Code: 创建邀请码
+Share this code with a friend: 与朋友分享此码
+Copy and Play: 复制并游戏
+Invite code: 邀请码
+Play Computer: 与电脑对战
+Difficulty level: 难度级别
+Would you like a draw?: 想要和棋吗？
+Would you like a rematch?: 想要再战吗？
+Would you like a takeback?: 想要悔棋吗？
+Accept: 接受
+Decline: 拒绝
+
+# Learn
+Load: 加载
+Variations and comments will be removed. To keep them, load a RAV Movetext instead: 变体和评论将被移除。要保留它们，请加载 RAV 记谱法。
+Enter a movetext: 输入棋步记录
+Variations and comments will be kept. To remove them, load a SAN Movetext instead: 变体和评论将被保留。要移除它们，请加载 SAN 记谱法。
+
+# Openings
+Search Openings: 搜索开局
+Select an ECO code: 选择 ECO 代码
+Flank Openings: 侧翼开局
+Semi-Open Games other than the French Defense: 除了法国防御之外的半开放游戏
+Open Games and the French Defense: 开放游戏和法国防御
+Closed Games and Semi-Closed Games: 封闭游戏和半封闭游戏
+Indian Defenses: 印度防御
+Movetext: 棋步记录
+Search: 搜索
+Most Played Openings: 最常玩的开局
+Openings By Player: 按玩家的开局
+Openings By Event: 按事件的开局
+
+# Training
+Select a checkmate: 选择将死
+Random: 随机
+King and queen and rook vs. king and rook: 王后和车对王和车
+King and queen vs. king: 王后对王
+King and rook vs. king: 王和车对王
+King and two bishops vs. king: 王和两个象对王
+King and bishop and knight vs. king: 王、象和马对王
+Select an endgame: 选择残局
+Pawn endgame: 兵残局
+
+# Games
+Loading: 加载中
+Event: 事件
+Year: 年份
+White: 白方
+Black: 黑方
+Result: 结果
+
+# Edit
+Player's turn: 玩家回合
+Select an option: 选择一个选项
+White's castling: 白方王车易位
+Black's castling: 黑方王车易位
+En passant: 吃过路兵
+Starting Position: 起始位置
+Clear Board: 清空棋盘
+Delete: 删除
+
+# Clubs
+Find chess players all over the Internet and improve your chess skills. Have fun!: 在互联网上找到国际象棋玩家并提高你的国际象棋技能。玩得开心！
+Platform: 平台
+Description: 描述
+Join: 加入
+Add a space: 添加空间
+
+# Blog
+ChesslaBlab's Blog: ChesslaBlab 的博客
+Discover stories about your favorite topics: 发现关于你最喜欢的主题的故事
+
+# Partial templates
+Board: 棋盘
+Flip Board: 翻转棋盘
+Copy Movetext: 复制棋步记录
+Copy FEN: 复制 FEN
+Game: 游戏
+Takeback: 悔棋
+Propose a takeback: 提议悔棋
+Offer draw: 提议和棋
+Resign: 认输
+Offer Rematch: 提议再战
+Study: 学习
+Download Image: 下载图片
+Download Video: 下载视频
+Heuristic Charts: 启发式图表
+Explain Position: 解释位置
+Soon available! Please be patient: 即将推出！请耐心等待
+Save Changes: 保存更改
+ChesslaBlab is an open-source community driven project: ChesslaBlab 是一个由社区驱动的开源项目
+Let's do this: 让我们开始吧
+
+# Settings
+Theme: 主题
+Display moves: 显示走法
+Inline: 行内
+Table: 表格
+Notation: 记谱法
+Figurine Algebraic Notation (FAN): 立体代数记谱法 (FAN)
+Standard Algebraic Notation (SAN): 标准代数记谱法 (SAN)
+Piece set: 棋子集
+Light: 浅色
+Dark: 深色
+Chess server: 国际象棋服务器
+
+# Error pages
+This publication has not been translated into the current selected language: 本出版物尚未翻译成当前选择的语言
+Whoops: 哎呀
