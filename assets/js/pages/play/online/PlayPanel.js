@@ -15,8 +15,14 @@ export const timerTable = new TimerTable(
   document.querySelector('#timerTable tbody'),
   {
     turn: 'w',
-    w: 0,
-    b: 0
+    seconds: {
+      w: 0,
+      b: 0
+    },
+    username: {
+      w: 'anonymous',
+      b: 'anonymous'
+    }
   }
 );
 

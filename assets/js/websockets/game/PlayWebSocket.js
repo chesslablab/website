@@ -50,9 +50,12 @@ export class PlayWebSocket extends GameWebSocket {
         playPanel.props.movesBrowser.mount();
         this.toggleInput(data.turn);
         playPanel.props.timerTable.props = {
+          ...playPanel.props.timerTable.props,
           turn: data.turn,
-          w: data.timer.w,
-          b: data.timer.b
+          seconds: {
+            w: data.timer.w,
+            b: data.timer.b
+          }
         };
         this.gameOver(data);
       } else {
@@ -93,9 +96,12 @@ export class PlayWebSocket extends GameWebSocket {
         this.infoModal.props.modal.hide();
         sessionStorage.setItem('hash', data.hash);
         playPanel.props.timerTable.props = {
+          ...playPanel.props.timerTable.props,
           turn: turn,
-          w: data.timer.w,
-          b: data.timer.b
+          seconds: {
+            w: data.timer.w,
+            b: data.timer.b
+          }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
         playOnlineButtons.el.classList.add('d-none');
@@ -179,9 +185,12 @@ export class PlayWebSocket extends GameWebSocket {
         playPanel.props.movesBrowser.props.movetext = '';
         playPanel.props.movesBrowser.mount();
         playPanel.props.timerTable.props = {
+          ...playPanel.props.timerTable.props,
           turn: turn,
-          w: data.timer.w,
-          b: data.timer.b
+          seconds: {
+            w: data.timer.w,
+            b: data.timer.b
+          }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
         sessionStorage.setItem('hash', data.hash);
