@@ -96,11 +96,14 @@ export class PlayWebSocket extends GameWebSocket {
         this.infoModal.props.modal.hide();
         sessionStorage.setItem('hash', data.hash);
         playPanel.props.timerTable.props = {
-          ...playPanel.props.timerTable.props,
           turn: turn,
           seconds: {
             w: data.timer.w,
             b: data.timer.b
+          },
+          username: {
+            w: jwtDecoded.username.w,
+            b: jwtDecoded.username.b
           }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
