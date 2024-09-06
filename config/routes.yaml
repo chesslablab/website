@@ -9,14 +9,14 @@ totp_auth_signin:
     controller: App\Controller\TotpAuthController::signin
     methods:    POST
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 totp_auth_signout:
     path:       /{_locale}/totp-auth/signout
     controller: App\Controller\TotpAuthController::signout
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 # Setup routes
 
@@ -44,129 +44,129 @@ pages_games:
     controller: App\Controller\Pages\GamesController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_edit:
     path:       /{_locale}/edit
     controller: App\Controller\Pages\EditController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_learn_analysis:
     path:       /{_locale}/learn/analysis
     controller: App\Controller\Pages\Learn\AnalysisController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_learn_annotated_games:
     path:       /{_locale}/learn/annotated-games
     controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_learn_rav_movetext:
     path:       /{_locale}/learn/rav-movetext
     controller: App\Controller\Pages\Learn\RavMovetextController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_openings_search:
     path:       /{_locale}/openings/search
     controller: App\Controller\Pages\Openings\SearchController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_openings_most_played:
     path:       /{_locale}/openings/most-played
     controller: App\Controller\Pages\Openings\MostPlayedController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_openings_by_player:
     path:       /{_locale}/openings/by-player
     controller: App\Controller\Pages\Openings\ByPlayerController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_openings_by_event:
     path:       /{_locale}/openings/by-event
     controller: App\Controller\Pages\Openings\ByEventController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_play_computer:
     path:       /{_locale}/play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_play_online:
     path:       /{_locale}/
     controller: App\Controller\Pages\Play\OnlineController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
     options:
       sitemap:
-        _locale: en|es|fr|ru|tr|de|hi
+        _locale: en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_players:
     path:       /{_locale}/players
     controller: App\Controller\Pages\PlayersController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_training_checkmate:
     path:       /{_locale}/training/checkmate
     controller: App\Controller\Pages\Training\CheckmateController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_training_endgame:
     path:       /{_locale}/training/endgame
     controller: App\Controller\Pages\Training\EndgameController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_settings:
     path:       /{_locale}/settings
     controller: App\Controller\Pages\Settings\SettingsController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_signin:
     path:       /{_locale}/signin
     controller: App\Controller\Pages\SignIn\SignInController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_signin_register:
     path:       /{_locale}/signin/register
     controller: App\Controller\Pages\SignIn\RegisterController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 pages_about:
     path:       /{_locale}/about
     controller: App\Controller\Pages\AboutController::index
     methods:    GET
     requirements:
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
     options:
       sitemap:
         _locale: en
@@ -179,7 +179,7 @@ iframe_analysis:
     methods:    GET
     requirements:
       fen: .+
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 iframe_annotations:
     path:       /{_locale}/iframe/annotations/{variant}/{fen}/{movetext}/{startPos}
@@ -187,4 +187,4 @@ iframe_annotations:
     methods:    GET
     requirements:
       fen: .+
-      _locale:  en|es|fr|ru|tr|de|hi
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
