@@ -1,4 +1,4 @@
-const messagesZh = {
+const messagesZhCN = {
   // AbstractWebSocket
   "Whoops! We are experiencing some technical issues": "哎呀！我们遇到了一些技术问题",
   // GameWebSocket
@@ -25,4 +25,4 @@ const messagesZh = {
   "Invalid SAN movetext, please try again": "SAN 记谱法无效，请重试"
 };
 
-export default messagesZh_CN;
+export default messagesZhCN;
