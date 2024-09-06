@@ -8,7 +8,7 @@ export class PlayersButtons extends AbstractComponent {
       this.props.games.forEach(game => {
         const button = document.createElement('button');
         button.classList.add('btn', 'btn-primary', 'w-100', 'rounded-0');
-        button.textContent = `${game.username} ${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
+        button.textContent = `${game.username[game.color]} ${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
         if (sessionStorage.getItem('hash') !== game.hash) {
           button.addEventListener('click', () => {
             playWebSocket.send(`/accept ${game.hash}`);
