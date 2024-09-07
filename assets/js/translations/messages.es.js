@@ -16,7 +16,7 @@ const messagesEs = {
   "Waiting for your opponent to accept or decline": "Espera a que tu oponente acepte o rechace",
   "Invalid invite code, please try again": "Código de invitación no válido, inténtalo de nuevo",
   "Takeback declined": "Corrección del movimiento declinada",
-  "Takeback accepted": "Corrección del movimiento acceptada",
+  "Takeback accepted": "Corrección del movimiento aceptada",
   "Draw offer declined": "Oferta de tablas declinada",
   "Draw offer accepted": "Oferta de tablas aceptada",
   "The game is resigned": "Partida abandonada",
