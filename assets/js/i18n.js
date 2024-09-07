@@ -2,6 +2,7 @@ import messagesDe from './translations/messages.de.js';
 import messagesEs from './translations/messages.es.js';
 import messagesFr from './translations/messages.fr.js';
 import messagesHi from './translations/messages.hi.js';
+import messagesRu from './translations/messages.ru.js';
 import messagesTr from './translations/messages.tr.js';
 import messagesZhCN from './translations/messages.zh_CN.js';
 
@@ -14,6 +15,8 @@ export const trans = (string) => {
     return messagesFr[string];
   } else if (document.documentElement.lang === 'hi') {
     return messagesHi[string];
+  } else if (document.documentElement.lang === 'ru') {
+    return messagesRu[string];
   } else if (document.documentElement.lang === 'tr') {
     return messagesTr[string];
   } else if (document.documentElement.lang === 'zh_CN') {
