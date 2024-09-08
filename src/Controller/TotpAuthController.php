@@ -18,6 +18,7 @@ class TotpAuthController extends AbstractController
             'ui',
             json_encode([
                 'username' => $params['username'],
+                'elo' => $params['elo'],
             ]),
             time() + (2 * 365 * 24 * 60 * 60), // expires in 2 years
             '/', // path

@@ -17,7 +17,8 @@ export class SignInForm extends AbstractComponent {
             fetch(this.el.dataset.totp_auth_signin, {
               method: 'POST',
               body: JSON.stringify({
-                username: data.username
+                username: data.username,
+                elo: data.elo
               })
             }).then(() => {
               window.location.href = this.el.dataset.pages_play_online;
