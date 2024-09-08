@@ -112,7 +112,7 @@
           </a>
         </li>
         <li class="nav-item">
-          {% if app.session.get('username') %}
+          {% if app.request.cookies.has('ui') %}
             <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('totp_auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
               {% include 'svg/bi-box-arrow-right.svg' %} {{ 'Sign Out'|trans }}
             </a>
