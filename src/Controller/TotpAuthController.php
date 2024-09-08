@@ -13,7 +13,6 @@ class TotpAuthController extends AbstractController
     public function signin(Request $request): Response
     {
         $params = json_decode($request->getContent(), true);
-        $request->getSession()->set('username', $params['username']);
         $cookie = Cookie::create(
             'ui',
             json_encode([
@@ -34,7 +33,6 @@ class TotpAuthController extends AbstractController
 
     public function signout(Request $request): Response
     {
-        $request->getSession()->clear();
         $response = new RedirectResponse($this->generateUrl('pages_signin'));
         $response->headers->clearCookie('ui');
 
