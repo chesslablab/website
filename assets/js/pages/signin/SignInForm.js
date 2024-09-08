@@ -1,3 +1,4 @@
+import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
 import AbstractComponent from '../../AbstractComponent.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 
@@ -13,16 +14,9 @@ export class SignInForm extends AbstractComponent {
       dataWebSocket
         .send(`/totp_signin "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/totp_signin', data => {
-          if (data?.username) {
-            fetch(this.el.dataset.totp_auth_signin, {
-              method: 'POST',
-              body: JSON.stringify({
-                username: data.username,
-                elo: data.elo
-              })
-            }).then(() => {
-              window.location.href = this.el.dataset.pages_play_online;
-            });
+          if (data?.token) {
+            jsCookie.set('token', data.token);
+            window.location.href = this.el.dataset.pages_play_online;
           } else {
             window.location.href = this.el.dataset.totp_auth_signout;
           }

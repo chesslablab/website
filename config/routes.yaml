@@ -4,13 +4,6 @@ routing_directory:
 
 # TOTP auth routes
 
-totp_auth_signin:
-    path:       /{_locale}/totp-auth/signin
-    controller: App\Controller\TotpAuthController::signin
-    methods:    POST
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
 totp_auth_signout:
     path:       /{_locale}/totp-auth/signout
     controller: App\Controller\TotpAuthController::signout
