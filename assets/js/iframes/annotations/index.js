@@ -13,7 +13,6 @@ try {
 } catch {}
 
 const url = window.location.href.split('/');
-const variant = url[6];
 
 annotationsWebSocket.send('/play_rav', {
   fen: decodeURIComponent(url[7]),

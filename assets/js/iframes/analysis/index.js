@@ -13,10 +13,9 @@ try {
 } catch {}
 
 const url = window.location.href.split('/');
-const variant = url[6];
 
 analysisWebSocket.send('/start', {
-  variant: variant,
+  variant: url[6],
   mode: mode.ANALYSIS,
   settings: {
     fen: decodeURIComponent(url[7]),
