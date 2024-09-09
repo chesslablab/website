@@ -169,7 +169,10 @@ export class PlayWebSocket extends GameWebSocket {
         playPanel.props.rematchModal.props.modal.hide();
         this.infoModal.props.modal.hide();
       } else if (data.action === action.ACCEPT) {
-        this.send(`/restart ${sessionStorage.getItem('hash')}`);
+        const settings = {
+          hash: sessionStorage.getItem('hash')
+        };
+        this.send(`/restart "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
       }
       sessionStorage.removeItem('rematch');
     })
