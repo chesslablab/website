@@ -12,8 +12,12 @@ export class SanForm extends AbstractComponent {
         event.target.value === variant.CHESS_960
           ? this.props.startPosInput.classList.remove('d-none')
           : this.props.startPosInput.classList.add('d-none');
+        const params = {
+          variant: event.target.value,
+          mode: mode.ANALYSIS
+        };
         sessionStorage.clear();
-        analysisWebSocket.send(`/start ${event.target.value} ${mode.ANALYSIS}`);
+        analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       });
 
       this.el.addEventListener('submit', event => {
