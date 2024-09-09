@@ -14,15 +14,18 @@ export class CheckmateModal extends AbstractComponent {
         ? this._checkmateTypes[Math.floor(Math.random() * this._checkmateTypes.length)]
         : formData.get('items');
       const split = checkmateType.split(',');
-      const items = split.length === 2
-        ? {
-            [formData.get('color')]: split[0],
-            [formData.get('color') === Pgn.symbol.WHITE ? Pgn.symbol.BLACK : Pgn.symbol.WHITE]: split[1]
+      const params = {
+        turn: formData.get('color'),
+        items: split.length === 2
+          ? {
+              [formData.get('color')]: split[0],
+              [formData.get('color') === Pgn.symbol.WHITE ? Pgn.symbol.BLACK : Pgn.symbol.WHITE]: split[1]
+            }
+          : {
+              [formData.get('color')]: split[0]
           }
-        : {
-            [formData.get('color')]: split[0]
-        };
-      stockfishWebSocket.send(`/randomizer ${formData.get('color')} "${JSON.stringify(items).replace(/"/g, '\\"')}"`);
+      };
+      stockfishWebSocket.send(`/randomizer "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
     });
   }
