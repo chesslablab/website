@@ -1,3 +1,5 @@
+import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
+import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
@@ -6,8 +8,13 @@ export class EnterInviteCodeModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
+      const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
-      playWebSocket.send(`/accept ${formData.get('hash')}`);
+      const settings = {
+        hash: formData.get('hash'),
+        username: jwtDecoded ? jwtDecoded.username : null
+      };
+      playWebSocket.send(`/accept "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
     });
   }
 }

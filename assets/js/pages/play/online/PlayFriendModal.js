@@ -1,3 +1,5 @@
+import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
+import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { copyInviteCodeModal } from './CopyInviteCodeModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
@@ -18,6 +20,7 @@ export class PlayFriendModal extends AbstractComponent {
 
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
+      const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
       const settings = {
         min: formData.get('minutes'),
@@ -25,7 +28,8 @@ export class PlayFriendModal extends AbstractComponent {
         color: formData.get('color'),
         submode: 'friend',
         ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
-        ...(formData.get('fen') && {fen: formData.get('fen')})
+        ...(formData.get('fen') && {fen: formData.get('fen')}),
+        username: jwtDecoded ? jwtDecoded.username : null
       };
       sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
