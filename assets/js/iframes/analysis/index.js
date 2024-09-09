@@ -17,7 +17,7 @@ const variant = url[6];
 
 analysisWebSocket.send('/start', {
   variant: variant,
-  mode: decodeURIComponent(url[8]),
+  mode: mode.ANALYSIS,
   settings: {
     fen: decodeURIComponent(url[7]),
     movetext: decodeURIComponent(url[8]),
