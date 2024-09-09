@@ -10,6 +10,7 @@ import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import * as env from '../../../env.js';
 import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
@@ -64,10 +65,14 @@ export class SearchGamesModal extends AbstractComponent {
             tr.appendChild(resultTd);
 
             tr.addEventListener('click', event => {
-              const settings = {
-                movetext: game.movetext
+              const params = {
+                variant: variant.CLASSICAL,
+                mode: mode.ANALYSIS,
+                settings: {
+                  movetext: game.movetext
+                }
               };
-              analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+              analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
               this.props.movesMetadataTable.props = game;
               this.props.movesMetadataTable.mount();
               this.props.modal.hide();

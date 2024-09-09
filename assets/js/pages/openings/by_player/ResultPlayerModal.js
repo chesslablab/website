@@ -7,6 +7,7 @@ import AbstractComponent from '../../../AbstractComponent.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../../mode.js';
+import * as variant from '../../../../variant.js';
 
 Chart.register(...registerables);
 
@@ -32,10 +33,14 @@ export class ResultPlayerModal extends AbstractComponent {
         .onChange('/search', data => {
           this.props.movesMetadataTable.props = data[0];
           this.props.movesMetadataTable.mount();
-          const startSettings = {
-            movetext: this.props.movesMetadataTable.props.movetext
+          const params = {
+            variant: variant.CLASSICAL,
+            mode: mode.ANALYSIS,
+            settings: {
+              movetext: this.props.movesMetadataTable.props.movetext
+            }
           };
-          analysisWebSocket.send(`/start classical ${mode.ANALYSIS} "${JSON.stringify(startSettings).replace(/"/g, '\\"')}"`);
+          analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
           this.props.modal.hide();
           this.progressModal.props.modal.hide();
         });

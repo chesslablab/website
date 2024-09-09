@@ -22,17 +22,21 @@ export class PlayFriendModal extends AbstractComponent {
       event.preventDefault();
       const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
-      const settings = {
-        min: formData.get('minutes'),
-        increment: formData.get('increment'),
-        color: formData.get('color'),
-        submode: 'friend',
-        ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
-        ...(formData.get('fen') && {fen: formData.get('fen')}),
-        username: jwtDecoded ? jwtDecoded.username : null
+      const params = {
+        variant: formData.get('variant'),
+        mode: mode.PLAY,
+        settings: {
+          min: formData.get('minutes'),
+          increment: formData.get('increment'),
+          color: formData.get('color'),
+          submode: 'friend',
+          ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
+          ...(formData.get('fen') && {fen: formData.get('fen')}),
+          username: jwtDecoded ? jwtDecoded.username : null
+        }
       };
       sessionStorage.setItem('color', formData.get('color'));
-      playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+      playWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
       this.props.copyInviteCodeModal.props.modal.show();
     });

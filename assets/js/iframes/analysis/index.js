@@ -14,10 +14,14 @@ try {
 
 const url = window.location.href.split('/');
 const variant = url[6];
-const settings = {
-  fen: decodeURIComponent(url[7]),
-  movetext: decodeURIComponent(url[8]),
-  startPos: url[9]
+const params = {
+  variant: variant,
+  mode: decodeURIComponent(url[8]),
+  settings: {
+    fen: decodeURIComponent(url[7]),
+    movetext: decodeURIComponent(url[8]),
+    startPos: url[9]
+  }
 };
 
-analysisWebSocket.send(`/start ${variant} ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);

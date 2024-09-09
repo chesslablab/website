@@ -18,13 +18,17 @@ export class SanForm extends AbstractComponent {
 
       this.el.addEventListener('submit', event => {
         event.preventDefault();
-        const settings = {
-          fen: event.target.fen.value,
-          movetext: Movetext.notation(NOTATION_SAN, event.target.san.value),
-          ...(event.target.startPos.value && {startPos: event.target.startPos.value})
+        const params = {
+          variant: event.target.variant.value,
+          mode: mode.ANALYSIS,
+          settings: {
+            fen: event.target.fen.value,
+            movetext: Movetext.notation(NOTATION_SAN, event.target.san.value),
+            ...(event.target.startPos.value && {startPos: event.target.startPos.value})
+          }
         };
         sessionStorage.clear();
-        analysisWebSocket.send(`/start ${event.target.variant.value} ${mode.ANALYSIS} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       });
     }
   }

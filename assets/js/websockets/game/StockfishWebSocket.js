@@ -95,11 +95,15 @@ export class StockfishWebSocket extends GameWebSocket {
       }
       sessionStorage.setItem('skillLevel', 20);
       sessionStorage.setItem('depth', 12);
-      const settings = {
-        color: data.turn,
-        fen: data.fen
-      };
-      this.send(`/start ${variant.CLASSICAL} ${mode.STOCKFISH} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+      const params = {
+        variant: variant.CLASSICAL,
+        mode: mode.STOCKFISH,
+        settings: {
+          color: data.turn,
+          fen: data.fen
+        }
+      }
+      this.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
     });
   }
 }
