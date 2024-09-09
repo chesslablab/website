@@ -20,8 +20,8 @@ export const timerTable = new TimerTable(
       b: 0
     },
     username: {
-      w: 'anonymous',
-      b: 'anonymous'
+      w: '',
+      b: ''
     }
   }
 );
