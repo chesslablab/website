@@ -9,14 +9,14 @@ export class CreateGameModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      const jwtDecoded = jwtDecode(jsCookie.get('token'));
+      const jwtDecoded = jwtDecode(jsCookie.get('ui'));
       const formData = new FormData(this.props.form);
       const settings = {
         min: formData.get('minutes'),
         increment: formData.get('increment'),
         color: formData.get('color'),
         submode: 'online',
-        username: jsCookie.get('token') ? jwtDecoded.username : null
+        username: jsCookie.get('ui') ? jwtDecoded.username : null
       };
       sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send(`/start ${formData.get('variant')} ${mode.PLAY} "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);

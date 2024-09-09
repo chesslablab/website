@@ -14,8 +14,8 @@ export class SignInForm extends AbstractComponent {
       dataWebSocket
         .send(`/totp_signin "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
         .onChange('/totp_signin', data => {
-          if (data?.token) {
-            jsCookie.set('token', data.token);
+          if (data?.ui) {
+            jsCookie.set('ui', data.ui);
             window.location.href = this.el.dataset.pages_play_online;
           } else {
             window.location.href = this.el.dataset.totp_auth_signout;
