@@ -49,12 +49,12 @@ export class ResultEventModal extends AbstractComponent {
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const eventStatsChart = document.getElementById('eventStatsChart');
-      const settings = {
+      const params = {
         Event: formData.get('Event'),
         Result: formData.get('Result')
       };
       dataWebSocket
-        .send(`/result_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .send(`/result_event "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
         .onChange('/result_event', data => {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');

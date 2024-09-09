@@ -8,11 +8,11 @@ export class EventAutocomplete extends AbstractComponent {
       if (event.target.value.length % 3 === 0) {
         this.props.submitButton.classList.add('d-none');
         this.props.loadingButton.classList.remove('d-none');
-        const settings = {
+        const params = {
           Event: event.target.value
         };
         dataWebSocket
-          .send(`/autocomplete_event "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .send(`/autocomplete_event "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
           .onChange('/autocomplete_event', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {

@@ -34,17 +34,17 @@ export default class GameWebSocket extends AbstractWebSocket {
     }
 
     if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
-      const settings = {
+      const params = {
         square: event.square
       };
-      this.send(`/legal "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+      this.send(`/legal "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       return true;
     } else if (event.type === INPUT_EVENT_TYPE.validateMoveInput) {
-      const settings = {
+      const params = {
         color: event.piece.charAt(0),
         lan: event.squareFrom + event.squareTo
       };
-      this.send(`/play_lan "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+      this.send(`/play_lan "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       return true;
     }
   }

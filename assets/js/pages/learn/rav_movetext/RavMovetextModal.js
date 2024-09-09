@@ -18,11 +18,11 @@ export class RavMovetextModal extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
-      const settings = {
+      const params = {
         variant: formData.get('variant'),
         movetext: formData.get('rav'),
       };
-      annotationsWebSocket.send(`/play_rav "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+      annotationsWebSocket.send(`/play_rav "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       this.props.modal.hide();
     });
   }

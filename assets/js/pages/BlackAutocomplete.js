@@ -8,11 +8,11 @@ export class BlackAutocomplete extends AbstractComponent {
       if (event.target.value.length % 3 === 0) {
         this.props.submitButton.classList.add('d-none');
         this.props.loadingButton.classList.remove('d-none');
-        const settings = {
+        const params = {
           Black: event.target.value
         };
         dataWebSocket
-          .send(`/autocomplete_black "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+          .send(`/autocomplete_black "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
           .onChange('/autocomplete_black', data => {
             this.props.datalist.replaceChildren();
             data.forEach(item => {

@@ -17,7 +17,7 @@ export class StockfishWebSocket extends GameWebSocket {
         this.chessboard.setOrientation(COLOR.black);
       }
       if (data.fen.split(' ')[1] !== data.color) {
-        const settings = {
+        const params = {
           options: {
             'Skill Level': sessionStorage.getItem('skillLevel')
           },
@@ -25,7 +25,7 @@ export class StockfishWebSocket extends GameWebSocket {
             depth: 12
           }
         };
-        this.send(`/stockfish "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+        this.send(`/stockfish "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
       }
     })
     .onChange('/legal', data => {
@@ -45,7 +45,7 @@ export class StockfishWebSocket extends GameWebSocket {
         stockfishPanel.props.openingTable.props.movetext = data.movetext;
         stockfishPanel.props.openingTable.mount();
         if (!this.gameOver(data, this.chessboard)) {
-          const settings = {
+          const params = {
             options: {
               'Skill Level': sessionStorage.getItem('skillLevel')
             },
@@ -53,7 +53,7 @@ export class StockfishWebSocket extends GameWebSocket {
               depth: 12
             }
           };
-          this.send(`/stockfish "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+          this.send(`/stockfish "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
         }
       } else {
         this.chessboard.setPosition(data.fen, false);

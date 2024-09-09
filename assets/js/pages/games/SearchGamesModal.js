@@ -20,7 +20,7 @@ export class SearchGamesModal extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
-      const settings = {
+      const params = {
         Event: formData.get('Event'),
         Date: formData.get('Date'),
         White: formData.get('White'),
@@ -30,7 +30,7 @@ export class SearchGamesModal extends AbstractComponent {
         movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
       };
       dataWebSocket
-        .send(`/search "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .send(`/search "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
         .onChange('/search', data => {
           const tbody = this.props.form.getElementsByTagName('tbody')[0];
           tbody.parentNode.classList.add('mt-3');

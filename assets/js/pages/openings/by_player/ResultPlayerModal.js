@@ -51,13 +51,13 @@ export class ResultPlayerModal extends AbstractComponent {
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const playerStatsChart = document.getElementById('playerStatsChart');
-      const settings = {
+      const params = {
         White: formData.get('White'),
         Black: formData.get('Black'),
         Result: formData.get('Result')
       };
       dataWebSocket
-        .send(`/result_player "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .send(`/result_player "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
         .onChange('/result_player', data => {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');

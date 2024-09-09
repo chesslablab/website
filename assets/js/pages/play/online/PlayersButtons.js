@@ -14,11 +14,11 @@ export class PlayersButtons extends AbstractComponent {
         if (sessionStorage.getItem('hash') !== game.hash) {
           button.addEventListener('click', () => {
             const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
-            const settings = {
+            const params = {
               hash: game.hash,
               username: jwtDecoded ? jwtDecoded.username : null
             };
-            playWebSocket.send(`/accept "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
+            playWebSocket.send(`/accept "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
           });
         } else {
           button.disabled = true;

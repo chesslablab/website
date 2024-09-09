@@ -7,12 +7,12 @@ export class SignInForm extends AbstractComponent {
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
-      const settings = {
+      const params = {
         username: formData.get('username'),
         password: formData.get('password')
       };
       dataWebSocket
-        .send(`/totp_signin "${JSON.stringify(settings).replace(/"/g, '\\"')}"`)
+        .send(`/totp_signin "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
         .onChange('/totp_signin', data => {
           if (data?.ui) {
             jsCookie.set('ui', data.ui);
