@@ -1,3 +1,5 @@
+import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
+import { jwtDecode } from 'jwt-decode';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
@@ -11,7 +13,12 @@ export class PlayersButtons extends AbstractComponent {
         button.textContent = `${game.username[game.color]} ${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
         if (sessionStorage.getItem('hash') !== game.hash) {
           button.addEventListener('click', () => {
-            playWebSocket.send(`/accept ${game.hash}`);
+            const jwtDecoded = jwtDecode(jsCookie.get('ui'));
+            const settings = {
+              hash: game.hash,
+              username: jwtDecoded.username
+            };
+            playWebSocket.send(`/accept "${JSON.stringify(settings).replace(/"/g, '\\"')}"`);
           });
         } else {
           button.disabled = true;
