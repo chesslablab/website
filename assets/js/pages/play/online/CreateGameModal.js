@@ -11,7 +11,8 @@ export class CreateGameModal extends AbstractComponent {
       event.preventDefault();
       const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
-      const params = {
+      sessionStorage.setItem('color', formData.get('color'));
+      playWebSocket.send('/start', {
         variant: formData.get('variant'),
         mode: mode.PLAY,
         settings: {
@@ -21,9 +22,7 @@ export class CreateGameModal extends AbstractComponent {
           submode: 'online',
           username: jwtDecoded ? jwtDecoded.username : null
         }
-      };
-      sessionStorage.setItem('color', formData.get('color'));
-      playWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
     });
   }
 }

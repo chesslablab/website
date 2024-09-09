@@ -14,7 +14,8 @@ try {
 
 const url = window.location.href.split('/');
 const variant = url[6];
-const params = {
+
+analysisWebSocket.send('/start', {
   variant: variant,
   mode: decodeURIComponent(url[8]),
   settings: {
@@ -22,6 +23,4 @@ const params = {
     movetext: decodeURIComponent(url[8]),
     startPos: url[9]
   }
-};
-
-analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+});

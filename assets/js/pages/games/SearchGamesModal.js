@@ -20,17 +20,16 @@ export class SearchGamesModal extends AbstractComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
-      const params = {
-        Event: formData.get('Event'),
-        Date: formData.get('Date'),
-        White: formData.get('White'),
-        Black: formData.get('Black'),
-        Result: formData.get('Result'),
-        ECO: formData.get('ECO'),
-        movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
-      };
       dataWebSocket
-        .send(`/search "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
+        .send('/search', {
+          Event: formData.get('Event'),
+          Date: formData.get('Date'),
+          White: formData.get('White'),
+          Black: formData.get('Black'),
+          Result: formData.get('Result'),
+          ECO: formData.get('ECO'),
+          movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
+        })
         .onChange('/search', data => {
           const tbody = this.props.form.getElementsByTagName('tbody')[0];
           tbody.parentNode.classList.add('mt-3');
@@ -65,14 +64,13 @@ export class SearchGamesModal extends AbstractComponent {
             tr.appendChild(resultTd);
 
             tr.addEventListener('click', event => {
-              const params = {
+              analysisWebSocket.send('/start', {
                 variant: variant.CLASSICAL,
                 mode: mode.ANALYSIS,
                 settings: {
                   movetext: game.movetext
                 }
-              };
-              analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+              });
               this.props.movesMetadataTable.props = game;
               this.props.movesMetadataTable.mount();
               this.props.modal.hide();

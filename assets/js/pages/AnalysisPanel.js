@@ -42,11 +42,10 @@ export class AnalysisPanel extends AbstractComponent {
     this.props.gameStudyDropdown.props.ul.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const params = {
-        fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
-      };
       analysisWebSocket
-        .send(`/tutor_fen "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
+        .send('/tutor_fen', {
+          fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
+        })
         .onChange('/tutor_fen', data => {
           this.props.explainPositionModal.props.explanation = data;
           this.props.explainPositionModal.mount();
@@ -80,13 +79,12 @@ export class AnalysisPanel extends AbstractComponent {
       if (event.target.value) {
         this.progressModal.props.modal.show();
         const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
-        const params = {
-          variant: variant.CLASSICAL,
-          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
-          name: event.target.value
-        };
         analysisWebSocket
-          .send(`/heuristic "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
+          .send('/heuristic', {
+            variant: variant.CLASSICAL,
+            movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
+            name: event.target.value
+          })
           .onChange('/heuristic', data => {
             const canvas = document.createElement('canvas');
             this.props.heuristicsModal.props.chart.replaceChildren();

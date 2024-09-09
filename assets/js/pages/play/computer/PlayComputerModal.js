@@ -22,15 +22,14 @@ export class PlayComputerModal extends AbstractComponent {
         sessionStorage.setItem('skillLevel', 6);
         sessionStorage.setItem('depth', 2);
       }
-      const params = {
+      stockfishWebSocket.send('/start', {
         variant: variant.CLASSICAL,
         mode: mode.STOCKFISH,
         settings: {
           ...(formData.get('color') && {color: formData.get('color')}),
           ...(formData.get('fen') && {fen: formData.get('fen')})
         }
-      };
-      stockfishWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
       this.props.modal.hide();
     });
   }

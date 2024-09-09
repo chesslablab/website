@@ -14,7 +14,7 @@ export class CheckmateModal extends AbstractComponent {
         ? this._checkmateTypes[Math.floor(Math.random() * this._checkmateTypes.length)]
         : formData.get('items');
       const split = checkmateType.split(',');
-      const params = {
+      stockfishWebSocket.send('/randomizer', {
         turn: formData.get('color'),
         items: split.length === 2
           ? {
@@ -24,8 +24,7 @@ export class CheckmateModal extends AbstractComponent {
           : {
               [formData.get('color')]: split[0]
           }
-      };
-      stockfishWebSocket.send(`/randomizer "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
       this.props.modal.hide();
     });
   }

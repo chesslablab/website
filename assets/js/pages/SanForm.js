@@ -12,17 +12,17 @@ export class SanForm extends AbstractComponent {
         event.target.value === variant.CHESS_960
           ? this.props.startPosInput.classList.remove('d-none')
           : this.props.startPosInput.classList.add('d-none');
-        const params = {
+        sessionStorage.clear();
+        analysisWebSocket.send('/start', {
           variant: event.target.value,
           mode: mode.ANALYSIS
-        };
-        sessionStorage.clear();
-        analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+        });
       });
 
       this.el.addEventListener('submit', event => {
         event.preventDefault();
-        const params = {
+        sessionStorage.clear();
+        analysisWebSocket.send('/start', {
           variant: event.target.variant.value,
           mode: mode.ANALYSIS,
           settings: {
@@ -30,9 +30,7 @@ export class SanForm extends AbstractComponent {
             movetext: Movetext.notation(NOTATION_SAN, event.target.san.value),
             ...(event.target.startPos.value && {startPos: event.target.startPos.value})
           }
-        };
-        sessionStorage.clear();
-        analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+        });
       });
     }
   }

@@ -14,7 +14,7 @@ export class EndgameModal extends AbstractComponent {
         ? this._endgameTypes[Math.floor(Math.random() * this._endgameTypes.length)]
         : formData.get('items');
       const split = checkmateType.split(',');
-      const params = {
+      stockfishWebSocket.send('/randomizer', {
         turn: formData.get('color'),
         items: split.length === 2
           ? {
@@ -24,8 +24,7 @@ export class EndgameModal extends AbstractComponent {
           : {
               [formData.get('color')]: split[0]
           }
-      };
-      stockfishWebSocket.send(`/randomizer "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
       this.props.modal.hide();
     });
   }

@@ -10,11 +10,10 @@ export class EnterInviteCodeModal extends AbstractComponent {
       event.preventDefault();
       const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
-      const params = {
+      playWebSocket.send('/accept', {
         hash: formData.get('hash'),
         username: jwtDecoded ? jwtDecoded.username : null
-      };
-      playWebSocket.send(`/accept "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
     });
   }
 }

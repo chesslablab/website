@@ -14,10 +14,9 @@ try {
 
 const url = window.location.href.split('/');
 const variant = url[6];
-const params = {
+
+annotationsWebSocket.send('/play_rav', {
   fen: decodeURIComponent(url[7]),
   movetext: decodeURIComponent(url[8]),
   startPos: url[9]
-};
-
-annotationsWebSocket.send(`/play_rav "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+});

@@ -35,9 +35,13 @@ export default class AbstractWebSocket {
     });
   }
 
-  send(msg) {
+  send(msg, params = null) {
     if (this.socket) {
-      this.socket.send(msg);
+      if (params) {
+        this.socket.send(`${msg} "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      } else {
+        this.socket.send(msg);
+      }
     }
 
     return this;

@@ -22,25 +22,23 @@ export class ResultPlayerModal extends AbstractComponent {
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const { dataIndex, raw } = clickedElements[0].element.$context;
-      const searchSettings = {
-        White: formData.get('White'),
-        Black: formData.get('Black'),
-        Result: formData.get('Result'),
-        ECO: event.chart.data.labels[dataIndex]
-      };
       dataWebSocket
-        .send(`/search "${JSON.stringify(searchSettings).replace(/"/g, '\\"')}"`)
+        .send('/search', {
+          White: formData.get('White'),
+          Black: formData.get('Black'),
+          Result: formData.get('Result'),
+          ECO: event.chart.data.labels[dataIndex]
+        })
         .onChange('/search', data => {
           this.props.movesMetadataTable.props = data[0];
           this.props.movesMetadataTable.mount();
-          const params = {
+          analysisWebSocket.send('/start', {
             variant: variant.CLASSICAL,
             mode: mode.ANALYSIS,
             settings: {
               movetext: this.props.movesMetadataTable.props.movetext
             }
-          };
-          analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+          });
           this.props.modal.hide();
           this.progressModal.props.modal.hide();
         });
@@ -51,13 +49,12 @@ export class ResultPlayerModal extends AbstractComponent {
       this.progressModal.props.modal.show();
       const formData = new FormData(this.props.form);
       const playerStatsChart = document.getElementById('playerStatsChart');
-      const params = {
-        White: formData.get('White'),
-        Black: formData.get('Black'),
-        Result: formData.get('Result')
-      };
       dataWebSocket
-        .send(`/result_player "${JSON.stringify(params).replace(/"/g, '\\"')}"`)
+        .send('/result_player', {
+          White: formData.get('White'),
+          Black: formData.get('Black'),
+          Result: formData.get('Result')
+        })
         .onChange('/result_player', data => {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');

@@ -22,7 +22,8 @@ export class PlayFriendModal extends AbstractComponent {
       event.preventDefault();
       const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
       const formData = new FormData(this.props.form);
-      const params = {
+      sessionStorage.setItem('color', formData.get('color'));
+      playWebSocket.send('/start', {
         variant: formData.get('variant'),
         mode: mode.PLAY,
         settings: {
@@ -34,9 +35,7 @@ export class PlayFriendModal extends AbstractComponent {
           ...(formData.get('fen') && {fen: formData.get('fen')}),
           username: jwtDecoded ? jwtDecoded.username : null
         }
-      };
-      sessionStorage.setItem('color', formData.get('color'));
-      playWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+      });
       this.props.modal.hide();
       this.props.copyInviteCodeModal.props.modal.show();
     });

@@ -63,11 +63,10 @@ dataWebSocket
       tr.addEventListener('click', async (event) => {
         annotatedGames.props.modal.hide();
         annotatedGames.progressModal.props.modal.show();
-        const params = {
+        annotationsWebSocket.send('/play_rav', {
           variant: variant.CLASSICAL,
           movetext: game.movetext
-        };
-        annotationsWebSocket.send(`/play_rav "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+        });
       });
 
       tbody.appendChild(tr);

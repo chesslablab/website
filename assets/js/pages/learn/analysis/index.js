@@ -13,9 +13,7 @@ try {
   await analysisWebSocket.connect();
 } catch {}
 
-const params = {
+analysisWebSocket.send('/start', {
   variant: variant.CLASSICAL,
   mode: mode.ANALYSIS
-};
-
-analysisWebSocket.send(`/start "${JSON.stringify(params).replace(/"/g, '\\"')}"`);
+});
