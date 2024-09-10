@@ -57,7 +57,12 @@ export class PlayWebSocket extends AbstractGameWebSocket {
             b: data.timer.b
           }
         };
-        this.gameOver(data);
+        if (data.end?.msg) {
+          this.infoModal.props.msg = data.end?.msg;
+          this.infoModal.mount();
+          this.infoModal.props.modal.show();
+          this.end();
+        }
       } else {
         this.chessboard.setPosition(data.fen, false);
       }
