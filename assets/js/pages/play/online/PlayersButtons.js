@@ -13,7 +13,7 @@ export class PlayersButtons extends AbstractComponent {
         button.textContent = `${game.username[game.color]} ${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
         if (sessionStorage.getItem('hash') !== game.hash) {
           button.addEventListener('click', () => {
-            const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
+            const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
             playWebSocket.send('/accept', {
               hash: game.hash,
               username: jwtDecoded ? jwtDecoded.username : null

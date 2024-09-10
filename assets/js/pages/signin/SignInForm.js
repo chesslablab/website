@@ -13,8 +13,8 @@ export class SignInForm extends AbstractComponent {
           password: formData.get('password')
         })
         .onChange('/totp_signin', data => {
-          if (data?.ui) {
-            jsCookie.set('ui', data.ui);
+          if (data?.access_token) {
+            jsCookie.set('access_token', data.access_token);
             window.location.href = this.el.dataset.pages_play_online;
           } else {
             window.location.href = this.el.dataset.totp_auth_signout;

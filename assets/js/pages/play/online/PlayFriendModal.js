@@ -20,7 +20,7 @@ export class PlayFriendModal extends AbstractComponent {
 
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      const jwtDecoded = jsCookie.get('ui') ? jwtDecode(jsCookie.get('ui')) : null;
+      const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
       const formData = new FormData(this.props.form);
       sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send('/start', {
