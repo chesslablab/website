@@ -44,7 +44,7 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
         stockfishPanel.props.openingTable.props.movetext = data.movetext;
         stockfishPanel.props.openingTable.mount();
         if (data.end?.msg) {
-          this.infoModal.props.msg = data.end?.msg;
+          this.infoModal.props.msg = data.end.msg;
           this.infoModal.mount();
           this.infoModal.props.modal.show();
           this.end();
@@ -87,7 +87,7 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
       stockfishPanel.props.openingTable.props.movetext = data.movetext;
       stockfishPanel.props.openingTable.mount();
       if (data.end?.msg) {
-        this.infoModal.props.msg = data.end?.msg;
+        this.infoModal.props.msg = data.end.msg;
         this.infoModal.mount();
         this.infoModal.props.modal.show();
         this.end();

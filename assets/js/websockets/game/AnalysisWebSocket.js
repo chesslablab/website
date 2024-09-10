@@ -49,7 +49,7 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
         analysisPanel.props.openingTable.props.movetext = data.movetext;
         analysisPanel.props.openingTable.mount();
         if (data.end?.msg) {
-          this.infoModal.props.msg = data.end?.msg;
+          this.infoModal.props.msg = data.end.msg;
           this.infoModal.mount();
           this.infoModal.props.modal.show();
           this.end();
