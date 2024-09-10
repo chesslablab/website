@@ -1,7 +1,7 @@
 const messagesZhCN = {
   // AbstractWebSocket
   "Whoops! We are experiencing some technical issues": "哎呀！我们遇到了一些技术问题",
-  // GameWebSocket
+  // AbstractGameWebSocket
   "It's a win": "赢了",
   "It's a draw": "平局",
   "White wins": "白方获胜",

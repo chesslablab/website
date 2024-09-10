@@ -1,8 +1,8 @@
 import { Movetext } from '@chesslablab/js-utils';
-import GameWebSocket from './GameWebSocket.js';
+import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { ravPanel } from '../../pages/RavPanel.js';
 
-export class AnnotationsWebSocket extends GameWebSocket {
+export class AnnotationsWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
 

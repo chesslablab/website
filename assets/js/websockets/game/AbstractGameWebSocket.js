@@ -3,7 +3,7 @@ import AbstractWebSocket from '../../AbstractWebSocket.js';
 import * as connect from '../../connect.js';
 import chessboard from '../../pages/chessboard.js';
 
-export default class GameWebSocket extends AbstractWebSocket {
+export default class AbstractGameWebSocket extends AbstractWebSocket {
   static PORT = 8443;
 
   chessboard;
@@ -14,7 +14,7 @@ export default class GameWebSocket extends AbstractWebSocket {
   }
 
   async connect() {
-    await super.connect(`${connect.ws()}:${GameWebSocket.PORT}`);
+    await super.connect(`${connect.ws()}:${AbstractGameWebSocket.PORT}`);
 
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
