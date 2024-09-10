@@ -43,7 +43,12 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
         stockfishPanel.props.movesBrowser.mount();
         stockfishPanel.props.openingTable.props.movetext = data.movetext;
         stockfishPanel.props.openingTable.mount();
-        if (!this.gameOver(data, this.chessboard)) {
+        if (data.end?.msg) {
+          this.infoModal.props.msg = data.end?.msg;
+          this.infoModal.mount();
+          this.infoModal.props.modal.show();
+          this.end();
+        } else {
           this.send('/stockfish', {
             options: {
               'Skill Level': sessionStorage.getItem('skillLevel')
@@ -81,7 +86,12 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
       stockfishPanel.props.movesBrowser.mount();
       stockfishPanel.props.openingTable.props.movetext = data.movetext;
       stockfishPanel.props.openingTable.mount();
-      this.gameOver(data);
+      if (data.end?.msg) {
+        this.infoModal.props.msg = data.end?.msg;
+        this.infoModal.mount();
+        this.infoModal.props.modal.show();
+        this.end();
+      }
     })
     .onChange('/randomizer', data => {
       this.chessboard.state.inputWhiteEnabled = false;
