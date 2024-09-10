@@ -48,7 +48,12 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
         analysisPanel.props.movesBrowser.mount();
         analysisPanel.props.openingTable.props.movetext = data.movetext;
         analysisPanel.props.openingTable.mount();
-        this.gameOver(data);
+        if (data.end?.msg) {
+          this.infoModal.props.msg = data.end?.msg;
+          this.infoModal.mount();
+          this.infoModal.props.modal.show();
+          this.end();
+        }
       } else {
         this.chessboard.setPosition(data.fen, false);
       }
