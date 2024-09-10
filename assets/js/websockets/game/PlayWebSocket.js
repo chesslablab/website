@@ -57,7 +57,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
             b: data.timer.b
           }
         };
-        if (data.end?.msg) {
+        if (data.end?.result) {
           this.infoModal.props.msg = data.end.msg;
           this.infoModal.mount();
           this.infoModal.props.modal.show();
