@@ -13,7 +13,7 @@ class TotpAuthController extends AbstractController
     public function signout(Request $request): Response
     {
         $response = new RedirectResponse($this->generateUrl('pages_signin'));
-        $response->headers->clearCookie('ui');
+        $response->headers->clearCookie('access_token');
 
         return $response;
     }
