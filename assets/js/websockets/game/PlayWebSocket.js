@@ -1,3 +1,4 @@
+import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import { jwtDecode } from 'jwt-decode';
@@ -7,6 +8,7 @@ import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeModal.js';
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
+import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import * as action from '../../../action.js';
 
 export class PlayWebSocket extends AbstractGameWebSocket {
@@ -62,6 +64,15 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           this.infoModal.mount();
           this.infoModal.props.modal.show();
           this.end();
+          dataWebSocket
+            .send('/totp_refresh', {
+              access_token: jsCookie.get('access_token')
+            })
+            .onChange('/totp_refresh', data => {
+              if (data?.access_token) {
+                jsCookie.set('access_token', data.access_token);
+              }
+            });
         }
       } else {
         this.chessboard.setPosition(data.fen, false);
