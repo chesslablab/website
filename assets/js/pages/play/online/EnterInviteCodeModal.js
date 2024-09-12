@@ -12,7 +12,8 @@ export class EnterInviteCodeModal extends AbstractComponent {
       const formData = new FormData(this.props.form);
       playWebSocket.send('/accept', {
         hash: formData.get('hash'),
-        username: jwtDecoded ? jwtDecoded.username : null
+        username: jwtDecoded ? jwtDecoded.username : null,
+        elo: jwtDecoded ? jwtDecoded.elo : null
       });
     });
   }
