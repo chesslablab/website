@@ -1,8 +1,8 @@
 import { signInForm } from './SignInForm.js';
-import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 
 sessionStorage.clear();
 
 try {
-  await dataWebSocket.connect();
+  await authWebSocket.connect();
 } catch {}

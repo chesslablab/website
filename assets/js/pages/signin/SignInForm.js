@@ -1,13 +1,13 @@
 import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
 import AbstractComponent from '../../AbstractComponent.js';
-import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 
 export class SignInForm extends AbstractComponent {
   mount() {
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
-      dataWebSocket
+      authWebSocket
         .send('/totp_signin', {
           username: formData.get('username'),
           password: formData.get('password')

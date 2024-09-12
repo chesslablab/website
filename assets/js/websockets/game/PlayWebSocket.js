@@ -8,7 +8,7 @@ import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeModal.js';
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
-import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 import * as action from '../../../action.js';
 
 export class PlayWebSocket extends AbstractGameWebSocket {
@@ -64,7 +64,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           this.infoModal.mount();
           this.infoModal.props.modal.show();
           this.end();
-          dataWebSocket
+          authWebSocket
             .send('/totp_refresh', {
               access_token: jsCookie.get('access_token')
             })

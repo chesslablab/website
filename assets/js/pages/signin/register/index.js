@@ -1,4 +1,4 @@
-import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
+import { authWebSocket } from '../../../websockets/auth/AuthWebSocket.js';
 
 sessionStorage.clear();
 
@@ -6,7 +6,7 @@ try {
   await dataWebSocket.connect();
 } catch {}
 
-dataWebSocket
+authWebSocket
   .send(`/totp_signup`)
   .onChange('/totp_signup', data => {
     const img = document.createElement('img');
