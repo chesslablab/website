@@ -11,11 +11,11 @@ chessboard.state.inputWhiteEnabled = false;
 chessboard.state.inputBlackEnabled = false;
 
 try {
-  await binaryWebSocket.connect();
+  await authWebSocket.connect();
 } catch {}
 
 try {
-  await dataWebSocket.connect();
+  await binaryWebSocket.connect();
 } catch {}
 
 try {
