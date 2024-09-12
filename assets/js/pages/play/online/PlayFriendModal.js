@@ -33,7 +33,8 @@ export class PlayFriendModal extends AbstractComponent {
           submode: 'friend',
           ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
           ...(formData.get('fen') && {fen: formData.get('fen')}),
-          username: jwtDecoded ? jwtDecoded.username : null
+          username: jwtDecoded ? jwtDecoded.username : null,
+          elo: jwtDecoded ? jwtDecoded.elo : null
         }
       });
       this.props.modal.hide();

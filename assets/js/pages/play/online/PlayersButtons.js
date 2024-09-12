@@ -16,7 +16,8 @@ export class PlayersButtons extends AbstractComponent {
             const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
             playWebSocket.send('/accept', {
               hash: game.hash,
-              username: jwtDecoded ? jwtDecoded.username : null
+              username: jwtDecoded ? jwtDecoded.username : null,
+              elo: jwtDecoded ? jwtDecoded.elo : null
             });
           });
         } else {

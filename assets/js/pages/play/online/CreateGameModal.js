@@ -20,7 +20,8 @@ export class CreateGameModal extends AbstractComponent {
           increment: formData.get('increment'),
           color: formData.get('color'),
           submode: 'online',
-          username: jwtDecoded ? jwtDecoded.username : null
+          username: jwtDecoded ? jwtDecoded.username : null,
+          elo: jwtDecoded ? jwtDecoded.elo : null
         }
       });
     });
