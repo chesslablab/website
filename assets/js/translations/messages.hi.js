@@ -19,8 +19,8 @@ const messagesHi = {
   "Takeback accepted": "चाल वापस लेने का अनुरोध स्वीकार कर लिया गया",
   "Draw offer declined": "ड्रॉ प्रस्ताव अस्वीकार कर दिया गया",
   "Draw offer accepted": "ड्रॉ प्रस्ताव स्वीकार किया गया",
-  "The game is resigned": "खेल त्याग दिया गया है",
-  "Your opponent is gone": "आपका प्रतिद्वंद्वी चला गया",
+  "The game is resigned": "इस्तीफा दे दिया प्रस्थान",
+  "The game is abandoned": "छोड़ दिया गया खेल",
   // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "अवैध SAN मूवटेक्स्ट, कृपया फिरसे कोशिश करें"
 };

@@ -19,8 +19,8 @@ const messagesZhCN = {
   "Takeback accepted": "悔棋被接受",
   "Draw offer declined": "和棋提议被拒绝",
   "Draw offer accepted": "和棋提议被接受",
-  "The game is resigned": "游戏认输",
-  "Your opponent is gone": "你的对手已离开",
+  "The game is resigned": "辞职离职",
+  "The game is abandoned": "废弃的游戏",
   // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "SAN 记谱法无效，请重试"
 };

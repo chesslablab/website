@@ -19,8 +19,8 @@ const messagesEs = {
   "Takeback accepted": "Corrección del movimiento aceptada",
   "Draw offer declined": "Oferta de tablas declinada",
   "Draw offer accepted": "Oferta de tablas aceptada",
-  "The game is resigned": "Partida abandonada",
-  "Your opponent is gone": "Tu oponente se ha ido",
+  "The game is resigned": "Partida resignada",
+  "The game is abandoned": "Partida abandonada",
   // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "Texto SAN con movimientos no válido, inténtalo de nuevo"
 };

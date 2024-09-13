@@ -20,7 +20,7 @@ const messagesDe = {
   "Draw offer declined": "Remisangebot abgelehnt",
   "Draw offer accepted": "Remisangebot akzeptiert",
   "The game is resigned": "Die Partie wurde aufgegeben",
-  "Your opponent is gone": "Dein Gegner ist verschwunden",
+  "The game is abandoned": "Das Spiel wird abgebrochen",
   // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "Ungültiger SAN-Zugtext, bitte erneut versuchen"
 };

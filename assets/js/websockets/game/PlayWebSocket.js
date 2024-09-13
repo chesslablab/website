@@ -228,13 +228,20 @@ export class PlayWebSocket extends AbstractGameWebSocket {
       }
     })
     .onChange('/leave', data => {
-      if (data.action === action.ACCEPT) {
-        this.end();
-        playPanel.props.finishedButtons.el.children.item(0).classList.add('d-none');
-        this.infoModal.props.msg = "Your opponent is gone";
-        this.infoModal.mount();
-        this.infoModal.props.modal.show();
-      }
+      this.end();
+      playPanel.props.finishedButtons.el.children.item(0).classList.add('d-none');
+      this.infoModal.props.msg = "The game is abandoned";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
+      authWebSocket
+        .send('/totp_refresh', {
+          access_token: jsCookie.get('access_token')
+        })
+        .onChange('/totp_refresh', data => {
+          if (data?.access_token) {
+            jsCookie.set('access_token', data.access_token);
+          }
+        });
     })
     .onChange('/online_games', data => {
       playOnlineButtons.props.playersButtons.props.games = data;

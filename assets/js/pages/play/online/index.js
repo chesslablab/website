@@ -22,4 +22,13 @@ try {
   await playWebSocket.connect();
 } catch {}
 
+window.addEventListener('beforeunload', function (event) {
+  event.preventDefault();
+  playWebSocket.send('/leave', {
+    color: sessionStorage.getItem('color')
+  });
+
+  return false;
+});
+
 playWebSocket.send('/online_games');

@@ -19,8 +19,8 @@ const messagesRu = {
   "Takeback accepted": "Коррекция движения принята",
   "Draw offer declined": "Предложение стола отклонено",
   "Draw offer accepted": "Предложение стола принято",
-  "The game is resigned": "Заброшенная игра",
-  "Your opponent is gone": "Ваш противник ушел",
+  "The game is resigned": "Отставка в отставку",
+  "The game is abandoned": "Заброшенная игра",
   // AnalysisWebSocket
   "Invalid SAN movetext, please try again": "Текст SAN с недопустимыми движениями, попробуйте еще раз"
 };
