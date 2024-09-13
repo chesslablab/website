@@ -60,10 +60,10 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           }
         };
         if (data.end) {
+          this.end();
           this.infoModal.props.msg = data.end.msg;
           this.infoModal.mount();
           this.infoModal.props.modal.show();
-          this.end();
           authWebSocket
             .send('/totp_refresh', {
               access_token: jsCookie.get('access_token')
@@ -169,12 +169,19 @@ export class PlayWebSocket extends AbstractGameWebSocket {
       sessionStorage.removeItem('draw');
     })
     .onChange('/resign', data => {
-      if (data.action === action.ACCEPT) {
-        this.end();
-        this.infoModal.props.msg = "The game is resigned";
-        this.infoModal.mount();
-        this.infoModal.props.modal.show();
-      }
+      this.end();
+      this.infoModal.props.msg = "The game is resigned";
+      this.infoModal.mount();
+      this.infoModal.props.modal.show();
+      authWebSocket
+        .send('/totp_refresh', {
+          access_token: jsCookie.get('access_token')
+        })
+        .onChange('/totp_refresh', data => {
+          if (data?.access_token) {
+            jsCookie.set('access_token', data.access_token);
+          }
+        });
     })
     .onChange('/rematch', data => {
       if (data.action === action.PROPOSE) {

@@ -103,7 +103,9 @@ export class PlayPanel extends AbstractComponent {
 
     this.props.gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
-      playWebSocket.send('/resign accept');
+      playWebSocket.send('/resign', {
+        color: sessionStorage.getItem('color')
+      });
     });
 
     this.props.finishedButtons.el.children.item(0).addEventListener('click', (event) => {
