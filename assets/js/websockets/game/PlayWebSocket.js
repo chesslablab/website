@@ -24,14 +24,14 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     .onChange('/start', data => {
       if (data.jwt) {
         copyInviteCodeModal.props.form.elements['hash'].value = data.hash;
-        const jwtDecoded = jwtDecode(data.jwt);
+        const startToken = jwtDecode(data.jwt);
         this.chessboard.setPosition(data.fen, true);
-        this.chessboard.setOrientation(jwtDecoded.color);
+        this.chessboard.setOrientation(startToken.color);
         this.chessboard.props.variant = data.variant;
         this.chessboard.props.startPos = data.startPos;
         createGameModal.props.modal.hide();
         this.send('/online_games');
-        sessionStorage.setItem('hash', data.hash);
+        sessionStorage.setItem('start_token', data.jwt);
       } else {
         console.log('Invalid FEN, please try again with a different one.');
       }
@@ -92,25 +92,17 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     })
     .onChange('/accept', data => {
       if (data.jwt) {
-        const jwtDecoded = jwtDecode(data.jwt);
-        const turn = jwtDecoded.fen.split(' ')[1];
+        const acceptToken = jwtDecode(data.jwt);
+        const turn = acceptToken.fen.split(' ')[1];
         this.chessboard.disableMoveInput();
         this.chessboard.enableMoveInput(event => this.inputHandler(event));
-        this.chessboard.setPosition(jwtDecoded.fen, true);
-        if (!sessionStorage.getItem('color')) {
-          if (jwtDecoded.color === COLOR.white) {
-            this.chessboard.setOrientation(COLOR.black);
-            sessionStorage.setItem('color', COLOR.black);
-          } else {
-            this.chessboard.setOrientation(COLOR.white);
-            sessionStorage.setItem('color', COLOR.white);
-          }
-        }
+        this.chessboard.setPosition(acceptToken.fen, true);
+        sessionStorage.setItem('accept_token', data.jwt);
+        this.chessboard.setOrientation(this.color(acceptToken));
         this.toggleInput(turn);
         enterInviteCodeModal.props.modal.hide();
         createGameModal.props.modal.hide();
         this.infoModal.props.modal.hide();
-        sessionStorage.setItem('hash', data.hash);
         playPanel.props.timerTable.props = {
           turn: turn,
           seconds: {
@@ -118,8 +110,8 @@ export class PlayWebSocket extends AbstractGameWebSocket {
             b: data.timer.b
           },
           username: {
-            w: `${jwtDecoded.username.w} ${jwtDecoded.elo.w ? (jwtDecoded.elo.w) : ''}`,
-            b: `${jwtDecoded.username.b} ${jwtDecoded.elo.b ? (jwtDecoded.elo.b) : ''}`
+            w: `${acceptToken.username.w} ${acceptToken.elo.w ? (acceptToken.elo.w) : ''}`,
+            b: `${acceptToken.username.b} ${acceptToken.elo.b ? (acceptToken.elo.b) : ''}`
           }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
@@ -193,7 +185,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.infoModal.props.modal.hide();
       } else if (data.action === action.ACCEPT) {
         this.send('/restart', {
-          hash: sessionStorage.getItem('hash')
+          jwt: sessionStorage.getItem('accept_token')
         });
       }
       sessionStorage.removeItem('rematch');
@@ -201,14 +193,14 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     .onChange('/restart', data => {
       if (data.jwt) {
         this.infoModal.props.modal.hide();
-        const jwtDecoded = jwtDecode(data.jwt);
-        const turn = jwtDecoded.fen.split(' ')[1];
-        this.chessboard.setPosition(jwtDecoded.fen, true);
+        const restartToken = jwtDecode(data.jwt);
+        const turn = restartToken.fen.split(' ')[1];
+        this.chessboard.setPosition(restartToken.fen, true);
         this.toggleInput(turn);
         this.chessboard.view.visualizeInputState();
         playPanel.props.movesBrowser.current = 0;
         playPanel.props.movesBrowser.props.fen = [
-          jwtDecoded.fen
+          restartToken.fen
         ];
         playPanel.props.movesBrowser.props.movetext = '';
         playPanel.props.movesBrowser.mount();
@@ -221,7 +213,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
-        sessionStorage.setItem('hash', data.hash);
         playOnlineButtons.el.classList.add('d-none');
         playPanel.props.gameActionsDropdown.el.classList.remove('d-none');
         playPanel.props.finishedButtons.el.classList.add('d-none');
@@ -252,7 +243,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
   toggleInput(turn) {
     this.chessboard.state.inputWhiteEnabled = false;
     this.chessboard.state.inputBlackEnabled = false;
-    if (turn === sessionStorage.getItem('color')) {
+    if (turn === this.color(jwtDecode(sessionStorage.getItem('accept_token')))) {
       if (turn === COLOR.white) {
         this.chessboard.state.inputWhiteEnabled = true;
       } else {
@@ -267,6 +258,14 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     playPanel.props.gameActionsDropdown.el.classList.add('d-none');
     playPanel.props.finishedButtons.el.classList.remove('d-none');
     clearInterval(this.timerTableInterval);
+  }
+
+  color(acceptToken) {
+    if (sessionStorage.getItem('start_token') === sessionStorage.getItem('accept_token')) {
+      return acceptToken.color;
+    }
+
+    return acceptToken.color === COLOR.white ? COLOR.black : COLOR.white
   }
 }
 

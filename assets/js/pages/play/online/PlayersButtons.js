@@ -11,13 +11,13 @@ export class PlayersButtons extends AbstractComponent {
         const button = document.createElement('button');
         button.classList.add('btn', 'btn-primary', 'w-100', 'rounded-0');
         button.textContent = `${game.username[game.color]} ${game.elo[game.color] ? (game.elo[game.color]) : ''} ${game.variant.charAt(0).toUpperCase() + game.variant.slice(1)} ${game.min}+${game.increment} ${game.color}`;
-        if (sessionStorage.getItem('hash') !== game.hash) {
+        if (sessionStorage.getItem('start_token') !== game.jwt) {
           button.addEventListener('click', () => {
-            const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
+            const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
             playWebSocket.send('/accept', {
               hash: game.hash,
-              username: jwtDecoded ? jwtDecoded.username : null,
-              elo: jwtDecoded ? jwtDecoded.elo : null
+              username: accessToken ? accessToken.username : null,
+              elo: accessToken ? accessToken.elo : null
             });
           });
         } else {

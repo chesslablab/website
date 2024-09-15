@@ -8,12 +8,12 @@ export class EnterInviteCodeModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
+      const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
       const formData = new FormData(this.props.form);
       playWebSocket.send('/accept', {
         hash: formData.get('hash'),
-        username: jwtDecoded ? jwtDecoded.username : null,
-        elo: jwtDecoded ? jwtDecoded.elo : null
+        username: accessToken ? accessToken.username : null,
+        elo: accessToken ? accessToken.elo : null
       });
     });
   }

@@ -20,9 +20,8 @@ export class PlayFriendModal extends AbstractComponent {
 
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
+      const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
       const formData = new FormData(this.props.form);
-      sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send('/start', {
         variant: formData.get('variant'),
         mode: mode.PLAY,
@@ -33,8 +32,8 @@ export class PlayFriendModal extends AbstractComponent {
           submode: 'friend',
           ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
           ...(formData.get('fen') && {fen: formData.get('fen')}),
-          username: jwtDecoded ? jwtDecoded.username : null,
-          elo: jwtDecoded ? jwtDecoded.elo : null
+          username: accessToken ? accessToken.username : null,
+          elo: accessToken ? accessToken.elo : null
         }
       });
       this.props.modal.hide();

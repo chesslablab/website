@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
 import { FEN } from '@chesslablab/chessboard';
 import { TimerTable } from '@chesslablab/js-utils';
@@ -104,7 +105,7 @@ export class PlayPanel extends AbstractComponent {
     this.props.gameActionsDropdown.props.ul.children.item(2).addEventListener('click', (event) => {
       event.preventDefault();
       playWebSocket.send('/resign', {
-        color: sessionStorage.getItem('color')
+        color: playWebSocket.color(jwtDecode(sessionStorage.getItem('accept_token')))
       });
     });
 

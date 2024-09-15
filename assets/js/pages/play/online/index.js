@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 import chessboard from '../../chessboard.js';
@@ -24,7 +25,7 @@ try {
 
 window.addEventListener('beforeunload', function () {
   playWebSocket.send('/leave', {
-    color: sessionStorage.getItem('color')
+    color: playWebSocket.color(jwtDecode(sessionStorage.getItem('accept_token')))
   });
 
   return false;

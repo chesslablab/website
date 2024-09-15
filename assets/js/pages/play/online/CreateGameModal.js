@@ -9,9 +9,8 @@ export class CreateGameModal extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-      const jwtDecoded = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
+      const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
       const formData = new FormData(this.props.form);
-      sessionStorage.setItem('color', formData.get('color'));
       playWebSocket.send('/start', {
         variant: formData.get('variant'),
         mode: mode.PLAY,
@@ -20,8 +19,8 @@ export class CreateGameModal extends AbstractComponent {
           increment: formData.get('increment'),
           color: formData.get('color'),
           submode: 'online',
-          username: jwtDecoded ? jwtDecoded.username : null,
-          elo: jwtDecoded ? jwtDecoded.elo : null
+          username: accessToken ? accessToken.username : null,
+          elo: accessToken ? accessToken.elo : null
         }
       });
     });
