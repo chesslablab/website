@@ -127,9 +127,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     })
     .onChange('/takeback', data => {
       if (data.action === action.PROPOSE) {
-        if (sessionStorage.getItem('takeback') !== action.PROPOSE) {
-          playPanel.props.takebackModal.props.modal.show();
-        }
+        playPanel.props.takebackModal.props.modal.show();
       } else if (data.action === action.DECLINE) {
         playPanel.props.takebackModal.props.modal.hide();
         this.infoModal.props.msg = "Takeback declined";
@@ -144,9 +142,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     })
     .onChange('/draw', data => {
       if (data.action === action.PROPOSE) {
-        if (sessionStorage.getItem('draw') !== action.PROPOSE) {
-          playPanel.props.drawModal.props.modal.show();
-        }
+        playPanel.props.drawModal.props.modal.show();
       } else if (data.action === action.DECLINE) {
         playPanel.props.drawModal.props.modal.hide();
         this.infoModal.props.msg = "Draw offer declined";
@@ -177,9 +173,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     })
     .onChange('/rematch', data => {
       if (data.action === action.PROPOSE) {
-        if (sessionStorage.getItem('rematch') !== action.PROPOSE) {
-          playPanel.props.rematchModal.props.modal.show();
-        }
+        playPanel.props.rematchModal.props.modal.show();
       } else if (data.action === action.DECLINE) {
         playPanel.props.rematchModal.props.modal.hide();
         this.infoModal.props.modal.hide();

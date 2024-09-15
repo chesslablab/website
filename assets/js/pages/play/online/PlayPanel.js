@@ -86,7 +86,6 @@ export class PlayPanel extends AbstractComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
-      sessionStorage.setItem('takeback', action.PROPOSE);
       playWebSocket.send('/takeback propose');
       playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
       playWebSocket.infoModal.mount();
@@ -95,7 +94,6 @@ export class PlayPanel extends AbstractComponent {
 
     this.props.gameActionsDropdown.props.ul.children.item(1).addEventListener('click', (event) => {
       event.preventDefault();
-      sessionStorage.setItem('draw', action.PROPOSE);
       playWebSocket.send('/draw propose');
       playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
       playWebSocket.infoModal.mount();
@@ -111,7 +109,6 @@ export class PlayPanel extends AbstractComponent {
 
     this.props.finishedButtons.el.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
-      sessionStorage.setItem('rematch', action.PROPOSE);
       playWebSocket.send('/rematch propose');
       playWebSocket.infoModal.props.msg = "Waiting for your opponent to accept or decline";
       playWebSocket.infoModal.mount();
