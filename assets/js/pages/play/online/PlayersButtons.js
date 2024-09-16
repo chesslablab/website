@@ -1,4 +1,4 @@
-import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
+import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';

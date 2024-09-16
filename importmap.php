@@ -95,4 +95,7 @@ return [
     'jwt-decode' => [
         'version' => '4.0.0',
     ],
+    'js-cookie' => [
+        'version' => '3.0.5',
+    ],
 ];

@@ -1,7 +1,7 @@
-import jsCookie from 'https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/+esm';
+import jsCookie from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
-import { jwtDecode } from 'jwt-decode';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { copyInviteCodeModal } from '../../pages/play/online/CopyInviteCodeModal.js';
 import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
