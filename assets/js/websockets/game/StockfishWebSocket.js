@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
@@ -17,15 +18,17 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
         this.chessboard.setOrientation(COLOR.black);
       }
       if (data.fen.split(' ')[1] !== data.color) {
+        const startToken = jwtDecode(data.jwt);
         this.send('/stockfish', {
           options: {
-            'Skill Level': sessionStorage.getItem('skillLevel')
+            'Skill Level': startToken.settings.skillLevel
           },
           params: {
-            depth: 12
+            depth: startToken.settings.depth
           }
         });
       }
+      sessionStorage.setItem('start_token', data.jwt);
     })
     .onChange('/legal', data => {
       data.forEach(sq => {
@@ -49,12 +52,13 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
           this.infoModal.props.modal.show();
           this.end();
         } else {
+          const startToken = jwtDecode(sessionStorage.getItem('start_token'));
           this.send('/stockfish', {
             options: {
-              'Skill Level': sessionStorage.getItem('skillLevel')
+              'Skill Level': startToken.settings.skillLevel
             },
             params: {
-              depth: 12
+              depth: startToken.settings.depth
             }
           });
         }
@@ -101,12 +105,12 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
       } else {
         this.chessboard.state.inputBlackEnabled = true;
       }
-      sessionStorage.setItem('skillLevel', 20);
-      sessionStorage.setItem('depth', 12);
       this.send('/start', {
         variant: variant.CLASSICAL,
         mode: mode.STOCKFISH,
         settings: {
+          skillLevel: 20,
+          depth: 12,
           color: data.turn,
           fen: data.fen
         }

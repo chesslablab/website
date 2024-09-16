@@ -138,7 +138,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.infoModal.mount();
         this.infoModal.props.modal.show();
       }
-      sessionStorage.removeItem('takeback');
     })
     .onChange('/draw', data => {
       if (data.action === action.PROPOSE) {
@@ -154,7 +153,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.infoModal.mount();
         this.infoModal.props.modal.show();
       }
-      sessionStorage.removeItem('draw');
     })
     .onChange('/resign', data => {
       this.end();
@@ -182,7 +180,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           jwt: sessionStorage.getItem('accept_token')
         });
       }
-      sessionStorage.removeItem('rematch');
     })
     .onChange('/restart', data => {
       if (data.jwt) {
