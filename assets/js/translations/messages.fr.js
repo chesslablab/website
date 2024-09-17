@@ -22,7 +22,8 @@ const messagesFr = {
   "The game is resigned": "Le jeu est résigné",
   "The game is abandoned": "Le jeu est abandonné",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "Texte SAN avec mouvements invalide, veuillez réessayer"
+  "Invalid SAN movetext, please try again": "Texte SAN avec mouvements invalide, veuillez réessayer",
+  "This game could not be started, please try again": "Ce jeu n'a pas pu être démarré, veuillez réessayer"
 };
 
 export default messagesFr;

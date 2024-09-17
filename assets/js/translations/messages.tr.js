@@ -22,7 +22,8 @@ const messagesTr = {
   "The game is resigned": "Ayrılıştan istifa edildi",
   "The game is abandoned": "Terk edilmiş oyun",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "Geçersiz SAN metintaşı, lütfen tekrar deneyin"
+  "Invalid SAN movetext, please try again": "Geçersiz SAN metintaşı, lütfen tekrar deneyin",
+  "This game could not be started, please try again": "Bu oyun başlatılamadı, lütfen tekrar deneyin"
 };
 
 export default messagesTr;

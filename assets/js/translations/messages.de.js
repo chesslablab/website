@@ -22,7 +22,8 @@ const messagesDe = {
   "The game is resigned": "Die Partie wurde aufgegeben",
   "The game is abandoned": "Das Spiel wird abgebrochen",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "Ungültiger SAN-Zugtext, bitte erneut versuchen"
+  "Invalid SAN movetext, please try again": "Ungültiger SAN-Zugtext, bitte erneut versuchen",
+  "This game could not be started, please try again": "Dieses Spiel konnte nicht gestartet werden. Bitte versuchen Sie es erneut"
 };
 
 export default messagesDe;
