@@ -84,10 +84,6 @@ input[name="Black"] + ul > li:hover {
   padding-inline-start: 0.4rem;
 }
 
-.table td {
-  cursor: pointer;
-}
-
 .btn {
   border-radius: 0;
 }
