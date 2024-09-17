@@ -252,9 +252,13 @@ export class PlayWebSocket extends AbstractGameWebSocket {
   }
 
   color() {
-    const acceptToken = jwtDecode(sessionStorage.getItem('accept_token'));
-    const startToken = jwtDecode(sessionStorage.getItem('start_token'));
-    if (acceptToken.uid === startToken.uid) {
+    const acceptToken = sessionStorage.getItem('accept_token')
+      ? jwtDecode(sessionStorage.getItem('accept_token'))
+      : null;
+    const startToken = sessionStorage.getItem('start_token')
+      ? jwtDecode(sessionStorage.getItem('start_token'))
+      : null;
+    if (acceptToken?.uid === startToken?.uid) {
       return acceptToken.color;
     }
 
