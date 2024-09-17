@@ -154,6 +154,11 @@ Light: Açık
 Dark: Karanlık
 Chess server: Satranç sunucusu
 
+# Sign In
+Username: Kullanıcı adı
+Password: Şifre
+Register Now: Şimdi Kayıt Olun
+
 # Error pages
 This publication has not been translated into the current selected language: Bu yayın henüz seçili dile çevrilmedi
 Whoops: Oops

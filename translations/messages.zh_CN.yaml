@@ -154,6 +154,11 @@ Light: 浅色
 Dark: 深色
 Chess server: 国际象棋服务器
 
+# Sign In
+Username: 用户名
+Password: 密码
+Register Now: 立即注册
+
 # Error pages
 This publication has not been translated into the current selected language: 本出版物尚未翻译成当前选择的语言
 Whoops: 哎呀
