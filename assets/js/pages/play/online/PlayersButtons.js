@@ -15,7 +15,7 @@ export class PlayersButtons extends AbstractComponent {
           button.addEventListener('click', () => {
             const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
             playWebSocket.send('/accept', {
-              hash: game.hash,
+              uid: game.uid,
               username: accessToken ? accessToken.username : null,
               elo: accessToken ? accessToken.elo : null
             });

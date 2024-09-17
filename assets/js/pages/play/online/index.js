@@ -31,7 +31,7 @@ try {
 
 window.addEventListener('beforeunload', function () {
   playWebSocket.send('/leave', {
-    color: playWebSocket.color(jwtDecode(sessionStorage.getItem('accept_token')))
+    color: playWebSocket.color()
   });
 
   return false;

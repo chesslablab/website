@@ -11,7 +11,7 @@ export class EnterInviteCodeModal extends AbstractComponent {
       const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
       const formData = new FormData(this.props.form);
       playWebSocket.send('/accept', {
-        hash: formData.get('hash'),
+        uid: formData.get('uid'),
         username: accessToken ? accessToken.username : null,
         elo: accessToken ? accessToken.elo : null
       });

@@ -7,7 +7,7 @@ export class CopyInviteCodeModal extends AbstractComponent {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.props.form);
-      navigator.clipboard.writeText(formData.get('hash')).then(() => {
+      navigator.clipboard.writeText(formData.get('uid')).then(() => {
         this.props.modal.hide();
         this.infoModal.props.msg = 'Waiting for player to join';
         this.infoModal.mount();
