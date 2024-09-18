@@ -159,6 +159,9 @@ Chess server: Satranç sunucusu
 Username: Kullanıcı adı
 Password: Şifre
 Register Now: Şimdi Kayıt Olun
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Aşağıdakilere benzer 9 haneli uzunluktaki şifreleri destekleyen bir TOTP doğrulayıcısı ile QR kodunu tarayın
+You'll be assigned an automatic username: Otomatik olarak size bir kullanıcı adı atanacak
+Sign in to your account to complete the registration: Kaydı tamamlamak için hesabınıza giriş yapın
 
 # Error pages
 This publication has not been translated into the current selected language: Bu yayın henüz seçili dile çevrilmedi

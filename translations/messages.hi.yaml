@@ -158,6 +158,9 @@ Chess server: शतरंज सर्वर
 Username: उपयोगकर्ता नाम
 Password: पासवर्ड
 Register Now: अभी पंजीकरण करें
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: निम्नलिखित जैसे 9-अंकीय लंबाई वाले पासवर्ड का समर्थन करने वाले TOTP प्रमाणक के साथ QR कोड को स्कैन करें
+You'll be assigned an automatic username: आपको स्वचालित रूप से एक उपयोगकर्ता नाम आवंटित किया जाएगा
+Sign in to your account to complete the registration: पंजीकरण पूरा करने के लिए अपने खाते में साइन इन करें
 
 # Error pages
 This publication has not been translated into the current selected language: इस प्रकाशन का वर्तमान चयनित भाषा में अनुवाद नहीं किया गया है

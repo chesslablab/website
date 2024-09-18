@@ -159,6 +159,9 @@ Chess server: 国际象棋服务器
 Username: 用户名
 Password: 密码
 Register Now: 立即注册
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: 使用支持 9 位长度密码的 TOTP 身份验证器扫描二维码，如下所示
+You'll be assigned an automatic username: 您将被分配一个自动用户名
+Sign in to your account to complete the registration: 登录您的账户以完成注册
 
 # Error pages
 This publication has not been translated into the current selected language: 本出版物尚未翻译成当前选择的语言

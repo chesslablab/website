@@ -159,6 +159,9 @@ Chess server: Schachserver
 Username: Benutzername
 Password: Passwort
 Register Now: Jetzt registrieren
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Scannen Sie den QR-Code mit einem TOTP-Authentifikator, der 9-stellige Passwörter wie die folgenden unterstützt
+You'll be assigned an automatic username: Ihnen wird automatisch ein Benutzername zugewiesen
+Sign in to your account to complete the registration: Melden Sie sich bei Ihrem Konto an, um die Registrierung abzuschließen
 
 # Error pages
 This publication has not been translated into the current selected language: Diese Publikation wurde nicht in die aktuell ausgewählte Sprache übersetzt
