@@ -25,7 +25,10 @@ class ExceptionListener
 
         if ($exception instanceof NotTranslatedException) {
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
-            $html = $this->twig->render('error/404/notTranslated.html.twig', ['message' => $exception->getMessage()]);
+            $html = $this->twig->render('error/404/notTranslated.html.twig', [
+                'message' => $exception->getMessage(),
+                'hint' => 'Send your article at info@chesslablab.org and it will published under the CC0 license',
+            ]);
             $response->setContent($html);
         } else {
             $response->setStatusCode(Response::HTTP_INTERNAL_SERVER_ERROR);
