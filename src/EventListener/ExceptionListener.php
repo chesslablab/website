@@ -27,7 +27,7 @@ class ExceptionListener
             $response->setStatusCode(Response::HTTP_NOT_FOUND);
             $html = $this->twig->render('error/404/notTranslated.html.twig', [
                 'message' => $exception->getMessage(),
-                'hint' => 'Send your article at authors@chesslablab.org and it will published under the CC0 license',
+                'hint' => 'Become a chess author today! Send your article at authors@chesslablab.org and it will published on the blog under the CC0 license',
             ]);
             $response->setContent($html);
         } else {
