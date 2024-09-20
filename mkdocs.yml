@@ -1,7 +1,7 @@
 site_name: ChesslaBlab Website
 site_url: https://chesslablab.github.io/website/
 theme:
-  name: readthedocs
+  name: mkdocs
 nav:
   - Home: index.md
   - SSL Certificate Setup: ssl-certificate-setup.md
