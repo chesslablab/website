@@ -20,6 +20,7 @@ services:
           - ./:/usr/share/nginx/website
           - /usr/share/nginx/website/vendor
           - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+          - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
           - ./docker/nginx/ssl/fullchain.pem:/etc/nginx/ssl/fullchain.pem
           - ./docker/nginx/ssl/privkey.pem:/etc/nginx/ssl/privkey.pem
       working_dir: /usr/share/nginx/website
