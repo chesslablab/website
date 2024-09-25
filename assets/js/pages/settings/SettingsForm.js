@@ -10,12 +10,6 @@ export class SettingsForm extends AbstractComponent {
       this.el.querySelector('select[name="ws"]').append(option);
     });
 
-    if (localStorage.getItem('locale')) {
-      this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale');
-    } else {
-      this.el.querySelector('select[name="locale"]').value = 'en';
-    }
-
     if (localStorage.getItem('theme') === 'light') {
       this.el.querySelector('select[name="theme"]').value = 'light';
     } else {
@@ -47,7 +41,6 @@ export class SettingsForm extends AbstractComponent {
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
-      localStorage.setItem('locale', formData.get('locale'));
       localStorage.setItem('theme', formData.get('theme'));
       localStorage.setItem('format', formData.get('format'));
       localStorage.setItem('notation', formData.get('notation'));
