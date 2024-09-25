@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://chesslablab.github.io/website/website-architecture/">
+        <link rel="canonical" href="https://chesslablab.github.io/website/architecture/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Website Architecture - ChesslaBlab Website</title>
+        <title>Architecture - Website</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -20,7 +20,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="..">ChesslaBlab Website</a>
+                <a class="navbar-brand" href="..">Website</a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon"></span>
@@ -37,10 +37,7 @@
                                 <a href="../installation/" class="nav-link">Installation</a>
                             </li>
                             <li class="navitem active">
-                                <a href="./" class="nav-link">Website Architecture</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../websocket-connection/" class="nav-link">WebSocket Connection</a>
+                                <a href="./" class="nav-link">Architecture</a>
                             </li>
                             <li class="navitem">
                                 <a href="../blog/" class="nav-link">Blog</a>
@@ -62,7 +59,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../websocket-connection/" class="nav-link">
+                                <a rel="next" href="../blog/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -84,8 +81,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#website-architecture" class="nav-link">Website Architecture</a>
+            <li class="nav-item" data-level="1"><a href="#architecture" class="nav-link">Architecture</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#websocket-connections" class="nav-link">WebSocket Connections</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -93,7 +94,7 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="website-architecture">Website Architecture</h1>
+<h1 id="architecture">Architecture</h1>
 <p>Some familiarity with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps">JavaScript modules</a> as well as with Symfony's <a href="https://symfony.com/doc/current/frontend/asset_mapper.html">Asset Mapper</a> component is recommended in order to follow this section.</p>
 <p>The ChesslaBlab website is a multi-page application (MPA) that is not adhering to the MVC architectural pattern. The controller actions are basically sending an HTML document to the browser on each request. The business logic is implemented in the chess server.</p>
 <p>In this website architecture in particular, there is no model layer (M) and as a result the Controller layer (C) remains quite basic as in the following example. The main reason behind a multi-page architecture like this one as opposed to a single-page architecture is that we want the pages to be indexed by web crawlers.</p>
@@ -108,7 +109,7 @@ class ComputerController extends AbstractController
 {
     public function index(): Response
     {
-        return $this-&gt;render('pages/play/computer/index.html.twig');
+        retarurn $this-&gt;render('pages/play/computer/index.html.twig');
     }
 }
 </code></pre>
@@ -119,7 +120,108 @@ class ComputerController extends AbstractController
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js">assets/js/pages/play/computer/index.js</a></li>
 </ul>
 <p>This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
-<p>Each page's JavaScript file is then set up as an entrypoint in the <a href="https://github.com/chesslablab/website/blob/main/importmap.php">importmap.php</a> config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.</p></div>
+<p>Each page's JavaScript file is then set up as an entrypoint in the <a href="https://github.com/chesslablab/website/blob/main/importmap.php">importmap.php</a> config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.</p>
+<h2 id="websocket-connections">WebSocket Connections</h2>
+<p>The ChesslaBlab website is integrated with <a href="https://chesslablab.github.io/chess-server/">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
+<p>The environment variables required for the chess server can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
+<p>As described in <a href="https://chesslablab.github.io/chess-server/start/">the docs</a>, these are the game modes available:</p>
+<ul>
+<li><code>analysis</code> is used to start games for further analysis.</li>
+<li><code>play</code> allows to play chess online with other players.</li>
+<li><code>stockfish</code> allows to play chess against the computer.</li>
+</ul>
+<p>The WebSocket ESM modules are implemented based on this same separation of concerns and abstraction:</p>
+<ul>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/AnalysisWebSocket.js">assets/js/websockets/game/AnalysisWebSocket.js</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/PlayWebSocket.js">assets/js/websockets/game/PlayWebSocket.js</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/StockfishWebSocket.js">assets/js/websockets/game/StockfishWebSocket.js</a></li>
+</ul>
+<p>Let's say you wanted to study a particular chess opening, then a chess game in <code>analysis</code> mode is to be started.</p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/architecture_01.png" /></p>
+<p><strong>Figure 1</strong>. Click on <strong>Openings &gt; Search</strong> and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"</p>
+<p>Data:</p>
+<pre><code class="language-text">/start classical analysis &quot;{\&quot;movetext\&quot;:\&quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\&quot;}&quot;
+</code></pre>
+<pre><code class="language-text">{
+  &quot;variant&quot;: &quot;classical&quot;,
+  &quot;mode&quot;: &quot;analysis&quot;,
+  &quot;turn&quot;: &quot;w&quot;,
+  &quot;movetext&quot;: &quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4&quot;,
+  &quot;fen&quot;: [
+    &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -&quot;,
+    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -&quot;,
+    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -&quot;,
+    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R b KQkq -&quot;,
+    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R w KQkq -&quot;,
+    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R b KQkq -&quot;,
+    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R w KQ -&quot;,
+    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQ1RK1 b - -&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/3P4/5NP1/PPP1PPBP/RNBQ1RK1 w - d6&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - c3&quot;,
+    &quot;rnbq1rk1/ppp1ppbp/5np1/8/2pP4/5NP1/PP2PPBP/RNBQ1RK1 w - -&quot;
+  ]
+}
+</code></pre>
+<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js">assets/js/pages/openings/search/index.js</a> file.</p>
+<pre><code class="language-js">import { openingsSearchModal } from './OpeningsSearchModal.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
+
+sessionStorage.clear();
+
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await analysisWebSocket.connect();
+} catch {}
+
+openingsSearchModal.props.modal.show();
+</code></pre>
+<p>The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection.</p>
+<p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. There is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
+<ul>
+<li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/SearchController.php">src/Controller/Pages/Openings/SearchController.php</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/openings/search/index.html.twig">templates/pages/openings/search/index.html.twig</a></li>
+<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js">assets/js/pages/openings/search/index.js</a></li>
+</ul>
+<p>Similarly, if you wanted to study a chess position, then a FEN string needs to be started.</p>
+<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/architecture_02.png" /></p>
+<p><strong>Figure 2</strong>. Click on <strong>Learn &gt; Analysis Chessboard</strong> and enter a classical chess position in FEN format.</p>
+<p>Data:</p>
+<pre><code class="language-text">/start classical analysis &quot;{\&quot;fen\&quot;:\&quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\&quot;,\&quot;movetext\&quot;:\&quot;\&quot;}&quot;
+</code></pre>
+<pre><code class="language-text">{
+  &quot;variant&quot;: &quot;classical&quot;,
+  &quot;mode&quot;: &quot;analysis&quot;,
+  &quot;turn&quot;: &quot;w&quot;,
+  &quot;movetext&quot;: &quot;&quot;,
+  &quot;fen&quot;: [
+    &quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -&quot;
+  ]
+}
+</code></pre>
+<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/analysis/index.js">assets/js/pages/learn/analysis/index.js</a> file.</p>
+<pre><code class="language-js">import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
+import * as mode from '../../../../mode.js';
+
+sessionStorage.clear();
+
+try {
+  await binaryWebSocket.connect();
+} catch {}
+
+try {
+  await analysisWebSocket.connect();
+} catch {}
+
+analysisWebSocket.send(`/start classical ${mode.ANALYSIS}`);
+</code></pre>
+<p>The two examples above will give you a sense of the request-response cycle between the web browser and the chess server.</p></div>
             </div>
         </div>
 
