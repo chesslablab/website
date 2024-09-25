@@ -4,7 +4,6 @@ theme:
   name: mkdocs
 nav:
   - Home: index.md
-  - SSL Certificate Setup: ssl-certificate-setup.md
   - Installation: installation.md
   - Website Architecture: website-architecture.md
   - WebSocket Connection: websocket-connection.md
