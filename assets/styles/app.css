@@ -95,6 +95,10 @@ input[name="Black"] + ul > li:hover {
   height: auto;
 }
 
+.container {
+  min-height: 595px;
+}
+
 .active-move {
   background-color: #6c757d !important;
   color: #fff !important;
