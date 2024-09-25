@@ -112,43 +112,43 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="mainNavLanguageLink">
             <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'de'}) }}">
+                Deutsch
+              </a>
+            </li>
+            <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
-                {{ 'English'|trans }}
+                English
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'es'}) }}">
-                {{ 'Español'|trans }}
+                Español
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">
-                {{ 'Français'|trans }}
+                Français
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}">
-                {{ 'Русский'|trans }}
+                Русский
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'tr'}) }}">
-                {{ 'Türkçe'|trans }}
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'de'}) }}">
-                {{ 'Deutsch'|trans }}
+                Türkçe
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'hi'}) }}">
-                {{ 'हिंदी'|trans }}
+                हिंदी
               </a>
             </li>
             <li>
               <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'zh_CN'}) }}">
-                {{ '简体中文'|trans }}
+                简体中文
               </a>
             </li>
           </ul>
