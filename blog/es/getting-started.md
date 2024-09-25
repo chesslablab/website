@@ -3,6 +3,7 @@ Foto de [Oleg Laptev](https://unsplash.com/@snowshade?utm_content=creditCopyText
 Ya seas instructor de ajedrez o blogger de ajedrez, ahora puedes mantener a tus lectores más interesados. El tablero de análisis de ChesslaBlab se puede integrar fácilmente en las publicaciones de su blog como un iframe HTML. Aquí hay una posición clásica que muestra cómo jugar la Defensa Nimzoindia después de 1.d4 ♘f6 2.c4 e6 3.♘c3 ♗b4.
 
 <iframe
+  loading="lazy"
   title="E25 Nimzo-Indian Defense: Sämisch Variation, Keres Variation"
   width="100%"
   onload="resize(this)"
@@ -15,6 +16,7 @@ La Defensa Nimzoindia es una respuesta popular al d4 de las blancas. La Variaci�
 También es posible incorporar partidas de ajedrez en formato de Variación de Anotación Recursiva (RAV). Se trata de una extensión del formato de Notación Algebárica Estándar (SAN) que permite anotar variantes de ajedrez. Es especialmente útil para tutoriales, partidas destacadas, estudios de ajedrez, etc.
 
 <iframe
+  loading="lazy"
   title="Campeonato del mundo de Capablanca - Lasker"
   width="100%"
   onload="resize(this)"

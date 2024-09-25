@@ -3,6 +3,7 @@ Photo by [Oleg Laptev](https://unsplash.com/@snowshade?utm_content=creditCopyTex
 Whether you are a chess instructor or a chess blogger, now you can keep your readers more engaged. ChesslaBlab's analysis board can be easily embedded into your blog posts as an HTML iframe. Here is a classical position showing how to play the Nimzo-Indian Defense after 1.d4 ♘f6 2.c4 e6 3.♘c3 ♗b4.
 
 <iframe
+  loading="lazy"
   title="E25 Nimzo-Indian Defense: Sämisch Variation, Keres Variation"
   width="100%"
   onload="resize(this)"
@@ -15,6 +16,7 @@ The Nimzo-Indian Defense is a popular response to White's d4. The Sämisch Varia
 Also chess games can be embedded in Recursive Annotation Variation (RAV) format. This is an extension of the Standard Algebaric Notation (SAN) format that allows to annotate chess variations. It is especially useful for tutorials, notable games, chess studies and so on.
 
 <iframe
+  loading="lazy"
   title="Lasker - Capablanca World Championship"
   width="100%"
   onload="resize(this)"
