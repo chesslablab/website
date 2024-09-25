@@ -2,7 +2,7 @@ const dark = `body {
   background-color: #262421;
 }
 .the-content {
-    background-color: #282828;
+  background-color: #282828;
 }
 .the-content {
   color: #f8f9fa;
@@ -10,21 +10,10 @@ const dark = `body {
 .the-content p a,
 .the-content ol li a,
 .the-content ul li a {
-  color: #ffffff !important;
-  font-weight: bold;
-  text-decoration: none;
-}
-.the-content p a:hover,
-.the-content ul li a:hover {
-  text-decoration: underline;
+  color: #ffffff;
 }
 footer a {
   color: #f8f9fa;
-  font-weight: bold;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
 }`;
 
 const light = `body {
@@ -55,22 +44,12 @@ button.navbar-toggler {
   background-color: #f8f9fa;
 }
 .the-content p a,
+.the-content ol li a,
 .the-content ul li a {
   color: #282828;
-  font-weight: bold;
-  text-decoration: none;
-}
-.the-content p a:hover,
-.the-content ul li a:hover {
-  text-decoration: underline;
 }
 footer a {
   color: #4d4d4d;
-  font-weight: bold;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
 }`;
 
 const theme = () => {
