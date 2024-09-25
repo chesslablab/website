@@ -34,9 +34,6 @@
                                 <a href="." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
-                                <a href="ssl-certificate-setup/" class="nav-link">SSL Certificate Setup</a>
-                            </li>
-                            <li class="navitem">
                                 <a href="installation/" class="nav-link">Installation</a>
                             </li>
                             <li class="navitem">
@@ -65,7 +62,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="ssl-certificate-setup/" class="nav-link">
+                                <a rel="next" href="installation/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -90,6 +87,10 @@
             <li class="nav-item" data-level="1"><a href="#website" class="nav-link">Website</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#environment-setup" class="nav-link">Environment Setup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ssl-certificate-setup" class="nav-link">SSL Certificate Setup</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -133,7 +134,111 @@ SUM:                            80            311             33           2858
 <ul>
 <li><a href="https://github.com/chesslablab/website">Website</a></li>
 </ul>
-<p>Make sure to add at least a PHP Chess Server host name from the <a href="https://github.com/chesslablab#node-list">ChesslaBlab Node List</a> to the <code>assets/env.js</code> file of your website.</p></div>
+<p>Make sure to add at least a PHP Chess Server host name from the <a href="https://github.com/chesslablab#node-list">ChesslaBlab Node List</a> to the <code>assets/env.js</code> file of your website.</p>
+<h2 id="ssl-certificate-setup">SSL Certificate Setup</h2>
+<p>Some familiarity with Public Key Infrastructure (PKI) is recommended in order to follow this section.</p>
+<h3 id="development-environment">Development Environment</h3>
+<p>The first thing you need to understand about setting up a ChesslaBlab website in a local development environment is that you have to create an SSL certificate to secure three different domain names at once.</p>
+<ul>
+<li><code>chesslablab.org</code></li>
+<li><code>www.chesslablab.org</code></li>
+<li><code>async.chesslablab.org</code></li>
+</ul>
+<p>This is because nowadays, major browsers want all traffic to be secure, and as a web developer you want the development environment to mimic production as much as possible.</p>
+<p>The first two domain names, <code>chesslablab.org</code> and <code>www.chesslablab.org</code>, will point to the IP of the <a href="https://github.com/chesslablab/website">website</a>. When it comes to websites, it is a common practice to create a domain alias that redirects to the primary domain. Hence the two domain names for the website, one starting with www. The <code>async.chesslablab.org</code> to the IP of the <a href="https://github.com/chesslablab/chess-server">asynchronous chess server</a>.</p>
+<h3 id="decentralized-environment">Decentralized Environment</h3>
+<p>In a decentralized environment only two domain names need to be secured.</p>
+<ul>
+<li><code>chesslablab.org</code></li>
+<li><code>www.chesslablab.org</code></li>
+</ul>
+<p>Use custom domain names to configure yours whether you are a chess club, a school, or a FIDE titled player.</p>
+<ul>
+<li><code>yourchessclub.com</code></li>
+<li><code>www.yourchessclub.com</code></li>
+</ul>
+<h3 id="free-ssl-certificate-with-certbot">Free SSL Certificate with Certbot</h3>
+<p>Probably the easiest way to proceed is to purchase a wildcard certificate from a Certificate Authority (CA) however you may want to consider to get your free certificate using <a href="https://certbot.eff.org/">Certbot</a> instead. Be that as it may, keep in mind that before any CA can issue an SSL certificate, a validation process is required to verify that it can be sent to the Certificate Signing Request (CSR) requester.</p>
+<p>This is typically achieved through one of the following methods.</p>
+<ul>
+<li>
+<p>Email Validation — a validation email is sent to the certificate requester.</p>
+</li>
+<li>
+<p>HTTP Validation — the certificate requester is asked to upload a validation file at their host.</p>
+</li>
+<li>
+<p>DNS Validation — the certificate requester sets up a CNAME record in the domain's DNS zone for further validation.</p>
+</li>
+</ul>
+<p>I used Certbot to automatically get a free HTTPS certificate. Since the ChesslaBlab website is running on an Ubuntu server, the certificate was validated through DNS as it is described next.</p>
+<pre><code class="language-text">sudo certbot certonly --standalone
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Please enter the domain name(s) you would like on your certificate (comma and/or
+space separated) (Enter 'c' to cancel): chesslablab.org www.chesslablab.org async.chesslablab.org
+Requesting a certificate for chesslablab.org and 2 more domains
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/chesslablab.org-0001/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/chesslablab.org-0001/privkey.pem
+This certificate expires on 2024-04-23.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+</code></pre>
+<p>The certbot command generated two files, <code>fullchain.pem</code> and <code>privkey.pem</code>, that then were installed in each of the repos listed above:</p>
+<ul>
+<li>chesslablab/website</li>
+<li>chesslablab/chess-server</li>
+</ul>
+<p>It is worth saying that for this to function properly, Certbot's documentation recommends to have a working web site that can already be accessed using HTTP on port 80.</p>
+<h3 id="self-signed-ssl-certificate-with-openssl">Self-Signed SSL Certificate with OpenSSL</h3>
+<p>If issuing a certificate with DNS validation sounds too complicated to you, OpenSSL might be an alternate solution for the development environment. You may want to create a self-signed multi-domain SSL certificate using OpenSSL.</p>
+<pre><code class="language-text">openssl genrsa -aes256 -passout pass:foobar -out chesslablab.org.pem 2048
+openssl req -passin pass:foobar -new -sha256 -key chesslablab.org.pem -subj &quot;/C=US/ST=CA/O=ChesslaBlab, Inc./CN=chesslablab.org&quot; -reqexts SAN -config &lt;(cat /etc/ssl/openssl.cnf &lt;(printf &quot;[SAN]\nsubjectAltName=DNS:*.mydomain.org&quot;)) -out chesslablab.org.csr
+openssl x509 -passin pass:foobar -req -days 365 -in chesslablab.org.csr -signkey chesslablab.org.pem -out chesslablab.org.crt
+openssl rsa -passin pass:foobar -in chesslablab.org.pem -out chesslablab.org.key
+</code></pre>
+<p>The command above will generate four files:</p>
+<ul>
+<li>chesslablab.org.crt</li>
+<li>chesslablab.org.csr</li>
+<li>chesslablab.org.key</li>
+<li>chesslablab.org.pem</li>
+</ul>
+<p>Then, <code>chesslablab.org.crt</code> and <code>chesslablab.org.key</code> must be renamed in order to match both the certificate and the key filename created by Certbot. As noted before, it is assumed that Certbot is used to automatically generate the HTTPS certificate so all repositories are configured to read these two files on startup.</p>
+<pre><code class="language-text">mv chesslablab.org.crt fullchain.pem
+</code></pre>
+<pre><code class="language-text">mv chesslablab.org.key privkey.pem
+</code></pre>
+<p>At this point, it is of vital importance to add the chess server's self-signed certificate as trusted to your browser.</p>
+<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/index_01.png" /></p>
+<p><strong>Figure 1</strong>. Make the browser trust the chess server's self-signed certificate.</p>
+<p>If skipping this step, the web browser won't be able to connect to the chess server. The latter will complain with an SSL handshake error.</p>
+<pre><code class="language-text">SSL handshake error: stream_socket_enable_crypto(): SSL operation failed with code 1. OpenSSL Error messages:
+error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
+</code></pre>
+<p>And the web browser will throw an error accordingly.</p>
+<pre><code class="language-text">WebSocket connection to 'wss://async.chesslablab.org:8443/' failed
+</code></pre>
+<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/index_02.png" /></p>
+<p><strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>In order to set up a local development environment, three different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.</p>
+<ul>
+<li>chesslablab/website</li>
+<li>chesslablab/chess-server</li>
+</ul>
+<p>In a decentralized environment only two domain names need to be secured. The SSL certificate is to be installed in the following repository.</p>
+<ul>
+<li>chesslablab/website</li>
+</ul>
+<p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p></div>
             </div>
         </div>
 
@@ -216,5 +321,5 @@ SUM:                            80            311             33           2858
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-09-25 17:29:44.570791+00:00
+Build Date UTC : 2024-09-25 17:36:11.806949+00:00
 -->
