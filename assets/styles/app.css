@@ -138,6 +138,11 @@ label img,
   color: #fff !important;
 }
 
+#movesBrowser {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
 #movesBrowser div,
 #movesBrowser span {
   background-color: #fff;
