@@ -3,7 +3,7 @@ import * as env from '../../../env.js';
 
 export class SettingsForm extends AbstractComponent {
   mount() {
-    env.WEBSOCKET_SERVER.forEach(item => {
+    env.settings.ws.forEach(item => {
       const option = document.createElement('option');
       option.appendChild(document.createTextNode(new URL(item).hostname));
       option.value = item;

@@ -1,7 +1,14 @@
-const WEBSOCKET_SERVER = [
-  'wss://async.chesslablab.org'
-];
+const SETTINGS = {
+  'locale': 'en',
+  'theme': 'dark',
+  'format': 'inline',
+  'notation': 'fan',
+  'set': 'classical',
+  'ws': [
+    'wss://async.chesslablab.org'
+  ]
+};
 
 export {
-  WEBSOCKET_SERVER
+  SETTINGS
 };
