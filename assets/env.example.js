@@ -1,3 +1,5 @@
+// Check out for possible settings values in templates/pages/settings/index.html.twig
+
 const SETTINGS = {
   'locale': 'en',
   'theme': 'dark',

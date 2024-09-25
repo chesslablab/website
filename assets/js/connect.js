@@ -7,7 +7,7 @@ const ws = () => {
     }
   }
 
-  return env.settings.ws[Math.floor(Math.random() * env.settings.ws.length)];
+  return env.SETTINGS.ws[Math.floor(Math.random() * env.SETTINGS.ws.length)];
 }
 
 export {

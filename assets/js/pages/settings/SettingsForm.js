@@ -3,46 +3,19 @@ import * as env from '../../../env.js';
 
 export class SettingsForm extends AbstractComponent {
   mount() {
-    env.settings.ws.forEach(item => {
+    env.SETTINGS.ws.forEach(item => {
       const option = document.createElement('option');
       option.appendChild(document.createTextNode(new URL(item).hostname));
       option.value = item;
       this.el.querySelector('select[name="ws"]').append(option);
     });
 
-    if (localStorage.getItem('locale')) {
-      this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale');
-    } else {
-      this.el.querySelector('select[name="locale"]').value = 'en';
-    }
-
-    if (localStorage.getItem('theme') === 'light') {
-      this.el.querySelector('select[name="theme"]').value = 'light';
-    } else {
-      this.el.querySelector('select[name="theme"]').value = 'dark';
-    }
-
-    if (localStorage.getItem('format') === 'table') {
-      this.el.querySelector('select[name="format"]').value = 'table';
-    } else {
-      this.el.querySelector('select[name="format"]').value = 'inline';
-    }
-
-    if (localStorage.getItem('notation') === 'san') {
-      this.el.querySelector('select[name="notation"]').value = 'san';
-    } else {
-      this.el.querySelector('select[name="notation"]').value = 'fan';
-    }
-
-    if (localStorage.getItem('set') === 'staunty') {
-      this.el.querySelector('select[name="set"]').value = 'staunty';
-    } else {
-      this.el.querySelector('select[name="set"]').value = 'classical';
-    }
-
-    if (localStorage.getItem('ws')) {
-      this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws');
-    }
+    this.el.querySelector('select[name="locale"]').value = localStorage.getItem('locale') ?? env.SETTINGS.locale;
+    this.el.querySelector('select[name="theme"]').value = localStorage.getItem('theme') ?? env.SETTINGS.theme;
+    this.el.querySelector('select[name="format"]').value = localStorage.getItem('format') ?? env.SETTINGS.format;
+    this.el.querySelector('select[name="notation"]').value = localStorage.getItem('notation') ?? env.SETTINGS.notation;
+    this.el.querySelector('select[name="set"]').value = localStorage.getItem('set') ?? env.SETTINGS.set;
+    this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws') ?? env.SETTINGS.ws;
 
     this.el.addEventListener('submit', event => {
       event.preventDefault();
