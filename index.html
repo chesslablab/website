@@ -91,6 +91,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#customization" class="nav-link">Customization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -225,7 +229,7 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 </code></pre>
 <p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/index_02.png" /></p>
 <p><strong>Figure 2</strong>. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.</p>
-<h3 id="conclusion">Conclusion</h3>
+<p>Let's recap!</p>
 <p>In order to set up a local development environment, three different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.</p>
 <ul>
 <li>chesslablab/website</li>
@@ -235,7 +239,59 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 <ul>
 <li>chesslablab/website</li>
 </ul>
-<p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p></div>
+<p><a href="https://certbot.eff.org/">Certbot</a> can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.</p>
+<h2 id="customization">Customization</h2>
+<p>The default settings can be customized through the environment variables starting with <code>SET_</code> in the <a href="https://github.com/chesslablab/website/blob/main/.env.example">.env</a> file.</p>
+<pre><code class="language-text">SET_SITE_NAME=ChesslaBlab
+SET_LOCALE=en
+</code></pre>
+<p>Change the site name and the locale to configure your website whether you are a chess club, a school, or a FIDE titled player.</p>
+<pre><code class="language-text">SET_SITE_NAME=YourChessClub
+SET_LOCALE=es
+</code></pre>
+<p>The supported locales are described in the following table.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Locale</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">de</td>
+<td align="left">German</td>
+</tr>
+<tr>
+<td align="left">en</td>
+<td align="left">English</td>
+</tr>
+<tr>
+<td align="left">es</td>
+<td align="left">Spanish</td>
+</tr>
+<tr>
+<td align="left">fr</td>
+<td align="left">French</td>
+</tr>
+<tr>
+<td align="left">ru</td>
+<td align="left">Russian</td>
+</tr>
+<tr>
+<td align="left">tr</td>
+<td align="left">Turkish</td>
+</tr>
+<tr>
+<td align="left">hi</td>
+<td align="left">Hindi</td>
+</tr>
+<tr>
+<td align="left">zh_CN</td>
+<td align="left">Chinese (Simplified)</td>
+</tr>
+</tbody>
+</table></div>
             </div>
         </div>
 
@@ -318,5 +374,5 @@ error:14094416:SSL routines:ssl3_read_bytes:sslv3 alert certificate unknown
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-09-25 17:48:34.853853+00:00
+Build Date UTC : 2024-09-25 18:16:17.514614+00:00
 -->
