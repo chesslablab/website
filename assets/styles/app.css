@@ -1,9 +1,9 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+html {
+  font-size: 0.9em;
 }
 
-table {
-  margin-bottom: 0 !important;
+body {
+  font-family: monospace;
 }
 
 h3 a,
@@ -82,7 +82,7 @@ input[name="Black"] + ul > li:hover {
 .the-content p,
 .the-content ul {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .the-post h1, h2, h6,
@@ -110,21 +110,9 @@ label img,
   cursor: pointer;
 }
 
-#navbarNavDropdown > ul > li:first-child {
-  margin-right: 1rem;
-}
-
-#startedButtons {
-  margin-top: 1rem;
-}
-
 #movesMetadataTable,
 #openingTable {
-  font-size: 0.8rem;
-}
-
-#movesMetadataTable {
-  margin: 0;
+  font-size: 0.85rem;
 }
 
 #movesMetadataTable tr td:nth-child(1) {
