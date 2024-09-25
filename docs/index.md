@@ -164,7 +164,7 @@ WebSocket connection to 'wss://async.chesslablab.org:8443/' failed
 
 **Figure 2**. WebSocket connection to 'wss://async.chesslablab.org:8443/' failed.
 
-### Conclusion
+Let's recap!
 
 In order to set up a local development environment, three different domain names need to be secured at once. The SSL certificate is to be installed in each of the following repositories.
 
@@ -176,3 +176,32 @@ In a decentralized environment only two domain names need to be secured. The SSL
 - chesslablab/website
 
 [Certbot](https://certbot.eff.org/) can be used to automatically get a free HTTPS certificate, however, if this still sounds too complicated, OpenSSL might be an alternate solution for the development environment.
+
+## Customization
+
+The default settings can be customized through the environment variables starting with `SET_` in the [.env](https://github.com/chesslablab/website/blob/main/.env.example) file.
+
+```text
+SET_SITE_NAME=ChesslaBlab
+SET_LOCALE=en
+```
+
+Change the site name and the locale to configure your website whether you are a chess club, a school, or a FIDE titled player.
+
+```text
+SET_SITE_NAME=YourChessClub
+SET_LOCALE=es
+```
+
+The supported locales are described in the following table.
+
+| Locale | Description          |
+| :----- | :------------------- |
+| de     | German               |
+| en     | English              |
+| es     | Spanish              |
+| fr     | French               |
+| ru     | Russian              |
+| tr     | Turkish              |
+| hi     | Hindi                |
+| zh_CN  | Chinese (Simplified) |
