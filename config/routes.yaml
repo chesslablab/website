@@ -17,7 +17,7 @@ locale:
     path: /
     controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
     defaults:
-      path: /en/
+      path: /%set_locale%/
       permanent: true
 
 sitemap:

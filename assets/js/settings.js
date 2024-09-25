@@ -73,15 +73,6 @@ footer a:hover {
   text-decoration: underline;
 }`;
 
-const locale = () => {
-  const url = window.location.pathname.split('/');
-  if (localStorage.getItem('locale')) {
-    if (localStorage.getItem('locale') !== url[1]) {
-      window.location.href = window.location.href.replace(`/${url[1]}/`, `/${localStorage.getItem('locale')}/`);
-    }
-  }
-}
-
 const theme = () => {
   const el = document.createElement('style');
   el.setAttribute('id', 'theme');
@@ -94,5 +85,4 @@ const theme = () => {
   document.head.appendChild(el);
 }
 
-locale();
 theme();
