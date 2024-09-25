@@ -23,7 +23,7 @@ SUM:                            80            311             33           2858
 
 This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps). Now you can get rid of libraries and frameworks like React, Vue, Next.js, as well as transpilers, bundlers and so on. The ChesslaBlab website is written using OOP and the DOM.
 
-## Environment Setup
+## Available Environments
 
 ### Development
 
