@@ -37,7 +37,6 @@ export class PlayFriendModal extends AbstractComponent {
         }
       });
       this.props.modal.hide();
-      this.props.copyInviteCodeModal.props.modal.show();
     });
   }
 }
