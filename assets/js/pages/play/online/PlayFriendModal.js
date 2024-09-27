@@ -7,13 +7,6 @@ import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
-// Function to validate FEN string
-function isValidFEN(fen) {
-  const parts = fen.split(' ');
-  if (parts.length !== 6) return false; 
-  return true;
-}
-
 export class PlayFriendModal extends AbstractComponent {
   mount() {
     this.props.form.getElementsByTagName('select')[0].addEventListener('change', event => {
@@ -27,17 +20,8 @@ export class PlayFriendModal extends AbstractComponent {
 
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
-
-      const formData = new FormData(this.props.form);
       const accessToken = jsCookie.get('access_token') ? jwtDecode(jsCookie.get('access_token')) : null;
-
-      // FEN validation
-      const fen = formData.get('fen');
-      if (fen && !isValidFEN(fen)) {
-        alert("Invalid FEN string. Please enter a valid FEN.");
-        return; // Stop form submission if FEN is invalid
-      }
-
+      const formData = new FormData(this.props.form);
       playWebSocket.send('/start', {
         variant: formData.get('variant'),
         mode: mode.PLAY,
@@ -46,23 +30,14 @@ export class PlayFriendModal extends AbstractComponent {
           increment: formData.get('increment'),
           color: formData.get('color'),
           submode: 'friend',
-          ...(formData.get('variant') === variant.CHESS_960) && { startPos: formData.get('startPos') },
-          ...(fen && { fen: fen }),  
+          ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
+          ...(formData.get('fen') && {fen: formData.get('fen')}),
           username: accessToken ? accessToken.username : null,
           elo: accessToken ? accessToken.elo : null
         }
       });
-
       this.props.modal.hide();
-      this.props.copyInviteCodeModal.props.modal.show();
     });
-
-    playWebSocket.onmessage = function(event) {
-      const response = JSON.parse(event.data);
-      if (response['/start'] && response['/start'].message) {
-        alert(`Info: ${response['/start'].message}`);
-      }
-    };
   }
 }
 

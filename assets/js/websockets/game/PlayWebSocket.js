@@ -24,6 +24,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     .onChange('/start', data => {
       if (data.jwt) {
         copyInviteCodeModal.props.form.elements['uid'].value = data.uid;
+        copyInviteCodeModal.props.modal.show();
         const startToken = jwtDecode(data.jwt);
         this.chessboard.setPosition(data.fen, true);
         this.chessboard.setOrientation(startToken.color);
@@ -33,7 +34,9 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.send('/online_games');
         sessionStorage.setItem('start_token', data.jwt);
       } else {
-        console.log('Invalid FEN, please try again with a different one.');
+        this.infoModal.props.msg = "Invalid FEN, please try again with a different one";
+        this.infoModal.mount();
+        this.infoModal.props.modal.show();
       }
     })
     .onChange('/legal', data => {
