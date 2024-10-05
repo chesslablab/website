@@ -1,7 +1,6 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import { copyInviteCodeModal } from './CopyInviteCodeModal.js';
 import AbstractComponent from '../../../AbstractComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
@@ -45,7 +44,6 @@ export const playFriendModal = new PlayFriendModal(
   document.getElementById('playFriendModal'),
   {
     modal: new Modal(document.getElementById('playFriendModal')),
-    form: document.querySelector('#playFriendModal form'),
-    copyInviteCodeModal: copyInviteCodeModal
+    form: document.querySelector('#playFriendModal form')
   }
 );

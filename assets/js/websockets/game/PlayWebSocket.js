@@ -23,9 +23,11 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     })
     .onChange('/start', data => {
       if (data.jwt) {
-        copyInviteCodeModal.props.form.elements['uid'].value = data.uid;
-        copyInviteCodeModal.props.modal.show();
         const startToken = jwtDecode(data.jwt);
+        if (startToken.submode === 'friend') {
+          copyInviteCodeModal.props.form.elements['uid'].value = data.uid;
+          copyInviteCodeModal.props.modal.show();
+        }
         this.chessboard.setPosition(data.fen, true);
         this.chessboard.setOrientation(startToken.color);
         this.chessboard.props.variant = data.variant;
