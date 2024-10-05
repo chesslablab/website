@@ -10,6 +10,7 @@ import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js'
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
 import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 import * as action from '../../../action.js';
+import * as submode from '../../../submode.js';
 
 export class PlayWebSocket extends AbstractGameWebSocket {
   timerTableInterval;
@@ -24,7 +25,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
     .onChange('/start', data => {
       if (data.jwt) {
         const startToken = jwtDecode(data.jwt);
-        if (startToken.submode === 'friend') {
+        if (startToken.submode === submode.FRIEND) {
           copyInviteCodeModal.props.form.elements['uid'].value = data.uid;
           copyInviteCodeModal.props.modal.show();
         }
