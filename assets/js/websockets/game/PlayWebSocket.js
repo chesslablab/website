@@ -1,4 +1,3 @@
-import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { COLOR, MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
@@ -8,7 +7,6 @@ import { createGameModal } from '../../pages/play/online/CreateGameModal.js';
 import { enterInviteCodeModal } from '../../pages/play/online/EnterInviteCodeModal.js';
 import { playOnlineButtons } from '../../pages/play/online/PlayOnlineButtons.js';
 import { playPanel } from '../../pages/play/online/PlayPanel.js';
-import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 import * as action from '../../../action.js';
 import * as submode from '../../../submode.js';
 
@@ -70,15 +68,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           this.infoModal.props.msg = data.end.msg;
           this.infoModal.mount();
           this.infoModal.props.modal.show();
-          authWebSocket
-            .send('/totp_refresh', {
-              access_token: jsCookie.get('access_token')
-            })
-            .onChange('/totp_refresh', data => {
-              if (data?.access_token) {
-                jsCookie.set('access_token', data.access_token);
-              }
-            });
         }
       } else {
         this.chessboard.setPosition(data.fen, false);
@@ -165,15 +154,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
       this.infoModal.props.msg = "The game is resigned";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      authWebSocket
-        .send('/totp_refresh', {
-          access_token: jsCookie.get('access_token')
-        })
-        .onChange('/totp_refresh', data => {
-          if (data?.access_token) {
-            jsCookie.set('access_token', data.access_token);
-          }
-        });
     })
     .onChange('/rematch', data => {
       if (data.action === action.PROPOSE) {
@@ -221,15 +201,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
       this.infoModal.props.msg = "The game is abandoned";
       this.infoModal.mount();
       this.infoModal.props.modal.show();
-      authWebSocket
-        .send('/totp_refresh', {
-          access_token: jsCookie.get('access_token')
-        })
-        .onChange('/totp_refresh', data => {
-          if (data?.access_token) {
-            jsCookie.set('access_token', data.access_token);
-          }
-        });
     })
     .onChange('/online_games', data => {
       playOnlineButtons.props.playersButtons.props.games = data;

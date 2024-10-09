@@ -1,3 +1,4 @@
+import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
@@ -36,6 +37,16 @@ window.addEventListener('beforeunload', function () {
 
   return false;
 });
+
+authWebSocket
+  .send('/totp_refresh', {
+    access_token: jsCookie.get('access_token')
+  })
+  .onChange('/totp_refresh', data => {
+    if (data?.access_token) {
+      jsCookie.set('access_token', data.access_token);
+    }
+  });
 
 playWebSocket.send('/online_games');
 
