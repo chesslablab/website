@@ -193,6 +193,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
             b: `${restartToken.username.b} ${restartToken.elo.b ? (restartToken.elo.b) : ''}`
           }
         };
+        clearInterval(this.timerTableInterval);
         this.timerTableInterval = playPanel.props.timerTableInterval();
         playOnlineButtons.el.classList.add('d-none');
         playPanel.props.gameActionsDropdown.el.classList.remove('d-none');
