@@ -197,6 +197,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         playOnlineButtons.el.classList.add('d-none');
         playPanel.props.gameActionsDropdown.el.classList.remove('d-none');
         playPanel.props.finishedButtons.el.classList.add('d-none');
+        sessionStorage.setItem('accept_token', data.jwt);
       }
     })
     .onChange('/leave', data => {
