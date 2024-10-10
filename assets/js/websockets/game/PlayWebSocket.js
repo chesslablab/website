@@ -187,6 +187,10 @@ export class PlayWebSocket extends AbstractGameWebSocket {
           seconds: {
             w: data.timer.w,
             b: data.timer.b
+          },
+          username: {
+            w: `${restartToken.username.w} ${restartToken.elo.w ? (restartToken.elo.w) : ''}`,
+            b: `${restartToken.username.b} ${restartToken.elo.b ? (restartToken.elo.b) : ''}`
           }
         };
         this.timerTableInterval = playPanel.props.timerTableInterval();
