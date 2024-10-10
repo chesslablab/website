@@ -1,5 +1,4 @@
 import jsCookie from 'js-cookie';
-import { jwtDecode } from 'jwt-decode';
 import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 import chessboard from '../../chessboard.js';
@@ -10,9 +9,6 @@ import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
 sessionStorage.clear();
-
-chessboard.state.inputWhiteEnabled = false;
-chessboard.state.inputBlackEnabled = false;
 
 try {
   await authWebSocket.connect();
@@ -30,14 +26,6 @@ try {
   await playWebSocket.connect();
 } catch {}
 
-window.addEventListener('beforeunload', function () {
-  playWebSocket.send('/leave', {
-    color: playWebSocket.color()
-  });
-
-  return false;
-});
-
 authWebSocket
   .send('/totp_refresh', {
     access_token: jsCookie.get('access_token')
@@ -48,11 +36,19 @@ authWebSocket
     }
   });
 
-playWebSocket.send('/online_games');
-
 dataWebSocket
   .send(`/ranking`)
   .onChange('/ranking', data => {
     rankingTable.props.data = data;
     rankingTable.mount();
   });
+
+playWebSocket.send('/online_games');
+
+window.addEventListener('beforeunload', function () {
+  playWebSocket.send('/leave', {
+    color: playWebSocket.color()
+  });
+
+  return false;
+});
