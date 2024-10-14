@@ -15,6 +15,7 @@ try {
 const url = window.location.href.split('/');
 
 annotationsWebSocket.send('/play_rav', {
+  variant: url[6],
   fen: decodeURIComponent(url[7]),
   movetext: decodeURIComponent(url[8]),
   startPos: url[9]
