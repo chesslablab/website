@@ -9,6 +9,9 @@ export default class AbstractWebSocket {
   progressModal;
 
   constructor() {
+    if (sessionStorage.length > 0) {
+      sessionStorage.clear();
+    }
     this.socket = null;
     this.response = {};
     this.infoModal = infoModal;

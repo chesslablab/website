@@ -3,8 +3,6 @@ import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
-sessionStorage.clear();
-
 try {
   await Promise.all([
     binaryWebSocket.connect(),

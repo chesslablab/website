@@ -8,8 +8,6 @@ import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
-sessionStorage.clear();
-
 try {
   await Promise.all([
     authWebSocket.connect(),

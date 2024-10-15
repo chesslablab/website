@@ -2,8 +2,6 @@ import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
 import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
 import * as mode from '../../../mode.js';
 
-sessionStorage.clear();
-
 try {
   await Promise.all([
     binaryWebSocket.connect(),

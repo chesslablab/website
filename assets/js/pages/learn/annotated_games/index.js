@@ -4,8 +4,6 @@ import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../../variant.js';
 
-sessionStorage.clear();
-
 try {
   await Promise.all([
     binaryWebSocket.connect(),
