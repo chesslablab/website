@@ -96,16 +96,21 @@ export class AnalysisPanel extends AbstractComponent {
                 datasets: [{
                   label: event.target.value,
                   data: data,
-                  borderWidth: 2.25,
-                  tension: 0.25,
-                  borderColor: '#0a0a0a'
+                  borderColor: '#0d6efd'
                 }]
               },
               options: {
                 animation: false,
+                responsive: true,
                 elements: {
-                  point:{
-                    radius: 0
+                  point: {
+                    radius: 3,
+                    hoverRadius: 6
+                  }
+                },
+                plugins: {
+                  legend: {
+                    display: false
                   }
                 },
                 scales: {
@@ -114,9 +119,6 @@ export class AnalysisPanel extends AbstractComponent {
                       display: false
                     },
                     grid: {
-                      display: false
-                    },
-                    border: {
                       display: false
                     },
                     beginAtZero: true,
@@ -129,22 +131,18 @@ export class AnalysisPanel extends AbstractComponent {
                     },
                     grid: {
                       display: false
-                    },
-                    border: {
-                      display: false
                     }
                   }
                 },
-                plugins: {
-                  legend: {
-                    position: 'bottom',
-                    labels: {
-                      boxWidth: 0,
-                      font: {
-                        size: 16
-                      }
-                    }
+                onClick: async (event, clickedElements) => {
+                  if (clickedElements.length === 0) {
+                    return;
                   }
+                  const { dataIndex, raw } = clickedElements[0].element.$context;
+                  this.props.movesBrowser.current = dataIndex;
+                  this.props.movesBrowser.mount();
+                  analysisWebSocket.chessboard.setPosition(this.props.movesBrowser.props.fen[dataIndex], true);
+                  this.props.heuristicsModal.props.modal.hide();
                 }
               }
             });
