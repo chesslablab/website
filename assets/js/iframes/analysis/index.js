@@ -5,11 +5,10 @@ import * as mode from '../../../mode.js';
 sessionStorage.clear();
 
 try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await analysisWebSocket.connect();
+  await Promise.all([
+  	binaryWebSocket.connect(),
+  	analysisWebSocket.connect()
+  ]);
 } catch {}
 
 const url = window.location.href.split('/');

@@ -4,5 +4,7 @@ import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 sessionStorage.clear();
 
 try {
-  await authWebSocket.connect();
+  await Promise.all([
+  	authWebSocket.connect()
+  ]);
 } catch {}

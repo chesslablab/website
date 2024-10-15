@@ -6,15 +6,11 @@ import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js
 sessionStorage.clear();
 
 try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await dataWebSocket.connect();
-} catch {}
-
-try {
-  await analysisWebSocket.connect();
+  await Promise.all([
+  	binaryWebSocket.connect(),
+  	dataWebSocket.connect(),
+  	analysisWebSocket.connect()
+  ]);
 } catch {}
 
 resultModal.progressModal.props.modal.show();

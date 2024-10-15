@@ -7,15 +7,11 @@ import * as variant from '../../../../variant.js';
 sessionStorage.clear();
 
 try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await dataWebSocket.connect();
-} catch {}
-
-try {
-  await annotationsWebSocket.connect();
+  await Promise.all([
+  	binaryWebSocket.connect(),
+  	dataWebSocket.connect(),
+  	annotationsWebSocket.connect()
+  ]);
 } catch {}
 
 annotatedGames.progressModal.props.modal.show();

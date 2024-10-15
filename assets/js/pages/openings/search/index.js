@@ -5,11 +5,10 @@ import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js
 sessionStorage.clear();
 
 try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await analysisWebSocket.connect();
+  await Promise.all([
+  	binaryWebSocket.connect(),
+  	analysisWebSocket.connect()
+  ]);
 } catch {}
 
 openingsSearchModal.props.modal.show();

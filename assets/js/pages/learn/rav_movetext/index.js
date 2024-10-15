@@ -4,7 +4,9 @@ import { annotationsWebSocket } from '../../../websockets/game/AnnotationsWebSoc
 sessionStorage.clear();
 
 try {
-  await annotationsWebSocket.connect();
+  await Promise.all([
+  	annotationsWebSocket.connect()
+  ]);
 } catch {}
 
 ravMovetextModal.props.modal.show();
