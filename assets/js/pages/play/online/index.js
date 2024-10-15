@@ -11,19 +11,12 @@ import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 sessionStorage.clear();
 
 try {
-  await authWebSocket.connect();
-} catch {}
-
-try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await dataWebSocket.connect();
-} catch {}
-
-try {
-  await playWebSocket.connect();
+  await Promise.all([
+  	authWebSocket.connect(),
+  	binaryWebSocket.connect(),
+  	dataWebSocket.connect(),
+  	playWebSocket.connect()
+  ]);
 } catch {}
 
 authWebSocket
