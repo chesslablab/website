@@ -7,8 +7,8 @@ sessionStorage.clear();
 
 try {
   await Promise.all([
-  	binaryWebSocket.connect(),
-  	analysisWebSocket.connect()
+    binaryWebSocket.connect(),
+    analysisWebSocket.connect()
   ]);
 } catch {}
 

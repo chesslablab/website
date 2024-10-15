@@ -5,7 +5,7 @@ sessionStorage.clear();
 
 try {
   await Promise.all([
-  	annotationsWebSocket.connect()
+    annotationsWebSocket.connect()
   ]);
 } catch {}
 

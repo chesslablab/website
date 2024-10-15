@@ -6,8 +6,8 @@ sessionStorage.clear();
 
 try {
   await Promise.all([
-  	binaryWebSocket.connect(),
-  	stockfishWebSocket.connect()
+    binaryWebSocket.connect(),
+    stockfishWebSocket.connect()
   ]);
 } catch {}
 

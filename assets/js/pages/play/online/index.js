@@ -12,10 +12,10 @@ sessionStorage.clear();
 
 try {
   await Promise.all([
-  	authWebSocket.connect(),
-  	binaryWebSocket.connect(),
-  	dataWebSocket.connect(),
-  	playWebSocket.connect()
+    authWebSocket.connect(),
+    binaryWebSocket.connect(),
+    dataWebSocket.connect(),
+    playWebSocket.connect()
   ]);
 } catch {}
 

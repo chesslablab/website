@@ -5,6 +5,6 @@ sessionStorage.clear();
 
 try {
   await Promise.all([
-  	authWebSocket.connect()
+    authWebSocket.connect()
   ]);
 } catch {}
