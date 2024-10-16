@@ -68,7 +68,7 @@ class BlogController extends AbstractController
             $metadata = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['metadata'];
             $content = $routes[$request->attributes->get('_route')]['options']['blog'][$locale]['content'];
         } else {
-            throw $this->createNotFoundException('This post does not exist');
+            throw new NotTranslatedException('This publication has not been translated into the current selected language');
         }
 
         return $this->render('entry.html.twig', [
