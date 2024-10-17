@@ -50,12 +50,12 @@ export class ResultPlayerModal extends AbstractComponent {
       const formData = new FormData(this.props.form);
       const playerStatsChart = document.getElementById('playerStatsChart');
       dataWebSocket
-        .send('/result_player', {
+        .send('/opening', {
           White: formData.get('White'),
           Black: formData.get('Black'),
           Result: formData.get('Result')
         })
-        .onChange('/result_player', data => {
+        .onChange('/opening', data => {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');
           playerStatsChart.replaceChildren();
