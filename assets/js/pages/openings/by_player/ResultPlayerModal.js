@@ -1,6 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { blackAutocomplete } from '../../BlackAutocomplete.js';
+import { eventAutocomplete } from '../../EventAutocomplete.js';
 import movesMetadataTable from '../../movesMetadataTable.js';
 import { whiteAutocomplete } from '../../WhiteAutocomplete.js';
 import AbstractComponent from '../../../AbstractComponent.js';
@@ -26,6 +27,7 @@ export class ResultPlayerModal extends AbstractComponent {
         .send('/search', {
           White: formData.get('White'),
           Black: formData.get('Black'),
+          Event: formData.get('Event'),
           Result: formData.get('Result'),
           ECO: event.chart.data.labels[dataIndex]
         })
@@ -53,6 +55,7 @@ export class ResultPlayerModal extends AbstractComponent {
         .send('/opening', {
           White: formData.get('White'),
           Black: formData.get('Black'),
+          Event: formData.get('Event'),
           Result: formData.get('Result')
         })
         .onChange('/opening', data => {
