@@ -33,10 +33,6 @@ return [
         'path' => './assets/js/pages/openings/search/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/openings/most_played/index.js' => [
-        'path' => './assets/js/pages/openings/most_played/index.js',
-        'entrypoint' => true,
-    ],
     'js/pages/openings/by_player/index.js' => [
         'path' => './assets/js/pages/openings/by_player/index.js',
         'entrypoint' => true,
