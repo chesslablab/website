@@ -41,10 +41,6 @@ return [
         'path' => './assets/js/pages/openings/by_player/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/openings/by_event/index.js' => [
-        'path' => './assets/js/pages/openings/by_event/index.js',
-        'entrypoint' => true,
-    ],
     'js/pages/games/index.js' => [
         'path' => './assets/js/pages/games/index.js',
         'entrypoint' => true,
