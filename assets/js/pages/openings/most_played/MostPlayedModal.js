@@ -12,7 +12,7 @@ import * as variant from '../../../../variant.js';
 
 Chart.register(...registerables);
 
-export class ResultPlayerModal extends AbstractComponent {
+export class MostPlayedModal extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -110,11 +110,11 @@ export class ResultPlayerModal extends AbstractComponent {
   }
 }
 
-export const resultPlayerModal = new ResultPlayerModal(
-  document.getElementById('resultPlayerModal'),
+export const mostPlayedModal = new MostPlayedModal(
+  document.getElementById('mostPlayedModal'),
   {
-    modal: new Modal(document.getElementById('resultPlayerModal')),
-    form: document.querySelector('#resultPlayerModal form'),
+    modal: new Modal(document.getElementById('mostPlayedModal')),
+    form: document.querySelector('#mostPlayedModal form'),
     movesMetadataTable: movesMetadataTable
   }
 );
