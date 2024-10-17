@@ -29,12 +29,12 @@ return [
         'path' => './assets/js/pages/learn/annotated_games/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/openings/search/index.js' => [
-        'path' => './assets/js/pages/openings/search/index.js',
+    'js/pages/openings/most_played/index.js' => [
+        'path' => './assets/js/pages/openings/most_played/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/openings/by_player/index.js' => [
-        'path' => './assets/js/pages/openings/by_player/index.js',
+    'js/pages/openings/search/index.js' => [
+        'path' => './assets/js/pages/openings/search/index.js',
         'entrypoint' => true,
     ],
     'js/pages/games/index.js' => [

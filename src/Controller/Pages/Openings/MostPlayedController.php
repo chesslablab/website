@@ -5,10 +5,10 @@ namespace App\Controller\Pages\Openings;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class ByPlayerController extends AbstractController
+class MostPlayedController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/openings/by_player/index.html.twig');
+        return $this->render('pages/openings/most_played/index.html.twig');
     }
 }
