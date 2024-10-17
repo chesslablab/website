@@ -88,13 +88,6 @@ pages_openings_by_player:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_openings_by_event:
-    path:       /{_locale}/openings/by-event
-    controller: App\Controller\Pages\Openings\ByEventController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
 pages_play_computer:
     path:       /{_locale}/play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
