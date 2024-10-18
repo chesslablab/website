@@ -100,6 +100,9 @@ export class MostPlayedModal extends AbstractComponent {
                   beginAtZero: true,
                   grid: {
                     display: false
+                  },
+                  ticks: {
+                    precision: 0
                   }
                 }
               }
