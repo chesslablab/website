@@ -61,6 +61,7 @@ export class MostPlayedModal extends AbstractComponent {
         .onChange('/opening', data => {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');
+          canvas.height = 300;
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);
           const chart = new Chart(canvas, {
