@@ -14,6 +14,9 @@ const dark = `body {
 }
 footer a {
   color: #f8f9fa;
+}
+ul.nav-tabs li button[aria-selected="false"] {
+  color: #fff;
 }`;
 
 const light = `body {
@@ -49,6 +52,9 @@ button.navbar-toggler {
   color: #282828;
 }
 footer a {
+  color: #4d4d4d;
+}
+ul.nav-tabs li button[aria-selected="false"] {
   color: #4d4d4d;
 }`;
 
