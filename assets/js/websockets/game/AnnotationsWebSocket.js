@@ -1,5 +1,6 @@
 import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
+import { ravForm } from '../../pages/RavForm.js';
 import { ravPanel } from '../../pages/RavPanel.js';
 
 export class AnnotationsWebSocket extends AbstractGameWebSocket {
