@@ -6,6 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_home' ? 'active' : ''}} nav-link" href="{{ path('pages_home') }}" role="button" aria-expanded="false">
+            {{ 'Home'|trans }}
+          </a>
+        </li>
         <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Play'|trans }}
