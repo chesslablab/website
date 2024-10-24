@@ -17,8 +17,8 @@ return [
         'path' => './assets/js/pages/play/computer/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/learn/analysis/index.js' => [
-        'path' => './assets/js/pages/learn/analysis/index.js',
+    'js/pages/home/index.js' => [
+        'path' => './assets/js/pages/home/index.js',
         'entrypoint' => true,
     ],
     'js/pages/learn/rav_movetext/index.js' => [

@@ -1,6 +1,6 @@
 import { Opening } from '@chesslablab/js-utils';
 import OpeningsTable from './OpeningsTable.js';
-import AbstractComponent from '../../../AbstractComponent.js';
+import AbstractComponent from '../../AbstractComponent.js';
 
 export class OpeningsTab extends AbstractComponent {
   mount() {

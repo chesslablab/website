@@ -46,9 +46,9 @@ pages_edit:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_learn_analysis:
+pages_home:
     path:       /{_locale}/
-    controller: App\Controller\Pages\Learn\AnalysisController::index
+    controller: App\Controller\Pages\HomeController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN

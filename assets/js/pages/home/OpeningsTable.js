@@ -1,8 +1,8 @@
 import { Movetext } from '@chesslablab/js-utils';
-import AbstractComponent from '../../../AbstractComponent.js';
-import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-import * as mode from '../../../../mode.js';
-import * as variant from '../../../../variant.js';
+import AbstractComponent from '../../AbstractComponent.js';
+import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
+import * as mode from '../../../mode.js';
+import * as variant from '../../../variant.js';
 
 class OpeningsTable extends AbstractComponent {
   mount() {

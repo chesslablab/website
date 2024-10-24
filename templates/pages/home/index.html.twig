@@ -32,19 +32,19 @@
         {% include 'partial/panel/san_panel.html.twig' %}
       </div>
       <div class="tab-pane" id="openings" role="tabpanel" aria-labelledby="openings-tab">
-        {% include 'pages/learn/analysis/openings_form.html.twig' %}
+        {% include 'pages/home/openings_form.html.twig' %}
       </div>
       <div class="tab-pane" id="mostPlayed" role="tabpanel" aria-labelledby="mostPlayed-tab">
-        {% include 'pages/learn/analysis/most_played_form.html.twig' %}
+        {% include 'pages/home/most_played_form.html.twig' %}
       </div>
       <div class="tab-pane" id="add" role="tabpanel" aria-labelledby="add-tab">
-        {% include 'pages/learn/analysis/san_form.html.twig' %}
+        {% include 'pages/home/san_form.html.twig' %}
       </div>
     </div>
   </div>
   {% block javascripts %}
     {% block importmap %}
-      {{ importmap('js/pages/learn/analysis/index.js') }}
+      {{ importmap('js/pages/home/index.js') }}
     {% endblock %}
   {% endblock %}
 {% endblock %}
