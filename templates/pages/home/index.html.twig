@@ -12,6 +12,11 @@
         </button>
       </li>
       <li class="nav-item" role="presentation">
+        <button class="nav-link" id="add-tab" data-bs-toggle="tab" data-bs-target="#addTab" type="button" role="tab" aria-controls="addTab" aria-selected="false">
+          Add
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
         <button class="nav-link" id="openings-tab" data-bs-toggle="tab" data-bs-target="#openingsTab" type="button" role="tab" aria-controls="openingsTab" aria-selected="false">
           Openings
         </button>
@@ -21,24 +26,19 @@
           Popular
         </button>
       </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="add-tab" data-bs-toggle="tab" data-bs-target="#addTab" type="button" role="tab" aria-controls="addTab" aria-selected="false">
-          Add
-        </button>
-      </li>
     </ul>
     <div class="tab-content" id="homeTabsContent">
       <div class="tab-pane show active" id="mainTab" role="tabpanel" aria-labelledby="main-tab">
         {% include 'partial/panel/san_panel.html.twig' %}
+      </div>
+      <div class="tab-pane" id="addTab" role="tabpanel" aria-labelledby="add-tab">
+        {% include 'pages/home/san_form.html.twig' %}
       </div>
       <div class="tab-pane" id="openingsTab" role="tabpanel" aria-labelledby="openings-tab">
         {% include 'pages/home/openings_form.html.twig' %}
       </div>
       <div class="tab-pane" id="popularTab" role="tabpanel" aria-labelledby="popular-tab">
         {% include 'pages/home/popular_form.html.twig' %}
-      </div>
-      <div class="tab-pane" id="addTab" role="tabpanel" aria-labelledby="add-tab">
-        {% include 'pages/home/san_form.html.twig' %}
       </div>
     </div>
   </div>
