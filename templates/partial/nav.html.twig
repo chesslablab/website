@@ -58,6 +58,11 @@
           </ul>
         </li>
         <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_annotations' ? 'active' : ''}} nav-link" href="{{ path('pages_annotations') }}" role="button" aria-expanded="false">
+            {{ 'Annotations'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_games' ? 'active' : ''}} nav-link" href="{{ path('pages_games') }}" role="button" aria-expanded="false">
             {{ 'Games'|trans }}
           </a>

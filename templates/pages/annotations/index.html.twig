@@ -1,0 +1,26 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    <ul class="nav nav-tabs" id="annotationsTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="annotations-main-tab" data-bs-toggle="tab" data-bs-target="#annotationsMainTab" type="button" role="tab" aria-controls="annotationsMainTab" aria-selected="true">
+          Main
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="annotationsTabsContent">
+      <div class="tab-pane show active" id="annotationsMainTab" role="tabpanel" aria-labelledby="annotations-main-tab">
+        {% include 'partial/panel/rav_panel.html.twig' %}
+      </div>
+    </div>
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/annotations/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}

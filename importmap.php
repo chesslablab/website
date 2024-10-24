@@ -9,6 +9,10 @@ return [
         'path' => './assets/js/iframes/annotations/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/annotations/index.js' => [
+        'path' => './assets/js/pages/annotations/index.js',
+        'entrypoint' => true,
+    ],
     'js/pages/edit/index.js' => [
         'path' => './assets/js/pages/edit/index.js',
         'entrypoint' => true,

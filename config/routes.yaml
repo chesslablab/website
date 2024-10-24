@@ -32,6 +32,13 @@ robots:
 
 # Pages routes
 
+pages_annotations:
+    path:       /{_locale}/annotations
+    controller: App\Controller\Pages\AnnotationsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
 pages_games:
     path:       /{_locale}/games
     controller: App\Controller\Pages\GamesController::index
