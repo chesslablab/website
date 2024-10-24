@@ -7,37 +7,37 @@
   <div class="col-md-6">
     <ul class="nav nav-tabs" id="homeTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="main-tab" data-bs-toggle="tab" data-bs-target="#mainTab" type="button" role="tab" aria-controls="mainTab" aria-selected="true">
+        <button class="nav-link active" id="main-home-tab" data-bs-toggle="tab" data-bs-target="#mainHomeTab" type="button" role="tab" aria-controls="mainHomeTab" aria-selected="true">
           Main
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="add-tab" data-bs-toggle="tab" data-bs-target="#addTab" type="button" role="tab" aria-controls="addTab" aria-selected="false">
+        <button class="nav-link" id="add-home-tab" data-bs-toggle="tab" data-bs-target="#addHomeTab" type="button" role="tab" aria-controls="addHomeTab" aria-selected="false">
           Add
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="openings-tab" data-bs-toggle="tab" data-bs-target="#openingsTab" type="button" role="tab" aria-controls="openingsTab" aria-selected="false">
+        <button class="nav-link" id="openings-home-tab" data-bs-toggle="tab" data-bs-target="#openingsHomeTab" type="button" role="tab" aria-controls="openingsHomeTab" aria-selected="false">
           Openings
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="popular-tab" data-bs-toggle="tab" data-bs-target="#popularTab" type="button" role="tab" aria-controls="popularTab" aria-selected="false">
+        <button class="nav-link" id="popular-home-tab" data-bs-toggle="tab" data-bs-target="#popularHomeTab" type="button" role="tab" aria-controls="popularHomeTab" aria-selected="false">
           Popular
         </button>
       </li>
     </ul>
     <div class="tab-content" id="homeTabsContent">
-      <div class="tab-pane show active" id="mainTab" role="tabpanel" aria-labelledby="main-tab">
+      <div class="tab-pane show active" id="mainHomeTab" role="tabpanel" aria-labelledby="main-home-tab">
         {% include 'partial/panel/san_panel.html.twig' %}
       </div>
-      <div class="tab-pane" id="addTab" role="tabpanel" aria-labelledby="add-tab">
+      <div class="tab-pane" id="addHomeTab" role="tabpanel" aria-labelledby="add-home-tab">
         {% include 'pages/home/san_form.html.twig' %}
       </div>
-      <div class="tab-pane" id="openingsTab" role="tabpanel" aria-labelledby="openings-tab">
+      <div class="tab-pane" id="openingsHomeTab" role="tabpanel" aria-labelledby="openings-home-tab">
         {% include 'pages/home/openings_form.html.twig' %}
       </div>
-      <div class="tab-pane" id="popularTab" role="tabpanel" aria-labelledby="popular-tab">
+      <div class="tab-pane" id="popularHomeTab" role="tabpanel" aria-labelledby="popular-home-tab">
         {% include 'pages/home/popular_form.html.twig' %}
       </div>
     </div>

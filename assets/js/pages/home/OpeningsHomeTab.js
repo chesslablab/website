@@ -2,7 +2,7 @@ import { Opening } from '@chesslablab/js-utils';
 import OpeningsTable from './OpeningsTable.js';
 import AbstractComponent from '../../AbstractComponent.js';
 
-export class OpeningsTab extends AbstractComponent {
+export class OpeningsHomeTab extends AbstractComponent {
   mount() {
     this.props.form.querySelector('select[name="eco"]').addEventListener('change', event => {
       event.preventDefault();
@@ -40,9 +40,9 @@ export class OpeningsTab extends AbstractComponent {
   }
 }
 
-export const openingsTab = new OpeningsTab(
-  document.getElementById('openingsTab'),
+export const openingsHomeTab = new OpeningsHomeTab(
+  document.getElementById('openingsHomeTab'),
   {
-    form: document.querySelector('#openingsTab form')
+    form: document.querySelector('#openingsHomeTab form')
   }
 );

@@ -11,7 +11,7 @@ import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class PopularTab extends AbstractComponent {
+export class PopularHomeTab extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -113,10 +113,10 @@ export class PopularTab extends AbstractComponent {
   }
 }
 
-export const popularTab = new PopularTab(
-  document.getElementById('popularTab'),
+export const popularHomeTab = new PopularHomeTab(
+  document.getElementById('popularHomeTab'),
   {
-    form: document.querySelector('#popularTab form'),
+    form: document.querySelector('#popularHomeTab form'),
     movesMetadataTable: movesMetadataTable
   }
 );
