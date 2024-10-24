@@ -60,6 +60,7 @@ export class MostPlayedTab extends AbstractComponent {
           const formData = new FormData(this.props.form);
           const canvas = document.createElement('canvas');
           canvas.height = 300;
+          playerStatsChart.classList.add('mt-3');
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);
           const chart = new Chart(canvas, {

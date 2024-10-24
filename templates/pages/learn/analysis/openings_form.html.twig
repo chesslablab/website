@@ -1,6 +1,6 @@
 <form id="openingsForm" class="p-3 bg-light">
   <div class="row">
-    <div class="col-md-4 mb-3">
+    <div class="col-md-12 mb-3">
       <select name="eco" class="form-select" aria-label="{{ 'Select a variant'|trans }}" required>
         <option value="">{{ 'Select an ECO code'|trans }}</option>
         <option value="A">A: {{ 'Flank Openings'|trans }}</option>
@@ -10,16 +10,16 @@
         <option value="E">E: {{ 'Indian Defenses'|trans }}</option>
       </select>
     </div>
-    <div class="col-md-3 mb-3">
+    <div class="col-md-12 mb-3">
       <input type="text" name="name" placeholder="{{ 'Name'|trans }}" class="form-control">
     </div>
-    <div class="col-md-3 mb-3">
+    <div class="col-md-12 mb-3">
       <input type="text" name="movetext" placeholder="{{ 'Movetext'|trans }}" class="form-control">
     </div>
-    <div class="col-md-2 mb-3">
+    <div class="col-md-12">
       <button type="submit" class="btn btn-primary w-100">{{ 'Search'|trans }}</button>
     </div>
-    <table class="table table-light table-hover d-none">
+    <table class="table table-light table-hover mt-3 d-none">
       <tbody role="button"></tbody>
     </table>
   </div>
