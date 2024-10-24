@@ -25,10 +25,6 @@ return [
         'path' => './assets/js/pages/home/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/learn/annotated_games/index.js' => [
-        'path' => './assets/js/pages/learn/annotated_games/index.js',
-        'entrypoint' => true,
-    ],
     'js/pages/play/computer/index.js' => [
         'path' => './assets/js/pages/play/computer/index.js',
         'entrypoint' => true,

@@ -24,23 +24,6 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_learn_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavLearnLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ 'Annotations'|trans }}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="mainNavLearnLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_learn_rav_movetext') }}">
-                {{ 'RAV Movetext'|trans }}
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_learn_annotated_games') }}">
-                {{ 'Annotated Games'|trans }}
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_training_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Training'|trans }}
           </a>

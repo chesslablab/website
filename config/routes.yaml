@@ -60,20 +60,6 @@ pages_home:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_learn_annotated_games:
-    path:       /{_locale}/learn/annotated-games
-    controller: App\Controller\Pages\Learn\AnnotatedGamesController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
-pages_learn_rav_movetext:
-    path:       /{_locale}/learn/rav-movetext
-    controller: App\Controller\Pages\Learn\RavMovetextController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
 pages_play_computer:
     path:       /{_locale}/play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
