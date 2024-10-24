@@ -17,6 +17,11 @@
         </button>
       </li>
       <li class="nav-item" role="presentation">
+        <button class="nav-link" id="mostPlayed-tab" data-bs-toggle="tab" data-bs-target="#mostPlayed" type="button" role="tab" aria-controls="mostPlayed" aria-selected="false">
+          Most Played
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
         <button class="nav-link" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-controls="add" aria-selected="false">
           Add
         </button>
@@ -28,6 +33,9 @@
       </div>
       <div class="tab-pane" id="openings" role="tabpanel" aria-labelledby="openings-tab">
         {% include 'pages/learn/analysis/openings_form.html.twig' %}
+      </div>
+      <div class="tab-pane" id="mostPlayed" role="tabpanel" aria-labelledby="mostPlayed-tab">
+        {% include 'pages/learn/analysis/most_played_form.html.twig' %}
       </div>
       <div class="tab-pane" id="add" role="tabpanel" aria-labelledby="add-tab">
         {% include 'pages/learn/analysis/san_form.html.twig' %}
