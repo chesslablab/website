@@ -11,10 +11,18 @@
           Main
         </button>
       </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="add-annotations-tab" data-bs-toggle="tab" data-bs-target="#addAnnotationsTab" type="button" role="tab" aria-controls="addAnnotationsTab" aria-selected="false">
+          Add
+        </button>
+      </li>
     </ul>
     <div class="tab-content" id="annotationsTabsContent">
       <div class="tab-pane show active" id="mainAnnotationsTab" role="tabpanel" aria-labelledby="main-annotations-tab">
         {% include 'partial/panel/rav_panel.html.twig' %}
+      </div>
+      <div class="tab-pane" id="addAnnotationsTab" role="tabpanel" aria-labelledby="add-annotations-tab">
+        {% include 'pages/annotations/rav_form.html.twig' %}
       </div>
     </div>
   </div>
