@@ -46,23 +46,6 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="{{app.request.get('_route') starts with 'pages_openings_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavOpeningsLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ 'Openings'|trans }}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="mainNavOpeningsLink">
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_openings_search') }}">
-                {{ 'Search'|trans }}
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{{ path('pages_openings_most_played') }}">
-                {{ 'Most Played'|trans }}
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
           <a class="{{app.request.get('_route') starts with 'pages_training_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavTrainingLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ 'Training'|trans }}
           </a>

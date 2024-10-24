@@ -67,20 +67,6 @@ pages_learn_rav_movetext:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_openings_search:
-    path:       /{_locale}/openings/search
-    controller: App\Controller\Pages\Openings\SearchController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
-pages_openings_most_played:
-    path:       /{_locale}/openings/most-played
-    controller: App\Controller\Pages\Openings\MostPlayedController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
 pages_play_computer:
     path:       /{_locale}/play/computer
     controller: App\Controller\Pages\Play\ComputerController::index
