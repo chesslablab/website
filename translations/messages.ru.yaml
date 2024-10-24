@@ -66,7 +66,6 @@ Enter a movetext: Введите шахматную нотацию
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: Возможности и комментарии будут доступны. Чтобы удалить их, загрузите SAN нотацию.
 
 # Openings
-Search Openings: Поиск шахматных дебютов
 Select an ECO code: Выберите код ECO
 Flank Openings: Фланговые дебюты
 Semi-Open Games other than the French Defense: Полуоткрытые дебюты, кроме французской защиты
@@ -75,7 +74,6 @@ Closed Games and Semi-Closed Games: Закрытые дебюты и Полуо�
 Indian Defenses: Индийский дебют
 Movetext: Нотация
 Search: Поиск
-Most Played Openings: Самые популярные шахматные дебюты
 
 # Training
 Select a checkmate: Выберите мат

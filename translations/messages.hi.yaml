@@ -65,7 +65,6 @@ Variations and comments will be removed. To keep them, load a RAV Movetext inste
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: परिवर्तन और टिप्पणियाँ रखी जाएंगी | उन्हें हटाने के लिए, इसके बजाय एक SAN Movetext लोड करें।
 
 # Openings
-Search Openings: शतरंज के उद्घाटन खोजें
 Select an ECO code: एक ECO कोड चुनें।
 Flank Openings: फ्लैंक ओपनिंग्स
 Semi-Open Games other than the French Defense: फ्रेंच रक्षा के अलावा अर्ध-खुले खेल।
@@ -74,7 +73,6 @@ Closed Games and Semi-Closed Games: बंद खेल और अर्ध-ब�
 Indian Defenses: भारतीय रक्षा
 Movetext: चाल पाठ
 Search: खोजे
-Most Played Openings: सबसे अधिक खेले गए शतरंज ओपनिंग
 
 # Training
 Select a checkmate: एक शहमात का चयन करें।

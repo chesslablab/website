@@ -66,7 +66,6 @@ Enter a movetext: 输入棋步记录
 Variations and comments will be kept. To remove them, load a SAN Movetext instead: 变体和评论将被保留。要移除它们，请加载 SAN 记谱法。
 
 # Openings
-Search Openings: 搜索开局
 Select an ECO code: 选择 ECO 代码
 Flank Openings: 侧翼开局
 Semi-Open Games other than the French Defense: 除了法国防御之外的半开放游戏
@@ -75,7 +74,6 @@ Closed Games and Semi-Closed Games: 封闭游戏和半封闭游戏
 Indian Defenses: 印度防御
 Movetext: 棋步记录
 Search: 搜索
-Most Played Openings: 最常玩的开局
 
 # Training
 Select a checkmate: 选择将死
