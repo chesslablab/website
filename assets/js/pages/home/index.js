@@ -1,5 +1,5 @@
-import { mostPlayedTab } from './MostPlayedTab.js';
 import { openingsTab } from './OpeningsTab.js';
+import { popularTab } from './PopularTab.js';
 import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
