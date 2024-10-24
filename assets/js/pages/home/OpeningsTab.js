@@ -41,8 +41,8 @@ export class OpeningsTab extends AbstractComponent {
 }
 
 export const openingsTab = new OpeningsTab(
-  document.getElementById('openingsForm'),
+  document.getElementById('openingsTab'),
   {
-    form: document.querySelector('#openingsForm')
+    form: document.querySelector('#openingsTab form')
   }
 );

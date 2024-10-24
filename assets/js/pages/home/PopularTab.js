@@ -114,9 +114,9 @@ export class PopularTab extends AbstractComponent {
 }
 
 export const popularTab = new PopularTab(
-  document.getElementById('popularForm'),
+  document.getElementById('popularTab'),
   {
-    form: document.querySelector('#popularForm'),
+    form: document.querySelector('#popularTab form'),
     movesMetadataTable: movesMetadataTable
   }
 );
