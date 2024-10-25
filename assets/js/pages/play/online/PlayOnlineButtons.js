@@ -3,10 +3,7 @@ import { friendButtons } from './FriendButtons.js';
 import { playerButtons } from './PlayerButtons.js';
 import { playersButtons } from './PlayersButtons.js';
 
-export class PlayOnlineButtons extends BaseComponent {
-}
-
-export const playOnlineButtons = new PlayOnlineButtons(
+export const playOnlineButtons = new BaseComponent(
   document.getElementById('playOnlineButtons'),
   {
     friendButtons: friendButtons,
