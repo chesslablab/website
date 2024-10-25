@@ -1,6 +1,6 @@
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 
-export class RankingTable extends AbstractComponent {
+export class RankingTable extends BaseComponent {
   mount() {
     const tbody = this.el.getElementsByTagName('tbody')[0];
     tbody.replaceChildren();

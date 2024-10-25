@@ -1,9 +1,9 @@
 import { Pgn } from '@chesslablab/js-utils';
 import Modal from 'bootstrap/js/dist/modal.js';
-import AbstractComponent from '../../../AbstractComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 
-export class CheckmateModal extends AbstractComponent {
+export class CheckmateModal extends BaseComponent {
   _checkmateTypes = ['QR,R', 'Q', 'R', 'BB', 'BN'];
 
   mount() {

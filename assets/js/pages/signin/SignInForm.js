@@ -1,8 +1,8 @@
 import jsCookie from 'js-cookie';
-import AbstractComponent from '../../AbstractComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
 
-export class SignInForm extends AbstractComponent {
+export class SignInForm extends BaseComponent {
   mount() {
     this.el.addEventListener('submit', event => {
       event.preventDefault();

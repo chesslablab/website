@@ -1,8 +1,8 @@
 import { Opening } from '@chesslablab/js-utils';
 import OpeningsTable from './OpeningsTable.js';
-import AbstractComponent from '../../AbstractComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 
-export class OpeningsForm extends AbstractComponent {
+export class OpeningsForm extends BaseComponent {
   mount() {
     this.el.querySelector('select[name="eco"]').addEventListener('change', event => {
       event.preventDefault();

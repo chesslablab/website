@@ -1,9 +1,9 @@
 import { Pgn } from '@chesslablab/js-utils';
 import Modal from 'bootstrap/js/dist/modal.js';
-import AbstractComponent from '../../../AbstractComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 
-export class EndgameModal extends AbstractComponent {
+export class EndgameModal extends BaseComponent {
   _endgameTypes = ['P'];
 
   mount() {

@@ -7,7 +7,7 @@ import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
 import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
-import AbstractComponent from '../../../AbstractComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as action from '../../../../action.js';
@@ -33,7 +33,7 @@ export const timerTableInterval = () => {
   }, 1000);
 }
 
-export class TakebackModal extends AbstractComponent {
+export class TakebackModal extends BaseComponent {
   mount() {
     this.props.form.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -48,7 +48,7 @@ export class TakebackModal extends AbstractComponent {
   }
 }
 
-export class DrawModal extends AbstractComponent {
+export class DrawModal extends BaseComponent {
   mount() {
     this.props.form.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -62,10 +62,10 @@ export class DrawModal extends AbstractComponent {
   }
 }
 
-export class FinishedButtons extends AbstractComponent {
+export class FinishedButtons extends BaseComponent {
 }
 
-export class RematchModal extends AbstractComponent {
+export class RematchModal extends BaseComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -79,7 +79,7 @@ export class RematchModal extends AbstractComponent {
   }
 }
 
-export class PlayPanel extends AbstractComponent {
+export class PlayPanel extends BaseComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();

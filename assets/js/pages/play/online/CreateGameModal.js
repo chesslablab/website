@@ -1,11 +1,11 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import AbstractComponent from '../../../AbstractComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 
-export class CreateGameModal extends AbstractComponent {
+export class CreateGameModal extends BaseComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();

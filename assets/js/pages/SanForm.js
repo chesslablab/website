@@ -1,10 +1,10 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
 import * as variant from '../../variant.js';
 
-export class SanForm extends AbstractComponent {
+export class SanForm extends BaseComponent {
   mount() {
     if (this.el) {
       this.props.variantSelect.addEventListener('change', event => {

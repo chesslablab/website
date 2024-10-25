@@ -2,10 +2,10 @@ import { HistoryButtons } from '@chesslablab/js-utils';
 import movesMetadataTable from './movesMetadataTable.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import ravMovesBrowser from './ravMovesBrowser.js';
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
 
-export class RavPanel extends AbstractComponent {
+export class RavPanel extends BaseComponent {
   mount() {
     this.props.boardActionsDropdown.el.children.item(3).addEventListener('click', (event) => {
       event.preventDefault();

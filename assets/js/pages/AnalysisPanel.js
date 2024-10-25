@@ -6,16 +6,16 @@ import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
-export class GameStudyDropdown extends AbstractComponent {
+export class GameStudyDropdown extends BaseComponent {
 }
 
-export class ExplainPositionModal extends AbstractComponent {
+export class ExplainPositionModal extends BaseComponent {
   mount() {
     const p = this.el.querySelector('p');
     p.replaceChildren();
@@ -23,10 +23,10 @@ export class ExplainPositionModal extends AbstractComponent {
   }
 }
 
-export class HeuristicsModal extends AbstractComponent {
+export class HeuristicsModal extends BaseComponent {
 }
 
-export class AnalysisPanel extends AbstractComponent {
+export class AnalysisPanel extends BaseComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();

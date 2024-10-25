@@ -1,7 +1,7 @@
 import { infoModal } from './InfoModal.js';
 import { progressModal } from './ProgressModal.js';
 
-export default class AbstractComponent {
+export default class BaseComponent {
   el;
   props;
   infoModal;

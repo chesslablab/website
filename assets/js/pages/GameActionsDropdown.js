@@ -1,6 +1,6 @@
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 
-export class GameActionsDropdown extends AbstractComponent {
+export class GameActionsDropdown extends BaseComponent {
 }
 
 export const gameActionsDropdown = new GameActionsDropdown(

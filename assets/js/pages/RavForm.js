@@ -1,8 +1,8 @@
-import AbstractComponent from '../AbstractComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { annotationsWebSocket } from '../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../variant.js';
 
-export class RavForm extends AbstractComponent {
+export class RavForm extends BaseComponent {
   mount() {
     this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
       event.preventDefault();
