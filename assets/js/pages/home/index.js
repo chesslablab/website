@@ -1,4 +1,4 @@
-import { openingsHomeTab } from './OpeningsHomeTab.js';
+import { openingsForm } from './OpeningsForm.js';
 import { popularHomeTab } from './PopularHomeTab.js';
 import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
