@@ -4,12 +4,9 @@ Online: 在线
 Computer: 电脑
 FEN String: FEN 记录
 SAN Movetext: 标准代数记谱法
-Most Played: 最常玩
 ECO Code: 开局 ECO 代码
 Name: 名称
 Training: 训练
-Checkmate: 将死
-Endgame: 残局
 Database: 数据库
 Games: 游戏
 Edit: 编辑
@@ -36,6 +33,7 @@ Closed Games and Semi-Closed Games: 封闭游戏和半封闭游戏
 Indian Defenses: 印度防御
 Movetext: 棋步记录
 Search: 搜索
+Most Played: 最常玩
 
 # Play
 Online Players: 在线玩家
@@ -64,6 +62,7 @@ Decline: 拒绝
 Top Players: 顶级玩家
 
 # Training
+Checkmate: 将死
 Select a checkmate: 选择将死
 Random: 随机
 King and queen and rook vs. king and rook: 王后和车对王和车
@@ -71,6 +70,7 @@ King and queen vs. king: 王后对王
 King and rook vs. king: 王和车对王
 King and two bishops vs. king: 王和两个象对王
 King and bishop and knight vs. king: 王、象和马对王
+Endgame: 残局
 Select an endgame: 选择残局
 Pawn endgame: 兵残局
 

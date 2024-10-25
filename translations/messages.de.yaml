@@ -4,12 +4,9 @@ Online: Online
 Computer: Computer
 FEN String: FEN String
 SAN Movetext: SAN Movetext mit Zügen
-Most Played: Am meisten gespielt
 ECO Code: ECO-Code
 Name: Name
 Training: Training
-Checkmate: Schachmatt
-Endgame: Endspiel
 Database: Datenbank
 Games: Schachspiele
 Edit: Bearbeiten
@@ -36,6 +33,7 @@ Closed Games and Semi-Closed Games: Geschlossene Spiele und halbgeschlossene Spi
 Indian Defenses: Indische Verteidigungen
 Movetext: Movetext
 Search: Suche
+Most Played: Am meisten gespielt
 
 # Play
 Online Players: Online-Spieler
@@ -64,6 +62,7 @@ Decline: Ablehnen
 Top Players: Top-Spieler
 
 # Training
+Checkmate: Schachmatt
 Select a checkmate: Wählen Sie ein Schachmatt
 Random: Zufällig
 King and queen and rook vs. king and rook: König, Dame und Turm gegen König und Turm
@@ -71,6 +70,7 @@ King and queen vs. king: König und Dame gegen König
 King and rook vs. king: König und Turm gegen König
 King and two bishops vs. king: König und zwei Läufer gegen König
 King and bishop and knight vs. king: König, Läufer und Springer gegen König
+Endgame: Endspiel
 Select an endgame: Wählen Sie ein Endspiel
 Pawn endgame: Bauernendspiel
 
