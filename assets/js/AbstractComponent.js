@@ -17,6 +17,6 @@ export default class AbstractComponent {
   }
 
   mount() {
-    throw new Error("The mount() method is an abstract method.");
+    // abstract method
   }
 }

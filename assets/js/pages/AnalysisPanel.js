@@ -13,9 +13,6 @@ import * as variant from '../../variant.js';
 Chart.register(...registerables);
 
 export class GameStudyDropdown extends AbstractComponent {
-  mount() {
-    // ...
-  }
 }
 
 export class ExplainPositionModal extends AbstractComponent {
@@ -27,9 +24,6 @@ export class ExplainPositionModal extends AbstractComponent {
 }
 
 export class HeuristicsModal extends AbstractComponent {
-  mount() {
-    // ...
-  }
 }
 
 export class AnalysisPanel extends AbstractComponent {

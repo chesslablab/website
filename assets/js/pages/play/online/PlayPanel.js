@@ -63,9 +63,6 @@ export class DrawModal extends AbstractComponent {
 }
 
 export class FinishedButtons extends AbstractComponent {
-  mount() {
-    // ...
-  }
 }
 
 export class RematchModal extends AbstractComponent {
