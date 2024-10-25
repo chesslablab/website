@@ -4,7 +4,7 @@ import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-class OpeningsTable extends BaseComponent {
+export default class OpeningsTable extends BaseComponent {
   mount() {
     this.el.classList.remove('d-none');
     this.el.querySelector('tbody').replaceChildren();
@@ -32,5 +32,3 @@ class OpeningsTable extends BaseComponent {
     });
   };
 }
-
-export default OpeningsTable;
