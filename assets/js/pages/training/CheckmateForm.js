@@ -1,15 +1,14 @@
 import { Pgn } from '@chesslablab/js-utils';
-import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
-import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
+import BaseComponent from '../../BaseComponent.js';
+import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
-export class CheckmateModal extends BaseComponent {
+export class CheckmateForm extends BaseComponent {
   _checkmateTypes = ['QR,R', 'Q', 'R', 'BB', 'BN'];
 
   mount() {
-    this.props.form.addEventListener('submit', event => {
+    this.el.addEventListener('submit', event => {
       event.preventDefault();
-      const formData = new FormData(this.props.form);
+      const formData = new FormData(this.el);
       const checkmateType = formData.get('items') === 'rand'
         ? this._checkmateTypes[Math.floor(Math.random() * this._checkmateTypes.length)]
         : formData.get('items');
@@ -25,15 +24,8 @@ export class CheckmateModal extends BaseComponent {
               [formData.get('color')]: split[0]
           }
       });
-      this.props.modal.hide();
     });
   }
 }
 
-export const checkmateModal = new CheckmateModal(
-  document.getElementById('checkmateModal'),
-  {
-    modal: new Modal(document.getElementById('checkmateModal')),
-    form: document.querySelector('#checkmateModal form')
-  }
-);
+export const checkmateForm = new CheckmateForm(document.getElementById('checkmateForm'));

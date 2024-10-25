@@ -84,16 +84,9 @@ pages_players:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_training_checkmate:
-    path:       /{_locale}/training/checkmate
-    controller: App\Controller\Pages\Training\CheckmateController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
-pages_training_endgame:
-    path:       /{_locale}/training/endgame
-    controller: App\Controller\Pages\Training\EndgameController::index
+pages_training:
+    path:       /{_locale}/training
+    controller: App\Controller\Pages\TrainingController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN

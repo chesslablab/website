@@ -45,12 +45,8 @@ return [
         'path' => './assets/js/pages/signin/register/index.js',
         'entrypoint' => true,
     ],
-    'js/pages/training/checkmate/index.js' => [
-        'path' => './assets/js/pages/training/checkmate/index.js',
-        'entrypoint' => true,
-    ],
-    'js/pages/training/endgame/index.js' => [
-        'path' => './assets/js/pages/training/endgame/index.js',
+    'js/pages/training/index.js' => [
+        'path' => './assets/js/pages/training/index.js',
         'entrypoint' => true,
     ],
     '@chesslablab/chessboard' => [

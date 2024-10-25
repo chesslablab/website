@@ -1,0 +1,42 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    <ul class="nav nav-tabs" id="trainingTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="checkmate-training-tab" data-bs-toggle="tab" data-bs-target="#checkmateTrainingTab" type="button" role="tab" aria-controls="checkmateTrainingTab" aria-selected="true">
+          Checkmate
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="endgame-training-tab" data-bs-toggle="tab" data-bs-target="#endgameTrainingTab" type="button" role="tab" aria-controls="endgameTrainingTab" aria-selected="false">
+          Endgame
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="browse-training-tab" data-bs-toggle="tab" data-bs-target="#browseTrainingTab" type="button" role="tab" aria-controls="browseTrainingTab" aria-selected="false">
+          Browse
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="trainingTabsContent">
+      <div class="tab-pane show active" id="checkmateTrainingTab" role="tabpanel" aria-labelledby="checkmate-training-tab">
+        {% include 'pages/training/checkmate_form.html.twig' %}
+      </div>
+      <div class="tab-pane" id="endgameTrainingTab" role="tabpanel" aria-labelledby="endgame-training-tab">
+        {% include 'pages/training/endgame_form.html.twig' %}
+      </div>
+      <div class="tab-pane" id="browseTrainingTab" role="tabpanel" aria-labelledby="browse-training-tab">
+        {% include 'partial/panel/stockfish_panel.html.twig' %}
+      </div>
+    </div>
+  </div>
+  {% block javascripts %}
+    {% block importmap %}
+      {{ importmap('js/pages/training/index.js') }}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}

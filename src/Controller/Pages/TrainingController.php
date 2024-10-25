@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Controller\Pages\Training;
+namespace App\Controller\Pages;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class EndgameController extends AbstractController
+class TrainingController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/training/endgame/index.html.twig');
+        return $this->render('pages/training/index.html.twig');
     }
 }

@@ -1,15 +1,14 @@
 import { Pgn } from '@chesslablab/js-utils';
-import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
-import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
+import BaseComponent from '../../BaseComponent.js';
+import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
-export class EndgameModal extends BaseComponent {
+export class EndgameForm extends BaseComponent {
   _endgameTypes = ['P'];
 
   mount() {
-    this.props.form.addEventListener('submit', event => {
+    this.el.addEventListener('submit', event => {
       event.preventDefault();
-      const formData = new FormData(this.props.form);
+      const formData = new FormData(this.el);
       const checkmateType = formData.get('items') === 'rand'
         ? this._endgameTypes[Math.floor(Math.random() * this._endgameTypes.length)]
         : formData.get('items');
@@ -25,15 +24,8 @@ export class EndgameModal extends BaseComponent {
               [formData.get('color')]: split[0]
           }
       });
-      this.props.modal.hide();
     });
   }
 }
 
-export const endgameModal = new EndgameModal(
-  document.getElementById('endgameModal'),
-  {
-    modal: new Modal(document.getElementById('endgameModal')),
-    form: document.querySelector('#endgameModal form')
-  }
-);
+export const endgameForm = new EndgameForm(document.getElementById('endgameForm'));
