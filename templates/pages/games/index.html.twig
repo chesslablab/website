@@ -5,8 +5,26 @@
     <div id="chessboard"></div>
   </div>
   <div class="col-md-6">
-    {% include 'pages/games/search_games_modal.html.twig' %}
-    {% include 'partial/panel/san_panel.html.twig' %}
+    <ul class="nav nav-tabs" id="gamesTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="database-games-tab" data-bs-toggle="tab" data-bs-target="#databaseGamesTab" type="button" role="tab" aria-controls="databaseGamesTab" aria-selected="true">
+          Database
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="browse-games-tab" data-bs-toggle="tab" data-bs-target="#browseGamesTab" type="button" role="tab" aria-controls="browseGamesTab" aria-selected="false">
+          Browse
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="gamesTabsContent">
+      <div class="tab-pane show active" id="databaseGamesTab" role="tabpanel" aria-labelledby="database-games-tab">
+        {% include 'pages/games/search_games_form.html.twig' %}
+      </div>
+      <div class="tab-pane" id="browseGamesTab" role="tabpanel" aria-labelledby="browse-games-tab">
+        {% include 'partial/panel/san_panel.html.twig' %}
+      </div>
+    </div>
   </div>
   {% block javascripts %}
     {% block importmap %}

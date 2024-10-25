@@ -1,5 +1,4 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import Modal from 'bootstrap/js/dist/modal.js';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
@@ -14,7 +13,7 @@ import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class SearchGamesModal extends AbstractComponent {
+export class DatabaseGamesTab extends AbstractComponent {
   mount() {
     this.props.form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -73,24 +72,21 @@ export class SearchGamesModal extends AbstractComponent {
               });
               this.props.movesMetadataTable.props = game;
               this.props.movesMetadataTable.mount();
-              this.props.modal.hide();
             });
 
             tbody.appendChild(tr);
           });
 
           this.progressModal.props.modal.hide();
-          this.props.modal.show();
         });
     });
   }
 }
 
-export const searchGamesModal = new SearchGamesModal(
-  document.getElementById('searchGamesModal'),
+export const databaseGamesTab = new DatabaseGamesTab(
+  document.getElementById('databaseGamesTab'),
   {
-    modal: new Modal(document.getElementById('searchGamesModal')),
-    form: document.querySelector('#searchGamesModal form'),
+    form: document.querySelector('#databaseGamesTab form'),
     movesMetadataTable: movesMetadataTable
   }
 );
