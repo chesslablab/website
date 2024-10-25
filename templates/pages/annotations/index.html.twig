@@ -7,12 +7,7 @@
   <div class="col-md-6">
     <ul class="nav nav-tabs" id="annotationsTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="browse-annotations-tab" data-bs-toggle="tab" data-bs-target="#browseAnnotationsTab" type="button" role="tab" aria-controls="browseAnnotationsTab" aria-selected="true">
-          Browse
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="add-annotations-tab" data-bs-toggle="tab" data-bs-target="#addAnnotationsTab" type="button" role="tab" aria-controls="addAnnotationsTab" aria-selected="false">
+        <button class="nav-link active" id="add-annotations-tab" data-bs-toggle="tab" data-bs-target="#addAnnotationsTab" type="button" role="tab" aria-controls="addAnnotationsTab" aria-selected="true">
           Add
         </button>
       </li>
@@ -21,16 +16,21 @@
           Learn
         </button>
       </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="browse-annotations-tab" data-bs-toggle="tab" data-bs-target="#browseAnnotationsTab" type="button" role="tab" aria-controls="browseAnnotationsTab" aria-selected="false">
+          Browse
+        </button>
+      </li>
     </ul>
     <div class="tab-content" id="annotationsTabsContent">
-      <div class="tab-pane show active" id="browseAnnotationsTab" role="tabpanel" aria-labelledby="browse-annotations-tab">
-        {% include 'partial/panel/rav_panel.html.twig' %}
-      </div>
       <div class="tab-pane" id="addAnnotationsTab" role="tabpanel" aria-labelledby="add-annotations-tab">
         {% include 'pages/annotations/rav_form.html.twig' %}
       </div>
       <div class="tab-pane" id="learnAnnotationsTab" role="tabpanel" aria-labelledby="learn-annotations-tab">
         {% include 'pages/annotations/learn.html.twig' %}
+      </div>
+      <div class="tab-pane show active" id="browseAnnotationsTab" role="tabpanel" aria-labelledby="browse-annotations-tab">
+        {% include 'partial/panel/rav_panel.html.twig' %}
       </div>
     </div>
   </div>
