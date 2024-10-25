@@ -13,6 +13,7 @@ Endgame: 残局
 Database: 数据库
 Games: 游戏
 Edit: 编辑
+Annotations: 注解
 Players: 玩家
 Blog: 博客
 Language: 语言
@@ -21,6 +22,7 @@ Sign In: 登入
 Sign Out: 登出
 
 # Home
+Move: 移动
 Add: 添加
 Classical Chess: 经典国际象棋
 Fischer Random: 费舍尔随机棋

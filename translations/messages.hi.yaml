@@ -13,6 +13,7 @@ Endgame: अंतखेल
 Database: डेटाबेस
 Games: खेल
 Edit: संपाद
+Annotations: एनोटेशन
 Players: खिलाड़ी
 Blog: ब्लॉग
 Language: भाषा
@@ -21,6 +22,7 @@ Sign In: दाखिल करना
 Sign Out: साइन आउट
 
 # Home
+Move: कदम
 Add: जोड़ना
 Classical Chess: शास्त्रीय शतरंज
 Fischer Random: फिशर रेंडम

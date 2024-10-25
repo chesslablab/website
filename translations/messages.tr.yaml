@@ -13,6 +13,7 @@ Endgame: Oyun Sonu
 Database: Veri Tabanı
 Games: Oyunlar
 Edit: Düzenle
+Annotations: Açıklamalar
 Players: Oyuncular
 Blog: Blog
 Language: Dil
@@ -21,6 +22,7 @@ Sign In: Kayıt olmak
 Sign Out: Oturumu Kapat
 
 # Home
+Move: Taşınmak
 Add: Eklemek
 Classical Chess: Klasik Satranç
 Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)

@@ -13,6 +13,7 @@ Endgame: Эндшпиль
 Database: База данных
 Games: Игры
 Edit: Редактировать
+Annotations: Аннотации
 Players: Игроки
 Blog: Блог
 Language: Язык
@@ -21,6 +22,7 @@ Sign In: Войти
 Sign Out: Выход
 
 # Home
+Move: Двигаться
 Add: Добавлять
 Classical Chess: Классические шахматы
 Fischer Random: Шахматы Фишера

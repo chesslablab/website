@@ -13,6 +13,7 @@ Endgame: Fin du jeu
 Database: Base de données
 Games: Parties
 Edit: Éditer
+Annotations: Annotations
 Players: Joueurs
 Blog: Blog
 Language: Langue
@@ -21,6 +22,7 @@ Sign In: Se connecter
 Sign Out: Se déconnecter
 
 # Home
+Move: Se déplacer
 Add: Ajouter
 Classical Chess: Échecs classiques
 Fischer Random: Aléatoires Fischer
