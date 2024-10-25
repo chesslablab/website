@@ -1,4 +1,3 @@
-import { trans } from './i18n.js';
 import { infoModal } from './InfoModal.js';
 import { progressModal } from './ProgressModal.js';
 
