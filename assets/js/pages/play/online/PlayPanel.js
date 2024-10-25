@@ -62,9 +62,6 @@ export class DrawModal extends BaseComponent {
   }
 }
 
-export class FinishedButtons extends BaseComponent {
-}
-
 export class RematchModal extends BaseComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
@@ -152,7 +149,7 @@ export const playPanel = new PlayPanel(
     ),
     historyButtons: historyButtons,
     movesBrowser: sanMovesBrowser,
-    finishedButtons: new FinishedButtons(document.getElementById('finishedButtons')),
+    finishedButtons: new BaseComponent(document.getElementById('finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval
   }
