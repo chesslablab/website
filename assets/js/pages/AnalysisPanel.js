@@ -20,9 +20,6 @@ export class ExplainPositionModal extends BaseComponent {
   }
 }
 
-export class HeuristicsModal extends BaseComponent {
-}
-
 export class AnalysisPanel extends BaseComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
@@ -167,7 +164,7 @@ export const analysisPanel = new AnalysisPanel(
         explanation: ''
       }
     ),
-    heuristicsModal: new HeuristicsModal(
+    heuristicsModal: new BaseComponent(
       document.getElementById('heuristicsModal'),
       {
         modal: new Modal(document.getElementById('heuristicsModal')),
