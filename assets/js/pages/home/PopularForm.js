@@ -11,7 +11,7 @@ import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class PopularHomeTab extends AbstractComponent {
+export class PopularForm extends AbstractComponent {
   _nBars = 25;
 
   mount() {
@@ -20,7 +20,7 @@ export class PopularHomeTab extends AbstractComponent {
         return;
       }
       this.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
+      const formData = new FormData(this.el);
       const { dataIndex, raw } = clickedElements[0].element.$context;
       dataWebSocket
         .send('/search', {
@@ -44,10 +44,10 @@ export class PopularHomeTab extends AbstractComponent {
         });
     }
 
-    this.props.form.addEventListener('submit', async (event) => {
+    this.el.addEventListener('submit', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
+      const formData = new FormData(this.el);
       const playerStatsChart = document.getElementById('playerStatsChart');
       dataWebSocket
         .send('/opening', {
@@ -57,7 +57,7 @@ export class PopularHomeTab extends AbstractComponent {
           Result: formData.get('Result')
         })
         .onChange('/opening', data => {
-          const formData = new FormData(this.props.form);
+          const formData = new FormData(this.el);
           const canvas = document.createElement('canvas');
           canvas.height = 300;
           playerStatsChart.classList.add('mt-3');
@@ -113,10 +113,9 @@ export class PopularHomeTab extends AbstractComponent {
   }
 }
 
-export const popularHomeTab = new PopularHomeTab(
-  document.getElementById('popularHomeTab'),
+export const popularForm = new PopularForm(
+  document.getElementById('popularForm'),
   {
-    form: document.querySelector('#popularHomeTab form'),
     movesMetadataTable: movesMetadataTable
   }
 );
