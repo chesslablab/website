@@ -12,9 +12,6 @@ import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
-export class GameStudyDropdown extends BaseComponent {
-}
-
 export class ExplainPositionModal extends BaseComponent {
   mount() {
     const p = this.el.querySelector('p');
@@ -157,7 +154,7 @@ export const analysisPanel = new AnalysisPanel(
       }
     ),
     gameActionsDropdown: gameActionsDropdown,
-    gameStudyDropdown: new GameStudyDropdown(
+    gameStudyDropdown: new BaseComponent(
       document.getElementById('gameStudyDropdown'),
       {
         ul: document.querySelector('#gameStudyDropdown ul')
