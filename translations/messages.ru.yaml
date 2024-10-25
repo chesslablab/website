@@ -7,7 +7,6 @@ SAN Movetext: Алгебраическая нотация
 ECO Code: Дебютные ECO коды
 Name: Имя
 Training: Практика
-Database: База данных
 Games: Игры
 Edit: Редактировать
 Annotations: Аннотации
@@ -75,6 +74,7 @@ Select an endgame: Выберите Эндшпиль
 Pawn endgame: Пешечное окончание
 
 # Games
+Database: База данных
 Loading: Загрузка
 Event: Событие
 Year: Год

@@ -7,7 +7,6 @@ SAN Movetext: SAN Movetext mit Zügen
 ECO Code: ECO-Code
 Name: Name
 Training: Training
-Database: Datenbank
 Games: Schachspiele
 Edit: Bearbeiten
 Annotations: Anmerkungen
@@ -75,6 +74,7 @@ Select an endgame: Wählen Sie ein Endspiel
 Pawn endgame: Bauernendspiel
 
 # Games
+Database: Datenbank
 Loading: Laden
 Event: Ereignis
 Year: Jahr

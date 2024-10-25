@@ -7,7 +7,6 @@ SAN Movetext: SAN गतिमय पाठ
 ECO Code: ECO कोड
 Name: नाम
 Training: प्रशिक्षण
-Database: डेटाबेस
 Games: खेल
 Edit: संपाद
 Annotations: एनोटेशन
@@ -75,6 +74,7 @@ Select an endgame: एक एंडगेम चुनें।
 Pawn endgame: प्यादा का अंतिम खेल
 
 # Games
+Database: डेटाबेस
 Loading: लोडिंग हो रही है
 Event: घटना
 Year: साल

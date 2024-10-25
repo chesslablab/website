@@ -7,7 +7,6 @@ SAN Movetext: Texto SAN con movimientos
 ECO Code: Código ECO
 Name: Nombre
 Training: Entrenamiento
-Database: Base de datos
 Games: Partidas
 Edit: Editar
 Annotations: Anotaciones
@@ -75,6 +74,7 @@ Select an endgame: Selecciona un final de juego
 Pawn endgame: Final de peón
 
 # Games
+Database: Base de datos
 Loading: Cargando
 Event: Evento
 Year: Año

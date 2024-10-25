@@ -7,7 +7,6 @@ SAN Movetext: 标准代数记谱法
 ECO Code: 开局 ECO 代码
 Name: 名称
 Training: 训练
-Database: 数据库
 Games: 游戏
 Edit: 编辑
 Annotations: 注解
@@ -75,6 +74,7 @@ Select an endgame: 选择残局
 Pawn endgame: 兵残局
 
 # Games
+Database: 数据库
 Loading: 加载中
 Event: 事件
 Year: 年份

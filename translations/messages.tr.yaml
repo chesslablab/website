@@ -7,7 +7,6 @@ SAN Movetext: SAN Metintaşı
 ECO Code: ECO Kodu
 Name: İsim
 Training: Antrenman
-Database: Veri Tabanı
 Games: Oyunlar
 Edit: Düzenle
 Annotations: Açıklamalar
@@ -75,6 +74,7 @@ Select an endgame: Bir oyun sonu seçin
 Pawn endgame: Piyon oyun sonu
 
 # Games
+Database: Veri Tabanı
 Loading: Yükleniyor
 Event: Etkinlik
 Year: Yıl
