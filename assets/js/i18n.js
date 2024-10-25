@@ -6,21 +6,19 @@ import messagesRu from './translations/messages.ru.js';
 import messagesTr from './translations/messages.tr.js';
 import messagesZhCN from './translations/messages.zh_CN.js';
 
+export const messages = {
+  'de': messagesDe,
+  'es': messagesEs,
+  'fr': messagesFr,
+  'hi': messagesHi,
+  'ru': messagesRu,
+  'tr': messagesTr,
+  'zh_CN': messagesZhCN
+};
+
 export const trans = (string) => {
-  if (document.documentElement.lang === 'de') {
-    return messagesDe[string];
-  } else if (document.documentElement.lang === 'es') {
-    return messagesEs[string];
-  } else if (document.documentElement.lang === 'fr') {
-    return messagesFr[string];
-  } else if (document.documentElement.lang === 'hi') {
-    return messagesHi[string];
-  } else if (document.documentElement.lang === 'ru') {
-    return messagesRu[string];
-  } else if (document.documentElement.lang === 'tr') {
-    return messagesTr[string];
-  } else if (document.documentElement.lang === 'zh_CN') {
-    return messagesZhCN[string];
+  if (messages.hasOwnProperty(document.documentElement.lang)) {
+    return messages[document.documentElement.lang][string];
   }
 
   return string;
