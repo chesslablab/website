@@ -26,8 +26,16 @@ Move: Mover
 Add: Agregar
 Classical Chess: Ajedrez clásico
 Fischer Random: Aleatorio de Fischer
-Openings: Aperturas
 Enter a movetext: Ingresar un texto con movimientos
+Openings: Aperturas
+Select an ECO code: Selecciona un código ECO
+Flank Openings: Aperturas de flanco
+Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
+Open Games and the French Defense: Juegos abiertos y la defensa francesa
+Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
+Indian Defenses: Defensas indias
+Movetext: Texto con movimientos
+Search: Buscar
 
 # Play
 Online Players: Jugadores en línea
@@ -54,16 +62,6 @@ Would you like a takeback?: ¿Quieres corregir este movimiento?
 Accept: Aceptar
 Decline: Declinar
 Top Players: Mejores jugadores(as)
-
-# Openings
-Select an ECO code: Selecciona un código ECO
-Flank Openings: Aperturas de flanco
-Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
-Open Games and the French Defense: Juegos abiertos y la defensa francesa
-Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
-Indian Defenses: Defensas indias
-Movetext: Texto con movimientos
-Search: Buscar
 
 # Training
 Select a checkmate: Selecciona un jaque y mate

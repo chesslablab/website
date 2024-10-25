@@ -26,8 +26,16 @@ Move: Двигаться
 Add: Добавлять
 Classical Chess: Классические шахматы
 Fischer Random: Шахматы Фишера
-Openings: Дебют
 Enter a movetext: Введите шахматную нотацию
+Openings: Дебют
+Select an ECO code: Выберите код ECO
+Flank Openings: Фланговые дебюты
+Semi-Open Games other than the French Defense: Полуоткрытые дебюты, кроме французской защиты
+Open Games and the French Defense: Открытые дебюты и французская защита
+Closed Games and Semi-Closed Games: Закрытые дебюты и Полуоткрытые дебюты
+Indian Defenses: Индийский дебют
+Movetext: Нотация
+Search: Поиск
 
 # Play
 Online Players: Игроки Онлайн
@@ -54,16 +62,6 @@ Would you like a takeback?: Отменить ход?
 Accept: Принять
 Decline: Отклонить
 Top Players: Лучшие игроки
-
-# Openings
-Select an ECO code: Выберите код ECO
-Flank Openings: Фланговые дебюты
-Semi-Open Games other than the French Defense: Полуоткрытые дебюты, кроме французской защиты
-Open Games and the French Defense: Открытые дебюты и французская защита
-Closed Games and Semi-Closed Games: Закрытые дебюты и Полуоткрытые дебюты
-Indian Defenses: Индийский дебют
-Movetext: Нотация
-Search: Поиск
 
 # Training
 Select a checkmate: Выберите мат

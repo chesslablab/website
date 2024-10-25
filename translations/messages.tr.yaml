@@ -26,8 +26,16 @@ Move: Taşınmak
 Add: Eklemek
 Classical Chess: Klasik Satranç
 Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
-Openings: Açılışlar
 Enter a movetext: Bir metintaşı girin
+Openings: Açılışlar
+Select an ECO code: Bir ECO kodu seçin
+Flank Openings: Flank Açılışları
+Semi-Open Games other than the French Defense: Yarı-Açık Oyunlar (Fransız Defansı harici)
+Open Games and the French Defense: Açık Oyunlar ve Fransız Defansı
+Closed Games and Semi-Closed Games: Kapalı ve Yarı-Kapalı Oyunlar
+Indian Defenses: Hint Defansları
+Movetext: Metintaşı
+Search: Ara
 
 # Play
 Online Players: Çevrim İçi Oyuncular
@@ -54,16 +62,6 @@ Would you like a takeback?: Hamlenizi geri almak ister misiniz?
 Accept: Kabul Et
 Decline: Reddet
 Top Players: En İyi Oyuncular
-
-# Openings
-Select an ECO code: Bir ECO kodu seçin
-Flank Openings: Flank Açılışları
-Semi-Open Games other than the French Defense: Yarı-Açık Oyunlar (Fransız Defansı harici)
-Open Games and the French Defense: Açık Oyunlar ve Fransız Defansı
-Closed Games and Semi-Closed Games: Kapalı ve Yarı-Kapalı Oyunlar
-Indian Defenses: Hint Defansları
-Movetext: Metintaşı
-Search: Ara
 
 # Training
 Select a checkmate: Bir Şah-Mat seçin
