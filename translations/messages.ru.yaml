@@ -1,5 +1,4 @@
 # Main nav bar
-Home: Заглавная страница
 Play: Играть
 Online: Онлайн
 Computer: Бот
@@ -58,9 +57,7 @@ Decline: Отклонить
 Top Players: Лучшие игроки
 
 # Learn
-Variations and comments will be removed. To keep them, load a RAV Movetext instead: Возможности и комментарии будут удалены. Чтобы сохранить их, загрузите RAV нотацию.
 Enter a movetext: Введите шахматную нотацию
-Variations and comments will be kept. To remove them, load a SAN Movetext instead: Возможности и комментарии будут доступны. Чтобы удалить их, загрузите SAN нотацию.
 
 # Openings
 Select an ECO code: Выберите код ECO
