@@ -7,17 +7,17 @@ Chess developers and business owners can now run their own open-source chess pla
 
 ```text
 cloc assets/js
-      80 text files.
-      80 unique files.                              
+      71 text files.
+      71 unique files.                              
        0 files ignored.
 
-github.com/AlDanial/cloc v 1.90  T=0.05 s (1474.8 files/s, 59028.2 lines/s)
+github.com/AlDanial/cloc v 1.90  T=0.05 s (1570.8 files/s, 61970.5 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JavaScript                      80            311             33           2858
+JavaScript                      71            222             36           2543
 -------------------------------------------------------------------------------
-SUM:                            80            311             33           2858
+SUM:                            71            222             36           2543
 -------------------------------------------------------------------------------
 ```
 
