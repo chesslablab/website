@@ -7,18 +7,17 @@ import { whiteAutocomplete } from '../WhiteAutocomplete.js';
 import AbstractComponent from '../../AbstractComponent.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
-import * as env from '../../../env.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class DatabaseGamesTab extends AbstractComponent {
+export class SearchGamesForm extends AbstractComponent {
   mount() {
-    this.props.form.addEventListener('submit', async (event) => {
+    this.el.addEventListener('submit', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
-      const formData = new FormData(this.props.form);
+      const formData = new FormData(this.el);
       dataWebSocket
         .send('/search', {
           Event: formData.get('Event'),
@@ -30,7 +29,7 @@ export class DatabaseGamesTab extends AbstractComponent {
           movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
         })
         .onChange('/search', data => {
-          const tbody = this.props.form.getElementsByTagName('tbody')[0];
+          const tbody = this.el.getElementsByTagName('tbody')[0];
           tbody.parentNode.classList.add('mt-3');
           tbody.replaceChildren();
           data.forEach(game => {
@@ -83,10 +82,9 @@ export class DatabaseGamesTab extends AbstractComponent {
   }
 }
 
-export const databaseGamesTab = new DatabaseGamesTab(
-  document.getElementById('databaseGamesTab'),
+export const searchGamesForm = new SearchGamesForm(
+  document.getElementById('searchGamesForm'),
   {
-    form: document.querySelector('#databaseGamesTab form'),
     movesMetadataTable: movesMetadataTable
   }
 );
