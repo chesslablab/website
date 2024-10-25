@@ -2,12 +2,8 @@
 Play: Spielen
 Online: Online
 Computer: Computer
-Learn: Lernen
-Classical Chess: Klassisches Schach
-Fischer Random: Fischer Random
 FEN String: FEN String
 SAN Movetext: SAN Movetext mit Zügen
-Openings: Eröffnungen
 Most Played: Am meisten gespielt
 ECO Code: ECO-Code
 Name: Name
@@ -16,9 +12,6 @@ Checkmate: Schachmatt
 Endgame: Endspiel
 Database: Datenbank
 Games: Schachspiele
-Top Openings: Top-Eröffnungen
-Player Stats: Spielerstatistiken
-Event Stats: Eventstatistiken
 Edit: Bearbeiten
 Players: Spieler
 Blog: Blog
@@ -27,8 +20,12 @@ Settings: Einstellungen
 Sign In: Anmelden
 Sign Out: Abmelden
 
-# Footer
-About: Über
+# Home
+Add: Hinzufügen
+Classical Chess: Klassisches Schach
+Fischer Random: Fischer Random
+Openings: Eröffnungen
+Enter a movetext: Geben Sie einen Movetext ein
 
 # Play
 Online Players: Online-Spieler
@@ -55,9 +52,6 @@ Would you like a takeback?: Möchten Sie einen Zug zurücknehmen?
 Accept: Akzeptieren
 Decline: Ablehnen
 Top Players: Top-Spieler
-
-# Learn
-Enter a movetext: Geben Sie einen Movetext ein
 
 # Openings
 Select an ECO code: Wählen Sie einen ECO-Code
@@ -97,6 +91,9 @@ En passant: En passant
 Starting Position: Startposition
 Clear Board: Brett leeren
 Delete: Löschen
+
+# Annotations
+Learn: Lernen
 
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: Finden Sie Schachspieler im gesamten Internet und verbessern Sie Ihre Schachfähigkeiten. Viel Spaß!
@@ -154,3 +151,6 @@ Sign in to your account to complete the registration: Melden Sie sich bei Ihrem 
 # Error pages
 This publication has not been translated into the current selected language: Diese Publikation wurde nicht in die aktuell ausgewählte Sprache übersetzt
 Whoops: Hoppla
+
+# Footer
+About: Über

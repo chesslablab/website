@@ -2,12 +2,8 @@
 Play: 游戏
 Online: 在线
 Computer: 电脑
-Learn: 学习
-Classical Chess: 经典国际象棋
-Fischer Random: 费舍尔随机棋
 FEN String: FEN 记录
 SAN Movetext: 标准代数记谱法
-Openings: 开局
 Most Played: 最常玩
 ECO Code: 开局 ECO 代码
 Name: 名称
@@ -16,9 +12,6 @@ Checkmate: 将死
 Endgame: 残局
 Database: 数据库
 Games: 游戏
-Top Openings: 顶级开局
-Player Stats: 玩家统计
-Event Stats: 事件统计
 Edit: 编辑
 Players: 玩家
 Blog: 博客
@@ -27,8 +20,12 @@ Settings: 设置
 Sign In: 登入
 Sign Out: 登出
 
-# Footer
-About: 关于我们
+# Home
+Add: 添加
+Classical Chess: 经典国际象棋
+Fischer Random: 费舍尔随机棋
+Openings: 开局
+Enter a movetext: 输入棋步记录
 
 # Play
 Online Players: 在线玩家
@@ -55,9 +52,6 @@ Would you like a takeback?: 想要悔棋吗？
 Accept: 接受
 Decline: 拒绝
 Top Players: 顶级玩家
-
-# Learn
-Enter a movetext: 输入棋步记录
 
 # Openings
 Select an ECO code: 选择 ECO 代码
@@ -97,6 +91,9 @@ En passant: 吃过路兵
 Starting Position: 起始位置
 Clear Board: 清空棋盘
 Delete: 删除
+
+# Annotations
+Learn: 学习
 
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: 在互联网上找到国际象棋玩家并提高你的国际象棋技能。玩得开心！
@@ -154,3 +151,6 @@ Sign in to your account to complete the registration: 登录您的账户以完�
 # Error pages
 This publication has not been translated into the current selected language: 本出版物尚未翻译成当前选择的语言
 Whoops: 哎呀
+
+# Footer
+About: 关于我们

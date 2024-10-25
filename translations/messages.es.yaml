@@ -2,12 +2,8 @@
 Play: Jugar
 Online: En línea
 Computer: Ordenador
-Learn: Aprender
-Classical Chess: Ajedrez clásico
-Fischer Random: Aleatorio de Fischer
 FEN String: Cadena FEN
 SAN Movetext: Texto SAN con movimientos
-Openings: Aperturas
 Most Played: Las más jugadas
 ECO Code: Código ECO
 Name: Nombre
@@ -16,9 +12,6 @@ Checkmate: Jaque y mate
 Endgame: Final de juego
 Database: Base de datos
 Games: Partidas
-Top Openings: Aperturas principales
-Player Stats: Estadísticas del jugador
-Event Stats: Estadísticas del evento
 Edit: Editar
 Players: Jugadores
 Blog: Blog
@@ -27,8 +20,12 @@ Settings: Ajustes
 Sign In: Iniciar sesión
 Sign Out: Desconectar
 
-# Footer
-About: Acerca de
+# Home
+Add: Agregar
+Classical Chess: Ajedrez clásico
+Fischer Random: Aleatorio de Fischer
+Openings: Aperturas
+Enter a movetext: Ingresar un texto con movimientos
 
 # Play
 Online Players: Jugadores en línea
@@ -55,9 +52,6 @@ Would you like a takeback?: ¿Quieres corregir este movimiento?
 Accept: Aceptar
 Decline: Declinar
 Top Players: Mejores jugadores(as)
-
-# Learn
-Enter a movetext: Ingresar un texto con movimientos
 
 # Openings
 Select an ECO code: Selecciona un código ECO
@@ -97,6 +91,9 @@ En passant: Captura al paso
 Starting Position: Posición inicial
 Clear Board: Despejar tablero
 Delete: Borrar
+
+# Annotations
+Learn: Aprender
 
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: Encuentra jugadores de ajedrez en Internet y mejora tus habilidades de ajedrez. ¡Diviértete!
@@ -154,3 +151,6 @@ Sign in to your account to complete the registration: Inicia sesión en tu cuent
 # Error pages
 This publication has not been translated into the current selected language: Esta publicación no ha sido traducida al idioma actual seleccionado
 Whoops: Ups
+
+# Footer
+About: Acerca de

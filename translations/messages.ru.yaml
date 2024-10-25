@@ -2,12 +2,8 @@
 Play: Играть
 Online: Онлайн
 Computer: Бот
-Learn: Обучение
-Classical Chess: Классические шахматы
-Fischer Random: Шахматы Фишера
 FEN String: FEN запись
 SAN Movetext: Алгебраическая нотация
-Openings: Дебют
 Most Played: Самый играемый
 ECO Code: Дебютные ECO коды
 Name: Имя
@@ -16,9 +12,6 @@ Checkmate: Мат
 Endgame: Эндшпиль
 Database: База данных
 Games: Игры
-Top Openings: Лучшие Дебюты
-Player Stats: Статистика Игрока
-Event Stats: Статистика Игр
 Edit: Редактировать
 Players: Игроки
 Blog: Блог
@@ -27,8 +20,12 @@ Settings: Настройки
 Sign In: Войти
 Sign Out: Выход
 
-# Footer
-About: О нас
+# Home
+Add: Добавлять
+Classical Chess: Классические шахматы
+Fischer Random: Шахматы Фишера
+Openings: Дебют
+Enter a movetext: Введите шахматную нотацию
 
 # Play
 Online Players: Игроки Онлайн
@@ -55,9 +52,6 @@ Would you like a takeback?: Отменить ход?
 Accept: Принять
 Decline: Отклонить
 Top Players: Лучшие игроки
-
-# Learn
-Enter a movetext: Введите шахматную нотацию
 
 # Openings
 Select an ECO code: Выберите код ECO
@@ -97,6 +91,9 @@ En passant: Взятие на проходе
 Starting Position: Начальная позиция
 Clear Board: Очистить доску
 Delete: Удалить
+
+# Annotations
+Learn: Обучение
 
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: Найдите игроков в шахматы со всего интернета и улучшайте ваши шахматные навыки. Хорошей игры!
@@ -154,3 +151,6 @@ Sign in to your account to complete the registration: Войдите в свою
 # Error pages
 This publication has not been translated into the current selected language: Эта публикация не переведена на текущий выбранный язык
 Whoops: Упс
+
+# Footer
+About: О нас

@@ -2,12 +2,8 @@
 Play: Oyna
 Online: Çevrim İçi
 Computer: Bilgisayar
-Learn: Öğren
-Classical Chess: Klasik Satranç
-Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
 FEN String: FEN Kodu
 SAN Movetext: SAN Metintaşı
-Openings: Açılışlar
 Most Played: En çok oynanan
 ECO Code: ECO Kodu
 Name: İsim
@@ -16,9 +12,6 @@ Checkmate: Mat
 Endgame: Oyun Sonu
 Database: Veri Tabanı
 Games: Oyunlar
-Top Openings: En İyi Açılışlar
-Player Stats: Oyuncu İstatistikleri
-Event Stats: Etkinlik İstatistikleri
 Edit: Düzenle
 Players: Oyuncular
 Blog: Blog
@@ -27,8 +20,12 @@ Settings: Ayarlar
 Sign In: Kayıt olmak
 Sign Out: Oturumu Kapat
 
-# Footer
-About: Hakkında
+# Home
+Add: Eklemek
+Classical Chess: Klasik Satranç
+Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
+Openings: Açılışlar
+Enter a movetext: Bir metintaşı girin
 
 # Play
 Online Players: Çevrim İçi Oyuncular
@@ -55,9 +52,6 @@ Would you like a takeback?: Hamlenizi geri almak ister misiniz?
 Accept: Kabul Et
 Decline: Reddet
 Top Players: En İyi Oyuncular
-
-# Learn
-Enter a movetext: Bir metintaşı girin
 
 # Openings
 Select an ECO code: Bir ECO kodu seçin
@@ -97,6 +91,9 @@ En passant: Geçerken Almak
 Starting Position: Başlangıç Pozisyonu
 Clear Board: Tahtayı Temizle
 Delete: Silmek
+
+# Annotations
+Learn: Öğren
 
 # Clubs
 Find chess players all over the Internet and improve your chess skills. Have fun!: İnternetin her yerinde satranç oyuncularını bulun ve satranç becerilerinizi geliştirin. İyi eğlenceler!
@@ -154,3 +151,6 @@ Sign in to your account to complete the registration: Kaydı tamamlamak için he
 # Error pages
 This publication has not been translated into the current selected language: Bu yayın henüz seçili dile çevrilmedi
 Whoops: Oops
+
+# Footer
+About: Hakkında
