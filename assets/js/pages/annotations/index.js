@@ -1,4 +1,4 @@
-import { learnAnnotationsTab } from './LearnAnnotationsTab.js';
+import { learnForm } from './LearnForm.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../variant.js';
@@ -13,7 +13,7 @@ try {
 dataWebSocket
   .send(`/annotations_game`)
   .onChange('/annotations_game', data => {
-    const tbody = learnAnnotationsTab.props.form.getElementsByTagName('tbody')[0];
+    const tbody = learnForm.el.getElementsByTagName('tbody')[0];
     tbody.replaceChildren();
     data.forEach(game => {
       const tr = document.createElement('tr');
@@ -51,7 +51,7 @@ dataWebSocket
       tr.appendChild(resultTd);
 
       tr.addEventListener('click', async (event) => {
-        learnAnnotationsTab.progressModal.props.modal.show();
+        learnForm.progressModal.props.modal.show();
         annotationsWebSocket.send('/play_rav', {
           variant: variant.CLASSICAL,
           movetext: game.movetext
@@ -60,6 +60,6 @@ dataWebSocket
 
       tbody.appendChild(tr);
 
-      learnAnnotationsTab.progressModal.props.modal.hide();
+      learnForm.progressModal.props.modal.hide();
     });
   });
