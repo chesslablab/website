@@ -12,7 +12,7 @@
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="browse-games-tab" data-bs-toggle="tab" data-bs-target="#browseGamesTab" type="button" role="tab" aria-controls="browseGamesTab" aria-selected="false">
+        <button class="nav-link" id="moves-games-tab" data-bs-toggle="tab" data-bs-target="#movesGamesTab" type="button" role="tab" aria-controls="movesGamesTab" aria-selected="false">
           {{ 'Moves'|trans }}
         </button>
       </li>
@@ -21,7 +21,7 @@
       <div class="tab-pane show active" id="databaseGamesTab" role="tabpanel" aria-labelledby="database-games-tab">
         {% include 'pages/games/search_games_form.html.twig' %}
       </div>
-      <div class="tab-pane" id="browseGamesTab" role="tabpanel" aria-labelledby="browse-games-tab">
+      <div class="tab-pane" id="movesGamesTab" role="tabpanel" aria-labelledby="moves-games-tab">
         {% include 'partial/panel/san_panel.html.twig' %}
       </div>
     </div>
