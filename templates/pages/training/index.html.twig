@@ -7,7 +7,7 @@
   <div class="col-md-6">
     <ul class="nav nav-tabs" id="trainingTabs" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="browse-training-tab" data-bs-toggle="tab" data-bs-target="#browseTrainingTab" type="button" role="tab" aria-controls="browseTrainingTab" aria-selected="false">
+        <button class="nav-link" id="moves-training-tab" data-bs-toggle="tab" data-bs-target="#movesTrainingTab" type="button" role="tab" aria-controls="movesTrainingTab" aria-selected="false">
           {{ 'Moves'|trans }}
         </button>
       </li>
@@ -23,7 +23,7 @@
       </li>
     </ul>
     <div class="tab-content" id="trainingTabsContent">
-      <div class="tab-pane" id="browseTrainingTab" role="tabpanel" aria-labelledby="browse-training-tab">
+      <div class="tab-pane" id="movesTrainingTab" role="tabpanel" aria-labelledby="moves-training-tab">
         {% include 'partial/panel/stockfish_panel.html.twig' %}
       </div>
       <div class="tab-pane show active" id="checkmateTrainingTab" role="tabpanel" aria-labelledby="checkmate-training-tab">
