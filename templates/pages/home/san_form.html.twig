@@ -26,23 +26,4 @@
   </div>
 </form>
 
-<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="uploadModalLabel">{{ 'Upload Image'|trans }}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <input class="form-control" type="file" id="formFile" name="level">
-          </div>
-          <div>
-            <button type="submit" class="btn btn-primary w-100">{{ 'Accept'|trans }}</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+{% include 'pages/home/upload_modal.html.twig' %}
