@@ -1,12 +1,28 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import { uploadModal } from './UploadModal.js';
 import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
 import * as variant from '../../variant.js';
 
 export class SanForm extends BaseComponent {
+  toBase64(file) {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+
+  async upload(event) {
+    return await this.toBase64(event.target.files[0]);
+  };
+
   mount() {
     if (this.el) {
       this.props.variantSelect.addEventListener('change', event => {
@@ -20,9 +36,14 @@ export class SanForm extends BaseComponent {
         });
       });
 
-      this.props.uploadButton.addEventListener('click', event => {
+      this.props.chessboardInput.addEventListener('change', event => {
         event.preventDefault();
-        this.props.uploadModal.props.modal.show();
+        this.upload(event).then(data => {
+          analysisWebSocket
+            .send('/recognizer', {
+              data: data
+            });
+        });
       });
 
       this.el.addEventListener('submit', event => {
@@ -46,8 +67,7 @@ export const sanForm = new SanForm(
   {
     variantSelect: document.querySelector('#sanForm select[name="variant"]'),
     fenInput: document.querySelector('#sanForm input[name="fen"]'),
-    startPosInput: document.querySelector('#sanForm input[name="startPos"]'),
-    uploadButton: document.querySelector('#sanForm [type="button"]'),
-    uploadModal: uploadModal
+    chessboardInput: document.querySelector('#sanForm input[name="chessboard"]'),
+    startPosInput: document.querySelector('#sanForm input[name="startPos"]')
   }
 );
