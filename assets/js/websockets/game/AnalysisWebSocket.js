@@ -3,6 +3,7 @@ import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { analysisPanel } from '../../pages/AnalysisPanel.js';
 import { sanForm } from '../../pages/SanForm.js';
+import { uploadModal } from '../../pages/UploadModal.js';
 
 export class AnalysisWebSocket extends AbstractGameWebSocket {
   constructor() {
@@ -71,6 +72,11 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
       analysisPanel.props.movesBrowser.mount();
       analysisPanel.props.openingTable.props.movetext = data.movetext;
       analysisPanel.props.openingTable.mount();
+    })
+    .onChange('/recognizer', data => {
+      sanForm.props.fenInput.value = '';
+      sanForm.props.fenInput.value = data;
+      uploadModal.props.modal.hide();
     });
   }
 }

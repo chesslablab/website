@@ -12,8 +12,11 @@
     <input type="text" name="startPos" placeholder="Enter a start position" class="form-control">
      <small class="form-text text-muted">Example: RNBQKBNR</small>
   </div>
-  <div class="mb-3">
+  <div class="input-group mb-1">
     <input type="text" name="fen" placeholder="{{ 'Enter a FEN'|trans }}" class="form-control" required>
+  </div>
+  <div class="input-group mb-3">
+    <button class="btn btn-primary rounded-1" type="button">Upload Image</button>
   </div>
   <div class="mb-3">
     <textarea name="san" placeholder="{{ 'Enter a movetext'|trans }}" class="form-control" rows="3"></textarea>
@@ -22,3 +25,5 @@
     <button type="submit" class="btn btn-primary w-100">{{ 'Accept'|trans }}</button>
   </div>
 </form>
+
+{% include 'pages/home/upload_modal.html.twig' %}
