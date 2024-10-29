@@ -1,5 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import BaseComponent from '../BaseComponent.js';
+import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 
 export class UploadModal extends BaseComponent {
   toBase64(file) {
@@ -22,8 +23,11 @@ export class UploadModal extends BaseComponent {
   mount() {
     this.props.chessboardInput.addEventListener('change', event => {
       event.preventDefault();
-      this.upload(event).then((data) => {
-        // TODO
+      this.upload(event).then(data => {
+        analysisWebSocket
+          .send('/recognizer', {
+            data: data
+          });
       });
     });
   }
