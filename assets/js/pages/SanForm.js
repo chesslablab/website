@@ -18,6 +18,12 @@ export class SanForm extends BaseComponent {
         });
       });
 
+      this.props.uploadButton.addEventListener('click', event => {
+        event.preventDefault();
+        // TODO
+        // upload form
+      });
+
       this.el.addEventListener('submit', event => {
         event.preventDefault();
         analysisWebSocket.send('/start', {
@@ -39,6 +45,7 @@ export const sanForm = new SanForm(
   {
     variantSelect: document.querySelector('#sanForm select[name="variant"]'),
     fenInput: document.querySelector('#sanForm input[name="fen"]'),
-    startPosInput: document.querySelector('#sanForm input[name="startPos"]')
+    startPosInput: document.querySelector('#sanForm input[name="startPos"]'),
+    uploadButton: document.querySelector('#sanForm [type="button"]')
   }
 );
