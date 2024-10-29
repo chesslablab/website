@@ -1,3 +1,4 @@
+import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
@@ -20,8 +21,7 @@ export class SanForm extends BaseComponent {
 
       this.props.uploadButton.addEventListener('click', event => {
         event.preventDefault();
-        // TODO
-        // upload form
+        this.props.uploadModal.show();
       });
 
       this.el.addEventListener('submit', event => {
@@ -46,6 +46,7 @@ export const sanForm = new SanForm(
     variantSelect: document.querySelector('#sanForm select[name="variant"]'),
     fenInput: document.querySelector('#sanForm input[name="fen"]'),
     startPosInput: document.querySelector('#sanForm input[name="startPos"]'),
-    uploadButton: document.querySelector('#sanForm [type="button"]')
+    uploadButton: document.querySelector('#sanForm [type="button"]'),
+    uploadModal: new Modal(document.getElementById('uploadModal'))
   }
 );
