@@ -118,7 +118,6 @@ Download Image: 下载图片
 Download Video: 下载视频
 Heuristic Charts: 启发式图表
 Explain Position: 解释位置
-Save Changes: 保存更改
 ChesslaBlab is an open-source community driven project: ChesslaBlab 是一个由社区驱动的开源项目
 Let's do this: 让我们开始吧
 
@@ -134,6 +133,7 @@ Piece set: 棋子集
 Light: 浅色
 Dark: 深色
 Chess server: 国际象棋服务器
+Save Changes: 保存更改
 
 # Sign In
 Username: 用户名

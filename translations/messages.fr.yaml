@@ -118,7 +118,6 @@ Download Image: Télécharger l'image
 Download Video: Télécharger la vidéo
 Heuristic Charts: Graphiques heuristiques
 Explain Position: Expliquer la position
-Save Changes: Sauvegarder les modifications
 ChesslaBlab is an open-source community driven project: ChesslaBlab est un projet communautaire open source
 Let's do this: Faisons cela
 
@@ -134,6 +133,7 @@ Piece set: Ensemble de pièces
 Light: Lumière
 Dark: Sombre
 Chess server: Serveur d'échecs
+Save Changes: Sauvegarder les modifications
 
 # Sign In
 Username: Nom d'utilisateur
