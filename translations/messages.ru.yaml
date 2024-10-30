@@ -2,7 +2,6 @@
 Play: Играть
 Online: Онлайн
 Computer: Бот
-ECO Code: Дебютные ECO коды
 Name: Имя
 Training: Практика
 Games: Игры
@@ -75,6 +74,7 @@ Database: База данных
 Loading: Загрузка
 Event: Событие
 Year: Год
+ECO Code: Дебютные ECO коды
 White: Белые
 Black: Черные
 Result: Исход

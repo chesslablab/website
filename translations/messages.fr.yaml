@@ -2,7 +2,6 @@
 Play: Jouer
 Online: En ligne
 Computer: Ordinateur
-ECO Code: Code ÉCO
 Name: Nom
 Training: Entraînement
 Games: Parties
@@ -75,6 +74,7 @@ Database: Base de données
 Loading: Chargement
 Event: Événement
 Year: Année
+ECO Code: Code ÉCO
 White: Blancs
 Black: Noirs
 Result: Résultat

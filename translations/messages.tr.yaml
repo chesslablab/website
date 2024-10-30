@@ -2,7 +2,6 @@
 Play: Oyna
 Online: Çevrim İçi
 Computer: Bilgisayar
-ECO Code: ECO Kodu
 Name: İsim
 Training: Antrenman
 Games: Oyunlar
@@ -75,6 +74,7 @@ Database: Veri Tabanı
 Loading: Yükleniyor
 Event: Etkinlik
 Year: Yıl
+ECO Code: ECO Kodu
 White: Beyaz
 Black: Siyah
 Result: Sonuç

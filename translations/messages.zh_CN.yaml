@@ -2,7 +2,6 @@
 Play: 游戏
 Online: 在线
 Computer: 电脑
-ECO Code: 开局 ECO 代码
 Name: 名称
 Training: 训练
 Games: 游戏
@@ -75,6 +74,7 @@ Database: 数据库
 Loading: 加载中
 Event: 事件
 Year: 年份
+ECO Code: 开局 ECO 代码
 White: 白方
 Black: 黑方
 Result: 结果
