@@ -2,7 +2,6 @@
 Play: खेलें
 Online: सम्पर्कयुत
 Computer: संगणक
-SAN Movetext: SAN गतिमय पाठ
 ECO Code: ECO कोड
 Name: नाम
 Training: प्रशिक्षण
@@ -21,7 +20,7 @@ Moves: चालें
 Add: जोड़ना
 Classical Chess: शास्त्रीय शतरंज
 Fischer Random: फिशर रेंडम
-Enter a movetext: मूवटेक्स्ट दर्ज करें
+SAN Movetext: SAN गतिमय पाठ
 Openings: खुलावद
 Select an ECO code: एक ECO कोड चुनें।
 Flank Openings: फ्लैंक ओपनिंग्स

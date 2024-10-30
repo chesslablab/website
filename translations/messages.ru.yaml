@@ -2,7 +2,6 @@
 Play: Играть
 Online: Онлайн
 Computer: Бот
-SAN Movetext: Алгебраическая нотация
 ECO Code: Дебютные ECO коды
 Name: Имя
 Training: Практика
@@ -21,7 +20,7 @@ Moves: Ходы
 Add: Добавлять
 Classical Chess: Классические шахматы
 Fischer Random: Шахматы Фишера
-Enter a movetext: Введите шахматную нотацию
+SAN Movetext: Алгебраическая нотация
 Openings: Дебют
 Select an ECO code: Выберите код ECO
 Flank Openings: Фланговые дебюты

@@ -2,7 +2,6 @@
 Play: Jugar
 Online: En línea
 Computer: Ordenador
-SAN Movetext: Texto SAN con movimientos
 ECO Code: Código ECO
 Name: Nombre
 Training: Entrenamiento
@@ -21,7 +20,7 @@ Moves: Movimientos
 Add: Agregar
 Classical Chess: Ajedrez clásico
 Fischer Random: Aleatorio de Fischer
-Enter a movetext: Ingresar un texto con movimientos
+SAN Movetext: Texto SAN con movimientos
 Openings: Aperturas
 Select an ECO code: Selecciona un código ECO
 Flank Openings: Aperturas de flanco

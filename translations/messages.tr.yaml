@@ -2,7 +2,6 @@
 Play: Oyna
 Online: Çevrim İçi
 Computer: Bilgisayar
-SAN Movetext: SAN Metintaşı
 ECO Code: ECO Kodu
 Name: İsim
 Training: Antrenman
@@ -21,7 +20,7 @@ Moves: Hareketler
 Add: Eklemek
 Classical Chess: Klasik Satranç
 Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
-Enter a movetext: Bir metintaşı girin
+SAN Movetext: SAN Metintaşı
 Openings: Açılışlar
 Select an ECO code: Bir ECO kodu seçin
 Flank Openings: Flank Açılışları

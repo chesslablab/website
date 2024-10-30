@@ -2,7 +2,6 @@
 Play: Spielen
 Online: Online
 Computer: Computer
-SAN Movetext: SAN Movetext mit Zügen
 ECO Code: ECO-Code
 Name: Name
 Training: Training
@@ -21,7 +20,7 @@ Moves: Bewegungen
 Add: Hinzufügen
 Classical Chess: Klassisches Schach
 Fischer Random: Fischer Random
-Enter a movetext: Geben Sie einen Movetext ein
+SAN Movetext: SAN Movetext mit Zügen
 Openings: Eröffnungen
 Select an ECO code: Wählen Sie einen ECO-Code
 Flank Openings: Flankeneröffnungen
