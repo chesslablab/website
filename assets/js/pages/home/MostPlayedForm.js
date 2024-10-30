@@ -11,7 +11,7 @@ import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class PopularForm extends BaseComponent {
+export class MostPlayedForm extends BaseComponent {
   _nBars = 25;
 
   mount() {
@@ -113,8 +113,8 @@ export class PopularForm extends BaseComponent {
   }
 }
 
-export const popularForm = new PopularForm(
-  document.getElementById('popularForm'),
+export const mostPlayedForm = new MostPlayedForm(
+  document.getElementById('mostPlayedForm'),
   {
     movesMetadataTable: movesMetadataTable
   }
