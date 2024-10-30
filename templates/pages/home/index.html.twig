@@ -22,7 +22,7 @@
         </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="popular-home-tab" data-bs-toggle="tab" data-bs-target="#popularHomeTab" type="button" role="tab" aria-controls="popularHomeTab" aria-selected="false">
+        <button class="nav-link" id="most-played-home-tab" data-bs-toggle="tab" data-bs-target="#mostPlayedHomeTab" type="button" role="tab" aria-controls="mostPlayedHomeTab" aria-selected="false">
           {{ 'Most Played'|trans }}
         </button>
       </li>
@@ -37,7 +37,7 @@
       <div class="tab-pane" id="openingsHomeTab" role="tabpanel" aria-labelledby="openings-home-tab">
         {% include 'pages/home/openings_form.html.twig' %}
       </div>
-      <div class="tab-pane" id="popularHomeTab" role="tabpanel" aria-labelledby="popular-home-tab">
+      <div class="tab-pane" id="mostPlayedHomeTab" role="tabpanel" aria-labelledby="most-played-home-tab">
         {% include 'pages/home/most_played_form.html.twig' %}
       </div>
     </div>
