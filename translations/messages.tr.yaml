@@ -16,6 +16,7 @@ Sign Out: Oturumu Kapat
 # Home
 Moves: Hareketler
 Add: Eklemek
+Variant: Varyant
 Classical Chess: Klasik Satranç
 Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
 SAN Movetext: SAN Metintaşı
@@ -36,7 +37,6 @@ Enter Invite Code: Davet Kodunu Gir
 Play Online: Çevrim İçi Oyna
 Minutes per side: Oyuncu Başına Dakika
 Increment in seconds: Saniye Cinsinden Artış
-Select a variant: Bir oyun türü seç
 Classical: Klasik
 Create Game: Oyun Oluştur
 FEN String: FEN Kodu

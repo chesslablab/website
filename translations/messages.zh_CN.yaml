@@ -16,6 +16,7 @@ Sign Out: 登出
 # Home
 Moves: 移动
 Add: 添加
+Variant: 变体
 Classical Chess: 经典国际象棋
 Fischer Random: 费舍尔随机棋
 SAN Movetext: 标准代数记谱法
@@ -36,7 +37,6 @@ Enter Invite Code: 输入邀请码
 Play Online: 在线游戏
 Minutes per side: 每方分钟数
 Increment in seconds: 每秒增加时间
-Select a variant: 选择变体
 Classical: 经典
 Create Game: 创建游戏
 FEN String: FEN 记录

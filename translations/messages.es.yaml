@@ -16,6 +16,7 @@ Sign Out: Desconectar
 # Home
 Moves: Movimientos
 Add: Agregar
+Variant: Variante
 Classical Chess: Ajedrez clásico
 Fischer Random: Aleatorio de Fischer
 SAN Movetext: Texto SAN con movimientos
@@ -36,7 +37,6 @@ Enter Invite Code: Ingresar código de invitación
 Play Online: Jugar en línea
 Minutes per side: Minutos por jugador(a)
 Increment in seconds: Incremento en segundos
-Select a variant: Seleccionar variante
 Classical: Clásico
 Create Game: Crear partida
 FEN String: Cadena FEN

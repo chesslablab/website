@@ -16,6 +16,7 @@ Sign Out: Выход
 # Home
 Moves: Ходы
 Add: Добавлять
+Variant: Вариант
 Classical Chess: Классические шахматы
 Fischer Random: Шахматы Фишера
 SAN Movetext: Алгебраическая нотация
@@ -36,7 +37,6 @@ Enter Invite Code: Введите Код Приглашения
 Play Online: Играть Онлайн
 Minutes per side: Минут на партию
 Increment in seconds: Добавление секунд на ход
-Select a variant: Выберите вид
 Classical: Классические
 Create Game: Создать Игру
 FEN String: FEN запись

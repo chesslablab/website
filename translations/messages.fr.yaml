@@ -16,6 +16,7 @@ Sign Out: Se déconnecter
 # Home
 Moves: Déplacements
 Add: Ajouter
+Variant: Variante
 Classical Chess: Échecs classiques
 Fischer Random: Aléatoires Fischer
 SAN Movetext: Texte SAN avec mouvements
@@ -36,7 +37,6 @@ Enter Invite Code: Entrer le code d'invitation
 Play Online: Jouer en ligne
 Minutes per side: Minutes par joueur
 Increment in seconds: Incrément en secondes
-Select a variant: Sélectionner une variante
 Classical: Classique
 Create Game: Créer une partie
 FEN String: Chaîne FEN
