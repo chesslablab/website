@@ -52,7 +52,7 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="mainNavLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {% include 'svg/bi-globe.svg' %} {{ 'Language'|trans }}
+            <i class="bi bi-globe"></i> {{ 'Language'|trans }}
           </a>
           <ul class="dropdown-menu" aria-labelledby="mainNavLanguageLink">
             <li>
@@ -99,17 +99,17 @@
         </li>
         <li class="nav-item">
           <a class="{{app.request.get('_route') starts with 'pages_settings' ? 'active' : ''}} nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
-            {% include 'svg/gear-fill.svg' %} {{ 'Settings'|trans }}
+            <i class="bi bi-gear-fill"></i> {{ 'Settings'|trans }}
           </a>
         </li>
         <li class="nav-item">
           {% if app.request.cookies.has('access_token') %}
             <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('totp_auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
-              {% include 'svg/bi-box-arrow-right.svg' %} {{ 'Sign Out'|trans }}
+              <i class="bi bi-box-arrow-right"></i> {{ 'Sign Out'|trans }}
             </a>
           {% else %}
             <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('pages_signin') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
-              {% include 'svg/bi-person-fill.svg' %} {{ 'Sign In'|trans }}
+              <i class="bi bi-person-fill"></i> {{ 'Sign In'|trans }}
             </a>
           {% endif %}
         </li>

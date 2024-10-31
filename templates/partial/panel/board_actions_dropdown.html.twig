@@ -1,26 +1,26 @@
 <div id="boardActionsDropdown" class="dropdown">
   <button class="btn btn-light btn-sm w-100 rounded-0" type="button" id="boardActionsMenu" data-bs-toggle="dropdown" aria-expanded="false">
-    {% include 'svg/list.svg' %} {{ 'Board'|trans }}
+    <i class="bi bi-list"></i> {{ 'Board'|trans }}
   </button>
   <ul class="dropdown-menu rounded-0" aria-labelledby="boardActionsMenu">
     <li>
       <a class="dropdown-item" href="#">
-        {% include 'svg/arrow-repeat.svg' %} {{ 'Flip Board'|trans }}
+        <i class="bi bi-arrow-repeat"></i> {{ 'Flip Board'|trans }}
       </a>
     </li>
     <li>
       <a class="dropdown-item" href="#">
-        {% include 'svg/card-text.svg' %} {{ 'Copy Movetext'|trans }}
+        <i class="bi bi-card-text"></i> {{ 'Copy Movetext'|trans }}
       </a>
     </li>
     <li>
       <a class="dropdown-item" href="#">
-        {% include 'svg/input-cursor.svg' %} {{ 'Copy FEN'|trans }}
+        <i class="bi bi-input-cursor"></i> {{ 'Copy FEN'|trans }}
       </a>
     </li>
     <li>
       <a class="dropdown-item" href="#">
-        {% include 'svg/card-image.svg' %} {{ 'Download Image'|trans }}
+        <i class="bi bi-card-image"></i> {{ 'Download Image'|trans }}
       </a>
     </li>
   </ul>

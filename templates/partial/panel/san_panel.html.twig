@@ -3,12 +3,12 @@
     {% include 'partial/panel/board_actions_dropdown.html.twig' %}
     <div id="gameActionsDropdown" class="dropdown">
       <button class="btn btn-light btn-sm w-100 rounded-0" type="button" id="gameActionsMenu" data-bs-toggle="dropdown" aria-expanded="false">
-        {% include 'svg/list.svg' %} {{ 'Game'|trans }}
+        <i class="bi bi-list"></i> {{ 'Game'|trans }}
       </button>
       <ul class="dropdown-menu rounded-0" aria-labelledby="gameActionsMenu">
         <li>
           <a class="dropdown-item" href="#">
-            {% include 'svg/arrow-left.svg' %} {{ 'Takeback'|trans }}
+            <i class="bi bi-arrow-left"></i> {{ 'Takeback'|trans }}
           </a>
         </li>
       </ul>
