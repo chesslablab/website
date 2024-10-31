@@ -1,15 +1,15 @@
 const dark = `body {
   background-color: #262421;
 }
-.the-content {
+.the-page {
   background-color: #282828;
 }
-.the-content {
+.the-page {
   color: #f8f9fa;
 }
-.the-content p a,
-.the-content ol li a,
-.the-content ul li a {
+.the-page p a,
+.the-page ol li a,
+.the-page ul li a {
   color: #ffffff;
 }
 footer a {
@@ -43,12 +43,12 @@ a.nav-link.show {
 button.navbar-toggler {
   background-color: #4d4d4d;
 }
-.the-content {
+.the-page {
   background-color: #f8f9fa;
 }
-.the-content p a,
-.the-content ol li a,
-.the-content ul li a {
+.the-page p a,
+.the-page ol li a,
+.the-page ul li a {
   color: #282828;
 }
 footer a {

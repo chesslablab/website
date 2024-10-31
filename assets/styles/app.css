@@ -14,8 +14,8 @@ h5 a {
 
 h3 a:hover,
 h5 a:hover,
-.the-content p a:hover,
-.the-content ul li a:hover,
+.the-page p a:hover,
+.the-page ul li a:hover,
 footer a:hover {
   text-decoration: underline;
 }
@@ -82,19 +82,19 @@ footer a {
   border-radius: 0;
 }
 
-.the-content a.link-light:hover {
+.the-page a.link-light:hover {
   text-decoration: underline !important;
 }
 
-.the-content p,
-.the-content ul {
+.the-page p,
+.the-page ul {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
 }
 
-.the-content p a,
-.the-content ol li a,
-.the-content ul li a {
+.the-page p a,
+.the-page ol li a,
+.the-page ul li a {
   font-weight: bold;
   text-decoration: none;
 }
