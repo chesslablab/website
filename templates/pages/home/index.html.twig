@@ -1,4 +1,4 @@
-{% extends 'layouts/study.html.twig' %}
+{% extends 'layouts/default.html.twig' %}
 
 {% block main %}
   <div class="col-md-6">
@@ -42,6 +42,8 @@
       </div>
     </div>
   </div>
+  {% include 'partial/panel/explain_position_modal.html.twig' %}
+  {% include 'partial/panel/heuristics_modal.html.twig' %}
   {% block javascripts %}
     {% block importmap %}
       {{ importmap('js/pages/home/index.js') }}
