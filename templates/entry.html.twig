@@ -20,15 +20,19 @@
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
-    <div class="the-content the-post container p-4">
-      {% apply markdown_to_html %}
-        # {{  metadata.title }}
-        ## {{  content.subtitle }}
-        ###### {{  content.date }}
-        ![Featured image](/blog/{{ content.image }})
+    <div class="container">
+      <div class="row g-3">
+        <div class="the-content the-post p-4">
+          {% apply markdown_to_html %}
+            # {{  metadata.title }}
+            ## {{  content.subtitle }}
+            ###### {{  content.date }}
+            ![Featured image](/blog/{{ content.image }})
 
-        {{ post | raw }}
-      {% endapply %}
+            {{ post | raw }}
+          {% endapply %}
+        </div>
+      </div>
     </div>
     {% include 'partial/footer.html.twig' %}
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
