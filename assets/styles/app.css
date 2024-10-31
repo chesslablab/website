@@ -12,14 +12,6 @@ h5 a {
   text-decoration: none;
 }
 
-h3 a:hover,
-h5 a:hover,
-.the-page p a:hover,
-.the-page ul li a:hover,
-footer a:hover {
-  text-decoration: underline;
-}
-
 input[type="radio"] {
   visibility: hidden;
 }
@@ -67,19 +59,12 @@ footer a {
   text-decoration: none;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
-}
-
-.card ul li {
-  list-style-type: '✔';
-  padding-inline-start: 0.4rem;
-}
-
 .btn {
   border-radius: 0;
+}
+
+.the-page {
+  padding: 1.5rem;
 }
 
 .the-page a.link-light:hover {
@@ -107,6 +92,14 @@ footer a {
 .the-page img {
   width: 100%;
   height: auto;
+}
+
+h3 a:hover,
+h5 a:hover,
+.the-page p a:hover,
+.the-page ul li a:hover,
+footer a:hover {
+  text-decoration: underline;
 }
 
 .container {
