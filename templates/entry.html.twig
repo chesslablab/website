@@ -21,17 +21,15 @@
   <body>
     {% include 'partial/nav.html.twig' %}
     <div class="the-content container">
-      <div class="row">
-        <div class="the-post container p-4">
-          {% apply markdown_to_html %}
-            # {{  metadata.title }}
-            ## {{  content.subtitle }}
-            ###### {{  content.date }}
-            ![Featured image](/blog/{{ content.image }})
+      <div class="the-post container p-4">
+        {% apply markdown_to_html %}
+          # {{  metadata.title }}
+          ## {{  content.subtitle }}
+          ###### {{  content.date }}
+          ![Featured image](/blog/{{ content.image }})
 
-            {{ post | raw }}
-          {% endapply %}
-        </div>
+          {{ post | raw }}
+        {% endapply %}
       </div>
     </div>
     {% include 'partial/footer.html.twig' %}
