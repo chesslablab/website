@@ -17,11 +17,10 @@
     {% include 'partial/nav.html.twig' %}
     <div class="container">
       <div class="row g-3">
-        <div class="the-content p-4">
-          <h1 class="h3">{{ "ChesslaBlab Blog"|trans }}</h1>
-          <p class="lead">
-            {{ "Discover stories about your favorite topics"|trans }}.
-          </p>
+        <div class="the-content the-page p-4">
+          <h1>{{ "ChesslaBlab Blog"|trans }}</h1>
+          <h2>{{ "Discover stories about your favorite topics"|trans }}</h2>
+          <hr class="hr">
           <div class="row g-4">
             {% for post in posts %}
               <div class="col-md-4">
