@@ -77,13 +77,6 @@ pages_play_online:
       sitemap:
         _locale: en|es|fr|ru|tr|de|hi|zh_CN
 
-pages_players:
-    path:       /{_locale}/players
-    controller: App\Controller\Pages\PlayersController::index
-    methods:    GET
-    requirements:
-      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
-
 pages_training:
     path:       /{_locale}/training
     controller: App\Controller\Pages\TrainingController::index
