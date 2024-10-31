@@ -2,8 +2,6 @@
 
 {% block main %}
   <div class="the-content the-page p-4">
-    <h1 class="h3">{{ 'Sign In'|trans }}</h1>
-    <hr class="hr">
     <form
       id="signInForm"
       data-totp_auth_signout="{{ path('totp_auth_signout') }}"
