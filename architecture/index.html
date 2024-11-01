@@ -121,6 +121,20 @@ class ComputerController extends AbstractController
 </ul>
 <p>This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
 <p>Each page's JavaScript file is then set up as an entrypoint in the <a href="https://github.com/chesslablab/website/blob/main/importmap.php">importmap.php</a> config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.</p>
+<pre><code class="language-js">import { playComputerModal } from './PlayComputerModal.js';
+import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
+
+try {
+  await Promise.all([
+    binaryWebSocket.connect(),
+    stockfishWebSocket.connect()
+  ]);
+} catch {}
+
+playComputerModal.props.modal.show();
+</code></pre>
+<p>The JavaScript code in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js">assets/js/pages/play/computer/index.js</a> file basically boils down to initialization. The business logic is implemented in WebSocket ESM modules. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.</p>
 <h2 id="websocket-connections">WebSocket Connections</h2>
 <p>The ChesslaBlab website is integrated with <a href="https://chesslablab.github.io/chess-server/">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
 <p>The environment variables required for the chess server can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
@@ -135,93 +149,7 @@ class ComputerController extends AbstractController
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/AnalysisWebSocket.js">assets/js/websockets/game/AnalysisWebSocket.js</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/PlayWebSocket.js">assets/js/websockets/game/PlayWebSocket.js</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/websockets/game/StockfishWebSocket.js">assets/js/websockets/game/StockfishWebSocket.js</a></li>
-</ul>
-<p>Let's say you wanted to study a particular chess opening, then a chess game in <code>analysis</code> mode is to be started.</p>
-<p><img alt="Figure 1" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/architecture_01.png" /></p>
-<p><strong>Figure 1</strong>. Click on <strong>Openings &gt; Search</strong> and select "D77 Neo-Grünfeld Defense: Classical Variation, Modern Defense"</p>
-<p>Data:</p>
-<pre><code class="language-text">/start classical analysis &quot;{\&quot;movetext\&quot;:\&quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4\&quot;}&quot;
-</code></pre>
-<pre><code class="language-text">{
-  &quot;variant&quot;: &quot;classical&quot;,
-  &quot;mode&quot;: &quot;analysis&quot;,
-  &quot;turn&quot;: &quot;w&quot;,
-  &quot;movetext&quot;: &quot;1.d4 Nf6 2.Nf3 g6 3.g3 Bg7 4.Bg2 O-O 5.O-O d5 6.c4 dxc4&quot;,
-  &quot;fen&quot;: [
-    &quot;rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -&quot;,
-    &quot;rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3&quot;,
-    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -&quot;,
-    &quot;rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -&quot;,
-    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -&quot;,
-    &quot;rnbqkb1r/pppppp1p/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R b KQkq -&quot;,
-    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PP1P/RNBQKB1R w KQkq -&quot;,
-    &quot;rnbqk2r/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R b KQkq -&quot;,
-    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQK2R w KQ -&quot;,
-    &quot;rnbq1rk1/ppppppbp/5np1/8/3P4/5NP1/PPP1PPBP/RNBQ1RK1 b - -&quot;,
-    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/3P4/5NP1/PPP1PPBP/RNBQ1RK1 w - d6&quot;,
-    &quot;rnbq1rk1/ppp1ppbp/5np1/3p4/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - c3&quot;,
-    &quot;rnbq1rk1/ppp1ppbp/5np1/8/2pP4/5NP1/PP2PPBP/RNBQ1RK1 w - -&quot;
-  ]
-}
-</code></pre>
-<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js">assets/js/pages/openings/search/index.js</a> file.</p>
-<pre><code class="language-js">import { openingsSearchModal } from './OpeningsSearchModal.js';
-import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
-import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-
-sessionStorage.clear();
-
-try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await analysisWebSocket.connect();
-} catch {}
-
-openingsSearchModal.props.modal.show();
-</code></pre>
-<p>The JavaScript code in the index.js file basically boils down to initialization. The business logic is implemented by a WebSocket ESM module. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data. In this particular case, the chessboard and the SAN panel are updated on chess opening selection.</p>
-<p>Remember, the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder. There is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
-<ul>
-<li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Openings/SearchController.php">src/Controller/Pages/Openings/SearchController.php</a></li>
-<li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/openings/search/index.html.twig">templates/pages/openings/search/index.html.twig</a></li>
-<li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/openings/search/index.js">assets/js/pages/openings/search/index.js</a></li>
-</ul>
-<p>Similarly, if you wanted to study a chess position, then a FEN string needs to be started.</p>
-<p><img alt="Figure 2" src="https://raw.githubusercontent.com/chesslablab/website/main/docs/architecture_02.png" /></p>
-<p><strong>Figure 2</strong>. Click on <strong>Learn &gt; Analysis Chessboard</strong> and enter a classical chess position in FEN format.</p>
-<p>Data:</p>
-<pre><code class="language-text">/start classical analysis &quot;{\&quot;fen\&quot;:\&quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -\&quot;,\&quot;movetext\&quot;:\&quot;\&quot;}&quot;
-</code></pre>
-<pre><code class="language-text">{
-  &quot;variant&quot;: &quot;classical&quot;,
-  &quot;mode&quot;: &quot;analysis&quot;,
-  &quot;turn&quot;: &quot;w&quot;,
-  &quot;movetext&quot;: &quot;&quot;,
-  &quot;fen&quot;: [
-    &quot;r2q1r1k/1b1nN2p/pp3pp1/8/Q7/PP5P/1BP2RPN/7K w - -&quot;
-  ]
-}
-</code></pre>
-<p>The JavaScript code for this example can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/learn/analysis/index.js">assets/js/pages/learn/analysis/index.js</a> file.</p>
-<pre><code class="language-js">import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
-import { analysisWebSocket } from '../../../websockets/game/AnalysisWebSocket.js';
-import * as mode from '../../../../mode.js';
-
-sessionStorage.clear();
-
-try {
-  await binaryWebSocket.connect();
-} catch {}
-
-try {
-  await analysisWebSocket.connect();
-} catch {}
-
-analysisWebSocket.send(`/start classical ${mode.ANALYSIS}`);
-</code></pre>
-<p>The two examples above will give you a sense of the request-response cycle between the web browser and the chess server.</p></div>
+</ul></div>
             </div>
         </div>
 
