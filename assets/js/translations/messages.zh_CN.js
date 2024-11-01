@@ -22,7 +22,6 @@ const messagesZhCN = {
   "The game is resigned": "辞职离职",
   "The game is abandoned": "废弃的游戏",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "SAN 记谱法无效，请重试",
   "This game could not be started, please try again": "游戏无法启动，请重试"
 };
 

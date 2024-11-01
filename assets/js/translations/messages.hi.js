@@ -22,7 +22,6 @@ const messagesHi = {
   "The game is resigned": "इस्तीफा दे दिया प्रस्थान",
   "The game is abandoned": "छोड़ दिया गया खेल",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "अवैध SAN मूवटेक्स्ट, कृपया फिरसे कोशिश करें",
   "This game could not be started, please try again": "यह गेम शुरू नहीं हो सका, कृपया पुनः प्रयास करें"
 };
 

@@ -22,7 +22,6 @@ const messagesRu = {
   "The game is resigned": "Отставка в отставку",
   "The game is abandoned": "Заброшенная игра",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "Текст SAN с недопустимыми движениями, попробуйте еще раз",
   "This game could not be started, please try again": "Эту игру не удалось запустить, попробуйте еще раз"
 };
 

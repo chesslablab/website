@@ -22,7 +22,6 @@ const messagesEs = {
   "The game is resigned": "Partida resignada",
   "The game is abandoned": "Partida abandonada",
   // AnalysisWebSocket
-  "Invalid SAN movetext, please try again": "Texto SAN con movimientos no válido, inténtalo de nuevo",
   "This game could not be started, please try again": "No se pudo iniciar este juego, por favor inténtalo de nuevo"
 };
 
