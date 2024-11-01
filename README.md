@@ -25,14 +25,7 @@ This is made possible with object-oriented programming (OOP) using [JavaScript m
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/featured_animation.gif)
 
-The default settings can be customized through the environment variables starting with `SET_` in the [.env](https://github.com/chesslablab/website/blob/main/.env.example) file.
-
-```text
-SET_SITE_NAME=ChesslaBlab
-SET_LOCALE=en
-```
-
-Change the site name and the locale to configure your website whether you are a chess club, a school, or a FIDE titled player.
+The default settings can be customized through the environment variables in the [.env](https://github.com/chesslablab/website/blob/main/.env.example) file. Change the site name and the locale to configure your website whether you are a chess club, a school, or a FIDE titled player.
 
 ```text
 SET_SITE_NAME=YourChessClub
