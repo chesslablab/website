@@ -33,6 +33,8 @@ This naming convention allows developers to reduce memorization because given on
 
 Each page's JavaScript file is then set up as an entrypoint in the [importmap.php](https://github.com/chesslablab/website/blob/main/importmap.php) config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.
 
+So the JavaScript code in the [assets/js/pages/play/computer/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js) file basically boils down to initialization because the business logic is implemented in WebSocket ESM modules. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.
+
 ```js
 import { playComputerModal } from './PlayComputerModal.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
@@ -47,8 +49,6 @@ try {
 
 playComputerModal.props.modal.show();
 ```
-
-The JavaScript code in the [assets/js/pages/play/computer/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js) file basically boils down to initialization. The business logic is implemented in WebSocket ESM modules. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.
 
 ## WebSocket Connections
 
