@@ -21,7 +21,7 @@ SUM:                            72            228             36           2591
 -------------------------------------------------------------------------------
 ```
 
-This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps) and the DOM.
+This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) and the DOM.
 
 ![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/featured_animation.gif)
 
