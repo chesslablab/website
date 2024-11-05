@@ -30,31 +30,6 @@ input:checked ~ label[for$="RadioBlack"] {
   border-radius: 4rem;
 }
 
-input[name="Event"] + ul,
-input[name="White"] + ul,
-input[name="Black"] + ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  position: absolute;
-  border: 1px solid #ccc;
-}
-
-input[name="Event"] + ul > li,
-input[name="White"] + ul > li,
-input[name="Black"] + ul > li {
-  background-color: #fff;
-  padding: 0.35rem;
-}
-
-input[name="Event"] + ul > li:hover,
-input[name="White"] + ul > li:hover,
-input[name="Black"] + ul > li:hover {
-  background-color: #0d6efd;
-  color: #fff;
-}
-
 footer a {
   text-decoration: none;
 }
@@ -65,10 +40,6 @@ footer a {
 
 .the-page {
   padding: 1.5rem;
-}
-
-.the-page a.link-light:hover {
-  text-decoration: underline !important;
 }
 
 .the-page p,
@@ -122,24 +93,6 @@ label img,
   font-size: 0.85rem;
 }
 
-#movesMetadataTable tr td:nth-child(1) {
-  width: 33%;
-}
-
-#movesMetadataTable tr td:nth-child(2) {
-  width: 33%;
-  text-align: center;
-}
-
-#movesMetadataTable tr td:nth-child(3) {
-  width: 33%;
-  text-align: right;
-}
-
-#progressModal {
-  z-index: 1080;
-}
-
 .active-move {
   background-color: #6c757d !important;
   color: #fff !important;
@@ -159,8 +112,7 @@ label img,
   padding: 0.5rem;
 }
 
-#movesBrowser.inline,
-#movesBrowser.table {
+#movesBrowser {
   max-height: 438px;
   overflow-y: scroll;
   margin-bottom: 0;
@@ -205,14 +157,8 @@ label img,
   color: #fff !important;
 }
 
+#openingsForm .table-responsive,
 #searchGamesForm .table-responsive {
-  font-size: 0.8em;
-  max-height: 305px;
-  overflow-y: scroll;
-  margin-bottom: 0;
-}
-
-#openingsForm .table-responsive {
   font-size: 0.8em;
   max-height: 305px;
   overflow-y: scroll;
@@ -227,7 +173,7 @@ label img,
 }
 
 #movesMetadataTable td {
-  display: block !important;
-  width: 100% !important;
-  text-align: center !important;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
