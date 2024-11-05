@@ -59,7 +59,7 @@ export class MostPlayedForm extends BaseComponent {
         .onChange('/opening', data => {
           const formData = new FormData(this.el);
           const canvas = document.createElement('canvas');
-          canvas.height = 300;
+          canvas.height = 291;
           playerStatsChart.classList.add('mt-3');
           playerStatsChart.replaceChildren();
           playerStatsChart.appendChild(canvas);
