@@ -161,7 +161,7 @@ label img,
 
 #movesBrowser.inline,
 #movesBrowser.table {
-  max-height: 350px;
+  max-height: 404px;
   overflow-y: scroll;
   margin-bottom: 0;
 }
