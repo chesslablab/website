@@ -15,8 +15,14 @@
     </div>
     {% include 'partial/panel/game_study_dropdown.html.twig' %}
   </div>
-  {% include 'partial/panel/history_buttons.html.twig' %}
-  {% include 'partial/panel/moves_metadata_table.html.twig' %}
-  {% include 'partial/panel/opening_table.html.twig' %}
-  {% include 'partial/panel/moves_browser.html.twig' %}
+  <div class="row">
+    <div class="col-md-7">
+      {% include 'partial/panel/history_buttons.html.twig' %}
+      {% include 'partial/panel/moves_browser.html.twig' %}
+    </div>
+    <div class="col-md-5">
+      {% include 'partial/panel/moves_metadata_table.html.twig' %}
+      {% include 'partial/panel/opening_table.html.twig' %}
+    </div>
+  </div>
 </div>

@@ -161,7 +161,7 @@ label img,
 
 #movesBrowser.inline,
 #movesBrowser.table {
-  max-height: 350px;
+  max-height: 438px;
   overflow-y: scroll;
   margin-bottom: 0;
 }
@@ -224,4 +224,10 @@ label img,
   max-height: 514px;
   overflow-y: scroll;
   margin-bottom: 0;
+}
+
+#movesMetadataTable td {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
 }
