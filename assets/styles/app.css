@@ -159,7 +159,8 @@ label img,
   padding: 0.5rem;
 }
 
-#movesBrowser.inline {
+#movesBrowser.inline,
+#movesBrowser.table {
   max-height: 350px;
   overflow-y: scroll;
   margin-bottom: 0;
@@ -178,12 +179,6 @@ label img,
   cursor: pointer;
   background-color: #6c757d !important;
   color: #fff !important;
-}
-
-#movesBrowser.table {
-  max-height: 350px;
-  overflow-y: scroll;
-  margin-bottom: 0;
 }
 
 #movesBrowser.table div {
@@ -208,4 +203,11 @@ label img,
   cursor: pointer;
   background-color: #6c757d !important;
   color: #fff !important;
+}
+
+#searchGamesForm .table-responsive {
+  font-size: 0.8em;
+  max-height: 305px;
+  overflow-y: scroll;
+  margin-bottom: 0;
 }
