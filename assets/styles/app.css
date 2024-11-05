@@ -211,3 +211,10 @@ label img,
   overflow-y: scroll;
   margin-bottom: 0;
 }
+
+#openingsForm .table-responsive {
+  font-size: 0.8em;
+  max-height: 305px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
