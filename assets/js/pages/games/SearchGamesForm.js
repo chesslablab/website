@@ -1,5 +1,4 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
 import movesMetadataTable from '../movesMetadataTable.js';
@@ -9,8 +8,6 @@ import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
-
-Chart.register(...registerables);
 
 export class SearchGamesForm extends BaseComponent {
   mount() {
@@ -29,37 +26,30 @@ export class SearchGamesForm extends BaseComponent {
           movetext: Movetext.notation(NOTATION_SAN, formData.get('movetext')),
         })
         .onChange('/search', data => {
-          const tbody = this.el.getElementsByTagName('tbody')[0];
-          tbody.parentNode.classList.add('mt-3');
-          tbody.replaceChildren();
+          this.el.querySelector('table').classList.remove('d-none');
+          this.el.querySelector('tbody').replaceChildren();
           data.forEach(game => {
             const tr = document.createElement('tr');
             const eventTd = document.createElement('td');
-            const yearTd = document.createElement('td');
             const ecoTd = document.createElement('td');
             const whiteTd = document.createElement('td');
             const whiteEloTd = document.createElement('td');
             const blackTd = document.createElement('td');
             const blackEloTd = document.createElement('td');
-            const resultTd = document.createElement('td');
 
             eventTd.appendChild(document.createTextNode(game.Event));
-            yearTd.appendChild(document.createTextNode(parseInt(game.Date)));
             ecoTd.appendChild(document.createTextNode(game.ECO));
             whiteTd.appendChild(document.createTextNode(game.White));
             whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
             blackTd.appendChild(document.createTextNode(game.Black));
             blackEloTd.appendChild(document.createTextNode(game.BlackElo));
-            resultTd.appendChild(document.createTextNode(game.Result));
 
             tr.appendChild(eventTd);
-            tr.appendChild(yearTd);
             tr.appendChild(ecoTd);
             tr.appendChild(whiteTd);
             tr.appendChild(whiteEloTd);
             tr.appendChild(blackTd);
             tr.appendChild(blackEloTd);
-            tr.appendChild(resultTd);
 
             tr.addEventListener('click', event => {
               analysisWebSocket.send('/start', {
@@ -73,7 +63,7 @@ export class SearchGamesForm extends BaseComponent {
               this.props.movesMetadataTable.mount();
             });
 
-            tbody.appendChild(tr);
+            this.el.querySelector('tbody').appendChild(tr);
           });
 
           this.progressModal.props.modal.hide();
