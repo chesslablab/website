@@ -3,8 +3,6 @@ site_url: https://chesslablab.github.io/website/
 theme:
   name: mkdocs
 nav:
-  - Home: index.md
-  - Installation: installation.md
   - Architecture: architecture.md
   - Blog: blog.md
   - HTML Iframes: html-iframes.md
