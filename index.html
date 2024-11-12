@@ -30,12 +30,6 @@
                 <div id="navbar-collapse" class="navbar-collapse collapse">
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
-                            <li class="navitem active">
-                                <a href="." class="nav-link">Home</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="installation/" class="nav-link">Installation</a>
-                            </li>
                             <li class="navitem">
                                 <a href="architecture/" class="nav-link">Architecture</a>
                             </li>
@@ -53,16 +47,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" class="nav-link disabled">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="installation/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -92,6 +76,10 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#customization" class="nav-link">Customization</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#installation" class="nav-link">Installation</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -275,7 +263,31 @@ SET_LOCALE=es
 <td align="left">Chinese (Simplified)</td>
 </tr>
 </tbody>
-</table></div>
+</table>
+<h2 id="installation">Installation</h2>
+<p>Clone the <code>chesslablab/website</code> repo into your projects folder. Then <code>cd</code> the <code>website</code> directory and create an <code>.env</code> file:</p>
+<pre><code class="language-text">cp .env.example .env
+</code></pre>
+<p>Update the <code>.env</code> file to your specific needs.</p>
+<p>Set up the browser environment variables:</p>
+<pre><code class="language-text">cp assets/env.example.js assets/env.js
+</code></pre>
+<p>Update the <code>env.js</code> file to your specific needs.</p>
+<p>Make sure to have installed the <code>fullchain.pem</code> and <code>privkey.pem</code> files into the <code>docker/nginx/ssl</code> folder, and run the Docker containers in detached mode in the background:</p>
+<pre><code class="language-txt">docker compose -f docker-compose.default.yml up -d
+</code></pre>
+<p>Clear the cache:</p>
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console cache:clear
+</code></pre>
+<p>Download the assets:</p>
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console importmap:install
+</code></pre>
+<p>Compile the assets:</p>
+<pre><code class="language-text">docker exec -itu 1000:1000 chess_website_php php bin/console asset-map:compile
+</code></pre>
+<p>Finally, if you are running the website in a local development environment, you may want to add a domain name entry to your <code>/etc/hosts</code> file.</p>
+<pre><code class="language-txt">127.0.0.1       chesslablab.org
+</code></pre></div>
             </div>
         </div>
 
@@ -358,5 +370,5 @@ SET_LOCALE=es
 
 <!--
 MkDocs version : 1.5.3
-Build Date UTC : 2024-11-02 10:33:54.497214+00:00
+Build Date UTC : 2024-11-12 18:23:07.651166+00:00
 -->
