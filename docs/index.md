@@ -1,7 +1,6 @@
 # Website
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Contributing](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
+A free, open-source web app to learn and play chess online. Created with PHP and JavaScript, using Symfony and Bootstrap.
 
 ## Available Environments
 
