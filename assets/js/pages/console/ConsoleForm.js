@@ -1,25 +1,32 @@
+import { dataWebSocket } from './index.js';
 import { gameWebSocket } from './index.js';
+import { binaryWebSocket } from './index.js';
+import { authWebSocket } from './index.js';
 import BaseComponent from '../../BaseComponent.js';
+import { dataCommand } from '../../../command.js';
+import { gameCommand } from '../../../command.js';
+import { binaryCommand } from '../../../command.js';
+import { authCommand } from '../../../command.js';
 
 export class ConsoleForm extends BaseComponent {
   mount() {
     this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
         let filtered = event.target.value.replace(/\s+/g, ' ');
-        let words = filtered.split(' ');
-        let command = words[0];
+        let command = filtered.split(' ')[0];
         let params = null;
-
-        words = words.slice(1);
-        if (words.length > 1) {
-          try {
-            params = JSON.parse(words.join(''));
-          } catch {}
-        } else if (words.length === 1) {
-          command += ` ${words[0]}`;
+        try {
+          params = JSON.parse(filtered.substr(filtered.indexOf(' ') + 1));
+        } catch {}
+        if (dataCommand.includes(command)) {
+          dataWebSocket.send(command, params);
+        } else if (gameCommand.includes(command)) {
+          gameWebSocket.send(command, params);
+        } else if (binaryCommand.includes(command)) {
+          binaryWebSocket.send(command, params);
+        } else {
+          authWebSocket.send(command, params);
         }
-
-        gameWebSocket.send(command, params);
       }
     });
   }
