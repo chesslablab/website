@@ -49,6 +49,10 @@ return [
         'path' => './assets/js/pages/training/index.js',
         'entrypoint' => true,
     ],
+    'js/pages/console/index.js' => [
+        'path' => './assets/js/pages/console/index.js',
+        'entrypoint' => true,
+    ],
     '@chesslablab/chessboard' => [
         'version' => '0.0.4',
     ],

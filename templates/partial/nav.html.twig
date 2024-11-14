@@ -103,6 +103,11 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_console' ? 'active' : ''}} nav-link" href="{{ path('pages_console') }}" id="mainNavConsoleLink" role="button" aria-expanded="false">
+            <i class="bi bi-terminal-fill"></i> {{ 'Console'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
           {% if app.request.cookies.has('access_token') %}
             <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('totp_auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
               <i class="bi bi-box-arrow-right"></i> {{ 'Sign Out'|trans }}
