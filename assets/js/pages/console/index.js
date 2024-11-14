@@ -11,7 +11,7 @@ class ConsoleWebSocket extends AbstractWebSocket {
       this.response[msg] = data[msg];
       switch (msg) {
         case 'error':
-          consoleForm.print('Whoops! Something went wrong with this command.');
+          consoleForm.print("This command could not be processed.");
           break;
 
         default:
