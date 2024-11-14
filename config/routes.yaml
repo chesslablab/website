@@ -86,7 +86,7 @@ pages_training:
 
 pages_settings:
     path:       /{_locale}/settings
-    controller: App\Controller\Pages\Settings\SettingsController::index
+    controller: App\Controller\Pages\SettingsController::index
     methods:    GET
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
