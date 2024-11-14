@@ -1,7 +1,8 @@
 const dark = `body {
   background-color: #262421;
 }
-.the-page {
+.the-page,
+#consoleForm textarea {
   background-color: #282828;
 }
 .the-page {
@@ -17,6 +18,9 @@ footer a {
 }
 ul.nav-tabs li button[aria-selected="false"] {
   color: #fff;
+}
+#consoleForm textarea {
+  color: #ffffff;
 }`;
 
 const light = `body {
@@ -43,7 +47,8 @@ a.nav-link.show {
 button.navbar-toggler {
   background-color: #4d4d4d;
 }
-.the-page {
+.the-page,
+#consoleForm textarea {
   background-color: #f8f9fa;
 }
 .the-page p a,
