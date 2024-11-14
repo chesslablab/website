@@ -186,11 +186,13 @@ label img,
 #consoleForm p {
   font-family: monospace;
   font-size: 1em;
+  margin-bottom: 0.25rem;
 }
 
 #consoleForm textarea {
   width: 100%;
   border: 0;
+  padding: 0;
 }
 
 #consoleForm textarea:focus {
