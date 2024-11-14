@@ -44,3 +44,5 @@ try {
     gameWebSocket.connect()
   ]);
 } catch {}
+
+consoleForm.props.command.focus();

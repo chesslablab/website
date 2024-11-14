@@ -3,9 +3,7 @@ import BaseComponent from '../../BaseComponent.js';
 
 export class ConsoleForm extends BaseComponent {
   mount() {
-    this.el.querySelector('textarea[name="command"]').focus();
-
-    this.el.querySelector('textarea[name="command"]').addEventListener('keydown', async (event) => {
+    this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
         let filtered = event.target.value.replace(/\s+/g, ' ');
         let words = filtered.split(' ');
@@ -27,12 +25,18 @@ export class ConsoleForm extends BaseComponent {
   print(msg) {
     const commandP = document.createElement('p');
     const responseP = document.createElement('p');
-    commandP.appendChild(document.createTextNode(this.el.querySelector('textarea[name="command"]').value));
+    commandP.appendChild(document.createTextNode(this.props.command.value));
     responseP.appendChild(document.createTextNode(msg));
-    this.el.querySelector('div[id="response"]').appendChild(commandP);
-    this.el.querySelector('div[id="response"]').appendChild(responseP);
-    this.el.querySelector('textarea[name="command"]').value = '';
+    this.props.response.appendChild(commandP);
+    this.props.response.appendChild(responseP);
+    this.props.command.value = '';
   }
 }
 
-export const consoleForm = new ConsoleForm(document.getElementById('consoleForm'));
+export const consoleForm = new ConsoleForm(
+  document.getElementById('consoleForm'),
+  {
+    command: document.querySelector('textarea[name="command"]'),
+    response: document.querySelector('div[id="response"]')
+  }
+);
