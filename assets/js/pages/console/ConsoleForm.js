@@ -12,7 +12,9 @@ export class ConsoleForm extends BaseComponent {
 
         words = words.slice(1);
         if (words.length > 1) {
-          params = JSON.parse(words.join(''));
+          try {
+            params = JSON.parse(words.join(''));
+          } catch {}
         } else if (words.length === 1) {
           command += ` ${words[0]}`;
         }
