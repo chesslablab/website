@@ -84,6 +84,13 @@ pages_training:
     requirements:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
+pages_console:
+    path:       /{_locale}/console
+    controller: App\Controller\Pages\ConsoleController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
 pages_settings:
     path:       /{_locale}/settings
     controller: App\Controller\Pages\SettingsController::index

@@ -182,3 +182,20 @@ label img,
   width: 100%;
   text-align: center;
 }
+
+#consoleForm p {
+  font-family: monospace;
+  font-size: 0.95em;
+  margin-bottom: 0.25em;
+}
+
+#consoleForm textarea {
+  font-size: 0.95em;
+  width: 100%;
+  border: 0;
+  padding: 0;
+}
+
+#consoleForm textarea:focus {
+  outline: none;
+}
