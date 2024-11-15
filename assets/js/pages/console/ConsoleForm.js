@@ -3,10 +3,7 @@ import { gameWebSocket } from './index.js';
 import { binaryWebSocket } from './index.js';
 import { authWebSocket } from './index.js';
 import BaseComponent from '../../BaseComponent.js';
-import { dataCommand } from '../../../command.js';
-import { gameCommand } from '../../../command.js';
-import { binaryCommand } from '../../../command.js';
-import { authCommand } from '../../../command.js';
+import * as cli from '../../../cli.js';
 
 export class ConsoleForm extends BaseComponent {
   mount() {
@@ -18,11 +15,12 @@ export class ConsoleForm extends BaseComponent {
         try {
           params = JSON.parse(filtered.substr(filtered.indexOf(' ') + 1));
         } catch {}
-        if (dataCommand.includes(command)) {
+        const found = Object.keys(cli).find(key => cli[key] === command);
+        if (found?.startsWith('DATA')) {
           dataWebSocket.send(command, params);
-        } else if (gameCommand.includes(command)) {
+        } else if (found?.startsWith('GAME')) {
           gameWebSocket.send(command, params);
-        } else if (binaryCommand.includes(command)) {
+        } else if (found?.startsWith('BINARY')) {
           binaryWebSocket.send(command, params);
         } else {
           authWebSocket.send(command, params);
