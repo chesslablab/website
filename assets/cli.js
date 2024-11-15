@@ -25,9 +25,9 @@ const GAME_START = '/start';
 const GAME_STOCKFISH = '/stockfish';
 const GAME_TUTOR_FEN = '/tutor_fen';
 const BINARY_IMAGE = '/image';
-const TOTP_REFRESH = '/totp_refresh';
-const TOTP_SIGNIN = '/totp_signin';
-const TOTP_SIGNUP = '/totp_signup';
+const AUTH_TOTP_REFRESH = '/totp_refresh';
+const AUTH_TOTP_SIGNIN = '/totp_signin';
+const AUTH_TOTP_SIGNUP = '/totp_signup';
 
 export {
   DATA_ANNOTATIONS_GAME,
@@ -57,7 +57,7 @@ export {
   GAME_STOCKFISH,
   GAME_TUTOR_FEN,
   BINARY_IMAGE,
-  TOTP_REFRESH,
-  TOTP_SIGNIN,
-  TOTP_SIGNUP
+  AUTH_TOTP_REFRESH,
+  AUTH_TOTP_SIGNIN,
+  AUTH_TOTP_SIGNUP
 };
