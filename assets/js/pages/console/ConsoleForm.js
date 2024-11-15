@@ -11,7 +11,7 @@ export class ConsoleForm extends BaseComponent {
   mount() {
     this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
-        let filtered = event.target.value.replace(/\s+/g, ' ');
+        let filtered = event.target.value.trim();
         let command = filtered.split(' ')[0];
         let params = null;
         try {
