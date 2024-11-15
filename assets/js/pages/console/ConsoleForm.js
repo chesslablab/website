@@ -6,6 +6,8 @@ import BaseComponent from '../../BaseComponent.js';
 import * as cli from '../../../cli.js';
 
 export class ConsoleForm extends BaseComponent {
+  current = 0;
+  stack = [];
   mount() {
     this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
@@ -25,18 +27,35 @@ export class ConsoleForm extends BaseComponent {
         } else {
           authWebSocket.send(command, params);
         }
+      } else if (event.keyCode === 38) {
+        if (this.current === 0) {
+          this.props.command.value = this.stack[this.current];
+        } else if (this.current > 0) {
+          this.props.command.value = this.stack[this.current];
+          this.current -= 1;
+        }
+      } else if (event.keyCode === 40) {
+        if (this.current === this.stack.length - 1) {
+          this.props.command.value = this.stack[this.current];
+        } else if (this.current < this.stack.length) {
+          this.props.command.value = this.stack[this.current];
+          this.current += 1;
+        }
       }
     });
   }
 
   print(msg) {
+    const filtered = this.props.command.value.replace(/(\r\n|\n|\r)/gm,'');
     const commandP = document.createElement('p');
     const responseP = document.createElement('p');
-    commandP.appendChild(document.createTextNode(this.props.command.value));
+    commandP.appendChild(document.createTextNode(filtered));
     responseP.appendChild(document.createTextNode(msg));
     this.props.response.appendChild(commandP);
     this.props.response.appendChild(responseP);
     this.props.command.value = '';
+    this.stack.push(filtered);
+    this.current = this.stack.length - 1;
   }
 }
 
