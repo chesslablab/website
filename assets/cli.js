@@ -15,6 +15,7 @@ const GAME_ACCEPT = '/accept';
 const GAME_HEURISTIC = '/heuristic';
 const GAME_LEAVE = '/leave';
 const GAME_LEGAL = '/legal';
+const GAME_PLAY = '/play';
 const GAME_PLAY_LAN = '/play_lan';
 const GAME_PLAY_RAV = '/play_rav';
 const GAME_RANDOMIZER = '/randomizer';
@@ -47,6 +48,7 @@ export {
   GAME_HEURISTIC,
   GAME_LEAVE,
   GAME_LEGAL,
+  GAME_PLAY,
   GAME_PLAY_LAN,
   GAME_PLAY_RAV,
   GAME_RANDOMIZER,
