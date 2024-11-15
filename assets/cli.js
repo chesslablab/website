@@ -5,6 +5,7 @@ const DATA_AUTOCOMPLETE_EVENT = '/autocomplete_event';
 const DATA_AUTOCOMPLETE_WHITE = '/autocomplete_white';
 const DATA_OPENING = '/opening';
 const DATA_SEARCH = '/search';
+const GAME_ASCII = '/ascii';
 const GAME_EVAL_NAMES = '/eval_names';
 const GAME_ONLINE_GAMES = '/online_games';
 const GAME_UNDO = '/undo';
@@ -38,6 +39,7 @@ export {
   DATA_AUTOCOMPLETE_WHITE,
   DATA_OPENING,
   DATA_SEARCH,
+  GAME_ASCII,
   GAME_EVAL_NAMES,
   GAME_ONLINE_GAMES,
   GAME_UNDO,

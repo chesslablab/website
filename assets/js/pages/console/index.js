@@ -15,7 +15,8 @@ class ConsoleWebSocket extends AbstractWebSocket {
           break;
 
         default:
-          consoleForm.print(JSON.stringify(data[msg]));
+          const output = typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg]);
+          consoleForm.print(output);
           break;
       }
     };
