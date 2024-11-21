@@ -12,6 +12,7 @@ class ConsoleWebSocket extends AbstractWebSocket {
       switch (msg) {
         case 'error':
           const hints = [
+            "Let me suggest you read the docs.",
             "Sorry, I am not an AI prompt.",
             "This command cannot be processed.",
           ];
