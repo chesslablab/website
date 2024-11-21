@@ -11,7 +11,11 @@ class ConsoleWebSocket extends AbstractWebSocket {
       this.response[msg] = data[msg];
       switch (msg) {
         case 'error':
-          consoleForm.print("This command could not be processed.");
+          const hints = [
+            "Sorry, I am not an AI prompt.",
+            "This command cannot be processed.",
+          ];
+          consoleForm.print(hints[Math.floor(Math.random() * hints.length)]);
           break;
 
         default:
