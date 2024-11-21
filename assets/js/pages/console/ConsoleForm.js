@@ -12,20 +12,24 @@ export class ConsoleForm extends BaseComponent {
     this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
         let filtered = event.target.value.trim();
-        let command = filtered.split(' ')[0];
-        let params = null;
-        try {
-          params = JSON.parse(filtered.substr(filtered.indexOf(' ') + 1));
-        } catch {}
-        const found = Object.keys(cli).find(key => cli[key] === command);
-        if (found?.startsWith('DATA')) {
-          dataWebSocket.send(command, params);
-        } else if (found?.startsWith('GAME')) {
-          gameWebSocket.send(command, params);
-        } else if (found?.startsWith('BINARY')) {
-          binaryWebSocket.send(command, params);
+        if (filtered.length > 0) {
+          let command = filtered.split(' ')[0];
+          let params = null;
+          try {
+            params = JSON.parse(filtered.substr(filtered.indexOf(' ') + 1));
+          } catch {}
+          const found = Object.keys(cli).find(key => cli[key] === command);
+          if (found?.startsWith('DATA')) {
+            dataWebSocket.send(command, params);
+          } else if (found?.startsWith('GAME')) {
+            gameWebSocket.send(command, params);
+          } else if (found?.startsWith('BINARY')) {
+            binaryWebSocket.send(command, params);
+          } else {
+            authWebSocket.send(command, params);
+          }
         } else {
-          authWebSocket.send(command, params);
+          this.print('\n');
         }
       } else if (event.keyCode === 38) {
         if (this.current === 0) {
@@ -54,8 +58,10 @@ export class ConsoleForm extends BaseComponent {
     this.props.response.appendChild(commandP);
     this.props.response.appendChild(responseP);
     this.props.command.value = '';
-    this.stack.push(filtered);
-    this.current = this.stack.length - 1;
+    if (msg !== '\n') {
+      this.stack.push(filtered);
+      this.current = this.stack.length - 1;
+    }
   }
 }
 
