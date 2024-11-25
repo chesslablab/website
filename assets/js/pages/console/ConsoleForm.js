@@ -32,11 +32,13 @@ export class ConsoleForm extends BaseComponent {
           this.print('\n');
         }
       } else if (event.keyCode === 38) {
-        if (this.current === 0) {
-          this.props.command.value = this.stack[this.current];
-        } else if (this.current > 0) {
-          this.props.command.value = this.stack[this.current];
-          this.current -= 1;
+        if (this.stack.length > 0) {
+          if (this.current === 0) {
+            this.props.command.value = this.stack[this.current];
+          } else if (this.current > 0) {
+            this.props.command.value = this.stack[this.current];
+            this.current -= 1;
+          }
         }
       } else if (event.keyCode === 40) {
         if (this.current === this.stack.length - 1) {
