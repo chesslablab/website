@@ -4,7 +4,7 @@ import * as variant from '../../../variant.js';
 
 export class RavForm extends BaseComponent {
   mount() {
-    this.el.getElementsByTagName('select')[0].addEventListener('change', event => {
+    this.el.querySelector('select').addEventListener('change', event => {
       event.preventDefault();
       if (event.target.value === variant.CHESS_960) {
         this.el.getElementsByClassName('startPos')[0].classList.remove('d-none');

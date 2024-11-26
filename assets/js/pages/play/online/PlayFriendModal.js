@@ -8,7 +8,7 @@ import * as variant from '../../../../variant.js';
 
 export class PlayFriendModal extends BaseComponent {
   mount() {
-    this.props.form.getElementsByTagName('select')[0].addEventListener('change', event => {
+    this.props.form.querySelector('select[name="variant"]').addEventListener('change', event => {
       event.preventDefault();
       if (event.target.value === variant.CHESS_960) {
         this.props.form.getElementsByClassName('startPos')[0].classList.remove('d-none');

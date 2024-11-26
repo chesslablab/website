@@ -14,7 +14,7 @@ try {
 dataWebSocket
   .send(`/annotations_game`)
   .onChange('/annotations_game', data => {
-    const tbody = learnForm.el.getElementsByTagName('tbody')[0];
+    const tbody = learnForm.el.querySelector('tbody');
     tbody.replaceChildren();
     data.forEach(game => {
       const tr = document.createElement('tr');

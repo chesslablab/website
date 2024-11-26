@@ -2,7 +2,7 @@ import BaseComponent from '../BaseComponent.js';
 
 export class RankingTable extends BaseComponent {
   mount() {
-    const tbody = this.el.getElementsByTagName('tbody')[0];
+    const tbody = this.el.querySelector('tbody');
     tbody.replaceChildren();
     this.props.data.forEach(user => {
       const tr = document.createElement('tr');
