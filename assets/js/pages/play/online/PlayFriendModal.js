@@ -10,11 +10,9 @@ export class PlayFriendModal extends BaseComponent {
   mount() {
     this.props.form.querySelector('select[name="variant"]').addEventListener('change', event => {
       event.preventDefault();
-      if (event.target.value === variant.CHESS_960) {
-        this.props.form.querySelector('.startPos').classList.remove('d-none');
-      } else {
-        this.props.form.querySelector('.startPos').classList.add('d-none');
-      }
+      event.target.value === variant.CHESS_960
+        ? this.props.form.querySelector('.startPos').classList.remove('d-none')
+        : this.props.form.querySelector('.startPos').classList.add('d-none');
     });
 
     this.props.form.addEventListener('submit', event => {
