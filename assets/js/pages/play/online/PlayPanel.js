@@ -1,6 +1,4 @@
-import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import { FEN } from '@chesslablab/chessboard';
 import { TimerTable } from '@chesslablab/js-utils';
 import { playOnlineButtons } from './PlayOnlineButtons.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
@@ -8,9 +6,7 @@ import historyButtons from '../../historyButtons.js';
 import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
 import BaseComponent from '../../../BaseComponent.js';
-import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
-import * as action from '../../../../action.js';
 
 export const timerTable = new TimerTable(
   document.querySelector('#timerTable tbody'),
