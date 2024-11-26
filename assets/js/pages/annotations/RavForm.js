@@ -7,9 +7,9 @@ export class RavForm extends BaseComponent {
     this.el.querySelector('select').addEventListener('change', event => {
       event.preventDefault();
       if (event.target.value === variant.CHESS_960) {
-        this.el.getElementsByClassName('startPos')[0].classList.remove('d-none');
+        this.el.querySelector('.startPos').classList.remove('d-none');
       } else {
-        this.el.getElementsByClassName('startPos')[0].classList.add('d-none');
+        this.el.querySelector('.startPos').classList.add('d-none');
       }
     });
 
