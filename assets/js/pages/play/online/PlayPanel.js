@@ -1,11 +1,10 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { TimerTable } from '@chesslablab/js-utils';
-import { playOnlineButtons } from './PlayOnlineButtons.js';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import historyButtons from '../../historyButtons.js';
 import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
 export const timerTable = new TimerTable(
@@ -29,7 +28,7 @@ export const timerTableInterval = () => {
   }, 1000);
 }
 
-export class TakebackModal extends BaseComponent {
+export class TakebackModal extends RootComponent {
   mount() {
     this.props.form.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -44,7 +43,7 @@ export class TakebackModal extends BaseComponent {
   }
 }
 
-export class DrawModal extends BaseComponent {
+export class DrawModal extends RootComponent {
   mount() {
     this.props.form.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -58,7 +57,7 @@ export class DrawModal extends BaseComponent {
   }
 }
 
-export class RematchModal extends BaseComponent {
+export class RematchModal extends RootComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -72,7 +71,7 @@ export class RematchModal extends BaseComponent {
   }
 }
 
-export class PlayPanel extends BaseComponent {
+export class PlayPanel extends RootComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -112,41 +111,51 @@ export class PlayPanel extends BaseComponent {
   }
 }
 
-export const playPanel = new PlayPanel(
-  document.querySelector('#playPanel'),
-  {
-    boardActionsDropdown: new MyBoardActionsDropdown(
-      document.querySelector('#boardActionsDropdown ul'),
-      {
-        movesBrowser: sanMovesBrowser
-      }
-    ),
-    gameActionsDropdown: gameActionsDropdown,
-    takebackModal: new TakebackModal(
-      document.querySelector('#takebackModal'),
-      {
-        modal: new Modal(document.querySelector('#takebackModal')),
-        form: document.querySelector('#takebackModal form')
-      }
-    ),
-    drawModal: new DrawModal(
-      document.querySelector('#drawModal'),
-      {
-        modal: new Modal(document.querySelector('#drawModal')),
-        form: document.querySelector('#drawModal form')
-      }
-    ),
-    rematchModal: new RematchModal(
-      document.querySelector('#rematchModal'),
-      {
-        modal: new Modal(document.querySelector('#rematchModal')),
-        form: document.querySelector('#rematchModal form')
-      }
-    ),
-    historyButtons: historyButtons,
-    movesBrowser: sanMovesBrowser,
-    finishedButtons: new BaseComponent(document.querySelector('#finishedButtons')),
-    timerTable: timerTable,
-    timerTableInterval: timerTableInterval
+export const playPanel = new PlayPanel({
+  el: document.querySelector('#playPanel'),
+  props() {
+    return({
+      boardActionsDropdown: new MyBoardActionsDropdown(
+        document.querySelector('#boardActionsDropdown ul'),
+        {
+          movesBrowser: sanMovesBrowser
+        }
+      ),
+      gameActionsDropdown: gameActionsDropdown,
+      takebackModal: new TakebackModal({
+        el: document.querySelector('#takebackModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            form: this.el.querySelector('form')
+          });
+        }
+      }),
+      drawModal: new DrawModal({
+        el: document.querySelector('#drawModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            form: this.el.querySelector('form')
+          });
+        }
+      }),
+      rematchModal: new RematchModal({
+        el: document.querySelector('#rematchModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            form: this.el.querySelector('form')
+          });
+        }
+      }),
+      historyButtons: historyButtons,
+      movesBrowser: sanMovesBrowser,
+      finishedButtons: new RootComponent({
+        el: document.querySelector('#finishedButtons')
+      }),
+      timerTable: timerTable,
+      timerTableInterval: timerTableInterval
+    });
   }
-);
+});
