@@ -1,11 +1,11 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
 import * as variant from '../../variant.js';
 
-export class SanForm extends RootComponent {
+export class SanForm extends BaseComponent {
   toBase64(file) {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();

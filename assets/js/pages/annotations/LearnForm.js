@@ -1,5 +1,5 @@
-import RootComponent from '../../RootComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 
-export const learnForm = new RootComponent({
+export const learnForm = new BaseComponent({
   el: document.querySelector('#learnForm')
 });

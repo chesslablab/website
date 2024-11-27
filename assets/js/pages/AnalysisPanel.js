@@ -6,13 +6,13 @@ import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
-export class ExplainPositionModal extends RootComponent {
+export class ExplainPositionModal extends BaseComponent {
   mount() {
     const p = this.el.querySelector('p');
     p.replaceChildren();
@@ -20,7 +20,7 @@ export class ExplainPositionModal extends RootComponent {
   }
 }
 
-export class AnalysisPanel extends RootComponent {
+export class AnalysisPanel extends BaseComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -152,7 +152,7 @@ export const analysisPanel = new AnalysisPanel({
         }
       ),
       gameActionsDropdown: gameActionsDropdown,
-      gameStudyDropdown: new RootComponent({
+      gameStudyDropdown: new BaseComponent({
         el: document.querySelector('#gameStudyDropdown'),
         props() {
           return({
@@ -169,7 +169,7 @@ export const analysisPanel = new AnalysisPanel({
           });
         }
       }),
-      heuristicsModal: new RootComponent({
+      heuristicsModal: new BaseComponent({
         el: document.querySelector('#heuristicsModal'),
         props() {
           return({

@@ -1,7 +1,7 @@
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { dataWebSocket } from '../websockets/data/DataWebSocket.js';
 
-export class EventAutocomplete extends RootComponent {
+export class EventAutocomplete extends BaseComponent {
   mount() {
     this.el.addEventListener('keyup', async (event) => {
       event.preventDefault();

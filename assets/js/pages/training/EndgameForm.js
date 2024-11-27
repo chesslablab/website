@@ -1,8 +1,8 @@
 import { Pgn } from '@chesslablab/js-utils';
-import RootComponent from '../../RootComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
-export class EndgameForm extends RootComponent {
+export class EndgameForm extends BaseComponent {
   _endgameTypes = ['P'];
 
   mount() {

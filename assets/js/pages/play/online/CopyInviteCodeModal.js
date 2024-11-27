@@ -1,8 +1,8 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import RootComponent from '../../../RootComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { trans } from '../../../i18n.js';
 
-export class CopyInviteCodeModal extends RootComponent {
+export class CopyInviteCodeModal extends BaseComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();

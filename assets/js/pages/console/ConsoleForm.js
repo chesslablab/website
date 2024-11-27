@@ -2,10 +2,10 @@ import { dataWebSocket } from './index.js';
 import { gameWebSocket } from './index.js';
 import { binaryWebSocket } from './index.js';
 import { authWebSocket } from './index.js';
-import RootComponent from '../../RootComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 import * as cli from '../../../cli.js';
 
-export class ConsoleForm extends RootComponent {
+export class ConsoleForm extends BaseComponent {
   current = 0;
   stack = [];
   mount() {

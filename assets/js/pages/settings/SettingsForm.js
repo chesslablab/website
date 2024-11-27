@@ -1,7 +1,7 @@
-import RootComponent from '../../RootComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 import * as env from '../../../env.js';
 
-export class SettingsForm extends RootComponent {
+export class SettingsForm extends BaseComponent {
   mount() {
     env.WEBSOCKET_SERVER.forEach(item => {
       const option = document.createElement('option');

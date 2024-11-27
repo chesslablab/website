@@ -1,9 +1,9 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import RootComponent from '../../../RootComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
-export class PlayersButtons extends RootComponent {
+export class PlayersButtons extends BaseComponent {
   mount() {
     this.el.replaceChildren();
     if (this.props.games.length > 0) {

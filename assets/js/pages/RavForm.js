@@ -1,8 +1,8 @@
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { annotationsWebSocket } from '../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../variant.js';
 
-export class RavForm extends RootComponent {
+export class RavForm extends BaseComponent {
   mount() {
     this.el.querySelector('select').addEventListener('change', event => {
       event.preventDefault();

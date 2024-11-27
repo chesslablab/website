@@ -1,8 +1,8 @@
-import RootComponent from '../../../RootComponent.js';
+import BaseComponent from '../../../BaseComponent.js';
 import { enterInviteCodeModal } from './EnterInviteCodeModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 
-export class FriendButtons extends RootComponent {
+export class FriendButtons extends BaseComponent {
   mount() {
     this.el.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();

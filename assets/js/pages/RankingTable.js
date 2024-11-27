@@ -1,6 +1,6 @@
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 
-export class RankingTable extends RootComponent {
+export class RankingTable extends BaseComponent {
   mount() {
     const tbody = this.el.querySelector('tbody');
     tbody.replaceChildren();

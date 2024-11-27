@@ -1,8 +1,8 @@
 import { Pgn } from '@chesslablab/js-utils';
-import RootComponent from '../../RootComponent.js';
+import BaseComponent from '../../BaseComponent.js';
 import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
-export class CheckmateForm extends RootComponent {
+export class CheckmateForm extends BaseComponent {
   _checkmateTypes = ['QR,R', 'Q', 'R', 'BB', 'BN'];
 
   mount() {

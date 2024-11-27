@@ -1,6 +1,6 @@
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 
-export const gameActionsDropdown = new RootComponent({
+export const gameActionsDropdown = new BaseComponent({
   el: document.querySelector('#gameActionsDropdown'),
   props() {
     return({

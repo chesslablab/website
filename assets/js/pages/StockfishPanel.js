@@ -3,10 +3,10 @@ import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
-import RootComponent from '../RootComponent.js';
+import BaseComponent from '../BaseComponent.js';
 import { stockfishWebSocket } from '../websockets/game/StockfishWebSocket.js';
 
-export class StockfishPanel extends RootComponent {
+export class StockfishPanel extends BaseComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
