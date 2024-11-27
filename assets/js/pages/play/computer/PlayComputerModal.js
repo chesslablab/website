@@ -1,10 +1,10 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
-export class PlayComputerModal extends BaseComponent {
+export class PlayComputerModal extends RootComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -36,10 +36,12 @@ export class PlayComputerModal extends BaseComponent {
   }
 }
 
-export const playComputerModal = new PlayComputerModal(
-  document.querySelector('#playComputerModal'),
-  {
-    modal: new Modal(document.querySelector('#playComputerModal')),
-    form: document.querySelector('#playComputerModal form')
+export const playComputerModal = new PlayComputerModal({
+  el: document.querySelector('#playComputerModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      form: this.el.querySelector('form')
+    });
   }
-);
+});
