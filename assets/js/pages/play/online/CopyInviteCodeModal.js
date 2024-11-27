@@ -1,8 +1,8 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { trans } from '../../../i18n.js';
 
-export class CopyInviteCodeModal extends BaseComponent {
+export class CopyInviteCodeModal extends RootComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -22,10 +22,12 @@ export class CopyInviteCodeModal extends BaseComponent {
   }
 }
 
-export const copyInviteCodeModal = new CopyInviteCodeModal(
-  document.querySelector('#copyInviteCodeModal'),
-  {
-    modal: new Modal(document.querySelector('#copyInviteCodeModal')),
-    form: document.querySelector('#copyInviteCodeModal form')
+export const copyInviteCodeModal = new CopyInviteCodeModal({
+  el: document.querySelector('#copyInviteCodeModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      form: this.el.querySelector('form')
+    });
   }
-);
+});
