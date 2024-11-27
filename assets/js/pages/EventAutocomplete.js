@@ -1,7 +1,7 @@
-import BaseComponent from '../BaseComponent.js';
+import RootComponent from '../RootComponent.js';
 import { dataWebSocket } from '../websockets/data/DataWebSocket.js';
 
-export class EventAutocomplete extends BaseComponent {
+export class EventAutocomplete extends RootComponent {
   mount() {
     this.el.addEventListener('keyup', async (event) => {
       event.preventDefault();
@@ -31,11 +31,13 @@ export class EventAutocomplete extends BaseComponent {
   }
 }
 
-export const eventAutocomplete = new EventAutocomplete(
-  document.querySelector('input[list="eventAutocompleteList"]'),
-  {
-    datalist: document.querySelector('#eventAutocompleteList'),
-    submitButton: document.querySelector('button.autocomplete[type="submit"]'),
-    loadingButton: document.querySelector('button.autocomplete[type="button"]')
+export const eventAutocomplete = new EventAutocomplete({
+  el: document.querySelector('input[list="eventAutocompleteList"]'),
+  props() {
+    return({
+      datalist: document.querySelector('datalist#eventAutocompleteList'),
+      submitButton: document.querySelector('button.autocomplete[type="submit"]'),
+      loadingButton: document.querySelector('button.autocomplete[type="button"]')
+    });
   }
-);
+});
