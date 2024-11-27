@@ -1,8 +1,8 @@
 import { Pgn } from '@chesslablab/js-utils';
-import BaseComponent from '../../BaseComponent.js';
+import RootComponent from '../../RootComponent.js';
 import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
-export class EndgameForm extends BaseComponent {
+export class EndgameForm extends RootComponent {
   _endgameTypes = ['P'];
 
   mount() {
@@ -28,4 +28,6 @@ export class EndgameForm extends BaseComponent {
   }
 }
 
-export const endgameForm = new EndgameForm(document.querySelector('#endgameForm'));
+export const endgameForm = new EndgameForm({
+  el: document.querySelector('#endgameForm')
+});
