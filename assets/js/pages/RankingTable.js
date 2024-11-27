@@ -1,6 +1,6 @@
-import BaseComponent from '../BaseComponent.js';
+import RootComponent from '../RootComponent.js';
 
-export class RankingTable extends BaseComponent {
+export class RankingTable extends RootComponent {
   mount() {
     const tbody = this.el.querySelector('tbody');
     tbody.replaceChildren();
@@ -17,9 +17,11 @@ export class RankingTable extends BaseComponent {
   }
 }
 
-export const rankingTable = new RankingTable(
-  document.querySelector('#rankingTable'),
-  {
-    data: []
+export const rankingTable = new RankingTable({
+  el: document.querySelector('#rankingTable'),
+  props() {
+    return({
+      data: []
+    });
   }
-);
+});
