@@ -1,11 +1,11 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 
-export class CreateGameModal extends BaseComponent {
+export class CreateGameModal extends RootComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -27,10 +27,12 @@ export class CreateGameModal extends BaseComponent {
   }
 }
 
-export const createGameModal = new CreateGameModal(
-  document.querySelector('#createGameModal'),
-  {
-    modal: new Modal(document.querySelector('#createGameModal')),
-    form: document.querySelector('#createGameModal form')
+export const createGameModal = new CreateGameModal({
+  el: document.querySelector('#createGameModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      form: this.el.querySelector('form')
+    });
   }
-);
+});
