@@ -4,15 +4,18 @@ export class ProgressModal {
   el;
   props;
 
-  constructor(el, props) {
-    this.el = el;
-    this.props = props;
+  constructor(params) {
+    this.el = params.el ? params.el : null;
+    this.props = params.el && params.props ? params.props() : null;
   }
 }
 
-export const progressModal = new ProgressModal(
-  document.querySelector('#progressModal'),
-  {
-    modal: new Modal(document.querySelector('#progressModal'))
+export const progressModal = new ProgressModal({
+  el: document.querySelector('#progressModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      msg: ''
+    });
   }
-);
+});
