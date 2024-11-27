@@ -5,9 +5,9 @@ export class InfoModal {
   el;
   props;
 
-  constructor(obj) {
-    this.el = obj.el ? obj.el : null;
-    this.props = obj.el && obj.props ? obj.props() : null;
+  constructor(params) {
+    this.el = params.el ? params.el : null;
+    this.props = params.el && params.props ? params.props() : null;
   }
 
   mount() {
