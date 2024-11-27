@@ -66,10 +66,10 @@ export const sanForm = new SanForm({
   el: document.querySelector('#sanForm'),
   props() {
     return({
-      variantSelect: this.el?.querySelector('select[name="variant"]'),
-      fenInput: this.el?.querySelector('input[name="fen"]'),
-      chessboardInput: this.el?.querySelector('input[name="chessboard"]'),
-      startPosInput: this.el?.querySelector('input[name="startPos"]')
+      variantSelect: this.el.querySelector('select[name="variant"]'),
+      fenInput: this.el.querySelector('input[name="fen"]'),
+      chessboardInput: this.el.querySelector('input[name="chessboard"]'),
+      startPosInput: this.el.querySelector('input[name="startPos"]')
     });
   }
 });

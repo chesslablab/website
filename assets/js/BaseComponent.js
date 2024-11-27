@@ -8,8 +8,8 @@ export default class BaseComponent {
   progressModal;
 
   constructor(obj) {
-    this.el = obj.el;
-    this.props = obj.props ? obj.props() : null;
+    this.el = obj.el ? obj.el : null;
+    this.props = obj.el && obj.props ? obj.props() : null;
     this.infoModal = infoModal;
     this.progressModal = progressModal;
 
