@@ -6,13 +6,13 @@ import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
-import BaseComponent from '../BaseComponent.js';
+import RootComponent from '../RootComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../variant.js';
 
 Chart.register(...registerables);
 
-export class ExplainPositionModal extends BaseComponent {
+export class ExplainPositionModal extends RootComponent {
   mount() {
     const p = this.el.querySelector('p');
     p.replaceChildren();
@@ -20,7 +20,7 @@ export class ExplainPositionModal extends BaseComponent {
   }
 }
 
-export class AnalysisPanel extends BaseComponent {
+export class AnalysisPanel extends RootComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -141,39 +141,47 @@ export class AnalysisPanel extends BaseComponent {
   }
 }
 
-export const analysisPanel = new AnalysisPanel(
-  document.querySelector('#sanPanel'),
-  {
-    boardActionsDropdown: new MyBoardActionsDropdown(
-      document.querySelector('#boardActionsDropdown ul'),
-      {
-        movesBrowser: sanMovesBrowser
-      }
-    ),
-    gameActionsDropdown: gameActionsDropdown,
-    gameStudyDropdown: new BaseComponent(
-      document.querySelector('#gameStudyDropdown'),
-      {
-        ul: document.querySelector('#gameStudyDropdown ul')
-      }
-    ),
-    explainPositionModal: new ExplainPositionModal(
-      document.querySelector('#explainPositionModal'),
-      {
-        modal: new Modal(document.querySelector('#explainPositionModal')),
-        explanation: ''
-      }
-    ),
-    heuristicsModal: new BaseComponent(
-      document.querySelector('#heuristicsModal'),
-      {
-        modal: new Modal(document.querySelector('#heuristicsModal')),
-        form: document.querySelector('#heuristicsModal form'),
-        chart: document.querySelector('#heuristicsModal #chart')
-      }
-    ),
-    historyButtons: historyButtons,
-    openingTable: openingTable,
-    movesBrowser: sanMovesBrowser
+export const analysisPanel = new AnalysisPanel({
+  el: document.querySelector('#sanPanel'),
+  props() {
+    return({
+      boardActionsDropdown: new MyBoardActionsDropdown(
+        document.querySelector('#boardActionsDropdown ul'),
+        {
+          movesBrowser: sanMovesBrowser
+        }
+      ),
+      gameActionsDropdown: gameActionsDropdown,
+      gameStudyDropdown: new RootComponent({
+        el: document.querySelector('#gameStudyDropdown'),
+        props() {
+          return({
+            ul: this.el.querySelector('ul')
+          });
+        }
+      }),
+      explainPositionModal: new ExplainPositionModal({
+        el: document.querySelector('#explainPositionModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            explanation: ''
+          });
+        }
+      }),
+      heuristicsModal: new RootComponent({
+        el: document.querySelector('#heuristicsModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            form: this.el.querySelector('form'),
+            chart: this.el.querySelector('#chart')
+          });
+        }
+      }),
+      historyButtons: historyButtons,
+      openingTable: openingTable,
+      movesBrowser: sanMovesBrowser
+    });
   }
-);
+});
