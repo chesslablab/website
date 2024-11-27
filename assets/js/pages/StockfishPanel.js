@@ -3,10 +3,10 @@ import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
-import BaseComponent from '../BaseComponent.js';
+import RootComponent from '../RootComponent.js';
 import { stockfishWebSocket } from '../websockets/game/StockfishWebSocket.js';
 
-export class StockfishPanel extends BaseComponent {
+export class StockfishPanel extends RootComponent {
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -16,18 +16,20 @@ export class StockfishPanel extends BaseComponent {
   }
 }
 
-export const stockfishPanel = new StockfishPanel(
-  document.querySelector('#sanPanel'),
-  {
-    boardActionsDropdown: new MyBoardActionsDropdown(
-      document.querySelector('#boardActionsDropdown ul'),
-      {
-        movesBrowser: sanMovesBrowser
-      }
-    ),
-    gameActionsDropdown: gameActionsDropdown,
-    historyButtons: historyButtons,
-    openingTable: openingTable,
-    movesBrowser: sanMovesBrowser
+export const stockfishPanel = new StockfishPanel({
+  el: document.querySelector('#sanPanel'),
+  props() {
+    return({
+      boardActionsDropdown: new MyBoardActionsDropdown(
+        document.querySelector('#boardActionsDropdown ul'),
+        {
+          movesBrowser: sanMovesBrowser
+        }
+      ),
+      gameActionsDropdown: gameActionsDropdown,
+      historyButtons: historyButtons,
+      openingTable: openingTable,
+      movesBrowser: sanMovesBrowser
+    });
   }
-);
+});
