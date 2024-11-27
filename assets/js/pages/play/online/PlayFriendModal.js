@@ -1,12 +1,12 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
-export class PlayFriendModal extends BaseComponent {
+export class PlayFriendModal extends RootComponent {
   mount() {
     this.props.form.querySelector('select[name="variant"]').addEventListener('change', event => {
       event.preventDefault();
@@ -38,10 +38,12 @@ export class PlayFriendModal extends BaseComponent {
   }
 }
 
-export const playFriendModal = new PlayFriendModal(
-  document.querySelector('#playFriendModal'),
-  {
-    modal: new Modal(document.querySelector('#playFriendModal')),
-    form: document.querySelector('#playFriendModal form')
+export const playFriendModal = new PlayFriendModal({
+  el: document.querySelector('#playFriendModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      form: this.el.querySelector('form')
+    });
   }
-);
+});
