@@ -1,9 +1,9 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
-export class PlayersButtons extends BaseComponent {
+export class PlayersButtons extends RootComponent {
   mount() {
     this.el.replaceChildren();
     if (this.props.games.length > 0) {
@@ -29,9 +29,11 @@ export class PlayersButtons extends BaseComponent {
   }
 }
 
-export const playersButtons = new PlayersButtons(
-  document.querySelector('#playersButtons'),
-  {
-    games: []
+export const playersButtons = new PlayersButtons({
+  el: document.querySelector('#playersButtons'),
+  props() {
+    return({
+      games: []
+    });
   }
-);
+});
