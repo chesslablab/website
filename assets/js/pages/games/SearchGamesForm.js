@@ -3,13 +3,13 @@ import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
 import movesMetadataTable from '../movesMetadataTable.js';
 import { whiteAutocomplete } from '../WhiteAutocomplete.js';
-import BaseComponent from '../../BaseComponent.js';
+import RootComponent from '../../RootComponent.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-export class SearchGamesForm extends BaseComponent {
+export class SearchGamesForm extends RootComponent {
   mount() {
     this.el.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -72,9 +72,11 @@ export class SearchGamesForm extends BaseComponent {
   }
 }
 
-export const searchGamesForm = new SearchGamesForm(
-  document.querySelector('#searchGamesForm'),
-  {
-    movesMetadataTable: movesMetadataTable
+export const searchGamesForm = new SearchGamesForm({
+  el: document.querySelector('#searchGamesForm'),
+  props() {
+    return({
+      movesMetadataTable: movesMetadataTable
+    });
   }
-);
+});
