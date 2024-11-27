@@ -1,7 +1,7 @@
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { createGameModal } from './CreateGameModal.js';
 
-export class PlayerButtons extends BaseComponent {
+export class PlayerButtons extends RootComponent {
   mount() {
     this.el.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -10,4 +10,6 @@ export class PlayerButtons extends BaseComponent {
   }
 }
 
-export const playerButtons = new PlayerButtons(document.querySelector('#playerButtons'));
+export const playerButtons = new PlayerButtons({
+  el: document.querySelector('#playerButtons')
+});
