@@ -1,8 +1,8 @@
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { enterInviteCodeModal } from './EnterInviteCodeModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 
-export class FriendButtons extends BaseComponent {
+export class FriendButtons extends RootComponent {
   mount() {
     this.el.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
@@ -16,10 +16,12 @@ export class FriendButtons extends BaseComponent {
   }
 }
 
-export const friendButtons = new FriendButtons(
-  document.querySelector('#friendButtons'),
-  {
-    enterInviteCodeModal: enterInviteCodeModal,
-    playFriendModal: playFriendModal
+export const friendButtons = new FriendButtons({
+  el: document.querySelector('#friendButtons'),
+  props() {
+    return({
+      enterInviteCodeModal: enterInviteCodeModal,
+      playFriendModal: playFriendModal
+    });
   }
-);
+});
