@@ -2,10 +2,10 @@ import { dataWebSocket } from './index.js';
 import { gameWebSocket } from './index.js';
 import { binaryWebSocket } from './index.js';
 import { authWebSocket } from './index.js';
-import BaseComponent from '../../BaseComponent.js';
+import RootComponent from '../../RootComponent.js';
 import * as cli from '../../../cli.js';
 
-export class ConsoleForm extends BaseComponent {
+export class ConsoleForm extends RootComponent {
   current = 0;
   stack = [];
   mount() {
@@ -67,10 +67,12 @@ export class ConsoleForm extends BaseComponent {
   }
 }
 
-export const consoleForm = new ConsoleForm(
-  document.querySelector('#consoleForm'),
-  {
-    command: document.querySelector('#consoleForm textarea[name="command"]'),
-    response: document.querySelector('#consoleForm div[id="response"]')
+export const consoleForm = new ConsoleForm({
+  el: document.querySelector('#consoleForm'),
+  props() {
+    return({
+      command: this.el.querySelector('textarea[name="command"]'),
+      response: this.el.querySelector('div[id="response"]')
+    });
   }
-);
+});
