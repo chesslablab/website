@@ -20,9 +20,9 @@ export class EnterInviteCodeModal extends BaseComponent {
 }
 
 export const enterInviteCodeModal = new EnterInviteCodeModal(
-  document.getElementById('enterInviteCodeModal'),
+  document.querySelector('#enterInviteCodeModal'),
   {
-    modal: new Modal(document.getElementById('enterInviteCodeModal')),
+    modal: new Modal(document.querySelector('#enterInviteCodeModal')),
     form: document.querySelector('#enterInviteCodeModal form')
   }
 );

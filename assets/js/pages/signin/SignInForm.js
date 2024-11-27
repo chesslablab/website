@@ -24,4 +24,4 @@ export class SignInForm extends BaseComponent {
   }
 }
 
-export const signInForm = new SignInForm(document.getElementById('signInForm'));
+export const signInForm = new SignInForm(document.querySelector('#signInForm'));

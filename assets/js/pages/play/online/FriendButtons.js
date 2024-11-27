@@ -17,7 +17,7 @@ export class FriendButtons extends BaseComponent {
 }
 
 export const friendButtons = new FriendButtons(
-  document.getElementById('friendButtons'),
+  document.querySelector('#friendButtons'),
   {
     enterInviteCodeModal: enterInviteCodeModal,
     playFriendModal: playFriendModal

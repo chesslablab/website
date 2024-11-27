@@ -68,9 +68,9 @@ export class ConsoleForm extends BaseComponent {
 }
 
 export const consoleForm = new ConsoleForm(
-  document.getElementById('consoleForm'),
+  document.querySelector('#consoleForm'),
   {
-    command: document.querySelector('textarea[name="command"]'),
-    response: document.querySelector('div[id="response"]')
+    command: document.querySelector('#consoleForm textarea[name="command"]'),
+    response: document.querySelector('#consoleForm div[id="response"]')
   }
 );

@@ -39,9 +39,9 @@ export class PlayFriendModal extends BaseComponent {
 }
 
 export const playFriendModal = new PlayFriendModal(
-  document.getElementById('playFriendModal'),
+  document.querySelector('#playFriendModal'),
   {
-    modal: new Modal(document.getElementById('playFriendModal')),
+    modal: new Modal(document.querySelector('#playFriendModal')),
     form: document.querySelector('#playFriendModal form')
   }
 );

@@ -6,7 +6,7 @@ const chessboardEditor = new ChessboardEditor(
   document.querySelector('#chessboardEditor'),
   {
     chessboard: new Chessboard(
-      document.getElementById('chessboard'),
+      document.querySelector('#chessboard'),
       {
         assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/",
         position: FEN.start,
@@ -16,7 +16,7 @@ const chessboardEditor = new ChessboardEditor(
         }
       }
     ),
-    modal: new Modal(document.getElementById('chessboardEditorModal')),
+    modal: new Modal(document.querySelector('#chessboardEditorModal')),
     pieces: document.querySelector('#chessboardEditorModal .modal-body .pieces'),
     pieceButtons: document.querySelector('#chessboardEditorModal .modal-body .buttons'),
     sq: '',

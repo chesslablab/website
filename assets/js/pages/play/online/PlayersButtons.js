@@ -30,7 +30,7 @@ export class PlayersButtons extends BaseComponent {
 }
 
 export const playersButtons = new PlayersButtons(
-  document.getElementById('playersButtons'),
+  document.querySelector('#playersButtons'),
   {
     games: []
   }

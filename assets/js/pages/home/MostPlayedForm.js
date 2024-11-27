@@ -48,7 +48,7 @@ export class MostPlayedForm extends BaseComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const formData = new FormData(this.el);
-      const playerStatsChart = document.getElementById('playerStatsChart');
+      const playerStatsChart = document.querySelector('#playerStatsChart');
       dataWebSocket
         .send('/opening', {
           White: formData.get('White'),
@@ -114,7 +114,7 @@ export class MostPlayedForm extends BaseComponent {
 }
 
 export const mostPlayedForm = new MostPlayedForm(
-  document.getElementById('mostPlayedForm'),
+  document.querySelector('#mostPlayedForm'),
   {
     movesMetadataTable: movesMetadataTable
   }

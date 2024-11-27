@@ -28,9 +28,9 @@ export class CreateGameModal extends BaseComponent {
 }
 
 export const createGameModal = new CreateGameModal(
-  document.getElementById('createGameModal'),
+  document.querySelector('#createGameModal'),
   {
-    modal: new Modal(document.getElementById('createGameModal')),
+    modal: new Modal(document.querySelector('#createGameModal')),
     form: document.querySelector('#createGameModal form')
   }
 );

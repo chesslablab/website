@@ -23,9 +23,9 @@ export class CopyInviteCodeModal extends BaseComponent {
 }
 
 export const copyInviteCodeModal = new CopyInviteCodeModal(
-  document.getElementById('copyInviteCodeModal'),
+  document.querySelector('#copyInviteCodeModal'),
   {
-    modal: new Modal(document.getElementById('copyInviteCodeModal')),
+    modal: new Modal(document.querySelector('#copyInviteCodeModal')),
     form: document.querySelector('#copyInviteCodeModal form')
   }
 );

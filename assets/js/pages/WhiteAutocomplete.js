@@ -34,7 +34,7 @@ export class WhiteAutocomplete extends BaseComponent {
 export const whiteAutocomplete = new WhiteAutocomplete(
   document.querySelector('input[list="whiteAutocompleteList"]'),
   {
-    datalist: document.getElementById('whiteAutocompleteList'),
+    datalist: document.querySelector('#whiteAutocompleteList'),
     submitButton: document.querySelector('button.autocomplete[type="submit"]'),
     loadingButton: document.querySelector('button.autocomplete[type="button"]')
   }

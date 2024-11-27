@@ -18,7 +18,7 @@ export class RavPanel extends BaseComponent {
 }
 
 export const ravPanel = new RavPanel(
-  document.getElementById('ravPanel'),
+  document.querySelector('#ravPanel'),
   {
     boardActionsDropdown: new MyBoardActionsDropdown(
       document.querySelector('#boardActionsDropdown ul'),

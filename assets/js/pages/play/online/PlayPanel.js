@@ -113,7 +113,7 @@ export class PlayPanel extends BaseComponent {
 }
 
 export const playPanel = new PlayPanel(
-  document.getElementById('playPanel'),
+  document.querySelector('#playPanel'),
   {
     boardActionsDropdown: new MyBoardActionsDropdown(
       document.querySelector('#boardActionsDropdown ul'),
@@ -123,29 +123,29 @@ export const playPanel = new PlayPanel(
     ),
     gameActionsDropdown: gameActionsDropdown,
     takebackModal: new TakebackModal(
-      document.getElementById('takebackModal'),
+      document.querySelector('#takebackModal'),
       {
-        modal: new Modal(document.getElementById('takebackModal')),
+        modal: new Modal(document.querySelector('#takebackModal')),
         form: document.querySelector('#takebackModal form')
       }
     ),
     drawModal: new DrawModal(
-      document.getElementById('drawModal'),
+      document.querySelector('#drawModal'),
       {
-        modal: new Modal(document.getElementById('drawModal')),
+        modal: new Modal(document.querySelector('#drawModal')),
         form: document.querySelector('#drawModal form')
       }
     ),
     rematchModal: new RematchModal(
-      document.getElementById('rematchModal'),
+      document.querySelector('#rematchModal'),
       {
-        modal: new Modal(document.getElementById('rematchModal')),
+        modal: new Modal(document.querySelector('#rematchModal')),
         form: document.querySelector('#rematchModal form')
       }
     ),
     historyButtons: historyButtons,
     movesBrowser: sanMovesBrowser,
-    finishedButtons: new BaseComponent(document.getElementById('finishedButtons')),
+    finishedButtons: new BaseComponent(document.querySelector('#finishedButtons')),
     timerTable: timerTable,
     timerTableInterval: timerTableInterval
   }

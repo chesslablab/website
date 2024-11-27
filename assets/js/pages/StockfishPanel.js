@@ -17,7 +17,7 @@ export class StockfishPanel extends BaseComponent {
 }
 
 export const stockfishPanel = new StockfishPanel(
-  document.getElementById('sanPanel'),
+  document.querySelector('#sanPanel'),
   {
     boardActionsDropdown: new MyBoardActionsDropdown(
       document.querySelector('#boardActionsDropdown ul'),

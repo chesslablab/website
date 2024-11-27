@@ -18,9 +18,9 @@ export class InfoModal {
 }
 
 export const infoModal = new InfoModal(
-  document.getElementById('infoModal'),
+  document.querySelector('#infoModal'),
   {
-    modal: new Modal(document.getElementById('infoModal')),
+    modal: new Modal(document.querySelector('#infoModal')),
     msg: ''
   }
 );

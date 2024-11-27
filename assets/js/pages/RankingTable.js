@@ -18,7 +18,7 @@ export class RankingTable extends BaseComponent {
 }
 
 export const rankingTable = new RankingTable(
-  document.getElementById('rankingTable'),
+  document.querySelector('#rankingTable'),
   {
     data: []
   }

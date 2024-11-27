@@ -11,5 +11,5 @@ authWebSocket
   .onChange('/totp_signup', data => {
     const img = document.createElement('img');
     img.src = data.uri;
-    document.getElementById('qrCodeUri').appendChild(img);
+    document.querySelector('#qrCodeUri').appendChild(img);
   });

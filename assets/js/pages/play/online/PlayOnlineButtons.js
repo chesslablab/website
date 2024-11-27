@@ -4,7 +4,7 @@ import { playerButtons } from './PlayerButtons.js';
 import { playersButtons } from './PlayersButtons.js';
 
 export const playOnlineButtons = new BaseComponent(
-  document.getElementById('playOnlineButtons'),
+  document.querySelector('#playOnlineButtons'),
   {
     friendButtons: friendButtons,
     playerButtons: playerButtons,

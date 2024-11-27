@@ -34,7 +34,7 @@ export class BlackAutocomplete extends BaseComponent {
 export const blackAutocomplete = new BlackAutocomplete(
   document.querySelector('input[list="blackAutocompleteList"]'),
   {
-    datalist: document.getElementById('blackAutocompleteList'),
+    datalist: document.querySelector('#blackAutocompleteList'),
     submitButton: document.querySelector('button.autocomplete[type="submit"]'),
     loadingButton: document.querySelector('button.autocomplete[type="button"]')
   }

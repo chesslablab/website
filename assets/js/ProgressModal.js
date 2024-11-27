@@ -11,8 +11,8 @@ export class ProgressModal {
 }
 
 export const progressModal = new ProgressModal(
-  document.getElementById('progressModal'),
+  document.querySelector('#progressModal'),
   {
-    modal: new Modal(document.getElementById('progressModal'))
+    modal: new Modal(document.querySelector('#progressModal'))
   }
 );

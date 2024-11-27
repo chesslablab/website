@@ -10,4 +10,4 @@ export class PlayerButtons extends BaseComponent {
   }
 }
 
-export const playerButtons = new PlayerButtons(document.getElementById('playerButtons'));
+export const playerButtons = new PlayerButtons(document.querySelector('#playerButtons'));

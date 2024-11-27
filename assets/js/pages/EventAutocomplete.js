@@ -34,7 +34,7 @@ export class EventAutocomplete extends BaseComponent {
 export const eventAutocomplete = new EventAutocomplete(
   document.querySelector('input[list="eventAutocompleteList"]'),
   {
-    datalist: document.getElementById('eventAutocompleteList'),
+    datalist: document.querySelector('#eventAutocompleteList'),
     submitButton: document.querySelector('button.autocomplete[type="submit"]'),
     loadingButton: document.querySelector('button.autocomplete[type="button"]')
   }

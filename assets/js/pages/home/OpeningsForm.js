@@ -38,4 +38,4 @@ export class OpeningsForm extends BaseComponent {
   }
 }
 
-export const openingsForm = new OpeningsForm(document.getElementById('openingsForm'));
+export const openingsForm = new OpeningsForm(document.querySelector('#openingsForm'));

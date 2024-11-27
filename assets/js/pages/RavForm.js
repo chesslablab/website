@@ -23,4 +23,4 @@ export class RavForm extends BaseComponent {
   }
 }
 
-export const ravForm = new RavForm(document.getElementById('ravForm'));
+export const ravForm = new RavForm(document.querySelector('#ravForm'));

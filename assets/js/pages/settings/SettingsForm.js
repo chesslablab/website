@@ -51,4 +51,4 @@ export class SettingsForm extends BaseComponent {
   }
 }
 
-export const settingsForm = new SettingsForm(document.getElementById('settingsForm'));
+export const settingsForm = new SettingsForm(document.querySelector('#settingsForm'));

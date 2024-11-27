@@ -63,7 +63,7 @@ export class SanForm extends BaseComponent {
 }
 
 export const sanForm = new SanForm(
-  document.getElementById('sanForm'),
+  document.querySelector('#sanForm'),
   {
     variantSelect: document.querySelector('#sanForm select[name="variant"]'),
     fenInput: document.querySelector('#sanForm input[name="fen"]'),

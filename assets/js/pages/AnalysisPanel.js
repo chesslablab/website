@@ -142,7 +142,7 @@ export class AnalysisPanel extends BaseComponent {
 }
 
 export const analysisPanel = new AnalysisPanel(
-  document.getElementById('sanPanel'),
+  document.querySelector('#sanPanel'),
   {
     boardActionsDropdown: new MyBoardActionsDropdown(
       document.querySelector('#boardActionsDropdown ul'),
@@ -152,24 +152,24 @@ export const analysisPanel = new AnalysisPanel(
     ),
     gameActionsDropdown: gameActionsDropdown,
     gameStudyDropdown: new BaseComponent(
-      document.getElementById('gameStudyDropdown'),
+      document.querySelector('#gameStudyDropdown'),
       {
         ul: document.querySelector('#gameStudyDropdown ul')
       }
     ),
     explainPositionModal: new ExplainPositionModal(
-      document.getElementById('explainPositionModal'),
+      document.querySelector('#explainPositionModal'),
       {
-        modal: new Modal(document.getElementById('explainPositionModal')),
+        modal: new Modal(document.querySelector('#explainPositionModal')),
         explanation: ''
       }
     ),
     heuristicsModal: new BaseComponent(
-      document.getElementById('heuristicsModal'),
+      document.querySelector('#heuristicsModal'),
       {
-        modal: new Modal(document.getElementById('heuristicsModal')),
+        modal: new Modal(document.querySelector('#heuristicsModal')),
         form: document.querySelector('#heuristicsModal form'),
-        chart: document.getElementById('chart')
+        chart: document.querySelector('#heuristicsModal #chart')
       }
     ),
     historyButtons: historyButtons,

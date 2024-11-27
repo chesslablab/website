@@ -28,4 +28,4 @@ export class CheckmateForm extends BaseComponent {
   }
 }
 
-export const checkmateForm = new CheckmateForm(document.getElementById('checkmateForm'));
+export const checkmateForm = new CheckmateForm(document.querySelector('#checkmateForm'));

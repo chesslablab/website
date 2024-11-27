@@ -37,9 +37,9 @@ export class PlayComputerModal extends BaseComponent {
 }
 
 export const playComputerModal = new PlayComputerModal(
-  document.getElementById('playComputerModal'),
+  document.querySelector('#playComputerModal'),
   {
-    modal: new Modal(document.getElementById('playComputerModal')),
+    modal: new Modal(document.querySelector('#playComputerModal')),
     form: document.querySelector('#playComputerModal form')
   }
 );

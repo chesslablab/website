@@ -73,7 +73,7 @@ export class SearchGamesForm extends BaseComponent {
 }
 
 export const searchGamesForm = new SearchGamesForm(
-  document.getElementById('searchGamesForm'),
+  document.querySelector('#searchGamesForm'),
   {
     movesMetadataTable: movesMetadataTable
   }

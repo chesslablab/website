@@ -10,7 +10,7 @@ import {
 } from '@chesslablab/chessboard';
 
 const chessboard = new Chessboard(
-  document.getElementById("chessboard"),
+  document.querySelector("#chessboard"),
   {
     position: FEN.start,
     assetsUrl: "https://cdn.jsdelivr.net/npm/@chesslablab/chessboard@0.0.4/assets/",

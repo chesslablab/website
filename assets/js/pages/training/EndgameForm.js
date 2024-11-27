@@ -28,4 +28,4 @@ export class EndgameForm extends BaseComponent {
   }
 }
 
-export const endgameForm = new EndgameForm(document.getElementById('endgameForm'));
+export const endgameForm = new EndgameForm(document.querySelector('#endgameForm'));
