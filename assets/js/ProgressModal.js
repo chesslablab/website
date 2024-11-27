@@ -14,8 +14,7 @@ export const progressModal = new ProgressModal({
   el: document.querySelector('#progressModal'),
   props() {
     return({
-      modal: new Modal(this.el),
-      msg: ''
+      modal: new Modal(this.el)
     });
   }
 });
