@@ -1,10 +1,10 @@
 import jsCookie from 'js-cookie';
 import { jwtDecode } from 'jwt-decode';
 import Modal from 'bootstrap/js/dist/modal.js';
-import BaseComponent from '../../../BaseComponent.js';
+import RootComponent from '../../../RootComponent.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
-export class EnterInviteCodeModal extends BaseComponent {
+export class EnterInviteCodeModal extends RootComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
       event.preventDefault();
@@ -19,10 +19,12 @@ export class EnterInviteCodeModal extends BaseComponent {
   }
 }
 
-export const enterInviteCodeModal = new EnterInviteCodeModal(
-  document.querySelector('#enterInviteCodeModal'),
-  {
-    modal: new Modal(document.querySelector('#enterInviteCodeModal')),
-    form: document.querySelector('#enterInviteCodeModal form')
+export const enterInviteCodeModal = new EnterInviteCodeModal({
+  el: document.querySelector('#enterInviteCodeModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      form: this.el.querySelector('form')
+    });
   }
-);
+});
