@@ -5,9 +5,9 @@ export class InfoModal {
   el;
   props;
 
-  constructor(el, props) {
-    this.el = el;
-    this.props = props;
+  constructor(obj) {
+    this.el = obj.el ? obj.el : null;
+    this.props = obj.el && obj.props ? obj.props() : null;
   }
 
   mount() {
@@ -17,10 +17,12 @@ export class InfoModal {
   }
 }
 
-export const infoModal = new InfoModal(
-  document.querySelector('#infoModal'),
-  {
-    modal: new Modal(document.querySelector('#infoModal')),
-    msg: ''
+export const infoModal = new InfoModal({
+  el: document.querySelector('#infoModal'),
+  props() {
+    return({
+      modal: new Modal(this.el),
+      msg: ''
+    });
   }
-);
+});
