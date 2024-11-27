@@ -9,7 +9,7 @@ export default class RootComponent {
 
   constructor(obj) {
     this.el = obj.el;
-    this.props = obj.props();
+    this.props = obj.props ? obj.props() : null;
     this.infoModal = infoModal;
     this.progressModal = progressModal;
 
