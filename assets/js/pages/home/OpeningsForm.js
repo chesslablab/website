@@ -6,13 +6,14 @@ export class OpeningsForm extends RootComponent {
   mount() {
     this.el.querySelector('select[name="eco"]').addEventListener('change', event => {
       event.preventDefault();
-      const openingsTable = new OpeningsTable(
-        this.el.querySelector('table'),
-        {
-          openings: Opening.byEco(event.target.value)
+      const openingsTable = new OpeningsTable({
+        el: this.el.querySelector('table'),
+        props() {
+          return({
+            openings: Opening.byEco(event.target.value)
+          });
         }
-      );
-      openingsTable.mount();
+      });
       this.el.querySelector('input[name="name"]').value = '';
       this.el.querySelector('input[name="movetext"]').value = '';
     });
@@ -20,20 +21,20 @@ export class OpeningsForm extends RootComponent {
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
-      const openingsTable = new OpeningsTable(
-        this.el.querySelector('table'),
-        {
-          openings: Opening.byName(formData.get('name')).filter(opening => {
-            if (
-              opening.eco.startsWith(formData.get('eco')) &&
-              opening.movetext.startsWith(formData.get('movetext'))
-            ) {
-              return opening;
-            }
-          })
+      const openingsTable = new OpeningsTable({
+        el: this.el.querySelector('table'),
+        props() {
+          return({
+            openings: Opening.byName(formData.get('name')).filter(opening => {
+              if (opening.eco.startsWith(formData.get('eco')) && 
+                opening.movetext.startsWith(formData.get('movetext'))
+              ) {
+                return opening;
+              }
+            })
+          });
         }
-      );
-      openingsTable.mount();
+      });
     });
   }
 }

@@ -1,10 +1,10 @@
 import { Movetext } from '@chesslablab/js-utils';
-import BaseComponent from '../../BaseComponent.js';
+import RootComponent from '../../RootComponent.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-export default class OpeningsTable extends BaseComponent {
+export default class OpeningsTable extends RootComponent {
   mount() {
     this.el.classList.remove('d-none');
     this.el.querySelector('tbody').replaceChildren();
