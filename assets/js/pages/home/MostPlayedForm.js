@@ -3,7 +3,7 @@ import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
 import movesMetadataTable from '../movesMetadataTable.js';
 import { whiteAutocomplete } from '../WhiteAutocomplete.js';
-import BaseComponent from '../../BaseComponent.js';
+import RootComponent from '../../RootComponent.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
@@ -11,7 +11,7 @@ import * as variant from '../../../variant.js';
 
 Chart.register(...registerables);
 
-export class MostPlayedForm extends BaseComponent {
+export class MostPlayedForm extends RootComponent {
   _nBars = 25;
 
   mount() {
@@ -113,9 +113,11 @@ export class MostPlayedForm extends BaseComponent {
   }
 }
 
-export const mostPlayedForm = new MostPlayedForm(
-  document.querySelector('#mostPlayedForm'),
-  {
-    movesMetadataTable: movesMetadataTable
+export const mostPlayedForm = new MostPlayedForm({
+  el: document.querySelector('#mostPlayedForm'),
+  props() {
+    return({
+      movesMetadataTable: movesMetadataTable
+    });
   }
-);
+});
