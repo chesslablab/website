@@ -1,11 +1,11 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
-import BaseComponent from '../BaseComponent.js';
+import RootComponent from '../RootComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../mode.js';
 import * as variant from '../../variant.js';
 
-export class SanForm extends BaseComponent {
+export class SanForm extends RootComponent {
   toBase64(file) {
     return new Promise((resolve, reject) => {
       const fileReader = new FileReader();
@@ -62,12 +62,14 @@ export class SanForm extends BaseComponent {
   }
 }
 
-export const sanForm = new SanForm(
-  document.querySelector('#sanForm'),
-  {
-    variantSelect: document.querySelector('#sanForm select[name="variant"]'),
-    fenInput: document.querySelector('#sanForm input[name="fen"]'),
-    chessboardInput: document.querySelector('#sanForm input[name="chessboard"]'),
-    startPosInput: document.querySelector('#sanForm input[name="startPos"]')
+export const sanForm = new SanForm({
+  el: document.querySelector('#sanForm'),
+  props() {
+    return({
+      variantSelect: this.el.querySelector('select[name="variant"]'),
+      fenInput: this.el.querySelector('input[name="fen"]'),
+      chessboardInput: this.el.querySelector('input[name="chessboard"]'),
+      startPosInput: this.el.querySelector('input[name="startPos"]')
+    });
   }
-);
+});
