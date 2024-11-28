@@ -145,12 +145,14 @@ export const analysisPanel = new AnalysisPanel({
   el: document.querySelector('#sanPanel'),
   props() {
     return({
-      boardActionsDropdown: new MyBoardActionsDropdown(
-        document.querySelector('#boardActionsDropdown ul'),
-        {
-          movesBrowser: sanMovesBrowser
+      boardActionsDropdown: new MyBoardActionsDropdown({
+        el: document.querySelector('#boardActionsDropdown ul'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
         }
-      ),
+      }),
       gameActionsDropdown: gameActionsDropdown,
       gameStudyDropdown: new BaseComponent({
         el: document.querySelector('#gameStudyDropdown'),

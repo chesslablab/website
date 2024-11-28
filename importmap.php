@@ -57,7 +57,7 @@ return [
         'version' => '0.0.4',
     ],
     '@chesslablab/js-utils' => [
-        'version' => '0.4.3',
+        'version' => '0.4.4',
     ],
     'bootstrap/dist/js/bootstrap.bundle.min.js' => [
         'version' => '5.3.2',

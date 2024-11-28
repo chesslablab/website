@@ -20,12 +20,14 @@ export const stockfishPanel = new StockfishPanel({
   el: document.querySelector('#stockfishPanel'),
   props() {
     return({
-      boardActionsDropdown: new MyBoardActionsDropdown(
-        document.querySelector('#boardActionsDropdown ul'),
-        {
-          movesBrowser: sanMovesBrowser
+      boardActionsDropdown: new MyBoardActionsDropdown({
+        el: document.querySelector('#boardActionsDropdown ul'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
         }
-      ),
+      }),
       gameActionsDropdown: gameActionsDropdown,
       historyButtons: historyButtons,
       openingTable: openingTable,

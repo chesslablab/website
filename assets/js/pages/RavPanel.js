@@ -21,12 +21,14 @@ export const ravPanel = new RavPanel({
   el: document.querySelector('#ravPanel'),
   props() {
     return({
-      boardActionsDropdown: new MyBoardActionsDropdown(
-        document.querySelector('#boardActionsDropdown ul'),
-        {
-          movesBrowser: ravMovesBrowser
+      boardActionsDropdown: new MyBoardActionsDropdown({
+        el: document.querySelector('#boardActionsDropdown ul'),
+        props() {
+          return({
+            movesBrowser: ravMovesBrowser
+          });
         }
-      ),
+      }),
       historyButtons: new HistoryButtons({
         el: document.querySelector('#historyButtons'),
         props() {

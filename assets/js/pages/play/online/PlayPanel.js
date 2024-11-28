@@ -115,12 +115,14 @@ export const playPanel = new PlayPanel({
   el: document.querySelector('#playPanel'),
   props() {
     return({
-      boardActionsDropdown: new MyBoardActionsDropdown(
-        document.querySelector('#boardActionsDropdown ul'),
-        {
-          movesBrowser: sanMovesBrowser
+      boardActionsDropdown: new MyBoardActionsDropdown({
+        el: document.querySelector('#boardActionsDropdown ul'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
         }
-      ),
+      }),
       gameActionsDropdown: gameActionsDropdown,
       takebackModal: new TakebackModal({
         el: document.querySelector('#takebackModal'),
