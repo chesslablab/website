@@ -5,7 +5,6 @@ import BaseComponent from '../../BaseComponent.js';
 export class OpeningsForm extends BaseComponent {
   mount() {
     this.el.querySelector('select[name="eco"]').addEventListener('change', event => {
-      event.preventDefault();
       const openingsTable = new OpeningsTable({
         el: this.el.querySelector('table'),
         props() {
@@ -26,7 +25,7 @@ export class OpeningsForm extends BaseComponent {
         props() {
           return({
             openings: Opening.byName(formData.get('name')).filter(opening => {
-              if (opening.eco.startsWith(formData.get('eco')) && 
+              if (opening.eco.startsWith(formData.get('eco')) &&
                 opening.movetext.startsWith(formData.get('movetext'))
               ) {
                 return opening;

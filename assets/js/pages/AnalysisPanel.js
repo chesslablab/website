@@ -63,7 +63,6 @@ export class AnalysisPanel extends BaseComponent {
     });
 
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
-      event.preventDefault();
       if (event.target.value) {
         this.progressModal.props.modal.show();
         const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;

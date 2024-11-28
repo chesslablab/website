@@ -26,7 +26,6 @@ export class SanForm extends BaseComponent {
   mount() {
     if (this.el) {
       this.props.variantSelect.addEventListener('change', event => {
-        event.preventDefault();
         event.target.value === variant.CHESS_960
           ? this.props.startPosInput.classList.remove('d-none')
           : this.props.startPosInput.classList.add('d-none');
@@ -37,7 +36,6 @@ export class SanForm extends BaseComponent {
       });
 
       this.props.chessboardInput.addEventListener('change', event => {
-        event.preventDefault();
         this.upload(event).then(data => {
           analysisWebSocket
             .send('/recognizer', {
