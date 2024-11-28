@@ -27,12 +27,14 @@ export const ravPanel = new RavPanel({
           movesBrowser: ravMovesBrowser
         }
       ),
-      historyButtons: new HistoryButtons(
-        document.querySelector('#historyButtons'),
-        {
-          movesBrowser: ravMovesBrowser
+      historyButtons: new HistoryButtons({
+        el: document.querySelector('#historyButtons'),
+        props() {
+          return({
+            movesBrowser: ravMovesBrowser
+          });
         }
-      ),
+      }),
       movesMetadataTable: movesMetadataTable,
       movesBrowser: ravMovesBrowser
     });
