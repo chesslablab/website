@@ -17,8 +17,7 @@ export class BlackAutocomplete extends BaseComponent {
             data.forEach(item => {
               const option = document.createElement('option');
               option.appendChild(document.createTextNode(item));
-              option.addEventListener('click', (event) => {
-                event.preventDefault();
+              option.addEventListener('click', () => {
                 this.el.value = item;
               });
               this.props.datalist.append(option);

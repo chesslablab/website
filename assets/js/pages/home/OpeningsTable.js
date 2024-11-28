@@ -19,7 +19,7 @@ export default class OpeningsTable extends BaseComponent {
       tr.appendChild(ecoTd);
       tr.appendChild(nameTd);
       tr.appendChild(movetextTd);
-      tr.addEventListener('click', event => {
+      tr.addEventListener('click', () => {
         analysisWebSocket.send('/start', {
           variant: variant.CLASSICAL,
           mode: mode.ANALYSIS,

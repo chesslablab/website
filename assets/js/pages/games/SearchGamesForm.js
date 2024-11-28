@@ -51,7 +51,7 @@ export class SearchGamesForm extends BaseComponent {
             tr.appendChild(blackTd);
             tr.appendChild(blackEloTd);
 
-            tr.addEventListener('click', event => {
+            tr.addEventListener('click', () => {
               analysisWebSocket.send('/start', {
                 variant: variant.CLASSICAL,
                 mode: mode.ANALYSIS,

@@ -51,7 +51,7 @@ dataWebSocket
       tr.appendChild(blackEloTd);
       tr.appendChild(resultTd);
 
-      tr.addEventListener('click', async (event) => {
+      tr.addEventListener('click', async () => {
         learnForm.progressModal.props.modal.show();
         annotationsWebSocket.send('/play_rav', {
           variant: variant.CLASSICAL,
