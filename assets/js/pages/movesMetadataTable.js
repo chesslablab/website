@@ -1,8 +1,10 @@
 import { MovesMetadataTable } from '@chesslablab/js-utils';
 
-const movesMetadataTable = new MovesMetadataTable(
-  document.querySelector('#movesMetadataTable tbody'),
-  {}
-);
+const movesMetadataTable = new MovesMetadataTable({
+  el: document.querySelector('#movesMetadataTable tbody'),
+  props() {
+    return({});
+  }
+});
 
 export default movesMetadataTable;

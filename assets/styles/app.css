@@ -89,7 +89,7 @@ footer a:hover {
 
 label img,
 #chessboard,
-#chessboardEditorModal svg {
+#chessboardEditor .modal svg {
   cursor: pointer;
 }
 
