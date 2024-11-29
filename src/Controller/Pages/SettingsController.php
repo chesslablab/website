@@ -9,6 +9,8 @@ class SettingsController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/settings/index.html.twig');
+        return $this->render('pages/settings/index.html.twig', [
+            'entrypoint' => 'js/pages/settings/index.js',
+        ]);
     }
 }
