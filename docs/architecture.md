@@ -18,7 +18,9 @@ class ComputerController extends AbstractController
 {
     public function index(): Response
     {
-        retarurn $this->render('pages/play/computer/index.html.twig');
+        return $this->render('pages/play/computer/index.html.twig', [
+            'entrypoint' => 'js/pages/play/computer/index.js',
+        ]);
     }
 }
 ```
