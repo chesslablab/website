@@ -30,6 +30,11 @@
     {% include 'partial/progress_modal.html.twig' %}
     {% include 'partial/panel/explain_position_modal.html.twig' %}
     {% include 'partial/panel/heuristics_modal.html.twig' %}
+    {% block javascripts %}
+      {% block importmap %}
+        {{ importmap(entrypoint) }}
+      {% endblock %}
+    {% endblock %}
     <script type="module" src="{{ asset('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
   </body>
 </html>

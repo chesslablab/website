@@ -10,6 +10,8 @@ class AnnotationsController extends AbstractController
 {
     public function index(Request $request): Response
     {
-        return $this->render('iframes/annotations/index.html.twig');
+        return $this->render('iframes/annotations/index.html.twig', [
+            'entrypoint' => 'js/iframes/annotations/index.js',
+        ]);
     }
 }

@@ -9,6 +9,8 @@ class RegisterController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/signin/register/index.html.twig');
+        return $this->render('pages/signin/register/index.html.twig', [
+            'entrypoint' => 'js/pages/signin/register/index.js',
+        ]);
     }
 }

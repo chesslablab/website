@@ -9,6 +9,8 @@ class OnlineController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/play/online/index.html.twig');
+        return $this->render('pages/play/online/index.html.twig', [
+            'entrypoint' => 'js/pages/play/online/index.js',
+        ]);
     }
 }

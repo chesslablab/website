@@ -10,6 +10,8 @@ class AnalysisController extends AbstractController
 {
     public function index(Request $request): Response
     {
-        return $this->render('iframes/analysis/index.html.twig');
+        return $this->render('iframes/analysis/index.html.twig', [
+            'entrypoint' => 'js/iframes/analysis/index.js',
+        ]);
     }
 }

@@ -9,6 +9,8 @@ class HomeController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/home/index.html.twig');
+        return $this->render('pages/home/index.html.twig', [
+            'entrypoint' => 'js/pages/home/index.js',
+        ]);
     }
 }

@@ -9,6 +9,8 @@ class ConsoleController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/console/index.html.twig');
+        return $this->render('pages/console/index.html.twig', [
+            'entrypoint' => 'js/pages/console/index.js',
+        ]);
     }
 }
