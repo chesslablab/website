@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/settings.js') }}"></script>
+    {% block javascripts %}
+      {% block importmap %}
+        {{ importmap(entrypoint) }}
+      {% endblock %}
+    {% endblock %}
   </head>
   <body>
     {% include 'partial/nav.html.twig' %}
@@ -27,10 +32,5 @@
     {% include 'partial/footer.html.twig' %}
     {% include 'partial/info_modal.html.twig' %}
     {% include 'partial/progress_modal.html.twig' %}
-    {% block javascripts %}
-      {% block importmap %}
-        {{ importmap(entrypoint) }}
-      {% endblock %}
-    {% endblock %}
   </body>
 </html>

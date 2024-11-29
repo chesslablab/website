@@ -22,6 +22,11 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('js/settings.js') }}"></script>
+    {% block javascripts %}
+      {% block importmap %}
+        {{ importmap(entrypoint) }}
+      {% endblock %}
+    {% endblock %}
   </head>
   <body>
     <div class="row g-0 m-0">
@@ -31,10 +36,5 @@
     {% include 'partial/progress_modal.html.twig' %}
     {% include 'partial/panel/explain_position_modal.html.twig' %}
     {% include 'partial/panel/heuristics_modal.html.twig' %}
-    {% block javascripts %}
-      {% block importmap %}
-        {{ importmap(entrypoint) }}
-      {% endblock %}
-    {% endblock %}
   </body>
 </html>
