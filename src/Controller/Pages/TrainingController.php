@@ -9,6 +9,8 @@ class TrainingController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/training/index.html.twig');
+        return $this->render('pages/training/index.html.twig', [
+            'entrypoint' => 'js/pages/training/index.js',
+        ]);
     }
 }
