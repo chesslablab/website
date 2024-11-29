@@ -9,6 +9,8 @@ class SignInController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/signin/index.html.twig');
+        return $this->render('pages/signin/index.html.twig', [
+            'entrypoint' => 'js/pages/signin/index.js',
+        ]);
     }
 }
