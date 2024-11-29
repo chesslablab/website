@@ -9,6 +9,8 @@ class AnnotationsController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/annotations/index.html.twig');
+        return $this->render('pages/annotations/index.html.twig', [
+            'entrypoint' => 'js/pages/annotations/index.js',
+        ]);
     }
 }
