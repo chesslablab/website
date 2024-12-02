@@ -9,7 +9,7 @@ class EditController extends AbstractController
 {
     public function index(): Response
     {
-        return $this->render('pages/edit.html.twig', [
+        return $this->render('pages/edit/index.html.twig', [
             'entrypoint' => 'js/pages/edit/index.js',
         ]);
     }
