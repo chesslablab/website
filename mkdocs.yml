@@ -1,5 +1,5 @@
 site_name: Website
-site_url: https://chesslablab.github.io/website/
+site_url: https://website.chesslablab.org
 theme:
   name: mkdocs
 nav:

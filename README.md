@@ -34,7 +34,7 @@ SET_LOCALE=es
 
 ### Documentation
 
-Read the latest docs [here](https://chesslablab.github.io/website/).
+Read the latest docs [here](https://website.chesslablab.org).
 
 ### License
 
