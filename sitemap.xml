@@ -1,23 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-         <loc>https://chesslablab.github.io/website/</loc>
-         <lastmod>2024-11-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chesslablab.github.io/website/architecture/</loc>
-         <lastmod>2024-11-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chesslablab.github.io/website/blog/</loc>
-         <lastmod>2024-11-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chesslablab.github.io/website/html-iframes/</loc>
-         <lastmod>2024-11-29</lastmod>
-         <changefreq>daily</changefreq>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+     <loc>https://website.chesslablab.org/architecture/</loc>
+     <lastmod>2025-01-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://website.chesslablab.org/blog/</loc>
+     <lastmod>2025-01-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://website.chesslablab.org/html-iframes/</loc>
+     <lastmod>2025-01-09</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>
