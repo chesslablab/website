@@ -13,6 +13,7 @@ const GAME_DRAW = '/draw';
 const GAME_REMATCH = '/rematch';
 const GAME_TAKEBACK = '/takeback';
 const GAME_ACCEPT = '/accept';
+const GAME_EXTRACT = '/extract';
 const GAME_HEURISTIC = '/heuristic';
 const GAME_LEAVE = '/leave';
 const GAME_LEGAL = '/legal';
@@ -47,6 +48,7 @@ export {
   GAME_REMATCH,
   GAME_TAKEBACK,
   GAME_ACCEPT,
+  GAME_EXTRACT,
   GAME_HEURISTIC,
   GAME_LEAVE,
   GAME_LEGAL,
