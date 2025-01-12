@@ -63,9 +63,91 @@ export class AnalysisPanel extends BaseComponent {
     });
 
     this.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
-      event.preventDefault();
-      this.props.steinitzModal.props.modal.show();
-      // TODO ...
+      this.progressModal.props.modal.show();
+      const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
+      analysisWebSocket
+        .send('/extract', {
+          variant: variant.CLASSICAL,
+          movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back))
+        })
+        .onChange('/extract', data => {
+          const canvas = document.createElement('canvas');
+          this.props.steinitzModal.props.chart.replaceChildren();
+          this.props.steinitzModal.props.chart.appendChild(canvas);
+          new Chart(canvas, {
+            type: 'line',
+            data: {
+              labels: Object.keys(data.steinitz),
+              datasets: [
+                /*
+                {
+                  label: 'Steinitz',
+                  data: data.steinitz,
+                  borderColor: '#0d6efd'
+                },
+                */
+                {
+                  label: 'Mean',
+                  data: data.mean,
+                  borderColor: '#cccccc'
+                },
+                {
+                  label: 'Standard Deviation',
+                  data: data.sd,
+                  borderColor: '#dddddd'
+                }
+              ]
+            },
+            options: {
+              animation: false,
+              responsive: true,
+              elements: {
+                point: {
+                  radius: 3,
+                  hoverRadius: 6
+                }
+              },
+              plugins: {
+                legend: {
+                  display: false
+                }
+              },
+              scales: {
+                y: {
+                  ticks: {
+                    display: false
+                  },
+                  grid: {
+                    display: false
+                  },
+                  beginAtZero: true,
+                  min: -1.1,
+                  max: 1.1
+                },
+                x: {
+                  ticks: {
+                    display: false
+                  },
+                  grid: {
+                    display: false
+                  }
+                }
+              },
+              onClick: async (event, clickedElements) => {
+                if (clickedElements.length === 0) {
+                  return;
+                }
+                const { dataIndex, raw } = clickedElements[0].element.$context;
+                this.props.movesBrowser.current = dataIndex;
+                this.props.movesBrowser.mount();
+                analysisWebSocket.chessboard.setPosition(this.props.movesBrowser.props.fen[dataIndex], true);
+                this.props.steinitzModal.props.modal.hide();
+              }
+            }
+          });
+          this.props.steinitzModal.props.modal.show();
+          this.progressModal.props.modal.hide();
+        });
     });
 
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
