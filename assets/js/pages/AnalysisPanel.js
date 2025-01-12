@@ -62,6 +62,12 @@ export class AnalysisPanel extends BaseComponent {
         });
     });
 
+    this.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
+      event.preventDefault();
+      this.props.steinitzModal.props.modal.show();
+      // TODO ...
+    });
+
     this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]').addEventListener('change', async (event) => {
       if (event.target.value) {
         this.progressModal.props.modal.show();
@@ -176,6 +182,15 @@ export const analysisPanel = new AnalysisPanel({
           return({
             modal: new Modal(this.el),
             form: this.el.querySelector('form'),
+            chart: this.el.querySelector('#chart')
+          });
+        }
+      }),
+      steinitzModal: new BaseComponent({
+        el: document.querySelector('#steinitzModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
             chart: this.el.querySelector('#chart')
           });
         }
