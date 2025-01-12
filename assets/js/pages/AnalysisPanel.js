@@ -63,6 +63,7 @@ export class AnalysisPanel extends BaseComponent {
     });
 
     this.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
+      event.preventDefault();
       this.progressModal.props.modal.show();
       const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
       analysisWebSocket
@@ -77,26 +78,12 @@ export class AnalysisPanel extends BaseComponent {
           new Chart(canvas, {
             type: 'line',
             data: {
-              labels: Object.keys(data.steinitz),
-              datasets: [
-                /*
-                {
-                  label: 'Steinitz',
-                  data: data.steinitz,
-                  borderColor: '#0d6efd'
-                },
-                */
-                {
-                  label: 'Mean',
-                  data: data.mean,
-                  borderColor: '#cccccc'
-                },
-                {
-                  label: 'Standard Deviation',
-                  data: data.sd,
-                  borderColor: '#dddddd'
-                }
-              ]
+              labels: data.steinitz,
+              datasets: [{
+                label: 'Steinitz',
+                data: data.steinitz,
+                borderColor: '#0d6efd'
+              }]
             },
             options: {
               animation: false,
@@ -120,9 +107,7 @@ export class AnalysisPanel extends BaseComponent {
                   grid: {
                     display: false
                   },
-                  beginAtZero: true,
-                  min: -1.1,
-                  max: 1.1
+                  beginAtZero: true
                 },
                 x: {
                   ticks: {
