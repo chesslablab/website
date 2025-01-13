@@ -48,13 +48,16 @@ export class AnalysisPanel extends BaseComponent {
         .send('/eval_names')
         .onChange('/eval_names', data => {
           const select = this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]');
-          select.value = '';
+          while (select.lastChild.value) {
+            select.removeChild(select.lastChild);
+          }
           Object.values(data).forEach((item, i) => {
             const option = document.createElement('option');
             option.text = item;
             option.value = item;
             select.add(option, select[i]);
           });
+          select.value = '';
           this.props.heuristicsModal.props.chart.replaceChildren();
           this.props.heuristicsModal.props.modal.show();
         });
