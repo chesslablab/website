@@ -49,6 +49,12 @@ export class AnalysisPanel extends BaseComponent {
         .onChange('/eval_names', data => {
           const select = this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]');
           select.replaceChildren();
+          const placeholder = document.createElement('option');
+          placeholder.text = 'Select an option';
+          placeholder.value = '';
+          placeholder.disabled = true;
+          placeholder.selected = true;
+          select.add(placeholder);
           Object.values(data).forEach((item, i) => {
             const option = document.createElement('option');
             option.text = item;
