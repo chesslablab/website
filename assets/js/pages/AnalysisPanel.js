@@ -44,7 +44,6 @@ export class AnalysisPanel extends BaseComponent {
 
     this.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.progressModal.props.modal.show();
       analysisWebSocket
         .send('/eval_names')
         .onChange('/eval_names', data => {
@@ -58,7 +57,6 @@ export class AnalysisPanel extends BaseComponent {
           });
           this.props.heuristicsModal.props.chart.replaceChildren();
           this.props.heuristicsModal.props.modal.show();
-          this.progressModal.props.modal.hide();
         });
     });
 
