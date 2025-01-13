@@ -59,6 +59,7 @@ export class AnalysisPanel extends BaseComponent {
             option.value = item;
             select.add(option, select[i]);
           });
+          select.value = '';
           this.props.heuristicsModal.props.chart.replaceChildren();
           this.props.heuristicsModal.props.modal.show();
         });
