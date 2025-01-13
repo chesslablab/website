@@ -1,5 +1,5 @@
 <div class="modal" id="heuristicsModal" tabindex="-1" aria-labelledby="heuristicsModalLabel">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="heuristicsModalLabel">{{ 'Heuristic Charts'|trans }}</h5>
@@ -8,13 +8,13 @@
       <div class="modal-body">
         <form>
           <div class="row">
-            <div class="col-md-12 mb-3">
-              <select name="heuristic" class="form-select" aria-label="Heuristic" required>
-                <option value="">{{ 'Select an option'|trans }}</option>
+            <div class="col-md-3">
+              <select name="heuristic" class="form-select" aria-label="Heuristic" size="20" multiple>
               </select>
             </div>
+            <div class="col-md-9" id="chart">
+            </div>
           </div>
-          <div id="chart"></div>
         </form>
       </div>
     </div>
