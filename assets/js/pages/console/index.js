@@ -89,6 +89,18 @@ class ConsoleForm extends BaseComponent {
   }
 }
 
+const consoleForm = new ConsoleForm({
+  el: document.querySelector('#consoleForm'),
+  props() {
+    return({
+      command: this.el.querySelector('textarea[name="command"]'),
+      response: this.el.querySelector('div[id="response"]')
+    });
+  }
+});
+
+consoleForm.props.command.focus();
+
 const dataWebSocket = new ConsoleWebSocket();
 const gameWebSocket = new ConsoleWebSocket();
 const binaryWebSocket = new ConsoleWebSocket();
@@ -102,15 +114,3 @@ try {
     authWebSocket.connect(6443)
   ]);
 } catch {}
-
-const consoleForm = new ConsoleForm({
-  el: document.querySelector('#consoleForm'),
-  props() {
-    return({
-      command: this.el.querySelector('textarea[name="command"]'),
-      response: this.el.querySelector('div[id="response"]')
-    });
-  }
-});
-
-consoleForm.props.command.focus();
