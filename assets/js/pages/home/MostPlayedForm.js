@@ -116,7 +116,7 @@ export const mostPlayedForm = new MostPlayedForm({
   el: document.querySelector('#mostPlayedForm'),
   props() {
     return({
-      movesMetadataTable: new MovesMetadataTable({
+      movesMetadataTable: new BaseComponent({
         el: document.querySelector('#movesMetadataTable tbody'),
         props() {
           return({});

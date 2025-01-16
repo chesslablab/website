@@ -53,7 +53,7 @@ export const ravPanel = new RavPanel({
           });
         }
       }),
-      movesMetadataTable: new MovesMetadataTable({
+      movesMetadataTable: new BaseComponent({
         el: document.querySelector('#movesMetadataTable tbody'),
         props() {
           return({});

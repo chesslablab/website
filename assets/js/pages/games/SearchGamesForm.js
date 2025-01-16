@@ -75,7 +75,7 @@ export const searchGamesForm = new SearchGamesForm({
   el: document.querySelector('#searchGamesForm'),
   props() {
     return({
-      movesMetadataTable: new MovesMetadataTable({
+      movesMetadataTable: new BaseComponent({
         el: document.querySelector('#movesMetadataTable tbody'),
         props() {
           return({});
