@@ -1,7 +1,8 @@
-import { HistoryButtons } from '@chesslablab/js-utils';
+import { FEN } from '@chesslablab/chessboard';
+import { HistoryButtons, RavMovesFactory } from '@chesslablab/js-utils';
+import chessboard from './chessboard.js';
 import movesMetadataTable from './movesMetadataTable.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
-import ravMovesBrowser from './ravMovesBrowser.js';
 import BaseComponent from '../BaseComponent.js';
 import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
 
@@ -16,6 +17,22 @@ export class RavPanel extends BaseComponent {
     });
   }
 }
+
+export const ravMovesBrowser = RavMovesFactory.create(localStorage.getItem('format'), {
+  el: document.querySelector('#movesBrowser'),
+  props() {
+    return({
+      chessboard: chessboard,
+      filtered: '',
+      breakdown: [
+        ''
+      ],
+      fen: [
+        FEN.start
+      ]
+    });
+  }
+});
 
 export const ravPanel = new RavPanel({
   el: document.querySelector('#ravPanel'),
