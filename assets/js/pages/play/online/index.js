@@ -1,8 +1,8 @@
 import jsCookie from 'js-cookie';
 import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
+import { rankingTable } from './RankingTable.js';
 import chessboard from '../../chessboard.js';
-import { rankingTable } from '../../RankingTable.js';
 import { authWebSocket } from '../../../websockets/auth/AuthWebSocket.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
