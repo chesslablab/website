@@ -84,7 +84,6 @@ export class AnalysisPanel extends BaseComponent {
 
     this.props.gameStudyDropdown.props.ul.children.item(0).addEventListener('click', async (event) => {
       event.preventDefault();
-      this.progressModal.props.modal.show();
       analysisWebSocket
         .send('/tutor_fen', {
           fen: this.props.movesBrowser.props.fen[this.props.movesBrowser.current]
@@ -93,7 +92,6 @@ export class AnalysisPanel extends BaseComponent {
           this.props.explainPositionModal.props.explanation = data;
           this.props.explainPositionModal.mount();
           this.props.explainPositionModal.props.modal.show();
-          this.progressModal.props.modal.hide();
         });
     });
 
