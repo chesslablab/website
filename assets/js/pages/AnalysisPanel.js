@@ -1,7 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import { HistoryButtons, OpeningTable, Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
-import { gameActionsDropdown } from './GameActionsDropdown.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import BaseComponent from '../BaseComponent.js';
@@ -226,7 +225,14 @@ export const analysisPanel = new AnalysisPanel({
           });
         }
       }),
-      gameActionsDropdown: gameActionsDropdown,
+      gameActionsDropdown: new BaseComponent({
+        el: document.querySelector('#gameActionsDropdown'),
+        props() {
+          return({
+            ul: this.el.querySelector('ul')
+          });
+        }
+      }),
       gameStudyDropdown: new BaseComponent({
         el: document.querySelector('#gameStudyDropdown'),
         props() {
