@@ -1,7 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
+import { HistoryButtons } from '@chesslablab/js-utils';
 import { TimerTable } from '@chesslablab/js-utils';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
-import historyButtons from '../../historyButtons.js';
 import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
 import BaseComponent from '../../../BaseComponent.js';
@@ -153,7 +153,14 @@ export const playPanel = new PlayPanel({
           });
         }
       }),
-      historyButtons: historyButtons,
+      historyButtons: new HistoryButtons({
+        el: document.querySelector('#historyButtons'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
+        }
+      }),
       movesBrowser: sanMovesBrowser,
       finishedButtons: new BaseComponent({
         el: document.querySelector('#finishedButtons')
