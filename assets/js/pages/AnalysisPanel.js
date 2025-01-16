@@ -18,6 +18,64 @@ export class ExplainPositionModal extends BaseComponent {
 }
 
 export class AnalysisPanel extends BaseComponent {
+  settings(event, data) {
+    return {
+      type: 'line',
+      data: {
+        labels: data,
+        datasets: [{
+          label: event.target.value,
+          data: data,
+          borderColor: '#0d6efd'
+        }]
+      },
+      options: {
+        animation: false,
+        responsive: true,
+        elements: {
+          point: {
+            radius: 3,
+            hoverRadius: 6
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            ticks: {
+              display: false
+            },
+            grid: {
+              display: false
+            },
+            beginAtZero: true
+          },
+          x: {
+            ticks: {
+              display: false
+            },
+            grid: {
+              display: false
+            }
+          }
+        },
+        onClick: async (event, clickedElements) => {
+          if (clickedElements.length === 0) {
+            return;
+          }
+          const { dataIndex, raw } = clickedElements[0].element.$context;
+          this.props.movesBrowser.current = dataIndex;
+          this.props.movesBrowser.mount();
+          analysisWebSocket.chessboard.setPosition(this.props.movesBrowser.props.fen[dataIndex], true);
+          this.props.steinitzModal.props.modal.hide();
+        }
+      }
+    };
+  }
+
   mount() {
     this.props.gameActionsDropdown.props.ul.children.item(0).addEventListener('click', (event) => {
       event.preventDefault();
@@ -75,61 +133,7 @@ export class AnalysisPanel extends BaseComponent {
           const canvas = document.createElement('canvas');
           this.props.steinitzModal.props.chart.replaceChildren();
           this.props.steinitzModal.props.chart.appendChild(canvas);
-          new Chart(canvas, {
-            type: 'line',
-            data: {
-              labels: data.steinitz,
-              datasets: [{
-                label: 'Steinitz',
-                data: data.steinitz,
-                borderColor: '#0d6efd'
-              }]
-            },
-            options: {
-              animation: false,
-              responsive: true,
-              elements: {
-                point: {
-                  radius: 3,
-                  hoverRadius: 6
-                }
-              },
-              plugins: {
-                legend: {
-                  display: false
-                }
-              },
-              scales: {
-                y: {
-                  ticks: {
-                    display: false
-                  },
-                  grid: {
-                    display: false
-                  },
-                  beginAtZero: true
-                },
-                x: {
-                  ticks: {
-                    display: false
-                  },
-                  grid: {
-                    display: false
-                  }
-                }
-              },
-              onClick: async (event, clickedElements) => {
-                if (clickedElements.length === 0) {
-                  return;
-                }
-                const { dataIndex, raw } = clickedElements[0].element.$context;
-                this.props.movesBrowser.current = dataIndex;
-                this.props.movesBrowser.mount();
-                analysisWebSocket.chessboard.setPosition(this.props.movesBrowser.props.fen[dataIndex], true);
-                this.props.steinitzModal.props.modal.hide();
-              }
-            }
-          });
+          new Chart(canvas, this.settings(event, data));
           this.props.steinitzModal.props.modal.show();
           this.progressModal.props.modal.hide();
         });
@@ -149,63 +153,7 @@ export class AnalysisPanel extends BaseComponent {
             const canvas = document.createElement('canvas');
             this.props.heuristicsModal.props.chart.replaceChildren();
             this.props.heuristicsModal.props.chart.appendChild(canvas);
-            new Chart(canvas, {
-              type: 'line',
-              data: {
-                labels: data,
-                datasets: [{
-                  label: event.target.value,
-                  data: data,
-                  borderColor: '#0d6efd'
-                }]
-              },
-              options: {
-                animation: false,
-                responsive: true,
-                elements: {
-                  point: {
-                    radius: 3,
-                    hoverRadius: 6
-                  }
-                },
-                plugins: {
-                  legend: {
-                    display: false
-                  }
-                },
-                scales: {
-                  y: {
-                    ticks: {
-                      display: false
-                    },
-                    grid: {
-                      display: false
-                    },
-                    beginAtZero: true,
-                    min: -1.1,
-                    max: 1.1
-                  },
-                  x: {
-                    ticks: {
-                      display: false
-                    },
-                    grid: {
-                      display: false
-                    }
-                  }
-                },
-                onClick: async (event, clickedElements) => {
-                  if (clickedElements.length === 0) {
-                    return;
-                  }
-                  const { dataIndex, raw } = clickedElements[0].element.$context;
-                  this.props.movesBrowser.current = dataIndex;
-                  this.props.movesBrowser.mount();
-                  analysisWebSocket.chessboard.setPosition(this.props.movesBrowser.props.fen[dataIndex], true);
-                  this.props.heuristicsModal.props.modal.hide();
-                }
-              }
-            });
+            new Chart(canvas, this.settings(event, data));
             this.progressModal.props.modal.hide();
           });
       }
