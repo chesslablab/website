@@ -1,8 +1,35 @@
-import { learnForm } from './LearnForm.js';
-import { ravForm } from './RavForm.js';
+import BaseComponent from '../../BaseComponent.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../variant.js';
+
+class RavForm extends BaseComponent {
+  mount() {
+    this.el.querySelector('select').addEventListener('change', event => {
+      event.target.value === variant.CHESS_960
+        ? this.el.querySelector('.startPos').classList.remove('d-none')
+        : this.el.querySelector('.startPos').classList.add('d-none');
+    });
+
+    this.el.addEventListener('submit', async event => {
+      event.preventDefault();
+      this.progressModal.props.modal.show();
+      const formData = new FormData(this.el);
+      annotationsWebSocket.send('/play_rav', {
+        variant: formData.get('variant'),
+        movetext: formData.get('rav'),
+      });
+    });
+  }
+}
+
+const learnForm = new BaseComponent({
+  el: document.querySelector('#learnForm')
+});
+
+const ravForm = new RavForm({
+  el: document.querySelector('#ravForm')
+});
 
 try {
   await Promise.all([
