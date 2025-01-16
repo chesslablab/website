@@ -1,9 +1,8 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { HistoryButtons, Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
+import { HistoryButtons, OpeningTable, Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
-import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
@@ -272,7 +271,14 @@ export const analysisPanel = new AnalysisPanel({
           });
         }
       }),
-      openingTable: openingTable,
+      openingTable: new OpeningTable({
+        el: document.querySelector('#openingTable tbody'),
+        props() {
+          return({
+            movetext: sanMovesBrowser.props.movetext
+          });
+        }
+      }),
       movesBrowser: sanMovesBrowser
     });
   }

@@ -1,7 +1,6 @@
-import { HistoryButtons } from '@chesslablab/js-utils';
+import { HistoryButtons, OpeningTable } from '@chesslablab/js-utils';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
-import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
 import BaseComponent from '../BaseComponent.js';
 import { stockfishWebSocket } from '../websockets/game/StockfishWebSocket.js';
@@ -37,7 +36,14 @@ export const stockfishPanel = new StockfishPanel({
           });
         }
       }),
-      openingTable: openingTable,
+      openingTable: new OpeningTable({
+        el: document.querySelector('#openingTable tbody'),
+        props() {
+          return({
+            movetext: sanMovesBrowser.props.movetext
+          });
+        }
+      }),
       movesBrowser: sanMovesBrowser
     });
   }
