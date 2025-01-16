@@ -1,7 +1,6 @@
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
-import movesMetadataTable from '../movesMetadataTable.js';
 import { whiteAutocomplete } from '../WhiteAutocomplete.js';
 import BaseComponent from '../../BaseComponent.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
@@ -117,7 +116,12 @@ export const mostPlayedForm = new MostPlayedForm({
   el: document.querySelector('#mostPlayedForm'),
   props() {
     return({
-      movesMetadataTable: movesMetadataTable
+      movesMetadataTable: new MovesMetadataTable({
+        el: document.querySelector('#movesMetadataTable tbody'),
+        props() {
+          return({});
+        }
+      })
     });
   }
 });

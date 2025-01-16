@@ -1,7 +1,6 @@
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
-import movesMetadataTable from '../movesMetadataTable.js';
 import { whiteAutocomplete } from '../WhiteAutocomplete.js';
 import BaseComponent from '../../BaseComponent.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
@@ -76,7 +75,12 @@ export const searchGamesForm = new SearchGamesForm({
   el: document.querySelector('#searchGamesForm'),
   props() {
     return({
-      movesMetadataTable: movesMetadataTable
+      movesMetadataTable: new MovesMetadataTable({
+        el: document.querySelector('#movesMetadataTable tbody'),
+        props() {
+          return({});
+        }
+      })
     });
   }
 });

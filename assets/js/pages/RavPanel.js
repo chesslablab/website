@@ -1,7 +1,6 @@
 import { FEN } from '@chesslablab/chessboard';
 import { HistoryButtons, RavMovesFactory } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
-import movesMetadataTable from './movesMetadataTable.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import BaseComponent from '../BaseComponent.js';
 import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
@@ -54,7 +53,12 @@ export const ravPanel = new RavPanel({
           });
         }
       }),
-      movesMetadataTable: movesMetadataTable,
+      movesMetadataTable: new MovesMetadataTable({
+        el: document.querySelector('#movesMetadataTable tbody'),
+        props() {
+          return({});
+        }
+      }),
       movesBrowser: ravMovesBrowser
     });
   }
