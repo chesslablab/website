@@ -1,8 +1,7 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
+import { HistoryButtons, Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import { Chart, registerables } from 'https://cdn.jsdelivr.net/npm/chart.js@4.4.2/+esm';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
-import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
@@ -265,7 +264,14 @@ export const analysisPanel = new AnalysisPanel({
           });
         }
       }),
-      historyButtons: historyButtons,
+      historyButtons: new HistoryButtons({
+        el: document.querySelector('#historyButtons'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
+        }
+      }),
       openingTable: openingTable,
       movesBrowser: sanMovesBrowser
     });
