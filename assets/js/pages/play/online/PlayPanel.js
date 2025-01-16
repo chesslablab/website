@@ -1,6 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { HistoryButtons } from '@chesslablab/js-utils';
-import { TimerTable } from '@chesslablab/js-utils';
+import { HistoryButtons, TimerTable } from '@chesslablab/js-utils';
 import { gameActionsDropdown } from '../../GameActionsDropdown.js';
 import MyBoardActionsDropdown from '../../MyBoardActionsDropdown.js';
 import sanMovesBrowser from '../../sanMovesBrowser.js';
