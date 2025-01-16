@@ -6,6 +6,7 @@ export default class AbstractWebSocket {
   response;
   infoModal;
   progressModal;
+  cli;
 
   constructor() {
     if (sessionStorage.length > 0) {
@@ -15,6 +16,49 @@ export default class AbstractWebSocket {
     this.response = {};
     this.infoModal = infoModal;
     this.progressModal = progressModal;
+    this.cli = {
+      data: [
+        '/annotations_game',
+        '/ranking',
+        '/autocomplete_black',
+        '/autocomplete_event',
+        '/autocomplete_white',
+        '/opening',
+        '/search'
+      ],
+      game: [
+        '/ascii',
+        '/eval_names',
+        '/online_games',
+        '/undo',
+        '/draw',
+        '/rematch',
+        '/takeback',
+        '/accept',
+        '/extract',
+        '/heuristic',
+        '/leave',
+        '/legal',
+        '/play',
+        '/play_lan',
+        '/play_rav',
+        '/randomizer',
+        '/recognizer',
+        '/resign',
+        '/restart',
+        '/start',
+        '/stockfish',
+        '/tutor_fen'
+      ],
+      binary: [
+        '/image'
+      ],
+      auth: [
+        '/totp_refresh',
+        '/totp_signin',
+        '/totp_signup'
+      ]
+    };
   }
 
   connect(host) {
