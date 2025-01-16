@@ -1,5 +1,5 @@
+import { HistoryButtons } from '@chesslablab/js-utils';
 import { gameActionsDropdown } from './GameActionsDropdown.js';
-import historyButtons from './historyButtons.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import openingTable from './openingTable.js';
 import sanMovesBrowser from './sanMovesBrowser.js';
@@ -29,7 +29,14 @@ export const stockfishPanel = new StockfishPanel({
         }
       }),
       gameActionsDropdown: gameActionsDropdown,
-      historyButtons: historyButtons,
+      historyButtons: new HistoryButtons({
+        el: document.querySelector('#historyButtons'),
+        props() {
+          return({
+            movesBrowser: sanMovesBrowser
+          });
+        }
+      }),
       openingTable: openingTable,
       movesBrowser: sanMovesBrowser
     });
