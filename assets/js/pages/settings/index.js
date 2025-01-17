@@ -9,35 +9,29 @@ class SettingsForm extends BaseComponent {
       option.value = item;
       this.el.querySelector('select[name="ws"]').append(option);
     });
-
     if (localStorage.getItem('theme') === 'light') {
       this.el.querySelector('select[name="theme"]').value = 'light';
     } else {
       this.el.querySelector('select[name="theme"]').value = 'dark';
     }
-
     if (localStorage.getItem('format') === 'table') {
       this.el.querySelector('select[name="format"]').value = 'table';
     } else {
       this.el.querySelector('select[name="format"]').value = 'inline';
     }
-
     if (localStorage.getItem('notation') === 'san') {
       this.el.querySelector('select[name="notation"]').value = 'san';
     } else {
       this.el.querySelector('select[name="notation"]').value = 'fan';
     }
-
     if (localStorage.getItem('set') === 'staunty') {
       this.el.querySelector('select[name="set"]').value = 'staunty';
     } else {
       this.el.querySelector('select[name="set"]').value = 'classical';
     }
-
     if (localStorage.getItem('ws')) {
       this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws');
     }
-
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);

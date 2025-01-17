@@ -44,21 +44,18 @@ class SearchGamesForm extends BaseComponent {
             const whiteEloTd = document.createElement('td');
             const blackTd = document.createElement('td');
             const blackEloTd = document.createElement('td');
-
             eventTd.appendChild(document.createTextNode(game.Event));
             ecoTd.appendChild(document.createTextNode(game.ECO));
             whiteTd.appendChild(document.createTextNode(game.White));
             whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
             blackTd.appendChild(document.createTextNode(game.Black));
             blackEloTd.appendChild(document.createTextNode(game.BlackElo));
-
             tr.appendChild(eventTd);
             tr.appendChild(ecoTd);
             tr.appendChild(whiteTd);
             tr.appendChild(whiteEloTd);
             tr.appendChild(blackTd);
             tr.appendChild(blackEloTd);
-
             tr.addEventListener('click', () => {
               analysisWebSocket.send('/start', {
                 variant: variant.CLASSICAL,
@@ -70,10 +67,8 @@ class SearchGamesForm extends BaseComponent {
               this.props.movesMetadataTable.props = game;
               this.props.movesMetadataTable.mount();
             });
-
             this.el.querySelector('tbody').appendChild(tr);
           });
-
           this.progressModal.props.modal.hide();
         });
     });

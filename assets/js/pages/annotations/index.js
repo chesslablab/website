@@ -17,7 +17,6 @@ class RavForm extends BaseComponent {
         ? this.el.querySelector('.startPos').classList.remove('d-none')
         : this.el.querySelector('.startPos').classList.add('d-none');
     });
-
     this.el.addEventListener('submit', async event => {
       event.preventDefault();
       this.progressModal.props.modal.show();
@@ -45,29 +44,24 @@ dataWebSocket
     tbody.replaceChildren();
     data.forEach(game => {
       const tr = document.createElement('tr');
-
       const eventTd = document.createElement('td');
       const roundTd = document.createElement('td');
       const yearTd = document.createElement('td');
-
       const ecoTd = document.createElement('td');
       const whiteTd = document.createElement('td');
       const whiteEloTd = document.createElement('td');
       const blackTd = document.createElement('td');
       const blackEloTd = document.createElement('td');
       const resultTd = document.createElement('td');
-
       eventTd.appendChild(document.createTextNode(game.Event));
       roundTd.appendChild(document.createTextNode(game.Round));
       yearTd.appendChild(document.createTextNode(game.Date));
-
       ecoTd.appendChild(document.createTextNode(game.ECO));
       whiteTd.appendChild(document.createTextNode(game.White));
       whiteEloTd.appendChild(document.createTextNode(game.WhiteElo));
       blackTd.appendChild(document.createTextNode(game.Black));
       blackEloTd.appendChild(document.createTextNode(game.BlackElo));
       resultTd.appendChild(document.createTextNode(game.Result));
-
       tr.appendChild(eventTd);
       tr.appendChild(roundTd);
       tr.appendChild(yearTd);
@@ -77,7 +71,6 @@ dataWebSocket
       tr.appendChild(blackTd);
       tr.appendChild(blackEloTd);
       tr.appendChild(resultTd);
-
       tr.addEventListener('click', async () => {
         learnForm.progressModal.props.modal.show();
         annotationsWebSocket.send('/play_rav', {
@@ -85,9 +78,7 @@ dataWebSocket
           movetext: game.movetext
         });
       });
-
       tbody.appendChild(tr);
-
       learnForm.progressModal.props.modal.hide();
     });
   });

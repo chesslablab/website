@@ -41,6 +41,7 @@ try {
 class ConsoleForm extends BaseComponent {
   current = 0;
   stack = [];
+  
   mount() {
     this.props.command.addEventListener('keydown', async (event) => {
       if (event.keyCode === 13) {
