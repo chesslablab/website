@@ -6,7 +6,6 @@ export class DataWebSocket extends AbstractWebSocket {
 
   async connect() {
     await super.connect(`${connect.ws()}:${DataWebSocket.PORT}`);
-
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
