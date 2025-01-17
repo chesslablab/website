@@ -6,7 +6,6 @@ export class AuthWebSocket extends AbstractWebSocket {
 
   async connect() {
     await super.connect(`${connect.ws()}:${AuthWebSocket.PORT}`);
-
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
