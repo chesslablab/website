@@ -18,7 +18,7 @@ export class ExplainPositionModal extends BaseComponent {
 }
 
 export class AnalysisPanel extends BaseComponent {
-  settings(event, data) {
+  plot(event, data) {
     return {
       type: 'line',
       data: {
@@ -131,7 +131,7 @@ export class AnalysisPanel extends BaseComponent {
           const canvas = document.createElement('canvas');
           this.props.steinitzModal.props.chart.replaceChildren();
           this.props.steinitzModal.props.chart.appendChild(canvas);
-          new Chart(canvas, this.settings(event, data));
+          new Chart(canvas, this.plot(event, data));
           this.props.steinitzModal.props.modal.show();
           this.progressModal.props.modal.hide();
         });
@@ -151,7 +151,7 @@ export class AnalysisPanel extends BaseComponent {
             const canvas = document.createElement('canvas');
             this.props.heuristicsModal.props.chart.replaceChildren();
             this.props.heuristicsModal.props.chart.appendChild(canvas);
-            new Chart(canvas, this.settings(event, data));
+            new Chart(canvas, this.plot(event, data));
             this.progressModal.props.modal.hide();
           });
       }
