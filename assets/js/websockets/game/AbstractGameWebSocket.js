@@ -1,5 +1,5 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
-import AbstractWebSocket from '../../AbstractWebSocket.js';
+import AbstractWebSocket from '../AbstractWebSocket.js';
 import * as connect from '../../connect.js';
 import chessboard from '../../pages/chessboard.js';
 

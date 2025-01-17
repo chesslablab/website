@@ -1,6 +1,6 @@
-import AbstractWebSocket from '../../AbstractWebSocket.js';
 import BaseComponent from '../../BaseComponent.js';
 import * as connect from '../../connect.js';
+import AbstractWebSocket from '../../websockets/AbstractWebSocket.js';
 
 class ConsoleWebSocket extends AbstractWebSocket {
   async connect(port) {

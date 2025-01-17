@@ -1,5 +1,5 @@
+import AbstractWebSocket from '../AbstractWebSocket.js';
 import * as connect from '../../connect.js';
-import AbstractWebSocket from '../../AbstractWebSocket.js';
 
 export class DataWebSocket extends AbstractWebSocket {
   static PORT = 9443;
