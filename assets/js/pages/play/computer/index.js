@@ -5,6 +5,13 @@ import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';
 
+try {
+  await Promise.all([
+    binaryWebSocket.connect(),
+    stockfishWebSocket.connect()
+  ]);
+} catch {}
+
 class PlayComputerModal extends BaseComponent {
   mount() {
     this.props.form.addEventListener('submit', event => {
@@ -36,13 +43,6 @@ class PlayComputerModal extends BaseComponent {
     });
   }
 }
-
-try {
-  await Promise.all([
-    binaryWebSocket.connect(),
-    stockfishWebSocket.connect()
-  ]);
-} catch {}
 
 const playComputerModal = new PlayComputerModal({
   el: document.querySelector('#playComputerModal'),

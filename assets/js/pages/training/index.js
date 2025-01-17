@@ -3,6 +3,13 @@ import BaseComponent from '../../BaseComponent.js';
 import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
 import { stockfishWebSocket } from '../../websockets/game/StockfishWebSocket.js';
 
+try {
+  await Promise.all([
+    binaryWebSocket.connect(),
+    stockfishWebSocket.connect()
+  ]);
+} catch {}
+
 class CheckmateForm extends BaseComponent {
   _checkmateTypes = ['QR,R', 'Q', 'R', 'BB', 'BN'];
 
@@ -62,10 +69,3 @@ const checkmateForm = new CheckmateForm({
 const endgameForm = new EndgameForm({
   el: document.querySelector('#endgameForm')
 });
-
-try {
-  await Promise.all([
-    binaryWebSocket.connect(),
-    stockfishWebSocket.connect()
-  ]);
-} catch {}

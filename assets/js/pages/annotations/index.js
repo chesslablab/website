@@ -3,6 +3,13 @@ import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
 import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
 import * as variant from '../../../variant.js';
 
+try {
+  await Promise.all([
+    dataWebSocket.connect(),
+    annotationsWebSocket.connect()
+  ]);
+} catch {}
+
 class RavForm extends BaseComponent {
   mount() {
     this.el.querySelector('select').addEventListener('change', event => {
@@ -30,13 +37,6 @@ const learnForm = new BaseComponent({
 const ravForm = new RavForm({
   el: document.querySelector('#ravForm')
 });
-
-try {
-  await Promise.all([
-    dataWebSocket.connect(),
-    annotationsWebSocket.connect()
-  ]);
-} catch {}
 
 dataWebSocket
   .send(`/annotations_game`)

@@ -28,6 +28,20 @@ class ConsoleWebSocket extends AbstractWebSocket {
   }
 }
 
+const dataWebSocket = new ConsoleWebSocket();
+const gameWebSocket = new ConsoleWebSocket();
+const binaryWebSocket = new ConsoleWebSocket();
+const authWebSocket = new ConsoleWebSocket();
+
+try {
+  await Promise.all([
+    dataWebSocket.connect(9443),
+    gameWebSocket.connect(8443),
+    binaryWebSocket.connect(7443),
+    authWebSocket.connect(6443)
+  ]);
+} catch {}
+
 class ConsoleForm extends BaseComponent {
   current = 0;
   stack = [];
@@ -100,17 +114,3 @@ const consoleForm = new ConsoleForm({
 });
 
 consoleForm.props.command.focus();
-
-const dataWebSocket = new ConsoleWebSocket();
-const gameWebSocket = new ConsoleWebSocket();
-const binaryWebSocket = new ConsoleWebSocket();
-const authWebSocket = new ConsoleWebSocket();
-
-try {
-  await Promise.all([
-    dataWebSocket.connect(9443),
-    gameWebSocket.connect(8443),
-    binaryWebSocket.connect(7443),
-    authWebSocket.connect(6443)
-  ]);
-} catch {}
