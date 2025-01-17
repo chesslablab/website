@@ -13,18 +13,14 @@ export class BinaryWebSocket extends AbstractWebSocket {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
       this.response[msg] = data[msg];
-      switch (msg) {
-        case 'error':
-          console.log('Whoops! Something went wrong.');
-          break;
-
-        default:
-          const data = JSON.parse(res.data);
-          const a = document.createElement("a");
-          a.href = 'data:image/png;base64,' + data['/image'];
-          a.download = "chessboard.png";
-          a.click();
-          break;
+      if (msg === 'error') {
+        console.log('Whoops! Something went wrong.');
+      } else {
+        const data = JSON.parse(res.data);
+        const a = document.createElement("a");
+        a.href = 'data:image/png;base64,' + data['/image'];
+        a.download = "chessboard.png";
+        a.click();
       }
     };
   }
