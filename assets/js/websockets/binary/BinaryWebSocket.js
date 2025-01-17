@@ -6,9 +6,7 @@ export class BinaryWebSocket extends AbstractWebSocket {
 
   async connect() {
     await super.connect(`${connect.ws()}:${BinaryWebSocket.PORT}`);
-
     this.binaryType = "arraybuffer";
-
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
