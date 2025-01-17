@@ -7,7 +7,6 @@ import { sanForm } from '../../pages/SanForm.js';
 export class AnalysisWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
-
     this.onChange('/start', data => {
       if (data.fen) {
         this.chessboard.disableMoveInput();

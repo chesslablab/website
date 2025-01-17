@@ -5,7 +5,6 @@ import { ravPanel } from '../../pages/RavPanel.js';
 export class AnnotationsWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
-
     this.onChange('/play_rav', data => {
       ravPanel.props.movesBrowser.current = data.fen.length - 1;
       ravPanel.props.movesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);

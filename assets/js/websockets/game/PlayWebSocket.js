@@ -15,7 +15,6 @@ export class PlayWebSocket extends AbstractGameWebSocket {
 
   constructor() {
     super();
-
     this.onChange('broadcast', data => {
       playOnlineButtons.props.playersButtons.props.games = data.onlineGames;
       playOnlineButtons.props.playersButtons.mount();

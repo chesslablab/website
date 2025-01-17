@@ -9,7 +9,6 @@ import * as variant from '../../../variant.js';
 export class StockfishWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
-
     this.onChange('/start', data => {
       this.chessboard.disableMoveInput();
       this.chessboard.enableMoveInput(event => this.inputHandler(event));
