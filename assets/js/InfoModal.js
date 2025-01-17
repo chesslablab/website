@@ -1,5 +1,5 @@
 import Modal from 'bootstrap/js/dist/modal.js';
-import { trans } from './i18n.js';
+import { trans } from '../i18n.js';
 
 export class InfoModal {
   el;
