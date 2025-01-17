@@ -25,7 +25,7 @@ export class PlayFriendModal extends BaseComponent {
           min: formData.get('minutes'),
           increment: formData.get('increment'),
           color: formData.get('color'),
-          submode: 'friend',
+          submode: mode.SUBMODE_FRIEND,
           ...(formData.get('variant') === variant.CHESS_960) && {startPos: formData.get('startPos')},
           ...(formData.get('fen') && {fen: formData.get('fen')}),
           username: accessToken ? accessToken.username : null,

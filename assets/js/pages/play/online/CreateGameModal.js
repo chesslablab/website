@@ -18,7 +18,7 @@ export class CreateGameModal extends BaseComponent {
           min: formData.get('minutes'),
           increment: formData.get('increment'),
           color: formData.get('color'),
-          submode: 'online',
+          submode: mode.SUBMODE_ONLINE,
           username: accessToken ? accessToken.username : null,
           elo: accessToken ? accessToken.elo : null
         }
