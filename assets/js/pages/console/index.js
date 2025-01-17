@@ -9,20 +9,16 @@ class ConsoleWebSocket extends AbstractWebSocket {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
       this.response[msg] = data[msg];
-      switch (msg) {
-        case 'error':
-          const hints = [
-            "Let me suggest you read the docs.",
-            "Sorry, I am not an AI prompt.",
-            "This command cannot be processed.",
-          ];
-          consoleForm.print(hints[Math.floor(Math.random() * hints.length)]);
-          break;
-
-        default:
-          const output = typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg]);
-          consoleForm.print(output);
-          break;
+      if (msg === 'error') {
+        const hints = [
+          "Let me suggest you read the docs.",
+          "Sorry, I am not an AI prompt.",
+          "This command cannot be processed.",
+        ];
+        consoleForm.print(hints[Math.floor(Math.random() * hints.length)]);
+      } else {
+        const output = typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg]);
+        consoleForm.print(output);
       }
     };
   }
