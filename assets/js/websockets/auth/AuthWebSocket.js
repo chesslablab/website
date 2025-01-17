@@ -11,13 +11,8 @@ export class AuthWebSocket extends AbstractWebSocket {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
       this.response[msg] = data[msg];
-      switch (msg) {
-        case 'error':
-          console.log('Whoops! Something went wrong.');
-          break;
-
-        default:
-          break;
+      if (msg === 'error') {
+        console.log('Whoops! Something went wrong.');
       }
     };
   }
