@@ -15,7 +15,6 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
 
   async connect() {
     await super.connect(`${connect.ws()}:${AbstractGameWebSocket.PORT}`);
-
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
@@ -27,12 +26,10 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
     if (event.type === INPUT_EVENT_TYPE.movingOverSquare) {
       return;
     }
-
     if (event.type !== INPUT_EVENT_TYPE.moveInputFinished) {
       event.chessboard.removeMarkers(MARKER_TYPE.dot);
       event.chessboard.removeMarkers(MARKER_TYPE.bevel);
     }
-
     if (event.type === INPUT_EVENT_TYPE.moveInputStarted) {
       this.send('/legal', {
         square: event.square
