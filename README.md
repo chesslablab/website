@@ -3,21 +3,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributors](https://img.shields.io/github/contributors/chesslablab/website)](https://github.com/chesslablab/website/graphs/contributors)
 
-ChesslaBlab allows to run an open-source chess platform more easily than ever before. The website is super-duper simple to install and set up. The [assets/js](https://github.com/chesslablab/website/tree/main/assets/js) folder contains less than 3,000 lines of JavaScript code.
+ChesslaBlab allows to run an open-source chess platform more easily than ever before. The website is super-duper simple to install and set up. The [assets/js](https://github.com/chesslablab/website/tree/main/assets/js) folder contains a few hundred lines of JavaScript code.
 
 ```text
 cloc assets/js
-      72 text files.
-      72 unique files.                              
+      50 text files.
+      50 unique files.                              
        0 files ignored.
 
-github.com/AlDanial/cloc v 1.90  T=0.05 s (1549.4 files/s, 61437.6 lines/s)
+github.com/AlDanial/cloc v 1.90  T=0.01 s (5108.8 files/s, 285989.2 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JavaScript                      72            228             36           2591
+JavaScript                      50            177              1           2621
 -------------------------------------------------------------------------------
-SUM:                            72            228             36           2591
+SUM:                            50            177              1           2621
 -------------------------------------------------------------------------------
 ```
 
