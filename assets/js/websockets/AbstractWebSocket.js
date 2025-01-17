@@ -64,14 +64,11 @@ export default class AbstractWebSocket {
   connect(host) {
     return new Promise((resolve, reject) => {
       this.progressModal.props.modal.show();
-
       this.socket = new WebSocket(host);
-
       this.socket.onopen = () => {
         this.progressModal.props.modal.hide();
         resolve();
       };
-
       this.socket.onclose = (err) => {
         this.infoModal.props.msg = "Whoops! We are experiencing some technical issues";
         this.infoModal.mount();
@@ -95,7 +92,6 @@ export default class AbstractWebSocket {
 
   onChange(propName, callback) {
     let value = this.response[propName];
-
     if (!this.response.hasOwnProperty(propName)) {
       Object.defineProperty(this.response, propName, {
         get() {
