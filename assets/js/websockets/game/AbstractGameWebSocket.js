@@ -41,6 +41,18 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
         lan: event.squareFrom + event.squareTo
       });
       return true;
+    } else if (event.type === INPUT_EVENT_TYPE.moveInputCanceled) {
+      /**
+       * In Chess960 there are positions where the king can be moved to the
+       * same square where it is located in order to castle. Castling is
+       * thus possible by double-clicking on the square where the king is
+       * currently located.
+       */
+      this.send('/play_lan', {
+        color: event.chessboard.state.position.getPiece(event.squareFrom).charAt(0),
+        lan: event.squareFrom + event.squareFrom
+      });
+      return true;
     }
   }
 
