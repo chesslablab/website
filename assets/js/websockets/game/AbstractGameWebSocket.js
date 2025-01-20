@@ -48,10 +48,13 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
        * thus possible by double-clicking on the square where the king is
        * currently located.
        */
-      this.send('/play_lan', {
-        color: event.chessboard.state.position.getPiece(event.squareFrom).charAt(0),
-        lan: event.squareFrom + event.squareFrom
-      });
+      const piece = event.chessboard.state.position.getPiece(event.squareFrom);
+      if (piece.charAt(1) === 'k' && event.squareTo === null) {
+        this.send('/play_lan', {
+          color: piece.charAt(0),
+          lan: event.squareFrom + event.squareFrom
+        });
+      }
       return true;
     }
   }
