@@ -27,8 +27,8 @@ export class SanForm extends BaseComponent {
     if (this.el) {
       this.props.variantSelect.addEventListener('change', event => {
         event.target.value === variant.CHESS_960
-          ? this.props.startPosInput.classList.remove('d-none')
-          : this.props.startPosInput.classList.add('d-none');
+          ? this.el.querySelector('.startPos').classList.remove('d-none')
+          : this.el.querySelector('.startPos').classList.add('d-none');
         analysisWebSocket.send('/start', {
           variant: event.target.value,
           mode: mode.ANALYSIS
