@@ -142,12 +142,12 @@ export class AnalysisPanel extends BaseComponent {
         this.progressModal.props.modal.show();
         const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
         analysisWebSocket
-          .send('/heuristic', {
+          .send('/plot', {
             variant: variant.CLASSICAL,
             movetext: Movetext.notation(NOTATION_SAN, Movetext.substring(this.props.movesBrowser.props.movetext, back)),
             name: event.target.value
           })
-          .onChange('/heuristic', data => {
+          .onChange('/plot', data => {
             const canvas = document.createElement('canvas');
             this.props.heuristicsModal.props.chart.replaceChildren();
             this.props.heuristicsModal.props.chart.appendChild(canvas);
