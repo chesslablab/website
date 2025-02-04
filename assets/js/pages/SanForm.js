@@ -38,7 +38,7 @@ export class SanForm extends BaseComponent {
       this.props.chessboardInput.addEventListener('change', event => {
         this.upload(event).then(data => {
           analysisWebSocket
-            .send('/recognizer', {
+            .send('/recognize', {
               data: data
             });
         });
