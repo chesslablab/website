@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Contributors](https://img.shields.io/github/contributors/chesslablab/website)](https://github.com/chesslablab/website/graphs/contributors)
 
-ChesslaBlab allows to run an open-source chess platform more easily than ever before. The website is super-duper simple to install and set up. The [assets/js](https://github.com/chesslablab/website/tree/main/assets/js) folder contains a few hundred lines of JavaScript code.
+ChesslaBlab allows to run a secure open-source chess platform more easily than ever before. The website is super-duper simple to install and set up. The [assets/js](https://github.com/chesslablab/website/tree/main/assets/js) folder contains a few hundred lines of JavaScript code.
 
 ```text
 cloc assets/js
@@ -23,7 +23,7 @@ SUM:                            50            177              1           2621
 
 This is made possible with object-oriented programming (OOP) using [JavaScript modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) and the DOM.
 
-![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/featured_animation.gif)
+![Figure 1](https://raw.githubusercontent.com/chesslablab/website/main/docs/readme_01.png)
 
 The default settings can be customized through the environment variables in the [.env](https://github.com/chesslablab/website/blob/main/.env.example) file. Change the site name and the locale to configure your website whether you are a chess club, a school, or a FIDE titled player.
 
@@ -31,6 +31,8 @@ The default settings can be customized through the environment variables in the 
 SET_SITE_NAME=YourChessClub
 SET_LOCALE=es
 ```
+
+![Figure 2](https://raw.githubusercontent.com/chesslablab/website/main/docs/readme_02.png)
 
 ### Documentation
 
