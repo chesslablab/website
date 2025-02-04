@@ -71,7 +71,7 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
       analysisPanel.props.openingTable.props.movetext = data.movetext;
       analysisPanel.props.openingTable.mount();
     })
-    .onChange('/recognizer', data => {
+    .onChange('/recognize', data => {
       sanForm.props.fenInput.value = '';
       sanForm.props.fenInput.value = data;
     });
