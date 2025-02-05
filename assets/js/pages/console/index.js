@@ -24,20 +24,6 @@ class ConsoleWebSocket extends AbstractWebSocket {
   }
 }
 
-const dataWebSocket = new ConsoleWebSocket();
-const gameWebSocket = new ConsoleWebSocket();
-const binaryWebSocket = new ConsoleWebSocket();
-const authWebSocket = new ConsoleWebSocket();
-
-try {
-  await Promise.all([
-    dataWebSocket.connect(9443),
-    gameWebSocket.connect(8443),
-    binaryWebSocket.connect(7443),
-    authWebSocket.connect(6443)
-  ]);
-} catch {}
-
 class ConsoleForm extends BaseComponent {
   current = 0;
   stack = [];
@@ -99,6 +85,20 @@ class ConsoleForm extends BaseComponent {
     }
   }
 }
+
+const dataWebSocket = new ConsoleWebSocket();
+const gameWebSocket = new ConsoleWebSocket();
+const binaryWebSocket = new ConsoleWebSocket();
+const authWebSocket = new ConsoleWebSocket();
+
+try {
+  await Promise.all([
+    dataWebSocket.connect(9443),
+    gameWebSocket.connect(8443),
+    binaryWebSocket.connect(7443),
+    authWebSocket.connect(6443)
+  ]);
+} catch {}
 
 const consoleForm = new ConsoleForm({
   el: document.querySelector('#consoleForm'),

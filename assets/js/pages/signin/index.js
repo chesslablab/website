@@ -2,12 +2,6 @@ import jsCookie from 'js-cookie';
 import BaseComponent from '../../BaseComponent.js';
 import { authWebSocket } from '../../websockets/AuthWebSocket.js';
 
-try {
-  await Promise.all([
-    authWebSocket.connect()
-  ]);
-} catch {}
-
 class SignInForm extends BaseComponent {
   mount() {
     this.el.addEventListener('submit', event => {
@@ -29,6 +23,12 @@ class SignInForm extends BaseComponent {
     });
   }
 }
+
+try {
+  await Promise.all([
+    authWebSocket.connect()
+  ]);
+} catch {}
 
 const signInForm = new SignInForm({
   el: document.querySelector('#signInForm')

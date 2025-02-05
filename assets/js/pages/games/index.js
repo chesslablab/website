@@ -9,14 +9,6 @@ import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';
 
-try {
-  await Promise.all([
-    binaryWebSocket.connect(),
-    dataWebSocket.connect(),
-    analysisWebSocket.connect()
-  ]);
-} catch {}
-
 class SearchGamesForm extends BaseComponent {
   mount() {
     this.el.addEventListener('submit', async (event) => {
@@ -74,6 +66,14 @@ class SearchGamesForm extends BaseComponent {
     });
   }
 }
+
+try {
+  await Promise.all([
+    binaryWebSocket.connect(),
+    dataWebSocket.connect(),
+    analysisWebSocket.connect()
+  ]);
+} catch {}
 
 const searchGamesForm = new SearchGamesForm({
   el: document.querySelector('#searchGamesForm'),
