@@ -1,5 +1,5 @@
 import BaseComponent from '../BaseComponent.js';
-import { dataWebSocket } from '../websockets/data/DataWebSocket.js';
+import { dataWebSocket } from '../websockets/DataWebSocket.js';
 
 export class EventAutocomplete extends BaseComponent {
   mount() {

@@ -3,7 +3,7 @@ import { HistoryButtons, RavMovesFactory } from '@chesslablab/js-utils';
 import chessboard from './chessboard.js';
 import MyBoardActionsDropdown from './MyBoardActionsDropdown.js';
 import BaseComponent from '../BaseComponent.js';
-import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
+import { binaryWebSocket } from '../websockets/BinaryWebSocket.js';
 
 export class RavPanel extends BaseComponent {
   mount() {

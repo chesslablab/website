@@ -3,7 +3,7 @@ import { blackAutocomplete } from '../BlackAutocomplete.js';
 import { eventAutocomplete } from '../EventAutocomplete.js';
 import { whiteAutocomplete } from '../WhiteAutocomplete.js';
 import BaseComponent from '../../BaseComponent.js';
-import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import { dataWebSocket } from '../../websockets/DataWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as mode from '../../../mode.js';
 import * as variant from '../../../variant.js';

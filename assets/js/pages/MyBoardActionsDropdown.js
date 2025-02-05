@@ -1,5 +1,5 @@
 import { BoardActionsDropdown } from '@chesslablab/js-utils';
-import { binaryWebSocket } from '../websockets/binary/BinaryWebSocket.js';
+import { binaryWebSocket } from '../websockets/BinaryWebSocket.js';
 
 export default class MyBoardActionsDropdown extends BoardActionsDropdown {
   mount() {

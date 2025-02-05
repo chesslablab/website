@@ -3,9 +3,9 @@ import { createGameModal } from './CreateGameModal.js';
 import { playFriendModal } from './PlayFriendModal.js';
 import { rankingTable } from './RankingTable.js';
 import chessboard from '../../chessboard.js';
-import { authWebSocket } from '../../../websockets/auth/AuthWebSocket.js';
-import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
-import { dataWebSocket } from '../../../websockets/data/DataWebSocket.js';
+import { authWebSocket } from '../../../websockets/AuthWebSocket.js';
+import { binaryWebSocket } from '../../../websockets/BinaryWebSocket.js';
+import { dataWebSocket } from '../../../websockets/DataWebSocket.js';
 import { playWebSocket } from '../../../websockets/game/PlayWebSocket.js';
 
 try {

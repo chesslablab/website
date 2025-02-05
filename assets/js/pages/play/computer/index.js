@@ -1,6 +1,6 @@
 import Modal from 'bootstrap/js/dist/modal.js';
 import BaseComponent from '../../../BaseComponent.js';
-import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
+import { binaryWebSocket } from '../../../websockets/BinaryWebSocket.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
 import * as mode from '../../../../mode.js';
 import * as variant from '../../../../variant.js';

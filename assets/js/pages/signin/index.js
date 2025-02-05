@@ -1,6 +1,6 @@
 import jsCookie from 'js-cookie';
 import BaseComponent from '../../BaseComponent.js';
-import { authWebSocket } from '../../websockets/auth/AuthWebSocket.js';
+import { authWebSocket } from '../../websockets/AuthWebSocket.js';
 
 try {
   await Promise.all([

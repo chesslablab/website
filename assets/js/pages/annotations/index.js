@@ -1,5 +1,5 @@
 import BaseComponent from '../../BaseComponent.js';
-import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
+import { dataWebSocket } from '../../websockets/DataWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../../variant.js';
 

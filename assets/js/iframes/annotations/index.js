@@ -1,4 +1,4 @@
-import { binaryWebSocket } from '../../websockets/binary/BinaryWebSocket.js';
+import { binaryWebSocket } from '../../websockets/BinaryWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 
 try {
