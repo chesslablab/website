@@ -57,7 +57,7 @@ return [
         'version' => '0.0.4',
     ],
     '@chesslablab/js-utils' => [
-        'version' => '0.4.7',
+        'version' => '0.4.8',
     ],
     'bootstrap/js/dist/modal.js' => [
         'version' => '5.3.2',
