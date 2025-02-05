@@ -2,6 +2,7 @@ import { MARKER_TYPE } from '@chesslablab/chessboard';
 import { Movetext } from '@chesslablab/js-utils';
 import AbstractGameWebSocket from './AbstractGameWebSocket.js';
 import { analysisPanel } from '../../pages/AnalysisPanel.js';
+import { ravPanel } from '../../pages/RavPanel.js';
 import { sanForm } from '../../pages/SanForm.js';
 
 export class AnalysisWebSocket extends AbstractGameWebSocket {
@@ -74,6 +75,18 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
     .onChange('/recognize', data => {
       sanForm.props.fenInput.value = '';
       sanForm.props.fenInput.value = data;
+    })
+    .onChange('/play_rav', data => {
+      ravPanel.props.movesBrowser.current = data.fen.length - 1;
+      ravPanel.props.movesBrowser.props.chessboard.setPosition(data.fen[data.fen.length - 1]);
+      ravPanel.props.movesBrowser.props = {
+        ...ravPanel.props.movesBrowser.props,
+        filtered: Movetext.notation(localStorage.getItem('notation'), data.filtered),
+        breakdown: data.breakdown.map(value => Movetext.notation(localStorage.getItem('notation'), value)),
+        fen: data.fen
+      };
+      ravPanel.props.movesBrowser.mount();
+      ravPanel.progressModal.props.modal.hide();
     });
   }
 }

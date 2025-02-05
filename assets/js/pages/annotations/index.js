@@ -1,12 +1,12 @@
 import BaseComponent from '../../BaseComponent.js';
 import { dataWebSocket } from '../../websockets/data/DataWebSocket.js';
-import { annotationsWebSocket } from '../../websockets/game/AnnotationsWebSocket.js';
+import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../../variant.js';
 
 try {
   await Promise.all([
     dataWebSocket.connect(),
-    annotationsWebSocket.connect()
+    analysisWebSocket.connect()
   ]);
 } catch {}
 
@@ -21,7 +21,7 @@ class RavForm extends BaseComponent {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const formData = new FormData(this.el);
-      annotationsWebSocket.send('/play_rav', {
+      analysisWebSocket.send('/play_rav', {
         variant: formData.get('variant'),
         movetext: formData.get('rav'),
       });
@@ -73,7 +73,7 @@ dataWebSocket
       tr.appendChild(resultTd);
       tr.addEventListener('click', async () => {
         learnForm.progressModal.props.modal.show();
-        annotationsWebSocket.send('/play_rav', {
+        analysisWebSocket.send('/play_rav', {
           variant: variant.CLASSICAL,
           movetext: game.movetext
         });
