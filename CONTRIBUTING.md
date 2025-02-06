@@ -23,11 +23,8 @@ For example, if the title of the issue is [Document the POST /v1/tutor/fen endpo
 $ git checkout -b issue/165-document-the-post-v1-tutor-fen-endpoint
 ```
 
-That's it!
-
-### Chess MPA
-
 If you want to contribute to this repo please make sure to read:
 
-- [PHP Chess API](https://github.com/chesslablab/chess-api)
 - [PHP Chess Server](https://github.com/chesslablab/chess-server)
+
+Happy coding and learning!
