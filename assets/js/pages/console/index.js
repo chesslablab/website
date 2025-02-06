@@ -3,23 +3,21 @@ import * as connect from '../../connect.js';
 import AbstractWebSocket from '../../websockets/AbstractWebSocket.js';
 
 class ConsoleWebSocket extends AbstractWebSocket {
+  hints = [
+    "Let me suggest you read the docs.",
+    "Sorry, I am not an AI prompt.",
+    "This command cannot be processed.",
+  ];
+
   async connect(port) {
     await super.connect(`${connect.ws()}:${port}`);
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
       this.response[msg] = data[msg];
-      if (msg === 'error') {
-        const hints = [
-          "Let me suggest you read the docs.",
-          "Sorry, I am not an AI prompt.",
-          "This command cannot be processed.",
-        ];
-        consoleForm.print(hints[Math.floor(Math.random() * hints.length)]);
-      } else {
-        const output = typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg]);
-        consoleForm.print(output);
-      }
+      msg === 'error'
+        ? consoleForm.print(this.hints[Math.floor(Math.random() * this.hints.length)])
+        : consoleForm.print(JSON.stringify(data[msg]));
     };
   }
 }
