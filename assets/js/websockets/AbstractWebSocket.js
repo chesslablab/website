@@ -48,7 +48,8 @@ export default class AbstractWebSocket {
         '/restart',
         '/start',
         '/stockfish',
-        '/tutor_fen'
+        '/tutor_fen',
+        '/tutor_good_pgn'
       ],
       binary: [
         '/image'
