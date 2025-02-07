@@ -34,7 +34,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.send('/online_games');
         sessionStorage.setItem('start_token', data.jwt);
       } else {
-        this.infoModal.props.msg = "Invalid FEN, please try again with a different one";
+        this.infoModal.props.msg = "This game could not be started, please try again with a different one";
         this.infoModal.mount();
         this.infoModal.props.modal.show();
       }
