@@ -15,9 +15,10 @@ class ConsoleWebSocket extends AbstractWebSocket {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
       this.response[msg] = data[msg];
-      msg === 'error'
-        ? consoleForm.print(this.hints[Math.floor(Math.random() * this.hints.length)])
-        : consoleForm.print(JSON.stringify(data[msg]));
+      const output = msg === 'error' 
+        ? this.hints[Math.floor(Math.random() * this.hints.length)] 
+        : typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg], null, " ");
+      consoleForm.print(output);
     };
   }
 }
