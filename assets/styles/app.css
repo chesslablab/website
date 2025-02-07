@@ -183,7 +183,8 @@ label img,
   text-align: center;
 }
 
-#consoleForm p {
+#consoleForm p,
+#consoleForm pre {
   font-family: monospace;
   font-size: 0.95em;
   margin-bottom: 0.25em;

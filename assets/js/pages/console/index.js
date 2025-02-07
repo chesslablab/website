@@ -71,12 +71,12 @@ class ConsoleForm extends BaseComponent {
 
   print(msg) {
     const filtered = this.props.command.value.replace(/(\r\n|\n|\r)/gm,'');
-    const commandP = document.createElement('p');
-    const responseP = document.createElement('p');
-    commandP.appendChild(document.createTextNode(filtered));
-    responseP.appendChild(document.createTextNode(msg));
-    this.props.response.appendChild(commandP);
-    this.props.response.appendChild(responseP);
+    const commandPre = document.createElement('pre');
+    const responsePre = document.createElement('pre');
+    commandPre.appendChild(document.createTextNode(filtered));
+    responsePre.appendChild(document.createTextNode(msg));
+    this.props.response.appendChild(commandPre);
+    this.props.response.appendChild(responsePre);
     this.props.command.value = '';
     if (msg !== '\n') {
       this.stack.push(filtered);
