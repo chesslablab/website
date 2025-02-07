@@ -10,24 +10,30 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
   constructor() {
     super();
     this.onChange('/start', data => {
-      this.chessboard.disableMoveInput();
-      this.chessboard.enableMoveInput(event => this.inputHandler(event));
-      this.chessboard.setPosition(data.fen, true);
-      if (data.color === COLOR.black) {
-        this.chessboard.setOrientation(COLOR.black);
+      if (data.jwt) {
+        this.chessboard.disableMoveInput();
+        this.chessboard.enableMoveInput(event => this.inputHandler(event));
+        this.chessboard.setPosition(data.fen, true);
+        if (data.color === COLOR.black) {
+          this.chessboard.setOrientation(COLOR.black);
+        }
+        if (data.fen.split(' ')[1] !== data.color) {
+          const startToken = jwtDecode(data.jwt);
+          this.send('/stockfish', {
+            options: {
+              'Skill Level': startToken.settings.skillLevel
+            },
+            params: {
+              depth: startToken.settings.depth
+            }
+          });
+        }
+        sessionStorage.setItem('start_token', data.jwt);
+      } else {
+        this.infoModal.props.msg = "This game could not be started, please try again with a different one";
+        this.infoModal.mount();
+        this.infoModal.props.modal.show();
       }
-      if (data.fen.split(' ')[1] !== data.color) {
-        const startToken = jwtDecode(data.jwt);
-        this.send('/stockfish', {
-          options: {
-            'Skill Level': startToken.settings.skillLevel
-          },
-          params: {
-            depth: startToken.settings.depth
-          }
-        });
-      }
-      sessionStorage.setItem('start_token', data.jwt);
     })
     .onChange('/legal', data => {
       data.forEach(sq => {
