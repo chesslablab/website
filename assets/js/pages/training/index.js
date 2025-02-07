@@ -14,7 +14,7 @@ class CheckmateForm extends BaseComponent {
         ? this._checkmateTypes[Math.floor(Math.random() * this._checkmateTypes.length)]
         : formData.get('items');
       const split = checkmateType.split(',');
-      stockfishWebSocket.send('/randomizer', {
+      stockfishWebSocket.send('/randomize', {
         turn: formData.get('color'),
         items: split.length === 2
           ? {
@@ -40,7 +40,7 @@ class EndgameForm extends BaseComponent {
         ? this._endgameTypes[Math.floor(Math.random() * this._endgameTypes.length)]
         : formData.get('items');
       const split = checkmateType.split(',');
-      stockfishWebSocket.send('/randomizer', {
+      stockfishWebSocket.send('/randomize', {
         turn: formData.get('color'),
         items: split.length === 2
           ? {
