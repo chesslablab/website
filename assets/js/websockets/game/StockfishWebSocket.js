@@ -96,7 +96,7 @@ export class StockfishWebSocket extends AbstractGameWebSocket {
         this.end();
       }
     })
-    .onChange('/randomizer', data => {
+    .onChange('/randomize', data => {
       this.chessboard.state.inputWhiteEnabled = false;
       this.chessboard.state.inputBlackEnabled = false;
       if (data.turn === COLOR.white) {

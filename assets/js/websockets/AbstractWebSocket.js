@@ -42,7 +42,7 @@ export default class AbstractWebSocket {
         '/play_lan',
         '/play_rav',
         '/plot',
-        '/randomizer',
+        '/randomize',
         '/recognize',
         '/resign',
         '/restart',
