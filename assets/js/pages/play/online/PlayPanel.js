@@ -23,9 +23,7 @@ const timerTable = new TimerTable({
 });
 
 export const timerTableInterval = () => {
-  return setInterval(() => {
-    timerTable.count().mount();
-  }, 1000);
+  return setInterval(() => timerTable.count().mount(), 1000);
 }
 
 export class TakebackModal extends BaseComponent {
