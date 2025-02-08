@@ -17,9 +17,7 @@ export class EventAutocomplete extends BaseComponent {
             data.forEach(item => {
               const option = document.createElement('option');
               option.appendChild(document.createTextNode(item));
-              option.addEventListener('click', () => {
-                this.el.value = item;
-              });
+              option.addEventListener('click', () => this.el.value = item);
               this.props.datalist.append(option);
             });
             this.props.submitButton.classList.remove('d-none');
