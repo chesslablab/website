@@ -17,6 +17,14 @@ export class ExplainPositionModal extends BaseComponent {
   }
 }
 
+export class ExplainGoodPgnModal extends BaseComponent {
+  mount() {
+    const p = this.el.querySelector('p');
+    p.replaceChildren();
+    p.appendChild(document.createTextNode(`${this.props.pgn} is a good move now. ${this.props.explanation}`));
+  }
+}
+
 export class AnalysisPanel extends BaseComponent {
   plot(event, data) {
     return {
@@ -98,6 +106,18 @@ export class AnalysisPanel extends BaseComponent {
     this.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
       analysisWebSocket
+        .send('/tutor_good_pgn')
+        .onChange('/tutor_good_pgn', data => {
+          this.props.explainGoodPgnModal.props.pgn = data.pgn;
+          this.props.explainGoodPgnModal.props.explanation = data.paragraph;
+          this.props.explainGoodPgnModal.mount();
+          this.props.explainGoodPgnModal.props.modal.show();
+        });
+    });
+
+    this.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
+      event.preventDefault();
+      analysisWebSocket
         .send('/eval_names')
         .onChange('/eval_names', data => {
           const select = this.props.heuristicsModal.props.form.querySelector('select[name="heuristic"]');
@@ -118,7 +138,7 @@ export class AnalysisPanel extends BaseComponent {
         });
     });
 
-    this.props.gameStudyDropdown.props.ul.children.item(2).addEventListener('click', async (event) => {
+    this.props.gameStudyDropdown.props.ul.children.item(3).addEventListener('click', async (event) => {
       event.preventDefault();
       this.progressModal.props.modal.show();
       const back = (this.props.movesBrowser.props.fen.length - this.props.movesBrowser.current - 1) * -1;
@@ -192,6 +212,16 @@ export const analysisPanel = new AnalysisPanel({
         props() {
           return({
             modal: new Modal(this.el),
+            explanation: ''
+          });
+        }
+      }),
+      explainGoodPgnModal: new ExplainGoodPgnModal({
+        el: document.querySelector('#explainGoodPgnModal'),
+        props() {
+          return({
+            modal: new Modal(this.el),
+            pgn: '',
             explanation: ''
           });
         }
