@@ -105,6 +105,7 @@ export class AnalysisPanel extends BaseComponent {
 
     this.props.gameStudyDropdown.props.ul.children.item(1).addEventListener('click', async (event) => {
       event.preventDefault();
+      this.progressModal.props.modal.show();
       analysisWebSocket
         .send('/tutor_good_pgn')
         .onChange('/tutor_good_pgn', data => {
@@ -112,6 +113,7 @@ export class AnalysisPanel extends BaseComponent {
           this.props.explainGoodPgnModal.props.explanation = data.paragraph;
           this.props.explainGoodPgnModal.mount();
           this.props.explainGoodPgnModal.props.modal.show();
+          this.progressModal.props.modal.hide();
         });
     });
 
