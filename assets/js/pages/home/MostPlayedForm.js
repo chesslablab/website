@@ -87,22 +87,6 @@ export class MostPlayedForm extends BaseComponent {
                 legend: {
                   display: false
                 }
-              },
-              scales: {
-                x: {
-                  grid: {
-                    display: false
-                  }
-                },
-                y: {
-                  beginAtZero: true,
-                  grid: {
-                    display: false
-                  },
-                  ticks: {
-                    precision: 0
-                  }
-                }
               }
             }
           });
