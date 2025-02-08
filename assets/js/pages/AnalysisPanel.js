@@ -54,18 +54,11 @@ export class AnalysisPanel extends BaseComponent {
         scales: {
           y: {
             ticks: {
-              display: false
-            },
-            grid: {
-              display: false
-            },
-            beginAtZero: true
+              stepSize: 1
+            }
           },
           x: {
             ticks: {
-              display: false
-            },
-            grid: {
               display: false
             }
           }
