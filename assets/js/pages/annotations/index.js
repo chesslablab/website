@@ -1,4 +1,5 @@
 import BaseComponent from '../../BaseComponent.js';
+import { binaryWebSocket } from '../../websockets/BinaryWebSocket.js';
 import { dataWebSocket } from '../../websockets/DataWebSocket.js';
 import { analysisWebSocket } from '../../websockets/game/AnalysisWebSocket.js';
 import * as variant from '../../../variant.js';
@@ -25,7 +26,8 @@ class RavForm extends BaseComponent {
 try {
   await Promise.all([
     dataWebSocket.connect(),
-    analysisWebSocket.connect()
+    analysisWebSocket.connect(),
+    binaryWebSocket.connect()
   ]);
 } catch {}
 
