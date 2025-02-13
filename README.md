@@ -7,17 +7,17 @@ ChesslaBlab allows to run a secure open-source chess platform more easily than e
 
 ```text
 cloc assets/js
-      49 text files.
-      49 unique files.                              
+      48 text files.
+      48 unique files.                              
        0 files ignored.
 
-github.com/AlDanial/cloc v 1.90  T=0.01 s (5080.4 files/s, 291446.8 lines/s)
+github.com/AlDanial/cloc v 1.90  T=0.01 s (5067.5 files/s, 293175.8 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JavaScript                      49            177              7           2627
+JavaScript                      48            174              7           2596
 -------------------------------------------------------------------------------
-SUM:                            49            177              7           2627
+SUM:                            48            174              7           2596
 -------------------------------------------------------------------------------
 ```
 
