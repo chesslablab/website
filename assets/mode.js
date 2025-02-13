@@ -1,15 +1,7 @@
-const ANALYSIS = 'analysis';
-const PLAY = 'play';
-const RAV = 'rav';
-const STOCKFISH = 'stockfish';
-const SUBMODE_FRIEND = 'friend';
-const SUBMODE_ONLINE = 'online';
-
-export {
-  ANALYSIS,
-  PLAY,
-  RAV,
-  STOCKFISH,
-  SUBMODE_FRIEND,
-  SUBMODE_ONLINE
-};
+export const
+  ANALYSIS = 'analysis',
+  PLAY = 'play',
+  RAV = 'rav',
+  STOCKFISH = 'stockfish',
+  SUBMODE_FRIEND = 'friend',
+  SUBMODE_ONLINE = 'online';
