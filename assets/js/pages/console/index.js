@@ -1,5 +1,4 @@
 import BaseComponent from '../../BaseComponent.js';
-import * as connect from '../../connect.js';
 import AbstractWebSocket from '../../websockets/AbstractWebSocket.js';
 
 class ConsoleWebSocket extends AbstractWebSocket {
@@ -10,7 +9,7 @@ class ConsoleWebSocket extends AbstractWebSocket {
   ];
 
   async connect(port) {
-    await super.connect(`${connect.ws()}:${port}`);
+    await super.connect(port);
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];

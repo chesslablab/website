@@ -1,5 +1,6 @@
 import { infoModal } from '../InfoModal.js';
 import { progressModal } from '../ProgressModal.js';
+import * as env from '../../env.js';
 
 export default class AbstractWebSocket {
   socket;
@@ -62,10 +63,13 @@ export default class AbstractWebSocket {
     };
   }
 
-  connect(host) {
+  connect(port) {
+    const hostname = localStorage.getItem('ws') && localStorage.getItem('ws') !== 'random' 
+      ? localStorage.getItem('ws') 
+      : env.WEBSOCKET_SERVER[Math.floor(Math.random() * env.WEBSOCKET_SERVER.length)];
     return new Promise((resolve, reject) => {
       this.progressModal.props.modal.show();
-      this.socket = new WebSocket(host);
+      this.socket = new WebSocket(`${hostname}:${port}`);
       this.socket.onopen = () => {
         this.progressModal.props.modal.hide();
         resolve();

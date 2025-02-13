@@ -1,11 +1,10 @@
 import AbstractWebSocket from './AbstractWebSocket.js';
-import * as connect from '../connect.js';
 
 export class BinaryWebSocket extends AbstractWebSocket {
   static PORT = 7443;
 
   async connect() {
-    await super.connect(`${connect.ws()}:${BinaryWebSocket.PORT}`);
+    await super.connect(BinaryWebSocket.PORT);
     this.binaryType = "arraybuffer";
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);

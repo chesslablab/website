@@ -1,6 +1,5 @@
 import { COLOR, INPUT_EVENT_TYPE, MARKER_TYPE } from '@chesslablab/chessboard';
 import AbstractWebSocket from '../AbstractWebSocket.js';
-import * as connect from '../../connect.js';
 import chessboard from '../../pages/chessboard.js';
 
 export default class AbstractGameWebSocket extends AbstractWebSocket {
@@ -14,7 +13,7 @@ export default class AbstractGameWebSocket extends AbstractWebSocket {
   }
 
   async connect() {
-    await super.connect(`${connect.ws()}:${AbstractGameWebSocket.PORT}`);
+    await super.connect(AbstractGameWebSocket.PORT);
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
