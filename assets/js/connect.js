@@ -1,6 +1,6 @@
 import * as env from '../env.js';
 
-const ws = () => {
+export const ws = () => {
   if (localStorage.getItem('ws')) {
     if (localStorage.getItem('ws') !== 'random') {
       return localStorage.getItem('ws');
@@ -9,7 +9,3 @@ const ws = () => {
 
   return env.WEBSOCKET_SERVER[Math.floor(Math.random() * env.WEBSOCKET_SERVER.length)];
 }
-
-export {
-  ws
-};
