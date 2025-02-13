@@ -9,21 +9,11 @@ class SettingsForm extends BaseComponent {
       option.value = item;
       this.el.querySelector('select[name="ws"]').append(option);
     });
-    this.el.querySelector('select[name="theme"]').value = localStorage.getItem('theme') === 'light' 
-      ? 'light'
-      : 'dark';
-    this.el.querySelector('select[name="format"]').value = localStorage.getItem('format') === 'table' 
-      ? 'table'
-      : 'inline';
-    this.el.querySelector('select[name="notation"]').value = localStorage.getItem('notation') === 'san' 
-      ? 'san'
-      : 'fan';
-    this.el.querySelector('select[name="set"]').value = localStorage.getItem('set') === 'staunty' 
-      ? 'staunty'
-      : 'classical';
-    if (localStorage.getItem('ws')) {
-      this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws');
-    }
+    this.el.querySelector('select[name="theme"]').value = localStorage.getItem('theme') ?? 'dark';
+    this.el.querySelector('select[name="format"]').value = localStorage.getItem('format') ?? 'inline';
+    this.el.querySelector('select[name="notation"]').value = localStorage.getItem('notation') ?? 'fan';
+    this.el.querySelector('select[name="set"]').value = localStorage.getItem('set') ?? 'classical';
+    this.el.querySelector('select[name="ws"]').value = localStorage.getItem('ws') ?? 'random';
     this.el.addEventListener('submit', event => {
       event.preventDefault();
       const formData = new FormData(this.el);
