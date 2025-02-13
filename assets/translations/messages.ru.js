@@ -1,4 +1,4 @@
-const messagesRu = {
+export default {
   // AbstractWebSocket
   "Whoops! We are experiencing some technical issues": "Упс! У нас возникли некоторые технические неполадки",
   // AbstractGameWebSocket
@@ -25,4 +25,3 @@ const messagesRu = {
   "This game could not be started, please try again": "Эту игру не удалось запустить, попробуйте еще раз"
 };
 
-export default messagesRu;

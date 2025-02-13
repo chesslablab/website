@@ -1,4 +1,4 @@
-const messagesHi = {
+export default {
   // AbstractWebSocket
   "Whoops! We are experiencing some technical issues": "ओह! हम कुछ तकनीकी समस्याओं का सामना कर रहे हैं",
   // AbstractGameWebSocket
@@ -24,5 +24,3 @@ const messagesHi = {
   // AnalysisWebSocket
   "This game could not be started, please try again": "यह गेम शुरू नहीं हो सका, कृपया पुनः प्रयास करें"
 };
-
-export default messagesHi;

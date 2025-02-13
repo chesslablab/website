@@ -1,4 +1,4 @@
-const messagesZhCN = {
+export default {
   // AbstractWebSocket
   "Whoops! We are experiencing some technical issues": "哎呀！我们遇到了一些技术问题",
   // AbstractGameWebSocket
@@ -24,5 +24,3 @@ const messagesZhCN = {
   // AnalysisWebSocket
   "This game could not be started, please try again": "游戏无法启动，请重试"
 };
-
-export default messagesZhCN;
