@@ -66,7 +66,6 @@ ul.nav-tabs li button[aria-selected="false"] {
 const theme = () => {
   const el = document.createElement('style');
   el.setAttribute('id', 'theme');
-  el.type = 'text/css';
   el.innerText = localStorage.getItem('theme') === 'light' ? light : dark;
   document.head.appendChild(el);
 }
