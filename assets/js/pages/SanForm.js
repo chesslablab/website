@@ -1,4 +1,3 @@
-import Modal from 'bootstrap/js/dist/modal.js';
 import { Movetext, NOTATION_SAN } from '@chesslablab/js-utils';
 import BaseComponent from '../BaseComponent.js';
 import { analysisWebSocket } from '../websockets/game/AnalysisWebSocket.js';
