@@ -64,12 +64,12 @@ export default class AbstractWebSocket {
   }
 
   connect(port) {
-    const hostname = localStorage.getItem('ws') && localStorage.getItem('ws') !== 'random' 
+    const host = localStorage.getItem('ws') && localStorage.getItem('ws') !== 'random' 
       ? localStorage.getItem('ws') 
       : env.WEBSOCKET_SERVER[Math.floor(Math.random() * env.WEBSOCKET_SERVER.length)];
     return new Promise((resolve, reject) => {
       this.progressModal.props.modal.show();
-      this.socket = new WebSocket(`${hostname}:${port}`);
+      this.socket = new WebSocket(`${host}:${port}`);
       this.socket.onopen = () => {
         this.progressModal.props.modal.hide();
         resolve();
