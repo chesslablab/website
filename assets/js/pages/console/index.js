@@ -2,20 +2,14 @@ import BaseComponent from '../../BaseComponent.js';
 import AbstractWebSocket from '../../websockets/AbstractWebSocket.js';
 
 class ConsoleWebSocket extends AbstractWebSocket {
-  hints = [
-    "Let me suggest you read the docs.",
-    "Sorry, I am not an AI prompt.",
-    "This command cannot be processed.",
-  ];
-
   async connect(port) {
     await super.connect(port);
     this.socket.onmessage = (res) => {
       const data = JSON.parse(res.data);
       const msg = Object.keys(data)[0];
-      this.response[msg] = data[msg];
+      this.response[msg] = Object.values(data)[0];
       const output = msg === 'error' 
-        ? this.hints[Math.floor(Math.random() * this.hints.length)] 
+        ? "This command could not be processed, please try again." 
         : typeof data[msg] === 'string' ? data[msg] : JSON.stringify(data[msg], null, " ");
       consoleForm.print(output);
     };
