@@ -117,9 +117,8 @@ class ComputerController extends AbstractController
 <li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/play/computer/index.html.twig">templates/pages/play/computer/index.html.twig</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js">assets/js/pages/play/computer/index.js</a></li>
 </ul>
-<p>This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
-<p>Each page's JavaScript file is then set up as an entrypoint in the <a href="https://github.com/chesslablab/website/blob/main/importmap.php">importmap.php</a> config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.</p>
-<p>So the JavaScript code in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js">assets/js/pages/play/computer/index.js</a> file basically boils down to initialization because the business logic is implemented in WebSocket ESM modules. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.</p>
+<p>This naming convention allows to reduce memorization because given one file name, the name of the remaining two can be inferred.</p>
+<p>Each page's JavaScript file is then set up as an entrypoint in the <a href="https://github.com/chesslablab/website/blob/main/importmap.php">importmap.php</a> config file. The main point of the entrypoint script is to update the DOM on user interaction and data change. So the JavaScript code in the <a href="https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js">assets/js/pages/play/computer/index.js</a> file boils down to initialization.</p>
 <pre><code class="language-js">import { playComputerModal } from './PlayComputerModal.js';
 import { binaryWebSocket } from '../../../websockets/binary/BinaryWebSocket.js';
 import { stockfishWebSocket } from '../../../websockets/game/StockfishWebSocket.js';
@@ -133,6 +132,7 @@ try {
 
 playComputerModal.props.modal.show();
 </code></pre>
+<p>When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.</p>
 <h2 id="websocket-connections">WebSocket Connections</h2>
 <p>The ChesslaBlab website is integrated with <a href="https://github.com/chesslablab/chess-server">PHP Chess Server</a>, an asynchronous WebSocket server that provides functionality to play chess online over a WebSocket connection.</p>
 <p>The environment variables required for the chess server can be found in the <a href="https://github.com/chesslablab/website/blob/main/assets/env.example.js">assets/env.example.js</a> file.</p>
