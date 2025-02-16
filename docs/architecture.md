@@ -29,11 +29,9 @@ As a rule of thumb, there is a `.twig.html` file and a `.js` file associated to 
 - [templates/pages/play/computer/index.html.twig](https://github.com/chesslablab/website/blob/main/templates/pages/play/computer/index.html.twig)
 - [assets/js/pages/play/computer/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js)
 
-This naming convention allows developers to reduce memorization because given one file name, the name of the remaining two can be inferred.
+This naming convention allows to reduce memorization because given one file name, the name of the remaining two can be inferred.
 
-Each page's JavaScript file is then set up as an entrypoint in the [importmap.php](https://github.com/chesslablab/website/blob/main/importmap.php) config file. The main point of the entrypoint script is to update the DOM on user interaction and data change.
-
-So the JavaScript code in the [assets/js/pages/play/computer/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js) file basically boils down to initialization because the business logic is implemented in WebSocket ESM modules. When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.
+Each page's JavaScript file is then set up as an entrypoint in the [importmap.php](https://github.com/chesslablab/website/blob/main/importmap.php) config file. The main point of the entrypoint script is to update the DOM on user interaction and data change. So the JavaScript code in the [assets/js/pages/play/computer/index.js](https://github.com/chesslablab/website/blob/main/assets/js/pages/play/computer/index.js) file boils down to initialization.
 
 ```js
 import { playComputerModal } from './PlayComputerModal.js';
@@ -49,6 +47,8 @@ try {
 
 playComputerModal.props.modal.show();
 ```
+
+When the web browser retrieves the response from the WebSocket server, the ESM components are updated with the new data.
 
 ## WebSocket Connections
 
