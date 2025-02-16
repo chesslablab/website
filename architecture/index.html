@@ -93,8 +93,7 @@
 
 <h1 id="architecture">Architecture</h1>
 <p>Some familiarity with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules#importing_modules_using_import_maps">JavaScript modules</a> as well as with Symfony's <a href="https://symfony.com/doc/current/frontend/asset_mapper.html">Asset Mapper</a> component is recommended in order to follow this section.</p>
-<p>The ChesslaBlab website is a multi-page application (MPA) that is not adhering to the MVC architectural pattern. The controller actions are basically sending an HTML document to the browser on each request. The business logic is implemented in the chess server.</p>
-<p>In this website architecture in particular, there is no model layer (M) and as a result the Controller layer (C) remains quite basic as in the following example. The main reason behind a multi-page architecture like this one as opposed to a single-page architecture is that we want the pages to be indexed by web crawlers.</p>
+<p>The ChesslaBlab website is a multi-page application (MPA) where controller actions are basically sending an HTML document to the browser on each request. The business logic is implemented in the chess server, and as a result the controller layer remains thin as in the following example.</p>
 <pre><code class="language-php">&lt;?php
 
 namespace App\Controller\Pages\Play;
@@ -112,7 +111,7 @@ class ComputerController extends AbstractController
     }
 }
 </code></pre>
-<p>As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action. So the structure of the <a href="https://github.com/chesslablab/website/tree/main/src/Controller/Pages">App\Controller\Pages</a> namespace is mirroring the structure of both the <a href="https://github.com/chesslablab/website/tree/main/templates/pages">templates/pages</a> folder and the <a href="https://github.com/chesslablab/website/tree/main/assets/js/pages">assets/js/pages</a> folder.</p>
+<p>As a rule of thumb, there is a <code>.twig.html</code> file and a <code>.js</code> file associated to each controller action.</p>
 <ul>
 <li><a href="https://github.com/chesslablab/website/blob/main/src/Controller/Pages/Play/ComputerController.php">src/Controller/Pages/Play/ComputerController.php</a></li>
 <li><a href="https://github.com/chesslablab/website/blob/main/templates/pages/play/computer/index.html.twig">templates/pages/play/computer/index.html.twig</a></li>
