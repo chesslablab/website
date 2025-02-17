@@ -125,7 +125,7 @@ pages_about:
 # Iframe routes
 
 iframe_analysis:
-    path:       /{_locale}/iframe/analysis/{variant}/{fen}/{movetext}/{shuffle}
+    path:       /{_locale}/iframe/analysis/{variant}/{fen}/{movetext}
     controller: App\Controller\Iframes\AnalysisController::index
     methods:    GET
     requirements:
@@ -133,7 +133,7 @@ iframe_analysis:
       _locale:  en|es|fr|ru|tr|de|hi|zh_CN
 
 iframe_annotations:
-    path:       /{_locale}/iframe/annotations/{variant}/{fen}/{movetext}/{shuffle}
+    path:       /{_locale}/iframe/annotations/{variant}/{fen}/{movetext}
     controller: App\Controller\Iframes\AnnotationsController::index
     methods:    GET
     requirements:

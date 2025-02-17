@@ -13,6 +13,5 @@ const url = window.location.href.split('/');
 analysisWebSocket.send('/play_rav', {
   variant: url[6],
   fen: decodeURIComponent(url[7]),
-  movetext: decodeURIComponent(url[8]),
-  shuffle: url[9]
+  movetext: decodeURIComponent(url[8])
 });
