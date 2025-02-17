@@ -40,10 +40,6 @@ An URL-encoded FEN string.
 
 An URL-encoded movetext in SAN format.
 
-#### `shuffle` (optional)
-
-The start position in a Chess960 game; for example `BRNNKBRQ`.
-
 ## Annotations Board
 
 Add the following sample HTML code to your blog post:
@@ -81,7 +77,3 @@ An URL-encoded FEN string.
 #### `movetext`
 
 An URL-encoded movetext in RAV format.
-
-#### `shuffle` (optional)
-
-The start position in a Chess960 game; for example `BRNNKBRQ`.

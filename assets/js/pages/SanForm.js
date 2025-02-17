@@ -21,9 +21,6 @@ export class SanForm extends BaseComponent {
   mount() {
     if (this.el) {
       this.props.variantSelect.addEventListener('change', event => {
-        event.target.value === variant.CHESS_960
-          ? this.el.querySelector('.shuffle').classList.remove('d-none')
-          : this.el.querySelector('.shuffle').classList.add('d-none');
         analysisWebSocket.send('/start', {
           variant: event.target.value,
           mode: mode.ANALYSIS
@@ -46,8 +43,7 @@ export class SanForm extends BaseComponent {
           mode: mode.ANALYSIS,
           settings: {
             fen: event.target.fen.value,
-            movetext: Movetext.notation(NOTATION_SAN, event.target.san.value),
-            ...(event.target.shuffle.value && {shuffle: event.target.shuffle.value})
+            movetext: Movetext.notation(NOTATION_SAN, event.target.san.value)
           }
         });
       });
@@ -61,8 +57,7 @@ export const sanForm = new SanForm({
     return({
       variantSelect: this.el.querySelector('select[name="variant"]'),
       fenInput: this.el.querySelector('input[name="fen"]'),
-      chessboardInput: this.el.querySelector('input[name="chessboard"]'),
-      shuffleInput: this.el.querySelector('input[name="shuffle"]')
+      chessboardInput: this.el.querySelector('input[name="chessboard"]')
     });
   }
 });

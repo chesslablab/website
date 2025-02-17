@@ -14,7 +14,6 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
         this.chessboard.enableMoveInput(event => this.inputHandler(event));
         this.chessboard.setPosition(data.fen[data.fen.length - 1], true);
         this.chessboard.props.variant = data.variant;
-        this.chessboard.props.shuffle = data.shuffle;
         analysisPanel.props.movesBrowser.current = data.fen.length - 1;
         analysisPanel.props.movesBrowser.props.movetext
           = Movetext.notation(localStorage.getItem('notation'), data.movetext);
@@ -24,7 +23,6 @@ export class AnalysisWebSocket extends AbstractGameWebSocket {
         analysisPanel.props.openingTable.mount();
         if (sanForm.el) {
           sanForm.props.fenInput.value = data.fen[0];
-          sanForm.props.shuffleInput.value = data?.shuffle ?? '';
         }
       } else {
         this.infoModal.props.msg = "This game could not be started, please try again";
