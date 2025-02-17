@@ -8,8 +8,8 @@ class RavForm extends BaseComponent {
   mount() {
     this.el.querySelector('select').addEventListener('change', event => {
       event.target.value === variant.CHESS_960
-        ? this.el.querySelector('.startPos').classList.remove('d-none')
-        : this.el.querySelector('.startPos').classList.add('d-none');
+        ? this.el.querySelector('.shuffle').classList.remove('d-none')
+        : this.el.querySelector('.shuffle').classList.add('d-none');
     });
     this.el.addEventListener('submit', async event => {
       event.preventDefault();

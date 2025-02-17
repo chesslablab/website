@@ -14,5 +14,5 @@ analysisWebSocket.send('/play_rav', {
   variant: url[6],
   fen: decodeURIComponent(url[7]),
   movetext: decodeURIComponent(url[8]),
-  startPos: url[9]
+  shuffle: url[9]
 });

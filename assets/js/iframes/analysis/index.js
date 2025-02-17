@@ -17,6 +17,6 @@ analysisWebSocket.send('/start', {
   settings: {
     fen: decodeURIComponent(url[7]),
     movetext: decodeURIComponent(url[8]),
-    startPos: url[9]
+    shuffle: url[9]
   }
 });

@@ -29,7 +29,7 @@ export class PlayWebSocket extends AbstractGameWebSocket {
         this.chessboard.setPosition(data.fen, true);
         this.chessboard.setOrientation(startToken.color);
         this.chessboard.props.variant = data.variant;
-        this.chessboard.props.startPos = data.startPos;
+        this.chessboard.props.shuffle = data.shuffle;
         createGameModal.props.modal.hide();
         this.send('/online_games');
         sessionStorage.setItem('start_token', data.jwt);

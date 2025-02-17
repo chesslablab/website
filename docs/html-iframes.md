@@ -40,7 +40,7 @@ An URL-encoded FEN string.
 
 An URL-encoded movetext in SAN format.
 
-#### `startPos` (optional)
+#### `shuffle` (optional)
 
 The start position in a Chess960 game; for example `BRNNKBRQ`.
 
@@ -82,6 +82,6 @@ An URL-encoded FEN string.
 
 An URL-encoded movetext in RAV format.
 
-#### `startPos` (optional)
+#### `shuffle` (optional)
 
 The start position in a Chess960 game; for example `BRNNKBRQ`.
