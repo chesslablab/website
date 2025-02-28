@@ -43,7 +43,7 @@ export class SanForm extends BaseComponent {
           mode: mode.ANALYSIS,
           settings: {
             fen: event.target.fen.value,
-            movetext: Movetext.notation(NOTATION_SAN, event.target.san.value)
+            movetext: Movetext.notation(NOTATION_SAN, event.target.san.value).replace(/(\r\n|\n|\r)/gm,' ')
           }
         });
       });
