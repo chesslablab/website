@@ -49,6 +49,9 @@ class SearchGamesForm extends BaseComponent {
             tr.appendChild(blackTd);
             tr.appendChild(blackEloTd);
             tr.addEventListener('click', () => {
+              const siblings = [...tr.parentElement.children].filter(child => child !== tr);
+              siblings.forEach(item => item.classList.remove('table-active'));
+              tr.classList.add('table-active');
               analysisWebSocket.send('/start', {
                 variant: variant.CLASSICAL,
                 mode: mode.ANALYSIS,
