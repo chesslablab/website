@@ -70,6 +70,9 @@ dataWebSocket
       tr.appendChild(resultTd);
       tr.addEventListener('click', async () => {
         learnForm.progressModal.props.modal.show();
+        const siblings = [...tr.parentElement.children].filter(child => child !== tr);
+        siblings.forEach(item => item.classList.remove('table-active'));
+        tr.classList.add('table-active');
         analysisWebSocket.send('/play_rav', {
           variant: variant.CLASSICAL,
           movetext: game.movetext
