@@ -1,0 +1,20 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="the-page">
+    <form id="consoleForm">
+<pre>
+░█▀▀░█░█░█▀▀░█▀▀░█▀▀░█░░░█▀█░█▀▄░█░░░█▀█░█▀▄
+░█░░░█▀█░█▀▀░▀▀█░▀▀█░█░░░█▀█░█▀▄░█░░░█▀█░█▀▄
+░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░▀▀░
+</pre>
+        <p class="mb-4">
+          ChesslaBlab console<br>
+          PHP Chess version: 1.5<br>
+          For details go to: <a href="https://github.com/chesslablab/chess-server" target="_blank">https://github.com/chesslablab/chess-server</a>
+        </p>
+        <div id="response"></div>
+        <textarea name="command" rows="1" spellcheck="false"></textarea>
+    </form>
+  </div>
+{% endblock %}

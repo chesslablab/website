@@ -1,0 +1,33 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    <ul class="nav nav-tabs" id="gamesTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="moves-games-tab" data-bs-toggle="tab" data-bs-target="#movesGamesTab" type="button" role="tab" aria-controls="movesGamesTab" aria-selected="false">
+          {{ 'Moves'|trans }}
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="database-games-tab" data-bs-toggle="tab" data-bs-target="#databaseGamesTab" type="button" role="tab" aria-controls="databaseGamesTab" aria-selected="true">
+          {{ 'Database'|trans }}
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="gamesTabsContent">
+      <div class="tab-pane" id="movesGamesTab" role="tabpanel" aria-labelledby="moves-games-tab">
+        {% include 'partial/panel/san_panel.html.twig' %}
+      </div>
+      <div class="tab-pane show active" id="databaseGamesTab" role="tabpanel" aria-labelledby="database-games-tab">
+        {% include 'pages/games/search_games_form.html.twig' %}
+      </div>
+    </div>
+  </div>
+  {% include 'partial/panel/explain_position_modal.html.twig' %}
+  {% include 'partial/panel/explain_good_pgn_modal.html.twig' %}
+  {% include 'partial/panel/heuristics_modal.html.twig' %}
+  {% include 'partial/panel/steinitz_modal.html.twig' %}
+{% endblock %}

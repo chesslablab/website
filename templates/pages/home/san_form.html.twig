@@ -1,0 +1,24 @@
+<form id="sanForm" class="p-3 bg-light">
+  <div class="mb-3">
+    <select name="variant" class="form-select" aria-label="{{ 'Variant'|trans }}" required>
+      <option value="">{{ 'Variant'|trans }}</option>
+      <option value="classical" selected>{{ 'Classical Chess'|trans }}</option>
+      <option value="960">{{ 'Fischer Random'|trans }}</option>
+      <option value="dunsany">{{ 'Dunsany'|trans }}</option>
+      <option value="losing">{{ 'Losing Chess'|trans }}</option>
+      <option value="racing-kings">{{ 'Racing Kings'|trans }}</option>
+    </select>
+  </div>
+  <div class="input-group mb-1">
+    <input type="text" name="fen" placeholder="{{ 'FEN String'|trans }}" class="form-control" required>
+  </div>
+  <div class="input-group mb-3">
+    <input class="form-control" type="file" name="chessboard">
+  </div>
+  <div class="mb-3">
+    <textarea name="san" placeholder="{{ 'SAN Movetext'|trans }}" class="form-control" rows="3"></textarea>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary w-100">{{ 'Accept'|trans }}</button>
+  </div>
+</form>

@@ -1,0 +1,143 @@
+# Main nav bar
+Play: 游戏
+Online: 在线
+Computer: 电脑
+Name: 名称
+Training: 训练
+Games: 游戏
+Edit: 编辑
+Annotations: 注解
+Blog: 博客
+Language: 语言
+Settings: 设置
+Sign In: 登入
+Sign Out: 登出
+
+# Home
+Moves: 移动
+Add: 添加
+Variant: 变体
+Classical Chess: 经典国际象棋
+Fischer Random: 费舍尔随机棋
+SAN Movetext: 标准代数记谱法
+Openings: 开局
+Flank Openings: 侧翼开局
+Semi-Open Games other than the French Defense: 除了法国防御之外的半开放游戏
+Open Games and the French Defense: 开放游戏和法国防御
+Closed Games and Semi-Closed Games: 封闭游戏和半封闭游戏
+Indian Defenses: 印度防御
+Search: 搜索
+Most Played: 最常玩
+
+# Play
+Online Players: 在线玩家
+Create a Game: 创建游戏
+Play a Friend: 与朋友对战
+Enter Invite Code: 输入邀请码
+Play Online: 在线游戏
+Minutes per side: 每方分钟数
+Increment in seconds: 每秒增加时间
+Classical: 经典
+Create Game: 创建游戏
+FEN String: FEN 记录
+Create Invite Code: 创建邀请码
+Share this code with a friend: 与朋友分享此码
+Copy and Play: 复制并游戏
+Invite code: 邀请码
+Play Computer: 与电脑对战
+Difficulty level: 难度级别
+Would you like a draw?: 想要和棋吗？
+Would you like a rematch?: 想要再战吗？
+Would you like a takeback?: 想要悔棋吗？
+Accept: 接受
+Decline: 拒绝
+Top Players: 顶级玩家
+
+# Training
+Checkmate: 将死
+Random: 随机
+King and queen and rook vs. king and rook: 王后和车对王和车
+King and queen vs. king: 王后对王
+King and rook vs. king: 王和车对王
+King and two bishops vs. king: 王和两个象对王
+King and bishop and knight vs. king: 王、象和马对王
+Endgame: 残局
+Pawn endgame: 兵残局
+
+# Games
+Database: 数据库
+Loading: 加载中
+Event: 事件
+Year: 年份
+ECO Code: 开局 ECO 代码
+White: 白方
+Black: 黑方
+Result: 结果
+
+# Edit
+Player's turn: 玩家回合
+Select an option: 选择一个选项
+White's castling: 白方王车易位
+Black's castling: 黑方王车易位
+En passant: 吃过路兵
+Starting Position: 起始位置
+Clear Board: 清空棋盘
+Delete: 删除
+
+# Annotations
+RAV Movetext: 带动作的 RAV 文本
+Learn: 学习
+
+# Blog
+ChesslaBlab Blog: ChesslaBlab 的博客
+Discover stories about your favorite topics: 发现关于你最喜欢的主题的故事
+
+# Partial templates
+Board: 棋盘
+Flip Board: 翻转棋盘
+Copy Movetext: 复制棋步记录
+Copy FEN: 复制 FEN
+Game: 游戏
+Takeback: 悔棋
+Propose a takeback: 提议悔棋
+Offer draw: 提议和棋
+Resign: 认输
+Offer Rematch: 提议再战
+Study: 学习
+Download Image: 下载图片
+Download Video: 下载视频
+Heuristic Charts: 启发式图表
+Fast Steinitz Evaluation: 快速 Steinitz 评估
+Explain this Position: 解释这个立场
+Explain a Good Move: 解释一出好戏
+ChesslaBlab is an open-source community driven project: ChesslaBlab 是一个由社区驱动的开源项目
+Let's do this: 让我们开始吧
+
+# Settings
+Theme: 主题
+Display moves: 显示走法
+Inline: 行内
+Table: 表格
+Notation: 记谱法
+Figurine Algebraic Notation (FAN): 立体代数记谱法 (FAN)
+Standard Algebraic Notation (SAN): 标准代数记谱法 (SAN)
+Piece set: 棋子集
+Light: 浅色
+Dark: 深色
+Chess server: 国际象棋服务器
+Save Changes: 保存更改
+
+# Sign In
+Username: 用户名
+Password: 密码
+Register Now: 立即注册
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: 使用支持 9 位长度密码的 TOTP 身份验证器扫描二维码，如下所示
+You'll be assigned an automatic username: 您将被分配一个自动用户名
+Sign in to your account to complete the registration: 登录您的账户以完成注册
+
+# Error pages
+This publication has not been translated into the current selected language: 本出版物尚未翻译成当前选择的语言
+Whoops: 哎呀
+
+# Footer
+About: 关于我们

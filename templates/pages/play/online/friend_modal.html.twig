@@ -1,0 +1,52 @@
+<div class="modal" id="playFriendModal" tabindex="-1" aria-labelledby="playFriendModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="playFriendModalLabel">{{ 'Play a Friend'|trans }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3 text-center">
+            <label class="form-label">{{ 'Minutes per side'|trans }}</label>
+            <input type="range" class="form-range" name="minutes" min="1" max="60" step="1" value="5">
+          </div>
+          <div class="mb-3 text-center">
+            <label class="form-label">{{ 'Increment in seconds'|trans }}</label>
+            <input type="range" class="form-range" name="increment" min="0" max="60" step="1" value="3">
+          </div>
+          <div class="mb-3 d-flex justify-content-center">
+            <div>
+              <input type="radio" id="friendModalRadioWhite" name="color" value="w">
+              <label for="friendModalRadioWhite"><img src="{{ asset('img/wKing.png') }}" alt="White"></label>
+            </div>
+            <div>
+              <input type="radio" id="friendModalRadioRandom" name="color" value="{{ random(['w', 'b']) }}" checked>
+              <label for="friendModalRadioRandom"><img src="{{ asset('img/wbKing.png') }}" alt="Random"></label>
+            </div>
+            <div>
+              <input type="radio" id="friendModalRadioBlack" name="color" value="b">
+              <label for="friendModalRadioBlack"><img src="{{ asset('img/bKing.png') }}" alt="Black"></label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <select name="variant" class="form-select" aria-label="{{ 'Variant'|trans }}" required>
+              <option value="">{{ 'Variant'|trans }}</option>
+              <option value="classical">{{ 'Classical Chess'|trans }}</option>
+              <option value="960">{{ 'Fischer Random'|trans }}</option>
+              <option value="dunsany">{{ 'Dunsany'|trans }}</option>
+              <option value="losing">{{ 'Losing Chess'|trans }}</option>
+              <option value="racing-kings">{{ 'Racing Kings'|trans }}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input type="text" name="fen" placeholder="{{ 'FEN String'|trans }}" class="form-control">
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary w-100">{{ 'Create Invite Code'|trans }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

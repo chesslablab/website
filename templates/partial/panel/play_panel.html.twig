@@ -1,0 +1,36 @@
+<div id="playPanel" class="p-2 bg-light d-none">
+  <div class="d-flex">
+    {% include 'partial/panel/board_actions_dropdown.html.twig' %}
+    <div id="gameActionsDropdown" class="dropdown">
+      <button class="btn btn-light btn-sm w-100 rounded-0" type="button" id="gameActionsMenu" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-list"></i> {{ 'Game'|trans }}
+      </button>
+      <ul class="dropdown-menu rounded-0" aria-labelledby="gameActionsMenu">
+        <li>
+          <a class="dropdown-item" href="#">
+            <i class="bi bi-arrow-left"></i> {{ 'Propose a takeback'|trans }}
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <i class="bi bi-diamond-half"></i> {{ 'Offer draw'|trans }}
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <i class="bi bi-flag-fill"></i> {{ 'Resign'|trans }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  {% include 'partial/panel/history_buttons.html.twig' %}
+  <table id="timerTable" class="table">
+    <tbody class="small"></tbody>
+  </table>
+  {% include 'partial/panel/moves_browser.html.twig' %}
+  <div id="finishedButtons" class="btn-group-vertical w-100 mt-2 d-none">
+    <button class="btn btn-primary btn-sm" type="button">{{ 'Offer Rematch'|trans }}</button>
+    <button class="btn btn-primary btn-sm" type="button" data-redirect="{{ path('pages_play_online') }}">{{ 'Play Online'|trans }}</button>
+  </div>
+</div>

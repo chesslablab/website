@@ -1,0 +1,141 @@
+routing_directory:
+    resource: 'routing'
+    type:     directory
+
+# TOTP auth routes
+
+totp_auth_signout:
+    path:       /{_locale}/totp-auth/signout
+    controller: App\Controller\TotpAuthController::signout
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+# Setup routes
+
+locale:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+    defaults:
+      path: /%set_locale%/
+      permanent: true
+
+sitemap:
+    path:       /sitemap.xml
+    controller: App\Controller\SitemapController::index
+    methods:    GET
+
+robots:
+    path:       /robots.txt
+    controller: App\Controller\RobotsController::index
+    methods:    GET
+
+# Pages routes
+
+pages_annotations:
+    path:       /{_locale}/annotations
+    controller: App\Controller\Pages\AnnotationsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_games:
+    path:       /{_locale}/games
+    controller: App\Controller\Pages\GamesController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_edit:
+    path:       /{_locale}/edit
+    controller: App\Controller\Pages\EditController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_home:
+    path:       /{_locale}/
+    controller: App\Controller\Pages\HomeController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_play_computer:
+    path:       /{_locale}/play/computer
+    controller: App\Controller\Pages\Play\ComputerController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_play_online:
+    path:       /{_locale}/play/online
+    controller: App\Controller\Pages\Play\OnlineController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+    options:
+      sitemap:
+        _locale: en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_training:
+    path:       /{_locale}/training
+    controller: App\Controller\Pages\TrainingController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_console:
+    path:       /{_locale}/console
+    controller: App\Controller\Pages\ConsoleController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_settings:
+    path:       /{_locale}/settings
+    controller: App\Controller\Pages\SettingsController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_signin:
+    path:       /{_locale}/signin
+    controller: App\Controller\Pages\SignIn\SignInController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_signin_register:
+    path:       /{_locale}/signin/register
+    controller: App\Controller\Pages\SignIn\RegisterController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+pages_about:
+    path:       /{_locale}/about
+    controller: App\Controller\Pages\AboutController::index
+    methods:    GET
+    requirements:
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+    options:
+      sitemap:
+        _locale: en
+
+# Iframe routes
+
+iframe_analysis:
+    path:       /{_locale}/iframe/analysis/{variant}/{fen}/{movetext}
+    controller: App\Controller\Iframes\AnalysisController::index
+    methods:    GET
+    requirements:
+      fen: .+
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN
+
+iframe_annotations:
+    path:       /{_locale}/iframe/annotations/{variant}/{fen}/{movetext}
+    controller: App\Controller\Iframes\AnnotationsController::index
+    methods:    GET
+    requirements:
+      fen: .+
+      _locale:  en|es|fr|ru|tr|de|hi|zh_CN

@@ -1,0 +1,31 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-4">
+    <div id="playOnlineButtons">
+      <div id="friendButtons" class="btn-group-vertical d-flex mb-3">
+        <button class="btn btn-primary" type="button">{{ 'Play a Friend'|trans }}</button>
+        <button class="btn btn-primary" type="button">{{ 'Enter Invite Code'|trans }}</button>
+      </div>
+      <div id="playerButtons" class="btn-group-vertical d-flex">
+        <button class="btn btn-primary" type="button">{{ 'Create a Game'|trans }}</button>
+      </div>
+      <div id="playersButtons" class="btn-group-vertical d-flex">
+      </div>
+    </div>
+    {% include 'partial/panel/play_panel.html.twig' %}
+  </div>
+  <div class="col-md-2">
+    {% include 'partial/ranking_table.html.twig' %}
+  </div>
+  {% include 'pages/play/online/copy_invite_code_modal.html.twig' %}
+  {% include 'pages/play/online/create_game_modal.html.twig' %}
+  {% include 'pages/play/online/draw_modal.html.twig' %}
+  {% include 'pages/play/online/enter_invite_code_modal.html.twig' %}
+  {% include 'pages/play/online/friend_modal.html.twig' %}
+  {% include 'pages/play/online/rematch_modal.html.twig' %}
+  {% include 'pages/play/online/takeback_modal.html.twig' %}
+{% endblock %}

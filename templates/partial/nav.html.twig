@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar-dark fw-bold mb-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('pages_home') }}">{{ app.request.server.get('SET_SITE_NAME') }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="{{app.request.get('_route') starts with 'pages_play_' ? 'active' : ''}} nav-link dropdown-toggle" href="#" id="mainNavPlayLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ 'Play'|trans }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="mainNavPlayLink">
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_online') }}">
+                {{ 'Online'|trans }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path('pages_play_computer') }}">
+                {{ 'Computer'|trans }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_training' ? 'active' : ''}} nav-link" href="{{ path('pages_training') }}" role="button" aria-expanded="false">
+            {{ 'Training'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_games' ? 'active' : ''}} nav-link" href="{{ path('pages_games') }}" role="button" aria-expanded="false">
+            {{ 'Games'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_edit' ? 'active' : ''}} nav-link" href="{{ path('pages_edit') }}" role="button" aria-expanded="false">
+            {{ 'Edit'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_annotations' ? 'active' : ''}} nav-link" href="{{ path('pages_annotations') }}" role="button" aria-expanded="false">
+            {{ 'Annotations'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="{{ app.request.get('_route') starts with 'blog' ? 'active' : '' }} nav-link" href="{{ path('blog') }}" role="button" aria-expanded="false">
+            {{ 'Blog'|trans }}
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="mainNavLanguageLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-globe"></i> {{ 'Language'|trans }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="mainNavLanguageLink">
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'de'}) }}">
+                Deutsch
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'en'}) }}">
+                English
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'es'}) }}">
+                Español
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'fr'}) }}">
+                Français
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'ru'}) }}">
+                Русский
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'tr'}) }}">
+                Türkçe
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'hi'}) }}">
+                हिंदी
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'), {_locale: 'zh_CN'}) }}">
+                简体中文
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="{{app.request.get('_route') starts with 'pages_settings' ? 'active' : ''}} nav-link" href="{{ path('pages_settings') }}" id="mainNavSettingsLink" role="button" aria-expanded="false">
+            <i class="bi bi-gear-fill"></i> {{ 'Settings'|trans }}
+          </a>
+        </li>
+        <li class="nav-item">
+          {% if app.request.cookies.has('access_token') %}
+            <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('totp_auth_signout') }}" id="mainNavSignOutLink" role="button" aria-expanded="false">
+              <i class="bi bi-box-arrow-right"></i> {{ 'Sign Out'|trans }}
+            </a>
+          {% else %}
+            <a class="{{app.request.get('_route') starts with 'pages_signin' ? 'active' : ''}} nav-link" href="{{ path('pages_signin') }}" id="mainNavSignInLink" role="button" aria-expanded="false">
+              <i class="bi bi-person-fill"></i> {{ 'Sign In'|trans }}
+            </a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

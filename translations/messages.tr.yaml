@@ -1,0 +1,144 @@
+# Main nav bar
+Play: Oyna
+Online: Çevrim İçi
+Computer: Bilgisayar
+Name: İsim
+Training: Antrenman
+Games: Oyunlar
+Edit: Düzenle
+Annotations: Açıklamalar
+Blog: Blog
+Language: Dil
+Settings: Ayarlar
+Sign In: Kayıt olmak
+Sign Out: Oturumu Kapat
+
+# Home
+Moves: Hareketler
+Add: Eklemek
+Variant: Varyant
+Classical Chess: Klasik Satranç
+Fischer Random: Satranç960 (Fischer'in Rastgele Satrancı)
+SAN Movetext: SAN Metintaşı
+Openings: Açılışlar
+Flank Openings: Flank Açılışları
+Semi-Open Games other than the French Defense: Yarı-Açık Oyunlar (Fransız Defansı harici)
+Open Games and the French Defense: Açık Oyunlar ve Fransız Defansı
+Closed Games and Semi-Closed Games: Kapalı ve Yarı-Kapalı Oyunlar
+Indian Defenses: Hint Defansları
+Search: Ara
+Most Played: En çok oynanan
+
+# Play
+Online Players: Çevrim İçi Oyuncular
+Create a Game: Bir Oyun Oluştur
+Play a Friend: Arkadaşınla Oyna
+Enter Invite Code: Davet Kodunu Gir
+Play Online: Çevrim İçi Oyna
+Minutes per side: Oyuncu Başına Dakika
+Increment in seconds: Saniye Cinsinden Artış
+Classical: Klasik
+Create Game: Oyun Oluştur
+FEN String: FEN Kodu
+Create Invite Code: Davet Kodu Oluştur
+Share this code with a friend: Bu kodu bir arkadaşınla paylaş
+Copy and Play: Kopyala ve Oyna
+Invite code: Davet Kodu
+Play Computer: Bilgisayara Karşı Oyna
+Difficulty level: Zorluk Düzeyi
+Would you like a draw?: Beraberlik ister misiniz?
+Would you like a rematch?: Rövanş ister misiniz?
+Would you like a takeback?: Hamlenizi geri almak ister misiniz?
+Accept: Kabul Et
+Decline: Reddet
+Top Players: En İyi Oyuncular
+
+# Training
+Checkmate: Mat
+Random: Rastgele
+King and queen and rook vs. king and rook: Şah, vezir ve kale vs. şah ve kale
+King and queen vs. king: Vezir ve şah vs. vezir
+King and rook vs. king: Vezir ve kale vs. vezir
+King and two bishops vs. king: Vezir ve iki fil vs. vezir
+King and bishop and knight vs. king: Vezir, fil ve at vs. vezir
+Endgame: Oyun Sonu
+Pawn endgame: Piyon oyun sonu
+
+# Games
+Database: Veri Tabanı
+Loading: Yükleniyor
+Event: Etkinlik
+Year: Yıl
+ECO Code: ECO Kodu
+White: Beyaz
+Black: Siyah
+Result: Sonuç
+
+# Edit
+Player's turn: Oyuncunun sırası
+Select an option: Bir seçenek seçin
+White's castling: Beyaz'ın rok atması
+Black's castling: Siyah'ın rok atması
+En passant: Geçerken Almak
+Starting Position: Başlangıç Pozisyonu
+Clear Board: Tahtayı Temizle
+Delete: Silmek
+
+# Annotations
+RAV Movetext: Hareketli RAV metni
+Learn: Öğren
+
+# Blog
+ChesslaBlab Blog: ChesslaBlab'ın Blogu
+Discover stories about your favorite topics: Favori konularınızla ilgili hikayeleri keşfedin
+
+# Partial templates
+Board: Tahta
+Flip Board: Tahtayı Çevir
+Copy Movetext: Metintaşını Kopyala
+Copy FEN: FEN Kodunu Koplaya
+Game: Oyun
+Takeback: Hamleyi Geri Al
+Propose a takeback: Hamleyi Geri Almayı İste
+Offer draw: Beraberlik Teklif Et
+Resign: Çekil
+Offer Rematch: Rövanş Teklif Et
+Study: Çalış
+Download Image: Görüntüyü İndir
+Download Video: Videoyu İndir
+Heuristic Charts: Sezgisel Grafikler
+Fast Steinitz Evaluation: Hızlı Steinitz Değerlendirmesi
+Explain this Position: Bu pozisyonu açıkla
+Explain a Good Move: İyi bir oyunu açıklamak
+ChesslaBlab is an open-source community driven project: ChesslaBlab açık kaynak, topluluk odaklı bir projedir
+Let's do this: Hadi yapalım şu işi
+
+
+# Settings
+Theme: Tema
+Display moves: Hamleleri göster
+Inline: Satır içinde
+Table: Tablo
+Notation: Gösterim
+Figurine Algebraic Notation (FAN): Figürlü Cebirsel Gösterim (FCG)
+Standard Algebraic Notation (SAN): Ölçünlü (Standart) Cebirsel Gösterim (ÖCG)
+Piece set: Taş Takımı
+Light: Açık
+Dark: Karanlık
+Chess server: Satranç sunucusu
+Save Changes: Değişiklikleri Kaydet
+
+# Sign In
+Username: Kullanıcı adı
+Password: Şifre
+Register Now: Şimdi Kayıt Olun
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Aşağıdakilere benzer 9 haneli uzunluktaki şifreleri destekleyen bir TOTP doğrulayıcısı ile QR kodunu tarayın
+You'll be assigned an automatic username: Otomatik olarak size bir kullanıcı adı atanacak
+Sign in to your account to complete the registration: Kaydı tamamlamak için hesabınıza giriş yapın
+
+# Error pages
+This publication has not been translated into the current selected language: Bu yayın henüz seçili dile çevrilmedi
+Whoops: Oops
+
+# Footer
+About: Hakkında

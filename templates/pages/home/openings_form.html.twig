@@ -1,0 +1,28 @@
+<form id="openingsForm" class="p-3 bg-light">
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <select name="eco" class="form-select" aria-label="{{ 'ECO Code'|trans }}" required>
+        <option value="">{{ 'ECO Code'|trans }}</option>
+        <option value="A">A: {{ 'Flank Openings'|trans }}</option>
+        <option value="B">B: {{ 'Semi-Open Games other than the French Defense'|trans }}</option>
+        <option value="C">C: {{ 'Open Games and the French Defense'|trans }}</option>
+        <option value="D">D: {{ 'Closed Games and Semi-Closed Games'|trans }}</option>
+        <option value="E">E: {{ 'Indian Defenses'|trans }}</option>
+      </select>
+    </div>
+    <div class="col-md-12 mb-3">
+      <input type="text" name="name" placeholder="{{ 'Name'|trans }}" class="form-control">
+    </div>
+    <div class="col-md-12 mb-3">
+      <input type="text" name="movetext" placeholder="{{ 'SAN Movetext'|trans }}" class="form-control">
+    </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary w-100">{{ 'Search'|trans }}</button>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-light table-hover mt-3 d-none">
+        <tbody role="button"></tbody>
+      </table>
+    </div>
+  </div>
+</form>

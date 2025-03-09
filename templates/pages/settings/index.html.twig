@@ -1,0 +1,47 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="the-page">
+    <form id="settingsForm">
+      <div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'Theme'|trans }}</label>
+          <select name="theme" class="form-select" required>
+            <option value="dark">{{ 'Dark'|trans }}</option>
+            <option value="light">{{ 'Light'|trans }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'Display moves'|trans }}</label>
+          <select name="format" class="form-select" required>
+            <option value="inline">{{ 'Inline'|trans }}</option>
+            <option value="table">{{ 'Table'|trans }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'Notation'|trans }}</label>
+          <select name="notation" class="form-select" required>
+            <option value="fan">{{ 'Figurine Algebraic Notation (FAN)'|trans }}</option>
+            <option value="san">{{ 'Standard Algebraic Notation (SAN)'|trans }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'Piece set'|trans }}</label>
+          <select name="set" class="form-select" required>
+            <option value="classical">{{ 'Classical'|trans }}</option>
+            <option value="staunty">{{ 'Staunty'|trans }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'Chess server'|trans }}</label>
+          <select name="ws" class="form-select" required>
+            <option value="random">{{ 'Random'|trans }}</option>
+          </select>
+        </div>
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary">{{ 'Save Changes'|trans }}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock %}

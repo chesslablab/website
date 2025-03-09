@@ -1,0 +1,11 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'pages/play/computer/computer_modal.html.twig' %}
+    {% include 'partial/panel/stockfish_panel.html.twig' %}
+  </div>
+{% endblock %}

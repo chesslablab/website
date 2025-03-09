@@ -1,0 +1,111 @@
+{% extends 'layouts/default.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    <div id="chessboardEditor">
+      <form class="p-3 bg-light">
+        <div class="mb-3">
+          <label class="form-label">{{ "Player's turn"|trans }}</label>
+          <select name="turn" class="form-select" aria-label="Turn to play" required>
+            <option value="">{{ 'Select an option'|trans }}</option>
+            <option value="w" selected>{{ 'White'|trans }}</option>
+            <option value="b">{{ 'Black'|trans }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ "White's castling"|trans }}</label>
+          <select name="wCastling" class="form-select" aria-label="Castling" required>
+            <option value="">{{ 'Select an option'|trans }}</option>
+            <option value="K">K</option>
+            <option value="Q">Q</option>
+            <option value="KQ" selected>KQ</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ "Black's castling"|trans }}</label>
+          <select name="bCastling" class="form-select" aria-label="Castling" required>
+            <option value="">{{ 'Select an option'|trans }}</option>
+            <option value="k">k</option>
+            <option value="q">q</option>
+            <option value="kq" selected>kq</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">{{ 'En passant'|trans }}</label>
+          <input type="text" name="enPassant" maxlength="2" class="form-control" value="-">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">FEN</label>
+          <input type="text" name="fen" class="form-control">
+        </div>
+        <div class="buttons btn-group-vertical w-100">
+          <button type="button" class="btn btn-secondary w-100">
+            <i class="bi bi-arrow-repeat"></i> {{ 'Flip Board'|trans }}
+          </button>
+          <button type="button" class="btn btn-secondary w-100">
+            <i class="bi bi-arrow-counterclockwise"></i> {{ 'Starting Position'|trans }}
+          </button>
+          <button type="button" class="btn btn-secondary w-100">
+            <i class="bi bi-trash"></i> {{ 'Clear Board'|trans }}
+          </button>
+        </div>
+      </form>
+      <div class="modal" id="chessboardEditorModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="pieces">
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wp"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wb"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wn"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wr"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wq"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#wk"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#bp"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#bb"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#bn"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#br"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#bq"></use>
+                </svg>
+                <svg width="70" height="70" viewBox="0 0 40 40">
+                  <use xlink:href="#bk"></use>
+                </svg>
+              </div>
+              <div class="buttons">
+                <div class="d-flex justify-content-center mt-3">
+                  <button type="button" class="btn btn-secondary w-100">
+                    <i class="bi bi-trash"></i> {{ 'Delete'|trans }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,143 @@
+# Main nav bar
+Play: Играть
+Online: Онлайн
+Computer: Бот
+Name: Имя
+Training: Практика
+Games: Игры
+Edit: Редактировать
+Annotations: Аннотации
+Blog: Блог
+Language: Язык
+Settings: Настройки
+Sign In: Войти
+Sign Out: Выход
+
+# Home
+Moves: Ходы
+Add: Добавлять
+Variant: Вариант
+Classical Chess: Классические шахматы
+Fischer Random: Шахматы Фишера
+SAN Movetext: Алгебраическая нотация
+Openings: Дебют
+Flank Openings: Фланговые дебюты
+Semi-Open Games other than the French Defense: Полуоткрытые дебюты, кроме французской защиты
+Open Games and the French Defense: Открытые дебюты и французская защита
+Closed Games and Semi-Closed Games: Закрытые дебюты и Полуоткрытые дебюты
+Indian Defenses: Индийский дебют
+Search: Поиск
+Most Played: Самый играемый
+
+# Play
+Online Players: Игроки Онлайн
+Create a Game: Создать Игру
+Play a Friend: Играть с Другом
+Enter Invite Code: Введите Код Приглашения
+Play Online: Играть Онлайн
+Minutes per side: Минут на партию
+Increment in seconds: Добавление секунд на ход
+Classical: Классические
+Create Game: Создать Игру
+FEN String: FEN запись
+Create Invite Code: Создайте Код Приглашения
+Share this code with a friend: Поделиться кодом с Другом
+Copy and Play: Скопировать и Играть
+Invite code: Код Приглашения
+Play Computer: Играть против Бота
+Difficulty level: Уровень сложности
+Would you like a draw?: Ничья?
+Would you like a rematch?: Реванш?
+Would you like a takeback?: Отменить ход?
+Accept: Принять
+Decline: Отклонить
+Top Players: Лучшие игроки
+
+# Training
+Checkmate: Мат
+Random: Случайный
+King and queen and rook vs. king and rook: Король, ферзь и ладья против короля и ладьи
+King and queen vs. king: Король и ферзь против короля
+King and rook vs. king: Король и ладья против короля
+King and two bishops vs. king: Король и два слона против короля
+King and bishop and knight vs. king: Король, слон и конь против короля
+Endgame: Эндшпиль
+Pawn endgame: Пешечное окончание
+
+# Games
+Database: База данных
+Loading: Загрузка
+Event: Событие
+Year: Год
+ECO Code: Дебютные ECO коды
+White: Белые
+Black: Черные
+Result: Исход
+
+# Edit
+Player's turn: Ход игрока
+Select an option: Выберите вариант
+White's castling: Белая рокировка
+Black's castling: Черная рокировка
+En passant: Взятие на проходе
+Starting Position: Начальная позиция
+Clear Board: Очистить доску
+Delete: Удалить
+
+# Annotations
+RAV Movetext: Текст RAV с движениями
+Learn: Обучение
+
+# Blog
+ChesslaBlab Blog: Блог ChesslaBlab
+Discover stories about your favorite topics: Откройте для себя истории на ваши любимые темы
+
+# Partial templates
+Board: Доска
+Flip Board: Перевернуть Доску
+Copy Movetext: Скопировать нотацию
+Copy FEN: Скопировать FEN
+Game: Игра
+Takeback: Отменить ход
+Propose a takeback: Предложить отменить ход
+Offer draw: Предложить ничью
+Resign: Сдаться
+Offer Rematch: Предложить Реванш
+Study: Изучить
+Download Image: Скачать Изображение
+Download Video: Скачать Видео
+Heuristic Charts: Эвристические диаграммы
+Fast Steinitz Evaluation: Быстрая оценка Стейница
+Explain this Position: Объясните эту позицию
+Explain a Good Move: Объяснение хорошей пьесы
+ChesslaBlab is an open-source community driven project: ChesslaBlab — это проект с открытым исходным кодом, управляемый сообществом
+Let's do this: Давайте сделаем это
+
+# Settings
+Theme: Тема
+Display moves: Отобразить ходы
+Inline: В строку
+Table: Доска
+Notation: Нотация
+Figurine Algebraic Notation (FAN): Фигурная Алгебраическая Нотация(FAN)
+Standard Algebraic Notation (SAN): Стандартная Алгебраическая Нотация (SAN)
+Piece set: Набор фигур
+Light: Свет
+Dark: Темный
+Chess server: Шахматный сервер
+Save Changes: Сохранить изменения
+
+# Sign In
+Username: Имя пользователя
+Password: Пароль
+Register Now: Зарегистрируйтесь сейчас
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Отсканируйте QR-код с помощью аутентификатора TOTP, поддерживающего пароли длиной 9 цифр, например, следующие
+You'll be assigned an automatic username: Вам будет назначено автоматическое имя пользователя
+Sign in to your account to complete the registration: Войдите в свою учетную запись, чтобы завершить регистрацию
+
+# Error pages
+This publication has not been translated into the current selected language: Эта публикация не переведена на текущий выбранный язык
+Whoops: Упс
+
+# Footer
+About: О нас

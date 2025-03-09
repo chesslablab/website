@@ -1,0 +1,143 @@
+# Main nav bar
+Play: खेलें
+Online: सम्पर्कयुत
+Computer: संगणक
+Name: नाम
+Training: प्रशिक्षण
+Games: खेल
+Edit: संपाद
+Annotations: एनोटेशन
+Blog: ब्लॉग
+Language: भाषा
+Settings: सेटिंग्स
+Sign In: दाखिल करना
+Sign Out: साइन आउट
+
+# Home
+Moves: चालें
+Add: जोड़ना
+Variant: प्रकार
+Classical Chess: शास्त्रीय शतरंज
+Fischer Random: फिशर रेंडम
+SAN Movetext: SAN गतिमय पाठ
+Openings: खुलावद
+Flank Openings: फ्लैंक ओपनिंग्स
+Semi-Open Games other than the French Defense: फ्रेंच रक्षा के अलावा अर्ध-खुले खेल।
+Open Games and the French Defense: खुले खेल और फ्रेंच डिफेंस ।
+Closed Games and Semi-Closed Games: बंद खेल और अर्ध-बंद खेल
+Indian Defenses: भारतीय रक्षा
+Search: खोजे
+Most Played: सबसे ज्यादा खेला गया
+
+# Play
+Online Players: ऑनलाइन खिलाड़ी
+Create a Game: एक खेल बनाएं
+Play a Friend: एक दोस्त के साथ खेलें
+Enter Invite Code: आमंत्रण कोड डालें
+Play Online: ऑनलाइन खेले
+Minutes per side: प्रति पक्ष मिनट
+Increment in seconds: सेकंड में बढ़ाव
+Classical: शास्त्रीय
+Create Game: खेल बनाएं
+FEN String: FEN स्ट्रिंग
+Create Invite Code: आमंत्रण कोड बनाएं
+Share this code with a friend: इस कोड को दोस्त के साथ साझा करें
+Copy and Play: कॉपी और खेलें
+Invite code: आमंत्रण कोड
+Play Computer: संगणक के साथ खेलें
+Difficulty level: कठिनाई स्तर
+Would you like a draw?: क्या आप ड्रॉ चाहेंगे ?
+Would you like a rematch?: क्या आप पुनः मुकाबला करना चाहोगे ?
+Would you like a takeback?: क्या आप वापसी चाहेंगे?
+Accept: मान्य करें
+Decline: इनकार करें
+Top Players: शीर्ष खिलाड़ी
+
+# Training
+Checkmate: शाहमात
+Random: आकस्मिक
+King and queen and rook vs. king and rook: राजा और रानी और रुक बनाम राजा और रुक |
+King and queen vs. king: राजा और रानी बनाम राजा
+King and rook vs. king: राजा और रुक बनाम राजा
+King and two bishops vs. king: राजा और दो बिशप बनाम राजा
+King and bishop and knight vs. king: राजा और बिशप और नाइट बनाम राजा
+Endgame: अंतखेल
+Pawn endgame: प्यादा का अंतिम खेल
+
+# Games
+Database: डेटाबेस
+Loading: लोडिंग हो रही है
+Event: घटना
+Year: साल
+ECO Code: ECO कोड
+White: सफेद
+Black: काला
+Result: परिणाम
+
+# Edit
+Player's turn: खिलाड़ी की बारी
+Select an option: विकल्प चुनें
+White's castling: सफेद का कास्टलिंग
+Black's castling: काले का कास्टलिंग
+En passant: एन पैसंट
+Starting Position: आरंभिक स्थान
+Clear Board: बोर्ड साफ़ करें
+Delete: मिटाएं
+
+# Annotations
+RAV Movetext: आंदोलनों के साथ आरएवी पाठ
+Learn: सीखें
+
+# Blog
+ChesslaBlab Blog: ChesslaBlab का ब्लॉग
+Discover stories about your favorite topics: अपने पसंदीदा विषयों के बारे में कहानियाँ खोजें
+
+# Partial templates
+Board: बोर्ड
+Flip Board: बोर्ड उलटें
+Copy Movetext: मूवटेक्स्ट की प्रतिलिपि बनाएं
+Copy FEN: FEN को कॉपी करें
+Game: खेल
+Takeback: पुन चालन करना
+Propose a takeback: एक पहल को वापस लेने की प्रस्तावना करें
+Offer draw: ड्रा का प्रस्ताव दें
+Resign: इस्तीफ़ा देना
+Offer Rematch: रीमैच का प्रस्ताव दें
+Study: अध्ययन
+Download Image: छवि डाउनलोड करें
+Download Video: वीडियो डाउनलोड करें
+Heuristic Charts: सन्निवेशक चार्ट
+Fast Steinitz Evaluation: फास्ट स्टीनिट्ज़ मूल्यांकन
+Explain this Position: इस स्थिति को स्पष्ट करें
+Explain a Good Move: एक अच्छे नाटक की व्याख्या
+ChesslaBlab is an open-source community driven project: ChesslaBlab एक ओपन-सोर्स समुदाय संचालित परियोजना है
+Let's do this: चलिए इसे करते हैं!
+
+# Settings
+Theme: थीम
+Display moves: चालें प्रदर्शित करें
+Inline: संलग्न
+Table: तालिका
+Notation: संकेतन
+Figurine Algebraic Notation (FAN): मूर्ति बीजगणितीय संकेतन (FAN)
+Standard Algebraic Notation (SAN): मानक बीजगणितीय संकेतन (SAN)
+Piece set: पीस सेट
+Light: प्रकाश
+Dark: अंधेरा
+Chess server: शतरंज सर्वर
+Save Changes: संशोधन सहेजें
+
+# Sign In
+Username: उपयोगकर्ता नाम
+Password: पासवर्ड
+Register Now: अभी पंजीकरण करें
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: निम्नलिखित जैसे 9-अंकीय लंबाई वाले पासवर्ड का समर्थन करने वाले TOTP प्रमाणक के साथ QR कोड को स्कैन करें
+You'll be assigned an automatic username: आपको स्वचालित रूप से एक उपयोगकर्ता नाम आवंटित किया जाएगा
+Sign in to your account to complete the registration: पंजीकरण पूरा करने के लिए अपने खाते में साइन इन करें
+
+# Error pages
+This publication has not been translated into the current selected language: इस प्रकाशन का वर्तमान चयनित भाषा में अनुवाद नहीं किया गया है
+Whoops: ओह
+
+# Footer
+About: के विषय में

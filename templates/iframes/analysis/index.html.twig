@@ -1,0 +1,10 @@
+{% extends 'layouts/iframe.html.twig' %}
+
+{% block main %}
+  <div class="col-md-6">
+    <div id="chessboard"></div>
+  </div>
+  <div class="col-md-6">
+    {% include 'partial/panel/san_panel.html.twig' %}
+  </div>
+{% endblock %}

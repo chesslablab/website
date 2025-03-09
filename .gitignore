@@ -1,0 +1,26 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+### ssl certs
+/docker/nginx/ssl/*.pem
+/docker/nginx/ssl/*.csr
+/docker/nginx/ssl/*.crt
+/docker/nginx/ssl/*.key
+
+### misc
+/site/
+/assets/env.js
+.env

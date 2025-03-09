@@ -1,0 +1,206 @@
+html {
+  font-size: 0.86em;
+}
+
+body {
+  font-family: monospace;
+}
+
+h3 a,
+h5 a {
+  color: #282828;
+  text-decoration: none;
+}
+
+input[type="radio"] {
+  visibility: hidden;
+}
+
+label[for$="RadioWhite"]:hover,
+label[for$="RadioRandom"]:hover,
+label[for$="RadioBlack"]:hover {
+  background-color: #f5f5f5;
+  border-radius: 4rem;
+}
+
+input:checked ~ label[for$="RadioWhite"],
+input:checked ~ label[for$="RadioRandom"],
+input:checked ~ label[for$="RadioBlack"] {
+  background-color: #f0f0f0;
+  border-radius: 4rem;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #fafafa;
+  border-color: #fafafa;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.the-page {
+  padding: 1.5rem;
+}
+
+.the-page p,
+.the-page ul {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+}
+
+.the-page p a,
+.the-page ol li a,
+.the-page ul li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.the-page h1, h2, h6,
+.the-page p:has(img) {
+  text-align: center;
+}
+
+.the-page img {
+  width: 100%;
+  height: auto;
+}
+
+h3 a:hover,
+h5 a:hover,
+.the-page p a:hover,
+.the-page ul li a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  min-height: 595px;
+}
+
+.active-move {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+label img,
+#chessboard,
+#chessboardEditor .modal svg {
+  cursor: pointer;
+}
+
+#movesMetadataTable,
+#openingTable {
+  font-size: 0.85rem;
+}
+
+.active-move {
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+#movesBrowser {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+}
+
+#movesBrowser div,
+#movesBrowser span {
+  background-color: #fff;
+}
+
+#movesBrowser .description {
+  padding: 0.5rem;
+}
+
+#movesBrowser {
+  max-height: 438px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+#movesBrowser.inline span[data-key] {
+  display: inline-block;
+  line-height: 2rem;
+}
+
+#movesBrowser.inline span[data-key] span {
+  padding: 0.4rem;
+}
+
+#movesBrowser.inline span[data-key] span:hover {
+  cursor: pointer;
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+#movesBrowser.table div {
+  display: flex;
+}
+
+#movesBrowser.table div span:nth-child(1) {
+  width: 20%;
+}
+
+#movesBrowser.table div span:nth-child(2),
+#movesBrowser.table div span:nth-child(3) {
+  width: 40%;
+}
+
+#movesBrowser.table span {
+  padding: 0.35rem;
+  display: inline-block;
+}
+
+#movesBrowser.table span:hover {
+  cursor: pointer;
+  background-color: #6c757d !important;
+  color: #fff !important;
+}
+
+#openingsForm .table-responsive,
+#searchGamesForm .table-responsive {
+  font-size: 0.8em;
+  max-height: 305px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+#learnForm .table-responsive {
+  font-size: 0.8em;
+  max-height: 514px;
+  overflow-y: scroll;
+  margin-bottom: 0;
+}
+
+#movesMetadataTable td {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+#consoleForm p,
+#consoleForm pre {
+  font-family: monospace;
+  font-size: 0.95em;
+  margin-bottom: 0.25em;
+}
+
+#consoleForm textarea {
+  font-size: 0.95em;
+  width: 100%;
+  border: 0;
+  padding: 0;
+}
+
+#consoleForm textarea:focus {
+  outline: none;
+}
+
+#consoleForm #response {
+  white-space: pre-line;
+}

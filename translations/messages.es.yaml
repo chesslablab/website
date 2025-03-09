@@ -1,0 +1,143 @@
+# Main nav bar
+Play: Jugar
+Online: En línea
+Computer: Ordenador
+Name: Nombre
+Training: Entrenamiento
+Games: Partidas
+Edit: Editar
+Annotations: Anotaciones
+Blog: Blog
+Language: Idioma
+Settings: Ajustes
+Sign In: Iniciar sesión
+Sign Out: Desconectar
+
+# Home
+Moves: Movimientos
+Add: Agregar
+Variant: Variante
+Classical Chess: Ajedrez clásico
+Fischer Random: Aleatorio de Fischer
+SAN Movetext: Texto SAN con movimientos
+Openings: Aperturas
+Flank Openings: Aperturas de flanco
+Semi-Open Games other than the French Defense: Juegos semiabiertos distintos de la defensa francesa
+Open Games and the French Defense: Juegos abiertos y la defensa francesa
+Closed Games and Semi-Closed Games: Juegos cerrados y semicerrados
+Indian Defenses: Defensas indias
+Search: Buscar
+Most Played: Las más jugadas
+
+# Play
+Online Players: Jugadores en línea
+Create a Game: Crear una partida
+Play a Friend: Jugar con un(a) amigo(a)
+Enter Invite Code: Ingresar código de invitación
+Play Online: Jugar en línea
+Minutes per side: Minutos por jugador(a)
+Increment in seconds: Incremento en segundos
+Classical: Clásico
+Create Game: Crear partida
+FEN String: Cadena FEN
+Create Invite Code: Crear código de invitación
+Share this code with a friend: Comparte este código con un(a) amigo(a)
+Copy and Play: Copiar y jugar
+Invite code: Código de invitación
+Play Computer: Jugar con el ordenador
+Difficulty level: Nivel de dificultad
+Would you like a draw?: ¿Quieres tablas?
+Would you like a rematch?: ¿Quieres la revancha?
+Would you like a takeback?: ¿Quieres corregir este movimiento?
+Accept: Aceptar
+Decline: Declinar
+Top Players: Mejores jugadores(as)
+
+# Training
+Checkmate: Jaque y mate
+Random: Aleatorio
+King and queen and rook vs. king and rook: Rey, reina y torre contra rey y torre
+King and queen vs. king: Rey y reina contra rey
+King and rook vs. king: Rey y torre contra rey
+King and two bishops vs. king: Rey y dos alfiles contra rey
+King and bishop and knight vs. king: Rey y alfil y caballo contra rey
+Endgame: Final de juego
+Pawn endgame: Final de peón
+
+# Games
+Database: Base de datos
+Loading: Cargando
+Event: Evento
+Year: Año
+ECO Code: Código ECO
+White: Blancas
+Black: Negras
+Result: Resultado
+
+# Edit
+Player's turn: Turno del jugador
+Select an option: Selecciona una opción
+White's castling: Enroque de las blancas
+Black's castling: Enroque de las negras
+En passant: Captura al paso
+Starting Position: Posición inicial
+Clear Board: Despejar tablero
+Delete: Borrar
+
+# Annotations
+RAV Movetext: Texto RAV con movimientos
+Learn: Aprender
+
+# Blog
+ChesslaBlab Blog: El blog de ChesslaBlab
+Discover stories about your favorite topics: Descubre historias sobre tus temas favoritos
+
+# Partial templates
+Board: Tablero
+Flip Board: Girar tablero
+Copy Movetext: Copiar texto con movimientos
+Copy FEN: Copiar cadena FEN
+Game: Partida
+Takeback: Corregir el movimiento
+Propose a takeback: Corregir el movimiento
+Offer draw: Ofrecer tablas
+Resign: Abandonar
+Offer Rematch: Ofrecer revancha
+Study: Estudio
+Download Image: Descargar imagen
+Download Video: Descargar video
+Heuristic Charts: Gráficos heurísticos
+Fast Steinitz Evaluation: Evaluación rápida de Steinitz
+Explain this Position: Explicar esta posición
+Explain a Good Move: Explicar una buena jugada
+ChesslaBlab is an open-source community driven project: ChesslaBlab es un proyecto de código abierto impulsado por la comunidad
+Let's do this: Hagamos esto
+
+# Settings
+Theme: Tema
+Display moves: Mostrar los movimientos
+Inline: En una línea
+Table: En una tabla
+Notation: Notación
+Figurine Algebraic Notation (FAN): Notación algebraica de figuras (FAN)
+Standard Algebraic Notation (SAN): Notación algebraica estándar (SAN)
+Piece set: Conjunto de piezas
+Light: Claro
+Dark: Oscuro
+Chess server: Servidor de ajedrez
+Save Changes: Guardar cambios
+
+# Sign In
+Username: Nombre de usuario
+Password: Contraseña
+Register Now: Regístrate ahora
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Escanea el código QR con un autenticador TOTP que admita contraseñas de 9 dígitos como las siguientes
+You'll be assigned an automatic username: Se te asignará un nombre de usuario automático
+Sign in to your account to complete the registration: Inicia sesión en tu cuenta para completar el registro
+
+# Error pages
+This publication has not been translated into the current selected language: Esta publicación no ha sido traducida al idioma actual seleccionado
+Whoops: Ups
+
+# Footer
+About: Acerca de

@@ -1,0 +1,8 @@
+site_name: Website
+site_url: https://website.chesslablab.org
+theme:
+  name: mkdocs
+nav:
+  - Architecture: architecture.md
+  - Blog: blog.md
+  - HTML Iframes: html-iframes.md

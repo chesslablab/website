@@ -1,0 +1,143 @@
+# Main nav bar
+Play: Spielen
+Online: Online
+Computer: Computer
+Name: Name
+Training: Training
+Games: Schachspiele
+Edit: Bearbeiten
+Annotations: Anmerkungen
+Blog: Blog
+Language: Sprache
+Settings: Einstellungen
+Sign In: Anmelden
+Sign Out: Abmelden
+
+# Home
+Moves: Bewegungen
+Add: Hinzufügen
+Variant: Variante
+Classical Chess: Klassisches Schach
+Fischer Random: Fischer Random
+SAN Movetext: SAN Movetext mit Zügen
+Openings: Eröffnungen
+Flank Openings: Flankeneröffnungen
+Semi-Open Games other than the French Defense: Halboffene Spiele außer der Französischen Verteidigung
+Open Games and the French Defense: Offene Spiele und die Französische Verteidigung
+Closed Games and Semi-Closed Games: Geschlossene Spiele und halbgeschlossene Spiele
+Indian Defenses: Indische Verteidigungen
+Search: Suche
+Most Played: Am meisten gespielt
+
+# Play
+Online Players: Online-Spieler
+Create a Game: Spiel erstellen
+Play a Friend: Mit Freund spielen
+Enter Invite Code: Einladungscode eingeben
+Play Online: Online spielen
+Minutes per side: Minuten pro Seite
+Increment in seconds: Inkrement in Sekunden
+Classical: Klassisch
+Create Game: Spiel erstellen
+FEN String: FEN-Saite
+Create Invite Code: Einladungscode erstellen
+Share this code with a friend: Code mit einem Freund teilen
+Copy and Play: Kopieren und spielen
+Invite code: Einladungscode
+Play Computer: Gegen den Computer spielen
+Difficulty level: Schwierigkeitsgrad
+Would you like a draw?: Möchten Sie ein Remis?
+Would you like a rematch?: Möchten Sie eine Revanche?
+Would you like a takeback?: Möchten Sie einen Zug zurücknehmen?
+Accept: Akzeptieren
+Decline: Ablehnen
+Top Players: Top-Spieler
+
+# Training
+Checkmate: Schachmatt
+Random: Zufällig
+King and queen and rook vs. king and rook: König, Dame und Turm gegen König und Turm
+King and queen vs. king: König und Dame gegen König
+King and rook vs. king: König und Turm gegen König
+King and two bishops vs. king: König und zwei Läufer gegen König
+King and bishop and knight vs. king: König, Läufer und Springer gegen König
+Endgame: Endspiel
+Pawn endgame: Bauernendspiel
+
+# Games
+Database: Datenbank
+Loading: Laden
+Event: Ereignis
+Year: Jahr
+ECO Code: ECO-Code
+White: Weiß
+Black: Schwarz
+Result: Ergebnis
+
+# Edit
+Player's turn: Spieler ist am Zug
+Select an option: Wählen Sie eine Option
+White's castling: Rochade von Weiß
+Black's castling: Rochade von Schwarz
+En passant: En passant
+Starting Position: Startposition
+Clear Board: Brett leeren
+Delete: Löschen
+
+# Annotations
+RAV Movetext: RAV-Text mit Bewegungen
+Learn: Lernen
+
+# Blog
+ChesslaBlab Blog: ChesslaBlab-Blog
+Discover stories about your favorite topics: Entdecken Sie Geschichten zu Ihren Lieblingsthemen
+
+# Partial templates
+Board: Brett
+Flip Board: Brett umdrehen
+Copy Movetext: Movetext kopieren
+Copy FEN: FEN kopieren
+Game: Spiel
+Takeback: Zug zurücknehmen
+Propose a takeback: Zugrücknahme vorschlagen
+Offer draw: Remis anbieten
+Resign: Aufgeben
+Offer Rematch: Revanche anbieten
+Study: Studieren
+Download Image: Bild herunterladen
+Download Video: Video herunterladen
+Heuristic Charts: Heuristische Diagramme
+Fast Steinitz Evaluation: Schnelle Steinitz-Auswertung
+Explain this Position: Erklären Sie diese Position
+Explain a Good Move: Ein gutes Theaterstück erklären
+ChesslaBlab is an open-source community driven project: ChesslaBlab ist ein Open-Source-Projekt der Community
+Let's do this: Lass uns das machen
+
+# Settings
+Theme: Thema
+Display moves: Züge anzeigen
+Inline: Inline
+Table: Tabelle
+Notation: Notation
+Figurine Algebraic Notation (FAN): Figurine Algebraische Notation (FAN)
+Standard Algebraic Notation (SAN): Standard Algebraische Notation (SAN)
+Piece set: Figurenset
+Light: Licht
+Dark: Dunkel
+Chess server: Schachserver
+Save Changes: Änderungen speichern
+
+# Sign In
+Username: Benutzername
+Password: Passwort
+Register Now: Jetzt registrieren
+Scan the QR code with a TOTP authenticator supporting 9-digit length passwords like the following ones: Scannen Sie den QR-Code mit einem TOTP-Authentifikator, der 9-stellige Passwörter wie die folgenden unterstützt
+You'll be assigned an automatic username: Ihnen wird automatisch ein Benutzername zugewiesen
+Sign in to your account to complete the registration: Melden Sie sich bei Ihrem Konto an, um die Registrierung abzuschließen
+
+# Error pages
+This publication has not been translated into the current selected language: Diese Publikation wurde nicht in die aktuell ausgewählte Sprache übersetzt
+Whoops: Hoppla
+
+# Footer
+About: Über
